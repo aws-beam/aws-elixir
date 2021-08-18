@@ -35,7 +35,7 @@ defmodule AWS.ElasticTranscoder do
   use `UpdatePipelineStatus` to temporarily pause the pipeline.
   """
   def cancel_job(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2012-09-25/jobs/#{URI.encode(id)}"
+    url_path = "/2012-09-25/jobs/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -144,7 +144,7 @@ defmodule AWS.ElasticTranscoder do
   `DeletePipeline` returns an error.
   """
   def delete_pipeline(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2012-09-25/pipelines/#{URI.encode(id)}"
+    url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -167,7 +167,7 @@ defmodule AWS.ElasticTranscoder do
   You can't delete the default presets that are included with Elastic Transcoder.
   """
   def delete_preset(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2012-09-25/presets/#{URI.encode(id)}"
+    url_path = "/2012-09-25/presets/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -199,7 +199,7 @@ defmodule AWS.ElasticTranscoder do
         page_token \\ nil,
         options \\ []
       ) do
-    url_path = "/2012-09-25/jobsByPipeline/#{URI.encode(pipeline_id)}"
+    url_path = "/2012-09-25/jobsByPipeline/#{AWS.Util.encode_uri(pipeline_id)}"
     headers = []
     query_params = []
 
@@ -243,7 +243,7 @@ defmodule AWS.ElasticTranscoder do
         page_token \\ nil,
         options \\ []
       ) do
-    url_path = "/2012-09-25/jobsByStatus/#{URI.encode(status)}"
+    url_path = "/2012-09-25/jobsByStatus/#{AWS.Util.encode_uri(status)}"
     headers = []
     query_params = []
 
@@ -350,7 +350,7 @@ defmodule AWS.ElasticTranscoder do
   The ReadJob operation returns detailed information about a job.
   """
   def read_job(%Client{} = client, id, options \\ []) do
-    url_path = "/2012-09-25/jobs/#{URI.encode(id)}"
+    url_path = "/2012-09-25/jobs/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -371,7 +371,7 @@ defmodule AWS.ElasticTranscoder do
   The ReadPipeline operation gets detailed information about a pipeline.
   """
   def read_pipeline(%Client{} = client, id, options \\ []) do
-    url_path = "/2012-09-25/pipelines/#{URI.encode(id)}"
+    url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -392,7 +392,7 @@ defmodule AWS.ElasticTranscoder do
   The ReadPreset operation gets detailed information about a preset.
   """
   def read_preset(%Client{} = client, id, options \\ []) do
-    url_path = "/2012-09-25/presets/#{URI.encode(id)}"
+    url_path = "/2012-09-25/presets/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -445,7 +445,7 @@ defmodule AWS.ElasticTranscoder do
   settings.
   """
   def update_pipeline(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2012-09-25/pipelines/#{URI.encode(id)}"
+    url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -470,7 +470,7 @@ defmodule AWS.ElasticTranscoder do
   values that you specified in the request.
   """
   def update_pipeline_notifications(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2012-09-25/pipelines/#{URI.encode(id)}/notifications"
+    url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}/notifications"
     headers = []
     query_params = []
 
@@ -498,7 +498,7 @@ defmodule AWS.ElasticTranscoder do
   request.
   """
   def update_pipeline_status(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2012-09-25/pipelines/#{URI.encode(id)}/status"
+    url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}/status"
     headers = []
     query_params = []
 

@@ -35,7 +35,7 @@ defmodule AWS.ApiGatewayManagementApi do
   Delete the connection with the provided id.
   """
   def delete_connection(%Client{} = client, connection_id, input, options \\ []) do
-    url_path = "/@connections/#{URI.encode(connection_id)}"
+    url_path = "/@connections/#{AWS.Util.encode_uri(connection_id)}"
     headers = []
     query_params = []
 
@@ -56,7 +56,7 @@ defmodule AWS.ApiGatewayManagementApi do
   Get information about the connection with the provided id.
   """
   def get_connection(%Client{} = client, connection_id, options \\ []) do
-    url_path = "/@connections/#{URI.encode(connection_id)}"
+    url_path = "/@connections/#{AWS.Util.encode_uri(connection_id)}"
     headers = []
     query_params = []
 
@@ -77,7 +77,7 @@ defmodule AWS.ApiGatewayManagementApi do
   Sends the provided data to the specified connection.
   """
   def post_to_connection(%Client{} = client, connection_id, input, options \\ []) do
-    url_path = "/@connections/#{URI.encode(connection_id)}"
+    url_path = "/@connections/#{AWS.Util.encode_uri(connection_id)}"
     headers = []
     query_params = []
 

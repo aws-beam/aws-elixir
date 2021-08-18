@@ -29,7 +29,7 @@ defmodule AWS.Finspacedata do
   Creates a new changeset in a FinSpace dataset.
   """
   def create_changeset(%Client{} = client, dataset_id, input, options \\ []) do
-    url_path = "/datasets/#{URI.encode(dataset_id)}/changesets"
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/changesets"
     headers = []
     query_params = []
 

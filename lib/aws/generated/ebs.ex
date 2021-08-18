@@ -57,7 +57,7 @@ defmodule AWS.EBS do
   blocks to a snapshot after it has been completed.
   """
   def complete_snapshot(%Client{} = client, snapshot_id, input, options \\ []) do
-    url_path = "/snapshots/completion/#{URI.encode(snapshot_id)}"
+    url_path = "/snapshots/completion/#{AWS.Util.encode_uri(snapshot_id)}"
 
     {headers, input} =
       [
@@ -87,7 +87,9 @@ defmodule AWS.EBS do
   Returns the data in a block in an Amazon Elastic Block Store snapshot.
   """
   def get_snapshot_block(%Client{} = client, block_index, snapshot_id, block_token, options \\ []) do
-    url_path = "/snapshots/#{URI.encode(snapshot_id)}/blocks/#{URI.encode(block_index)}"
+    url_path =
+      "/snapshots/#{AWS.Util.encode_uri(snapshot_id)}/blocks/#{AWS.Util.encode_uri(block_index)}"
+
     headers = []
     query_params = []
 
@@ -135,7 +137,7 @@ defmodule AWS.EBS do
         starting_block_index \\ nil,
         options \\ []
       ) do
-    url_path = "/snapshots/#{URI.encode(second_snapshot_id)}/changedblocks"
+    url_path = "/snapshots/#{AWS.Util.encode_uri(second_snapshot_id)}/changedblocks"
     headers = []
     query_params = []
 
@@ -191,7 +193,7 @@ defmodule AWS.EBS do
         starting_block_index \\ nil,
         options \\ []
       ) do
-    url_path = "/snapshots/#{URI.encode(snapshot_id)}/blocks"
+    url_path = "/snapshots/#{AWS.Util.encode_uri(snapshot_id)}/blocks"
     headers = []
     query_params = []
 
@@ -238,7 +240,8 @@ defmodule AWS.EBS do
   Data written to a snapshot must be aligned with 512-byte sectors.
   """
   def put_snapshot_block(%Client{} = client, block_index, snapshot_id, input, options \\ []) do
-    url_path = "/snapshots/#{URI.encode(snapshot_id)}/blocks/#{URI.encode(block_index)}"
+    url_path =
+      "/snapshots/#{AWS.Util.encode_uri(snapshot_id)}/blocks/#{AWS.Util.encode_uri(block_index)}"
 
     {headers, input} =
       [

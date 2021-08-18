@@ -64,7 +64,7 @@ defmodule AWS.SageMakerA2IRuntime do
   `ResourceNotFoundException`.
   """
   def delete_human_loop(%Client{} = client, human_loop_name, input, options \\ []) do
-    url_path = "/human-loops/#{URI.encode(human_loop_name)}"
+    url_path = "/human-loops/#{AWS.Util.encode_uri(human_loop_name)}"
     headers = []
     query_params = []
 
@@ -88,7 +88,7 @@ defmodule AWS.SageMakerA2IRuntime do
   `ResourceNotFoundException` error.
   """
   def describe_human_loop(%Client{} = client, human_loop_name, options \\ []) do
-    url_path = "/human-loops/#{URI.encode(human_loop_name)}"
+    url_path = "/human-loops/#{AWS.Util.encode_uri(human_loop_name)}"
     headers = []
     query_params = []
 

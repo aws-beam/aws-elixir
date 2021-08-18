@@ -53,7 +53,9 @@ defmodule AWS.EMRcontainers do
   query, that you submit to Amazon EMR on EKS.
   """
   def cancel_job_run(%Client{} = client, id, virtual_cluster_id, input, options \\ []) do
-    url_path = "/virtualclusters/#{URI.encode(virtual_cluster_id)}/jobruns/#{URI.encode(id)}"
+    url_path =
+      "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/jobruns/#{AWS.Util.encode_uri(id)}"
+
     headers = []
     query_params = []
 
@@ -77,7 +79,7 @@ defmodule AWS.EMRcontainers do
   that EMR Studio can communicate with your virtual cluster.
   """
   def create_managed_endpoint(%Client{} = client, virtual_cluster_id, input, options \\ []) do
-    url_path = "/virtualclusters/#{URI.encode(virtual_cluster_id)}/endpoints"
+    url_path = "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/endpoints"
     headers = []
     query_params = []
 
@@ -128,7 +130,9 @@ defmodule AWS.EMRcontainers do
   that EMR Studio can communicate with your virtual cluster.
   """
   def delete_managed_endpoint(%Client{} = client, id, virtual_cluster_id, input, options \\ []) do
-    url_path = "/virtualclusters/#{URI.encode(virtual_cluster_id)}/endpoints/#{URI.encode(id)}"
+    url_path =
+      "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/endpoints/#{AWS.Util.encode_uri(id)}"
+
     headers = []
     query_params = []
 
@@ -155,7 +159,7 @@ defmodule AWS.EMRcontainers do
   you model Kubernetes namespaces to meet your requirements.
   """
   def delete_virtual_cluster(%Client{} = client, id, input, options \\ []) do
-    url_path = "/virtualclusters/#{URI.encode(id)}"
+    url_path = "/virtualclusters/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -179,7 +183,9 @@ defmodule AWS.EMRcontainers do
   query, that you submit to Amazon EMR on EKS.
   """
   def describe_job_run(%Client{} = client, id, virtual_cluster_id, options \\ []) do
-    url_path = "/virtualclusters/#{URI.encode(virtual_cluster_id)}/jobruns/#{URI.encode(id)}"
+    url_path =
+      "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/jobruns/#{AWS.Util.encode_uri(id)}"
+
     headers = []
     query_params = []
 
@@ -203,7 +209,9 @@ defmodule AWS.EMRcontainers do
   that EMR Studio can communicate with your virtual cluster.
   """
   def describe_managed_endpoint(%Client{} = client, id, virtual_cluster_id, options \\ []) do
-    url_path = "/virtualclusters/#{URI.encode(virtual_cluster_id)}/endpoints/#{URI.encode(id)}"
+    url_path =
+      "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/endpoints/#{AWS.Util.encode_uri(id)}"
+
     headers = []
     query_params = []
 
@@ -230,7 +238,7 @@ defmodule AWS.EMRcontainers do
   you model Kubernetes namespaces to meet your requirements.
   """
   def describe_virtual_cluster(%Client{} = client, id, options \\ []) do
-    url_path = "/virtualclusters/#{URI.encode(id)}"
+    url_path = "/virtualclusters/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -264,7 +272,7 @@ defmodule AWS.EMRcontainers do
         states \\ nil,
         options \\ []
       ) do
-    url_path = "/virtualclusters/#{URI.encode(virtual_cluster_id)}/jobruns"
+    url_path = "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/jobruns"
     headers = []
     query_params = []
 
@@ -340,7 +348,7 @@ defmodule AWS.EMRcontainers do
         types \\ nil,
         options \\ []
       ) do
-    url_path = "/virtualclusters/#{URI.encode(virtual_cluster_id)}/endpoints"
+    url_path = "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/endpoints"
     headers = []
     query_params = []
 
@@ -403,7 +411,7 @@ defmodule AWS.EMRcontainers do
   Lists the tags assigned to the resources.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -513,7 +521,7 @@ defmodule AWS.EMRcontainers do
   query, that you submit to Amazon EMR on EKS.
   """
   def start_job_run(%Client{} = client, virtual_cluster_id, input, options \\ []) do
-    url_path = "/virtualclusters/#{URI.encode(virtual_cluster_id)}/jobruns"
+    url_path = "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/jobruns"
     headers = []
     query_params = []
 
@@ -544,7 +552,7 @@ defmodule AWS.EMRcontainers do
   the tags that you add.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -565,7 +573,7 @@ defmodule AWS.EMRcontainers do
   Removes tags from resources.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =

@@ -59,7 +59,7 @@ defmodule AWS.PinpointSMSVoice do
         options \\ []
       ) do
     url_path =
-      "/v1/sms-voice/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations"
+      "/v1/sms-voice/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations"
 
     headers = []
     query_params = []
@@ -81,7 +81,7 @@ defmodule AWS.PinpointSMSVoice do
   Deletes an existing configuration set.
   """
   def delete_configuration_set(%Client{} = client, configuration_set_name, input, options \\ []) do
-    url_path = "/v1/sms-voice/configuration-sets/#{URI.encode(configuration_set_name)}"
+    url_path = "/v1/sms-voice/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
     headers = []
     query_params = []
 
@@ -109,7 +109,7 @@ defmodule AWS.PinpointSMSVoice do
         options \\ []
       ) do
     url_path =
-      "/v1/sms-voice/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations/#{URI.encode(event_destination_name)}"
+      "/v1/sms-voice/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations/#{AWS.Util.encode_uri(event_destination_name)}"
 
     headers = []
     query_params = []
@@ -138,7 +138,7 @@ defmodule AWS.PinpointSMSVoice do
         options \\ []
       ) do
     url_path =
-      "/v1/sms-voice/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations"
+      "/v1/sms-voice/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations"
 
     headers = []
     query_params = []
@@ -233,7 +233,7 @@ defmodule AWS.PinpointSMSVoice do
         options \\ []
       ) do
     url_path =
-      "/v1/sms-voice/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations/#{URI.encode(event_destination_name)}"
+      "/v1/sms-voice/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations/#{AWS.Util.encode_uri(event_destination_name)}"
 
     headers = []
     query_params = []

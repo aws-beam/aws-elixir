@@ -80,7 +80,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}?operation=associate-phone-number"
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=associate-phone-number"
 
     headers = []
     query_params = []
@@ -108,7 +108,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/voice-connectors/#{URI.encode(voice_connector_id)}?operation=associate-phone-numbers"
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}?operation=associate-phone-numbers"
 
     headers = []
     query_params = []
@@ -136,7 +136,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/voice-connector-groups/#{URI.encode(voice_connector_group_id)}?operation=associate-phone-numbers"
+      "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}?operation=associate-phone-numbers"
 
     headers = []
     query_params = []
@@ -164,7 +164,9 @@ defmodule AWS.Chime do
         input,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(account_id)}?operation=associate-signin-delegate-groups"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(account_id)}?operation=associate-signin-delegate-groups"
+
     headers = []
     query_params = []
 
@@ -188,7 +190,7 @@ defmodule AWS.Chime do
   *Amazon Chime Developer Guide*.
   """
   def batch_create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
-    url_path = "/meetings/#{URI.encode(meeting_id)}/attendees?operation=batch-create"
+    url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees?operation=batch-create"
     headers = []
     query_params = []
 
@@ -209,7 +211,7 @@ defmodule AWS.Chime do
   Adds a specified number of users to a channel.
   """
   def batch_create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
-    url_path = "/channels/#{URI.encode(channel_arn)}/memberships?operation=batch-create"
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships?operation=batch-create"
 
     {headers, input} =
       [
@@ -240,7 +242,7 @@ defmodule AWS.Chime do
   """
   def batch_create_room_membership(%Client{} = client, account_id, room_id, input, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/memberships?operation=batch-create"
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships?operation=batch-create"
 
     headers = []
     query_params = []
@@ -304,7 +306,7 @@ defmodule AWS.Chime do
   To sign out users without suspending them, use the `LogoutUser` action.
   """
   def batch_suspend_user(%Client{} = client, account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/users?operation=suspend"
+    url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=suspend"
     headers = []
     query_params = []
 
@@ -334,7 +336,7 @@ defmodule AWS.Chime do
   `Registered` status. Users who are not previously suspended are ignored.
   """
   def batch_unsuspend_user(%Client{} = client, account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/users?operation=unsuspend"
+    url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=unsuspend"
     headers = []
     query_params = []
 
@@ -390,7 +392,7 @@ defmodule AWS.Chime do
   Currently, only `LicenseType` updates are supported for this action.
   """
   def batch_update_user(%Client{} = client, account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/users"
+    url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users"
     headers = []
     query_params = []
 
@@ -469,7 +471,7 @@ defmodule AWS.Chime do
   Only an `AppInstanceUser` can be promoted to an `AppInstanceAdmin` role.
   """
   def create_app_instance_admin(%Client{} = client, app_instance_arn, input, options \\ []) do
-    url_path = "/app-instances/#{URI.encode(app_instance_arn)}/admins"
+    url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins"
     headers = []
     query_params = []
 
@@ -516,7 +518,7 @@ defmodule AWS.Chime do
   *Amazon Chime Developer Guide*.
   """
   def create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
-    url_path = "/meetings/#{URI.encode(meeting_id)}/attendees"
+    url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
     headers = []
     query_params = []
 
@@ -537,7 +539,7 @@ defmodule AWS.Chime do
   Creates a bot for an Amazon Chime Enterprise account.
   """
   def create_bot(%Client{} = client, account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/bots"
+    url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots"
     headers = []
     query_params = []
 
@@ -602,7 +604,7 @@ defmodule AWS.Chime do
   header.
   """
   def create_channel_ban(%Client{} = client, channel_arn, input, options \\ []) do
-    url_path = "/channels/#{URI.encode(channel_arn)}/bans"
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans"
 
     {headers, input} =
       [
@@ -653,7 +655,7 @@ defmodule AWS.Chime do
   header.
   """
   def create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
-    url_path = "/channels/#{URI.encode(channel_arn)}/memberships"
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships"
 
     {headers, input} =
       [
@@ -696,7 +698,7 @@ defmodule AWS.Chime do
   header.
   """
   def create_channel_moderator(%Client{} = client, channel_arn, input, options \\ []) do
-    url_path = "/channels/#{URI.encode(channel_arn)}/moderators"
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators"
 
     {headers, input} =
       [
@@ -779,7 +781,7 @@ defmodule AWS.Chime do
   application ID.
   """
   def create_meeting_dial_out(%Client{} = client, meeting_id, input, options \\ []) do
-    url_path = "/meetings/#{URI.encode(meeting_id)}/dial-outs"
+    url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/dial-outs"
     headers = []
     query_params = []
 
@@ -853,7 +855,7 @@ defmodule AWS.Chime do
   specified participant phone numbers.
   """
   def create_proxy_session(%Client{} = client, voice_connector_id, input, options \\ []) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions"
+    url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions"
     headers = []
     query_params = []
 
@@ -874,7 +876,7 @@ defmodule AWS.Chime do
   Creates a chat room for the specified Amazon Chime Enterprise account.
   """
   def create_room(%Client{} = client, account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/rooms"
+    url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms"
     headers = []
     query_params = []
 
@@ -898,7 +900,9 @@ defmodule AWS.Chime do
   member is a chat room administrator or a general chat room member.
   """
   def create_room_membership(%Client{} = client, account_id, room_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/memberships"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships"
+
     headers = []
     query_params = []
 
@@ -947,7 +951,7 @@ defmodule AWS.Chime do
         input,
         options \\ []
       ) do
-    url_path = "/sip-media-applications/#{URI.encode(sip_media_application_id)}/calls"
+    url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}/calls"
     headers = []
     query_params = []
 
@@ -990,7 +994,7 @@ defmodule AWS.Chime do
   Creates a user under the specified Amazon Chime account.
   """
   def create_user(%Client{} = client, account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/users?operation=create"
+    url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=create"
     headers = []
     query_params = []
 
@@ -1083,7 +1087,7 @@ defmodule AWS.Chime do
   accounts list.
   """
   def delete_account(%Client{} = client, account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}"
+    url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
     headers = []
     query_params = []
 
@@ -1104,7 +1108,7 @@ defmodule AWS.Chime do
   Deletes an `AppInstance` and all associated data asynchronously.
   """
   def delete_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
-    url_path = "/app-instances/#{URI.encode(app_instance_arn)}"
+    url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
     headers = []
     query_params = []
 
@@ -1134,7 +1138,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/app-instances/#{URI.encode(app_instance_arn)}/admins/#{URI.encode(app_instance_admin_arn)}"
+      "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins/#{AWS.Util.encode_uri(app_instance_admin_arn)}"
 
     headers = []
     query_params = []
@@ -1161,7 +1165,7 @@ defmodule AWS.Chime do
         input,
         options \\ []
       ) do
-    url_path = "/app-instances/#{URI.encode(app_instance_arn)}/streaming-configurations"
+    url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/streaming-configurations"
     headers = []
     query_params = []
 
@@ -1182,7 +1186,7 @@ defmodule AWS.Chime do
   Deletes an `AppInstanceUser`.
   """
   def delete_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
-    url_path = "/app-instance-users/#{URI.encode(app_instance_user_arn)}"
+    url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
     headers = []
     query_params = []
 
@@ -1208,7 +1212,9 @@ defmodule AWS.Chime do
   *Amazon Chime Developer Guide*.
   """
   def delete_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
-    url_path = "/meetings/#{URI.encode(meeting_id)}/attendees/#{URI.encode(attendee_id)}"
+    url_path =
+      "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}"
+
     headers = []
     query_params = []
 
@@ -1236,7 +1242,7 @@ defmodule AWS.Chime do
   header.
   """
   def delete_channel(%Client{} = client, channel_arn, input, options \\ []) do
-    url_path = "/channels/#{URI.encode(channel_arn)}"
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
 
     {headers, input} =
       [
@@ -1267,7 +1273,8 @@ defmodule AWS.Chime do
   header.
   """
   def delete_channel_ban(%Client{} = client, channel_arn, member_arn, input, options \\ []) do
-    url_path = "/channels/#{URI.encode(channel_arn)}/bans/#{URI.encode(member_arn)}"
+    url_path =
+      "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans/#{AWS.Util.encode_uri(member_arn)}"
 
     {headers, input} =
       [
@@ -1298,7 +1305,8 @@ defmodule AWS.Chime do
   header.
   """
   def delete_channel_membership(%Client{} = client, channel_arn, member_arn, input, options \\ []) do
-    url_path = "/channels/#{URI.encode(channel_arn)}/memberships/#{URI.encode(member_arn)}"
+    url_path =
+      "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships/#{AWS.Util.encode_uri(member_arn)}"
 
     {headers, input} =
       [
@@ -1333,7 +1341,8 @@ defmodule AWS.Chime do
   header.
   """
   def delete_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
-    url_path = "/channels/#{URI.encode(channel_arn)}/messages/#{URI.encode(message_id)}"
+    url_path =
+      "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}"
 
     {headers, input} =
       [
@@ -1371,7 +1380,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/channels/#{URI.encode(channel_arn)}/moderators/#{URI.encode(channel_moderator_arn)}"
+      "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators/#{AWS.Util.encode_uri(channel_moderator_arn)}"
 
     {headers, input} =
       [
@@ -1399,7 +1408,7 @@ defmodule AWS.Chime do
   """
   def delete_events_configuration(%Client{} = client, account_id, bot_id, input, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(account_id)}/bots/#{URI.encode(bot_id)}/events-configuration"
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}/events-configuration"
 
     headers = []
     query_params = []
@@ -1421,7 +1430,7 @@ defmodule AWS.Chime do
   Deletes the media capture pipeline.
   """
   def delete_media_capture_pipeline(%Client{} = client, media_pipeline_id, input, options \\ []) do
-    url_path = "/media-capture-pipelines/#{URI.encode(media_pipeline_id)}"
+    url_path = "/media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
     headers = []
     query_params = []
 
@@ -1447,7 +1456,7 @@ defmodule AWS.Chime do
   *Amazon Chime Developer Guide*.
   """
   def delete_meeting(%Client{} = client, meeting_id, input, options \\ []) do
-    url_path = "/meetings/#{URI.encode(meeting_id)}"
+    url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
     headers = []
     query_params = []
 
@@ -1474,7 +1483,7 @@ defmodule AWS.Chime do
   are deleted permanently.
   """
   def delete_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
-    url_path = "/phone-numbers/#{URI.encode(phone_number_id)}"
+    url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
     headers = []
     query_params = []
 
@@ -1503,7 +1512,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions/#{URI.encode(proxy_session_id)}"
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions/#{AWS.Util.encode_uri(proxy_session_id)}"
 
     headers = []
     query_params = []
@@ -1525,7 +1534,9 @@ defmodule AWS.Chime do
   Deletes a chat room in an Amazon Chime Enterprise account.
   """
   def delete_room(%Client{} = client, account_id, room_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}"
+
     headers = []
     query_params = []
 
@@ -1554,7 +1565,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/memberships/#{URI.encode(member_id)}"
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships/#{AWS.Util.encode_uri(member_id)}"
 
     headers = []
     query_params = []
@@ -1581,7 +1592,7 @@ defmodule AWS.Chime do
         input,
         options \\ []
       ) do
-    url_path = "/sip-media-applications/#{URI.encode(sip_media_application_id)}"
+    url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
     headers = []
     query_params = []
 
@@ -1604,7 +1615,7 @@ defmodule AWS.Chime do
   You must disable a SIP rule before you can delete it.
   """
   def delete_sip_rule(%Client{} = client, sip_rule_id, input, options \\ []) do
-    url_path = "/sip-rules/#{URI.encode(sip_rule_id)}"
+    url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
     headers = []
     query_params = []
 
@@ -1628,7 +1639,7 @@ defmodule AWS.Chime do
   disassociated from it before it can be deleted.
   """
   def delete_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}"
+    url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
     headers = []
     query_params = []
 
@@ -1656,7 +1667,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/voice-connectors/#{URI.encode(voice_connector_id)}/emergency-calling-configuration"
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/emergency-calling-configuration"
 
     headers = []
     query_params = []
@@ -1686,7 +1697,7 @@ defmodule AWS.Chime do
         input,
         options \\ []
       ) do
-    url_path = "/voice-connector-groups/#{URI.encode(voice_connector_group_id)}"
+    url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
     headers = []
     query_params = []
 
@@ -1715,7 +1726,7 @@ defmodule AWS.Chime do
         input,
         options \\ []
       ) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/origination"
+    url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
     headers = []
     query_params = []
 
@@ -1736,7 +1747,9 @@ defmodule AWS.Chime do
   Deletes the proxy configuration from the specified Amazon Chime Voice Connector.
   """
   def delete_voice_connector_proxy(%Client{} = client, voice_connector_id, input, options \\ []) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/programmable-numbers/proxy"
+    url_path =
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
+
     headers = []
     query_params = []
 
@@ -1763,7 +1776,9 @@ defmodule AWS.Chime do
         input,
         options \\ []
       ) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/streaming-configuration"
+    url_path =
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/streaming-configuration"
+
     headers = []
     query_params = []
 
@@ -1792,7 +1807,7 @@ defmodule AWS.Chime do
         input,
         options \\ []
       ) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/termination"
+    url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
     headers = []
     query_params = []
 
@@ -1820,7 +1835,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/voice-connectors/#{URI.encode(voice_connector_id)}/termination/credentials?operation=delete"
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination/credentials?operation=delete"
 
     headers = []
     query_params = []
@@ -1842,7 +1857,7 @@ defmodule AWS.Chime do
   Returns the full details of an `AppInstance`.
   """
   def describe_app_instance(%Client{} = client, app_instance_arn, options \\ []) do
-    url_path = "/app-instances/#{URI.encode(app_instance_arn)}"
+    url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
     headers = []
     query_params = []
 
@@ -1869,7 +1884,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/app-instances/#{URI.encode(app_instance_arn)}/admins/#{URI.encode(app_instance_admin_arn)}"
+      "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins/#{AWS.Util.encode_uri(app_instance_admin_arn)}"
 
     headers = []
     query_params = []
@@ -1891,7 +1906,7 @@ defmodule AWS.Chime do
   Returns the full details of an `AppInstanceUser` .
   """
   def describe_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
-    url_path = "/app-instance-users/#{URI.encode(app_instance_user_arn)}"
+    url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
     headers = []
     query_params = []
 
@@ -1916,7 +1931,7 @@ defmodule AWS.Chime do
   header.
   """
   def describe_channel(%Client{} = client, channel_arn, chime_bearer \\ nil, options \\ []) do
-    url_path = "/channels/#{URI.encode(channel_arn)}"
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
     headers = []
 
     headers =
@@ -1955,7 +1970,9 @@ defmodule AWS.Chime do
         chime_bearer \\ nil,
         options \\ []
       ) do
-    url_path = "/channels/#{URI.encode(channel_arn)}/bans/#{URI.encode(member_arn)}"
+    url_path =
+      "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans/#{AWS.Util.encode_uri(member_arn)}"
+
     headers = []
 
     headers =
@@ -1994,7 +2011,9 @@ defmodule AWS.Chime do
         chime_bearer \\ nil,
         options \\ []
       ) do
-    url_path = "/channels/#{URI.encode(channel_arn)}/memberships/#{URI.encode(member_arn)}"
+    url_path =
+      "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships/#{AWS.Util.encode_uri(member_arn)}"
+
     headers = []
 
     headers =
@@ -2034,7 +2053,7 @@ defmodule AWS.Chime do
         chime_bearer \\ nil,
         options \\ []
       ) do
-    url_path = "/channels/#{URI.encode(channel_arn)}?scope=app-instance-user-membership"
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}?scope=app-instance-user-membership"
     headers = []
 
     headers =
@@ -2081,7 +2100,9 @@ defmodule AWS.Chime do
         chime_bearer \\ nil,
         options \\ []
       ) do
-    url_path = "/channels/#{URI.encode(channel_arn)}?scope=app-instance-user-moderated-channel"
+    url_path =
+      "/channels/#{AWS.Util.encode_uri(channel_arn)}?scope=app-instance-user-moderated-channel"
+
     headers = []
 
     headers =
@@ -2128,7 +2149,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/channels/#{URI.encode(channel_arn)}/moderators/#{URI.encode(channel_moderator_arn)}"
+      "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators/#{AWS.Util.encode_uri(channel_moderator_arn)}"
 
     headers = []
 
@@ -2166,7 +2187,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}?operation=disassociate-phone-number"
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=disassociate-phone-number"
 
     headers = []
     query_params = []
@@ -2195,7 +2216,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/voice-connectors/#{URI.encode(voice_connector_id)}?operation=disassociate-phone-numbers"
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}?operation=disassociate-phone-numbers"
 
     headers = []
     query_params = []
@@ -2224,7 +2245,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/voice-connector-groups/#{URI.encode(voice_connector_group_id)}?operation=disassociate-phone-numbers"
+      "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}?operation=disassociate-phone-numbers"
 
     headers = []
     query_params = []
@@ -2252,7 +2273,9 @@ defmodule AWS.Chime do
         input,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(account_id)}?operation=disassociate-signin-delegate-groups"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(account_id)}?operation=disassociate-signin-delegate-groups"
+
     headers = []
     query_params = []
 
@@ -2274,7 +2297,7 @@ defmodule AWS.Chime do
   and supported licenses.
   """
   def get_account(%Client{} = client, account_id, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}"
+    url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
     headers = []
     query_params = []
 
@@ -2299,7 +2322,7 @@ defmodule AWS.Chime do
   Chime Administration Guide*.
   """
   def get_account_settings(%Client{} = client, account_id, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/settings"
+    url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/settings"
     headers = []
     query_params = []
 
@@ -2320,7 +2343,7 @@ defmodule AWS.Chime do
   Gets the retention settings for an `AppInstance`.
   """
   def get_app_instance_retention_settings(%Client{} = client, app_instance_arn, options \\ []) do
-    url_path = "/app-instances/#{URI.encode(app_instance_arn)}/retention-settings"
+    url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/retention-settings"
     headers = []
     query_params = []
 
@@ -2345,7 +2368,7 @@ defmodule AWS.Chime do
         app_instance_arn,
         options \\ []
       ) do
-    url_path = "/app-instances/#{URI.encode(app_instance_arn)}/streaming-configurations"
+    url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/streaming-configurations"
     headers = []
     query_params = []
 
@@ -2370,7 +2393,9 @@ defmodule AWS.Chime do
   *Amazon Chime Developer Guide* .
   """
   def get_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
-    url_path = "/meetings/#{URI.encode(meeting_id)}/attendees/#{URI.encode(attendee_id)}"
+    url_path =
+      "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}"
+
     headers = []
     query_params = []
 
@@ -2392,7 +2417,7 @@ defmodule AWS.Chime do
   status, and display name.
   """
   def get_bot(%Client{} = client, account_id, bot_id, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/bots/#{URI.encode(bot_id)}"
+    url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}"
     headers = []
     query_params = []
 
@@ -2422,7 +2447,9 @@ defmodule AWS.Chime do
         chime_bearer \\ nil,
         options \\ []
       ) do
-    url_path = "/channels/#{URI.encode(channel_arn)}/messages/#{URI.encode(message_id)}"
+    url_path =
+      "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}"
+
     headers = []
 
     headers =
@@ -2453,7 +2480,7 @@ defmodule AWS.Chime do
   """
   def get_events_configuration(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(account_id)}/bots/#{URI.encode(bot_id)}/events-configuration"
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}/events-configuration"
 
     headers = []
     query_params = []
@@ -2497,7 +2524,7 @@ defmodule AWS.Chime do
   Gets an existing media capture pipeline.
   """
   def get_media_capture_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
-    url_path = "/media-capture-pipelines/#{URI.encode(media_pipeline_id)}"
+    url_path = "/media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
     headers = []
     query_params = []
 
@@ -2521,7 +2548,7 @@ defmodule AWS.Chime do
   *Amazon Chime Developer Guide* .
   """
   def get_meeting(%Client{} = client, meeting_id, options \\ []) do
-    url_path = "/meetings/#{URI.encode(meeting_id)}"
+    url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
     headers = []
     query_params = []
 
@@ -2564,7 +2591,7 @@ defmodule AWS.Chime do
   capabilities, and product type.
   """
   def get_phone_number(%Client{} = client, phone_number_id, options \\ []) do
-    url_path = "/phone-numbers/#{URI.encode(phone_number_id)}"
+    url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
     headers = []
     query_params = []
 
@@ -2587,7 +2614,7 @@ defmodule AWS.Chime do
   status.
   """
   def get_phone_number_order(%Client{} = client, phone_number_order_id, options \\ []) do
-    url_path = "/phone-number-orders/#{URI.encode(phone_number_order_id)}"
+    url_path = "/phone-number-orders/#{AWS.Util.encode_uri(phone_number_order_id)}"
     headers = []
     query_params = []
 
@@ -2632,7 +2659,7 @@ defmodule AWS.Chime do
   """
   def get_proxy_session(%Client{} = client, proxy_session_id, voice_connector_id, options \\ []) do
     url_path =
-      "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions/#{URI.encode(proxy_session_id)}"
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions/#{AWS.Util.encode_uri(proxy_session_id)}"
 
     headers = []
     query_params = []
@@ -2657,7 +2684,7 @@ defmodule AWS.Chime do
   the *Amazon Chime Administration Guide*.
   """
   def get_retention_settings(%Client{} = client, account_id, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/retention-settings"
+    url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/retention-settings"
     headers = []
     query_params = []
 
@@ -2679,7 +2706,9 @@ defmodule AWS.Chime do
   Enterprise account.
   """
   def get_room(%Client{} = client, account_id, room_id, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}"
+
     headers = []
     query_params = []
 
@@ -2701,7 +2730,7 @@ defmodule AWS.Chime do
   Region, and endpoints.
   """
   def get_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
-    url_path = "/sip-media-applications/#{URI.encode(sip_media_application_id)}"
+    url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
     headers = []
     query_params = []
 
@@ -2727,7 +2756,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/sip-media-applications/#{URI.encode(sip_media_application_id)}/logging-configuration"
+      "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}/logging-configuration"
 
     headers = []
     query_params = []
@@ -2750,7 +2779,7 @@ defmodule AWS.Chime do
   target endpoints.
   """
   def get_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
-    url_path = "/sip-rules/#{URI.encode(sip_rule_id)}"
+    url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
     headers = []
     query_params = []
 
@@ -2775,7 +2804,9 @@ defmodule AWS.Chime do
   `ListUsers` action, and then filter by email address.
   """
   def get_user(%Client{} = client, account_id, user_id, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}"
+
     headers = []
     query_params = []
 
@@ -2797,7 +2828,9 @@ defmodule AWS.Chime do
   number settings.
   """
   def get_user_settings(%Client{} = client, account_id, user_id, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}/settings"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}/settings"
+
     headers = []
     query_params = []
 
@@ -2819,7 +2852,7 @@ defmodule AWS.Chime do
   timestamps,name, outbound host, and encryption requirements.
   """
   def get_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}"
+    url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
     headers = []
     query_params = []
 
@@ -2846,7 +2879,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/voice-connectors/#{URI.encode(voice_connector_id)}/emergency-calling-configuration"
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/emergency-calling-configuration"
 
     headers = []
     query_params = []
@@ -2869,7 +2902,7 @@ defmodule AWS.Chime do
   timestamps,name, and associated `VoiceConnectorItems`.
   """
   def get_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
-    url_path = "/voice-connector-groups/#{URI.encode(voice_connector_group_id)}"
+    url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
     headers = []
     query_params = []
 
@@ -2898,7 +2931,9 @@ defmodule AWS.Chime do
         voice_connector_id,
         options \\ []
       ) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/logging-configuration"
+    url_path =
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/logging-configuration"
+
     headers = []
     query_params = []
 
@@ -2920,7 +2955,7 @@ defmodule AWS.Chime do
   Connector.
   """
   def get_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/origination"
+    url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
     headers = []
     query_params = []
 
@@ -2942,7 +2977,9 @@ defmodule AWS.Chime do
   Connector.
   """
   def get_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/programmable-numbers/proxy"
+    url_path =
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
+
     headers = []
     query_params = []
 
@@ -2971,7 +3008,9 @@ defmodule AWS.Chime do
         voice_connector_id,
         options \\ []
       ) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/streaming-configuration"
+    url_path =
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/streaming-configuration"
+
     headers = []
     query_params = []
 
@@ -2993,7 +3032,7 @@ defmodule AWS.Chime do
   Connector.
   """
   def get_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/termination"
+    url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
     headers = []
     query_params = []
 
@@ -3019,7 +3058,7 @@ defmodule AWS.Chime do
         voice_connector_id,
         options \\ []
       ) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/termination/health"
+    url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination/health"
     headers = []
     query_params = []
 
@@ -3043,7 +3082,7 @@ defmodule AWS.Chime do
   Only `Team` account types are currently supported for this action.
   """
   def invite_users(%Client{} = client, account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/users?operation=add"
+    url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=add"
     headers = []
     query_params = []
 
@@ -3130,7 +3169,7 @@ defmodule AWS.Chime do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/app-instances/#{URI.encode(app_instance_arn)}/admins"
+    url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins"
     headers = []
     query_params = []
 
@@ -3248,7 +3287,9 @@ defmodule AWS.Chime do
   Lists the tags applied to an Amazon Chime SDK attendee resource.
   """
   def list_attendee_tags(%Client{} = client, attendee_id, meeting_id, options \\ []) do
-    url_path = "/meetings/#{URI.encode(meeting_id)}/attendees/#{URI.encode(attendee_id)}/tags"
+    url_path =
+      "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/tags"
+
     headers = []
     query_params = []
 
@@ -3278,7 +3319,7 @@ defmodule AWS.Chime do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/meetings/#{URI.encode(meeting_id)}/attendees"
+    url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
     headers = []
     query_params = []
 
@@ -3320,7 +3361,7 @@ defmodule AWS.Chime do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(account_id)}/bots"
+    url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots"
     headers = []
     query_params = []
 
@@ -3366,7 +3407,7 @@ defmodule AWS.Chime do
         chime_bearer \\ nil,
         options \\ []
       ) do
-    url_path = "/channels/#{URI.encode(channel_arn)}/bans"
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans"
     headers = []
 
     headers =
@@ -3421,7 +3462,7 @@ defmodule AWS.Chime do
         chime_bearer \\ nil,
         options \\ []
       ) do
-    url_path = "/channels/#{URI.encode(channel_arn)}/memberships"
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships"
     headers = []
 
     headers =
@@ -3556,7 +3597,7 @@ defmodule AWS.Chime do
         chime_bearer \\ nil,
         options \\ []
       ) do
-    url_path = "/channels/#{URI.encode(channel_arn)}/messages"
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages"
     headers = []
 
     headers =
@@ -3631,7 +3672,7 @@ defmodule AWS.Chime do
         chime_bearer \\ nil,
         options \\ []
       ) do
-    url_path = "/channels/#{URI.encode(channel_arn)}/moderators"
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators"
     headers = []
 
     headers =
@@ -3854,7 +3895,7 @@ defmodule AWS.Chime do
   Lists the tags applied to an Amazon Chime SDK meeting resource.
   """
   def list_meeting_tags(%Client{} = client, meeting_id, options \\ []) do
-    url_path = "/meetings/#{URI.encode(meeting_id)}/tags"
+    url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags"
     headers = []
     query_params = []
 
@@ -4033,7 +4074,7 @@ defmodule AWS.Chime do
         status \\ nil,
         options \\ []
       ) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions"
+    url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions"
     headers = []
     query_params = []
 
@@ -4083,7 +4124,9 @@ defmodule AWS.Chime do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/memberships"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships"
+
     headers = []
     query_params = []
 
@@ -4128,7 +4171,7 @@ defmodule AWS.Chime do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(account_id)}/rooms"
+    url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms"
     headers = []
     query_params = []
 
@@ -4325,7 +4368,7 @@ defmodule AWS.Chime do
         user_type \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(account_id)}/users"
+    url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users"
     headers = []
     query_params = []
 
@@ -4419,7 +4462,9 @@ defmodule AWS.Chime do
         voice_connector_id,
         options \\ []
       ) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/termination/credentials"
+    url_path =
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination/credentials"
+
     headers = []
     query_params = []
 
@@ -4481,7 +4526,9 @@ defmodule AWS.Chime do
   into.
   """
   def logout_user(%Client{} = client, account_id, user_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}?operation=logout"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=logout"
+
     headers = []
     query_params = []
 
@@ -4507,7 +4554,7 @@ defmodule AWS.Chime do
         input,
         options \\ []
       ) do
-    url_path = "/app-instances/#{URI.encode(app_instance_arn)}/retention-settings"
+    url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/retention-settings"
     headers = []
     query_params = []
 
@@ -4533,7 +4580,7 @@ defmodule AWS.Chime do
         input,
         options \\ []
       ) do
-    url_path = "/app-instances/#{URI.encode(app_instance_arn)}/streaming-configurations"
+    url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/streaming-configurations"
     headers = []
     query_params = []
 
@@ -4559,7 +4606,7 @@ defmodule AWS.Chime do
   """
   def put_events_configuration(%Client{} = client, account_id, bot_id, input, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(account_id)}/bots/#{URI.encode(bot_id)}/events-configuration"
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}/events-configuration"
 
     headers = []
     query_params = []
@@ -4590,7 +4637,7 @@ defmodule AWS.Chime do
   the *Amazon Chime Administration Guide*.
   """
   def put_retention_settings(%Client{} = client, account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/retention-settings"
+    url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/retention-settings"
     headers = []
     query_params = []
 
@@ -4617,7 +4664,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/sip-media-applications/#{URI.encode(sip_media_application_id)}/logging-configuration"
+      "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}/logging-configuration"
 
     headers = []
     query_params = []
@@ -4649,7 +4696,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/voice-connectors/#{URI.encode(voice_connector_id)}/emergency-calling-configuration"
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/emergency-calling-configuration"
 
     headers = []
     query_params = []
@@ -4679,7 +4726,9 @@ defmodule AWS.Chime do
         input,
         options \\ []
       ) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/logging-configuration"
+    url_path =
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/logging-configuration"
+
     headers = []
     query_params = []
 
@@ -4708,7 +4757,7 @@ defmodule AWS.Chime do
         input,
         options \\ []
       ) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/origination"
+    url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
     headers = []
     query_params = []
 
@@ -4730,7 +4779,9 @@ defmodule AWS.Chime do
   Connector.
   """
   def put_voice_connector_proxy(%Client{} = client, voice_connector_id, input, options \\ []) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/programmable-numbers/proxy"
+    url_path =
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
+
     headers = []
     query_params = []
 
@@ -4760,7 +4811,9 @@ defmodule AWS.Chime do
         input,
         options \\ []
       ) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/streaming-configuration"
+    url_path =
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/streaming-configuration"
+
     headers = []
     query_params = []
 
@@ -4789,7 +4842,7 @@ defmodule AWS.Chime do
         input,
         options \\ []
       ) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/termination"
+    url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
     headers = []
     query_params = []
 
@@ -4816,7 +4869,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/voice-connectors/#{URI.encode(voice_connector_id)}/termination/credentials?operation=put"
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination/credentials?operation=put"
 
     headers = []
     query_params = []
@@ -4846,7 +4899,7 @@ defmodule AWS.Chime do
   """
   def redact_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
-      "/channels/#{URI.encode(channel_arn)}/messages/#{URI.encode(message_id)}?operation=redact"
+      "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}?operation=redact"
 
     {headers, input} =
       [
@@ -4881,7 +4934,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(account_id)}/conversations/#{URI.encode(conversation_id)}/messages/#{URI.encode(message_id)}?operation=redact"
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/conversations/#{AWS.Util.encode_uri(conversation_id)}/messages/#{AWS.Util.encode_uri(message_id)}?operation=redact"
 
     headers = []
     query_params = []
@@ -4911,7 +4964,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/messages/#{URI.encode(message_id)}?operation=redact"
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/messages/#{AWS.Util.encode_uri(message_id)}?operation=redact"
 
     headers = []
     query_params = []
@@ -4934,7 +4987,7 @@ defmodule AWS.Chime do
   """
   def regenerate_security_token(%Client{} = client, account_id, bot_id, input, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(account_id)}/bots/#{URI.encode(bot_id)}?operation=regenerate-security-token"
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}?operation=regenerate-security-token"
 
     headers = []
     query_params = []
@@ -4960,7 +5013,7 @@ defmodule AWS.Chime do
   """
   def reset_personal_pin(%Client{} = client, account_id, user_id, input, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}?operation=reset-personal-pin"
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=reset-personal-pin"
 
     headers = []
     query_params = []
@@ -4983,7 +5036,7 @@ defmodule AWS.Chime do
   **Inventory**.
   """
   def restore_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
-    url_path = "/phone-numbers/#{URI.encode(phone_number_id)}?operation=restore"
+    url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}?operation=restore"
     headers = []
     query_params = []
 
@@ -5104,7 +5157,7 @@ defmodule AWS.Chime do
   `CONTROL` messages can contain 30 bytes of data and no metadata.
   """
   def send_channel_message(%Client{} = client, channel_arn, input, options \\ []) do
-    url_path = "/channels/#{URI.encode(channel_arn)}/messages"
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages"
 
     {headers, input} =
       [
@@ -5132,7 +5185,7 @@ defmodule AWS.Chime do
   """
   def tag_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
     url_path =
-      "/meetings/#{URI.encode(meeting_id)}/attendees/#{URI.encode(attendee_id)}/tags?operation=add"
+      "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/tags?operation=add"
 
     headers = []
     query_params = []
@@ -5154,7 +5207,7 @@ defmodule AWS.Chime do
   Applies the specified tags to the specified Amazon Chime SDK meeting.
   """
   def tag_meeting(%Client{} = client, meeting_id, input, options \\ []) do
-    url_path = "/meetings/#{URI.encode(meeting_id)}/tags?operation=add"
+    url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags?operation=add"
     headers = []
     query_params = []
 
@@ -5197,7 +5250,7 @@ defmodule AWS.Chime do
   """
   def untag_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
     url_path =
-      "/meetings/#{URI.encode(meeting_id)}/attendees/#{URI.encode(attendee_id)}/tags?operation=delete"
+      "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/tags?operation=delete"
 
     headers = []
     query_params = []
@@ -5219,7 +5272,7 @@ defmodule AWS.Chime do
   Untags the specified tags from the specified Amazon Chime SDK meeting.
   """
   def untag_meeting(%Client{} = client, meeting_id, input, options \\ []) do
-    url_path = "/meetings/#{URI.encode(meeting_id)}/tags?operation=delete"
+    url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags?operation=delete"
     headers = []
     query_params = []
 
@@ -5264,7 +5317,7 @@ defmodule AWS.Chime do
   action.
   """
   def update_account(%Client{} = client, account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}"
+    url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
     headers = []
     query_params = []
 
@@ -5289,7 +5342,7 @@ defmodule AWS.Chime do
   *Amazon Chime Administration Guide*.
   """
   def update_account_settings(%Client{} = client, account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/settings"
+    url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/settings"
     headers = []
     query_params = []
 
@@ -5310,7 +5363,7 @@ defmodule AWS.Chime do
   Updates `AppInstance` metadata.
   """
   def update_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
-    url_path = "/app-instances/#{URI.encode(app_instance_arn)}"
+    url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
     headers = []
     query_params = []
 
@@ -5333,7 +5386,7 @@ defmodule AWS.Chime do
   You can update names and metadata.
   """
   def update_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
-    url_path = "/app-instance-users/#{URI.encode(app_instance_user_arn)}"
+    url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
     headers = []
     query_params = []
 
@@ -5355,7 +5408,7 @@ defmodule AWS.Chime do
   from running in your Amazon Chime Enterprise account.
   """
   def update_bot(%Client{} = client, account_id, bot_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/bots/#{URI.encode(bot_id)}"
+    url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}"
     headers = []
     query_params = []
 
@@ -5382,7 +5435,7 @@ defmodule AWS.Chime do
   header.
   """
   def update_channel(%Client{} = client, channel_arn, input, options \\ []) do
-    url_path = "/channels/#{URI.encode(channel_arn)}"
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
 
     {headers, input} =
       [
@@ -5413,7 +5466,8 @@ defmodule AWS.Chime do
   header.
   """
   def update_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
-    url_path = "/channels/#{URI.encode(channel_arn)}/messages/#{URI.encode(message_id)}"
+    url_path =
+      "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}"
 
     {headers, input} =
       [
@@ -5444,7 +5498,7 @@ defmodule AWS.Chime do
   header.
   """
   def update_channel_read_marker(%Client{} = client, channel_arn, input, options \\ []) do
-    url_path = "/channels/#{URI.encode(channel_arn)}/readMarker"
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/readMarker"
 
     {headers, input} =
       [
@@ -5505,7 +5559,7 @@ defmodule AWS.Chime do
   update.
   """
   def update_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
-    url_path = "/phone-numbers/#{URI.encode(phone_number_id)}"
+    url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
     headers = []
     query_params = []
 
@@ -5558,7 +5612,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions/#{URI.encode(proxy_session_id)}"
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions/#{AWS.Util.encode_uri(proxy_session_id)}"
 
     headers = []
     query_params = []
@@ -5581,7 +5635,9 @@ defmodule AWS.Chime do
   Enterprise account.
   """
   def update_room(%Client{} = client, account_id, room_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}"
+
     headers = []
     query_params = []
 
@@ -5614,7 +5670,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/memberships/#{URI.encode(member_id)}"
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships/#{AWS.Util.encode_uri(member_id)}"
 
     headers = []
     query_params = []
@@ -5641,7 +5697,7 @@ defmodule AWS.Chime do
         input,
         options \\ []
       ) do
-    url_path = "/sip-media-applications/#{URI.encode(sip_media_application_id)}"
+    url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
     headers = []
     query_params = []
 
@@ -5670,7 +5726,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/sip-media-applications/#{URI.encode(sip_media_application_id)}/calls/#{URI.encode(transaction_id)}"
+      "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}/calls/#{AWS.Util.encode_uri(transaction_id)}"
 
     headers = []
     query_params = []
@@ -5692,7 +5748,7 @@ defmodule AWS.Chime do
   Updates the details of the specified SIP rule.
   """
   def update_sip_rule(%Client{} = client, sip_rule_id, input, options \\ []) do
-    url_path = "/sip-rules/#{URI.encode(sip_rule_id)}"
+    url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
     headers = []
     query_params = []
 
@@ -5715,7 +5771,9 @@ defmodule AWS.Chime do
   Currently, only `LicenseType` updates are supported for this action.
   """
   def update_user(%Client{} = client, account_id, user_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}"
+
     headers = []
     query_params = []
 
@@ -5736,7 +5794,9 @@ defmodule AWS.Chime do
   Updates the settings for the specified user, such as phone number settings.
   """
   def update_user_settings(%Client{} = client, account_id, user_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}/settings"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}/settings"
+
     headers = []
     query_params = []
 
@@ -5757,7 +5817,7 @@ defmodule AWS.Chime do
   Updates details for the specified Amazon Chime Voice Connector.
   """
   def update_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
-    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}"
+    url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
     headers = []
     query_params = []
 
@@ -5784,7 +5844,7 @@ defmodule AWS.Chime do
         input,
         options \\ []
       ) do
-    url_path = "/voice-connector-groups/#{URI.encode(voice_connector_group_id)}"
+    url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
     headers = []
     query_params = []
 

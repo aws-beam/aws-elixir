@@ -27,11 +27,12 @@ defmodule AWS.Mixfile do
 
   defp deps do
     [
+      {:aws_signature, "~> 0.1.0"},
+      {:jason, "~> 1.2"},
       {:dialyxir, "~> 1.1.0", only: [:dev], runtime: false},
       {:earmark, "~> 1.4", only: [:dev]},
       {:ex_doc, "~> 0.24", only: [:dev]},
       {:bypass, "~> 2.1", only: [:test]},
-      {:jason, "~> 1.2"},
       {:hackney, "~> 1.16", optional: true}
     ]
   end

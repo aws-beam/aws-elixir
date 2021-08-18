@@ -372,7 +372,7 @@ defmodule AWS.Batch do
   parallel (MNP) jobs are not supported.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/v1/tags/#{URI.encode(resource_arn)}"
+    url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -453,7 +453,7 @@ defmodule AWS.Batch do
   array and multi-node parallel (MNP) jobs are not supported.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/v1/tags/#{URI.encode(resource_arn)}"
+    url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -499,7 +499,7 @@ defmodule AWS.Batch do
   Deletes specified tags from an AWS Batch resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/v1/tags/#{URI.encode(resource_arn)}"
+    url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =

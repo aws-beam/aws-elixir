@@ -58,7 +58,7 @@ defmodule AWS.Outposts do
   Deletes the Outpost.
   """
   def delete_outpost(%Client{} = client, outpost_id, input, options \\ []) do
-    url_path = "/outposts/#{URI.encode(outpost_id)}"
+    url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}"
     headers = []
     query_params = []
 
@@ -79,7 +79,7 @@ defmodule AWS.Outposts do
   Deletes the site.
   """
   def delete_site(%Client{} = client, site_id, input, options \\ []) do
-    url_path = "/sites/#{URI.encode(site_id)}"
+    url_path = "/sites/#{AWS.Util.encode_uri(site_id)}"
     headers = []
     query_params = []
 
@@ -100,7 +100,7 @@ defmodule AWS.Outposts do
   Gets information about the specified Outpost.
   """
   def get_outpost(%Client{} = client, outpost_id, options \\ []) do
-    url_path = "/outposts/#{URI.encode(outpost_id)}"
+    url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}"
     headers = []
     query_params = []
 
@@ -127,7 +127,7 @@ defmodule AWS.Outposts do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/outposts/#{URI.encode(outpost_id)}/instanceTypes"
+    url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}/instanceTypes"
     headers = []
     query_params = []
 
@@ -268,7 +268,7 @@ defmodule AWS.Outposts do
   Lists the tags for the specified resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -289,7 +289,7 @@ defmodule AWS.Outposts do
   Adds tags to the specified resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -310,7 +310,7 @@ defmodule AWS.Outposts do
   Removes tags from the specified resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =

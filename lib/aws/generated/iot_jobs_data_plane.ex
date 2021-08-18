@@ -53,7 +53,7 @@ defmodule AWS.IoTJobsDataPlane do
         include_job_document \\ nil,
         options \\ []
       ) do
-    url_path = "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}"
+    url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
     query_params = []
 
@@ -88,7 +88,7 @@ defmodule AWS.IoTJobsDataPlane do
   Gets the list of all jobs for a thing that are not in a terminal status.
   """
   def get_pending_job_executions(%Client{} = client, thing_name, options \\ []) do
-    url_path = "/things/#{URI.encode(thing_name)}/jobs"
+    url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs"
     headers = []
     query_params = []
 
@@ -110,7 +110,7 @@ defmodule AWS.IoTJobsDataPlane do
   for a thing.
   """
   def start_next_pending_job_execution(%Client{} = client, thing_name, input, options \\ []) do
-    url_path = "/things/#{URI.encode(thing_name)}/jobs/$next"
+    url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/$next"
     headers = []
     query_params = []
 
@@ -131,7 +131,7 @@ defmodule AWS.IoTJobsDataPlane do
   Updates the status of a job execution.
   """
   def update_job_execution(%Client{} = client, job_id, thing_name, input, options \\ []) do
-    url_path = "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}"
+    url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
     query_params = []
 

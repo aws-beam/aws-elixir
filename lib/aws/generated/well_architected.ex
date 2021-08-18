@@ -35,7 +35,7 @@ defmodule AWS.WellArchitected do
   Associate a lens to a workload.
   """
   def associate_lenses(%Client{} = client, workload_id, input, options \\ []) do
-    url_path = "/workloads/#{URI.encode(workload_id)}/associateLenses"
+    url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/associateLenses"
     headers = []
     query_params = []
 
@@ -56,7 +56,7 @@ defmodule AWS.WellArchitected do
   Create a milestone for an existing workload.
   """
   def create_milestone(%Client{} = client, workload_id, input, options \\ []) do
-    url_path = "/workloads/#{URI.encode(workload_id)}/milestones"
+    url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/milestones"
     headers = []
     query_params = []
 
@@ -111,7 +111,7 @@ defmodule AWS.WellArchitected do
   in the *AWS Well-Architected Tool User Guide*.
   """
   def create_workload_share(%Client{} = client, workload_id, input, options \\ []) do
-    url_path = "/workloads/#{URI.encode(workload_id)}/shares"
+    url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/shares"
     headers = []
     query_params = []
 
@@ -132,7 +132,7 @@ defmodule AWS.WellArchitected do
   Delete an existing workload.
   """
   def delete_workload(%Client{} = client, workload_id, input, options \\ []) do
-    url_path = "/workloads/#{URI.encode(workload_id)}"
+    url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}"
     headers = []
 
     {query_params, input} =
@@ -158,7 +158,9 @@ defmodule AWS.WellArchitected do
   Delete a workload share.
   """
   def delete_workload_share(%Client{} = client, share_id, workload_id, input, options \\ []) do
-    url_path = "/workloads/#{URI.encode(workload_id)}/shares/#{URI.encode(share_id)}"
+    url_path =
+      "/workloads/#{AWS.Util.encode_uri(workload_id)}/shares/#{AWS.Util.encode_uri(share_id)}"
+
     headers = []
 
     {query_params, input} =
@@ -187,7 +189,7 @@ defmodule AWS.WellArchitected do
   from a workload.
   """
   def disassociate_lenses(%Client{} = client, workload_id, input, options \\ []) do
-    url_path = "/workloads/#{URI.encode(workload_id)}/disassociateLenses"
+    url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/disassociateLenses"
     headers = []
     query_params = []
 
@@ -216,7 +218,7 @@ defmodule AWS.WellArchitected do
         options \\ []
       ) do
     url_path =
-      "/workloads/#{URI.encode(workload_id)}/lensReviews/#{URI.encode(lens_alias)}/answers/#{URI.encode(question_id)}"
+      "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers/#{AWS.Util.encode_uri(question_id)}"
 
     headers = []
     query_params = []
@@ -251,7 +253,9 @@ defmodule AWS.WellArchitected do
         milestone_number \\ nil,
         options \\ []
       ) do
-    url_path = "/workloads/#{URI.encode(workload_id)}/lensReviews/#{URI.encode(lens_alias)}"
+    url_path =
+      "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}"
+
     headers = []
     query_params = []
 
@@ -286,7 +290,7 @@ defmodule AWS.WellArchitected do
         options \\ []
       ) do
     url_path =
-      "/workloads/#{URI.encode(workload_id)}/lensReviews/#{URI.encode(lens_alias)}/report"
+      "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/report"
 
     headers = []
     query_params = []
@@ -320,7 +324,7 @@ defmodule AWS.WellArchitected do
         base_lens_version,
         options \\ []
       ) do
-    url_path = "/lenses/#{URI.encode(lens_alias)}/versionDifference"
+    url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/versionDifference"
     headers = []
     query_params = []
 
@@ -348,7 +352,9 @@ defmodule AWS.WellArchitected do
   Get a milestone for an existing workload.
   """
   def get_milestone(%Client{} = client, milestone_number, workload_id, options \\ []) do
-    url_path = "/workloads/#{URI.encode(workload_id)}/milestones/#{URI.encode(milestone_number)}"
+    url_path =
+      "/workloads/#{AWS.Util.encode_uri(workload_id)}/milestones/#{AWS.Util.encode_uri(milestone_number)}"
+
     headers = []
     query_params = []
 
@@ -369,7 +375,7 @@ defmodule AWS.WellArchitected do
   Get an existing workload.
   """
   def get_workload(%Client{} = client, workload_id, options \\ []) do
-    url_path = "/workloads/#{URI.encode(workload_id)}"
+    url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}"
     headers = []
     query_params = []
 
@@ -400,7 +406,7 @@ defmodule AWS.WellArchitected do
         options \\ []
       ) do
     url_path =
-      "/workloads/#{URI.encode(workload_id)}/lensReviews/#{URI.encode(lens_alias)}/answers"
+      "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers"
 
     headers = []
     query_params = []
@@ -460,7 +466,7 @@ defmodule AWS.WellArchitected do
         options \\ []
       ) do
     url_path =
-      "/workloads/#{URI.encode(workload_id)}/lensReviews/#{URI.encode(lens_alias)}/improvements"
+      "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/improvements"
 
     headers = []
     query_params = []
@@ -517,7 +523,7 @@ defmodule AWS.WellArchitected do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/workloads/#{URI.encode(workload_id)}/lensReviews"
+    url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews"
     headers = []
     query_params = []
 
@@ -594,7 +600,7 @@ defmodule AWS.WellArchitected do
   List all milestones for an existing workload.
   """
   def list_milestones(%Client{} = client, workload_id, input, options \\ []) do
-    url_path = "/workloads/#{URI.encode(workload_id)}/milestonesSummaries"
+    url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/milestonesSummaries"
     headers = []
     query_params = []
 
@@ -684,7 +690,7 @@ defmodule AWS.WellArchitected do
   List the tags for a resource.
   """
   def list_tags_for_resource(%Client{} = client, workload_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(workload_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
     headers = []
     query_params = []
 
@@ -712,7 +718,7 @@ defmodule AWS.WellArchitected do
         shared_with_prefix \\ nil,
         options \\ []
       ) do
-    url_path = "/workloads/#{URI.encode(workload_id)}/shares"
+    url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/shares"
     headers = []
     query_params = []
 
@@ -777,7 +783,7 @@ defmodule AWS.WellArchitected do
   Adds one or more tags to the specified resource.
   """
   def tag_resource(%Client{} = client, workload_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(workload_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
     headers = []
     query_params = []
 
@@ -802,7 +808,7 @@ defmodule AWS.WellArchitected do
   `DELETE /tags/WorkloadArn?tagKeys=key1&tagKeys=key2`
   """
   def untag_resource(%Client{} = client, workload_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(workload_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
     headers = []
 
     {query_params, input} =
@@ -836,7 +842,7 @@ defmodule AWS.WellArchitected do
         options \\ []
       ) do
     url_path =
-      "/workloads/#{URI.encode(workload_id)}/lensReviews/#{URI.encode(lens_alias)}/answers/#{URI.encode(question_id)}"
+      "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers/#{AWS.Util.encode_uri(question_id)}"
 
     headers = []
     query_params = []
@@ -858,7 +864,9 @@ defmodule AWS.WellArchitected do
   Update lens review.
   """
   def update_lens_review(%Client{} = client, lens_alias, workload_id, input, options \\ []) do
-    url_path = "/workloads/#{URI.encode(workload_id)}/lensReviews/#{URI.encode(lens_alias)}"
+    url_path =
+      "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}"
+
     headers = []
     query_params = []
 
@@ -879,7 +887,7 @@ defmodule AWS.WellArchitected do
   Update a workload invitation.
   """
   def update_share_invitation(%Client{} = client, share_invitation_id, input, options \\ []) do
-    url_path = "/shareInvitations/#{URI.encode(share_invitation_id)}"
+    url_path = "/shareInvitations/#{AWS.Util.encode_uri(share_invitation_id)}"
     headers = []
     query_params = []
 
@@ -900,7 +908,7 @@ defmodule AWS.WellArchitected do
   Update an existing workload.
   """
   def update_workload(%Client{} = client, workload_id, input, options \\ []) do
-    url_path = "/workloads/#{URI.encode(workload_id)}"
+    url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}"
     headers = []
     query_params = []
 
@@ -921,7 +929,9 @@ defmodule AWS.WellArchitected do
   Update a workload share.
   """
   def update_workload_share(%Client{} = client, share_id, workload_id, input, options \\ []) do
-    url_path = "/workloads/#{URI.encode(workload_id)}/shares/#{URI.encode(share_id)}"
+    url_path =
+      "/workloads/#{AWS.Util.encode_uri(workload_id)}/shares/#{AWS.Util.encode_uri(share_id)}"
+
     headers = []
     query_params = []
 
@@ -943,7 +953,7 @@ defmodule AWS.WellArchitected do
   """
   def upgrade_lens_review(%Client{} = client, lens_alias, workload_id, input, options \\ []) do
     url_path =
-      "/workloads/#{URI.encode(workload_id)}/lensReviews/#{URI.encode(lens_alias)}/upgrade"
+      "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/upgrade"
 
     headers = []
     query_params = []

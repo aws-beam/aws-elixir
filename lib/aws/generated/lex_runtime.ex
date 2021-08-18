@@ -41,7 +41,7 @@ defmodule AWS.LexRuntime do
   """
   def delete_session(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
     url_path =
-      "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
+      "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/session"
 
     headers = []
     query_params = []
@@ -71,7 +71,7 @@ defmodule AWS.LexRuntime do
         options \\ []
       ) do
     url_path =
-      "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session/"
+      "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/session/"
 
     headers = []
     query_params = []
@@ -157,7 +157,7 @@ defmodule AWS.LexRuntime do
   """
   def post_content(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
     url_path =
-      "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/content"
+      "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/content"
 
     {headers, input} =
       [
@@ -265,7 +265,7 @@ defmodule AWS.LexRuntime do
   """
   def post_text(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
     url_path =
-      "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/text"
+      "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/text"
 
     headers = []
     query_params = []
@@ -292,7 +292,7 @@ defmodule AWS.LexRuntime do
   """
   def put_session(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
     url_path =
-      "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
+      "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/session"
 
     {headers, input} =
       [

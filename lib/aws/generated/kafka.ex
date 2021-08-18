@@ -29,7 +29,7 @@ defmodule AWS.Kafka do
   Associates one or more Scram Secrets with an Amazon MSK cluster.
   """
   def batch_associate_scram_secret(%Client{} = client, cluster_arn, input, options \\ []) do
-    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/scram-secrets"
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/scram-secrets"
     headers = []
     query_params = []
 
@@ -50,7 +50,7 @@ defmodule AWS.Kafka do
   Disassociates one or more Scram Secrets from an Amazon MSK cluster.
   """
   def batch_disassociate_scram_secret(%Client{} = client, cluster_arn, input, options \\ []) do
-    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/scram-secrets"
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/scram-secrets"
     headers = []
     query_params = []
 
@@ -114,7 +114,7 @@ defmodule AWS.Kafka do
   request.
   """
   def delete_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
-    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}"
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}"
     headers = []
 
     {query_params, input} =
@@ -142,7 +142,7 @@ defmodule AWS.Kafka do
   The configuration must be in the ACTIVE or DELETE_FAILED state.
   """
   def delete_configuration(%Client{} = client, arn, input, options \\ []) do
-    url_path = "/v1/configurations/#{URI.encode(arn)}"
+    url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}"
     headers = []
     query_params = []
 
@@ -164,7 +164,7 @@ defmodule AWS.Kafka do
   specified in the request.
   """
   def describe_cluster(%Client{} = client, cluster_arn, options \\ []) do
-    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}"
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}"
     headers = []
     query_params = []
 
@@ -185,7 +185,7 @@ defmodule AWS.Kafka do
   Returns a description of the cluster operation specified by the ARN.
   """
   def describe_cluster_operation(%Client{} = client, cluster_operation_arn, options \\ []) do
-    url_path = "/v1/operations/#{URI.encode(cluster_operation_arn)}"
+    url_path = "/v1/operations/#{AWS.Util.encode_uri(cluster_operation_arn)}"
     headers = []
     query_params = []
 
@@ -206,7 +206,7 @@ defmodule AWS.Kafka do
   Returns a description of this MSK configuration.
   """
   def describe_configuration(%Client{} = client, arn, options \\ []) do
-    url_path = "/v1/configurations/#{URI.encode(arn)}"
+    url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}"
     headers = []
     query_params = []
 
@@ -227,7 +227,9 @@ defmodule AWS.Kafka do
   Returns a description of this revision of the configuration.
   """
   def describe_configuration_revision(%Client{} = client, arn, revision, options \\ []) do
-    url_path = "/v1/configurations/#{URI.encode(arn)}/revisions/#{URI.encode(revision)}"
+    url_path =
+      "/v1/configurations/#{AWS.Util.encode_uri(arn)}/revisions/#{AWS.Util.encode_uri(revision)}"
+
     headers = []
     query_params = []
 
@@ -248,7 +250,7 @@ defmodule AWS.Kafka do
   A list of brokers that a client application can use to bootstrap.
   """
   def get_bootstrap_brokers(%Client{} = client, cluster_arn, options \\ []) do
-    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/bootstrap-brokers"
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/bootstrap-brokers"
     headers = []
     query_params = []
 
@@ -304,7 +306,7 @@ defmodule AWS.Kafka do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/operations"
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/operations"
     headers = []
     query_params = []
 
@@ -393,7 +395,7 @@ defmodule AWS.Kafka do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/v1/configurations/#{URI.encode(arn)}/revisions"
+    url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}/revisions"
     headers = []
     query_params = []
 
@@ -514,7 +516,7 @@ defmodule AWS.Kafka do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/nodes"
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes"
     headers = []
     query_params = []
 
@@ -555,7 +557,7 @@ defmodule AWS.Kafka do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/scram-secrets"
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/scram-secrets"
     headers = []
     query_params = []
 
@@ -590,7 +592,7 @@ defmodule AWS.Kafka do
   Returns a list of the tags associated with the specified resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/v1/tags/#{URI.encode(resource_arn)}"
+    url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -611,7 +613,7 @@ defmodule AWS.Kafka do
   Executes a reboot on a broker.
   """
   def reboot_broker(%Client{} = client, cluster_arn, input, options \\ []) do
-    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/reboot-broker"
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/reboot-broker"
     headers = []
     query_params = []
 
@@ -632,7 +634,7 @@ defmodule AWS.Kafka do
   Adds tags to the specified MSK resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/v1/tags/#{URI.encode(resource_arn)}"
+    url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -653,7 +655,7 @@ defmodule AWS.Kafka do
   Removes the tags associated with the keys that are provided in the query.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/v1/tags/#{URI.encode(resource_arn)}"
+    url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -682,7 +684,7 @@ defmodule AWS.Kafka do
   cluster. You can't decrease the number of brokers.
   """
   def update_broker_count(%Client{} = client, cluster_arn, input, options \\ []) do
-    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/nodes/count"
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes/count"
     headers = []
     query_params = []
 
@@ -703,7 +705,7 @@ defmodule AWS.Kafka do
   Updates the EBS storage associated with MSK brokers.
   """
   def update_broker_storage(%Client{} = client, cluster_arn, input, options \\ []) do
-    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/nodes/storage"
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes/storage"
     headers = []
     query_params = []
 
@@ -724,7 +726,7 @@ defmodule AWS.Kafka do
   Updates all the brokers in the cluster to the specified type.
   """
   def update_broker_type(%Client{} = client, cluster_arn, input, options \\ []) do
-    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/nodes/type"
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes/type"
     headers = []
     query_params = []
 
@@ -746,7 +748,7 @@ defmodule AWS.Kafka do
   body.
   """
   def update_cluster_configuration(%Client{} = client, cluster_arn, input, options \\ []) do
-    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/configuration"
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/configuration"
     headers = []
     query_params = []
 
@@ -767,7 +769,7 @@ defmodule AWS.Kafka do
   Updates the Apache Kafka version for the cluster.
   """
   def update_cluster_kafka_version(%Client{} = client, cluster_arn, input, options \\ []) do
-    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/version"
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/version"
     headers = []
     query_params = []
 
@@ -790,7 +792,7 @@ defmodule AWS.Kafka do
   The configuration must be in the Active state.
   """
   def update_configuration(%Client{} = client, arn, input, options \\ []) do
-    url_path = "/v1/configurations/#{URI.encode(arn)}"
+    url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}"
     headers = []
     query_params = []
 
@@ -815,7 +817,7 @@ defmodule AWS.Kafka do
   monitoring with Prometheus.
   """
   def update_monitoring(%Client{} = client, cluster_arn, input, options \\ []) do
-    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/monitoring"
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/monitoring"
     headers = []
     query_params = []
 

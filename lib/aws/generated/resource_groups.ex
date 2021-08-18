@@ -221,7 +221,7 @@ defmodule AWS.ResourceGroups do
     * `resource-groups:GetTags`
   """
   def get_tags(%Client{} = client, arn, options \\ []) do
-    url_path = "/resources/#{URI.encode(arn)}/tags"
+    url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
     headers = []
     query_params = []
 
@@ -416,7 +416,7 @@ defmodule AWS.ResourceGroups do
     * `resource-groups:Tag`
   """
   def tag(%Client{} = client, arn, input, options \\ []) do
-    url_path = "/resources/#{URI.encode(arn)}/tags"
+    url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
     headers = []
     query_params = []
 
@@ -470,7 +470,7 @@ defmodule AWS.ResourceGroups do
     * `resource-groups:Untag`
   """
   def untag(%Client{} = client, arn, input, options \\ []) do
-    url_path = "/resources/#{URI.encode(arn)}/tags"
+    url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
     headers = []
     query_params = []
 

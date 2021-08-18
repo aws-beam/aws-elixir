@@ -29,7 +29,7 @@ defmodule AWS.MediaPackageVod do
   Changes the packaging group's properities to configure log subscription
   """
   def configure_logs(%Client{} = client, id, input, options \\ []) do
-    url_path = "/packaging_groups/#{URI.encode(id)}/configure_logs"
+    url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}/configure_logs"
     headers = []
     query_params = []
 
@@ -113,7 +113,7 @@ defmodule AWS.MediaPackageVod do
   Deletes an existing MediaPackage VOD Asset resource.
   """
   def delete_asset(%Client{} = client, id, input, options \\ []) do
-    url_path = "/assets/#{URI.encode(id)}"
+    url_path = "/assets/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -134,7 +134,7 @@ defmodule AWS.MediaPackageVod do
   Deletes a MediaPackage VOD PackagingConfiguration resource.
   """
   def delete_packaging_configuration(%Client{} = client, id, input, options \\ []) do
-    url_path = "/packaging_configurations/#{URI.encode(id)}"
+    url_path = "/packaging_configurations/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -155,7 +155,7 @@ defmodule AWS.MediaPackageVod do
   Deletes a MediaPackage VOD PackagingGroup resource.
   """
   def delete_packaging_group(%Client{} = client, id, input, options \\ []) do
-    url_path = "/packaging_groups/#{URI.encode(id)}"
+    url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -176,7 +176,7 @@ defmodule AWS.MediaPackageVod do
   Returns a description of a MediaPackage VOD Asset resource.
   """
   def describe_asset(%Client{} = client, id, options \\ []) do
-    url_path = "/assets/#{URI.encode(id)}"
+    url_path = "/assets/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -197,7 +197,7 @@ defmodule AWS.MediaPackageVod do
   Returns a description of a MediaPackage VOD PackagingConfiguration resource.
   """
   def describe_packaging_configuration(%Client{} = client, id, options \\ []) do
-    url_path = "/packaging_configurations/#{URI.encode(id)}"
+    url_path = "/packaging_configurations/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -218,7 +218,7 @@ defmodule AWS.MediaPackageVod do
   Returns a description of a MediaPackage VOD PackagingGroup resource.
   """
   def describe_packaging_group(%Client{} = client, id, options \\ []) do
-    url_path = "/packaging_groups/#{URI.encode(id)}"
+    url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -375,7 +375,7 @@ defmodule AWS.MediaPackageVod do
   Returns a list of the tags assigned to the specified resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -398,7 +398,7 @@ defmodule AWS.MediaPackageVod do
   You can specify one or more tags to add.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -421,7 +421,7 @@ defmodule AWS.MediaPackageVod do
   You can specify one or more tags to remove.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -449,7 +449,7 @@ defmodule AWS.MediaPackageVod do
   You can't change the id attribute or any other system-generated attributes.
   """
   def update_packaging_group(%Client{} = client, id, input, options \\ []) do
-    url_path = "/packaging_groups/#{URI.encode(id)}"
+    url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 

@@ -62,7 +62,7 @@ defmodule AWS.AppIntegrations do
   If the event integration is associated with clients, the request is rejected.
   """
   def delete_event_integration(%Client{} = client, name, input, options \\ []) do
-    url_path = "/eventIntegrations/#{URI.encode(name)}"
+    url_path = "/eventIntegrations/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -83,7 +83,7 @@ defmodule AWS.AppIntegrations do
   Return information about the event integration.
   """
   def get_event_integration(%Client{} = client, name, options \\ []) do
-    url_path = "/eventIntegrations/#{URI.encode(name)}"
+    url_path = "/eventIntegrations/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -110,7 +110,7 @@ defmodule AWS.AppIntegrations do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/eventIntegrations/#{URI.encode(event_integration_name)}/associations"
+    url_path = "/eventIntegrations/#{AWS.Util.encode_uri(event_integration_name)}/associations"
     headers = []
     query_params = []
 
@@ -185,7 +185,7 @@ defmodule AWS.AppIntegrations do
   Lists the tags for the specified resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -206,7 +206,7 @@ defmodule AWS.AppIntegrations do
   Adds the specified tags to the specified resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -227,7 +227,7 @@ defmodule AWS.AppIntegrations do
   Removes the specified tags from the specified resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -253,7 +253,7 @@ defmodule AWS.AppIntegrations do
   Updates the description of an event integration.
   """
   def update_event_integration(%Client{} = client, name, input, options \\ []) do
-    url_path = "/eventIntegrations/#{URI.encode(name)}"
+    url_path = "/eventIntegrations/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 

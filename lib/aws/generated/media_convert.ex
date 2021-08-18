@@ -53,7 +53,7 @@ defmodule AWS.MediaConvert do
   Once you have canceled a job, you can't start it again.
   """
   def cancel_job(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2017-08-29/jobs/#{URI.encode(id)}"
+    url_path = "/2017-08-29/jobs/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -170,7 +170,7 @@ defmodule AWS.MediaConvert do
   Permanently delete a job template you have created.
   """
   def delete_job_template(%Client{} = client, name, input, options \\ []) do
-    url_path = "/2017-08-29/jobTemplates/#{URI.encode(name)}"
+    url_path = "/2017-08-29/jobTemplates/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -191,7 +191,7 @@ defmodule AWS.MediaConvert do
   Permanently delete a preset you have created.
   """
   def delete_preset(%Client{} = client, name, input, options \\ []) do
-    url_path = "/2017-08-29/presets/#{URI.encode(name)}"
+    url_path = "/2017-08-29/presets/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -212,7 +212,7 @@ defmodule AWS.MediaConvert do
   Permanently delete a queue you have created.
   """
   def delete_queue(%Client{} = client, name, input, options \\ []) do
-    url_path = "/2017-08-29/queues/#{URI.encode(name)}"
+    url_path = "/2017-08-29/queues/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -257,7 +257,7 @@ defmodule AWS.MediaConvert do
   resource.
   """
   def disassociate_certificate(%Client{} = client, arn, input, options \\ []) do
-    url_path = "/2017-08-29/certificates/#{URI.encode(arn)}"
+    url_path = "/2017-08-29/certificates/#{AWS.Util.encode_uri(arn)}"
     headers = []
     query_params = []
 
@@ -278,7 +278,7 @@ defmodule AWS.MediaConvert do
   Retrieve the JSON for a specific completed transcoding job.
   """
   def get_job(%Client{} = client, id, options \\ []) do
-    url_path = "/2017-08-29/jobs/#{URI.encode(id)}"
+    url_path = "/2017-08-29/jobs/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -299,7 +299,7 @@ defmodule AWS.MediaConvert do
   Retrieve the JSON for a specific job template.
   """
   def get_job_template(%Client{} = client, name, options \\ []) do
-    url_path = "/2017-08-29/jobTemplates/#{URI.encode(name)}"
+    url_path = "/2017-08-29/jobTemplates/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -320,7 +320,7 @@ defmodule AWS.MediaConvert do
   Retrieve the JSON for a specific preset.
   """
   def get_preset(%Client{} = client, name, options \\ []) do
-    url_path = "/2017-08-29/presets/#{URI.encode(name)}"
+    url_path = "/2017-08-29/presets/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -341,7 +341,7 @@ defmodule AWS.MediaConvert do
   Retrieve the JSON for a specific queue.
   """
   def get_queue(%Client{} = client, name, options \\ []) do
-    url_path = "/2017-08-29/queues/#{URI.encode(name)}"
+    url_path = "/2017-08-29/queues/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -623,7 +623,7 @@ defmodule AWS.MediaConvert do
   Retrieve the tags for a MediaConvert resource.
   """
   def list_tags_for_resource(%Client{} = client, arn, options \\ []) do
-    url_path = "/2017-08-29/tags/#{URI.encode(arn)}"
+    url_path = "/2017-08-29/tags/#{AWS.Util.encode_uri(arn)}"
     headers = []
     query_params = []
 
@@ -671,7 +671,7 @@ defmodule AWS.MediaConvert do
   https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
   """
   def untag_resource(%Client{} = client, arn, input, options \\ []) do
-    url_path = "/2017-08-29/tags/#{URI.encode(arn)}"
+    url_path = "/2017-08-29/tags/#{AWS.Util.encode_uri(arn)}"
     headers = []
     query_params = []
 
@@ -692,7 +692,7 @@ defmodule AWS.MediaConvert do
   Modify one of your existing job templates.
   """
   def update_job_template(%Client{} = client, name, input, options \\ []) do
-    url_path = "/2017-08-29/jobTemplates/#{URI.encode(name)}"
+    url_path = "/2017-08-29/jobTemplates/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -713,7 +713,7 @@ defmodule AWS.MediaConvert do
   Modify one of your existing presets.
   """
   def update_preset(%Client{} = client, name, input, options \\ []) do
-    url_path = "/2017-08-29/presets/#{URI.encode(name)}"
+    url_path = "/2017-08-29/presets/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -734,7 +734,7 @@ defmodule AWS.MediaConvert do
   Modify one of your existing queues.
   """
   def update_queue(%Client{} = client, name, input, options \\ []) do
-    url_path = "/2017-08-29/queues/#{URI.encode(name)}"
+    url_path = "/2017-08-29/queues/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 

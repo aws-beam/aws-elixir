@@ -44,7 +44,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/data-sets/#{URI.encode(data_set_id)}/ingestions/#{URI.encode(ingestion_id)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/ingestions/#{AWS.Util.encode_uri(ingestion_id)}"
 
     headers = []
     query_params = []
@@ -86,7 +86,7 @@ defmodule AWS.QuickSight do
   `UpdateThemePermissions` ` API operation.
   """
   def create_account_customization(%Client{} = client, aws_account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/customizations"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
     headers = []
 
     {query_params, input} =
@@ -112,7 +112,9 @@ defmodule AWS.QuickSight do
   Creates an analysis in Amazon QuickSight.
   """
   def create_analysis(%Client{} = client, analysis_id, aws_account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/analyses/#{URI.encode(analysis_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}"
+
     headers = []
     query_params = []
 
@@ -141,7 +143,9 @@ defmodule AWS.QuickSight do
   different AWS account.
   """
   def create_dashboard(%Client{} = client, aws_account_id, dashboard_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/dashboards/#{URI.encode(dashboard_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
+
     headers = []
     query_params = []
 
@@ -162,7 +166,7 @@ defmodule AWS.QuickSight do
   Creates a dataset.
   """
   def create_data_set(%Client{} = client, aws_account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/data-sets"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets"
     headers = []
     query_params = []
 
@@ -183,7 +187,7 @@ defmodule AWS.QuickSight do
   Creates a data source.
   """
   def create_data_source(%Client{} = client, aws_account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/data-sources"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources"
     headers = []
     query_params = []
 
@@ -204,7 +208,9 @@ defmodule AWS.QuickSight do
   Creates an empty shared folder.
   """
   def create_folder(%Client{} = client, aws_account_id, folder_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}"
+
     headers = []
     query_params = []
 
@@ -234,7 +240,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}/members/#{URI.encode(member_type)}/#{URI.encode(member_id)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}/members/#{AWS.Util.encode_uri(member_type)}/#{AWS.Util.encode_uri(member_id)}"
 
     headers = []
     query_params = []
@@ -263,7 +269,7 @@ defmodule AWS.QuickSight do
   """
   def create_group(%Client{} = client, aws_account_id, namespace, input, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups"
 
     headers = []
     query_params = []
@@ -294,7 +300,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups/#{URI.encode(group_name)}/members/#{URI.encode(member_name)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}/members/#{AWS.Util.encode_uri(member_name)}"
 
     headers = []
     query_params = []
@@ -328,7 +334,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/iam-policy-assignments/"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/iam-policy-assignments/"
 
     headers = []
     query_params = []
@@ -366,7 +372,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/data-sets/#{URI.encode(data_set_id)}/ingestions/#{URI.encode(ingestion_id)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/ingestions/#{AWS.Util.encode_uri(ingestion_id)}"
 
     headers = []
     query_params = []
@@ -397,7 +403,7 @@ defmodule AWS.QuickSight do
   limit, create a ticket with AWS Support.
   """
   def create_namespace(%Client{} = client, aws_account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}"
     headers = []
     query_params = []
 
@@ -427,7 +433,9 @@ defmodule AWS.QuickSight do
   was used to create the source analysis and template.
   """
   def create_template(%Client{} = client, aws_account_id, template_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
+
     headers = []
     query_params = []
 
@@ -456,7 +464,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}/aliases/#{URI.encode(alias_name)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
     headers = []
     query_params = []
@@ -482,7 +490,9 @@ defmodule AWS.QuickSight do
   in the *Amazon QuickSight User Guide*.
   """
   def create_theme(%Client{} = client, aws_account_id, theme_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}"
+
     headers = []
     query_params = []
 
@@ -511,7 +521,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}/aliases/#{URI.encode(alias_name)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
     headers = []
     query_params = []
@@ -534,7 +544,7 @@ defmodule AWS.QuickSight do
   specified AWS account and QuickSight namespace.
   """
   def delete_account_customization(%Client{} = client, aws_account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/customizations"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
     headers = []
 
     {query_params, input} =
@@ -575,7 +585,9 @@ defmodule AWS.QuickSight do
   delete the dashboards that you publish from it.
   """
   def delete_analysis(%Client{} = client, analysis_id, aws_account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/analyses/#{URI.encode(analysis_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}"
+
     headers = []
 
     {query_params, input} =
@@ -602,7 +614,9 @@ defmodule AWS.QuickSight do
   Deletes a dashboard.
   """
   def delete_dashboard(%Client{} = client, aws_account_id, dashboard_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/dashboards/#{URI.encode(dashboard_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
+
     headers = []
 
     {query_params, input} =
@@ -628,7 +642,9 @@ defmodule AWS.QuickSight do
   Deletes a dataset.
   """
   def delete_data_set(%Client{} = client, aws_account_id, data_set_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/data-sets/#{URI.encode(data_set_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
+
     headers = []
     query_params = []
 
@@ -652,7 +668,7 @@ defmodule AWS.QuickSight do
   """
   def delete_data_source(%Client{} = client, aws_account_id, data_source_id, input, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/data-sources/#{URI.encode(data_source_id)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources/#{AWS.Util.encode_uri(data_source_id)}"
 
     headers = []
     query_params = []
@@ -674,7 +690,9 @@ defmodule AWS.QuickSight do
   Deletes an empty folder.
   """
   def delete_folder(%Client{} = client, aws_account_id, folder_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}"
+
     headers = []
     query_params = []
 
@@ -704,7 +722,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}/members/#{URI.encode(member_type)}/#{URI.encode(member_id)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}/members/#{AWS.Util.encode_uri(member_type)}/#{AWS.Util.encode_uri(member_id)}"
 
     headers = []
     query_params = []
@@ -734,7 +752,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups/#{URI.encode(group_name)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}"
 
     headers = []
     query_params = []
@@ -765,7 +783,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups/#{URI.encode(group_name)}/members/#{URI.encode(member_name)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}/members/#{AWS.Util.encode_uri(member_name)}"
 
     headers = []
     query_params = []
@@ -795,7 +813,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespace/#{URI.encode(namespace)}/iam-policy-assignments/#{URI.encode(assignment_name)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespace/#{AWS.Util.encode_uri(namespace)}/iam-policy-assignments/#{AWS.Util.encode_uri(assignment_name)}"
 
     headers = []
     query_params = []
@@ -822,7 +840,9 @@ defmodule AWS.QuickSight do
   operations for the relevant asset.
   """
   def delete_namespace(%Client{} = client, aws_account_id, namespace, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}"
+
     headers = []
     query_params = []
 
@@ -843,7 +863,9 @@ defmodule AWS.QuickSight do
   Deletes a template.
   """
   def delete_template(%Client{} = client, aws_account_id, template_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
+
     headers = []
 
     {query_params, input} =
@@ -880,7 +902,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}/aliases/#{URI.encode(alias_name)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
     headers = []
     query_params = []
@@ -902,7 +924,9 @@ defmodule AWS.QuickSight do
   Deletes a theme.
   """
   def delete_theme(%Client{} = client, aws_account_id, theme_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}"
+
     headers = []
 
     {query_params, input} =
@@ -939,7 +963,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}/aliases/#{URI.encode(alias_name)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
     headers = []
     query_params = []
@@ -965,7 +989,7 @@ defmodule AWS.QuickSight do
   """
   def delete_user(%Client{} = client, aws_account_id, namespace, user_name, input, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/users/#{URI.encode(user_name)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}"
 
     headers = []
     query_params = []
@@ -995,7 +1019,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/user-principals/#{URI.encode(principal_id)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/user-principals/#{AWS.Util.encode_uri(principal_id)}"
 
     headers = []
     query_params = []
@@ -1067,7 +1091,7 @@ defmodule AWS.QuickSight do
         resolved \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/customizations"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
     headers = []
     query_params = []
 
@@ -1103,7 +1127,7 @@ defmodule AWS.QuickSight do
   first created in this AWS account.
   """
   def describe_account_settings(%Client{} = client, aws_account_id, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/settings"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/settings"
     headers = []
     query_params = []
 
@@ -1124,7 +1148,9 @@ defmodule AWS.QuickSight do
   Provides a summary of the metadata for an analysis.
   """
   def describe_analysis(%Client{} = client, analysis_id, aws_account_id, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/analyses/#{URI.encode(analysis_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}"
+
     headers = []
     query_params = []
 
@@ -1151,7 +1177,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/analyses/#{URI.encode(analysis_id)}/permissions"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}/permissions"
 
     headers = []
     query_params = []
@@ -1180,7 +1206,9 @@ defmodule AWS.QuickSight do
         version_number \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/dashboards/#{URI.encode(dashboard_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
+
     headers = []
     query_params = []
 
@@ -1221,7 +1249,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/dashboards/#{URI.encode(dashboard_id)}/permissions"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/permissions"
 
     headers = []
     query_params = []
@@ -1243,7 +1271,9 @@ defmodule AWS.QuickSight do
   Describes a dataset.
   """
   def describe_data_set(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/data-sets/#{URI.encode(data_set_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
+
     headers = []
     query_params = []
 
@@ -1273,7 +1303,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/data-sets/#{URI.encode(data_set_id)}/permissions"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/permissions"
 
     headers = []
     query_params = []
@@ -1296,7 +1326,7 @@ defmodule AWS.QuickSight do
   """
   def describe_data_source(%Client{} = client, aws_account_id, data_source_id, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/data-sources/#{URI.encode(data_source_id)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources/#{AWS.Util.encode_uri(data_source_id)}"
 
     headers = []
     query_params = []
@@ -1324,7 +1354,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/data-sources/#{URI.encode(data_source_id)}/permissions"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources/#{AWS.Util.encode_uri(data_source_id)}/permissions"
 
     headers = []
     query_params = []
@@ -1346,7 +1376,9 @@ defmodule AWS.QuickSight do
   Describes a folder.
   """
   def describe_folder(%Client{} = client, aws_account_id, folder_id, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}"
+
     headers = []
     query_params = []
 
@@ -1368,7 +1400,7 @@ defmodule AWS.QuickSight do
   """
   def describe_folder_permissions(%Client{} = client, aws_account_id, folder_id, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}/permissions"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}/permissions"
 
     headers = []
     query_params = []
@@ -1399,7 +1431,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}/resolved-permissions"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}/resolved-permissions"
 
     headers = []
     query_params = []
@@ -1422,7 +1454,7 @@ defmodule AWS.QuickSight do
   """
   def describe_group(%Client{} = client, aws_account_id, group_name, namespace, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups/#{URI.encode(group_name)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}"
 
     headers = []
     query_params = []
@@ -1452,7 +1484,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/iam-policy-assignments/#{URI.encode(assignment_name)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/iam-policy-assignments/#{AWS.Util.encode_uri(assignment_name)}"
 
     headers = []
     query_params = []
@@ -1481,7 +1513,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/data-sets/#{URI.encode(data_set_id)}/ingestions/#{URI.encode(ingestion_id)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/ingestions/#{AWS.Util.encode_uri(ingestion_id)}"
 
     headers = []
     query_params = []
@@ -1503,7 +1535,9 @@ defmodule AWS.QuickSight do
   Describes the current namespace.
   """
   def describe_namespace(%Client{} = client, aws_account_id, namespace, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}"
+
     headers = []
     query_params = []
 
@@ -1531,7 +1565,9 @@ defmodule AWS.QuickSight do
         version_number \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
+
     headers = []
     query_params = []
 
@@ -1573,7 +1609,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}/aliases/#{URI.encode(alias_name)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
     headers = []
     query_params = []
@@ -1601,7 +1637,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}/permissions"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/permissions"
 
     headers = []
     query_params = []
@@ -1630,7 +1666,9 @@ defmodule AWS.QuickSight do
         version_number \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}"
+
     headers = []
     query_params = []
 
@@ -1672,7 +1710,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}/aliases/#{URI.encode(alias_name)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
     headers = []
     query_params = []
@@ -1695,7 +1733,7 @@ defmodule AWS.QuickSight do
   """
   def describe_theme_permissions(%Client{} = client, aws_account_id, theme_id, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}/permissions"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/permissions"
 
     headers = []
     query_params = []
@@ -1718,7 +1756,7 @@ defmodule AWS.QuickSight do
   """
   def describe_user(%Client{} = client, aws_account_id, namespace, user_name, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/users/#{URI.encode(user_name)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}"
 
     headers = []
     query_params = []
@@ -1773,7 +1811,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/dashboards/#{URI.encode(dashboard_id)}/embed-url"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/embed-url"
 
     headers = []
     query_params = []
@@ -1872,7 +1910,7 @@ defmodule AWS.QuickSight do
         user_arn \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/session-embed-url"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/session-embed-url"
     headers = []
     query_params = []
 
@@ -1920,7 +1958,7 @@ defmodule AWS.QuickSight do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/analyses"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses"
     headers = []
     query_params = []
 
@@ -1963,7 +2001,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/dashboards/#{URI.encode(dashboard_id)}/versions"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/versions"
 
     headers = []
     query_params = []
@@ -2005,7 +2043,7 @@ defmodule AWS.QuickSight do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/dashboards"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards"
     headers = []
     query_params = []
 
@@ -2049,7 +2087,7 @@ defmodule AWS.QuickSight do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/data-sets"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets"
     headers = []
     query_params = []
 
@@ -2090,7 +2128,7 @@ defmodule AWS.QuickSight do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/data-sources"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources"
     headers = []
     query_params = []
 
@@ -2132,7 +2170,9 @@ defmodule AWS.QuickSight do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}/members"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}/members"
+
     headers = []
     query_params = []
 
@@ -2173,7 +2213,7 @@ defmodule AWS.QuickSight do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/folders"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders"
     headers = []
     query_params = []
 
@@ -2217,7 +2257,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups/#{URI.encode(group_name)}/members"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}/members"
 
     headers = []
     query_params = []
@@ -2261,7 +2301,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups"
 
     headers = []
     query_params = []
@@ -2305,7 +2345,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/iam-policy-assignments"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/iam-policy-assignments"
 
     headers = []
     query_params = []
@@ -2352,7 +2392,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/users/#{URI.encode(user_name)}/iam-policy-assignments"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}/iam-policy-assignments"
 
     headers = []
     query_params = []
@@ -2396,7 +2436,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/data-sets/#{URI.encode(data_set_id)}/ingestions"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/ingestions"
 
     headers = []
     query_params = []
@@ -2438,7 +2478,7 @@ defmodule AWS.QuickSight do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/namespaces"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces"
     headers = []
     query_params = []
 
@@ -2473,7 +2513,7 @@ defmodule AWS.QuickSight do
   Lists the tags assigned to a resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/resources/#{URI.encode(resource_arn)}/tags"
+    url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/tags"
     headers = []
     query_params = []
 
@@ -2502,7 +2542,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}/aliases"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/aliases"
 
     headers = []
     query_params = []
@@ -2547,7 +2587,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}/versions"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/versions"
 
     headers = []
     query_params = []
@@ -2589,7 +2629,7 @@ defmodule AWS.QuickSight do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/templates"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates"
     headers = []
     query_params = []
 
@@ -2631,7 +2671,9 @@ defmodule AWS.QuickSight do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}/aliases"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/aliases"
+
     headers = []
     query_params = []
 
@@ -2673,7 +2715,9 @@ defmodule AWS.QuickSight do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}/versions"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/versions"
+
     headers = []
     query_params = []
 
@@ -2715,7 +2759,7 @@ defmodule AWS.QuickSight do
         type \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/themes"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes"
     headers = []
     query_params = []
 
@@ -2767,7 +2811,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/users/#{URI.encode(user_name)}/groups"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}/groups"
 
     headers = []
     query_params = []
@@ -2810,7 +2854,9 @@ defmodule AWS.QuickSight do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/users"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users"
+
     headers = []
     query_params = []
 
@@ -2846,7 +2892,9 @@ defmodule AWS.QuickSight do
   Identity and Access Management (IAM) identity or role specified in the request.
   """
   def register_user(%Client{} = client, aws_account_id, namespace, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/users"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users"
+
     headers = []
     query_params = []
 
@@ -2868,7 +2916,7 @@ defmodule AWS.QuickSight do
   """
   def restore_analysis(%Client{} = client, analysis_id, aws_account_id, input, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/restore/analyses/#{URI.encode(analysis_id)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/restore/analyses/#{AWS.Util.encode_uri(analysis_id)}"
 
     headers = []
     query_params = []
@@ -2890,7 +2938,7 @@ defmodule AWS.QuickSight do
   Searches for analyses that belong to the user specified in the filter.
   """
   def search_analyses(%Client{} = client, aws_account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/search/analyses"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/analyses"
     headers = []
     query_params = []
 
@@ -2911,7 +2959,7 @@ defmodule AWS.QuickSight do
   Searches for dashboards that belong to a user.
   """
   def search_dashboards(%Client{} = client, aws_account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/search/dashboards"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/dashboards"
     headers = []
     query_params = []
 
@@ -2932,7 +2980,7 @@ defmodule AWS.QuickSight do
   Searches the subfolders in a folder.
   """
   def search_folders(%Client{} = client, aws_account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/search/folders"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/folders"
     headers = []
     query_params = []
 
@@ -2974,7 +3022,7 @@ defmodule AWS.QuickSight do
   Resource Groups.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/resources/#{URI.encode(resource_arn)}/tags"
+    url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/tags"
     headers = []
     query_params = []
 
@@ -2995,7 +3043,7 @@ defmodule AWS.QuickSight do
   Removes a tag or tags from a resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/resources/#{URI.encode(resource_arn)}/tags"
+    url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/tags"
     headers = []
 
     {query_params, input} =
@@ -3028,7 +3076,7 @@ defmodule AWS.QuickSight do
   customizations apply, use the `DescribeAccountCustomization` API operation.
   """
   def update_account_customization(%Client{} = client, aws_account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/customizations"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
     headers = []
 
     {query_params, input} =
@@ -3054,7 +3102,7 @@ defmodule AWS.QuickSight do
   Updates the Amazon QuickSight settings in your AWS account.
   """
   def update_account_settings(%Client{} = client, aws_account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/settings"
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/settings"
     headers = []
     query_params = []
 
@@ -3075,7 +3123,9 @@ defmodule AWS.QuickSight do
   Updates an analysis in Amazon QuickSight
   """
   def update_analysis(%Client{} = client, analysis_id, aws_account_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/analyses/#{URI.encode(analysis_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}"
+
     headers = []
     query_params = []
 
@@ -3103,7 +3153,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/analyses/#{URI.encode(analysis_id)}/permissions"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}/permissions"
 
     headers = []
     query_params = []
@@ -3125,7 +3175,9 @@ defmodule AWS.QuickSight do
   Updates a dashboard in an AWS account.
   """
   def update_dashboard(%Client{} = client, aws_account_id, dashboard_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/dashboards/#{URI.encode(dashboard_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
+
     headers = []
     query_params = []
 
@@ -3153,7 +3205,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/dashboards/#{URI.encode(dashboard_id)}/permissions"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/permissions"
 
     headers = []
     query_params = []
@@ -3183,7 +3235,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/dashboards/#{URI.encode(dashboard_id)}/versions/#{URI.encode(version_number)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/versions/#{AWS.Util.encode_uri(version_number)}"
 
     headers = []
     query_params = []
@@ -3205,7 +3257,9 @@ defmodule AWS.QuickSight do
   Updates a dataset.
   """
   def update_data_set(%Client{} = client, aws_account_id, data_set_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/data-sets/#{URI.encode(data_set_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
+
     headers = []
     query_params = []
 
@@ -3236,7 +3290,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/data-sets/#{URI.encode(data_set_id)}/permissions"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/permissions"
 
     headers = []
     query_params = []
@@ -3259,7 +3313,7 @@ defmodule AWS.QuickSight do
   """
   def update_data_source(%Client{} = client, aws_account_id, data_source_id, input, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/data-sources/#{URI.encode(data_source_id)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources/#{AWS.Util.encode_uri(data_source_id)}"
 
     headers = []
     query_params = []
@@ -3288,7 +3342,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/data-sources/#{URI.encode(data_source_id)}/permissions"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources/#{AWS.Util.encode_uri(data_source_id)}/permissions"
 
     headers = []
     query_params = []
@@ -3310,7 +3364,9 @@ defmodule AWS.QuickSight do
   Updates the name of a folder.
   """
   def update_folder(%Client{} = client, aws_account_id, folder_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}"
+
     headers = []
     query_params = []
 
@@ -3338,7 +3394,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}/permissions"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}/permissions"
 
     headers = []
     query_params = []
@@ -3368,7 +3424,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups/#{URI.encode(group_name)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}"
 
     headers = []
     query_params = []
@@ -3402,7 +3458,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/iam-policy-assignments/#{URI.encode(assignment_name)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/iam-policy-assignments/#{AWS.Util.encode_uri(assignment_name)}"
 
     headers = []
     query_params = []
@@ -3425,7 +3481,9 @@ defmodule AWS.QuickSight do
   template.
   """
   def update_template(%Client{} = client, aws_account_id, template_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
+
     headers = []
     query_params = []
 
@@ -3454,7 +3512,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}/aliases/#{URI.encode(alias_name)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
     headers = []
     query_params = []
@@ -3483,7 +3541,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}/permissions"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/permissions"
 
     headers = []
     query_params = []
@@ -3505,7 +3563,9 @@ defmodule AWS.QuickSight do
   Updates a theme.
   """
   def update_theme(%Client{} = client, aws_account_id, theme_id, input, options \\ []) do
-    url_path = "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}"
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}"
+
     headers = []
     query_params = []
 
@@ -3534,7 +3594,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}/aliases/#{URI.encode(alias_name)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
     headers = []
     query_params = []
@@ -3599,7 +3659,7 @@ defmodule AWS.QuickSight do
   """
   def update_theme_permissions(%Client{} = client, aws_account_id, theme_id, input, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}/permissions"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/permissions"
 
     headers = []
     query_params = []
@@ -3622,7 +3682,7 @@ defmodule AWS.QuickSight do
   """
   def update_user(%Client{} = client, aws_account_id, namespace, user_name, input, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/users/#{URI.encode(user_name)}"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}"
 
     headers = []
     query_params = []

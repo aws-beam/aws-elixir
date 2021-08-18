@@ -41,7 +41,7 @@ defmodule AWS.MediaTailor do
   Creates a channel.
   """
   def create_channel(%Client{} = client, channel_name, input, options \\ []) do
-    url_path = "/channel/#{URI.encode(channel_name)}"
+    url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
     headers = []
     query_params = []
 
@@ -62,7 +62,9 @@ defmodule AWS.MediaTailor do
   Creates a program.
   """
   def create_program(%Client{} = client, channel_name, program_name, input, options \\ []) do
-    url_path = "/channel/#{URI.encode(channel_name)}/program/#{URI.encode(program_name)}"
+    url_path =
+      "/channel/#{AWS.Util.encode_uri(channel_name)}/program/#{AWS.Util.encode_uri(program_name)}"
+
     headers = []
     query_params = []
 
@@ -83,7 +85,7 @@ defmodule AWS.MediaTailor do
   Creates a source location on a specific channel.
   """
   def create_source_location(%Client{} = client, source_location_name, input, options \\ []) do
-    url_path = "/sourceLocation/#{URI.encode(source_location_name)}"
+    url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}"
     headers = []
     query_params = []
 
@@ -111,7 +113,7 @@ defmodule AWS.MediaTailor do
         options \\ []
       ) do
     url_path =
-      "/sourceLocation/#{URI.encode(source_location_name)}/vodSource/#{URI.encode(vod_source_name)}"
+      "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/vodSource/#{AWS.Util.encode_uri(vod_source_name)}"
 
     headers = []
     query_params = []
@@ -135,7 +137,7 @@ defmodule AWS.MediaTailor do
   You must stop the channel before it can be deleted.
   """
   def delete_channel(%Client{} = client, channel_name, input, options \\ []) do
-    url_path = "/channel/#{URI.encode(channel_name)}"
+    url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
     headers = []
     query_params = []
 
@@ -156,7 +158,7 @@ defmodule AWS.MediaTailor do
   Deletes a channel's IAM policy.
   """
   def delete_channel_policy(%Client{} = client, channel_name, input, options \\ []) do
-    url_path = "/channel/#{URI.encode(channel_name)}/policy"
+    url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
     headers = []
     query_params = []
 
@@ -177,7 +179,7 @@ defmodule AWS.MediaTailor do
   Deletes the playback configuration for the specified name.
   """
   def delete_playback_configuration(%Client{} = client, name, input, options \\ []) do
-    url_path = "/playbackConfiguration/#{URI.encode(name)}"
+    url_path = "/playbackConfiguration/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -198,7 +200,9 @@ defmodule AWS.MediaTailor do
   Deletes a specific program on a specific channel.
   """
   def delete_program(%Client{} = client, channel_name, program_name, input, options \\ []) do
-    url_path = "/channel/#{URI.encode(channel_name)}/program/#{URI.encode(program_name)}"
+    url_path =
+      "/channel/#{AWS.Util.encode_uri(channel_name)}/program/#{AWS.Util.encode_uri(program_name)}"
+
     headers = []
     query_params = []
 
@@ -219,7 +223,7 @@ defmodule AWS.MediaTailor do
   Deletes a source location on a specific channel.
   """
   def delete_source_location(%Client{} = client, source_location_name, input, options \\ []) do
-    url_path = "/sourceLocation/#{URI.encode(source_location_name)}"
+    url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}"
     headers = []
     query_params = []
 
@@ -247,7 +251,7 @@ defmodule AWS.MediaTailor do
         options \\ []
       ) do
     url_path =
-      "/sourceLocation/#{URI.encode(source_location_name)}/vodSource/#{URI.encode(vod_source_name)}"
+      "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/vodSource/#{AWS.Util.encode_uri(vod_source_name)}"
 
     headers = []
     query_params = []
@@ -269,7 +273,7 @@ defmodule AWS.MediaTailor do
   Describes the properties of a specific channel.
   """
   def describe_channel(%Client{} = client, channel_name, options \\ []) do
-    url_path = "/channel/#{URI.encode(channel_name)}"
+    url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
     headers = []
     query_params = []
 
@@ -290,7 +294,9 @@ defmodule AWS.MediaTailor do
   Retrieves the properties of the requested program.
   """
   def describe_program(%Client{} = client, channel_name, program_name, options \\ []) do
-    url_path = "/channel/#{URI.encode(channel_name)}/program/#{URI.encode(program_name)}"
+    url_path =
+      "/channel/#{AWS.Util.encode_uri(channel_name)}/program/#{AWS.Util.encode_uri(program_name)}"
+
     headers = []
     query_params = []
 
@@ -311,7 +317,7 @@ defmodule AWS.MediaTailor do
   Retrieves the properties of the requested source location.
   """
   def describe_source_location(%Client{} = client, source_location_name, options \\ []) do
-    url_path = "/sourceLocation/#{URI.encode(source_location_name)}"
+    url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}"
     headers = []
     query_params = []
 
@@ -338,7 +344,7 @@ defmodule AWS.MediaTailor do
         options \\ []
       ) do
     url_path =
-      "/sourceLocation/#{URI.encode(source_location_name)}/vodSource/#{URI.encode(vod_source_name)}"
+      "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/vodSource/#{AWS.Util.encode_uri(vod_source_name)}"
 
     headers = []
     query_params = []
@@ -360,7 +366,7 @@ defmodule AWS.MediaTailor do
   Retrieves information about a channel's IAM policy.
   """
   def get_channel_policy(%Client{} = client, channel_name, options \\ []) do
-    url_path = "/channel/#{URI.encode(channel_name)}/policy"
+    url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
     headers = []
     query_params = []
 
@@ -388,7 +394,7 @@ defmodule AWS.MediaTailor do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/channel/#{URI.encode(channel_name)}/schedule"
+    url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/schedule"
     headers = []
     query_params = []
 
@@ -430,7 +436,7 @@ defmodule AWS.MediaTailor do
   Returns the playback configuration for the specified name.
   """
   def get_playback_configuration(%Client{} = client, name, options \\ []) do
-    url_path = "/playbackConfiguration/#{URI.encode(name)}"
+    url_path = "/playbackConfiguration/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -621,7 +627,7 @@ defmodule AWS.MediaTailor do
   resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -648,7 +654,7 @@ defmodule AWS.MediaTailor do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/sourceLocation/#{URI.encode(source_location_name)}/vodSources"
+    url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/vodSources"
     headers = []
     query_params = []
 
@@ -683,7 +689,7 @@ defmodule AWS.MediaTailor do
   Creates an IAM policy for the channel.
   """
   def put_channel_policy(%Client{} = client, channel_name, input, options \\ []) do
-    url_path = "/channel/#{URI.encode(channel_name)}/policy"
+    url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
     headers = []
     query_params = []
 
@@ -725,7 +731,7 @@ defmodule AWS.MediaTailor do
   Starts a specific channel.
   """
   def start_channel(%Client{} = client, channel_name, input, options \\ []) do
-    url_path = "/channel/#{URI.encode(channel_name)}/start"
+    url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/start"
     headers = []
     query_params = []
 
@@ -746,7 +752,7 @@ defmodule AWS.MediaTailor do
   Stops a specific channel.
   """
   def stop_channel(%Client{} = client, channel_name, input, options \\ []) do
-    url_path = "/channel/#{URI.encode(channel_name)}/stop"
+    url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/stop"
     headers = []
     query_params = []
 
@@ -769,7 +775,7 @@ defmodule AWS.MediaTailor do
   You can specify one or more tags to add.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -792,7 +798,7 @@ defmodule AWS.MediaTailor do
   You can specify one or more tags to remove.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -818,7 +824,7 @@ defmodule AWS.MediaTailor do
   Updates an existing channel.
   """
   def update_channel(%Client{} = client, channel_name, input, options \\ []) do
-    url_path = "/channel/#{URI.encode(channel_name)}"
+    url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
     headers = []
     query_params = []
 
@@ -839,7 +845,7 @@ defmodule AWS.MediaTailor do
   Updates a source location on a specific channel.
   """
   def update_source_location(%Client{} = client, source_location_name, input, options \\ []) do
-    url_path = "/sourceLocation/#{URI.encode(source_location_name)}"
+    url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}"
     headers = []
     query_params = []
 
@@ -867,7 +873,7 @@ defmodule AWS.MediaTailor do
         options \\ []
       ) do
     url_path =
-      "/sourceLocation/#{URI.encode(source_location_name)}/vodSource/#{URI.encode(vod_source_name)}"
+      "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/vodSource/#{AWS.Util.encode_uri(vod_source_name)}"
 
     headers = []
     query_params = []

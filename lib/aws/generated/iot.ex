@@ -54,7 +54,7 @@ defmodule AWS.IoT do
   your certificates.
   """
   def accept_certificate_transfer(%Client{} = client, certificate_id, input, options \\ []) do
-    url_path = "/accept-certificate-transfer/#{URI.encode(certificate_id)}"
+    url_path = "/accept-certificate-transfer/#{AWS.Util.encode_uri(certificate_id)}"
     headers = []
 
     {query_params, input} =
@@ -132,7 +132,7 @@ defmodule AWS.IoT do
   100.
   """
   def associate_targets_with_job(%Client{} = client, job_id, input, options \\ []) do
-    url_path = "/jobs/#{URI.encode(job_id)}/targets"
+    url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}/targets"
     headers = []
 
     {query_params, input} =
@@ -158,7 +158,7 @@ defmodule AWS.IoT do
   Attaches a policy to the specified target.
   """
   def attach_policy(%Client{} = client, policy_name, input, options \\ []) do
-    url_path = "/target-policies/#{URI.encode(policy_name)}"
+    url_path = "/target-policies/#{AWS.Util.encode_uri(policy_name)}"
     headers = []
     query_params = []
 
@@ -182,7 +182,7 @@ defmodule AWS.IoT do
   **Note:** This API is deprecated. Please use `AttachPolicy` instead.
   """
   def attach_principal_policy(%Client{} = client, policy_name, input, options \\ []) do
-    url_path = "/principal-policies/#{URI.encode(policy_name)}"
+    url_path = "/principal-policies/#{AWS.Util.encode_uri(policy_name)}"
 
     {headers, input} =
       [
@@ -213,7 +213,7 @@ defmodule AWS.IoT do
   with it.
   """
   def attach_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
-    url_path = "/security-profiles/#{URI.encode(security_profile_name)}/targets"
+    url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}/targets"
     headers = []
 
     {query_params, input} =
@@ -242,7 +242,7 @@ defmodule AWS.IoT do
   Cognito identities or federated identities.
   """
   def attach_thing_principal(%Client{} = client, thing_name, input, options \\ []) do
-    url_path = "/things/#{URI.encode(thing_name)}/principals"
+    url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/principals"
 
     {headers, input} =
       [
@@ -271,7 +271,7 @@ defmodule AWS.IoT do
   If the task is not in progress, an InvalidRequestException occurs.
   """
   def cancel_audit_mitigation_actions_task(%Client{} = client, task_id, input, options \\ []) do
-    url_path = "/audit/mitigationactions/tasks/#{URI.encode(task_id)}/cancel"
+    url_path = "/audit/mitigationactions/tasks/#{AWS.Util.encode_uri(task_id)}/cancel"
     headers = []
     query_params = []
 
@@ -295,7 +295,7 @@ defmodule AWS.IoT do
   an "InvalidRequestException" occurs.
   """
   def cancel_audit_task(%Client{} = client, task_id, input, options \\ []) do
-    url_path = "/audit/tasks/#{URI.encode(task_id)}/cancel"
+    url_path = "/audit/tasks/#{AWS.Util.encode_uri(task_id)}/cancel"
     headers = []
     query_params = []
 
@@ -325,7 +325,7 @@ defmodule AWS.IoT do
   from PENDING_TRANSFER to INACTIVE.
   """
   def cancel_certificate_transfer(%Client{} = client, certificate_id, input, options \\ []) do
-    url_path = "/cancel-certificate-transfer/#{URI.encode(certificate_id)}"
+    url_path = "/cancel-certificate-transfer/#{AWS.Util.encode_uri(certificate_id)}"
     headers = []
     query_params = []
 
@@ -346,7 +346,7 @@ defmodule AWS.IoT do
   Cancels a Device Defender ML Detect mitigation action.
   """
   def cancel_detect_mitigation_actions_task(%Client{} = client, task_id, input, options \\ []) do
-    url_path = "/detect/mitigationactions/tasks/#{URI.encode(task_id)}/cancel"
+    url_path = "/detect/mitigationactions/tasks/#{AWS.Util.encode_uri(task_id)}/cancel"
     headers = []
     query_params = []
 
@@ -367,7 +367,7 @@ defmodule AWS.IoT do
   Cancels a job.
   """
   def cancel_job(%Client{} = client, job_id, input, options \\ []) do
-    url_path = "/jobs/#{URI.encode(job_id)}/cancel"
+    url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}/cancel"
     headers = []
 
     {query_params, input} =
@@ -393,7 +393,9 @@ defmodule AWS.IoT do
   Cancels the execution of a job for a given thing.
   """
   def cancel_job_execution(%Client{} = client, job_id, thing_name, input, options \\ []) do
-    url_path = "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}/cancel"
+    url_path =
+      "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/#{AWS.Util.encode_uri(job_id)}/cancel"
+
     headers = []
 
     {query_params, input} =
@@ -445,7 +447,7 @@ defmodule AWS.IoT do
   that you own or have access to the endpoint.
   """
   def confirm_topic_rule_destination(%Client{} = client, confirmation_token, options \\ []) do
-    url_path = "/confirmdestination/#{AWS.Util.encode_uri(confirmation_token, true)}"
+    url_path = "/confirmdestination/#{AWS.Util.encode_multi_segment_uri(confirmation_token)}"
     headers = []
     query_params = []
 
@@ -487,7 +489,7 @@ defmodule AWS.IoT do
   Creates an authorizer.
   """
   def create_authorizer(%Client{} = client, authorizer_name, input, options \\ []) do
-    url_path = "/authorizer/#{URI.encode(authorizer_name)}"
+    url_path = "/authorizer/#{AWS.Util.encode_uri(authorizer_name)}"
     headers = []
     query_params = []
 
@@ -508,7 +510,7 @@ defmodule AWS.IoT do
   Creates a billing group.
   """
   def create_billing_group(%Client{} = client, billing_group_name, input, options \\ []) do
-    url_path = "/billing-groups/#{URI.encode(billing_group_name)}"
+    url_path = "/billing-groups/#{AWS.Util.encode_uri(billing_group_name)}"
     headers = []
     query_params = []
 
@@ -596,7 +598,7 @@ defmodule AWS.IoT do
   Defender.
   """
   def create_custom_metric(%Client{} = client, metric_name, input, options \\ []) do
-    url_path = "/custom-metric/#{URI.encode(metric_name)}"
+    url_path = "/custom-metric/#{AWS.Util.encode_uri(metric_name)}"
     headers = []
     query_params = []
 
@@ -622,7 +624,7 @@ defmodule AWS.IoT do
   dimension.
   """
   def create_dimension(%Client{} = client, name, input, options \\ []) do
-    url_path = "/dimensions/#{URI.encode(name)}"
+    url_path = "/dimensions/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -648,7 +650,7 @@ defmodule AWS.IoT do
         input,
         options \\ []
       ) do
-    url_path = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
+    url_path = "/domainConfigurations/#{AWS.Util.encode_uri(domain_configuration_name)}"
     headers = []
     query_params = []
 
@@ -669,7 +671,7 @@ defmodule AWS.IoT do
   Creates a dynamic thing group.
   """
   def create_dynamic_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
-    url_path = "/dynamic-thing-groups/#{URI.encode(thing_group_name)}"
+    url_path = "/dynamic-thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
     headers = []
     query_params = []
 
@@ -690,7 +692,7 @@ defmodule AWS.IoT do
   Creates a job.
   """
   def create_job(%Client{} = client, job_id, input, options \\ []) do
-    url_path = "/jobs/#{URI.encode(job_id)}"
+    url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
     query_params = []
 
@@ -711,7 +713,7 @@ defmodule AWS.IoT do
   Creates a job template.
   """
   def create_job_template(%Client{} = client, job_template_id, input, options \\ []) do
-    url_path = "/job-templates/#{URI.encode(job_template_id)}"
+    url_path = "/job-templates/#{AWS.Util.encode_uri(job_template_id)}"
     headers = []
     query_params = []
 
@@ -770,7 +772,7 @@ defmodule AWS.IoT do
   Each mitigation action can apply only one type of change.
   """
   def create_mitigation_action(%Client{} = client, action_name, input, options \\ []) do
-    url_path = "/mitigationactions/actions/#{URI.encode(action_name)}"
+    url_path = "/mitigationactions/actions/#{AWS.Util.encode_uri(action_name)}"
     headers = []
     query_params = []
 
@@ -791,7 +793,7 @@ defmodule AWS.IoT do
   Creates an AWS IoT OTAUpdate on a target group of things or groups.
   """
   def create_ota_update(%Client{} = client, ota_update_id, input, options \\ []) do
-    url_path = "/otaUpdates/#{URI.encode(ota_update_id)}"
+    url_path = "/otaUpdates/#{AWS.Util.encode_uri(ota_update_id)}"
     headers = []
     query_params = []
 
@@ -816,7 +818,7 @@ defmodule AWS.IoT do
   policy's default version.
   """
   def create_policy(%Client{} = client, policy_name, input, options \\ []) do
-    url_path = "/policies/#{URI.encode(policy_name)}"
+    url_path = "/policies/#{AWS.Util.encode_uri(policy_name)}"
     headers = []
     query_params = []
 
@@ -845,7 +847,7 @@ defmodule AWS.IoT do
   for the certificates to which the policy is attached).
   """
   def create_policy_version(%Client{} = client, policy_name, input, options \\ []) do
-    url_path = "/policies/#{URI.encode(policy_name)}/version"
+    url_path = "/policies/#{AWS.Util.encode_uri(policy_name)}/version"
     headers = []
 
     {query_params, input} =
@@ -871,7 +873,7 @@ defmodule AWS.IoT do
   Creates a provisioning claim.
   """
   def create_provisioning_claim(%Client{} = client, template_name, input, options \\ []) do
-    url_path = "/provisioning-templates/#{URI.encode(template_name)}/provisioning-claim"
+    url_path = "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}/provisioning-claim"
     headers = []
     query_params = []
 
@@ -918,7 +920,7 @@ defmodule AWS.IoT do
         input,
         options \\ []
       ) do
-    url_path = "/provisioning-templates/#{URI.encode(template_name)}/versions"
+    url_path = "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}/versions"
     headers = []
 
     {query_params, input} =
@@ -944,7 +946,7 @@ defmodule AWS.IoT do
   Creates a role alias.
   """
   def create_role_alias(%Client{} = client, role_alias, input, options \\ []) do
-    url_path = "/role-aliases/#{URI.encode(role_alias)}"
+    url_path = "/role-aliases/#{AWS.Util.encode_uri(role_alias)}"
     headers = []
     query_params = []
 
@@ -965,7 +967,7 @@ defmodule AWS.IoT do
   Creates a scheduled audit that is run at a specified time interval.
   """
   def create_scheduled_audit(%Client{} = client, scheduled_audit_name, input, options \\ []) do
-    url_path = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
+    url_path = "/audit/scheduledaudits/#{AWS.Util.encode_uri(scheduled_audit_name)}"
     headers = []
     query_params = []
 
@@ -986,7 +988,7 @@ defmodule AWS.IoT do
   Creates a Device Defender security profile.
   """
   def create_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
-    url_path = "/security-profiles/#{URI.encode(security_profile_name)}"
+    url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}"
     headers = []
     query_params = []
 
@@ -1010,7 +1012,7 @@ defmodule AWS.IoT do
   from a source like S3. You can have one or more files associated with a stream.
   """
   def create_stream(%Client{} = client, stream_id, input, options \\ []) do
-    url_path = "/streams/#{URI.encode(stream_id)}"
+    url_path = "/streams/#{AWS.Util.encode_uri(stream_id)}"
     headers = []
     query_params = []
 
@@ -1039,7 +1041,7 @@ defmodule AWS.IoT do
   for information about authorizing control plane actions.
   """
   def create_thing(%Client{} = client, thing_name, input, options \\ []) do
-    url_path = "/things/#{URI.encode(thing_name)}"
+    url_path = "/things/#{AWS.Util.encode_uri(thing_name)}"
     headers = []
     query_params = []
 
@@ -1064,7 +1066,7 @@ defmodule AWS.IoT do
   for information about authorizing control plane actions.
   """
   def create_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
-    url_path = "/thing-groups/#{URI.encode(thing_group_name)}"
+    url_path = "/thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
     headers = []
     query_params = []
 
@@ -1085,7 +1087,7 @@ defmodule AWS.IoT do
   Creates a new thing type.
   """
   def create_thing_type(%Client{} = client, thing_type_name, input, options \\ []) do
-    url_path = "/thing-types/#{URI.encode(thing_type_name)}"
+    url_path = "/thing-types/#{AWS.Util.encode_uri(thing_type_name)}"
     headers = []
     query_params = []
 
@@ -1109,7 +1111,7 @@ defmodule AWS.IoT do
   create rules will be able to access data processed by the rule.
   """
   def create_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
-    url_path = "/rules/#{URI.encode(rule_name)}"
+    url_path = "/rules/#{AWS.Util.encode_uri(rule_name)}"
 
     {headers, input} =
       [
@@ -1209,7 +1211,7 @@ defmodule AWS.IoT do
   Deletes an authorizer.
   """
   def delete_authorizer(%Client{} = client, authorizer_name, input, options \\ []) do
-    url_path = "/authorizer/#{URI.encode(authorizer_name)}"
+    url_path = "/authorizer/#{AWS.Util.encode_uri(authorizer_name)}"
     headers = []
     query_params = []
 
@@ -1230,7 +1232,7 @@ defmodule AWS.IoT do
   Deletes the billing group.
   """
   def delete_billing_group(%Client{} = client, billing_group_name, input, options \\ []) do
-    url_path = "/billing-groups/#{URI.encode(billing_group_name)}"
+    url_path = "/billing-groups/#{AWS.Util.encode_uri(billing_group_name)}"
     headers = []
 
     {query_params, input} =
@@ -1256,7 +1258,7 @@ defmodule AWS.IoT do
   Deletes a registered CA certificate.
   """
   def delete_ca_certificate(%Client{} = client, certificate_id, input, options \\ []) do
-    url_path = "/cacertificate/#{URI.encode(certificate_id)}"
+    url_path = "/cacertificate/#{AWS.Util.encode_uri(certificate_id)}"
     headers = []
     query_params = []
 
@@ -1282,7 +1284,7 @@ defmodule AWS.IoT do
   `UpdateCertificate` API to set the certificate to the INACTIVE status.
   """
   def delete_certificate(%Client{} = client, certificate_id, input, options \\ []) do
-    url_path = "/certificates/#{URI.encode(certificate_id)}"
+    url_path = "/certificates/#{AWS.Util.encode_uri(certificate_id)}"
     headers = []
 
     {query_params, input} =
@@ -1315,7 +1317,7 @@ defmodule AWS.IoT do
   Deletes a Device Defender detect custom metric.
   """
   def delete_custom_metric(%Client{} = client, metric_name, input, options \\ []) do
-    url_path = "/custom-metric/#{URI.encode(metric_name)}"
+    url_path = "/custom-metric/#{AWS.Util.encode_uri(metric_name)}"
     headers = []
     query_params = []
 
@@ -1336,7 +1338,7 @@ defmodule AWS.IoT do
   Removes the specified dimension from your AWS account.
   """
   def delete_dimension(%Client{} = client, name, input, options \\ []) do
-    url_path = "/dimensions/#{URI.encode(name)}"
+    url_path = "/dimensions/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -1362,7 +1364,7 @@ defmodule AWS.IoT do
         input,
         options \\ []
       ) do
-    url_path = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
+    url_path = "/domainConfigurations/#{AWS.Util.encode_uri(domain_configuration_name)}"
     headers = []
     query_params = []
 
@@ -1383,7 +1385,7 @@ defmodule AWS.IoT do
   Deletes a dynamic thing group.
   """
   def delete_dynamic_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
-    url_path = "/dynamic-thing-groups/#{URI.encode(thing_group_name)}"
+    url_path = "/dynamic-thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
     headers = []
 
     {query_params, input} =
@@ -1418,7 +1420,7 @@ defmodule AWS.IoT do
   LimitExceededException will occur.
   """
   def delete_job(%Client{} = client, job_id, input, options \\ []) do
-    url_path = "/jobs/#{URI.encode(job_id)}"
+    url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
 
     {query_params, input} =
@@ -1453,7 +1455,7 @@ defmodule AWS.IoT do
         options \\ []
       ) do
     url_path =
-      "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}/executionNumber/#{URI.encode(execution_number)}"
+      "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/#{AWS.Util.encode_uri(job_id)}/executionNumber/#{AWS.Util.encode_uri(execution_number)}"
 
     headers = []
 
@@ -1481,7 +1483,7 @@ defmodule AWS.IoT do
   Deletes the specified job template.
   """
   def delete_job_template(%Client{} = client, job_template_id, input, options \\ []) do
-    url_path = "/job-templates/#{URI.encode(job_template_id)}"
+    url_path = "/job-templates/#{AWS.Util.encode_uri(job_template_id)}"
     headers = []
     query_params = []
 
@@ -1502,7 +1504,7 @@ defmodule AWS.IoT do
   Deletes a defined mitigation action from your AWS account.
   """
   def delete_mitigation_action(%Client{} = client, action_name, input, options \\ []) do
-    url_path = "/mitigationactions/actions/#{URI.encode(action_name)}"
+    url_path = "/mitigationactions/actions/#{AWS.Util.encode_uri(action_name)}"
     headers = []
     query_params = []
 
@@ -1523,7 +1525,7 @@ defmodule AWS.IoT do
   Delete an OTA update.
   """
   def delete_ota_update(%Client{} = client, ota_update_id, input, options \\ []) do
-    url_path = "/otaUpdates/#{URI.encode(ota_update_id)}"
+    url_path = "/otaUpdates/#{AWS.Util.encode_uri(ota_update_id)}"
     headers = []
 
     {query_params, input} =
@@ -1560,7 +1562,7 @@ defmodule AWS.IoT do
   it.
   """
   def delete_policy(%Client{} = client, policy_name, input, options \\ []) do
-    url_path = "/policies/#{URI.encode(policy_name)}"
+    url_path = "/policies/#{AWS.Util.encode_uri(policy_name)}"
     headers = []
     query_params = []
 
@@ -1591,7 +1593,9 @@ defmodule AWS.IoT do
         input,
         options \\ []
       ) do
-    url_path = "/policies/#{URI.encode(policy_name)}/version/#{URI.encode(policy_version_id)}"
+    url_path =
+      "/policies/#{AWS.Util.encode_uri(policy_name)}/version/#{AWS.Util.encode_uri(policy_version_id)}"
+
     headers = []
     query_params = []
 
@@ -1612,7 +1616,7 @@ defmodule AWS.IoT do
   Deletes a fleet provisioning template.
   """
   def delete_provisioning_template(%Client{} = client, template_name, input, options \\ []) do
-    url_path = "/provisioning-templates/#{URI.encode(template_name)}"
+    url_path = "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}"
     headers = []
     query_params = []
 
@@ -1640,7 +1644,7 @@ defmodule AWS.IoT do
         options \\ []
       ) do
     url_path =
-      "/provisioning-templates/#{URI.encode(template_name)}/versions/#{URI.encode(version_id)}"
+      "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}/versions/#{AWS.Util.encode_uri(version_id)}"
 
     headers = []
     query_params = []
@@ -1683,7 +1687,7 @@ defmodule AWS.IoT do
   Deletes a role alias
   """
   def delete_role_alias(%Client{} = client, role_alias, input, options \\ []) do
-    url_path = "/role-aliases/#{URI.encode(role_alias)}"
+    url_path = "/role-aliases/#{AWS.Util.encode_uri(role_alias)}"
     headers = []
     query_params = []
 
@@ -1704,7 +1708,7 @@ defmodule AWS.IoT do
   Deletes a scheduled audit.
   """
   def delete_scheduled_audit(%Client{} = client, scheduled_audit_name, input, options \\ []) do
-    url_path = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
+    url_path = "/audit/scheduledaudits/#{AWS.Util.encode_uri(scheduled_audit_name)}"
     headers = []
     query_params = []
 
@@ -1725,7 +1729,7 @@ defmodule AWS.IoT do
   Deletes a Device Defender security profile.
   """
   def delete_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
-    url_path = "/security-profiles/#{URI.encode(security_profile_name)}"
+    url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}"
     headers = []
 
     {query_params, input} =
@@ -1751,7 +1755,7 @@ defmodule AWS.IoT do
   Deletes a stream.
   """
   def delete_stream(%Client{} = client, stream_id, input, options \\ []) do
-    url_path = "/streams/#{URI.encode(stream_id)}"
+    url_path = "/streams/#{AWS.Util.encode_uri(stream_id)}"
     headers = []
     query_params = []
 
@@ -1775,7 +1779,7 @@ defmodule AWS.IoT do
   a thing that doesn't exist.
   """
   def delete_thing(%Client{} = client, thing_name, input, options \\ []) do
-    url_path = "/things/#{URI.encode(thing_name)}"
+    url_path = "/things/#{AWS.Util.encode_uri(thing_name)}"
     headers = []
 
     {query_params, input} =
@@ -1801,7 +1805,7 @@ defmodule AWS.IoT do
   Deletes a thing group.
   """
   def delete_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
-    url_path = "/thing-groups/#{URI.encode(thing_group_name)}"
+    url_path = "/thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
     headers = []
 
     {query_params, input} =
@@ -1833,7 +1837,7 @@ defmodule AWS.IoT do
   type.
   """
   def delete_thing_type(%Client{} = client, thing_type_name, input, options \\ []) do
-    url_path = "/thing-types/#{URI.encode(thing_type_name)}"
+    url_path = "/thing-types/#{AWS.Util.encode_uri(thing_type_name)}"
     headers = []
     query_params = []
 
@@ -1854,7 +1858,7 @@ defmodule AWS.IoT do
   Deletes the rule.
   """
   def delete_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
-    url_path = "/rules/#{URI.encode(rule_name)}"
+    url_path = "/rules/#{AWS.Util.encode_uri(rule_name)}"
     headers = []
     query_params = []
 
@@ -1875,7 +1879,7 @@ defmodule AWS.IoT do
   Deletes a topic rule destination.
   """
   def delete_topic_rule_destination(%Client{} = client, arn, input, options \\ []) do
-    url_path = "/destinations/#{AWS.Util.encode_uri(arn, true)}"
+    url_path = "/destinations/#{AWS.Util.encode_multi_segment_uri(arn)}"
     headers = []
     query_params = []
 
@@ -1925,7 +1929,7 @@ defmodule AWS.IoT do
   You can not associate new things with deprecated thing type.
   """
   def deprecate_thing_type(%Client{} = client, thing_type_name, input, options \\ []) do
-    url_path = "/thing-types/#{URI.encode(thing_type_name)}/deprecate"
+    url_path = "/thing-types/#{AWS.Util.encode_uri(thing_type_name)}/deprecate"
     headers = []
     query_params = []
 
@@ -1973,7 +1977,7 @@ defmodule AWS.IoT do
   the start time when the audit that returned the finding.
   """
   def describe_audit_finding(%Client{} = client, finding_id, options \\ []) do
-    url_path = "/audit/findings/#{URI.encode(finding_id)}"
+    url_path = "/audit/findings/#{AWS.Util.encode_uri(finding_id)}"
     headers = []
     query_params = []
 
@@ -1998,7 +2002,7 @@ defmodule AWS.IoT do
   being applied, the task status, and aggregated task statistics.
   """
   def describe_audit_mitigation_actions_task(%Client{} = client, task_id, options \\ []) do
-    url_path = "/audit/mitigationactions/tasks/#{URI.encode(task_id)}"
+    url_path = "/audit/mitigationactions/tasks/#{AWS.Util.encode_uri(task_id)}"
     headers = []
     query_params = []
 
@@ -2040,7 +2044,7 @@ defmodule AWS.IoT do
   Gets information about a Device Defender audit.
   """
   def describe_audit_task(%Client{} = client, task_id, options \\ []) do
-    url_path = "/audit/tasks/#{URI.encode(task_id)}"
+    url_path = "/audit/tasks/#{AWS.Util.encode_uri(task_id)}"
     headers = []
     query_params = []
 
@@ -2061,7 +2065,7 @@ defmodule AWS.IoT do
   Describes an authorizer.
   """
   def describe_authorizer(%Client{} = client, authorizer_name, options \\ []) do
-    url_path = "/authorizer/#{URI.encode(authorizer_name)}"
+    url_path = "/authorizer/#{AWS.Util.encode_uri(authorizer_name)}"
     headers = []
     query_params = []
 
@@ -2082,7 +2086,7 @@ defmodule AWS.IoT do
   Returns information about a billing group.
   """
   def describe_billing_group(%Client{} = client, billing_group_name, options \\ []) do
-    url_path = "/billing-groups/#{URI.encode(billing_group_name)}"
+    url_path = "/billing-groups/#{AWS.Util.encode_uri(billing_group_name)}"
     headers = []
     query_params = []
 
@@ -2103,7 +2107,7 @@ defmodule AWS.IoT do
   Describes a registered CA certificate.
   """
   def describe_ca_certificate(%Client{} = client, certificate_id, options \\ []) do
-    url_path = "/cacertificate/#{URI.encode(certificate_id)}"
+    url_path = "/cacertificate/#{AWS.Util.encode_uri(certificate_id)}"
     headers = []
     query_params = []
 
@@ -2124,7 +2128,7 @@ defmodule AWS.IoT do
   Gets information about the specified certificate.
   """
   def describe_certificate(%Client{} = client, certificate_id, options \\ []) do
-    url_path = "/certificates/#{URI.encode(certificate_id)}"
+    url_path = "/certificates/#{AWS.Util.encode_uri(certificate_id)}"
     headers = []
     query_params = []
 
@@ -2145,7 +2149,7 @@ defmodule AWS.IoT do
   Gets information about a Device Defender detect custom metric.
   """
   def describe_custom_metric(%Client{} = client, metric_name, options \\ []) do
-    url_path = "/custom-metric/#{URI.encode(metric_name)}"
+    url_path = "/custom-metric/#{AWS.Util.encode_uri(metric_name)}"
     headers = []
     query_params = []
 
@@ -2187,7 +2191,7 @@ defmodule AWS.IoT do
   Gets information about a Device Defender ML Detect mitigation action.
   """
   def describe_detect_mitigation_actions_task(%Client{} = client, task_id, options \\ []) do
-    url_path = "/detect/mitigationactions/tasks/#{URI.encode(task_id)}"
+    url_path = "/detect/mitigationactions/tasks/#{AWS.Util.encode_uri(task_id)}"
     headers = []
     query_params = []
 
@@ -2208,7 +2212,7 @@ defmodule AWS.IoT do
   Provides details about a dimension that is defined in your AWS account.
   """
   def describe_dimension(%Client{} = client, name, options \\ []) do
-    url_path = "/dimensions/#{URI.encode(name)}"
+    url_path = "/dimensions/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -2229,7 +2233,7 @@ defmodule AWS.IoT do
   Gets summary information about a domain configuration.
   """
   def describe_domain_configuration(%Client{} = client, domain_configuration_name, options \\ []) do
-    url_path = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
+    url_path = "/domainConfigurations/#{AWS.Util.encode_uri(domain_configuration_name)}"
     headers = []
     query_params = []
 
@@ -2299,7 +2303,7 @@ defmodule AWS.IoT do
   Describes a search index.
   """
   def describe_index(%Client{} = client, index_name, options \\ []) do
-    url_path = "/indices/#{URI.encode(index_name)}"
+    url_path = "/indices/#{AWS.Util.encode_uri(index_name)}"
     headers = []
     query_params = []
 
@@ -2320,7 +2324,7 @@ defmodule AWS.IoT do
   Describes a job.
   """
   def describe_job(%Client{} = client, job_id, options \\ []) do
-    url_path = "/jobs/#{URI.encode(job_id)}"
+    url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
     query_params = []
 
@@ -2347,7 +2351,7 @@ defmodule AWS.IoT do
         execution_number \\ nil,
         options \\ []
       ) do
-    url_path = "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}"
+    url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
     query_params = []
 
@@ -2375,7 +2379,7 @@ defmodule AWS.IoT do
   Returns information about a job template.
   """
   def describe_job_template(%Client{} = client, job_template_id, options \\ []) do
-    url_path = "/job-templates/#{URI.encode(job_template_id)}"
+    url_path = "/job-templates/#{AWS.Util.encode_uri(job_template_id)}"
     headers = []
     query_params = []
 
@@ -2396,7 +2400,7 @@ defmodule AWS.IoT do
   Gets information about a mitigation action.
   """
   def describe_mitigation_action(%Client{} = client, action_name, options \\ []) do
-    url_path = "/mitigationactions/actions/#{URI.encode(action_name)}"
+    url_path = "/mitigationactions/actions/#{AWS.Util.encode_uri(action_name)}"
     headers = []
     query_params = []
 
@@ -2417,7 +2421,7 @@ defmodule AWS.IoT do
   Returns information about a fleet provisioning template.
   """
   def describe_provisioning_template(%Client{} = client, template_name, options \\ []) do
-    url_path = "/provisioning-templates/#{URI.encode(template_name)}"
+    url_path = "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}"
     headers = []
     query_params = []
 
@@ -2444,7 +2448,7 @@ defmodule AWS.IoT do
         options \\ []
       ) do
     url_path =
-      "/provisioning-templates/#{URI.encode(template_name)}/versions/#{URI.encode(version_id)}"
+      "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}/versions/#{AWS.Util.encode_uri(version_id)}"
 
     headers = []
     query_params = []
@@ -2466,7 +2470,7 @@ defmodule AWS.IoT do
   Describes a role alias.
   """
   def describe_role_alias(%Client{} = client, role_alias, options \\ []) do
-    url_path = "/role-aliases/#{URI.encode(role_alias)}"
+    url_path = "/role-aliases/#{AWS.Util.encode_uri(role_alias)}"
     headers = []
     query_params = []
 
@@ -2487,7 +2491,7 @@ defmodule AWS.IoT do
   Gets information about a scheduled audit.
   """
   def describe_scheduled_audit(%Client{} = client, scheduled_audit_name, options \\ []) do
-    url_path = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
+    url_path = "/audit/scheduledaudits/#{AWS.Util.encode_uri(scheduled_audit_name)}"
     headers = []
     query_params = []
 
@@ -2508,7 +2512,7 @@ defmodule AWS.IoT do
   Gets information about a Device Defender security profile.
   """
   def describe_security_profile(%Client{} = client, security_profile_name, options \\ []) do
-    url_path = "/security-profiles/#{URI.encode(security_profile_name)}"
+    url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}"
     headers = []
     query_params = []
 
@@ -2529,7 +2533,7 @@ defmodule AWS.IoT do
   Gets information about a stream.
   """
   def describe_stream(%Client{} = client, stream_id, options \\ []) do
-    url_path = "/streams/#{URI.encode(stream_id)}"
+    url_path = "/streams/#{AWS.Util.encode_uri(stream_id)}"
     headers = []
     query_params = []
 
@@ -2550,7 +2554,7 @@ defmodule AWS.IoT do
   Gets information about the specified thing.
   """
   def describe_thing(%Client{} = client, thing_name, options \\ []) do
-    url_path = "/things/#{URI.encode(thing_name)}"
+    url_path = "/things/#{AWS.Util.encode_uri(thing_name)}"
     headers = []
     query_params = []
 
@@ -2571,7 +2575,7 @@ defmodule AWS.IoT do
   Describe a thing group.
   """
   def describe_thing_group(%Client{} = client, thing_group_name, options \\ []) do
-    url_path = "/thing-groups/#{URI.encode(thing_group_name)}"
+    url_path = "/thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
     headers = []
     query_params = []
 
@@ -2592,7 +2596,7 @@ defmodule AWS.IoT do
   Describes a bulk thing provisioning task.
   """
   def describe_thing_registration_task(%Client{} = client, task_id, options \\ []) do
-    url_path = "/thing-registration-tasks/#{URI.encode(task_id)}"
+    url_path = "/thing-registration-tasks/#{AWS.Util.encode_uri(task_id)}"
     headers = []
     query_params = []
 
@@ -2613,7 +2617,7 @@ defmodule AWS.IoT do
   Gets information about the specified thing type.
   """
   def describe_thing_type(%Client{} = client, thing_type_name, options \\ []) do
-    url_path = "/thing-types/#{URI.encode(thing_type_name)}"
+    url_path = "/thing-types/#{AWS.Util.encode_uri(thing_type_name)}"
     headers = []
     query_params = []
 
@@ -2634,7 +2638,7 @@ defmodule AWS.IoT do
   Detaches a policy from the specified target.
   """
   def detach_policy(%Client{} = client, policy_name, input, options \\ []) do
-    url_path = "/target-policies/#{URI.encode(policy_name)}"
+    url_path = "/target-policies/#{AWS.Util.encode_uri(policy_name)}"
     headers = []
     query_params = []
 
@@ -2657,7 +2661,7 @@ defmodule AWS.IoT do
   **Note:** This API is deprecated. Please use `DetachPolicy` instead.
   """
   def detach_principal_policy(%Client{} = client, policy_name, input, options \\ []) do
-    url_path = "/principal-policies/#{URI.encode(policy_name)}"
+    url_path = "/principal-policies/#{AWS.Util.encode_uri(policy_name)}"
 
     {headers, input} =
       [
@@ -2685,7 +2689,7 @@ defmodule AWS.IoT do
   account.
   """
   def detach_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
-    url_path = "/security-profiles/#{URI.encode(security_profile_name)}/targets"
+    url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}/targets"
     headers = []
 
     {query_params, input} =
@@ -2717,7 +2721,7 @@ defmodule AWS.IoT do
   propagate.
   """
   def detach_thing_principal(%Client{} = client, thing_name, input, options \\ []) do
-    url_path = "/things/#{URI.encode(thing_name)}/principals"
+    url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/principals"
 
     {headers, input} =
       [
@@ -2744,7 +2748,7 @@ defmodule AWS.IoT do
   Disables the rule.
   """
   def disable_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
-    url_path = "/rules/#{URI.encode(rule_name)}/disable"
+    url_path = "/rules/#{AWS.Util.encode_uri(rule_name)}/disable"
     headers = []
     query_params = []
 
@@ -2765,7 +2769,7 @@ defmodule AWS.IoT do
   Enables the rule.
   """
   def enable_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
-    url_path = "/rules/#{URI.encode(rule_name)}/enable"
+    url_path = "/rules/#{AWS.Util.encode_uri(rule_name)}/enable"
     headers = []
     query_params = []
 
@@ -2903,7 +2907,7 @@ defmodule AWS.IoT do
   Gets a job document.
   """
   def get_job_document(%Client{} = client, job_id, options \\ []) do
-    url_path = "/jobs/#{URI.encode(job_id)}/job-document"
+    url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}/job-document"
     headers = []
     query_params = []
 
@@ -2947,7 +2951,7 @@ defmodule AWS.IoT do
   Gets an OTA update.
   """
   def get_ota_update(%Client{} = client, ota_update_id, options \\ []) do
-    url_path = "/otaUpdates/#{URI.encode(ota_update_id)}"
+    url_path = "/otaUpdates/#{AWS.Util.encode_uri(ota_update_id)}"
     headers = []
     query_params = []
 
@@ -3000,7 +3004,7 @@ defmodule AWS.IoT do
   default version.
   """
   def get_policy(%Client{} = client, policy_name, options \\ []) do
-    url_path = "/policies/#{URI.encode(policy_name)}"
+    url_path = "/policies/#{AWS.Util.encode_uri(policy_name)}"
     headers = []
     query_params = []
 
@@ -3021,7 +3025,9 @@ defmodule AWS.IoT do
   Gets information about the specified policy version.
   """
   def get_policy_version(%Client{} = client, policy_name, policy_version_id, options \\ []) do
-    url_path = "/policies/#{URI.encode(policy_name)}/version/#{URI.encode(policy_version_id)}"
+    url_path =
+      "/policies/#{AWS.Util.encode_uri(policy_name)}/version/#{AWS.Util.encode_uri(policy_version_id)}"
+
     headers = []
     query_params = []
 
@@ -3088,7 +3094,7 @@ defmodule AWS.IoT do
   Gets information about the rule.
   """
   def get_topic_rule(%Client{} = client, rule_name, options \\ []) do
-    url_path = "/rules/#{URI.encode(rule_name)}"
+    url_path = "/rules/#{AWS.Util.encode_uri(rule_name)}"
     headers = []
     query_params = []
 
@@ -3109,7 +3115,7 @@ defmodule AWS.IoT do
   Gets information about a topic rule destination.
   """
   def get_topic_rule_destination(%Client{} = client, arn, options \\ []) do
-    url_path = "/destinations/#{AWS.Util.encode_uri(arn, true)}"
+    url_path = "/destinations/#{AWS.Util.encode_multi_segment_uri(arn)}"
     headers = []
     query_params = []
 
@@ -3223,7 +3229,7 @@ defmodule AWS.IoT do
   Lists the policies attached to the specified thing group.
   """
   def list_attached_policies(%Client{} = client, target, input, options \\ []) do
-    url_path = "/attached-policies/#{URI.encode(target)}"
+    url_path = "/attached-policies/#{AWS.Util.encode_uri(target)}"
     headers = []
 
     {query_params, input} =
@@ -3726,7 +3732,7 @@ defmodule AWS.IoT do
         page_size \\ nil,
         options \\ []
       ) do
-    url_path = "/certificates-by-ca/#{URI.encode(ca_certificate_id)}"
+    url_path = "/certificates-by-ca/#{AWS.Util.encode_uri(ca_certificate_id)}"
     headers = []
     query_params = []
 
@@ -4072,7 +4078,7 @@ defmodule AWS.IoT do
         status \\ nil,
         options \\ []
       ) do
-    url_path = "/jobs/#{URI.encode(job_id)}/things"
+    url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}/things"
     headers = []
     query_params = []
 
@@ -4122,7 +4128,7 @@ defmodule AWS.IoT do
         status \\ nil,
         options \\ []
       ) do
-    url_path = "/things/#{URI.encode(thing_name)}/jobs"
+    url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs"
     headers = []
     query_params = []
 
@@ -4537,7 +4543,7 @@ defmodule AWS.IoT do
   Lists the versions of the specified policy and identifies the default version.
   """
   def list_policy_versions(%Client{} = client, policy_name, options \\ []) do
-    url_path = "/policies/#{URI.encode(policy_name)}/version"
+    url_path = "/policies/#{AWS.Util.encode_uri(policy_name)}/version"
     headers = []
     query_params = []
 
@@ -4677,7 +4683,7 @@ defmodule AWS.IoT do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/provisioning-templates/#{URI.encode(template_name)}/versions"
+    url_path = "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}/versions"
     headers = []
     query_params = []
 
@@ -5039,7 +5045,7 @@ defmodule AWS.IoT do
   List targets for the specified policy.
   """
   def list_targets_for_policy(%Client{} = client, policy_name, input, options \\ []) do
-    url_path = "/policy-targets/#{URI.encode(policy_name)}"
+    url_path = "/policy-targets/#{AWS.Util.encode_uri(policy_name)}"
     headers = []
 
     {query_params, input} =
@@ -5073,7 +5079,7 @@ defmodule AWS.IoT do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/security-profiles/#{URI.encode(security_profile_name)}/targets"
+    url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}/targets"
     headers = []
     query_params = []
 
@@ -5178,7 +5184,7 @@ defmodule AWS.IoT do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/things/#{URI.encode(thing_name)}/thing-groups"
+    url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/thing-groups"
     headers = []
     query_params = []
 
@@ -5222,7 +5228,7 @@ defmodule AWS.IoT do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/things/#{URI.encode(thing_name)}/principals"
+    url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/principals"
     headers = []
     query_params = []
 
@@ -5264,7 +5270,7 @@ defmodule AWS.IoT do
         report_type,
         options \\ []
       ) do
-    url_path = "/thing-registration-tasks/#{URI.encode(task_id)}/reports"
+    url_path = "/thing-registration-tasks/#{AWS.Util.encode_uri(task_id)}/reports"
     headers = []
     query_params = []
 
@@ -5489,7 +5495,7 @@ defmodule AWS.IoT do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/billing-groups/#{URI.encode(billing_group_name)}/things"
+    url_path = "/billing-groups/#{AWS.Util.encode_uri(billing_group_name)}/things"
     headers = []
     query_params = []
 
@@ -5531,7 +5537,7 @@ defmodule AWS.IoT do
         recursive \\ nil,
         options \\ []
       ) do
-    url_path = "/thing-groups/#{URI.encode(thing_group_name)}/things"
+    url_path = "/thing-groups/#{AWS.Util.encode_uri(thing_group_name)}/things"
     headers = []
     query_params = []
 
@@ -5930,7 +5936,7 @@ defmodule AWS.IoT do
   state.
   """
   def reject_certificate_transfer(%Client{} = client, certificate_id, input, options \\ []) do
-    url_path = "/reject-certificate-transfer/#{URI.encode(certificate_id)}"
+    url_path = "/reject-certificate-transfer/#{AWS.Util.encode_uri(certificate_id)}"
     headers = []
     query_params = []
 
@@ -6001,7 +6007,7 @@ defmodule AWS.IoT do
   able to access data processed by the rule.
   """
   def replace_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
-    url_path = "/rules/#{URI.encode(rule_name)}"
+    url_path = "/rules/#{AWS.Util.encode_uri(rule_name)}"
     headers = []
     query_params = []
 
@@ -6077,7 +6083,9 @@ defmodule AWS.IoT do
         input,
         options \\ []
       ) do
-    url_path = "/policies/#{URI.encode(policy_name)}/version/#{URI.encode(policy_version_id)}"
+    url_path =
+      "/policies/#{AWS.Util.encode_uri(policy_name)}/version/#{AWS.Util.encode_uri(policy_version_id)}"
+
     headers = []
     query_params = []
 
@@ -6163,7 +6171,7 @@ defmodule AWS.IoT do
   Starts a task that applies a set of mitigation actions to the specified target.
   """
   def start_audit_mitigation_actions_task(%Client{} = client, task_id, input, options \\ []) do
-    url_path = "/audit/mitigationactions/tasks/#{URI.encode(task_id)}"
+    url_path = "/audit/mitigationactions/tasks/#{AWS.Util.encode_uri(task_id)}"
     headers = []
     query_params = []
 
@@ -6184,7 +6192,7 @@ defmodule AWS.IoT do
   Starts a Device Defender ML Detect mitigation actions task.
   """
   def start_detect_mitigation_actions_task(%Client{} = client, task_id, input, options \\ []) do
-    url_path = "/detect/mitigationactions/tasks/#{URI.encode(task_id)}"
+    url_path = "/detect/mitigationactions/tasks/#{AWS.Util.encode_uri(task_id)}"
     headers = []
     query_params = []
 
@@ -6247,7 +6255,7 @@ defmodule AWS.IoT do
   Cancels a bulk thing provisioning task.
   """
   def stop_thing_registration_task(%Client{} = client, task_id, input, options \\ []) do
-    url_path = "/thing-registration-tasks/#{URI.encode(task_id)}/cancel"
+    url_path = "/thing-registration-tasks/#{AWS.Util.encode_uri(task_id)}/cancel"
     headers = []
     query_params = []
 
@@ -6324,7 +6332,7 @@ defmodule AWS.IoT do
   connect to the AWS IoT device gateway.
   """
   def test_invoke_authorizer(%Client{} = client, authorizer_name, input, options \\ []) do
-    url_path = "/authorizer/#{URI.encode(authorizer_name)}/test"
+    url_path = "/authorizer/#{AWS.Util.encode_uri(authorizer_name)}/test"
     headers = []
     query_params = []
 
@@ -6356,7 +6364,7 @@ defmodule AWS.IoT do
   DetachPrincipalPolicy API to detach them.
   """
   def transfer_certificate(%Client{} = client, certificate_id, input, options \\ []) do
-    url_path = "/transfer-certificate/#{URI.encode(certificate_id)}"
+    url_path = "/transfer-certificate/#{AWS.Util.encode_uri(certificate_id)}"
     headers = []
 
     {query_params, input} =
@@ -6448,7 +6456,7 @@ defmodule AWS.IoT do
   Updates an authorizer.
   """
   def update_authorizer(%Client{} = client, authorizer_name, input, options \\ []) do
-    url_path = "/authorizer/#{URI.encode(authorizer_name)}"
+    url_path = "/authorizer/#{AWS.Util.encode_uri(authorizer_name)}"
     headers = []
     query_params = []
 
@@ -6469,7 +6477,7 @@ defmodule AWS.IoT do
   Updates information about the billing group.
   """
   def update_billing_group(%Client{} = client, billing_group_name, input, options \\ []) do
-    url_path = "/billing-groups/#{URI.encode(billing_group_name)}"
+    url_path = "/billing-groups/#{AWS.Util.encode_uri(billing_group_name)}"
     headers = []
     query_params = []
 
@@ -6490,7 +6498,7 @@ defmodule AWS.IoT do
   Updates a registered CA certificate.
   """
   def update_ca_certificate(%Client{} = client, certificate_id, input, options \\ []) do
-    url_path = "/cacertificate/#{URI.encode(certificate_id)}"
+    url_path = "/cacertificate/#{AWS.Util.encode_uri(certificate_id)}"
     headers = []
 
     {query_params, input} =
@@ -6527,7 +6535,7 @@ defmodule AWS.IoT do
   reconnect.
   """
   def update_certificate(%Client{} = client, certificate_id, input, options \\ []) do
-    url_path = "/certificates/#{URI.encode(certificate_id)}"
+    url_path = "/certificates/#{AWS.Util.encode_uri(certificate_id)}"
     headers = []
 
     {query_params, input} =
@@ -6553,7 +6561,7 @@ defmodule AWS.IoT do
   Updates a Device Defender detect custom metric.
   """
   def update_custom_metric(%Client{} = client, metric_name, input, options \\ []) do
-    url_path = "/custom-metric/#{URI.encode(metric_name)}"
+    url_path = "/custom-metric/#{AWS.Util.encode_uri(metric_name)}"
     headers = []
     query_params = []
 
@@ -6577,7 +6585,7 @@ defmodule AWS.IoT do
   and recreate it).
   """
   def update_dimension(%Client{} = client, name, input, options \\ []) do
-    url_path = "/dimensions/#{URI.encode(name)}"
+    url_path = "/dimensions/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -6605,7 +6613,7 @@ defmodule AWS.IoT do
         input,
         options \\ []
       ) do
-    url_path = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
+    url_path = "/domainConfigurations/#{AWS.Util.encode_uri(domain_configuration_name)}"
     headers = []
     query_params = []
 
@@ -6626,7 +6634,7 @@ defmodule AWS.IoT do
   Updates a dynamic thing group.
   """
   def update_dynamic_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
-    url_path = "/dynamic-thing-groups/#{URI.encode(thing_group_name)}"
+    url_path = "/dynamic-thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
     headers = []
     query_params = []
 
@@ -6689,7 +6697,7 @@ defmodule AWS.IoT do
   Updates supported fields of the specified job.
   """
   def update_job(%Client{} = client, job_id, input, options \\ []) do
-    url_path = "/jobs/#{URI.encode(job_id)}"
+    url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
 
     {query_params, input} =
@@ -6715,7 +6723,7 @@ defmodule AWS.IoT do
   Updates the definition for the specified mitigation action.
   """
   def update_mitigation_action(%Client{} = client, action_name, input, options \\ []) do
-    url_path = "/mitigationactions/actions/#{URI.encode(action_name)}"
+    url_path = "/mitigationactions/actions/#{AWS.Util.encode_uri(action_name)}"
     headers = []
     query_params = []
 
@@ -6736,7 +6744,7 @@ defmodule AWS.IoT do
   Updates a fleet provisioning template.
   """
   def update_provisioning_template(%Client{} = client, template_name, input, options \\ []) do
-    url_path = "/provisioning-templates/#{URI.encode(template_name)}"
+    url_path = "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}"
     headers = []
     query_params = []
 
@@ -6757,7 +6765,7 @@ defmodule AWS.IoT do
   Updates a role alias.
   """
   def update_role_alias(%Client{} = client, role_alias, input, options \\ []) do
-    url_path = "/role-aliases/#{URI.encode(role_alias)}"
+    url_path = "/role-aliases/#{AWS.Util.encode_uri(role_alias)}"
     headers = []
     query_params = []
 
@@ -6779,7 +6787,7 @@ defmodule AWS.IoT do
   the audit takes place.
   """
   def update_scheduled_audit(%Client{} = client, scheduled_audit_name, input, options \\ []) do
-    url_path = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
+    url_path = "/audit/scheduledaudits/#{AWS.Util.encode_uri(scheduled_audit_name)}"
     headers = []
     query_params = []
 
@@ -6800,7 +6808,7 @@ defmodule AWS.IoT do
   Updates a Device Defender security profile.
   """
   def update_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
-    url_path = "/security-profiles/#{URI.encode(security_profile_name)}"
+    url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}"
     headers = []
 
     {query_params, input} =
@@ -6828,7 +6836,7 @@ defmodule AWS.IoT do
   The stream version will be incremented by one.
   """
   def update_stream(%Client{} = client, stream_id, input, options \\ []) do
-    url_path = "/streams/#{URI.encode(stream_id)}"
+    url_path = "/streams/#{AWS.Util.encode_uri(stream_id)}"
     headers = []
     query_params = []
 
@@ -6849,7 +6857,7 @@ defmodule AWS.IoT do
   Updates the data for a thing.
   """
   def update_thing(%Client{} = client, thing_name, input, options \\ []) do
-    url_path = "/things/#{URI.encode(thing_name)}"
+    url_path = "/things/#{AWS.Util.encode_uri(thing_name)}"
     headers = []
     query_params = []
 
@@ -6870,7 +6878,7 @@ defmodule AWS.IoT do
   Update a thing group.
   """
   def update_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
-    url_path = "/thing-groups/#{URI.encode(thing_group_name)}"
+    url_path = "/thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
     headers = []
     query_params = []
 

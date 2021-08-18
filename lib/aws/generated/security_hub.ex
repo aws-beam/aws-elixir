@@ -427,7 +427,7 @@ defmodule AWS.SecurityHub do
   were already sent to Amazon CloudWatch Events using the custom action.
   """
   def delete_action_target(%Client{} = client, action_target_arn, input, options \\ []) do
-    url_path = "/actionTargets/#{AWS.Util.encode_uri(action_target_arn, true)}"
+    url_path = "/actionTargets/#{AWS.Util.encode_multi_segment_uri(action_target_arn)}"
     headers = []
     query_params = []
 
@@ -448,7 +448,7 @@ defmodule AWS.SecurityHub do
   Deletes the insight specified by the `InsightArn`.
   """
   def delete_insight(%Client{} = client, insight_arn, input, options \\ []) do
-    url_path = "/insights/#{AWS.Util.encode_uri(insight_arn, true)}"
+    url_path = "/insights/#{AWS.Util.encode_multi_segment_uri(insight_arn)}"
     headers = []
     query_params = []
 
@@ -691,7 +691,9 @@ defmodule AWS.SecurityHub do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/standards/controls/#{AWS.Util.encode_uri(standards_subscription_arn, true)}"
+    url_path =
+      "/standards/controls/#{AWS.Util.encode_multi_segment_uri(standards_subscription_arn)}"
+
     headers = []
     query_params = []
 
@@ -734,7 +736,9 @@ defmodule AWS.SecurityHub do
         input,
         options \\ []
       ) do
-    url_path = "/productSubscriptions/#{AWS.Util.encode_uri(product_subscription_arn, true)}"
+    url_path =
+      "/productSubscriptions/#{AWS.Util.encode_multi_segment_uri(product_subscription_arn)}"
+
     headers = []
     query_params = []
 
@@ -1064,7 +1068,7 @@ defmodule AWS.SecurityHub do
   Lists the results of the Security Hub insight specified by the insight ARN.
   """
   def get_insight_results(%Client{} = client, insight_arn, options \\ []) do
-    url_path = "/insights/results/#{AWS.Util.encode_uri(insight_arn, true)}"
+    url_path = "/insights/results/#{AWS.Util.encode_multi_segment_uri(insight_arn)}"
     headers = []
     query_params = []
 
@@ -1400,7 +1404,7 @@ defmodule AWS.SecurityHub do
   Returns a list of tags associated with a resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1421,7 +1425,7 @@ defmodule AWS.SecurityHub do
   Adds one or more tags to a resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1442,7 +1446,7 @@ defmodule AWS.SecurityHub do
   Removes one or more tags from a resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -1468,7 +1472,7 @@ defmodule AWS.SecurityHub do
   Updates the name and description of a custom action target in Security Hub.
   """
   def update_action_target(%Client{} = client, action_target_arn, input, options \\ []) do
-    url_path = "/actionTargets/#{AWS.Util.encode_uri(action_target_arn, true)}"
+    url_path = "/actionTargets/#{AWS.Util.encode_multi_segment_uri(action_target_arn)}"
     headers = []
     query_params = []
 
@@ -1516,7 +1520,7 @@ defmodule AWS.SecurityHub do
   Updates the Security Hub insight identified by the specified insight ARN.
   """
   def update_insight(%Client{} = client, insight_arn, input, options \\ []) do
-    url_path = "/insights/#{AWS.Util.encode_uri(insight_arn, true)}"
+    url_path = "/insights/#{AWS.Util.encode_multi_segment_uri(insight_arn)}"
     headers = []
     query_params = []
 
@@ -1582,7 +1586,7 @@ defmodule AWS.SecurityHub do
   disabled.
   """
   def update_standards_control(%Client{} = client, standards_control_arn, input, options \\ []) do
-    url_path = "/standards/control/#{AWS.Util.encode_uri(standards_control_arn, true)}"
+    url_path = "/standards/control/#{AWS.Util.encode_multi_segment_uri(standards_control_arn)}"
     headers = []
     query_params = []
 

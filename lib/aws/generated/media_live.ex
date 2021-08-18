@@ -31,7 +31,7 @@ defmodule AWS.MediaLive do
   The ownership of the device will transfer to your AWS account.
   """
   def accept_input_device_transfer(%Client{} = client, input_device_id, input, options \\ []) do
-    url_path = "/prod/inputDevices/#{URI.encode(input_device_id)}/accept"
+    url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/accept"
     headers = []
     query_params = []
 
@@ -115,7 +115,7 @@ defmodule AWS.MediaLive do
   Update a channel schedule
   """
   def batch_update_schedule(%Client{} = client, channel_id, input, options \\ []) do
-    url_path = "/prod/channels/#{URI.encode(channel_id)}/schedule"
+    url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/schedule"
     headers = []
     query_params = []
 
@@ -136,7 +136,7 @@ defmodule AWS.MediaLive do
   Cancel an input device transfer that you have requested.
   """
   def cancel_input_device_transfer(%Client{} = client, input_device_id, input, options \\ []) do
-    url_path = "/prod/inputDevices/#{URI.encode(input_device_id)}/cancel"
+    url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/cancel"
     headers = []
     query_params = []
 
@@ -241,7 +241,7 @@ defmodule AWS.MediaLive do
   Create a new program in the multiplex.
   """
   def create_multiplex_program(%Client{} = client, multiplex_id, input, options \\ []) do
-    url_path = "/prod/multiplexes/#{URI.encode(multiplex_id)}/programs"
+    url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/programs"
     headers = []
     query_params = []
 
@@ -262,7 +262,7 @@ defmodule AWS.MediaLive do
   Create a partner input
   """
   def create_partner_input(%Client{} = client, input_id, input, options \\ []) do
-    url_path = "/prod/inputs/#{URI.encode(input_id)}/partners"
+    url_path = "/prod/inputs/#{AWS.Util.encode_uri(input_id)}/partners"
     headers = []
     query_params = []
 
@@ -283,7 +283,7 @@ defmodule AWS.MediaLive do
   Create tags for a resource
   """
   def create_tags(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/prod/tags/#{URI.encode(resource_arn)}"
+    url_path = "/prod/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -306,7 +306,7 @@ defmodule AWS.MediaLive do
   The associated outputs are also deleted.
   """
   def delete_channel(%Client{} = client, channel_id, input, options \\ []) do
-    url_path = "/prod/channels/#{URI.encode(channel_id)}"
+    url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}"
     headers = []
     query_params = []
 
@@ -327,7 +327,7 @@ defmodule AWS.MediaLive do
   Deletes the input end point
   """
   def delete_input(%Client{} = client, input_id, input, options \\ []) do
-    url_path = "/prod/inputs/#{URI.encode(input_id)}"
+    url_path = "/prod/inputs/#{AWS.Util.encode_uri(input_id)}"
     headers = []
     query_params = []
 
@@ -353,7 +353,7 @@ defmodule AWS.MediaLive do
         input,
         options \\ []
       ) do
-    url_path = "/prod/inputSecurityGroups/#{URI.encode(input_security_group_id)}"
+    url_path = "/prod/inputSecurityGroups/#{AWS.Util.encode_uri(input_security_group_id)}"
     headers = []
     query_params = []
 
@@ -376,7 +376,7 @@ defmodule AWS.MediaLive do
   The multiplex must be idle.
   """
   def delete_multiplex(%Client{} = client, multiplex_id, input, options \\ []) do
-    url_path = "/prod/multiplexes/#{URI.encode(multiplex_id)}"
+    url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}"
     headers = []
     query_params = []
 
@@ -404,7 +404,7 @@ defmodule AWS.MediaLive do
         options \\ []
       ) do
     url_path =
-      "/prod/multiplexes/#{URI.encode(multiplex_id)}/programs/#{URI.encode(program_name)}"
+      "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/programs/#{AWS.Util.encode_uri(program_name)}"
 
     headers = []
     query_params = []
@@ -426,7 +426,7 @@ defmodule AWS.MediaLive do
   Delete an expired reservation.
   """
   def delete_reservation(%Client{} = client, reservation_id, input, options \\ []) do
-    url_path = "/prod/reservations/#{URI.encode(reservation_id)}"
+    url_path = "/prod/reservations/#{AWS.Util.encode_uri(reservation_id)}"
     headers = []
     query_params = []
 
@@ -447,7 +447,7 @@ defmodule AWS.MediaLive do
   Delete all schedule actions on a channel.
   """
   def delete_schedule(%Client{} = client, channel_id, input, options \\ []) do
-    url_path = "/prod/channels/#{URI.encode(channel_id)}/schedule"
+    url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/schedule"
     headers = []
     query_params = []
 
@@ -468,7 +468,7 @@ defmodule AWS.MediaLive do
   Removes tags for a resource
   """
   def delete_tags(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/prod/tags/#{URI.encode(resource_arn)}"
+    url_path = "/prod/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -494,7 +494,7 @@ defmodule AWS.MediaLive do
   Gets details about a channel
   """
   def describe_channel(%Client{} = client, channel_id, options \\ []) do
-    url_path = "/prod/channels/#{URI.encode(channel_id)}"
+    url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}"
     headers = []
     query_params = []
 
@@ -515,7 +515,7 @@ defmodule AWS.MediaLive do
   Produces details about an input
   """
   def describe_input(%Client{} = client, input_id, options \\ []) do
-    url_path = "/prod/inputs/#{URI.encode(input_id)}"
+    url_path = "/prod/inputs/#{AWS.Util.encode_uri(input_id)}"
     headers = []
     query_params = []
 
@@ -536,7 +536,7 @@ defmodule AWS.MediaLive do
   Gets the details for the input device
   """
   def describe_input_device(%Client{} = client, input_device_id, options \\ []) do
-    url_path = "/prod/inputDevices/#{URI.encode(input_device_id)}"
+    url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}"
     headers = []
     query_params = []
 
@@ -557,7 +557,7 @@ defmodule AWS.MediaLive do
   Get the latest thumbnail data for the input device.
   """
   def describe_input_device_thumbnail(%Client{} = client, input_device_id, accept, options \\ []) do
-    url_path = "/prod/inputDevices/#{URI.encode(input_device_id)}/thumbnailData"
+    url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/thumbnailData"
     headers = []
 
     headers =
@@ -605,7 +605,7 @@ defmodule AWS.MediaLive do
   Produces a summary of an Input Security Group
   """
   def describe_input_security_group(%Client{} = client, input_security_group_id, options \\ []) do
-    url_path = "/prod/inputSecurityGroups/#{URI.encode(input_security_group_id)}"
+    url_path = "/prod/inputSecurityGroups/#{AWS.Util.encode_uri(input_security_group_id)}"
     headers = []
     query_params = []
 
@@ -626,7 +626,7 @@ defmodule AWS.MediaLive do
   Gets details about a multiplex.
   """
   def describe_multiplex(%Client{} = client, multiplex_id, options \\ []) do
-    url_path = "/prod/multiplexes/#{URI.encode(multiplex_id)}"
+    url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}"
     headers = []
     query_params = []
 
@@ -648,7 +648,7 @@ defmodule AWS.MediaLive do
   """
   def describe_multiplex_program(%Client{} = client, multiplex_id, program_name, options \\ []) do
     url_path =
-      "/prod/multiplexes/#{URI.encode(multiplex_id)}/programs/#{URI.encode(program_name)}"
+      "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/programs/#{AWS.Util.encode_uri(program_name)}"
 
     headers = []
     query_params = []
@@ -670,7 +670,7 @@ defmodule AWS.MediaLive do
   Get details for an offering.
   """
   def describe_offering(%Client{} = client, offering_id, options \\ []) do
-    url_path = "/prod/offerings/#{URI.encode(offering_id)}"
+    url_path = "/prod/offerings/#{AWS.Util.encode_uri(offering_id)}"
     headers = []
     query_params = []
 
@@ -691,7 +691,7 @@ defmodule AWS.MediaLive do
   Get details for a reservation.
   """
   def describe_reservation(%Client{} = client, reservation_id, options \\ []) do
-    url_path = "/prod/reservations/#{URI.encode(reservation_id)}"
+    url_path = "/prod/reservations/#{AWS.Util.encode_uri(reservation_id)}"
     headers = []
     query_params = []
 
@@ -718,7 +718,7 @@ defmodule AWS.MediaLive do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/prod/channels/#{URI.encode(channel_id)}/schedule"
+    url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/schedule"
     headers = []
     query_params = []
 
@@ -955,7 +955,7 @@ defmodule AWS.MediaLive do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/prod/multiplexes/#{URI.encode(multiplex_id)}/programs"
+    url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/programs"
     headers = []
     query_params = []
 
@@ -1249,7 +1249,7 @@ defmodule AWS.MediaLive do
   Produces list of tags that have been created for a resource
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/prod/tags/#{URI.encode(resource_arn)}"
+    url_path = "/prod/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1270,7 +1270,7 @@ defmodule AWS.MediaLive do
   Purchase an offering and create a reservation.
   """
   def purchase_offering(%Client{} = client, offering_id, input, options \\ []) do
-    url_path = "/prod/offerings/#{URI.encode(offering_id)}/purchase"
+    url_path = "/prod/offerings/#{AWS.Util.encode_uri(offering_id)}/purchase"
     headers = []
     query_params = []
 
@@ -1291,7 +1291,7 @@ defmodule AWS.MediaLive do
   Reject the transfer of the specified input device to your AWS account.
   """
   def reject_input_device_transfer(%Client{} = client, input_device_id, input, options \\ []) do
-    url_path = "/prod/inputDevices/#{URI.encode(input_device_id)}/reject"
+    url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/reject"
     headers = []
     query_params = []
 
@@ -1312,7 +1312,7 @@ defmodule AWS.MediaLive do
   Starts an existing channel
   """
   def start_channel(%Client{} = client, channel_id, input, options \\ []) do
-    url_path = "/prod/channels/#{URI.encode(channel_id)}/start"
+    url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/start"
     headers = []
     query_params = []
 
@@ -1336,7 +1336,7 @@ defmodule AWS.MediaLive do
   each channel.
   """
   def start_multiplex(%Client{} = client, multiplex_id, input, options \\ []) do
-    url_path = "/prod/multiplexes/#{URI.encode(multiplex_id)}/start"
+    url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/start"
     headers = []
     query_params = []
 
@@ -1357,7 +1357,7 @@ defmodule AWS.MediaLive do
   Stops a running channel
   """
   def stop_channel(%Client{} = client, channel_id, input, options \\ []) do
-    url_path = "/prod/channels/#{URI.encode(channel_id)}/stop"
+    url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/stop"
     headers = []
     query_params = []
 
@@ -1380,7 +1380,7 @@ defmodule AWS.MediaLive do
   If the multiplex isn't running, this action has no effect.
   """
   def stop_multiplex(%Client{} = client, multiplex_id, input, options \\ []) do
-    url_path = "/prod/multiplexes/#{URI.encode(multiplex_id)}/stop"
+    url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/stop"
     headers = []
     query_params = []
 
@@ -1404,7 +1404,7 @@ defmodule AWS.MediaLive do
   transfer.
   """
   def transfer_input_device(%Client{} = client, input_device_id, input, options \\ []) do
-    url_path = "/prod/inputDevices/#{URI.encode(input_device_id)}/transfer"
+    url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/transfer"
     headers = []
     query_params = []
 
@@ -1425,7 +1425,7 @@ defmodule AWS.MediaLive do
   Updates a channel.
   """
   def update_channel(%Client{} = client, channel_id, input, options \\ []) do
-    url_path = "/prod/channels/#{URI.encode(channel_id)}"
+    url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}"
     headers = []
     query_params = []
 
@@ -1446,7 +1446,7 @@ defmodule AWS.MediaLive do
   Changes the class of the channel.
   """
   def update_channel_class(%Client{} = client, channel_id, input, options \\ []) do
-    url_path = "/prod/channels/#{URI.encode(channel_id)}/channelClass"
+    url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/channelClass"
     headers = []
     query_params = []
 
@@ -1467,7 +1467,7 @@ defmodule AWS.MediaLive do
   Updates an input.
   """
   def update_input(%Client{} = client, input_id, input, options \\ []) do
-    url_path = "/prod/inputs/#{URI.encode(input_id)}"
+    url_path = "/prod/inputs/#{AWS.Util.encode_uri(input_id)}"
     headers = []
     query_params = []
 
@@ -1488,7 +1488,7 @@ defmodule AWS.MediaLive do
   Updates the parameters for the input device.
   """
   def update_input_device(%Client{} = client, input_device_id, input, options \\ []) do
-    url_path = "/prod/inputDevices/#{URI.encode(input_device_id)}"
+    url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}"
     headers = []
     query_params = []
 
@@ -1514,7 +1514,7 @@ defmodule AWS.MediaLive do
         input,
         options \\ []
       ) do
-    url_path = "/prod/inputSecurityGroups/#{URI.encode(input_security_group_id)}"
+    url_path = "/prod/inputSecurityGroups/#{AWS.Util.encode_uri(input_security_group_id)}"
     headers = []
     query_params = []
 
@@ -1535,7 +1535,7 @@ defmodule AWS.MediaLive do
   Updates a multiplex.
   """
   def update_multiplex(%Client{} = client, multiplex_id, input, options \\ []) do
-    url_path = "/prod/multiplexes/#{URI.encode(multiplex_id)}"
+    url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}"
     headers = []
     query_params = []
 
@@ -1563,7 +1563,7 @@ defmodule AWS.MediaLive do
         options \\ []
       ) do
     url_path =
-      "/prod/multiplexes/#{URI.encode(multiplex_id)}/programs/#{URI.encode(program_name)}"
+      "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/programs/#{AWS.Util.encode_uri(program_name)}"
 
     headers = []
     query_params = []
@@ -1585,7 +1585,7 @@ defmodule AWS.MediaLive do
   Update reservation.
   """
   def update_reservation(%Client{} = client, reservation_id, input, options \\ []) do
-    url_path = "/prod/reservations/#{URI.encode(reservation_id)}"
+    url_path = "/prod/reservations/#{AWS.Util.encode_uri(reservation_id)}"
     headers = []
     query_params = []
 

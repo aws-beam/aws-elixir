@@ -230,7 +230,7 @@ defmodule AWS.Macie2 do
   Soft deletes a custom data identifier.
   """
   def delete_custom_data_identifier(%Client{} = client, id, input, options \\ []) do
-    url_path = "/custom-data-identifiers/#{URI.encode(id)}"
+    url_path = "/custom-data-identifiers/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -251,7 +251,7 @@ defmodule AWS.Macie2 do
   Deletes a findings filter.
   """
   def delete_findings_filter(%Client{} = client, id, input, options \\ []) do
-    url_path = "/findingsfilters/#{URI.encode(id)}"
+    url_path = "/findingsfilters/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -295,7 +295,7 @@ defmodule AWS.Macie2 do
   account.
   """
   def delete_member(%Client{} = client, id, input, options \\ []) do
-    url_path = "/members/#{URI.encode(id)}"
+    url_path = "/members/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -338,7 +338,7 @@ defmodule AWS.Macie2 do
   Retrieves the status and settings for a classification job.
   """
   def describe_classification_job(%Client{} = client, job_id, options \\ []) do
-    url_path = "/jobs/#{URI.encode(job_id)}"
+    url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
     query_params = []
 
@@ -475,7 +475,7 @@ defmodule AWS.Macie2 do
   Disassociates an Amazon Macie administrator account from a member account.
   """
   def disassociate_member(%Client{} = client, id, input, options \\ []) do
-    url_path = "/members/disassociate/#{URI.encode(id)}"
+    url_path = "/members/disassociate/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -605,7 +605,7 @@ defmodule AWS.Macie2 do
   Retrieves the criteria and other settings for a custom data identifier.
   """
   def get_custom_data_identifier(%Client{} = client, id, options \\ []) do
-    url_path = "/custom-data-identifiers/#{URI.encode(id)}"
+    url_path = "/custom-data-identifiers/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -668,7 +668,7 @@ defmodule AWS.Macie2 do
   Retrieves the criteria and other settings for a findings filter.
   """
   def get_findings_filter(%Client{} = client, id, options \\ []) do
-    url_path = "/findingsfilters/#{URI.encode(id)}"
+    url_path = "/findingsfilters/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -779,7 +779,7 @@ defmodule AWS.Macie2 do
   administrator account.
   """
   def get_member(%Client{} = client, id, options \\ []) do
-    url_path = "/members/#{URI.encode(id)}"
+    url_path = "/members/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1080,7 +1080,7 @@ defmodule AWS.Macie2 do
   job, custom data identifier, findings filter, or member account.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1167,7 +1167,7 @@ defmodule AWS.Macie2 do
   classification job, custom data identifier, findings filter, or member account.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1210,7 +1210,7 @@ defmodule AWS.Macie2 do
   data identifier, findings filter, or member account.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -1236,7 +1236,7 @@ defmodule AWS.Macie2 do
   Changes the status of a classification job.
   """
   def update_classification_job(%Client{} = client, job_id, input, options \\ []) do
-    url_path = "/jobs/#{URI.encode(job_id)}"
+    url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
     query_params = []
 
@@ -1257,7 +1257,7 @@ defmodule AWS.Macie2 do
   Updates the criteria and other settings for a findings filter.
   """
   def update_findings_filter(%Client{} = client, id, input, options \\ []) do
-    url_path = "/findingsfilters/#{URI.encode(id)}"
+    url_path = "/findingsfilters/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1300,7 +1300,7 @@ defmodule AWS.Macie2 do
   Enables an Amazon Macie administrator to suspend or re-enable a member account.
   """
   def update_member_session(%Client{} = client, id, input, options \\ []) do
-    url_path = "/macie/members/#{URI.encode(id)}"
+    url_path = "/macie/members/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 

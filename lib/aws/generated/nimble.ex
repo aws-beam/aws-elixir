@@ -25,7 +25,7 @@ defmodule AWS.Nimble do
   Accept EULAs.
   """
   def accept_eulas(%Client{} = client, studio_id, input, options \\ []) do
-    url_path = "/2020-08-01/studios/#{URI.encode(studio_id)}/eula-acceptances"
+    url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/eula-acceptances"
 
     {headers, input} =
       [
@@ -52,7 +52,7 @@ defmodule AWS.Nimble do
   Create a launch profile.
   """
   def create_launch_profile(%Client{} = client, studio_id, input, options \\ []) do
-    url_path = "/2020-08-01/studios/#{URI.encode(studio_id)}/launch-profiles"
+    url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles"
 
     {headers, input} =
       [
@@ -79,7 +79,7 @@ defmodule AWS.Nimble do
   Creates a streaming image resource in a studio.
   """
   def create_streaming_image(%Client{} = client, studio_id, input, options \\ []) do
-    url_path = "/2020-08-01/studios/#{URI.encode(studio_id)}/streaming-images"
+    url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-images"
 
     {headers, input} =
       [
@@ -109,7 +109,7 @@ defmodule AWS.Nimble do
   streaming session is in state READY.
   """
   def create_streaming_session(%Client{} = client, studio_id, input, options \\ []) do
-    url_path = "/2020-08-01/studios/#{URI.encode(studio_id)}/streaming-sessions"
+    url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions"
 
     {headers, input} =
       [
@@ -146,7 +146,7 @@ defmodule AWS.Nimble do
         options \\ []
       ) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/streaming-sessions/#{URI.encode(session_id)}/streams"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions/#{AWS.Util.encode_uri(session_id)}/streams"
 
     {headers, input} =
       [
@@ -227,7 +227,7 @@ defmodule AWS.Nimble do
   Creates a studio component resource.
   """
   def create_studio_component(%Client{} = client, studio_id, input, options \\ []) do
-    url_path = "/2020-08-01/studios/#{URI.encode(studio_id)}/studio-components"
+    url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/studio-components"
 
     {headers, input} =
       [
@@ -261,7 +261,7 @@ defmodule AWS.Nimble do
         options \\ []
       ) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/launch-profiles/#{URI.encode(launch_profile_id)}"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}"
 
     {headers, input} =
       [
@@ -296,7 +296,7 @@ defmodule AWS.Nimble do
         options \\ []
       ) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/launch-profiles/#{URI.encode(launch_profile_id)}/membership/#{URI.encode(principal_id)}"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}/membership/#{AWS.Util.encode_uri(principal_id)}"
 
     {headers, input} =
       [
@@ -330,7 +330,7 @@ defmodule AWS.Nimble do
         options \\ []
       ) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/streaming-images/#{URI.encode(streaming_image_id)}"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-images/#{AWS.Util.encode_uri(streaming_image_id)}"
 
     {headers, input} =
       [
@@ -364,7 +364,7 @@ defmodule AWS.Nimble do
   """
   def delete_streaming_session(%Client{} = client, session_id, studio_id, input, options \\ []) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/streaming-sessions/#{URI.encode(session_id)}"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions/#{AWS.Util.encode_uri(session_id)}"
 
     {headers, input} =
       [
@@ -391,7 +391,7 @@ defmodule AWS.Nimble do
   Delete a studio resource.
   """
   def delete_studio(%Client{} = client, studio_id, input, options \\ []) do
-    url_path = "/2020-08-01/studios/#{URI.encode(studio_id)}"
+    url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}"
 
     {headers, input} =
       [
@@ -425,7 +425,7 @@ defmodule AWS.Nimble do
         options \\ []
       ) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/studio-components/#{URI.encode(studio_component_id)}"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/studio-components/#{AWS.Util.encode_uri(studio_component_id)}"
 
     {headers, input} =
       [
@@ -453,7 +453,7 @@ defmodule AWS.Nimble do
   """
   def delete_studio_member(%Client{} = client, principal_id, studio_id, input, options \\ []) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/membership/#{URI.encode(principal_id)}"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/membership/#{AWS.Util.encode_uri(principal_id)}"
 
     {headers, input} =
       [
@@ -480,7 +480,7 @@ defmodule AWS.Nimble do
   Get Eula.
   """
   def get_eula(%Client{} = client, eula_id, options \\ []) do
-    url_path = "/2020-08-01/eulas/#{URI.encode(eula_id)}"
+    url_path = "/2020-08-01/eulas/#{AWS.Util.encode_uri(eula_id)}"
     headers = []
     query_params = []
 
@@ -502,7 +502,7 @@ defmodule AWS.Nimble do
   """
   def get_launch_profile(%Client{} = client, launch_profile_id, studio_id, options \\ []) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/launch-profiles/#{URI.encode(launch_profile_id)}"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}"
 
     headers = []
     query_params = []
@@ -530,7 +530,7 @@ defmodule AWS.Nimble do
   """
   def get_launch_profile_details(%Client{} = client, launch_profile_id, studio_id, options \\ []) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/launch-profiles/#{URI.encode(launch_profile_id)}/details"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}/details"
 
     headers = []
     query_params = []
@@ -561,7 +561,7 @@ defmodule AWS.Nimble do
         options \\ []
       ) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/launch-profiles/#{URI.encode(launch_profile_id)}/init"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}/init"
 
     headers = []
     query_params = []
@@ -611,7 +611,7 @@ defmodule AWS.Nimble do
         options \\ []
       ) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/launch-profiles/#{URI.encode(launch_profile_id)}/membership/#{URI.encode(principal_id)}"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}/membership/#{AWS.Util.encode_uri(principal_id)}"
 
     headers = []
     query_params = []
@@ -634,7 +634,7 @@ defmodule AWS.Nimble do
   """
   def get_streaming_image(%Client{} = client, streaming_image_id, studio_id, options \\ []) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/streaming-images/#{URI.encode(streaming_image_id)}"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-images/#{AWS.Util.encode_uri(streaming_image_id)}"
 
     headers = []
     query_params = []
@@ -660,7 +660,7 @@ defmodule AWS.Nimble do
   """
   def get_streaming_session(%Client{} = client, session_id, studio_id, options \\ []) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/streaming-sessions/#{URI.encode(session_id)}"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions/#{AWS.Util.encode_uri(session_id)}"
 
     headers = []
     query_params = []
@@ -695,7 +695,7 @@ defmodule AWS.Nimble do
         options \\ []
       ) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/streaming-sessions/#{URI.encode(session_id)}/streams/#{URI.encode(stream_id)}"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions/#{AWS.Util.encode_uri(session_id)}/streams/#{AWS.Util.encode_uri(stream_id)}"
 
     headers = []
     query_params = []
@@ -717,7 +717,7 @@ defmodule AWS.Nimble do
   Get a Studio resource.
   """
   def get_studio(%Client{} = client, studio_id, options \\ []) do
-    url_path = "/2020-08-01/studios/#{URI.encode(studio_id)}"
+    url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}"
     headers = []
     query_params = []
 
@@ -739,7 +739,7 @@ defmodule AWS.Nimble do
   """
   def get_studio_component(%Client{} = client, studio_component_id, studio_id, options \\ []) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/studio-components/#{URI.encode(studio_component_id)}"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/studio-components/#{AWS.Util.encode_uri(studio_component_id)}"
 
     headers = []
     query_params = []
@@ -762,7 +762,7 @@ defmodule AWS.Nimble do
   """
   def get_studio_member(%Client{} = client, principal_id, studio_id, options \\ []) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/membership/#{URI.encode(principal_id)}"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/membership/#{AWS.Util.encode_uri(principal_id)}"
 
     headers = []
     query_params = []
@@ -790,7 +790,7 @@ defmodule AWS.Nimble do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/2020-08-01/studios/#{URI.encode(studio_id)}/eula-acceptances"
+    url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/eula-acceptances"
     headers = []
     query_params = []
 
@@ -868,7 +868,7 @@ defmodule AWS.Nimble do
         options \\ []
       ) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/launch-profiles/#{URI.encode(launch_profile_id)}/membership"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}/membership"
 
     headers = []
     query_params = []
@@ -912,7 +912,7 @@ defmodule AWS.Nimble do
         states \\ nil,
         options \\ []
       ) do
-    url_path = "/2020-08-01/studios/#{URI.encode(studio_id)}/launch-profiles"
+    url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles"
     headers = []
     query_params = []
 
@@ -970,7 +970,7 @@ defmodule AWS.Nimble do
         owner \\ nil,
         options \\ []
       ) do
-    url_path = "/2020-08-01/studios/#{URI.encode(studio_id)}/streaming-images"
+    url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-images"
     headers = []
     query_params = []
 
@@ -1012,7 +1012,7 @@ defmodule AWS.Nimble do
         session_ids \\ nil,
         options \\ []
       ) do
-    url_path = "/2020-08-01/studios/#{URI.encode(studio_id)}/streaming-sessions"
+    url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions"
     headers = []
     query_params = []
 
@@ -1062,7 +1062,7 @@ defmodule AWS.Nimble do
         types \\ nil,
         options \\ []
       ) do
-    url_path = "/2020-08-01/studios/#{URI.encode(studio_id)}/studio-components"
+    url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/studio-components"
     headers = []
     query_params = []
 
@@ -1117,7 +1117,7 @@ defmodule AWS.Nimble do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/2020-08-01/studios/#{URI.encode(studio_id)}/membership"
+    url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/membership"
     headers = []
     query_params = []
 
@@ -1185,7 +1185,7 @@ defmodule AWS.Nimble do
   ARN property, so you do not have to create this ARN yourself.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/2020-08-01/tags/#{URI.encode(resource_arn)}"
+    url_path = "/2020-08-01/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1213,7 +1213,7 @@ defmodule AWS.Nimble do
         options \\ []
       ) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/launch-profiles/#{URI.encode(launch_profile_id)}/membership"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}/membership"
 
     {headers, input} =
       [
@@ -1240,7 +1240,7 @@ defmodule AWS.Nimble do
   Add/update users with given persona to studio membership.
   """
   def put_studio_members(%Client{} = client, studio_id, input, options \\ []) do
-    url_path = "/2020-08-01/studios/#{URI.encode(studio_id)}/membership"
+    url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/membership"
 
     {headers, input} =
       [
@@ -1277,7 +1277,7 @@ defmodule AWS.Nimble do
   console to add administrators and users to your studio.
   """
   def start_studio_s_s_o_configuration_repair(%Client{} = client, studio_id, input, options \\ []) do
-    url_path = "/2020-08-01/studios/#{URI.encode(studio_id)}/sso-configuration"
+    url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/sso-configuration"
 
     {headers, input} =
       [
@@ -1304,7 +1304,7 @@ defmodule AWS.Nimble do
   Creates tags for a resource, given its ARN.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/2020-08-01/tags/#{URI.encode(resource_arn)}"
+    url_path = "/2020-08-01/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1325,7 +1325,7 @@ defmodule AWS.Nimble do
   Deletes the tags for a resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/2020-08-01/tags/#{URI.encode(resource_arn)}"
+    url_path = "/2020-08-01/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -1358,7 +1358,7 @@ defmodule AWS.Nimble do
         options \\ []
       ) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/launch-profiles/#{URI.encode(launch_profile_id)}"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}"
 
     {headers, input} =
       [
@@ -1393,7 +1393,7 @@ defmodule AWS.Nimble do
         options \\ []
       ) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/launch-profiles/#{URI.encode(launch_profile_id)}/membership/#{URI.encode(principal_id)}"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}/membership/#{AWS.Util.encode_uri(principal_id)}"
 
     {headers, input} =
       [
@@ -1427,7 +1427,7 @@ defmodule AWS.Nimble do
         options \\ []
       ) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/streaming-images/#{URI.encode(streaming_image_id)}"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-images/#{AWS.Util.encode_uri(streaming_image_id)}"
 
     {headers, input} =
       [
@@ -1456,7 +1456,7 @@ defmodule AWS.Nimble do
   Currently, this operation only supports updating the displayName of your studio.
   """
   def update_studio(%Client{} = client, studio_id, input, options \\ []) do
-    url_path = "/2020-08-01/studios/#{URI.encode(studio_id)}"
+    url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}"
 
     {headers, input} =
       [
@@ -1490,7 +1490,7 @@ defmodule AWS.Nimble do
         options \\ []
       ) do
     url_path =
-      "/2020-08-01/studios/#{URI.encode(studio_id)}/studio-components/#{URI.encode(studio_component_id)}"
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/studio-components/#{AWS.Util.encode_uri(studio_component_id)}"
 
     {headers, input} =
       [

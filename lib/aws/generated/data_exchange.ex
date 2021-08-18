@@ -31,7 +31,7 @@ defmodule AWS.DataExchange do
   Jobs can be cancelled only when they are in the WAITING state.
   """
   def cancel_job(%Client{} = client, job_id, input, options \\ []) do
-    url_path = "/v1/jobs/#{URI.encode(job_id)}"
+    url_path = "/v1/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
     query_params = []
 
@@ -94,7 +94,7 @@ defmodule AWS.DataExchange do
   This operation creates a revision for a data set.
   """
   def create_revision(%Client{} = client, data_set_id, input, options \\ []) do
-    url_path = "/v1/data-sets/#{URI.encode(data_set_id)}/revisions"
+    url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions"
     headers = []
     query_params = []
 
@@ -116,7 +116,7 @@ defmodule AWS.DataExchange do
   """
   def delete_asset(%Client{} = client, asset_id, data_set_id, revision_id, input, options \\ []) do
     url_path =
-      "/v1/data-sets/#{URI.encode(data_set_id)}/revisions/#{URI.encode(revision_id)}/assets/#{URI.encode(asset_id)}"
+      "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}/assets/#{AWS.Util.encode_uri(asset_id)}"
 
     headers = []
     query_params = []
@@ -138,7 +138,7 @@ defmodule AWS.DataExchange do
   This operation deletes a data set.
   """
   def delete_data_set(%Client{} = client, data_set_id, input, options \\ []) do
-    url_path = "/v1/data-sets/#{URI.encode(data_set_id)}"
+    url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
     headers = []
     query_params = []
 
@@ -159,7 +159,9 @@ defmodule AWS.DataExchange do
   This operation deletes a revision.
   """
   def delete_revision(%Client{} = client, data_set_id, revision_id, input, options \\ []) do
-    url_path = "/v1/data-sets/#{URI.encode(data_set_id)}/revisions/#{URI.encode(revision_id)}"
+    url_path =
+      "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}"
+
     headers = []
     query_params = []
 
@@ -181,7 +183,7 @@ defmodule AWS.DataExchange do
   """
   def get_asset(%Client{} = client, asset_id, data_set_id, revision_id, options \\ []) do
     url_path =
-      "/v1/data-sets/#{URI.encode(data_set_id)}/revisions/#{URI.encode(revision_id)}/assets/#{URI.encode(asset_id)}"
+      "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}/assets/#{AWS.Util.encode_uri(asset_id)}"
 
     headers = []
     query_params = []
@@ -203,7 +205,7 @@ defmodule AWS.DataExchange do
   This operation returns information about a data set.
   """
   def get_data_set(%Client{} = client, data_set_id, options \\ []) do
-    url_path = "/v1/data-sets/#{URI.encode(data_set_id)}"
+    url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
     headers = []
     query_params = []
 
@@ -224,7 +226,7 @@ defmodule AWS.DataExchange do
   This operation returns information about a job.
   """
   def get_job(%Client{} = client, job_id, options \\ []) do
-    url_path = "/v1/jobs/#{URI.encode(job_id)}"
+    url_path = "/v1/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
     query_params = []
 
@@ -245,7 +247,9 @@ defmodule AWS.DataExchange do
   This operation returns information about a revision.
   """
   def get_revision(%Client{} = client, data_set_id, revision_id, options \\ []) do
-    url_path = "/v1/data-sets/#{URI.encode(data_set_id)}/revisions/#{URI.encode(revision_id)}"
+    url_path =
+      "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}"
+
     headers = []
     query_params = []
 
@@ -273,7 +277,7 @@ defmodule AWS.DataExchange do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/v1/data-sets/#{URI.encode(data_set_id)}/revisions"
+    url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions"
     headers = []
     query_params = []
 
@@ -425,7 +429,7 @@ defmodule AWS.DataExchange do
         options \\ []
       ) do
     url_path =
-      "/v1/data-sets/#{URI.encode(data_set_id)}/revisions/#{URI.encode(revision_id)}/assets"
+      "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}/assets"
 
     headers = []
     query_params = []
@@ -461,7 +465,7 @@ defmodule AWS.DataExchange do
   This operation lists the tags on the resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -482,7 +486,7 @@ defmodule AWS.DataExchange do
   This operation starts a job.
   """
   def start_job(%Client{} = client, job_id, input, options \\ []) do
-    url_path = "/v1/jobs/#{URI.encode(job_id)}"
+    url_path = "/v1/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
     query_params = []
 
@@ -503,7 +507,7 @@ defmodule AWS.DataExchange do
   This operation tags a resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -524,7 +528,7 @@ defmodule AWS.DataExchange do
   This operation removes one or more tags from a resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -551,7 +555,7 @@ defmodule AWS.DataExchange do
   """
   def update_asset(%Client{} = client, asset_id, data_set_id, revision_id, input, options \\ []) do
     url_path =
-      "/v1/data-sets/#{URI.encode(data_set_id)}/revisions/#{URI.encode(revision_id)}/assets/#{URI.encode(asset_id)}"
+      "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}/assets/#{AWS.Util.encode_uri(asset_id)}"
 
     headers = []
     query_params = []
@@ -573,7 +577,7 @@ defmodule AWS.DataExchange do
   This operation updates a data set.
   """
   def update_data_set(%Client{} = client, data_set_id, input, options \\ []) do
-    url_path = "/v1/data-sets/#{URI.encode(data_set_id)}"
+    url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
     headers = []
     query_params = []
 
@@ -594,7 +598,9 @@ defmodule AWS.DataExchange do
   This operation updates a revision.
   """
   def update_revision(%Client{} = client, data_set_id, revision_id, input, options \\ []) do
-    url_path = "/v1/data-sets/#{URI.encode(data_set_id)}/revisions/#{URI.encode(revision_id)}"
+    url_path =
+      "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}"
+
     headers = []
     query_params = []
 

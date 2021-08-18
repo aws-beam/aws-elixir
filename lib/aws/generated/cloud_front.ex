@@ -48,7 +48,9 @@ defmodule AWS.CloudFront do
   in the *Amazon CloudFront Developer Guide*.
   """
   def associate_alias(%Client{} = client, target_distribution_id, input, options \\ []) do
-    url_path = "/2020-05-31/distribution/#{URI.encode(target_distribution_id)}/associate-alias"
+    url_path =
+      "/2020-05-31/distribution/#{AWS.Util.encode_uri(target_distribution_id)}/associate-alias"
+
     headers = []
 
     {query_params, input} =
@@ -322,7 +324,7 @@ defmodule AWS.CloudFront do
   Create a new invalidation.
   """
   def create_invalidation(%Client{} = client, distribution_id, input, options \\ []) do
-    url_path = "/2020-05-31/distribution/#{URI.encode(distribution_id)}/invalidation"
+    url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(distribution_id)}/invalidation"
     headers = []
     query_params = []
 
@@ -393,7 +395,9 @@ defmodule AWS.CloudFront do
   in the *Amazon CloudFront Developer Guide*.
   """
   def create_monitoring_subscription(%Client{} = client, distribution_id, input, options \\ []) do
-    url_path = "/2020-05-31/distributions/#{URI.encode(distribution_id)}/monitoring-subscription"
+    url_path =
+      "/2020-05-31/distributions/#{AWS.Util.encode_uri(distribution_id)}/monitoring-subscription"
+
     headers = []
     query_params = []
 
@@ -594,7 +598,7 @@ defmodule AWS.CloudFront do
   To get these values, you can use `ListCachePolicies` or `GetCachePolicy`.
   """
   def delete_cache_policy(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2020-05-31/cache-policy/#{URI.encode(id)}"
+    url_path = "/2020-05-31/cache-policy/#{AWS.Util.encode_uri(id)}"
 
     {headers, input} =
       [
@@ -621,7 +625,7 @@ defmodule AWS.CloudFront do
   Delete an origin access identity.
   """
   def delete_cloud_front_origin_access_identity(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}"
+    url_path = "/2020-05-31/origin-access-identity/cloudfront/#{AWS.Util.encode_uri(id)}"
 
     {headers, input} =
       [
@@ -648,7 +652,7 @@ defmodule AWS.CloudFront do
   Delete a distribution.
   """
   def delete_distribution(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2020-05-31/distribution/#{URI.encode(id)}"
+    url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}"
 
     {headers, input} =
       [
@@ -675,7 +679,7 @@ defmodule AWS.CloudFront do
   Remove a field-level encryption configuration.
   """
   def delete_field_level_encryption_config(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2020-05-31/field-level-encryption/#{URI.encode(id)}"
+    url_path = "/2020-05-31/field-level-encryption/#{AWS.Util.encode_uri(id)}"
 
     {headers, input} =
       [
@@ -702,7 +706,7 @@ defmodule AWS.CloudFront do
   Remove a field-level encryption profile.
   """
   def delete_field_level_encryption_profile(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}"
+    url_path = "/2020-05-31/field-level-encryption-profile/#{AWS.Util.encode_uri(id)}"
 
     {headers, input} =
       [
@@ -736,7 +740,7 @@ defmodule AWS.CloudFront do
   value). To get these values, you can use `ListFunctions` and `DescribeFunction`.
   """
   def delete_function(%Client{} = client, name, input, options \\ []) do
-    url_path = "/2020-05-31/function/#{URI.encode(name)}"
+    url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}"
 
     {headers, input} =
       [
@@ -771,7 +775,7 @@ defmodule AWS.CloudFront do
   `GetKeyGroupConfig`.
   """
   def delete_key_group(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2020-05-31/key-group/#{URI.encode(id)}"
+    url_path = "/2020-05-31/key-group/#{AWS.Util.encode_uri(id)}"
 
     {headers, input} =
       [
@@ -799,7 +803,9 @@ defmodule AWS.CloudFront do
   distribution.
   """
   def delete_monitoring_subscription(%Client{} = client, distribution_id, input, options \\ []) do
-    url_path = "/2020-05-31/distributions/#{URI.encode(distribution_id)}/monitoring-subscription"
+    url_path =
+      "/2020-05-31/distributions/#{AWS.Util.encode_uri(distribution_id)}/monitoring-subscription"
+
     headers = []
     query_params = []
 
@@ -828,7 +834,7 @@ defmodule AWS.CloudFront do
   `GetOriginRequestPolicy`.
   """
   def delete_origin_request_policy(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2020-05-31/origin-request-policy/#{URI.encode(id)}"
+    url_path = "/2020-05-31/origin-request-policy/#{AWS.Util.encode_uri(id)}"
 
     {headers, input} =
       [
@@ -855,7 +861,7 @@ defmodule AWS.CloudFront do
   Remove a public key you previously added to CloudFront.
   """
   def delete_public_key(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2020-05-31/public-key/#{URI.encode(id)}"
+    url_path = "/2020-05-31/public-key/#{AWS.Util.encode_uri(id)}"
 
     {headers, input} =
       [
@@ -952,7 +958,7 @@ defmodule AWS.CloudFront do
   in the *Amazon CloudFront Developer Guide*.
   """
   def delete_streaming_distribution(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2020-05-31/streaming-distribution/#{URI.encode(id)}"
+    url_path = "/2020-05-31/streaming-distribution/#{AWS.Util.encode_uri(id)}"
 
     {headers, input} =
       [
@@ -985,7 +991,7 @@ defmodule AWS.CloudFront do
   the function’s name and stage. To get these values, you can use `ListFunctions`.
   """
   def describe_function(%Client{} = client, name, stage \\ nil, options \\ []) do
-    url_path = "/2020-05-31/function/#{URI.encode(name)}/describe"
+    url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}/describe"
     headers = []
     query_params = []
 
@@ -1030,7 +1036,7 @@ defmodule AWS.CloudFront do
   `ListCachePolicies`.
   """
   def get_cache_policy(%Client{} = client, id, options \\ []) do
-    url_path = "/2020-05-31/cache-policy/#{URI.encode(id)}"
+    url_path = "/2020-05-31/cache-policy/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1064,7 +1070,7 @@ defmodule AWS.CloudFront do
   using `ListCachePolicies`.
   """
   def get_cache_policy_config(%Client{} = client, id, options \\ []) do
-    url_path = "/2020-05-31/cache-policy/#{URI.encode(id)}/config"
+    url_path = "/2020-05-31/cache-policy/#{AWS.Util.encode_uri(id)}/config"
     headers = []
     query_params = []
 
@@ -1092,7 +1098,7 @@ defmodule AWS.CloudFront do
   Get the information about an origin access identity.
   """
   def get_cloud_front_origin_access_identity(%Client{} = client, id, options \\ []) do
-    url_path = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}"
+    url_path = "/2020-05-31/origin-access-identity/cloudfront/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1120,7 +1126,7 @@ defmodule AWS.CloudFront do
   Get the configuration information about an origin access identity.
   """
   def get_cloud_front_origin_access_identity_config(%Client{} = client, id, options \\ []) do
-    url_path = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}/config"
+    url_path = "/2020-05-31/origin-access-identity/cloudfront/#{AWS.Util.encode_uri(id)}/config"
     headers = []
     query_params = []
 
@@ -1148,7 +1154,7 @@ defmodule AWS.CloudFront do
   Get the information about a distribution.
   """
   def get_distribution(%Client{} = client, id, options \\ []) do
-    url_path = "/2020-05-31/distribution/#{URI.encode(id)}"
+    url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1176,7 +1182,7 @@ defmodule AWS.CloudFront do
   Get the configuration information about a distribution.
   """
   def get_distribution_config(%Client{} = client, id, options \\ []) do
-    url_path = "/2020-05-31/distribution/#{URI.encode(id)}/config"
+    url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}/config"
     headers = []
     query_params = []
 
@@ -1204,7 +1210,7 @@ defmodule AWS.CloudFront do
   Get the field-level encryption configuration information.
   """
   def get_field_level_encryption(%Client{} = client, id, options \\ []) do
-    url_path = "/2020-05-31/field-level-encryption/#{URI.encode(id)}"
+    url_path = "/2020-05-31/field-level-encryption/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1232,7 +1238,7 @@ defmodule AWS.CloudFront do
   Get the field-level encryption configuration information.
   """
   def get_field_level_encryption_config(%Client{} = client, id, options \\ []) do
-    url_path = "/2020-05-31/field-level-encryption/#{URI.encode(id)}/config"
+    url_path = "/2020-05-31/field-level-encryption/#{AWS.Util.encode_uri(id)}/config"
     headers = []
     query_params = []
 
@@ -1260,7 +1266,7 @@ defmodule AWS.CloudFront do
   Get the field-level encryption profile information.
   """
   def get_field_level_encryption_profile(%Client{} = client, id, options \\ []) do
-    url_path = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}"
+    url_path = "/2020-05-31/field-level-encryption-profile/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1288,7 +1294,7 @@ defmodule AWS.CloudFront do
   Get the field-level encryption profile configuration information.
   """
   def get_field_level_encryption_profile_config(%Client{} = client, id, options \\ []) do
-    url_path = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}/config"
+    url_path = "/2020-05-31/field-level-encryption-profile/#{AWS.Util.encode_uri(id)}/config"
     headers = []
     query_params = []
 
@@ -1322,7 +1328,7 @@ defmodule AWS.CloudFront do
   these values, you can use `ListFunctions`.
   """
   def get_function(%Client{} = client, name, stage \\ nil, options \\ []) do
-    url_path = "/2020-05-31/function/#{URI.encode(name)}"
+    url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -1358,7 +1364,7 @@ defmodule AWS.CloudFront do
   """
   def get_invalidation(%Client{} = client, distribution_id, id, options \\ []) do
     url_path =
-      "/2020-05-31/distribution/#{URI.encode(distribution_id)}/invalidation/#{URI.encode(id)}"
+      "/2020-05-31/distribution/#{AWS.Util.encode_uri(distribution_id)}/invalidation/#{AWS.Util.encode_uri(id)}"
 
     headers = []
     query_params = []
@@ -1387,7 +1393,7 @@ defmodule AWS.CloudFront do
   `ListKeyGroups`.
   """
   def get_key_group(%Client{} = client, id, options \\ []) do
-    url_path = "/2020-05-31/key-group/#{URI.encode(id)}"
+    url_path = "/2020-05-31/key-group/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1421,7 +1427,7 @@ defmodule AWS.CloudFront do
   using `ListKeyGroups`.
   """
   def get_key_group_config(%Client{} = client, id, options \\ []) do
-    url_path = "/2020-05-31/key-group/#{URI.encode(id)}/config"
+    url_path = "/2020-05-31/key-group/#{AWS.Util.encode_uri(id)}/config"
     headers = []
     query_params = []
 
@@ -1450,7 +1456,9 @@ defmodule AWS.CloudFront do
   specified CloudFront distribution.
   """
   def get_monitoring_subscription(%Client{} = client, distribution_id, options \\ []) do
-    url_path = "/2020-05-31/distributions/#{URI.encode(distribution_id)}/monitoring-subscription"
+    url_path =
+      "/2020-05-31/distributions/#{AWS.Util.encode_uri(distribution_id)}/monitoring-subscription"
+
     headers = []
     query_params = []
 
@@ -1481,7 +1489,7 @@ defmodule AWS.CloudFront do
   the identifier using `ListOriginRequestPolicies`.
   """
   def get_origin_request_policy(%Client{} = client, id, options \\ []) do
-    url_path = "/2020-05-31/origin-request-policy/#{URI.encode(id)}"
+    url_path = "/2020-05-31/origin-request-policy/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1515,7 +1523,7 @@ defmodule AWS.CloudFront do
   behavior, you can get the identifier using `ListOriginRequestPolicies`.
   """
   def get_origin_request_policy_config(%Client{} = client, id, options \\ []) do
-    url_path = "/2020-05-31/origin-request-policy/#{URI.encode(id)}/config"
+    url_path = "/2020-05-31/origin-request-policy/#{AWS.Util.encode_uri(id)}/config"
     headers = []
     query_params = []
 
@@ -1543,7 +1551,7 @@ defmodule AWS.CloudFront do
   Gets a public key.
   """
   def get_public_key(%Client{} = client, id, options \\ []) do
-    url_path = "/2020-05-31/public-key/#{URI.encode(id)}"
+    url_path = "/2020-05-31/public-key/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1571,7 +1579,7 @@ defmodule AWS.CloudFront do
   Gets a public key configuration.
   """
   def get_public_key_config(%Client{} = client, id, options \\ []) do
-    url_path = "/2020-05-31/public-key/#{URI.encode(id)}/config"
+    url_path = "/2020-05-31/public-key/#{AWS.Util.encode_uri(id)}/config"
     headers = []
     query_params = []
 
@@ -1626,7 +1634,7 @@ defmodule AWS.CloudFront do
   configuration.
   """
   def get_streaming_distribution(%Client{} = client, id, options \\ []) do
-    url_path = "/2020-05-31/streaming-distribution/#{URI.encode(id)}"
+    url_path = "/2020-05-31/streaming-distribution/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1654,7 +1662,7 @@ defmodule AWS.CloudFront do
   Get the configuration information about a streaming distribution.
   """
   def get_streaming_distribution_config(%Client{} = client, id, options \\ []) do
-    url_path = "/2020-05-31/streaming-distribution/#{URI.encode(id)}/config"
+    url_path = "/2020-05-31/streaming-distribution/#{AWS.Util.encode_uri(id)}/config"
     headers = []
     query_params = []
 
@@ -1911,7 +1919,7 @@ defmodule AWS.CloudFront do
         max_items \\ nil,
         options \\ []
       ) do
-    url_path = "/2020-05-31/distributionsByCachePolicyId/#{URI.encode(cache_policy_id)}"
+    url_path = "/2020-05-31/distributionsByCachePolicyId/#{AWS.Util.encode_uri(cache_policy_id)}"
     headers = []
     query_params = []
 
@@ -1959,7 +1967,7 @@ defmodule AWS.CloudFront do
         max_items \\ nil,
         options \\ []
       ) do
-    url_path = "/2020-05-31/distributionsByKeyGroupId/#{URI.encode(key_group_id)}"
+    url_path = "/2020-05-31/distributionsByKeyGroupId/#{AWS.Util.encode_uri(key_group_id)}"
     headers = []
     query_params = []
 
@@ -2008,7 +2016,7 @@ defmodule AWS.CloudFront do
         options \\ []
       ) do
     url_path =
-      "/2020-05-31/distributionsByOriginRequestPolicyId/#{URI.encode(origin_request_policy_id)}"
+      "/2020-05-31/distributionsByOriginRequestPolicyId/#{AWS.Util.encode_uri(origin_request_policy_id)}"
 
     headers = []
     query_params = []
@@ -2083,7 +2091,7 @@ defmodule AWS.CloudFront do
         max_items \\ nil,
         options \\ []
       ) do
-    url_path = "/2020-05-31/distributionsByWebACLId/#{URI.encode(web_acl_id)}"
+    url_path = "/2020-05-31/distributionsByWebACLId/#{AWS.Util.encode_uri(web_acl_id)}"
     headers = []
     query_params = []
 
@@ -2263,7 +2271,7 @@ defmodule AWS.CloudFront do
         max_items \\ nil,
         options \\ []
       ) do
-    url_path = "/2020-05-31/distribution/#{URI.encode(distribution_id)}/invalidation"
+    url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(distribution_id)}/invalidation"
     headers = []
     query_params = []
 
@@ -2556,7 +2564,7 @@ defmodule AWS.CloudFront do
   value). To get these values, you can use `ListFunctions` and `DescribeFunction`.
   """
   def publish_function(%Client{} = client, name, input, options \\ []) do
-    url_path = "/2020-05-31/function/#{URI.encode(name)}/publish"
+    url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}/publish"
 
     {headers, input} =
       [
@@ -2621,7 +2629,7 @@ defmodule AWS.CloudFront do
   `ListFunctions` and `DescribeFunction`.
   """
   def test_function(%Client{} = client, name, input, options \\ []) do
-    url_path = "/2020-05-31/function/#{URI.encode(name)}/test"
+    url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}/test"
 
     {headers, input} =
       [
@@ -2686,7 +2694,7 @@ defmodule AWS.CloudFront do
   configuration, including the fields that you modified and those that you didn’t.
   """
   def update_cache_policy(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2020-05-31/cache-policy/#{URI.encode(id)}"
+    url_path = "/2020-05-31/cache-policy/#{AWS.Util.encode_uri(id)}"
 
     {headers, input} =
       [
@@ -2720,7 +2728,7 @@ defmodule AWS.CloudFront do
   Update an origin access identity.
   """
   def update_cloud_front_origin_access_identity(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}/config"
+    url_path = "/2020-05-31/origin-access-identity/cloudfront/#{AWS.Util.encode_uri(id)}/config"
 
     {headers, input} =
       [
@@ -2818,7 +2826,7 @@ defmodule AWS.CloudFront do
   complete, the value of `Status` is `Deployed`.
   """
   def update_distribution(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2020-05-31/distribution/#{URI.encode(id)}/config"
+    url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}/config"
 
     {headers, input} =
       [
@@ -2852,7 +2860,7 @@ defmodule AWS.CloudFront do
   Update a field-level encryption configuration.
   """
   def update_field_level_encryption_config(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2020-05-31/field-level-encryption/#{URI.encode(id)}/config"
+    url_path = "/2020-05-31/field-level-encryption/#{AWS.Util.encode_uri(id)}/config"
 
     {headers, input} =
       [
@@ -2886,7 +2894,7 @@ defmodule AWS.CloudFront do
   Update a field-level encryption profile.
   """
   def update_field_level_encryption_profile(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}/config"
+    url_path = "/2020-05-31/field-level-encryption-profile/#{AWS.Util.encode_uri(id)}/config"
 
     {headers, input} =
       [
@@ -2927,7 +2935,7 @@ defmodule AWS.CloudFront do
   `ListFunctions` and `DescribeFunction`.
   """
   def update_function(%Client{} = client, name, input, options \\ []) do
-    url_path = "/2020-05-31/function/#{URI.encode(name)}"
+    url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}"
 
     {headers, input} =
       [
@@ -2974,7 +2982,7 @@ defmodule AWS.CloudFront do
   the fields that you modified and those that you didn’t.
   """
   def update_key_group(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2020-05-31/key-group/#{URI.encode(id)}"
+    url_path = "/2020-05-31/key-group/#{AWS.Util.encode_uri(id)}"
 
     {headers, input} =
       [
@@ -3022,7 +3030,7 @@ defmodule AWS.CloudFront do
   that you didn’t.
   """
   def update_origin_request_policy(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2020-05-31/origin-request-policy/#{URI.encode(id)}"
+    url_path = "/2020-05-31/origin-request-policy/#{AWS.Util.encode_uri(id)}"
 
     {headers, input} =
       [
@@ -3058,7 +3066,7 @@ defmodule AWS.CloudFront do
   Note that the only value you can change is the comment.
   """
   def update_public_key(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2020-05-31/public-key/#{URI.encode(id)}/config"
+    url_path = "/2020-05-31/public-key/#{AWS.Util.encode_uri(id)}/config"
 
     {headers, input} =
       [
@@ -3129,7 +3137,7 @@ defmodule AWS.CloudFront do
   Update a streaming distribution.
   """
   def update_streaming_distribution(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2020-05-31/streaming-distribution/#{URI.encode(id)}/config"
+    url_path = "/2020-05-31/streaming-distribution/#{AWS.Util.encode_uri(id)}/config"
 
     {headers, input} =
       [

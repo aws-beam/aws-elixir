@@ -50,7 +50,7 @@ defmodule AWS.Schemas do
   Creates a registry.
   """
   def create_registry(%Client{} = client, registry_name, input, options \\ []) do
-    url_path = "/v1/registries/name/#{URI.encode(registry_name)}"
+    url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
     headers = []
     query_params = []
 
@@ -74,7 +74,7 @@ defmodule AWS.Schemas do
   """
   def create_schema(%Client{} = client, registry_name, schema_name, input, options \\ []) do
     url_path =
-      "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}"
+      "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}"
 
     headers = []
     query_params = []
@@ -96,7 +96,7 @@ defmodule AWS.Schemas do
   Deletes a discoverer.
   """
   def delete_discoverer(%Client{} = client, discoverer_id, input, options \\ []) do
-    url_path = "/v1/discoverers/id/#{URI.encode(discoverer_id)}"
+    url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}"
     headers = []
     query_params = []
 
@@ -117,7 +117,7 @@ defmodule AWS.Schemas do
   Deletes a Registry.
   """
   def delete_registry(%Client{} = client, registry_name, input, options \\ []) do
-    url_path = "/v1/registries/name/#{URI.encode(registry_name)}"
+    url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
     headers = []
     query_params = []
 
@@ -165,7 +165,7 @@ defmodule AWS.Schemas do
   """
   def delete_schema(%Client{} = client, registry_name, schema_name, input, options \\ []) do
     url_path =
-      "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}"
+      "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}"
 
     headers = []
     query_params = []
@@ -195,7 +195,7 @@ defmodule AWS.Schemas do
         options \\ []
       ) do
     url_path =
-      "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}/version/#{URI.encode(schema_version)}"
+      "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}/version/#{AWS.Util.encode_uri(schema_version)}"
 
     headers = []
     query_params = []
@@ -225,7 +225,7 @@ defmodule AWS.Schemas do
         options \\ []
       ) do
     url_path =
-      "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}/language/#{URI.encode(language)}"
+      "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}/language/#{AWS.Util.encode_uri(language)}"
 
     headers = []
     query_params = []
@@ -254,7 +254,7 @@ defmodule AWS.Schemas do
   Describes the discoverer.
   """
   def describe_discoverer(%Client{} = client, discoverer_id, options \\ []) do
-    url_path = "/v1/discoverers/id/#{URI.encode(discoverer_id)}"
+    url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}"
     headers = []
     query_params = []
 
@@ -275,7 +275,7 @@ defmodule AWS.Schemas do
   Describes the registry.
   """
   def describe_registry(%Client{} = client, registry_name, options \\ []) do
-    url_path = "/v1/registries/name/#{URI.encode(registry_name)}"
+    url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
     headers = []
     query_params = []
 
@@ -303,7 +303,7 @@ defmodule AWS.Schemas do
         options \\ []
       ) do
     url_path =
-      "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}"
+      "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}"
 
     headers = []
     query_params = []
@@ -340,7 +340,7 @@ defmodule AWS.Schemas do
         options \\ []
       ) do
     url_path =
-      "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}/export"
+      "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}/export"
 
     headers = []
     query_params = []
@@ -384,7 +384,7 @@ defmodule AWS.Schemas do
         options \\ []
       ) do
     url_path =
-      "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}/language/#{URI.encode(language)}/source"
+      "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}/language/#{AWS.Util.encode_uri(language)}/source"
 
     headers = []
     query_params = []
@@ -589,7 +589,7 @@ defmodule AWS.Schemas do
         options \\ []
       ) do
     url_path =
-      "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}/versions"
+      "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}/versions"
 
     headers = []
     query_params = []
@@ -632,7 +632,7 @@ defmodule AWS.Schemas do
         schema_name_prefix \\ nil,
         options \\ []
       ) do
-    url_path = "/v1/registries/name/#{URI.encode(registry_name)}/schemas"
+    url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas"
     headers = []
     query_params = []
 
@@ -674,7 +674,7 @@ defmodule AWS.Schemas do
   Get tags for resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -703,7 +703,7 @@ defmodule AWS.Schemas do
         options \\ []
       ) do
     url_path =
-      "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}/language/#{URI.encode(language)}"
+      "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}/language/#{AWS.Util.encode_uri(language)}"
 
     headers = []
 
@@ -763,7 +763,7 @@ defmodule AWS.Schemas do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/v1/registries/name/#{URI.encode(registry_name)}/schemas/search"
+    url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/search"
     headers = []
     query_params = []
 
@@ -805,7 +805,7 @@ defmodule AWS.Schemas do
   Starts the discoverer
   """
   def start_discoverer(%Client{} = client, discoverer_id, input, options \\ []) do
-    url_path = "/v1/discoverers/id/#{URI.encode(discoverer_id)}/start"
+    url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}/start"
     headers = []
     query_params = []
 
@@ -826,7 +826,7 @@ defmodule AWS.Schemas do
   Stops the discoverer
   """
   def stop_discoverer(%Client{} = client, discoverer_id, input, options \\ []) do
-    url_path = "/v1/discoverers/id/#{URI.encode(discoverer_id)}/stop"
+    url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}/stop"
     headers = []
     query_params = []
 
@@ -847,7 +847,7 @@ defmodule AWS.Schemas do
   Add tags to a resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -868,7 +868,7 @@ defmodule AWS.Schemas do
   Removes tags from a resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -894,7 +894,7 @@ defmodule AWS.Schemas do
   Updates the discoverer
   """
   def update_discoverer(%Client{} = client, discoverer_id, input, options \\ []) do
-    url_path = "/v1/discoverers/id/#{URI.encode(discoverer_id)}"
+    url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}"
     headers = []
     query_params = []
 
@@ -915,7 +915,7 @@ defmodule AWS.Schemas do
   Updates a registry.
   """
   def update_registry(%Client{} = client, registry_name, input, options \\ []) do
-    url_path = "/v1/registries/name/#{URI.encode(registry_name)}"
+    url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
     headers = []
     query_params = []
 
@@ -939,7 +939,7 @@ defmodule AWS.Schemas do
   """
   def update_schema(%Client{} = client, registry_name, schema_name, input, options \\ []) do
     url_path =
-      "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}"
+      "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}"
 
     headers = []
     query_params = []

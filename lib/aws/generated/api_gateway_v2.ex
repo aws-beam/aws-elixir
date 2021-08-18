@@ -50,7 +50,7 @@ defmodule AWS.ApiGatewayV2 do
   Creates an API mapping.
   """
   def create_api_mapping(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/v2/domainnames/#{URI.encode(domain_name)}/apimappings"
+    url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/apimappings"
     headers = []
     query_params = []
 
@@ -71,7 +71,7 @@ defmodule AWS.ApiGatewayV2 do
   Creates an Authorizer for an API.
   """
   def create_authorizer(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/authorizers"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/authorizers"
     headers = []
     query_params = []
 
@@ -92,7 +92,7 @@ defmodule AWS.ApiGatewayV2 do
   Creates a Deployment for an API.
   """
   def create_deployment(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/deployments"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/deployments"
     headers = []
     query_params = []
 
@@ -134,7 +134,7 @@ defmodule AWS.ApiGatewayV2 do
   Creates an Integration.
   """
   def create_integration(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/integrations"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations"
     headers = []
     query_params = []
 
@@ -162,7 +162,7 @@ defmodule AWS.ApiGatewayV2 do
         options \\ []
       ) do
     url_path =
-      "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses"
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}/integrationresponses"
 
     headers = []
     query_params = []
@@ -184,7 +184,7 @@ defmodule AWS.ApiGatewayV2 do
   Creates a Model for an API.
   """
   def create_model(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/models"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models"
     headers = []
     query_params = []
 
@@ -205,7 +205,7 @@ defmodule AWS.ApiGatewayV2 do
   Creates a Route for an API.
   """
   def create_route(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/routes"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes"
     headers = []
     query_params = []
 
@@ -226,7 +226,9 @@ defmodule AWS.ApiGatewayV2 do
   Creates a RouteResponse for a Route.
   """
   def create_route_response(%Client{} = client, api_id, route_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses"
+    url_path =
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}/routeresponses"
+
     headers = []
     query_params = []
 
@@ -247,7 +249,7 @@ defmodule AWS.ApiGatewayV2 do
   Creates a Stage for an API.
   """
   def create_stage(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/stages"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages"
     headers = []
     query_params = []
 
@@ -291,7 +293,9 @@ defmodule AWS.ApiGatewayV2 do
   To disable access logging for a Stage, delete its AccessLogSettings.
   """
   def delete_access_log_settings(%Client{} = client, api_id, stage_name, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}/accesslogsettings"
+    url_path =
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/accesslogsettings"
+
     headers = []
     query_params = []
 
@@ -312,7 +316,7 @@ defmodule AWS.ApiGatewayV2 do
   Deletes an Api resource.
   """
   def delete_api(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
     headers = []
     query_params = []
 
@@ -334,7 +338,7 @@ defmodule AWS.ApiGatewayV2 do
   """
   def delete_api_mapping(%Client{} = client, api_mapping_id, domain_name, input, options \\ []) do
     url_path =
-      "/v2/domainnames/#{URI.encode(domain_name)}/apimappings/#{URI.encode(api_mapping_id)}"
+      "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/apimappings/#{AWS.Util.encode_uri(api_mapping_id)}"
 
     headers = []
     query_params = []
@@ -356,7 +360,9 @@ defmodule AWS.ApiGatewayV2 do
   Deletes an Authorizer.
   """
   def delete_authorizer(%Client{} = client, api_id, authorizer_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/authorizers/#{URI.encode(authorizer_id)}"
+    url_path =
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
+
     headers = []
     query_params = []
 
@@ -377,7 +383,7 @@ defmodule AWS.ApiGatewayV2 do
   Deletes a CORS configuration.
   """
   def delete_cors_configuration(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/cors"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/cors"
     headers = []
     query_params = []
 
@@ -398,7 +404,9 @@ defmodule AWS.ApiGatewayV2 do
   Deletes a Deployment.
   """
   def delete_deployment(%Client{} = client, api_id, deployment_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/deployments/#{URI.encode(deployment_id)}"
+    url_path =
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
+
     headers = []
     query_params = []
 
@@ -419,7 +427,7 @@ defmodule AWS.ApiGatewayV2 do
   Deletes a domain name.
   """
   def delete_domain_name(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/v2/domainnames/#{URI.encode(domain_name)}"
+    url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
 
@@ -440,7 +448,9 @@ defmodule AWS.ApiGatewayV2 do
   Deletes an Integration.
   """
   def delete_integration(%Client{} = client, api_id, integration_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}"
+    url_path =
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}"
+
     headers = []
     query_params = []
 
@@ -469,7 +479,7 @@ defmodule AWS.ApiGatewayV2 do
         options \\ []
       ) do
     url_path =
-      "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses/#{URI.encode(integration_response_id)}"
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}/integrationresponses/#{AWS.Util.encode_uri(integration_response_id)}"
 
     headers = []
     query_params = []
@@ -491,7 +501,7 @@ defmodule AWS.ApiGatewayV2 do
   Deletes a Model.
   """
   def delete_model(%Client{} = client, api_id, model_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/models/#{URI.encode(model_id)}"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models/#{AWS.Util.encode_uri(model_id)}"
     headers = []
     query_params = []
 
@@ -512,7 +522,7 @@ defmodule AWS.ApiGatewayV2 do
   Deletes a Route.
   """
   def delete_route(%Client{} = client, api_id, route_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}"
     headers = []
     query_params = []
 
@@ -541,7 +551,7 @@ defmodule AWS.ApiGatewayV2 do
         options \\ []
       ) do
     url_path =
-      "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/requestparameters/#{URI.encode(request_parameter_key)}"
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}/requestparameters/#{AWS.Util.encode_uri(request_parameter_key)}"
 
     headers = []
     query_params = []
@@ -571,7 +581,7 @@ defmodule AWS.ApiGatewayV2 do
         options \\ []
       ) do
     url_path =
-      "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses/#{URI.encode(route_response_id)}"
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}/routeresponses/#{AWS.Util.encode_uri(route_response_id)}"
 
     headers = []
     query_params = []
@@ -601,7 +611,7 @@ defmodule AWS.ApiGatewayV2 do
         options \\ []
       ) do
     url_path =
-      "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}/routesettings/#{URI.encode(route_key)}"
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/routesettings/#{AWS.Util.encode_uri(route_key)}"
 
     headers = []
     query_params = []
@@ -623,7 +633,7 @@ defmodule AWS.ApiGatewayV2 do
   Deletes a Stage.
   """
   def delete_stage(%Client{} = client, api_id, stage_name, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
     headers = []
     query_params = []
 
@@ -644,7 +654,7 @@ defmodule AWS.ApiGatewayV2 do
   Deletes a VPC link.
   """
   def delete_vpc_link(%Client{} = client, vpc_link_id, input, options \\ []) do
-    url_path = "/v2/vpclinks/#{URI.encode(vpc_link_id)}"
+    url_path = "/v2/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
     headers = []
     query_params = []
 
@@ -674,7 +684,9 @@ defmodule AWS.ApiGatewayV2 do
         stage_name \\ nil,
         options \\ []
       ) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/exports/#{URI.encode(specification)}"
+    url_path =
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/exports/#{AWS.Util.encode_uri(specification)}"
+
     headers = []
     query_params = []
 
@@ -723,7 +735,7 @@ defmodule AWS.ApiGatewayV2 do
   Gets an Api resource.
   """
   def get_api(%Client{} = client, api_id, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
     headers = []
     query_params = []
 
@@ -745,7 +757,7 @@ defmodule AWS.ApiGatewayV2 do
   """
   def get_api_mapping(%Client{} = client, api_mapping_id, domain_name, options \\ []) do
     url_path =
-      "/v2/domainnames/#{URI.encode(domain_name)}/apimappings/#{URI.encode(api_mapping_id)}"
+      "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/apimappings/#{AWS.Util.encode_uri(api_mapping_id)}"
 
     headers = []
     query_params = []
@@ -773,7 +785,7 @@ defmodule AWS.ApiGatewayV2 do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/v2/domainnames/#{URI.encode(domain_name)}/apimappings"
+    url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/apimappings"
     headers = []
     query_params = []
 
@@ -843,7 +855,9 @@ defmodule AWS.ApiGatewayV2 do
   Gets an Authorizer.
   """
   def get_authorizer(%Client{} = client, api_id, authorizer_id, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/authorizers/#{URI.encode(authorizer_id)}"
+    url_path =
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
+
     headers = []
     query_params = []
 
@@ -870,7 +884,7 @@ defmodule AWS.ApiGatewayV2 do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/authorizers"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/authorizers"
     headers = []
     query_params = []
 
@@ -905,7 +919,9 @@ defmodule AWS.ApiGatewayV2 do
   Gets a Deployment.
   """
   def get_deployment(%Client{} = client, api_id, deployment_id, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/deployments/#{URI.encode(deployment_id)}"
+    url_path =
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
+
     headers = []
     query_params = []
 
@@ -932,7 +948,7 @@ defmodule AWS.ApiGatewayV2 do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/deployments"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/deployments"
     headers = []
     query_params = []
 
@@ -967,7 +983,7 @@ defmodule AWS.ApiGatewayV2 do
   Gets a domain name.
   """
   def get_domain_name(%Client{} = client, domain_name, options \\ []) do
-    url_path = "/v2/domainnames/#{URI.encode(domain_name)}"
+    url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
 
@@ -1023,7 +1039,9 @@ defmodule AWS.ApiGatewayV2 do
   Gets an Integration.
   """
   def get_integration(%Client{} = client, api_id, integration_id, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}"
+    url_path =
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}"
+
     headers = []
     query_params = []
 
@@ -1051,7 +1069,7 @@ defmodule AWS.ApiGatewayV2 do
         options \\ []
       ) do
     url_path =
-      "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses/#{URI.encode(integration_response_id)}"
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}/integrationresponses/#{AWS.Util.encode_uri(integration_response_id)}"
 
     headers = []
     query_params = []
@@ -1081,7 +1099,7 @@ defmodule AWS.ApiGatewayV2 do
         options \\ []
       ) do
     url_path =
-      "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses"
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}/integrationresponses"
 
     headers = []
     query_params = []
@@ -1123,7 +1141,7 @@ defmodule AWS.ApiGatewayV2 do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/integrations"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations"
     headers = []
     query_params = []
 
@@ -1158,7 +1176,7 @@ defmodule AWS.ApiGatewayV2 do
   Gets a Model.
   """
   def get_model(%Client{} = client, api_id, model_id, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/models/#{URI.encode(model_id)}"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models/#{AWS.Util.encode_uri(model_id)}"
     headers = []
     query_params = []
 
@@ -1179,7 +1197,9 @@ defmodule AWS.ApiGatewayV2 do
   Gets a model template.
   """
   def get_model_template(%Client{} = client, api_id, model_id, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/models/#{URI.encode(model_id)}/template"
+    url_path =
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models/#{AWS.Util.encode_uri(model_id)}/template"
+
     headers = []
     query_params = []
 
@@ -1200,7 +1220,7 @@ defmodule AWS.ApiGatewayV2 do
   Gets the Models for an API.
   """
   def get_models(%Client{} = client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/models"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models"
     headers = []
     query_params = []
 
@@ -1235,7 +1255,7 @@ defmodule AWS.ApiGatewayV2 do
   Gets a Route.
   """
   def get_route(%Client{} = client, api_id, route_id, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}"
     headers = []
     query_params = []
 
@@ -1257,7 +1277,7 @@ defmodule AWS.ApiGatewayV2 do
   """
   def get_route_response(%Client{} = client, api_id, route_id, route_response_id, options \\ []) do
     url_path =
-      "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses/#{URI.encode(route_response_id)}"
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}/routeresponses/#{AWS.Util.encode_uri(route_response_id)}"
 
     headers = []
     query_params = []
@@ -1286,7 +1306,9 @@ defmodule AWS.ApiGatewayV2 do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses"
+    url_path =
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}/routeresponses"
+
     headers = []
     query_params = []
 
@@ -1321,7 +1343,7 @@ defmodule AWS.ApiGatewayV2 do
   Gets the Routes for an API.
   """
   def get_routes(%Client{} = client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/routes"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes"
     headers = []
     query_params = []
 
@@ -1356,7 +1378,7 @@ defmodule AWS.ApiGatewayV2 do
   Gets a Stage.
   """
   def get_stage(%Client{} = client, api_id, stage_name, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
     headers = []
     query_params = []
 
@@ -1377,7 +1399,7 @@ defmodule AWS.ApiGatewayV2 do
   Gets the Stages for an API.
   """
   def get_stages(%Client{} = client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/stages"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages"
     headers = []
     query_params = []
 
@@ -1412,7 +1434,7 @@ defmodule AWS.ApiGatewayV2 do
   Gets a collection of Tag resources.
   """
   def get_tags(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/v2/tags/#{URI.encode(resource_arn)}"
+    url_path = "/v2/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1433,7 +1455,7 @@ defmodule AWS.ApiGatewayV2 do
   Gets a VPC link.
   """
   def get_vpc_link(%Client{} = client, vpc_link_id, options \\ []) do
-    url_path = "/v2/vpclinks/#{URI.encode(vpc_link_id)}"
+    url_path = "/v2/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
     headers = []
     query_params = []
 
@@ -1523,7 +1545,7 @@ defmodule AWS.ApiGatewayV2 do
   Puts an Api resource.
   """
   def reimport_api(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
     headers = []
 
     {query_params, input} =
@@ -1559,7 +1581,9 @@ defmodule AWS.ApiGatewayV2 do
   Supported only for HTTP API Lambda authorizers.
   """
   def reset_authorizers_cache(%Client{} = client, api_id, stage_name, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}/cache/authorizers"
+    url_path =
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/cache/authorizers"
+
     headers = []
     query_params = []
 
@@ -1580,7 +1604,7 @@ defmodule AWS.ApiGatewayV2 do
   Creates a new Tag resource to represent a tag.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/v2/tags/#{URI.encode(resource_arn)}"
+    url_path = "/v2/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1601,7 +1625,7 @@ defmodule AWS.ApiGatewayV2 do
   Deletes a Tag.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/v2/tags/#{URI.encode(resource_arn)}"
+    url_path = "/v2/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -1627,7 +1651,7 @@ defmodule AWS.ApiGatewayV2 do
   Updates an Api resource.
   """
   def update_api(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
     headers = []
     query_params = []
 
@@ -1649,7 +1673,7 @@ defmodule AWS.ApiGatewayV2 do
   """
   def update_api_mapping(%Client{} = client, api_mapping_id, domain_name, input, options \\ []) do
     url_path =
-      "/v2/domainnames/#{URI.encode(domain_name)}/apimappings/#{URI.encode(api_mapping_id)}"
+      "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/apimappings/#{AWS.Util.encode_uri(api_mapping_id)}"
 
     headers = []
     query_params = []
@@ -1671,7 +1695,9 @@ defmodule AWS.ApiGatewayV2 do
   Updates an Authorizer.
   """
   def update_authorizer(%Client{} = client, api_id, authorizer_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/authorizers/#{URI.encode(authorizer_id)}"
+    url_path =
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
+
     headers = []
     query_params = []
 
@@ -1692,7 +1718,9 @@ defmodule AWS.ApiGatewayV2 do
   Updates a Deployment.
   """
   def update_deployment(%Client{} = client, api_id, deployment_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/deployments/#{URI.encode(deployment_id)}"
+    url_path =
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
+
     headers = []
     query_params = []
 
@@ -1713,7 +1741,7 @@ defmodule AWS.ApiGatewayV2 do
   Updates a domain name.
   """
   def update_domain_name(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/v2/domainnames/#{URI.encode(domain_name)}"
+    url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
 
@@ -1734,7 +1762,9 @@ defmodule AWS.ApiGatewayV2 do
   Updates an Integration.
   """
   def update_integration(%Client{} = client, api_id, integration_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}"
+    url_path =
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}"
+
     headers = []
     query_params = []
 
@@ -1763,7 +1793,7 @@ defmodule AWS.ApiGatewayV2 do
         options \\ []
       ) do
     url_path =
-      "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses/#{URI.encode(integration_response_id)}"
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}/integrationresponses/#{AWS.Util.encode_uri(integration_response_id)}"
 
     headers = []
     query_params = []
@@ -1785,7 +1815,7 @@ defmodule AWS.ApiGatewayV2 do
   Updates a Model.
   """
   def update_model(%Client{} = client, api_id, model_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/models/#{URI.encode(model_id)}"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models/#{AWS.Util.encode_uri(model_id)}"
     headers = []
     query_params = []
 
@@ -1806,7 +1836,7 @@ defmodule AWS.ApiGatewayV2 do
   Updates a Route.
   """
   def update_route(%Client{} = client, api_id, route_id, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}"
     headers = []
     query_params = []
 
@@ -1835,7 +1865,7 @@ defmodule AWS.ApiGatewayV2 do
         options \\ []
       ) do
     url_path =
-      "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses/#{URI.encode(route_response_id)}"
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}/routeresponses/#{AWS.Util.encode_uri(route_response_id)}"
 
     headers = []
     query_params = []
@@ -1857,7 +1887,7 @@ defmodule AWS.ApiGatewayV2 do
   Updates a Stage.
   """
   def update_stage(%Client{} = client, api_id, stage_name, input, options \\ []) do
-    url_path = "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}"
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
     headers = []
     query_params = []
 
@@ -1878,7 +1908,7 @@ defmodule AWS.ApiGatewayV2 do
   Updates a VPC link.
   """
   def update_vpc_link(%Client{} = client, vpc_link_id, input, options \\ []) do
-    url_path = "/v2/vpclinks/#{URI.encode(vpc_link_id)}"
+    url_path = "/v2/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
     headers = []
     query_params = []
 

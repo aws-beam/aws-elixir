@@ -48,7 +48,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permission for the `lex:CreateBotVersion` action.
   """
   def create_bot_version(%Client{} = client, name, input, options \\ []) do
-    url_path = "/bots/#{URI.encode(name)}/versions"
+    url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions"
     headers = []
     query_params = []
 
@@ -83,7 +83,7 @@ defmodule AWS.LexModelBuilding do
   action.
   """
   def create_intent_version(%Client{} = client, name, input, options \\ []) do
-    url_path = "/intents/#{URI.encode(name)}/versions"
+    url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions"
     headers = []
     query_params = []
 
@@ -118,7 +118,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the `lex:CreateSlotTypeVersion` action.
   """
   def create_slot_type_version(%Client{} = client, name, input, options \\ []) do
-    url_path = "/slottypes/#{URI.encode(name)}/versions"
+    url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions"
     headers = []
     query_params = []
 
@@ -155,7 +155,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the `lex:DeleteBot` action.
   """
   def delete_bot(%Client{} = client, name, input, options \\ []) do
-    url_path = "/bots/#{URI.encode(name)}"
+    url_path = "/bots/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -184,7 +184,7 @@ defmodule AWS.LexModelBuilding do
   successful.
   """
   def delete_bot_alias(%Client{} = client, bot_name, name, input, options \\ []) do
-    url_path = "/bots/#{URI.encode(bot_name)}/aliases/#{URI.encode(name)}"
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -216,7 +216,7 @@ defmodule AWS.LexModelBuilding do
         options \\ []
       ) do
     url_path =
-      "/bots/#{URI.encode(bot_name)}/aliases/#{URI.encode(bot_alias)}/channels/#{URI.encode(name)}"
+      "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(bot_alias)}/channels/#{AWS.Util.encode_uri(name)}"
 
     headers = []
     query_params = []
@@ -242,7 +242,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the `lex:DeleteBotVersion` action.
   """
   def delete_bot_version(%Client{} = client, name, version, input, options \\ []) do
-    url_path = "/bots/#{URI.encode(name)}/versions/#{URI.encode(version)}"
+    url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
     headers = []
     query_params = []
 
@@ -278,7 +278,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permission for the `lex:DeleteIntent` action.
   """
   def delete_intent(%Client{} = client, name, input, options \\ []) do
-    url_path = "/intents/#{URI.encode(name)}"
+    url_path = "/intents/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -303,7 +303,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the `lex:DeleteIntentVersion` action.
   """
   def delete_intent_version(%Client{} = client, name, version, input, options \\ []) do
-    url_path = "/intents/#{URI.encode(name)}/versions/#{URI.encode(version)}"
+    url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
     headers = []
     query_params = []
 
@@ -340,7 +340,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permission for the `lex:DeleteSlotType` action.
   """
   def delete_slot_type(%Client{} = client, name, input, options \\ []) do
-    url_path = "/slottypes/#{URI.encode(name)}"
+    url_path = "/slottypes/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -365,7 +365,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the `lex:DeleteSlotTypeVersion` action.
   """
   def delete_slot_type_version(%Client{} = client, name, version, input, options \\ []) do
-    url_path = "/slottypes/#{URI.encode(name)}/version/#{URI.encode(version)}"
+    url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/version/#{AWS.Util.encode_uri(version)}"
     headers = []
     query_params = []
 
@@ -399,7 +399,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the `lex:DeleteUtterances` action.
   """
   def delete_utterances(%Client{} = client, bot_name, user_id, input, options \\ []) do
-    url_path = "/bots/#{URI.encode(bot_name)}/utterances/#{URI.encode(user_id)}"
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/utterances/#{AWS.Util.encode_uri(user_id)}"
     headers = []
     query_params = []
 
@@ -424,7 +424,9 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the `lex:GetBot` action.
   """
   def get_bot(%Client{} = client, name, version_or_alias, options \\ []) do
-    url_path = "/bots/#{URI.encode(name)}/versions/#{URI.encode(version_or_alias)}"
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version_or_alias)}"
+
     headers = []
     query_params = []
 
@@ -449,7 +451,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the `lex:GetBotAlias` action.
   """
   def get_bot_alias(%Client{} = client, bot_name, name, options \\ []) do
-    url_path = "/bots/#{URI.encode(bot_name)}/aliases/#{URI.encode(name)}"
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -479,7 +481,7 @@ defmodule AWS.LexModelBuilding do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/bots/#{URI.encode(bot_name)}/aliases/"
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/"
     headers = []
     query_params = []
 
@@ -526,7 +528,7 @@ defmodule AWS.LexModelBuilding do
   """
   def get_bot_channel_association(%Client{} = client, bot_alias, bot_name, name, options \\ []) do
     url_path =
-      "/bots/#{URI.encode(bot_name)}/aliases/#{URI.encode(bot_alias)}/channels/#{URI.encode(name)}"
+      "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(bot_alias)}/channels/#{AWS.Util.encode_uri(name)}"
 
     headers = []
     query_params = []
@@ -559,7 +561,9 @@ defmodule AWS.LexModelBuilding do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/bots/#{URI.encode(bot_name)}/aliases/#{URI.encode(bot_alias)}/channels/"
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(bot_alias)}/channels/"
+
     headers = []
     query_params = []
 
@@ -617,7 +621,7 @@ defmodule AWS.LexModelBuilding do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/bots/#{URI.encode(name)}/versions/"
+    url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions/"
     headers = []
     query_params = []
 
@@ -711,7 +715,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permission for the `lex:GetBuiltinIntent` action.
   """
   def get_builtin_intent(%Client{} = client, signature, options \\ []) do
-    url_path = "/builtins/intents/#{URI.encode(signature)}"
+    url_path = "/builtins/intents/#{AWS.Util.encode_uri(signature)}"
     headers = []
     query_params = []
 
@@ -900,7 +904,7 @@ defmodule AWS.LexModelBuilding do
   Gets information about an import job started with the `StartImport` operation.
   """
   def get_import(%Client{} = client, import_id, options \\ []) do
-    url_path = "/imports/#{URI.encode(import_id)}"
+    url_path = "/imports/#{AWS.Util.encode_uri(import_id)}"
     headers = []
     query_params = []
 
@@ -925,7 +929,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions to perform the `lex:GetIntent` action.
   """
   def get_intent(%Client{} = client, name, version, options \\ []) do
-    url_path = "/intents/#{URI.encode(name)}/versions/#{URI.encode(version)}"
+    url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
     headers = []
     query_params = []
 
@@ -962,7 +966,7 @@ defmodule AWS.LexModelBuilding do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/intents/#{URI.encode(name)}/versions/"
+    url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions/"
     headers = []
     query_params = []
 
@@ -1057,7 +1061,7 @@ defmodule AWS.LexModelBuilding do
   migration.
   """
   def get_migration(%Client{} = client, migration_id, options \\ []) do
-    url_path = "/migrations/#{URI.encode(migration_id)}"
+    url_path = "/migrations/#{AWS.Util.encode_uri(migration_id)}"
     headers = []
     query_params = []
 
@@ -1155,7 +1159,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the `lex:GetSlotType` action.
   """
   def get_slot_type(%Client{} = client, name, version, options \\ []) do
-    url_path = "/slottypes/#{URI.encode(name)}/versions/#{URI.encode(version)}"
+    url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
     headers = []
     query_params = []
 
@@ -1192,7 +1196,7 @@ defmodule AWS.LexModelBuilding do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/slottypes/#{URI.encode(name)}/versions/"
+    url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions/"
     headers = []
     query_params = []
 
@@ -1309,7 +1313,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the `lex:GetUtterancesView` action.
   """
   def get_utterances_view(%Client{} = client, bot_name, bot_versions, status_type, options \\ []) do
-    url_path = "/bots/#{URI.encode(bot_name)}/utterances?view=aggregation"
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/utterances?view=aggregation"
     headers = []
     query_params = []
 
@@ -1346,7 +1350,7 @@ defmodule AWS.LexModelBuilding do
   Only bots, bot aliases, and bot channels can have tags associated with them.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1388,7 +1392,7 @@ defmodule AWS.LexModelBuilding do
   ```
   """
   def put_bot(%Client{} = client, name, input, options \\ []) do
-    url_path = "/bots/#{URI.encode(name)}/versions/$LATEST"
+    url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions/$LATEST"
     headers = []
     query_params = []
 
@@ -1415,7 +1419,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the `lex:PutBotAlias` action.
   """
   def put_bot_alias(%Client{} = client, bot_name, name, input, options \\ []) do
-    url_path = "/bots/#{URI.encode(bot_name)}/aliases/#{URI.encode(name)}"
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -1481,7 +1485,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the `lex:PutIntent` action.
   """
   def put_intent(%Client{} = client, name, input, options \\ []) do
-    url_path = "/intents/#{URI.encode(name)}/versions/$LATEST"
+    url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions/$LATEST"
     headers = []
     query_params = []
 
@@ -1516,7 +1520,7 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the `lex:PutSlotType` action.
   """
   def put_slot_type(%Client{} = client, name, input, options \\ []) do
-    url_path = "/slottypes/#{URI.encode(name)}/versions/$LATEST"
+    url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions/$LATEST"
     headers = []
     query_params = []
 
@@ -1587,7 +1591,7 @@ defmodule AWS.LexModelBuilding do
   If a tag key already exists, the existing value is replaced with the new value.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1608,7 +1612,7 @@ defmodule AWS.LexModelBuilding do
   Removes tags from a bot, bot alias or bot channel.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =

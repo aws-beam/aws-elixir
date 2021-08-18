@@ -47,7 +47,7 @@ defmodule AWS.CustomerProfiles do
   that can be used to identify the profile that it belongs to.
   """
   def add_profile_key(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/domains/#{URI.encode(domain_name)}/profiles/keys"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/keys"
     headers = []
     query_params = []
 
@@ -75,7 +75,7 @@ defmodule AWS.CustomerProfiles do
   Amazon Connect instances can be associated with one domain.
   """
   def create_domain(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/domains/#{URI.encode(domain_name)}"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
 
@@ -99,7 +99,7 @@ defmodule AWS.CustomerProfiles do
   a domain.
   """
   def create_profile(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/domains/#{URI.encode(domain_name)}/profiles"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles"
     headers = []
     query_params = []
 
@@ -121,7 +121,7 @@ defmodule AWS.CustomerProfiles do
   attributes and their related objects.
   """
   def delete_domain(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/domains/#{URI.encode(domain_name)}"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
 
@@ -142,7 +142,7 @@ defmodule AWS.CustomerProfiles do
   Removes an integration from a specific domain.
   """
   def delete_integration(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/domains/#{URI.encode(domain_name)}/integrations/delete"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/integrations/delete"
     headers = []
     query_params = []
 
@@ -163,7 +163,7 @@ defmodule AWS.CustomerProfiles do
   Deletes the standard customer profile and all data pertaining to the profile.
   """
   def delete_profile(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/domains/#{URI.encode(domain_name)}/profiles/delete"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/delete"
     headers = []
     query_params = []
 
@@ -184,7 +184,7 @@ defmodule AWS.CustomerProfiles do
   Removes a searchable key from a customer profile.
   """
   def delete_profile_key(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/domains/#{URI.encode(domain_name)}/profiles/keys/delete"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/keys/delete"
     headers = []
     query_params = []
 
@@ -205,7 +205,7 @@ defmodule AWS.CustomerProfiles do
   Removes an object associated with a profile of a given ProfileObjectType.
   """
   def delete_profile_object(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/domains/#{URI.encode(domain_name)}/profiles/objects/delete"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/objects/delete"
     headers = []
     query_params = []
 
@@ -237,7 +237,9 @@ defmodule AWS.CustomerProfiles do
         input,
         options \\ []
       ) do
-    url_path = "/domains/#{URI.encode(domain_name)}/object-types/#{URI.encode(object_type_name)}"
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/object-types/#{AWS.Util.encode_uri(object_type_name)}"
+
     headers = []
     query_params = []
 
@@ -258,7 +260,7 @@ defmodule AWS.CustomerProfiles do
   Returns information about a specific domain.
   """
   def get_domain(%Client{} = client, domain_name, options \\ []) do
-    url_path = "/domains/#{URI.encode(domain_name)}"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
 
@@ -279,7 +281,7 @@ defmodule AWS.CustomerProfiles do
   Returns an integration for a domain.
   """
   def get_integration(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/domains/#{URI.encode(domain_name)}/integrations"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/integrations"
     headers = []
     query_params = []
 
@@ -338,7 +340,7 @@ defmodule AWS.CustomerProfiles do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/domains/#{URI.encode(domain_name)}/matches"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/matches"
     headers = []
     query_params = []
 
@@ -373,7 +375,9 @@ defmodule AWS.CustomerProfiles do
   Returns the object types for a specific domain.
   """
   def get_profile_object_type(%Client{} = client, domain_name, object_type_name, options \\ []) do
-    url_path = "/domains/#{URI.encode(domain_name)}/object-types/#{URI.encode(object_type_name)}"
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/object-types/#{AWS.Util.encode_uri(object_type_name)}"
+
     headers = []
     query_params = []
 
@@ -399,7 +403,7 @@ defmodule AWS.CustomerProfiles do
   TemplateIds, it uses the mappings from the template.
   """
   def get_profile_object_type_template(%Client{} = client, template_id, options \\ []) do
-    url_path = "/templates/#{URI.encode(template_id)}"
+    url_path = "/templates/#{AWS.Util.encode_uri(template_id)}"
     headers = []
     query_params = []
 
@@ -488,7 +492,7 @@ defmodule AWS.CustomerProfiles do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/domains/#{URI.encode(domain_name)}/integrations"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/integrations"
     headers = []
     query_params = []
 
@@ -569,7 +573,7 @@ defmodule AWS.CustomerProfiles do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/domains/#{URI.encode(domain_name)}/object-types"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/object-types"
     headers = []
     query_params = []
 
@@ -605,7 +609,7 @@ defmodule AWS.CustomerProfiles do
   ProfileObjectType.
   """
   def list_profile_objects(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/domains/#{URI.encode(domain_name)}/profiles/objects"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/objects"
     headers = []
 
     {query_params, input} =
@@ -635,7 +639,7 @@ defmodule AWS.CustomerProfiles do
   can be tagged.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -688,7 +692,7 @@ defmodule AWS.CustomerProfiles do
   separated (unmerged).
   """
   def merge_profiles(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/domains/#{URI.encode(domain_name)}/profiles/objects/merge"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/objects/merge"
     headers = []
     query_params = []
 
@@ -712,7 +716,7 @@ defmodule AWS.CustomerProfiles do
   An integration can belong to only one domain.
   """
   def put_integration(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/domains/#{URI.encode(domain_name)}/integrations"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/integrations"
     headers = []
     query_params = []
 
@@ -746,7 +750,7 @@ defmodule AWS.CustomerProfiles do
   PutProfileObjectType.
   """
   def put_profile_object(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/domains/#{URI.encode(domain_name)}/profiles/objects"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/objects"
     headers = []
     query_params = []
 
@@ -773,7 +777,9 @@ defmodule AWS.CustomerProfiles do
         input,
         options \\ []
       ) do
-    url_path = "/domains/#{URI.encode(domain_name)}/object-types/#{URI.encode(object_type_name)}"
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/object-types/#{AWS.Util.encode_uri(object_type_name)}"
+
     headers = []
     query_params = []
 
@@ -795,7 +801,7 @@ defmodule AWS.CustomerProfiles do
   email address, account number, or a custom defined index.
   """
   def search_profiles(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/domains/#{URI.encode(domain_name)}/profiles/search"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/search"
     headers = []
 
     {query_params, input} =
@@ -839,7 +845,7 @@ defmodule AWS.CustomerProfiles do
   You can associate as many as 50 tags with a resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -864,7 +870,7 @@ defmodule AWS.CustomerProfiles do
   can be tagged.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -893,7 +899,7 @@ defmodule AWS.CustomerProfiles do
   After a domain is created, the name can’t be changed.
   """
   def update_domain(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/domains/#{URI.encode(domain_name)}"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
 
@@ -920,7 +926,7 @@ defmodule AWS.CustomerProfiles do
   value already there will be kept.
   """
   def update_profile(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/domains/#{URI.encode(domain_name)}/profiles"
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles"
     headers = []
     query_params = []
 

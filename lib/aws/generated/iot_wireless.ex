@@ -50,7 +50,7 @@ defmodule AWS.IoTWireless do
   Associates a wireless device with a thing.
   """
   def associate_wireless_device_with_thing(%Client{} = client, id, input, options \\ []) do
-    url_path = "/wireless-devices/#{URI.encode(id)}/thing"
+    url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/thing"
     headers = []
     query_params = []
 
@@ -71,7 +71,7 @@ defmodule AWS.IoTWireless do
   Associates a wireless gateway with a certificate.
   """
   def associate_wireless_gateway_with_certificate(%Client{} = client, id, input, options \\ []) do
-    url_path = "/wireless-gateways/#{URI.encode(id)}/certificate"
+    url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/certificate"
     headers = []
     query_params = []
 
@@ -92,7 +92,7 @@ defmodule AWS.IoTWireless do
   Associates a wireless gateway with a thing.
   """
   def associate_wireless_gateway_with_thing(%Client{} = client, id, input, options \\ []) do
-    url_path = "/wireless-gateways/#{URI.encode(id)}/thing"
+    url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/thing"
     headers = []
     query_params = []
 
@@ -218,7 +218,7 @@ defmodule AWS.IoTWireless do
   Creates a task for a wireless gateway.
   """
   def create_wireless_gateway_task(%Client{} = client, id, input, options \\ []) do
-    url_path = "/wireless-gateways/#{URI.encode(id)}/tasks"
+    url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/tasks"
     headers = []
     query_params = []
 
@@ -260,7 +260,7 @@ defmodule AWS.IoTWireless do
   Deletes a destination.
   """
   def delete_destination(%Client{} = client, name, input, options \\ []) do
-    url_path = "/destinations/#{URI.encode(name)}"
+    url_path = "/destinations/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -281,7 +281,7 @@ defmodule AWS.IoTWireless do
   Deletes a device profile.
   """
   def delete_device_profile(%Client{} = client, id, input, options \\ []) do
-    url_path = "/device-profiles/#{URI.encode(id)}"
+    url_path = "/device-profiles/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -302,7 +302,7 @@ defmodule AWS.IoTWireless do
   Deletes a service profile.
   """
   def delete_service_profile(%Client{} = client, id, input, options \\ []) do
-    url_path = "/service-profiles/#{URI.encode(id)}"
+    url_path = "/service-profiles/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -323,7 +323,7 @@ defmodule AWS.IoTWireless do
   Deletes a wireless device.
   """
   def delete_wireless_device(%Client{} = client, id, input, options \\ []) do
-    url_path = "/wireless-devices/#{URI.encode(id)}"
+    url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -344,7 +344,7 @@ defmodule AWS.IoTWireless do
   Deletes a wireless gateway.
   """
   def delete_wireless_gateway(%Client{} = client, id, input, options \\ []) do
-    url_path = "/wireless-gateways/#{URI.encode(id)}"
+    url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -365,7 +365,7 @@ defmodule AWS.IoTWireless do
   Deletes a wireless gateway task.
   """
   def delete_wireless_gateway_task(%Client{} = client, id, input, options \\ []) do
-    url_path = "/wireless-gateways/#{URI.encode(id)}/tasks"
+    url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/tasks"
     headers = []
     query_params = []
 
@@ -389,7 +389,7 @@ defmodule AWS.IoTWireless do
   progress.
   """
   def delete_wireless_gateway_task_definition(%Client{} = client, id, input, options \\ []) do
-    url_path = "/wireless-gateway-task-definitions/#{URI.encode(id)}"
+    url_path = "/wireless-gateway-task-definitions/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -418,7 +418,7 @@ defmodule AWS.IoTWireless do
         input,
         options \\ []
       ) do
-    url_path = "/partner-accounts/#{URI.encode(partner_account_id)}"
+    url_path = "/partner-accounts/#{AWS.Util.encode_uri(partner_account_id)}"
     headers = []
 
     {query_params, input} =
@@ -444,7 +444,7 @@ defmodule AWS.IoTWireless do
   Disassociates a wireless device from its currently associated thing.
   """
   def disassociate_wireless_device_from_thing(%Client{} = client, id, input, options \\ []) do
-    url_path = "/wireless-devices/#{URI.encode(id)}/thing"
+    url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/thing"
     headers = []
     query_params = []
 
@@ -465,7 +465,7 @@ defmodule AWS.IoTWireless do
   Disassociates a wireless gateway from its currently associated certificate.
   """
   def disassociate_wireless_gateway_from_certificate(%Client{} = client, id, input, options \\ []) do
-    url_path = "/wireless-gateways/#{URI.encode(id)}/certificate"
+    url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/certificate"
     headers = []
     query_params = []
 
@@ -486,7 +486,7 @@ defmodule AWS.IoTWireless do
   Disassociates a wireless gateway from its currently associated thing.
   """
   def disassociate_wireless_gateway_from_thing(%Client{} = client, id, input, options \\ []) do
-    url_path = "/wireless-gateways/#{URI.encode(id)}/thing"
+    url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/thing"
     headers = []
     query_params = []
 
@@ -507,7 +507,7 @@ defmodule AWS.IoTWireless do
   Gets information about a destination.
   """
   def get_destination(%Client{} = client, name, options \\ []) do
-    url_path = "/destinations/#{URI.encode(name)}"
+    url_path = "/destinations/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -528,7 +528,7 @@ defmodule AWS.IoTWireless do
   Gets information about a device profile.
   """
   def get_device_profile(%Client{} = client, id, options \\ []) do
-    url_path = "/device-profiles/#{URI.encode(id)}"
+    url_path = "/device-profiles/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -574,7 +574,7 @@ defmodule AWS.IoTWireless do
   accounts.
   """
   def get_partner_account(%Client{} = client, partner_account_id, partner_type, options \\ []) do
-    url_path = "/partner-accounts/#{URI.encode(partner_account_id)}"
+    url_path = "/partner-accounts/#{AWS.Util.encode_uri(partner_account_id)}"
     headers = []
     query_params = []
 
@@ -608,7 +608,7 @@ defmodule AWS.IoTWireless do
         resource_type,
         options \\ []
       ) do
-    url_path = "/log-levels/#{URI.encode(resource_identifier)}"
+    url_path = "/log-levels/#{AWS.Util.encode_uri(resource_identifier)}"
     headers = []
     query_params = []
 
@@ -665,7 +665,7 @@ defmodule AWS.IoTWireless do
   Gets information about a service profile.
   """
   def get_service_profile(%Client{} = client, id, options \\ []) do
-    url_path = "/service-profiles/#{URI.encode(id)}"
+    url_path = "/service-profiles/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -686,7 +686,7 @@ defmodule AWS.IoTWireless do
   Gets information about a wireless device.
   """
   def get_wireless_device(%Client{} = client, identifier, identifier_type, options \\ []) do
-    url_path = "/wireless-devices/#{URI.encode(identifier)}"
+    url_path = "/wireless-devices/#{AWS.Util.encode_uri(identifier)}"
     headers = []
     query_params = []
 
@@ -714,7 +714,7 @@ defmodule AWS.IoTWireless do
   Gets operating information about a wireless device.
   """
   def get_wireless_device_statistics(%Client{} = client, wireless_device_id, options \\ []) do
-    url_path = "/wireless-devices/#{URI.encode(wireless_device_id)}/statistics"
+    url_path = "/wireless-devices/#{AWS.Util.encode_uri(wireless_device_id)}/statistics"
     headers = []
     query_params = []
 
@@ -735,7 +735,7 @@ defmodule AWS.IoTWireless do
   Gets information about a wireless gateway.
   """
   def get_wireless_gateway(%Client{} = client, identifier, identifier_type, options \\ []) do
-    url_path = "/wireless-gateways/#{URI.encode(identifier)}"
+    url_path = "/wireless-gateways/#{AWS.Util.encode_uri(identifier)}"
     headers = []
     query_params = []
 
@@ -764,7 +764,7 @@ defmodule AWS.IoTWireless do
   gateway.
   """
   def get_wireless_gateway_certificate(%Client{} = client, id, options \\ []) do
-    url_path = "/wireless-gateways/#{URI.encode(id)}/certificate"
+    url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/certificate"
     headers = []
     query_params = []
 
@@ -785,7 +785,7 @@ defmodule AWS.IoTWireless do
   Gets the firmware version and other information about a wireless gateway.
   """
   def get_wireless_gateway_firmware_information(%Client{} = client, id, options \\ []) do
-    url_path = "/wireless-gateways/#{URI.encode(id)}/firmware-information"
+    url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/firmware-information"
     headers = []
     query_params = []
 
@@ -806,7 +806,7 @@ defmodule AWS.IoTWireless do
   Gets operating information about a wireless gateway.
   """
   def get_wireless_gateway_statistics(%Client{} = client, wireless_gateway_id, options \\ []) do
-    url_path = "/wireless-gateways/#{URI.encode(wireless_gateway_id)}/statistics"
+    url_path = "/wireless-gateways/#{AWS.Util.encode_uri(wireless_gateway_id)}/statistics"
     headers = []
     query_params = []
 
@@ -827,7 +827,7 @@ defmodule AWS.IoTWireless do
   Gets information about a wireless gateway task.
   """
   def get_wireless_gateway_task(%Client{} = client, id, options \\ []) do
-    url_path = "/wireless-gateways/#{URI.encode(id)}/tasks"
+    url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/tasks"
     headers = []
     query_params = []
 
@@ -848,7 +848,7 @@ defmodule AWS.IoTWireless do
   Gets information about a wireless gateway task definition.
   """
   def get_wireless_gateway_task_definition(%Client{} = client, id, options \\ []) do
-    url_path = "/wireless-gateway-task-definitions/#{URI.encode(id)}"
+    url_path = "/wireless-gateway-task-definitions/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1213,7 +1213,7 @@ defmodule AWS.IoTWireless do
   wireless gateway or a wireless device.
   """
   def put_resource_log_level(%Client{} = client, resource_identifier, input, options \\ []) do
-    url_path = "/log-levels/#{URI.encode(resource_identifier)}"
+    url_path = "/log-levels/#{AWS.Util.encode_uri(resource_identifier)}"
     headers = []
 
     {query_params, input} =
@@ -1262,7 +1262,7 @@ defmodule AWS.IoTWireless do
   could be a wireless device or a wireless gateway.
   """
   def reset_resource_log_level(%Client{} = client, resource_identifier, input, options \\ []) do
-    url_path = "/log-levels/#{URI.encode(resource_identifier)}"
+    url_path = "/log-levels/#{AWS.Util.encode_uri(resource_identifier)}"
     headers = []
 
     {query_params, input} =
@@ -1288,7 +1288,7 @@ defmodule AWS.IoTWireless do
   Sends a decrypted application data frame to a device.
   """
   def send_data_to_wireless_device(%Client{} = client, id, input, options \\ []) do
-    url_path = "/wireless-devices/#{URI.encode(id)}/data"
+    url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/data"
     headers = []
     query_params = []
 
@@ -1335,7 +1335,7 @@ defmodule AWS.IoTWireless do
   Simulates a provisioned device by sending an uplink data payload of `Hello`.
   """
   def test_wireless_device(%Client{} = client, id, input, options \\ []) do
-    url_path = "/wireless-devices/#{URI.encode(id)}/test"
+    url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/test"
     headers = []
     query_params = []
 
@@ -1383,7 +1383,7 @@ defmodule AWS.IoTWireless do
   Updates properties of a destination.
   """
   def update_destination(%Client{} = client, name, input, options \\ []) do
-    url_path = "/destinations/#{URI.encode(name)}"
+    url_path = "/destinations/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -1428,7 +1428,7 @@ defmodule AWS.IoTWireless do
   Updates properties of a partner account.
   """
   def update_partner_account(%Client{} = client, partner_account_id, input, options \\ []) do
-    url_path = "/partner-accounts/#{URI.encode(partner_account_id)}"
+    url_path = "/partner-accounts/#{AWS.Util.encode_uri(partner_account_id)}"
     headers = []
 
     {query_params, input} =
@@ -1454,7 +1454,7 @@ defmodule AWS.IoTWireless do
   Updates properties of a wireless device.
   """
   def update_wireless_device(%Client{} = client, id, input, options \\ []) do
-    url_path = "/wireless-devices/#{URI.encode(id)}"
+    url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1475,7 +1475,7 @@ defmodule AWS.IoTWireless do
   Updates properties of a wireless gateway.
   """
   def update_wireless_gateway(%Client{} = client, id, input, options \\ []) do
-    url_path = "/wireless-gateways/#{URI.encode(id)}"
+    url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 

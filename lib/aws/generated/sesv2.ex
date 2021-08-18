@@ -97,7 +97,7 @@ defmodule AWS.SESv2 do
         options \\ []
       ) do
     url_path =
-      "/v2/email/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations"
+      "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations"
 
     headers = []
     query_params = []
@@ -120,7 +120,7 @@ defmodule AWS.SESv2 do
   them to a contact list.
   """
   def create_contact(%Client{} = client, contact_list_name, input, options \\ []) do
-    url_path = "/v2/email/contact-lists/#{URI.encode(contact_list_name)}/contacts"
+    url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts"
     headers = []
     query_params = []
 
@@ -314,7 +314,7 @@ defmodule AWS.SESv2 do
         options \\ []
       ) do
     url_path =
-      "/v2/email/identities/#{URI.encode(email_identity)}/policies/#{URI.encode(policy_name)}"
+      "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/policies/#{AWS.Util.encode_uri(policy_name)}"
 
     headers = []
     query_params = []
@@ -390,7 +390,7 @@ defmodule AWS.SESv2 do
   email.
   """
   def delete_configuration_set(%Client{} = client, configuration_set_name, input, options \\ []) do
-    url_path = "/v2/email/configuration-sets/#{URI.encode(configuration_set_name)}"
+    url_path = "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
     headers = []
     query_params = []
 
@@ -424,7 +424,7 @@ defmodule AWS.SESv2 do
         options \\ []
       ) do
     url_path =
-      "/v2/email/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations/#{URI.encode(event_destination_name)}"
+      "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations/#{AWS.Util.encode_uri(event_destination_name)}"
 
     headers = []
     query_params = []
@@ -447,7 +447,7 @@ defmodule AWS.SESv2 do
   """
   def delete_contact(%Client{} = client, contact_list_name, email_address, input, options \\ []) do
     url_path =
-      "/v2/email/contact-lists/#{URI.encode(contact_list_name)}/contacts/#{URI.encode(email_address)}"
+      "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts/#{AWS.Util.encode_uri(email_address)}"
 
     headers = []
     query_params = []
@@ -469,7 +469,7 @@ defmodule AWS.SESv2 do
   Deletes a contact list and all of the contacts on that list.
   """
   def delete_contact_list(%Client{} = client, contact_list_name, input, options \\ []) do
-    url_path = "/v2/email/contact-lists/#{URI.encode(contact_list_name)}"
+    url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}"
     headers = []
     query_params = []
 
@@ -501,7 +501,9 @@ defmodule AWS.SESv2 do
         input,
         options \\ []
       ) do
-    url_path = "/v2/email/custom-verification-email-templates/#{URI.encode(template_name)}"
+    url_path =
+      "/v2/email/custom-verification-email-templates/#{AWS.Util.encode_uri(template_name)}"
+
     headers = []
     query_params = []
 
@@ -522,7 +524,7 @@ defmodule AWS.SESv2 do
   Delete a dedicated IP pool.
   """
   def delete_dedicated_ip_pool(%Client{} = client, pool_name, input, options \\ []) do
-    url_path = "/v2/email/dedicated-ip-pools/#{URI.encode(pool_name)}"
+    url_path = "/v2/email/dedicated-ip-pools/#{AWS.Util.encode_uri(pool_name)}"
     headers = []
     query_params = []
 
@@ -545,7 +547,7 @@ defmodule AWS.SESv2 do
   An identity can be either an email address or a domain name.
   """
   def delete_email_identity(%Client{} = client, email_identity, input, options \\ []) do
-    url_path = "/v2/email/identities/#{URI.encode(email_identity)}"
+    url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}"
     headers = []
     query_params = []
 
@@ -586,7 +588,7 @@ defmodule AWS.SESv2 do
         options \\ []
       ) do
     url_path =
-      "/v2/email/identities/#{URI.encode(email_identity)}/policies/#{URI.encode(policy_name)}"
+      "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/policies/#{AWS.Util.encode_uri(policy_name)}"
 
     headers = []
     query_params = []
@@ -610,7 +612,7 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
   """
   def delete_email_template(%Client{} = client, template_name, input, options \\ []) do
-    url_path = "/v2/email/templates/#{URI.encode(template_name)}"
+    url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}"
     headers = []
     query_params = []
 
@@ -631,7 +633,7 @@ defmodule AWS.SESv2 do
   Removes an email address from the suppression list for your account.
   """
   def delete_suppressed_destination(%Client{} = client, email_address, input, options \\ []) do
-    url_path = "/v2/email/suppression/addresses/#{URI.encode(email_address)}"
+    url_path = "/v2/email/suppression/addresses/#{AWS.Util.encode_uri(email_address)}"
     headers = []
     query_params = []
 
@@ -710,7 +712,7 @@ defmodule AWS.SESv2 do
   email.
   """
   def get_configuration_set(%Client{} = client, configuration_set_name, options \\ []) do
-    url_path = "/v2/email/configuration-sets/#{URI.encode(configuration_set_name)}"
+    url_path = "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
     headers = []
     query_params = []
 
@@ -743,7 +745,7 @@ defmodule AWS.SESv2 do
         options \\ []
       ) do
     url_path =
-      "/v2/email/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations"
+      "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations"
 
     headers = []
     query_params = []
@@ -766,7 +768,7 @@ defmodule AWS.SESv2 do
   """
   def get_contact(%Client{} = client, contact_list_name, email_address, options \\ []) do
     url_path =
-      "/v2/email/contact-lists/#{URI.encode(contact_list_name)}/contacts/#{URI.encode(email_address)}"
+      "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts/#{AWS.Util.encode_uri(email_address)}"
 
     headers = []
     query_params = []
@@ -790,7 +792,7 @@ defmodule AWS.SESv2 do
   It does not return any information about the contacts present in the list.
   """
   def get_contact_list(%Client{} = client, contact_list_name, options \\ []) do
-    url_path = "/v2/email/contact-lists/#{URI.encode(contact_list_name)}"
+    url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}"
     headers = []
     query_params = []
 
@@ -818,7 +820,9 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
   """
   def get_custom_verification_email_template(%Client{} = client, template_name, options \\ []) do
-    url_path = "/v2/email/custom-verification-email-templates/#{URI.encode(template_name)}"
+    url_path =
+      "/v2/email/custom-verification-email-templates/#{AWS.Util.encode_uri(template_name)}"
+
     headers = []
     query_params = []
 
@@ -841,7 +845,7 @@ defmodule AWS.SESv2 do
   automatic warm-up process for the address.
   """
   def get_dedicated_ip(%Client{} = client, ip, options \\ []) do
-    url_path = "/v2/email/dedicated-ips/#{URI.encode(ip)}"
+    url_path = "/v2/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}"
     headers = []
     query_params = []
 
@@ -941,7 +945,7 @@ defmodule AWS.SESv2 do
   Retrieve the results of a predictive inbox placement test.
   """
   def get_deliverability_test_report(%Client{} = client, report_id, options \\ []) do
-    url_path = "/v2/email/deliverability-dashboard/test-reports/#{URI.encode(report_id)}"
+    url_path = "/v2/email/deliverability-dashboard/test-reports/#{AWS.Util.encode_uri(report_id)}"
     headers = []
     query_params = []
 
@@ -965,7 +969,7 @@ defmodule AWS.SESv2 do
   domain that the Deliverability dashboard is enabled for.
   """
   def get_domain_deliverability_campaign(%Client{} = client, campaign_id, options \\ []) do
-    url_path = "/v2/email/deliverability-dashboard/campaigns/#{URI.encode(campaign_id)}"
+    url_path = "/v2/email/deliverability-dashboard/campaigns/#{AWS.Util.encode_uri(campaign_id)}"
     headers = []
     query_params = []
 
@@ -993,7 +997,9 @@ defmodule AWS.SESv2 do
         start_date,
         options \\ []
       ) do
-    url_path = "/v2/email/deliverability-dashboard/statistics-report/#{URI.encode(domain)}"
+    url_path =
+      "/v2/email/deliverability-dashboard/statistics-report/#{AWS.Util.encode_uri(domain)}"
+
     headers = []
     query_params = []
 
@@ -1030,7 +1036,7 @@ defmodule AWS.SESv2 do
   status, and its custom Mail-From settings.
   """
   def get_email_identity(%Client{} = client, email_identity, options \\ []) do
-    url_path = "/v2/email/identities/#{URI.encode(email_identity)}"
+    url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}"
     headers = []
     query_params = []
 
@@ -1064,7 +1070,7 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
   """
   def get_email_identity_policies(%Client{} = client, email_identity, options \\ []) do
-    url_path = "/v2/email/identities/#{URI.encode(email_identity)}/policies"
+    url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/policies"
     headers = []
     query_params = []
 
@@ -1088,7 +1094,7 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
   """
   def get_email_template(%Client{} = client, template_name, options \\ []) do
-    url_path = "/v2/email/templates/#{URI.encode(template_name)}"
+    url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}"
     headers = []
     query_params = []
 
@@ -1109,7 +1115,7 @@ defmodule AWS.SESv2 do
   Provides information about an import job.
   """
   def get_import_job(%Client{} = client, job_id, options \\ []) do
-    url_path = "/v2/email/import-jobs/#{URI.encode(job_id)}"
+    url_path = "/v2/email/import-jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
     query_params = []
 
@@ -1131,7 +1137,7 @@ defmodule AWS.SESv2 do
   list for your account.
   """
   def get_suppressed_destination(%Client{} = client, email_address, options \\ []) do
-    url_path = "/v2/email/suppression/addresses/#{URI.encode(email_address)}"
+    url_path = "/v2/email/suppression/addresses/#{AWS.Util.encode_uri(email_address)}"
     headers = []
     query_params = []
 
@@ -1240,7 +1246,7 @@ defmodule AWS.SESv2 do
         page_size \\ nil,
         options \\ []
       ) do
-    url_path = "/v2/email/contact-lists/#{URI.encode(contact_list_name)}/contacts"
+    url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts"
     headers = []
     query_params = []
 
@@ -1420,7 +1426,7 @@ defmodule AWS.SESv2 do
         options \\ []
       ) do
     url_path =
-      "/v2/email/deliverability-dashboard/domains/#{URI.encode(subscribed_domain)}/campaigns"
+      "/v2/email/deliverability-dashboard/domains/#{AWS.Util.encode_uri(subscribed_domain)}/campaigns"
 
     headers = []
     query_params = []
@@ -1780,7 +1786,7 @@ defmodule AWS.SESv2 do
         options \\ []
       ) do
     url_path =
-      "/v2/email/configuration-sets/#{URI.encode(configuration_set_name)}/delivery-options"
+      "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/delivery-options"
 
     headers = []
     query_params = []
@@ -1809,7 +1815,7 @@ defmodule AWS.SESv2 do
         options \\ []
       ) do
     url_path =
-      "/v2/email/configuration-sets/#{URI.encode(configuration_set_name)}/reputation-options"
+      "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/reputation-options"
 
     headers = []
     query_params = []
@@ -1837,7 +1843,9 @@ defmodule AWS.SESv2 do
         input,
         options \\ []
       ) do
-    url_path = "/v2/email/configuration-sets/#{URI.encode(configuration_set_name)}/sending"
+    url_path =
+      "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/sending"
+
     headers = []
     query_params = []
 
@@ -1864,7 +1872,7 @@ defmodule AWS.SESv2 do
         options \\ []
       ) do
     url_path =
-      "/v2/email/configuration-sets/#{URI.encode(configuration_set_name)}/suppression-options"
+      "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/suppression-options"
 
     headers = []
     query_params = []
@@ -1893,7 +1901,7 @@ defmodule AWS.SESv2 do
         options \\ []
       ) do
     url_path =
-      "/v2/email/configuration-sets/#{URI.encode(configuration_set_name)}/tracking-options"
+      "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/tracking-options"
 
     headers = []
     query_params = []
@@ -1921,7 +1929,7 @@ defmodule AWS.SESv2 do
   by using the `CreateDedicatedIpPool` operation.
   """
   def put_dedicated_ip_in_pool(%Client{} = client, ip, input, options \\ []) do
-    url_path = "/v2/email/dedicated-ips/#{URI.encode(ip)}/pool"
+    url_path = "/v2/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/pool"
     headers = []
     query_params = []
 
@@ -1939,7 +1947,7 @@ defmodule AWS.SESv2 do
   end
 
   def put_dedicated_ip_warmup_attributes(%Client{} = client, ip, input, options \\ []) do
-    url_path = "/v2/email/dedicated-ips/#{URI.encode(ip)}/warmup"
+    url_path = "/v2/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/warmup"
     headers = []
     query_params = []
 
@@ -1995,7 +2003,7 @@ defmodule AWS.SESv2 do
         input,
         options \\ []
       ) do
-    url_path = "/v2/email/identities/#{URI.encode(email_identity)}/configuration-set"
+    url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/configuration-set"
     headers = []
     query_params = []
 
@@ -2016,7 +2024,7 @@ defmodule AWS.SESv2 do
   Used to enable or disable DKIM authentication for an email identity.
   """
   def put_email_identity_dkim_attributes(%Client{} = client, email_identity, input, options \\ []) do
-    url_path = "/v2/email/identities/#{URI.encode(email_identity)}/dkim"
+    url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/dkim"
     headers = []
     query_params = []
 
@@ -2056,7 +2064,7 @@ defmodule AWS.SESv2 do
         input,
         options \\ []
       ) do
-    url_path = "/v1/email/identities/#{URI.encode(email_identity)}/dkim/signing"
+    url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}/dkim/signing"
     headers = []
     query_params = []
 
@@ -2094,7 +2102,7 @@ defmodule AWS.SESv2 do
         input,
         options \\ []
       ) do
-    url_path = "/v2/email/identities/#{URI.encode(email_identity)}/feedback"
+    url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/feedback"
     headers = []
     query_params = []
 
@@ -2121,7 +2129,7 @@ defmodule AWS.SESv2 do
         input,
         options \\ []
       ) do
-    url_path = "/v2/email/identities/#{URI.encode(email_identity)}/mail-from"
+    url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/mail-from"
     headers = []
     query_params = []
 
@@ -2285,7 +2293,7 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
   """
   def test_render_email_template(%Client{} = client, template_name, input, options \\ []) do
-    url_path = "/v2/email/templates/#{URI.encode(template_name)}/render"
+    url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}/render"
     headers = []
     query_params = []
 
@@ -2346,7 +2354,7 @@ defmodule AWS.SESv2 do
         options \\ []
       ) do
     url_path =
-      "/v2/email/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations/#{URI.encode(event_destination_name)}"
+      "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations/#{AWS.Util.encode_uri(event_destination_name)}"
 
     headers = []
     query_params = []
@@ -2372,7 +2380,7 @@ defmodule AWS.SESv2 do
   """
   def update_contact(%Client{} = client, contact_list_name, email_address, input, options \\ []) do
     url_path =
-      "/v2/email/contact-lists/#{URI.encode(contact_list_name)}/contacts/#{URI.encode(email_address)}"
+      "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts/#{AWS.Util.encode_uri(email_address)}"
 
     headers = []
     query_params = []
@@ -2396,7 +2404,7 @@ defmodule AWS.SESv2 do
   This operation does a complete replacement.
   """
   def update_contact_list(%Client{} = client, contact_list_name, input, options \\ []) do
-    url_path = "/v2/email/contact-lists/#{URI.encode(contact_list_name)}"
+    url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}"
     headers = []
     query_params = []
 
@@ -2428,7 +2436,9 @@ defmodule AWS.SESv2 do
         input,
         options \\ []
       ) do
-    url_path = "/v2/email/custom-verification-email-templates/#{URI.encode(template_name)}"
+    url_path =
+      "/v2/email/custom-verification-email-templates/#{AWS.Util.encode_uri(template_name)}"
+
     headers = []
     query_params = []
 
@@ -2469,7 +2479,7 @@ defmodule AWS.SESv2 do
         options \\ []
       ) do
     url_path =
-      "/v2/email/identities/#{URI.encode(email_identity)}/policies/#{URI.encode(policy_name)}"
+      "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/policies/#{AWS.Util.encode_uri(policy_name)}"
 
     headers = []
     query_params = []
@@ -2497,7 +2507,7 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
   """
   def update_email_template(%Client{} = client, template_name, input, options \\ []) do
-    url_path = "/v2/email/templates/#{URI.encode(template_name)}"
+    url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}"
     headers = []
     query_params = []
 

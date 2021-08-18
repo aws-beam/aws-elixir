@@ -50,7 +50,7 @@ defmodule AWS.SageMakerRuntime do
   the authentication token that is supplied by the caller.
   """
   def invoke_endpoint(%Client{} = client, endpoint_name, input, options \\ []) do
-    url_path = "/endpoints/#{URI.encode(endpoint_name)}/invocations"
+    url_path = "/endpoints/#{AWS.Util.encode_uri(endpoint_name)}/invocations"
 
     {headers, input} =
       [

@@ -959,7 +959,7 @@ defmodule AWS.RoboMaker do
   Lists all tags on a AWS RoboMaker resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1159,7 +1159,7 @@ defmodule AWS.RoboMaker do
   in the *AWS Billing and Cost Management User Guide*.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1184,7 +1184,7 @@ defmodule AWS.RoboMaker do
   ](https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html).
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =

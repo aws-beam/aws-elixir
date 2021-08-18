@@ -92,7 +92,7 @@ defmodule AWS.Backup do
   backup.
   """
   def create_backup_selection(%Client{} = client, backup_plan_id, input, options \\ []) do
-    url_path = "/backup/plans/#{URI.encode(backup_plan_id)}/selections/"
+    url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections/"
     headers = []
     query_params = []
 
@@ -119,7 +119,7 @@ defmodule AWS.Backup do
   backup vault.
   """
   def create_backup_vault(%Client{} = client, backup_vault_name, input, options \\ []) do
-    url_path = "/backup-vaults/#{URI.encode(backup_vault_name)}"
+    url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}"
     headers = []
     query_params = []
 
@@ -144,7 +144,7 @@ defmodule AWS.Backup do
   backup plan. Previous versions, if any, will still exist.
   """
   def delete_backup_plan(%Client{} = client, backup_plan_id, input, options \\ []) do
-    url_path = "/backup/plans/#{URI.encode(backup_plan_id)}"
+    url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}"
     headers = []
     query_params = []
 
@@ -173,7 +173,7 @@ defmodule AWS.Backup do
         options \\ []
       ) do
     url_path =
-      "/backup/plans/#{URI.encode(backup_plan_id)}/selections/#{URI.encode(selection_id)}"
+      "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections/#{AWS.Util.encode_uri(selection_id)}"
 
     headers = []
     query_params = []
@@ -197,7 +197,7 @@ defmodule AWS.Backup do
   A vault can be deleted only if it is empty.
   """
   def delete_backup_vault(%Client{} = client, backup_vault_name, input, options \\ []) do
-    url_path = "/backup-vaults/#{URI.encode(backup_vault_name)}"
+    url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}"
     headers = []
     query_params = []
 
@@ -223,7 +223,7 @@ defmodule AWS.Backup do
         input,
         options \\ []
       ) do
-    url_path = "/backup-vaults/#{URI.encode(backup_vault_name)}/access-policy"
+    url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/access-policy"
     headers = []
     query_params = []
 
@@ -249,7 +249,9 @@ defmodule AWS.Backup do
         input,
         options \\ []
       ) do
-    url_path = "/backup-vaults/#{URI.encode(backup_vault_name)}/notification-configuration"
+    url_path =
+      "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/notification-configuration"
+
     headers = []
     query_params = []
 
@@ -280,7 +282,7 @@ defmodule AWS.Backup do
         options \\ []
       ) do
     url_path =
-      "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/#{URI.encode(recovery_point_arn)}"
+      "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points/#{AWS.Util.encode_uri(recovery_point_arn)}"
 
     headers = []
     query_params = []
@@ -302,7 +304,7 @@ defmodule AWS.Backup do
   Returns backup job details for the specified `BackupJobId`.
   """
   def describe_backup_job(%Client{} = client, backup_job_id, options \\ []) do
-    url_path = "/backup-jobs/#{URI.encode(backup_job_id)}"
+    url_path = "/backup-jobs/#{AWS.Util.encode_uri(backup_job_id)}"
     headers = []
     query_params = []
 
@@ -323,7 +325,7 @@ defmodule AWS.Backup do
   Returns metadata about a backup vault specified by its name.
   """
   def describe_backup_vault(%Client{} = client, backup_vault_name, options \\ []) do
-    url_path = "/backup-vaults/#{URI.encode(backup_vault_name)}"
+    url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}"
     headers = []
     query_params = []
 
@@ -344,7 +346,7 @@ defmodule AWS.Backup do
   Returns metadata associated with creating a copy of a resource.
   """
   def describe_copy_job(%Client{} = client, copy_job_id, options \\ []) do
-    url_path = "/copy-jobs/#{URI.encode(copy_job_id)}"
+    url_path = "/copy-jobs/#{AWS.Util.encode_uri(copy_job_id)}"
     headers = []
     query_params = []
 
@@ -389,7 +391,7 @@ defmodule AWS.Backup do
   resource.
   """
   def describe_protected_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/resources/#{URI.encode(resource_arn)}"
+    url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -417,7 +419,7 @@ defmodule AWS.Backup do
         options \\ []
       ) do
     url_path =
-      "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/#{URI.encode(recovery_point_arn)}"
+      "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points/#{AWS.Util.encode_uri(recovery_point_arn)}"
 
     headers = []
     query_params = []
@@ -466,7 +468,7 @@ defmodule AWS.Backup do
   Returns metadata associated with a restore job that is specified by a job ID.
   """
   def describe_restore_job(%Client{} = client, restore_job_id, options \\ []) do
-    url_path = "/restore-jobs/#{URI.encode(restore_job_id)}"
+    url_path = "/restore-jobs/#{AWS.Util.encode_uri(restore_job_id)}"
     headers = []
     query_params = []
 
@@ -501,7 +503,7 @@ defmodule AWS.Backup do
         options \\ []
       ) do
     url_path =
-      "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/#{URI.encode(recovery_point_arn)}/disassociate"
+      "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points/#{AWS.Util.encode_uri(recovery_point_arn)}/disassociate"
 
     headers = []
     query_params = []
@@ -523,7 +525,7 @@ defmodule AWS.Backup do
   Returns the backup plan that is specified by the plan ID as a backup template.
   """
   def export_backup_plan_template(%Client{} = client, backup_plan_id, options \\ []) do
-    url_path = "/backup/plans/#{URI.encode(backup_plan_id)}/toTemplate/"
+    url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/toTemplate/"
     headers = []
     query_params = []
 
@@ -547,7 +549,7 @@ defmodule AWS.Backup do
   metadata.
   """
   def get_backup_plan(%Client{} = client, backup_plan_id, version_id \\ nil, options \\ []) do
-    url_path = "/backup/plans/#{URI.encode(backup_plan_id)}/"
+    url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/"
     headers = []
     query_params = []
 
@@ -596,7 +598,7 @@ defmodule AWS.Backup do
   Returns the template specified by its `templateId` as a backup plan.
   """
   def get_backup_plan_from_template(%Client{} = client, backup_plan_template_id, options \\ []) do
-    url_path = "/backup/template/plans/#{URI.encode(backup_plan_template_id)}/toPlan"
+    url_path = "/backup/template/plans/#{AWS.Util.encode_uri(backup_plan_template_id)}/toPlan"
     headers = []
     query_params = []
 
@@ -619,7 +621,7 @@ defmodule AWS.Backup do
   """
   def get_backup_selection(%Client{} = client, backup_plan_id, selection_id, options \\ []) do
     url_path =
-      "/backup/plans/#{URI.encode(backup_plan_id)}/selections/#{URI.encode(selection_id)}"
+      "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections/#{AWS.Util.encode_uri(selection_id)}"
 
     headers = []
     query_params = []
@@ -642,7 +644,7 @@ defmodule AWS.Backup do
   vault.
   """
   def get_backup_vault_access_policy(%Client{} = client, backup_vault_name, options \\ []) do
-    url_path = "/backup-vaults/#{URI.encode(backup_vault_name)}/access-policy"
+    url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/access-policy"
     headers = []
     query_params = []
 
@@ -663,7 +665,9 @@ defmodule AWS.Backup do
   Returns event notifications for the specified backup vault.
   """
   def get_backup_vault_notifications(%Client{} = client, backup_vault_name, options \\ []) do
-    url_path = "/backup-vaults/#{URI.encode(backup_vault_name)}/notification-configuration"
+    url_path =
+      "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/notification-configuration"
+
     headers = []
     query_params = []
 
@@ -690,7 +694,7 @@ defmodule AWS.Backup do
         options \\ []
       ) do
     url_path =
-      "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/#{URI.encode(recovery_point_arn)}/restore-metadata"
+      "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points/#{AWS.Util.encode_uri(recovery_point_arn)}/restore-metadata"
 
     headers = []
     query_params = []
@@ -881,7 +885,7 @@ defmodule AWS.Backup do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/backup/plans/#{URI.encode(backup_plan_id)}/versions/"
+    url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/versions/"
     headers = []
     query_params = []
 
@@ -975,7 +979,7 @@ defmodule AWS.Backup do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/backup/plans/#{URI.encode(backup_plan_id)}/selections/"
+    url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections/"
     headers = []
     query_params = []
 
@@ -1195,7 +1199,7 @@ defmodule AWS.Backup do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/"
+    url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points/"
     headers = []
     query_params = []
 
@@ -1272,7 +1276,7 @@ defmodule AWS.Backup do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/resources/#{URI.encode(resource_arn)}/recovery-points/"
+    url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/recovery-points/"
     headers = []
     query_params = []
 
@@ -1389,7 +1393,7 @@ defmodule AWS.Backup do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/tags/#{URI.encode(resource_arn)}/"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}/"
     headers = []
     query_params = []
 
@@ -1427,7 +1431,7 @@ defmodule AWS.Backup do
   Requires a backup vault name and an access policy document in JSON format.
   """
   def put_backup_vault_access_policy(%Client{} = client, backup_vault_name, input, options \\ []) do
-    url_path = "/backup-vaults/#{URI.encode(backup_vault_name)}/access-policy"
+    url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/access-policy"
     headers = []
     query_params = []
 
@@ -1448,7 +1452,9 @@ defmodule AWS.Backup do
   Turns on notifications on a backup vault for the specified topic and events.
   """
   def put_backup_vault_notifications(%Client{} = client, backup_vault_name, input, options \\ []) do
-    url_path = "/backup-vaults/#{URI.encode(backup_vault_name)}/notification-configuration"
+    url_path =
+      "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/notification-configuration"
+
     headers = []
     query_params = []
 
@@ -1534,7 +1540,7 @@ defmodule AWS.Backup do
   Attempts to cancel a job to create a one-time backup of a resource.
   """
   def stop_backup_job(%Client{} = client, backup_job_id, input, options \\ []) do
-    url_path = "/backup-jobs/#{URI.encode(backup_job_id)}"
+    url_path = "/backup-jobs/#{AWS.Util.encode_uri(backup_job_id)}"
     headers = []
     query_params = []
 
@@ -1556,7 +1562,7 @@ defmodule AWS.Backup do
   vault identified by an Amazon Resource Name (ARN).
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1578,7 +1584,7 @@ defmodule AWS.Backup do
   vault identified by an Amazon Resource Name (ARN)
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/untag/#{URI.encode(resource_arn)}"
+    url_path = "/untag/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1602,7 +1608,7 @@ defmodule AWS.Backup do
   The new version is uniquely identified by a `VersionId`.
   """
   def update_backup_plan(%Client{} = client, backup_plan_id, input, options \\ []) do
-    url_path = "/backup/plans/#{URI.encode(backup_plan_id)}"
+    url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}"
     headers = []
     query_params = []
 
@@ -1667,7 +1673,7 @@ defmodule AWS.Backup do
         options \\ []
       ) do
     url_path =
-      "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/#{URI.encode(recovery_point_arn)}"
+      "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points/#{AWS.Util.encode_uri(recovery_point_arn)}"
 
     headers = []
     query_params = []

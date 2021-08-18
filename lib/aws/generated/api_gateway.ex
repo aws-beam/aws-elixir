@@ -61,7 +61,7 @@ defmodule AWS.APIGateway do
   See also: [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html)
   """
   def create_authorizer(%Client{} = client, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/authorizers"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/authorizers"
     headers = []
     query_params = []
 
@@ -82,7 +82,7 @@ defmodule AWS.APIGateway do
   Creates a new `BasePathMapping` resource.
   """
   def create_base_path_mapping(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/domainnames/#{URI.encode(domain_name)}/basepathmappings"
+    url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}/basepathmappings"
     headers = []
     query_params = []
 
@@ -104,7 +104,7 @@ defmodule AWS.APIGateway do
   the internet.
   """
   def create_deployment(%Client{} = client, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/deployments"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/deployments"
     headers = []
     query_params = []
 
@@ -122,7 +122,7 @@ defmodule AWS.APIGateway do
   end
 
   def create_documentation_part(%Client{} = client, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/documentation/parts"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/parts"
     headers = []
     query_params = []
 
@@ -140,7 +140,7 @@ defmodule AWS.APIGateway do
   end
 
   def create_documentation_version(%Client{} = client, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/documentation/versions"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/versions"
     headers = []
     query_params = []
 
@@ -182,7 +182,7 @@ defmodule AWS.APIGateway do
   Adds a new `Model` resource to an existing `RestApi` resource.
   """
   def create_model(%Client{} = client, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/models"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models"
     headers = []
     query_params = []
 
@@ -203,7 +203,7 @@ defmodule AWS.APIGateway do
   Creates a `ReqeustValidator` of a given `RestApi`.
   """
   def create_request_validator(%Client{} = client, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/requestvalidators"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/requestvalidators"
     headers = []
     query_params = []
 
@@ -224,7 +224,9 @@ defmodule AWS.APIGateway do
   Creates a `Resource` resource.
   """
   def create_resource(%Client{} = client, parent_id, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(parent_id)}"
+    url_path =
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(parent_id)}"
+
     headers = []
     query_params = []
 
@@ -267,7 +269,7 @@ defmodule AWS.APIGateway do
   the API.
   """
   def create_stage(%Client{} = client, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/stages"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages"
     headers = []
     query_params = []
 
@@ -310,7 +312,7 @@ defmodule AWS.APIGateway do
   Creates a usage plan key for adding an existing API key to a usage plan.
   """
   def create_usage_plan_key(%Client{} = client, usage_plan_id, input, options \\ []) do
-    url_path = "/usageplans/#{URI.encode(usage_plan_id)}/keys"
+    url_path = "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}/keys"
     headers = []
     query_params = []
 
@@ -356,7 +358,7 @@ defmodule AWS.APIGateway do
   Deletes the `ApiKey` resource.
   """
   def delete_api_key(%Client{} = client, api_key, input, options \\ []) do
-    url_path = "/apikeys/#{URI.encode(api_key)}"
+    url_path = "/apikeys/#{AWS.Util.encode_uri(api_key)}"
     headers = []
     query_params = []
 
@@ -379,7 +381,9 @@ defmodule AWS.APIGateway do
   See also: [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/delete-authorizer.html)
   """
   def delete_authorizer(%Client{} = client, authorizer_id, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/authorizers/#{URI.encode(authorizer_id)}"
+    url_path =
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
+
     headers = []
     query_params = []
 
@@ -400,7 +404,9 @@ defmodule AWS.APIGateway do
   Deletes the `BasePathMapping` resource.
   """
   def delete_base_path_mapping(%Client{} = client, base_path, domain_name, input, options \\ []) do
-    url_path = "/domainnames/#{URI.encode(domain_name)}/basepathmappings/#{URI.encode(base_path)}"
+    url_path =
+      "/domainnames/#{AWS.Util.encode_uri(domain_name)}/basepathmappings/#{AWS.Util.encode_uri(base_path)}"
+
     headers = []
     query_params = []
 
@@ -421,7 +427,7 @@ defmodule AWS.APIGateway do
   Deletes the `ClientCertificate` resource.
   """
   def delete_client_certificate(%Client{} = client, client_certificate_id, input, options \\ []) do
-    url_path = "/clientcertificates/#{URI.encode(client_certificate_id)}"
+    url_path = "/clientcertificates/#{AWS.Util.encode_uri(client_certificate_id)}"
     headers = []
     query_params = []
 
@@ -445,7 +451,9 @@ defmodule AWS.APIGateway do
   associated with it.
   """
   def delete_deployment(%Client{} = client, deployment_id, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/deployments/#{URI.encode(deployment_id)}"
+    url_path =
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
+
     headers = []
     query_params = []
 
@@ -470,7 +478,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/documentation/parts/#{URI.encode(documentation_part_id)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/parts/#{AWS.Util.encode_uri(documentation_part_id)}"
 
     headers = []
     query_params = []
@@ -496,7 +504,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/documentation/versions/#{URI.encode(documentation_version)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/versions/#{AWS.Util.encode_uri(documentation_version)}"
 
     headers = []
     query_params = []
@@ -518,7 +526,7 @@ defmodule AWS.APIGateway do
   Deletes the `DomainName` resource.
   """
   def delete_domain_name(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/domainnames/#{URI.encode(domain_name)}"
+    url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
 
@@ -547,7 +555,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses/#{URI.encode(response_type)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/gatewayresponses/#{AWS.Util.encode_uri(response_type)}"
 
     headers = []
     query_params = []
@@ -577,7 +585,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/integration"
 
     headers = []
     query_params = []
@@ -608,7 +616,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration/responses/#{URI.encode(status_code)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/integration/responses/#{AWS.Util.encode_uri(status_code)}"
 
     headers = []
     query_params = []
@@ -638,7 +646,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}"
 
     headers = []
     query_params = []
@@ -669,7 +677,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/responses/#{URI.encode(status_code)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/responses/#{AWS.Util.encode_uri(status_code)}"
 
     headers = []
     query_params = []
@@ -691,7 +699,9 @@ defmodule AWS.APIGateway do
   Deletes a model.
   """
   def delete_model(%Client{} = client, model_name, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/models/#{URI.encode(model_name)}"
+    url_path =
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models/#{AWS.Util.encode_uri(model_name)}"
+
     headers = []
     query_params = []
 
@@ -719,7 +729,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/requestvalidators/#{URI.encode(request_validator_id)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/requestvalidators/#{AWS.Util.encode_uri(request_validator_id)}"
 
     headers = []
     query_params = []
@@ -741,7 +751,9 @@ defmodule AWS.APIGateway do
   Deletes a `Resource` resource.
   """
   def delete_resource(%Client{} = client, resource_id, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}"
+    url_path =
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}"
+
     headers = []
     query_params = []
 
@@ -762,7 +774,7 @@ defmodule AWS.APIGateway do
   Deletes the specified API.
   """
   def delete_rest_api(%Client{} = client, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}"
     headers = []
     query_params = []
 
@@ -783,7 +795,9 @@ defmodule AWS.APIGateway do
   Deletes a `Stage` resource.
   """
   def delete_stage(%Client{} = client, rest_api_id, stage_name, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/stages/#{URI.encode(stage_name)}"
+    url_path =
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
+
     headers = []
     query_params = []
 
@@ -804,7 +818,7 @@ defmodule AWS.APIGateway do
   Deletes a usage plan of a given plan Id.
   """
   def delete_usage_plan(%Client{} = client, usage_plan_id, input, options \\ []) do
-    url_path = "/usageplans/#{URI.encode(usage_plan_id)}"
+    url_path = "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}"
     headers = []
     query_params = []
 
@@ -826,7 +840,9 @@ defmodule AWS.APIGateway do
   usage plan.
   """
   def delete_usage_plan_key(%Client{} = client, key_id, usage_plan_id, input, options \\ []) do
-    url_path = "/usageplans/#{URI.encode(usage_plan_id)}/keys/#{URI.encode(key_id)}"
+    url_path =
+      "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}/keys/#{AWS.Util.encode_uri(key_id)}"
+
     headers = []
     query_params = []
 
@@ -847,7 +863,7 @@ defmodule AWS.APIGateway do
   Deletes an existing `VpcLink` of a specified identifier.
   """
   def delete_vpc_link(%Client{} = client, vpc_link_id, input, options \\ []) do
-    url_path = "/vpclinks/#{URI.encode(vpc_link_id)}"
+    url_path = "/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
     headers = []
     query_params = []
 
@@ -875,7 +891,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/stages/#{URI.encode(stage_name)}/cache/authorizers"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/cache/authorizers"
 
     headers = []
     query_params = []
@@ -897,7 +913,9 @@ defmodule AWS.APIGateway do
   Flushes a stage's cache.
   """
   def flush_stage_cache(%Client{} = client, rest_api_id, stage_name, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/stages/#{URI.encode(stage_name)}/cache/data"
+    url_path =
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/cache/data"
+
     headers = []
     query_params = []
 
@@ -960,7 +978,7 @@ defmodule AWS.APIGateway do
   Gets information about the current `ApiKey` resource.
   """
   def get_api_key(%Client{} = client, api_key, include_value \\ nil, options \\ []) do
-    url_path = "/apikeys/#{URI.encode(api_key)}"
+    url_path = "/apikeys/#{AWS.Util.encode_uri(api_key)}"
     headers = []
     query_params = []
 
@@ -1054,7 +1072,9 @@ defmodule AWS.APIGateway do
   See also: [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizer.html)
   """
   def get_authorizer(%Client{} = client, authorizer_id, rest_api_id, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/authorizers/#{URI.encode(authorizer_id)}"
+    url_path =
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
+
     headers = []
     query_params = []
 
@@ -1083,7 +1103,7 @@ defmodule AWS.APIGateway do
         position \\ nil,
         options \\ []
       ) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/authorizers"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/authorizers"
     headers = []
     query_params = []
 
@@ -1118,7 +1138,9 @@ defmodule AWS.APIGateway do
   Describe a `BasePathMapping` resource.
   """
   def get_base_path_mapping(%Client{} = client, base_path, domain_name, options \\ []) do
-    url_path = "/domainnames/#{URI.encode(domain_name)}/basepathmappings/#{URI.encode(base_path)}"
+    url_path =
+      "/domainnames/#{AWS.Util.encode_uri(domain_name)}/basepathmappings/#{AWS.Util.encode_uri(base_path)}"
+
     headers = []
     query_params = []
 
@@ -1145,7 +1167,7 @@ defmodule AWS.APIGateway do
         position \\ nil,
         options \\ []
       ) do
-    url_path = "/domainnames/#{URI.encode(domain_name)}/basepathmappings"
+    url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}/basepathmappings"
     headers = []
     query_params = []
 
@@ -1180,7 +1202,7 @@ defmodule AWS.APIGateway do
   Gets information about the current `ClientCertificate` resource.
   """
   def get_client_certificate(%Client{} = client, client_certificate_id, options \\ []) do
-    url_path = "/clientcertificates/#{URI.encode(client_certificate_id)}"
+    url_path = "/clientcertificates/#{AWS.Util.encode_uri(client_certificate_id)}"
     headers = []
     query_params = []
 
@@ -1236,7 +1258,9 @@ defmodule AWS.APIGateway do
   Gets information about a `Deployment` resource.
   """
   def get_deployment(%Client{} = client, deployment_id, rest_api_id, embed \\ nil, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/deployments/#{URI.encode(deployment_id)}"
+    url_path =
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
+
     headers = []
     query_params = []
 
@@ -1270,7 +1294,7 @@ defmodule AWS.APIGateway do
         position \\ nil,
         options \\ []
       ) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/deployments"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/deployments"
     headers = []
     query_params = []
 
@@ -1308,7 +1332,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/documentation/parts/#{URI.encode(documentation_part_id)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/parts/#{AWS.Util.encode_uri(documentation_part_id)}"
 
     headers = []
     query_params = []
@@ -1337,7 +1361,7 @@ defmodule AWS.APIGateway do
         type \\ nil,
         options \\ []
       ) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/documentation/parts"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/parts"
     headers = []
     query_params = []
 
@@ -1403,7 +1427,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/documentation/versions/#{URI.encode(documentation_version)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/versions/#{AWS.Util.encode_uri(documentation_version)}"
 
     headers = []
     query_params = []
@@ -1428,7 +1452,7 @@ defmodule AWS.APIGateway do
         position \\ nil,
         options \\ []
       ) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/documentation/versions"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/versions"
     headers = []
     query_params = []
 
@@ -1464,7 +1488,7 @@ defmodule AWS.APIGateway do
   can be called.
   """
   def get_domain_name(%Client{} = client, domain_name, options \\ []) do
-    url_path = "/domainnames/#{URI.encode(domain_name)}"
+    url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
 
@@ -1529,7 +1553,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/stages/#{URI.encode(stage_name)}/exports/#{URI.encode(export_type)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/exports/#{AWS.Util.encode_uri(export_type)}"
 
     headers = []
 
@@ -1574,7 +1598,7 @@ defmodule AWS.APIGateway do
   """
   def get_gateway_response(%Client{} = client, response_type, rest_api_id, options \\ []) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses/#{URI.encode(response_type)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/gatewayresponses/#{AWS.Util.encode_uri(response_type)}"
 
     headers = []
     query_params = []
@@ -1606,7 +1630,7 @@ defmodule AWS.APIGateway do
         position \\ nil,
         options \\ []
       ) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/gatewayresponses"
     headers = []
     query_params = []
 
@@ -1642,7 +1666,7 @@ defmodule AWS.APIGateway do
   """
   def get_integration(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/integration"
 
     headers = []
     query_params = []
@@ -1672,7 +1696,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration/responses/#{URI.encode(status_code)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/integration/responses/#{AWS.Util.encode_uri(status_code)}"
 
     headers = []
     query_params = []
@@ -1695,7 +1719,7 @@ defmodule AWS.APIGateway do
   """
   def get_method(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}"
 
     headers = []
     query_params = []
@@ -1725,7 +1749,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/responses/#{URI.encode(status_code)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/responses/#{AWS.Util.encode_uri(status_code)}"
 
     headers = []
     query_params = []
@@ -1747,7 +1771,9 @@ defmodule AWS.APIGateway do
   Describes an existing model defined for a `RestApi` resource.
   """
   def get_model(%Client{} = client, model_name, rest_api_id, flatten \\ nil, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/models/#{URI.encode(model_name)}"
+    url_path =
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models/#{AWS.Util.encode_uri(model_name)}"
+
     headers = []
     query_params = []
 
@@ -1777,7 +1803,7 @@ defmodule AWS.APIGateway do
   """
   def get_model_template(%Client{} = client, model_name, rest_api_id, options \\ []) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/models/#{URI.encode(model_name)}/default_template"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models/#{AWS.Util.encode_uri(model_name)}/default_template"
 
     headers = []
     query_params = []
@@ -1799,7 +1825,7 @@ defmodule AWS.APIGateway do
   Describes existing `Models` defined for a `RestApi` resource.
   """
   def get_models(%Client{} = client, rest_api_id, limit \\ nil, position \\ nil, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/models"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models"
     headers = []
     query_params = []
 
@@ -1835,7 +1861,7 @@ defmodule AWS.APIGateway do
   """
   def get_request_validator(%Client{} = client, request_validator_id, rest_api_id, options \\ []) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/requestvalidators/#{URI.encode(request_validator_id)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/requestvalidators/#{AWS.Util.encode_uri(request_validator_id)}"
 
     headers = []
     query_params = []
@@ -1863,7 +1889,7 @@ defmodule AWS.APIGateway do
         position \\ nil,
         options \\ []
       ) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/requestvalidators"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/requestvalidators"
     headers = []
     query_params = []
 
@@ -1898,7 +1924,9 @@ defmodule AWS.APIGateway do
   Lists information about a resource.
   """
   def get_resource(%Client{} = client, resource_id, rest_api_id, embed \\ nil, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}"
+    url_path =
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}"
+
     headers = []
     query_params = []
 
@@ -1933,7 +1961,7 @@ defmodule AWS.APIGateway do
         position \\ nil,
         options \\ []
       ) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/resources"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources"
     headers = []
     query_params = []
 
@@ -1975,7 +2003,7 @@ defmodule AWS.APIGateway do
   Lists the `RestApi` resource in the collection.
   """
   def get_rest_api(%Client{} = client, rest_api_id, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}"
     headers = []
     query_params = []
 
@@ -2039,7 +2067,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/stages/#{URI.encode(stage_name)}/sdks/#{URI.encode(sdk_type)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/sdks/#{AWS.Util.encode_uri(sdk_type)}"
 
     headers = []
     query_params = []
@@ -2072,7 +2100,7 @@ defmodule AWS.APIGateway do
   end
 
   def get_sdk_type(%Client{} = client, id, options \\ []) do
-    url_path = "/sdktypes/#{URI.encode(id)}"
+    url_path = "/sdktypes/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -2125,7 +2153,9 @@ defmodule AWS.APIGateway do
   Gets information about a `Stage` resource.
   """
   def get_stage(%Client{} = client, rest_api_id, stage_name, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/stages/#{URI.encode(stage_name)}"
+    url_path =
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
+
     headers = []
     query_params = []
 
@@ -2146,7 +2176,7 @@ defmodule AWS.APIGateway do
   Gets information about one or more `Stage` resources.
   """
   def get_stages(%Client{} = client, rest_api_id, deployment_id \\ nil, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/stages"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages"
     headers = []
     query_params = []
 
@@ -2174,7 +2204,7 @@ defmodule AWS.APIGateway do
   Gets the `Tags` collection for a given resource.
   """
   def get_tags(%Client{} = client, resource_arn, limit \\ nil, position \\ nil, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -2218,7 +2248,7 @@ defmodule AWS.APIGateway do
         start_date,
         options \\ []
       ) do
-    url_path = "/usageplans/#{URI.encode(usage_plan_id)}/usage"
+    url_path = "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}/usage"
     headers = []
     query_params = []
 
@@ -2274,7 +2304,7 @@ defmodule AWS.APIGateway do
   Gets a usage plan of a given plan identifier.
   """
   def get_usage_plan(%Client{} = client, usage_plan_id, options \\ []) do
-    url_path = "/usageplans/#{URI.encode(usage_plan_id)}"
+    url_path = "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}"
     headers = []
     query_params = []
 
@@ -2295,7 +2325,9 @@ defmodule AWS.APIGateway do
   Gets a usage plan key of a given key identifier.
   """
   def get_usage_plan_key(%Client{} = client, key_id, usage_plan_id, options \\ []) do
-    url_path = "/usageplans/#{URI.encode(usage_plan_id)}/keys/#{URI.encode(key_id)}"
+    url_path =
+      "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}/keys/#{AWS.Util.encode_uri(key_id)}"
+
     headers = []
     query_params = []
 
@@ -2324,7 +2356,7 @@ defmodule AWS.APIGateway do
         position \\ nil,
         options \\ []
       ) do
-    url_path = "/usageplans/#{URI.encode(usage_plan_id)}/keys"
+    url_path = "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}/keys"
     headers = []
     query_params = []
 
@@ -2414,7 +2446,7 @@ defmodule AWS.APIGateway do
   Gets a specified VPC link under the caller's account in a region.
   """
   def get_vpc_link(%Client{} = client, vpc_link_id, options \\ []) do
-    url_path = "/vpclinks/#{URI.encode(vpc_link_id)}"
+    url_path = "/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
     headers = []
     query_params = []
 
@@ -2494,7 +2526,7 @@ defmodule AWS.APIGateway do
   end
 
   def import_documentation_parts(%Client{} = client, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/documentation/parts"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/parts"
     headers = []
 
     {query_params, input} =
@@ -2551,7 +2583,7 @@ defmodule AWS.APIGateway do
   """
   def put_gateway_response(%Client{} = client, response_type, rest_api_id, input, options \\ []) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses/#{URI.encode(response_type)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/gatewayresponses/#{AWS.Util.encode_uri(response_type)}"
 
     headers = []
     query_params = []
@@ -2581,7 +2613,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/integration"
 
     headers = []
     query_params = []
@@ -2612,7 +2644,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration/responses/#{URI.encode(status_code)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/integration/responses/#{AWS.Util.encode_uri(status_code)}"
 
     headers = []
     query_params = []
@@ -2635,7 +2667,7 @@ defmodule AWS.APIGateway do
   """
   def put_method(%Client{} = client, http_method, resource_id, rest_api_id, input, options \\ []) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}"
 
     headers = []
     query_params = []
@@ -2666,7 +2698,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/responses/#{URI.encode(status_code)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/responses/#{AWS.Util.encode_uri(status_code)}"
 
     headers = []
     query_params = []
@@ -2692,7 +2724,7 @@ defmodule AWS.APIGateway do
   existing API or overwriting the existing API.
   """
   def put_rest_api(%Client{} = client, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}"
     headers = []
 
     {query_params, input} =
@@ -2720,7 +2752,7 @@ defmodule AWS.APIGateway do
   Adds or updates a tag on a given resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -2745,7 +2777,9 @@ defmodule AWS.APIGateway do
   [Use Cognito User Pool as Authorizer](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html)
   """
   def test_invoke_authorizer(%Client{} = client, authorizer_id, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/authorizers/#{URI.encode(authorizer_id)}"
+    url_path =
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
+
     headers = []
     query_params = []
 
@@ -2775,7 +2809,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}"
 
     headers = []
     query_params = []
@@ -2797,7 +2831,7 @@ defmodule AWS.APIGateway do
   Removes a tag from a given resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -2844,7 +2878,7 @@ defmodule AWS.APIGateway do
   Changes information about an `ApiKey` resource.
   """
   def update_api_key(%Client{} = client, api_key, input, options \\ []) do
-    url_path = "/apikeys/#{URI.encode(api_key)}"
+    url_path = "/apikeys/#{AWS.Util.encode_uri(api_key)}"
     headers = []
     query_params = []
 
@@ -2867,7 +2901,9 @@ defmodule AWS.APIGateway do
   See also: [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html)
   """
   def update_authorizer(%Client{} = client, authorizer_id, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/authorizers/#{URI.encode(authorizer_id)}"
+    url_path =
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
+
     headers = []
     query_params = []
 
@@ -2888,7 +2924,9 @@ defmodule AWS.APIGateway do
   Changes information about the `BasePathMapping` resource.
   """
   def update_base_path_mapping(%Client{} = client, base_path, domain_name, input, options \\ []) do
-    url_path = "/domainnames/#{URI.encode(domain_name)}/basepathmappings/#{URI.encode(base_path)}"
+    url_path =
+      "/domainnames/#{AWS.Util.encode_uri(domain_name)}/basepathmappings/#{AWS.Util.encode_uri(base_path)}"
+
     headers = []
     query_params = []
 
@@ -2909,7 +2947,7 @@ defmodule AWS.APIGateway do
   Changes information about an `ClientCertificate` resource.
   """
   def update_client_certificate(%Client{} = client, client_certificate_id, input, options \\ []) do
-    url_path = "/clientcertificates/#{URI.encode(client_certificate_id)}"
+    url_path = "/clientcertificates/#{AWS.Util.encode_uri(client_certificate_id)}"
     headers = []
     query_params = []
 
@@ -2930,7 +2968,9 @@ defmodule AWS.APIGateway do
   Changes information about a `Deployment` resource.
   """
   def update_deployment(%Client{} = client, deployment_id, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/deployments/#{URI.encode(deployment_id)}"
+    url_path =
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
+
     headers = []
     query_params = []
 
@@ -2955,7 +2995,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/documentation/parts/#{URI.encode(documentation_part_id)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/parts/#{AWS.Util.encode_uri(documentation_part_id)}"
 
     headers = []
     query_params = []
@@ -2981,7 +3021,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/documentation/versions/#{URI.encode(documentation_version)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/versions/#{AWS.Util.encode_uri(documentation_version)}"
 
     headers = []
     query_params = []
@@ -3003,7 +3043,7 @@ defmodule AWS.APIGateway do
   Changes information about the `DomainName` resource.
   """
   def update_domain_name(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/domainnames/#{URI.encode(domain_name)}"
+    url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
 
@@ -3031,7 +3071,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses/#{URI.encode(response_type)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/gatewayresponses/#{AWS.Util.encode_uri(response_type)}"
 
     headers = []
     query_params = []
@@ -3061,7 +3101,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/integration"
 
     headers = []
     query_params = []
@@ -3092,7 +3132,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration/responses/#{URI.encode(status_code)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/integration/responses/#{AWS.Util.encode_uri(status_code)}"
 
     headers = []
     query_params = []
@@ -3122,7 +3162,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}"
 
     headers = []
     query_params = []
@@ -3153,7 +3193,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/responses/#{URI.encode(status_code)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/responses/#{AWS.Util.encode_uri(status_code)}"
 
     headers = []
     query_params = []
@@ -3175,7 +3215,9 @@ defmodule AWS.APIGateway do
   Changes information about a model.
   """
   def update_model(%Client{} = client, model_name, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/models/#{URI.encode(model_name)}"
+    url_path =
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models/#{AWS.Util.encode_uri(model_name)}"
+
     headers = []
     query_params = []
 
@@ -3203,7 +3245,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/requestvalidators/#{URI.encode(request_validator_id)}"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/requestvalidators/#{AWS.Util.encode_uri(request_validator_id)}"
 
     headers = []
     query_params = []
@@ -3225,7 +3267,9 @@ defmodule AWS.APIGateway do
   Changes information about a `Resource` resource.
   """
   def update_resource(%Client{} = client, resource_id, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}"
+    url_path =
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}"
+
     headers = []
     query_params = []
 
@@ -3246,7 +3290,7 @@ defmodule AWS.APIGateway do
   Changes information about the specified API.
   """
   def update_rest_api(%Client{} = client, rest_api_id, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}"
+    url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}"
     headers = []
     query_params = []
 
@@ -3267,7 +3311,9 @@ defmodule AWS.APIGateway do
   Changes information about a `Stage` resource.
   """
   def update_stage(%Client{} = client, rest_api_id, stage_name, input, options \\ []) do
-    url_path = "/restapis/#{URI.encode(rest_api_id)}/stages/#{URI.encode(stage_name)}"
+    url_path =
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
+
     headers = []
     query_params = []
 
@@ -3289,7 +3335,9 @@ defmodule AWS.APIGateway do
   with a specified API key.
   """
   def update_usage(%Client{} = client, key_id, usage_plan_id, input, options \\ []) do
-    url_path = "/usageplans/#{URI.encode(usage_plan_id)}/keys/#{URI.encode(key_id)}/usage"
+    url_path =
+      "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}/keys/#{AWS.Util.encode_uri(key_id)}/usage"
+
     headers = []
     query_params = []
 
@@ -3310,7 +3358,7 @@ defmodule AWS.APIGateway do
   Updates a usage plan of a given plan Id.
   """
   def update_usage_plan(%Client{} = client, usage_plan_id, input, options \\ []) do
-    url_path = "/usageplans/#{URI.encode(usage_plan_id)}"
+    url_path = "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}"
     headers = []
     query_params = []
 
@@ -3331,7 +3379,7 @@ defmodule AWS.APIGateway do
   Updates an existing `VpcLink` of a specified identifier.
   """
   def update_vpc_link(%Client{} = client, vpc_link_id, input, options \\ []) do
-    url_path = "/vpclinks/#{URI.encode(vpc_link_id)}"
+    url_path = "/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
     headers = []
     query_params = []
 

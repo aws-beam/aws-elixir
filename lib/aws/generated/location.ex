@@ -37,7 +37,7 @@ defmodule AWS.Location do
   in another account.
   """
   def associate_tracker_consumer(%Client{} = client, tracker_name, input, options \\ []) do
-    url_path = "/tracking/v0/trackers/#{URI.encode(tracker_name)}/consumers"
+    url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/consumers"
     headers = []
     query_params = []
 
@@ -58,7 +58,7 @@ defmodule AWS.Location do
   Deletes the position history of one or more devices from a tracker resource.
   """
   def batch_delete_device_position_history(%Client{} = client, tracker_name, input, options \\ []) do
-    url_path = "/tracking/v0/trackers/#{URI.encode(tracker_name)}/delete-positions"
+    url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/delete-positions"
     headers = []
     query_params = []
 
@@ -81,7 +81,9 @@ defmodule AWS.Location do
   This operation deletes the resource permanently.
   """
   def batch_delete_geofence(%Client{} = client, collection_name, input, options \\ []) do
-    url_path = "/geofencing/v0/collections/#{URI.encode(collection_name)}/delete-geofences"
+    url_path =
+      "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/delete-geofences"
+
     headers = []
     query_params = []
 
@@ -109,7 +111,7 @@ defmodule AWS.Location do
   days after the most recent device position update
   """
   def batch_evaluate_geofences(%Client{} = client, collection_name, input, options \\ []) do
-    url_path = "/geofencing/v0/collections/#{URI.encode(collection_name)}/positions"
+    url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/positions"
     headers = []
     query_params = []
 
@@ -130,7 +132,7 @@ defmodule AWS.Location do
   A batch request to retrieve all device positions.
   """
   def batch_get_device_position(%Client{} = client, tracker_name, input, options \\ []) do
-    url_path = "/tracking/v0/trackers/#{URI.encode(tracker_name)}/get-positions"
+    url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/get-positions"
     headers = []
     query_params = []
 
@@ -153,7 +155,7 @@ defmodule AWS.Location do
   included in the request.
   """
   def batch_put_geofence(%Client{} = client, collection_name, input, options \\ []) do
-    url_path = "/geofencing/v0/collections/#{URI.encode(collection_name)}/put-geofences"
+    url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/put-geofences"
     headers = []
     query_params = []
 
@@ -181,7 +183,7 @@ defmodule AWS.Location do
   before it's deleted.
   """
   def batch_update_device_position(%Client{} = client, tracker_name, input, options \\ []) do
-    url_path = "/tracking/v0/trackers/#{URI.encode(tracker_name)}/positions"
+    url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/positions"
     headers = []
     query_params = []
 
@@ -223,7 +225,7 @@ defmodule AWS.Location do
   `Truck`.
   """
   def calculate_route(%Client{} = client, calculator_name, input, options \\ []) do
-    url_path = "/routes/v0/calculators/#{URI.encode(calculator_name)}/calculate/route"
+    url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}/calculate/route"
     headers = []
     query_params = []
 
@@ -359,7 +361,7 @@ defmodule AWS.Location do
   the target of a tracker resource, the devices will no longer be monitored.
   """
   def delete_geofence_collection(%Client{} = client, collection_name, input, options \\ []) do
-    url_path = "/geofencing/v0/collections/#{URI.encode(collection_name)}"
+    url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}"
     headers = []
     query_params = []
 
@@ -383,7 +385,7 @@ defmodule AWS.Location do
   application, the map may not render.
   """
   def delete_map(%Client{} = client, map_name, input, options \\ []) do
-    url_path = "/maps/v0/maps/#{URI.encode(map_name)}"
+    url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}"
     headers = []
     query_params = []
 
@@ -406,7 +408,7 @@ defmodule AWS.Location do
   This operation deletes the resource permanently.
   """
   def delete_place_index(%Client{} = client, index_name, input, options \\ []) do
-    url_path = "/places/v0/indexes/#{URI.encode(index_name)}"
+    url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}"
     headers = []
     query_params = []
 
@@ -429,7 +431,7 @@ defmodule AWS.Location do
   This operation deletes the resource permanently.
   """
   def delete_route_calculator(%Client{} = client, calculator_name, input, options \\ []) do
-    url_path = "/routes/v0/calculators/#{URI.encode(calculator_name)}"
+    url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}"
     headers = []
     query_params = []
 
@@ -454,7 +456,7 @@ defmodule AWS.Location do
   dependency for your applications.
   """
   def delete_tracker(%Client{} = client, tracker_name, input, options \\ []) do
-    url_path = "/tracking/v0/trackers/#{URI.encode(tracker_name)}"
+    url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}"
     headers = []
     query_params = []
 
@@ -475,7 +477,7 @@ defmodule AWS.Location do
   Retrieves the geofence collection details.
   """
   def describe_geofence_collection(%Client{} = client, collection_name, options \\ []) do
-    url_path = "/geofencing/v0/collections/#{URI.encode(collection_name)}"
+    url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}"
     headers = []
     query_params = []
 
@@ -496,7 +498,7 @@ defmodule AWS.Location do
   Retrieves the map resource details.
   """
   def describe_map(%Client{} = client, map_name, options \\ []) do
-    url_path = "/maps/v0/maps/#{URI.encode(map_name)}"
+    url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}"
     headers = []
     query_params = []
 
@@ -517,7 +519,7 @@ defmodule AWS.Location do
   Retrieves the place index resource details.
   """
   def describe_place_index(%Client{} = client, index_name, options \\ []) do
-    url_path = "/places/v0/indexes/#{URI.encode(index_name)}"
+    url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}"
     headers = []
     query_params = []
 
@@ -538,7 +540,7 @@ defmodule AWS.Location do
   Retrieves the route calculator resource details.
   """
   def describe_route_calculator(%Client{} = client, calculator_name, options \\ []) do
-    url_path = "/routes/v0/calculators/#{URI.encode(calculator_name)}"
+    url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}"
     headers = []
     query_params = []
 
@@ -559,7 +561,7 @@ defmodule AWS.Location do
   Retrieves the tracker resource details.
   """
   def describe_tracker(%Client{} = client, tracker_name, options \\ []) do
-    url_path = "/tracking/v0/trackers/#{URI.encode(tracker_name)}"
+    url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}"
     headers = []
     query_params = []
 
@@ -590,7 +592,7 @@ defmodule AWS.Location do
         options \\ []
       ) do
     url_path =
-      "/tracking/v0/trackers/#{URI.encode(tracker_name)}/consumers/#{URI.encode(consumer_arn)}"
+      "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/consumers/#{AWS.Util.encode_uri(consumer_arn)}"
 
     headers = []
     query_params = []
@@ -615,7 +617,7 @@ defmodule AWS.Location do
   """
   def get_device_position(%Client{} = client, device_id, tracker_name, options \\ []) do
     url_path =
-      "/tracking/v0/trackers/#{URI.encode(tracker_name)}/devices/#{URI.encode(device_id)}/positions/latest"
+      "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/devices/#{AWS.Util.encode_uri(device_id)}/positions/latest"
 
     headers = []
     query_params = []
@@ -647,7 +649,7 @@ defmodule AWS.Location do
         options \\ []
       ) do
     url_path =
-      "/tracking/v0/trackers/#{URI.encode(tracker_name)}/devices/#{URI.encode(device_id)}/list-positions"
+      "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/devices/#{AWS.Util.encode_uri(device_id)}/list-positions"
 
     headers = []
     query_params = []
@@ -670,7 +672,7 @@ defmodule AWS.Location do
   """
   def get_geofence(%Client{} = client, collection_name, geofence_id, options \\ []) do
     url_path =
-      "/geofencing/v0/collections/#{URI.encode(collection_name)}/geofences/#{URI.encode(geofence_id)}"
+      "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/geofences/#{AWS.Util.encode_uri(geofence_id)}"
 
     headers = []
     query_params = []
@@ -693,7 +695,7 @@ defmodule AWS.Location do
   """
   def get_map_glyphs(%Client{} = client, font_stack, font_unicode_range, map_name, options \\ []) do
     url_path =
-      "/maps/v0/maps/#{URI.encode(map_name)}/glyphs/#{URI.encode(font_stack)}/#{URI.encode(font_unicode_range)}"
+      "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/glyphs/#{AWS.Util.encode_uri(font_stack)}/#{AWS.Util.encode_uri(font_unicode_range)}"
 
     headers = []
     query_params = []
@@ -725,7 +727,9 @@ defmodule AWS.Location do
   offsets of individual icons that will be displayed on a rendered map.
   """
   def get_map_sprites(%Client{} = client, file_name, map_name, options \\ []) do
-    url_path = "/maps/v0/maps/#{URI.encode(map_name)}/sprites/#{URI.encode(file_name)}"
+    url_path =
+      "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/sprites/#{AWS.Util.encode_uri(file_name)}"
+
     headers = []
     query_params = []
 
@@ -757,7 +761,7 @@ defmodule AWS.Location do
   for the data. Style descriptors follow the Mapbox Style Specification.
   """
   def get_map_style_descriptor(%Client{} = client, map_name, options \\ []) do
-    url_path = "/maps/v0/maps/#{URI.encode(map_name)}/style-descriptor"
+    url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/style-descriptor"
     headers = []
     query_params = []
 
@@ -794,7 +798,7 @@ defmodule AWS.Location do
   """
   def get_map_tile(%Client{} = client, map_name, x, y, z, options \\ []) do
     url_path =
-      "/maps/v0/maps/#{URI.encode(map_name)}/tiles/#{URI.encode(z)}/#{URI.encode(x)}/#{URI.encode(y)}"
+      "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/tiles/#{AWS.Util.encode_uri(z)}/#{AWS.Util.encode_uri(x)}/#{AWS.Util.encode_uri(y)}"
 
     headers = []
     query_params = []
@@ -823,7 +827,7 @@ defmodule AWS.Location do
   Lists the latest device positions for requested devices.
   """
   def list_device_positions(%Client{} = client, tracker_name, input, options \\ []) do
-    url_path = "/tracking/v0/trackers/#{URI.encode(tracker_name)}/list-positions"
+    url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/list-positions"
     headers = []
     query_params = []
 
@@ -865,7 +869,7 @@ defmodule AWS.Location do
   Lists geofences stored in a given geofence collection.
   """
   def list_geofences(%Client{} = client, collection_name, input, options \\ []) do
-    url_path = "/geofencing/v0/collections/#{URI.encode(collection_name)}/list-geofences"
+    url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/list-geofences"
     headers = []
     query_params = []
 
@@ -949,7 +953,7 @@ defmodule AWS.Location do
   Returns the tags for the specified Amazon Location Service resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -970,7 +974,7 @@ defmodule AWS.Location do
   Lists geofence collections currently associated to the given tracker resource.
   """
   def list_tracker_consumers(%Client{} = client, tracker_name, input, options \\ []) do
-    url_path = "/tracking/v0/trackers/#{URI.encode(tracker_name)}/list-consumers"
+    url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/list-consumers"
     headers = []
     query_params = []
 
@@ -1014,7 +1018,7 @@ defmodule AWS.Location do
   """
   def put_geofence(%Client{} = client, collection_name, geofence_id, input, options \\ []) do
     url_path =
-      "/geofencing/v0/collections/#{URI.encode(collection_name)}/geofences/#{URI.encode(geofence_id)}"
+      "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/geofences/#{AWS.Util.encode_uri(geofence_id)}"
 
     headers = []
     query_params = []
@@ -1038,7 +1042,7 @@ defmodule AWS.Location do
   Allows you to search for Places or points of interest near a given position.
   """
   def search_place_index_for_position(%Client{} = client, index_name, input, options \\ []) do
-    url_path = "/places/v0/indexes/#{URI.encode(index_name)}/search/position"
+    url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/position"
     headers = []
     query_params = []
 
@@ -1067,7 +1071,7 @@ defmodule AWS.Location do
   simultaneously returns an error.
   """
   def search_place_index_for_text(%Client{} = client, index_name, input, options \\ []) do
-    url_path = "/places/v0/indexes/#{URI.encode(index_name)}/search/text"
+    url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/text"
     headers = []
     query_params = []
 
@@ -1106,7 +1110,7 @@ defmodule AWS.Location do
   `
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1127,7 +1131,7 @@ defmodule AWS.Location do
   Removes one or more tags from the specified Amazon Location Service resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =

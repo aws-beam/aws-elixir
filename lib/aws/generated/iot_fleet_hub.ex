@@ -60,7 +60,7 @@ defmodule AWS.IoTFleetHub do
   change.
   """
   def delete_application(%Client{} = client, application_id, input, options \\ []) do
-    url_path = "/applications/#{URI.encode(application_id)}"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
 
     {query_params, input} =
@@ -90,7 +90,7 @@ defmodule AWS.IoTFleetHub do
   change.
   """
   def describe_application(%Client{} = client, application_id, options \\ []) do
-    url_path = "/applications/#{URI.encode(application_id)}"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
     query_params = []
 
@@ -146,7 +146,7 @@ defmodule AWS.IoTFleetHub do
   change.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -172,7 +172,7 @@ defmodule AWS.IoTFleetHub do
   change.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -196,7 +196,7 @@ defmodule AWS.IoTFleetHub do
   change.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -226,7 +226,7 @@ defmodule AWS.IoTFleetHub do
   change.
   """
   def update_application(%Client{} = client, application_id, input, options \\ []) do
-    url_path = "/applications/#{URI.encode(application_id)}"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
     query_params = []
 

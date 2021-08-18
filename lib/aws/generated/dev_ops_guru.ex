@@ -125,7 +125,7 @@ defmodule AWS.DevOpsGuru do
   Returns details about an anomaly that you specify using its ID.
   """
   def describe_anomaly(%Client{} = client, id, options \\ []) do
-    url_path = "/anomalies/#{URI.encode(id)}"
+    url_path = "/anomalies/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -168,7 +168,7 @@ defmodule AWS.DevOpsGuru do
   Returns details about an insight that you specify using its ID.
   """
   def describe_insight(%Client{} = client, id, options \\ []) do
-    url_path = "/insights/#{URI.encode(id)}"
+    url_path = "/insights/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -201,7 +201,9 @@ defmodule AWS.DevOpsGuru do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/accounts/health/resource-collection/#{URI.encode(resource_collection_type)}"
+    url_path =
+      "/accounts/health/resource-collection/#{AWS.Util.encode_uri(resource_collection_type)}"
+
     headers = []
     query_params = []
 
@@ -294,7 +296,7 @@ defmodule AWS.DevOpsGuru do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/resource-collections/#{URI.encode(resource_collection_type)}"
+    url_path = "/resource-collections/#{AWS.Util.encode_uri(resource_collection_type)}"
     headers = []
     query_params = []
 
@@ -323,7 +325,7 @@ defmodule AWS.DevOpsGuru do
   its ID.
   """
   def list_anomalies_for_insight(%Client{} = client, insight_id, input, options \\ []) do
-    url_path = "/anomalies/insight/#{URI.encode(insight_id)}"
+    url_path = "/anomalies/insight/#{AWS.Util.encode_uri(insight_id)}"
     headers = []
     query_params = []
 
@@ -466,7 +468,7 @@ defmodule AWS.DevOpsGuru do
   insight that contains information about how to improve your operations.
   """
   def remove_notification_channel(%Client{} = client, id, input, options \\ []) do
-    url_path = "/channels/#{URI.encode(id)}"
+    url_path = "/channels/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 

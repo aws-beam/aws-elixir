@@ -201,7 +201,7 @@ defmodule AWS.IoTEventsData do
   Retrieves information about an alarm.
   """
   def describe_alarm(%Client{} = client, alarm_model_name, key_value \\ nil, options \\ []) do
-    url_path = "/alarms/#{URI.encode(alarm_model_name)}/keyValues/"
+    url_path = "/alarms/#{AWS.Util.encode_uri(alarm_model_name)}/keyValues/"
     headers = []
     query_params = []
 
@@ -229,7 +229,7 @@ defmodule AWS.IoTEventsData do
   Returns information about the specified detector (instance).
   """
   def describe_detector(%Client{} = client, detector_model_name, key_value \\ nil, options \\ []) do
-    url_path = "/detectors/#{URI.encode(detector_model_name)}/keyValues/"
+    url_path = "/detectors/#{AWS.Util.encode_uri(detector_model_name)}/keyValues/"
     headers = []
     query_params = []
 
@@ -265,7 +265,7 @@ defmodule AWS.IoTEventsData do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/alarms/#{URI.encode(alarm_model_name)}"
+    url_path = "/alarms/#{AWS.Util.encode_uri(alarm_model_name)}"
     headers = []
     query_params = []
 
@@ -307,7 +307,7 @@ defmodule AWS.IoTEventsData do
         state_name \\ nil,
         options \\ []
       ) do
-    url_path = "/detectors/#{URI.encode(detector_model_name)}"
+    url_path = "/detectors/#{AWS.Util.encode_uri(detector_model_name)}"
     headers = []
     query_params = []
 

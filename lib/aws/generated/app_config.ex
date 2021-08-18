@@ -111,7 +111,7 @@ defmodule AWS.AppConfig do
   in the *AWS AppConfig User Guide*.
   """
   def create_configuration_profile(%Client{} = client, application_id, input, options \\ []) do
-    url_path = "/applications/#{URI.encode(application_id)}/configurationprofiles"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles"
     headers = []
     query_params = []
 
@@ -165,7 +165,7 @@ defmodule AWS.AppConfig do
   deployment. If an alarm is triggered, the system rolls back the configuration.
   """
   def create_environment(%Client{} = client, application_id, input, options \\ []) do
-    url_path = "/applications/#{URI.encode(application_id)}/environments"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/environments"
     headers = []
     query_params = []
 
@@ -193,7 +193,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}/hostedconfigurationversions"
+      "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}/hostedconfigurationversions"
 
     {headers, input} =
       [
@@ -237,7 +237,7 @@ defmodule AWS.AppConfig do
   Deleting an application does not delete a configuration from a host.
   """
   def delete_application(%Client{} = client, application_id, input, options \\ []) do
-    url_path = "/applications/#{URI.encode(application_id)}"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
     query_params = []
 
@@ -267,7 +267,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}"
+      "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}"
 
     headers = []
     query_params = []
@@ -291,7 +291,7 @@ defmodule AWS.AppConfig do
   Deleting a deployment strategy does not delete a configuration from a host.
   """
   def delete_deployment_strategy(%Client{} = client, deployment_strategy_id, input, options \\ []) do
-    url_path = "/deployementstrategies/#{URI.encode(deployment_strategy_id)}"
+    url_path = "/deployementstrategies/#{AWS.Util.encode_uri(deployment_strategy_id)}"
     headers = []
     query_params = []
 
@@ -315,7 +315,7 @@ defmodule AWS.AppConfig do
   """
   def delete_environment(%Client{} = client, application_id, environment_id, input, options \\ []) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}"
+      "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}"
 
     headers = []
     query_params = []
@@ -345,7 +345,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}/hostedconfigurationversions/#{URI.encode(version_number)}"
+      "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}/hostedconfigurationversions/#{AWS.Util.encode_uri(version_number)}"
 
     headers = []
     query_params = []
@@ -367,7 +367,7 @@ defmodule AWS.AppConfig do
   Retrieve information about an application.
   """
   def get_application(%Client{} = client, application_id, options \\ []) do
-    url_path = "/applications/#{URI.encode(application_id)}"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
     query_params = []
 
@@ -408,7 +408,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application)}/environments/#{URI.encode(environment)}/configurations/#{URI.encode(configuration)}"
+      "/applications/#{AWS.Util.encode_uri(application)}/environments/#{AWS.Util.encode_uri(environment)}/configurations/#{AWS.Util.encode_uri(configuration)}"
 
     headers = []
     query_params = []
@@ -460,7 +460,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}"
+      "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}"
 
     headers = []
     query_params = []
@@ -489,7 +489,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}/deployments/#{URI.encode(deployment_number)}"
+      "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}/deployments/#{AWS.Util.encode_uri(deployment_number)}"
 
     headers = []
     query_params = []
@@ -517,7 +517,7 @@ defmodule AWS.AppConfig do
   time.
   """
   def get_deployment_strategy(%Client{} = client, deployment_strategy_id, options \\ []) do
-    url_path = "/deploymentstrategies/#{URI.encode(deployment_strategy_id)}"
+    url_path = "/deploymentstrategies/#{AWS.Util.encode_uri(deployment_strategy_id)}"
     headers = []
     query_params = []
 
@@ -545,7 +545,7 @@ defmodule AWS.AppConfig do
   """
   def get_environment(%Client{} = client, application_id, environment_id, options \\ []) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}"
+      "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}"
 
     headers = []
     query_params = []
@@ -574,7 +574,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}/hostedconfigurationversions/#{URI.encode(version_number)}"
+      "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}/hostedconfigurationversions/#{AWS.Util.encode_uri(version_number)}"
 
     headers = []
     query_params = []
@@ -650,7 +650,7 @@ defmodule AWS.AppConfig do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/applications/#{URI.encode(application_id)}/configurationprofiles"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles"
     headers = []
     query_params = []
 
@@ -733,7 +733,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}/deployments"
+      "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}/deployments"
 
     headers = []
     query_params = []
@@ -775,7 +775,7 @@ defmodule AWS.AppConfig do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/applications/#{URI.encode(application_id)}/environments"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/environments"
     headers = []
     query_params = []
 
@@ -819,7 +819,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}/hostedconfigurationversions"
+      "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}/hostedconfigurationversions"
 
     headers = []
     query_params = []
@@ -855,7 +855,7 @@ defmodule AWS.AppConfig do
   Retrieves the list of key-value tags assigned to the resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -877,7 +877,7 @@ defmodule AWS.AppConfig do
   """
   def start_deployment(%Client{} = client, application_id, environment_id, input, options \\ []) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}/deployments"
+      "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}/deployments"
 
     headers = []
     query_params = []
@@ -910,7 +910,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}/deployments/#{URI.encode(deployment_number)}"
+      "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}/deployments/#{AWS.Util.encode_uri(deployment_number)}"
 
     headers = []
     query_params = []
@@ -936,7 +936,7 @@ defmodule AWS.AppConfig do
   of 50 tags for a resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -957,7 +957,7 @@ defmodule AWS.AppConfig do
   Deletes a tag key and value from an AppConfig resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -983,7 +983,7 @@ defmodule AWS.AppConfig do
   Updates an application.
   """
   def update_application(%Client{} = client, application_id, input, options \\ []) do
-    url_path = "/applications/#{URI.encode(application_id)}"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
     query_params = []
 
@@ -1011,7 +1011,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}"
+      "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}"
 
     headers = []
     query_params = []
@@ -1033,7 +1033,7 @@ defmodule AWS.AppConfig do
   Updates a deployment strategy.
   """
   def update_deployment_strategy(%Client{} = client, deployment_strategy_id, input, options \\ []) do
-    url_path = "/deploymentstrategies/#{URI.encode(deployment_strategy_id)}"
+    url_path = "/deploymentstrategies/#{AWS.Util.encode_uri(deployment_strategy_id)}"
     headers = []
     query_params = []
 
@@ -1055,7 +1055,7 @@ defmodule AWS.AppConfig do
   """
   def update_environment(%Client{} = client, application_id, environment_id, input, options \\ []) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}"
+      "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}"
 
     headers = []
     query_params = []
@@ -1084,7 +1084,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}/validators"
+      "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}/validators"
 
     headers = []
 

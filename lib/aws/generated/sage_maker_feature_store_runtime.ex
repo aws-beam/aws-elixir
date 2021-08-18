@@ -67,7 +67,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   called. This record will have a value of `True` in the `is_deleted` column.
   """
   def delete_record(%Client{} = client, feature_group_name, input, options \\ []) do
-    url_path = "/FeatureGroup/#{URI.encode(feature_group_name)}"
+    url_path = "/FeatureGroup/#{AWS.Util.encode_uri(feature_group_name)}"
     headers = []
 
     {query_params, input} =
@@ -103,7 +103,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
         record_identifier_value_as_string,
         options \\ []
       ) do
-    url_path = "/FeatureGroup/#{URI.encode(feature_group_name)}"
+    url_path = "/FeatureGroup/#{AWS.Util.encode_uri(feature_group_name)}"
     headers = []
     query_params = []
 
@@ -143,7 +143,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   it is written only to the `OfflineStore`.
   """
   def put_record(%Client{} = client, feature_group_name, input, options \\ []) do
-    url_path = "/FeatureGroup/#{URI.encode(feature_group_name)}"
+    url_path = "/FeatureGroup/#{AWS.Util.encode_uri(feature_group_name)}"
     headers = []
     query_params = []
 

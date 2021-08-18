@@ -49,7 +49,9 @@ defmodule AWS.CodeGuruProfiler do
   Add up to 2 anomaly notifications channels for a profiling group.
   """
   def add_notification_channels(%Client{} = client, profiling_group_name, input, options \\ []) do
-    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}/notificationConfiguration"
+    url_path =
+      "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/notificationConfiguration"
+
     headers = []
     query_params = []
 
@@ -71,7 +73,7 @@ defmodule AWS.CodeGuruProfiler do
   time period.
   """
   def batch_get_frame_metric_data(%Client{} = client, profiling_group_name, input, options \\ []) do
-    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}/frames/-/metrics"
+    url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/frames/-/metrics"
     headers = []
 
     {query_params, input} =
@@ -104,7 +106,7 @@ defmodule AWS.CodeGuruProfiler do
   not and for how long to return profiling data.
   """
   def configure_agent(%Client{} = client, profiling_group_name, input, options \\ []) do
-    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}/configureAgent"
+    url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/configureAgent"
     headers = []
     query_params = []
 
@@ -151,7 +153,7 @@ defmodule AWS.CodeGuruProfiler do
   Deletes a profiling group.
   """
   def delete_profiling_group(%Client{} = client, profiling_group_name, input, options \\ []) do
-    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}"
+    url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}"
     headers = []
     query_params = []
 
@@ -174,7 +176,7 @@ defmodule AWS.CodeGuruProfiler do
   object that contains information about the requested profiling group.
   """
   def describe_profiling_group(%Client{} = client, profiling_group_name, options \\ []) do
-    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}"
+    url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}"
     headers = []
     query_params = []
 
@@ -246,7 +248,9 @@ defmodule AWS.CodeGuruProfiler do
   Get the current configuration for anomaly notifications for a profiling group.
   """
   def get_notification_configuration(%Client{} = client, profiling_group_name, options \\ []) do
-    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}/notificationConfiguration"
+    url_path =
+      "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/notificationConfiguration"
+
     headers = []
     query_params = []
 
@@ -267,7 +271,7 @@ defmodule AWS.CodeGuruProfiler do
   Returns the JSON-formatted resource-based policy on a profiling group.
   """
   def get_policy(%Client{} = client, profiling_group_name, options \\ []) do
-    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}/policy"
+    url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/policy"
     headers = []
     query_params = []
 
@@ -345,7 +349,7 @@ defmodule AWS.CodeGuruProfiler do
         accept \\ nil,
         options \\ []
       ) do
-    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}/profile"
+    url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/profile"
     headers = []
 
     headers =
@@ -424,7 +428,9 @@ defmodule AWS.CodeGuruProfiler do
         start_time,
         options \\ []
       ) do
-    url_path = "/internal/profilingGroups/#{URI.encode(profiling_group_name)}/recommendations"
+    url_path =
+      "/internal/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/recommendations"
+
     headers = []
     query_params = []
 
@@ -475,7 +481,9 @@ defmodule AWS.CodeGuruProfiler do
         start_time,
         options \\ []
       ) do
-    url_path = "/internal/profilingGroups/#{URI.encode(profiling_group_name)}/findingsReports"
+    url_path =
+      "/internal/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/findingsReports"
+
     headers = []
     query_params = []
 
@@ -542,7 +550,7 @@ defmodule AWS.CodeGuruProfiler do
         start_time,
         options \\ []
       ) do
-    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}/profileTimes"
+    url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/profileTimes"
     headers = []
     query_params = []
 
@@ -657,7 +665,7 @@ defmodule AWS.CodeGuruProfiler do
   Returns a list of the tags that are assigned to a specified resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -682,7 +690,7 @@ defmodule AWS.CodeGuruProfiler do
   ](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_GetProfile.html).
   """
   def post_agent_profile(%Client{} = client, profiling_group_name, input, options \\ []) do
-    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}/agentProfile"
+    url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/agentProfile"
 
     {headers, input} =
       [
@@ -736,7 +744,7 @@ defmodule AWS.CodeGuruProfiler do
   """
   def put_permission(%Client{} = client, action_group, profiling_group_name, input, options \\ []) do
     url_path =
-      "/profilingGroups/#{URI.encode(profiling_group_name)}/policy/#{URI.encode(action_group)}"
+      "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/policy/#{AWS.Util.encode_uri(action_group)}"
 
     headers = []
     query_params = []
@@ -765,7 +773,7 @@ defmodule AWS.CodeGuruProfiler do
         options \\ []
       ) do
     url_path =
-      "/profilingGroups/#{URI.encode(profiling_group_name)}/notificationConfiguration/#{URI.encode(channel_id)}"
+      "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/notificationConfiguration/#{AWS.Util.encode_uri(channel_id)}"
 
     headers = []
     query_params = []
@@ -803,7 +811,7 @@ defmodule AWS.CodeGuruProfiler do
         options \\ []
       ) do
     url_path =
-      "/profilingGroups/#{URI.encode(profiling_group_name)}/policy/#{URI.encode(action_group)}"
+      "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/policy/#{AWS.Util.encode_uri(action_group)}"
 
     headers = []
 
@@ -838,7 +846,7 @@ defmodule AWS.CodeGuruProfiler do
         options \\ []
       ) do
     url_path =
-      "/internal/profilingGroups/#{URI.encode(profiling_group_name)}/anomalies/#{URI.encode(anomaly_instance_id)}/feedback"
+      "/internal/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/anomalies/#{AWS.Util.encode_uri(anomaly_instance_id)}/feedback"
 
     headers = []
     query_params = []
@@ -860,7 +868,7 @@ defmodule AWS.CodeGuruProfiler do
   Use to assign one or more tags to a resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -881,7 +889,7 @@ defmodule AWS.CodeGuruProfiler do
   Use to remove one or more tags from a resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -907,7 +915,7 @@ defmodule AWS.CodeGuruProfiler do
   Updates a profiling group.
   """
   def update_profiling_group(%Client{} = client, profiling_group_name, input, options \\ []) do
-    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}"
+    url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}"
     headers = []
     query_params = []
 

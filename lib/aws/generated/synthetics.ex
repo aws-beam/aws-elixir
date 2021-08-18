@@ -108,7 +108,7 @@ defmodule AWS.Synthetics do
   operation so that you can delete these resources after you delete the canary.
   """
   def delete_canary(%Client{} = client, name, input, options \\ []) do
-    url_path = "/canary/#{URI.encode(name)}"
+    url_path = "/canary/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -205,7 +205,7 @@ defmodule AWS.Synthetics do
   [DescribeCanaries](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html).
   """
   def get_canary(%Client{} = client, name, options \\ []) do
-    url_path = "/canary/#{URI.encode(name)}"
+    url_path = "/canary/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -226,7 +226,7 @@ defmodule AWS.Synthetics do
   Retrieves a list of runs for a specified canary.
   """
   def get_canary_runs(%Client{} = client, name, input, options \\ []) do
-    url_path = "/canary/#{URI.encode(name)}/runs"
+    url_path = "/canary/#{AWS.Util.encode_uri(name)}/runs"
     headers = []
     query_params = []
 
@@ -247,7 +247,7 @@ defmodule AWS.Synthetics do
   Displays the tags associated with a canary.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -272,7 +272,7 @@ defmodule AWS.Synthetics do
   [GetCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanary.html).
   """
   def start_canary(%Client{} = client, name, input, options \\ []) do
-    url_path = "/canary/#{URI.encode(name)}/start"
+    url_path = "/canary/#{AWS.Util.encode_uri(name)}/start"
     headers = []
     query_params = []
 
@@ -301,7 +301,7 @@ defmodule AWS.Synthetics do
   schedule at any point in the future.
   """
   def stop_canary(%Client{} = client, name, input, options \\ []) do
-    url_path = "/canary/#{URI.encode(name)}/stop"
+    url_path = "/canary/#{AWS.Util.encode_uri(name)}/stop"
     headers = []
     query_params = []
 
@@ -337,7 +337,7 @@ defmodule AWS.Synthetics do
   You can associate as many as 50 tags with a canary.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -358,7 +358,7 @@ defmodule AWS.Synthetics do
   Removes one or more tags from the specified canary.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -389,7 +389,7 @@ defmodule AWS.Synthetics do
   [TagResource](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_TagResource.html).
   """
   def update_canary(%Client{} = client, name, input, options \\ []) do
-    url_path = "/canary/#{URI.encode(name)}"
+    url_path = "/canary/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 

@@ -34,7 +34,7 @@ defmodule AWS.GroundStation do
   Cancels a contact with a specified contact ID.
   """
   def cancel_contact(%Client{} = client, contact_id, input, options \\ []) do
-    url_path = "/contact/#{URI.encode(contact_id)}"
+    url_path = "/contact/#{AWS.Util.encode_uri(contact_id)}"
     headers = []
     query_params = []
 
@@ -130,7 +130,7 @@ defmodule AWS.GroundStation do
   Deletes a `Config`.
   """
   def delete_config(%Client{} = client, config_id, config_type, input, options \\ []) do
-    url_path = "/config/#{URI.encode(config_type)}/#{URI.encode(config_id)}"
+    url_path = "/config/#{AWS.Util.encode_uri(config_type)}/#{AWS.Util.encode_uri(config_id)}"
     headers = []
     query_params = []
 
@@ -156,7 +156,7 @@ defmodule AWS.GroundStation do
         input,
         options \\ []
       ) do
-    url_path = "/dataflowEndpointGroup/#{URI.encode(dataflow_endpoint_group_id)}"
+    url_path = "/dataflowEndpointGroup/#{AWS.Util.encode_uri(dataflow_endpoint_group_id)}"
     headers = []
     query_params = []
 
@@ -177,7 +177,7 @@ defmodule AWS.GroundStation do
   Deletes a mission profile.
   """
   def delete_mission_profile(%Client{} = client, mission_profile_id, input, options \\ []) do
-    url_path = "/missionprofile/#{URI.encode(mission_profile_id)}"
+    url_path = "/missionprofile/#{AWS.Util.encode_uri(mission_profile_id)}"
     headers = []
     query_params = []
 
@@ -198,7 +198,7 @@ defmodule AWS.GroundStation do
   Describes an existing contact.
   """
   def describe_contact(%Client{} = client, contact_id, options \\ []) do
-    url_path = "/contact/#{URI.encode(contact_id)}"
+    url_path = "/contact/#{AWS.Util.encode_uri(contact_id)}"
     headers = []
     query_params = []
 
@@ -221,7 +221,7 @@ defmodule AWS.GroundStation do
   Only one `Config` response can be returned.
   """
   def get_config(%Client{} = client, config_id, config_type, options \\ []) do
-    url_path = "/config/#{URI.encode(config_type)}/#{URI.encode(config_id)}"
+    url_path = "/config/#{AWS.Util.encode_uri(config_type)}/#{AWS.Util.encode_uri(config_id)}"
     headers = []
     query_params = []
 
@@ -242,7 +242,7 @@ defmodule AWS.GroundStation do
   Returns the dataflow endpoint group.
   """
   def get_dataflow_endpoint_group(%Client{} = client, dataflow_endpoint_group_id, options \\ []) do
-    url_path = "/dataflowEndpointGroup/#{URI.encode(dataflow_endpoint_group_id)}"
+    url_path = "/dataflowEndpointGroup/#{AWS.Util.encode_uri(dataflow_endpoint_group_id)}"
     headers = []
     query_params = []
 
@@ -284,7 +284,7 @@ defmodule AWS.GroundStation do
   Returns a mission profile.
   """
   def get_mission_profile(%Client{} = client, mission_profile_id, options \\ []) do
-    url_path = "/missionprofile/#{URI.encode(mission_profile_id)}"
+    url_path = "/missionprofile/#{AWS.Util.encode_uri(mission_profile_id)}"
     headers = []
     query_params = []
 
@@ -305,7 +305,7 @@ defmodule AWS.GroundStation do
   Returns a satellite.
   """
   def get_satellite(%Client{} = client, satellite_id, options \\ []) do
-    url_path = "/satellite/#{URI.encode(satellite_id)}"
+    url_path = "/satellite/#{AWS.Util.encode_uri(satellite_id)}"
     headers = []
     query_params = []
 
@@ -548,7 +548,7 @@ defmodule AWS.GroundStation do
   Returns a list of tags for a specified resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -590,7 +590,7 @@ defmodule AWS.GroundStation do
   Assigns a tag to a resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -611,7 +611,7 @@ defmodule AWS.GroundStation do
   Deassigns a resource tag.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -640,7 +640,7 @@ defmodule AWS.GroundStation do
   contacts scheduled with this `Config`.
   """
   def update_config(%Client{} = client, config_id, config_type, input, options \\ []) do
-    url_path = "/config/#{URI.encode(config_type)}/#{URI.encode(config_id)}"
+    url_path = "/config/#{AWS.Util.encode_uri(config_type)}/#{AWS.Util.encode_uri(config_id)}"
     headers = []
     query_params = []
 
@@ -664,7 +664,7 @@ defmodule AWS.GroundStation do
   future contacts.
   """
   def update_mission_profile(%Client{} = client, mission_profile_id, input, options \\ []) do
-    url_path = "/missionprofile/#{URI.encode(mission_profile_id)}"
+    url_path = "/missionprofile/#{AWS.Util.encode_uri(mission_profile_id)}"
     headers = []
     query_params = []
 

@@ -30,7 +30,7 @@ defmodule AWS.AppSync do
   Creates a cache for the GraphQL API.
   """
   def create_api_cache(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/ApiCaches"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/ApiCaches"
     headers = []
     query_params = []
 
@@ -52,7 +52,7 @@ defmodule AWS.AppSync do
   API.
   """
   def create_api_key(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/apikeys"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/apikeys"
     headers = []
     query_params = []
 
@@ -73,7 +73,7 @@ defmodule AWS.AppSync do
   Creates a `DataSource` object.
   """
   def create_data_source(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/datasources"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/datasources"
     headers = []
     query_params = []
 
@@ -97,7 +97,7 @@ defmodule AWS.AppSync do
   resolver logic.
   """
   def create_function(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/functions"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/functions"
     headers = []
     query_params = []
 
@@ -142,7 +142,9 @@ defmodule AWS.AppSync do
   understand and converts the data source's responses into GraphQL.
   """
   def create_resolver(%Client{} = client, api_id, type_name, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/types/#{URI.encode(type_name)}/resolvers"
+    url_path =
+      "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}/resolvers"
+
     headers = []
     query_params = []
 
@@ -163,7 +165,7 @@ defmodule AWS.AppSync do
   Creates a `Type` object.
   """
   def create_type(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/types"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types"
     headers = []
     query_params = []
 
@@ -184,7 +186,7 @@ defmodule AWS.AppSync do
   Deletes an `ApiCache` object.
   """
   def delete_api_cache(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/ApiCaches"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/ApiCaches"
     headers = []
     query_params = []
 
@@ -205,7 +207,7 @@ defmodule AWS.AppSync do
   Deletes an API key.
   """
   def delete_api_key(%Client{} = client, api_id, id, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/apikeys/#{URI.encode(id)}"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/apikeys/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -226,7 +228,7 @@ defmodule AWS.AppSync do
   Deletes a `DataSource` object.
   """
   def delete_data_source(%Client{} = client, api_id, name, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/datasources/#{URI.encode(name)}"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/datasources/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -247,7 +249,9 @@ defmodule AWS.AppSync do
   Deletes a `Function`.
   """
   def delete_function(%Client{} = client, api_id, function_id, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/functions/#{URI.encode(function_id)}"
+    url_path =
+      "/v1/apis/#{AWS.Util.encode_uri(api_id)}/functions/#{AWS.Util.encode_uri(function_id)}"
+
     headers = []
     query_params = []
 
@@ -268,7 +272,7 @@ defmodule AWS.AppSync do
   Deletes a `GraphqlApi` object.
   """
   def delete_graphql_api(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}"
     headers = []
     query_params = []
 
@@ -290,7 +294,7 @@ defmodule AWS.AppSync do
   """
   def delete_resolver(%Client{} = client, api_id, field_name, type_name, input, options \\ []) do
     url_path =
-      "/v1/apis/#{URI.encode(api_id)}/types/#{URI.encode(type_name)}/resolvers/#{URI.encode(field_name)}"
+      "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}/resolvers/#{AWS.Util.encode_uri(field_name)}"
 
     headers = []
     query_params = []
@@ -312,7 +316,7 @@ defmodule AWS.AppSync do
   Deletes a `Type` object.
   """
   def delete_type(%Client{} = client, api_id, type_name, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/types/#{URI.encode(type_name)}"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}"
     headers = []
     query_params = []
 
@@ -333,7 +337,7 @@ defmodule AWS.AppSync do
   Flushes an `ApiCache` object.
   """
   def flush_api_cache(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/FlushCache"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/FlushCache"
     headers = []
     query_params = []
 
@@ -354,7 +358,7 @@ defmodule AWS.AppSync do
   Retrieves an `ApiCache` object.
   """
   def get_api_cache(%Client{} = client, api_id, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/ApiCaches"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/ApiCaches"
     headers = []
     query_params = []
 
@@ -375,7 +379,7 @@ defmodule AWS.AppSync do
   Retrieves a `DataSource` object.
   """
   def get_data_source(%Client{} = client, api_id, name, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/datasources/#{URI.encode(name)}"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/datasources/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -396,7 +400,9 @@ defmodule AWS.AppSync do
   Get a `Function`.
   """
   def get_function(%Client{} = client, api_id, function_id, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/functions/#{URI.encode(function_id)}"
+    url_path =
+      "/v1/apis/#{AWS.Util.encode_uri(api_id)}/functions/#{AWS.Util.encode_uri(function_id)}"
+
     headers = []
     query_params = []
 
@@ -417,7 +423,7 @@ defmodule AWS.AppSync do
   Retrieves a `GraphqlApi` object.
   """
   def get_graphql_api(%Client{} = client, api_id, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}"
     headers = []
     query_params = []
 
@@ -444,7 +450,7 @@ defmodule AWS.AppSync do
         include_directives \\ nil,
         options \\ []
       ) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/schema"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/schema"
     headers = []
     query_params = []
 
@@ -480,7 +486,7 @@ defmodule AWS.AppSync do
   """
   def get_resolver(%Client{} = client, api_id, field_name, type_name, options \\ []) do
     url_path =
-      "/v1/apis/#{URI.encode(api_id)}/types/#{URI.encode(type_name)}/resolvers/#{URI.encode(field_name)}"
+      "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}/resolvers/#{AWS.Util.encode_uri(field_name)}"
 
     headers = []
     query_params = []
@@ -502,7 +508,7 @@ defmodule AWS.AppSync do
   Retrieves the current status of a schema creation operation.
   """
   def get_schema_creation_status(%Client{} = client, api_id, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/schemacreation"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/schemacreation"
     headers = []
     query_params = []
 
@@ -523,7 +529,7 @@ defmodule AWS.AppSync do
   Retrieves a `Type` object.
   """
   def get_type(%Client{} = client, api_id, type_name, format, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/types/#{URI.encode(type_name)}"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}"
     headers = []
     query_params = []
 
@@ -562,7 +568,7 @@ defmodule AWS.AppSync do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/apikeys"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/apikeys"
     headers = []
     query_params = []
 
@@ -603,7 +609,7 @@ defmodule AWS.AppSync do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/datasources"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/datasources"
     headers = []
     query_params = []
 
@@ -644,7 +650,7 @@ defmodule AWS.AppSync do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/functions"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/functions"
     headers = []
     query_params = []
 
@@ -721,7 +727,9 @@ defmodule AWS.AppSync do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/types/#{URI.encode(type_name)}/resolvers"
+    url_path =
+      "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}/resolvers"
+
     headers = []
     query_params = []
 
@@ -763,7 +771,9 @@ defmodule AWS.AppSync do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/functions/#{URI.encode(function_id)}/resolvers"
+    url_path =
+      "/v1/apis/#{AWS.Util.encode_uri(api_id)}/functions/#{AWS.Util.encode_uri(function_id)}/resolvers"
+
     headers = []
     query_params = []
 
@@ -798,7 +808,7 @@ defmodule AWS.AppSync do
   Lists the tags for a resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/v1/tags/#{URI.encode(resource_arn)}"
+    url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -826,7 +836,7 @@ defmodule AWS.AppSync do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/types"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types"
     headers = []
     query_params = []
 
@@ -870,7 +880,7 @@ defmodule AWS.AppSync do
   This operation is asynchronous. Use to determine when it has completed.
   """
   def start_schema_creation(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/schemacreation"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/schemacreation"
     headers = []
     query_params = []
 
@@ -891,7 +901,7 @@ defmodule AWS.AppSync do
   Tags a resource with user-supplied tags.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/v1/tags/#{URI.encode(resource_arn)}"
+    url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -912,7 +922,7 @@ defmodule AWS.AppSync do
   Untags a resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/v1/tags/#{URI.encode(resource_arn)}"
+    url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -938,7 +948,7 @@ defmodule AWS.AppSync do
   Updates the cache for the GraphQL API.
   """
   def update_api_cache(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/ApiCaches/update"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/ApiCaches/update"
     headers = []
     query_params = []
 
@@ -961,7 +971,7 @@ defmodule AWS.AppSync do
   The key can be updated while it is not deleted.
   """
   def update_api_key(%Client{} = client, api_id, id, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/apikeys/#{URI.encode(id)}"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/apikeys/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -982,7 +992,7 @@ defmodule AWS.AppSync do
   Updates a `DataSource` object.
   """
   def update_data_source(%Client{} = client, api_id, name, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/datasources/#{URI.encode(name)}"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/datasources/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -1003,7 +1013,9 @@ defmodule AWS.AppSync do
   Updates a `Function` object.
   """
   def update_function(%Client{} = client, api_id, function_id, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/functions/#{URI.encode(function_id)}"
+    url_path =
+      "/v1/apis/#{AWS.Util.encode_uri(api_id)}/functions/#{AWS.Util.encode_uri(function_id)}"
+
     headers = []
     query_params = []
 
@@ -1024,7 +1036,7 @@ defmodule AWS.AppSync do
   Updates a `GraphqlApi` object.
   """
   def update_graphql_api(%Client{} = client, api_id, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}"
     headers = []
     query_params = []
 
@@ -1046,7 +1058,7 @@ defmodule AWS.AppSync do
   """
   def update_resolver(%Client{} = client, api_id, field_name, type_name, input, options \\ []) do
     url_path =
-      "/v1/apis/#{URI.encode(api_id)}/types/#{URI.encode(type_name)}/resolvers/#{URI.encode(field_name)}"
+      "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}/resolvers/#{AWS.Util.encode_uri(field_name)}"
 
     headers = []
     query_params = []
@@ -1068,7 +1080,7 @@ defmodule AWS.AppSync do
   Updates a `Type` object.
   """
   def update_type(%Client{} = client, api_id, type_name, input, options \\ []) do
-    url_path = "/v1/apis/#{URI.encode(api_id)}/types/#{URI.encode(type_name)}"
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}"
     headers = []
     query_params = []
 

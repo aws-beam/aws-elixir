@@ -39,7 +39,7 @@ defmodule AWS.Polly do
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
   def delete_lexicon(%Client{} = client, name, input, options \\ []) do
-    url_path = "/v1/lexicons/#{URI.encode(name)}"
+    url_path = "/v1/lexicons/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -138,7 +138,7 @@ defmodule AWS.Polly do
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
   def get_lexicon(%Client{} = client, name, options \\ []) do
-    url_path = "/v1/lexicons/#{URI.encode(name)}"
+    url_path = "/v1/lexicons/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -163,7 +163,7 @@ defmodule AWS.Polly do
   output of the task.
   """
   def get_speech_synthesis_task(%Client{} = client, task_id, options \\ []) do
-    url_path = "/v1/synthesisTasks/#{URI.encode(task_id)}"
+    url_path = "/v1/synthesisTasks/#{AWS.Util.encode_uri(task_id)}"
     headers = []
     query_params = []
 
@@ -272,7 +272,7 @@ defmodule AWS.Polly do
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
   def put_lexicon(%Client{} = client, name, input, options \\ []) do
-    url_path = "/v1/lexicons/#{URI.encode(name)}"
+    url_path = "/v1/lexicons/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 

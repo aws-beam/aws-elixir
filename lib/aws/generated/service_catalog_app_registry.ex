@@ -44,7 +44,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application)}/attribute-groups/#{URI.encode(attribute_group)}"
+      "/applications/#{AWS.Util.encode_uri(application)}/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
 
     headers = []
     query_params = []
@@ -76,7 +76,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application)}/resources/#{URI.encode(resource_type)}/#{URI.encode(resource)}"
+      "/applications/#{AWS.Util.encode_uri(application)}/resources/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource)}"
 
     headers = []
     query_params = []
@@ -148,7 +148,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   before deleting an application.
   """
   def delete_application(%Client{} = client, application, input, options \\ []) do
-    url_path = "/applications/#{URI.encode(application)}"
+    url_path = "/applications/#{AWS.Util.encode_uri(application)}"
     headers = []
     query_params = []
 
@@ -169,7 +169,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   Deletes an attribute group, specified either by its attribute group ID or name.
   """
   def delete_attribute_group(%Client{} = client, attribute_group, input, options \\ []) do
-    url_path = "/attribute-groups/#{URI.encode(attribute_group)}"
+    url_path = "/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
     headers = []
     query_params = []
 
@@ -200,7 +200,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application)}/attribute-groups/#{URI.encode(attribute_group)}"
+      "/applications/#{AWS.Util.encode_uri(application)}/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
 
     headers = []
     query_params = []
@@ -232,7 +232,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application)}/resources/#{URI.encode(resource_type)}/#{URI.encode(resource)}"
+      "/applications/#{AWS.Util.encode_uri(application)}/resources/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource)}"
 
     headers = []
     query_params = []
@@ -260,7 +260,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   ABA addressing problem.
   """
   def get_application(%Client{} = client, application, options \\ []) do
-    url_path = "/applications/#{URI.encode(application)}"
+    url_path = "/applications/#{AWS.Util.encode_uri(application)}"
     headers = []
     query_params = []
 
@@ -283,7 +283,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   The attribute group can be specified either by its unique ID or by its name.
   """
   def get_attribute_group(%Client{} = client, attribute_group, options \\ []) do
-    url_path = "/attribute-groups/#{URI.encode(attribute_group)}"
+    url_path = "/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
     headers = []
     query_params = []
 
@@ -349,7 +349,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/applications/#{URI.encode(application)}/attribute-groups"
+    url_path = "/applications/#{AWS.Util.encode_uri(application)}/attribute-groups"
     headers = []
     query_params = []
 
@@ -392,7 +392,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/applications/#{URI.encode(application)}/resources"
+    url_path = "/applications/#{AWS.Util.encode_uri(application)}/resources"
     headers = []
     query_params = []
 
@@ -469,7 +469,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   Lists all of the tags on the resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -494,7 +494,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   application. The caller must have permissions to read and update the resource.
   """
   def sync_resource(%Client{} = client, resource, resource_type, input, options \\ []) do
-    url_path = "/sync/#{URI.encode(resource_type)}/#{URI.encode(resource)}"
+    url_path = "/sync/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource)}"
     headers = []
     query_params = []
 
@@ -520,7 +520,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   This operation returns an empty response if the call was successful.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -543,7 +543,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   This operation returns an empty response if the call was successful.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -569,7 +569,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   Updates an existing application with new attributes.
   """
   def update_application(%Client{} = client, application, input, options \\ []) do
-    url_path = "/applications/#{URI.encode(application)}"
+    url_path = "/applications/#{AWS.Util.encode_uri(application)}"
     headers = []
     query_params = []
 
@@ -590,7 +590,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   Updates an existing attribute group with new details.
   """
   def update_attribute_group(%Client{} = client, attribute_group, input, options \\ []) do
-    url_path = "/attribute-groups/#{URI.encode(attribute_group)}"
+    url_path = "/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
     headers = []
     query_params = []
 

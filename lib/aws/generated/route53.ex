@@ -33,7 +33,7 @@ defmodule AWS.Route53 do
   """
   def activate_key_signing_key(%Client{} = client, hosted_zone_id, name, input, options \\ []) do
     url_path =
-      "/2013-04-01/keysigningkey/#{URI.encode(hosted_zone_id)}/#{URI.encode(name)}/activate"
+      "/2013-04-01/keysigningkey/#{AWS.Util.encode_uri(hosted_zone_id)}/#{AWS.Util.encode_uri(name)}/activate"
 
     headers = []
     query_params = []
@@ -64,7 +64,7 @@ defmodule AWS.Route53 do
   VPC must submit an `AssociateVPCWithHostedZone` request.
   """
   def associate_vpc_with_hosted_zone(%Client{} = client, hosted_zone_id, input, options \\ []) do
-    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/associatevpc"
+    url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/associatevpc"
     headers = []
     query_params = []
 
@@ -167,7 +167,7 @@ defmodule AWS.Route53 do
   in the *Amazon Route 53 Developer Guide*.
   """
   def change_resource_record_sets(%Client{} = client, hosted_zone_id, input, options \\ []) do
-    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/rrset/"
+    url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/rrset/"
     headers = []
     query_params = []
 
@@ -197,7 +197,9 @@ defmodule AWS.Route53 do
         input,
         options \\ []
       ) do
-    url_path = "/2013-04-01/tags/#{URI.encode(resource_type)}/#{URI.encode(resource_id)}"
+    url_path =
+      "/2013-04-01/tags/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource_id)}"
+
     headers = []
     query_params = []
 
@@ -658,7 +660,7 @@ defmodule AWS.Route53 do
   you'll need to start a new traffic policy.
   """
   def create_traffic_policy_version(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2013-04-01/trafficpolicy/#{URI.encode(id)}"
+    url_path = "/2013-04-01/trafficpolicy/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -702,7 +704,9 @@ defmodule AWS.Route53 do
         input,
         options \\ []
       ) do
-    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/authorizevpcassociation"
+    url_path =
+      "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/authorizevpcassociation"
+
     headers = []
     query_params = []
 
@@ -727,7 +731,7 @@ defmodule AWS.Route53 do
   """
   def deactivate_key_signing_key(%Client{} = client, hosted_zone_id, name, input, options \\ []) do
     url_path =
-      "/2013-04-01/keysigningkey/#{URI.encode(hosted_zone_id)}/#{URI.encode(name)}/deactivate"
+      "/2013-04-01/keysigningkey/#{AWS.Util.encode_uri(hosted_zone_id)}/#{AWS.Util.encode_uri(name)}/deactivate"
 
     headers = []
     query_params = []
@@ -763,7 +767,7 @@ defmodule AWS.Route53 do
   several hours before the health check is deleted from Route 53.
   """
   def delete_health_check(%Client{} = client, health_check_id, input, options \\ []) do
-    url_path = "/2013-04-01/healthcheck/#{URI.encode(health_check_id)}"
+    url_path = "/2013-04-01/healthcheck/#{AWS.Util.encode_uri(health_check_id)}"
     headers = []
     query_params = []
 
@@ -829,7 +833,7 @@ defmodule AWS.Route53 do
   associated with the current AWS account.
   """
   def delete_hosted_zone(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2013-04-01/hostedzone/#{URI.encode(id)}"
+    url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -854,7 +858,9 @@ defmodule AWS.Route53 do
   DNSSEC signing.
   """
   def delete_key_signing_key(%Client{} = client, hosted_zone_id, name, input, options \\ []) do
-    url_path = "/2013-04-01/keysigningkey/#{URI.encode(hosted_zone_id)}/#{URI.encode(name)}"
+    url_path =
+      "/2013-04-01/keysigningkey/#{AWS.Util.encode_uri(hosted_zone_id)}/#{AWS.Util.encode_uri(name)}"
+
     headers = []
     query_params = []
 
@@ -882,7 +888,7 @@ defmodule AWS.Route53 do
   [CreateQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html).
   """
   def delete_query_logging_config(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2013-04-01/queryloggingconfig/#{URI.encode(id)}"
+    url_path = "/2013-04-01/queryloggingconfig/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -912,7 +918,7 @@ defmodule AWS.Route53 do
   delete.
   """
   def delete_reusable_delegation_set(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2013-04-01/delegationset/#{URI.encode(id)}"
+    url_path = "/2013-04-01/delegationset/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -944,7 +950,9 @@ defmodule AWS.Route53 do
   [GetTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html).
   """
   def delete_traffic_policy(%Client{} = client, id, version, input, options \\ []) do
-    url_path = "/2013-04-01/trafficpolicy/#{URI.encode(id)}/#{URI.encode(version)}"
+    url_path =
+      "/2013-04-01/trafficpolicy/#{AWS.Util.encode_uri(id)}/#{AWS.Util.encode_uri(version)}"
+
     headers = []
     query_params = []
 
@@ -968,7 +976,7 @@ defmodule AWS.Route53 do
   In the Route 53 console, traffic policy instances are known as policy records.
   """
   def delete_traffic_policy_instance(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2013-04-01/trafficpolicyinstance/#{URI.encode(id)}"
+    url_path = "/2013-04-01/trafficpolicyinstance/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1006,7 +1014,9 @@ defmodule AWS.Route53 do
         input,
         options \\ []
       ) do
-    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/deauthorizevpcassociation"
+    url_path =
+      "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/deauthorizevpcassociation"
+
     headers = []
     query_params = []
 
@@ -1030,7 +1040,7 @@ defmodule AWS.Route53 do
   the hosted zone.
   """
   def disable_hosted_zone_dns_sec(%Client{} = client, hosted_zone_id, input, options \\ []) do
-    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/disable-dnssec"
+    url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/disable-dnssec"
     headers = []
     query_params = []
 
@@ -1075,7 +1085,7 @@ defmodule AWS.Route53 do
   `OwningService`, you can't use `DisassociateVPCFromHostedZone`.
   """
   def disassociate_vpc_from_hosted_zone(%Client{} = client, hosted_zone_id, input, options \\ []) do
-    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/disassociatevpc"
+    url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/disassociatevpc"
     headers = []
     query_params = []
 
@@ -1096,7 +1106,7 @@ defmodule AWS.Route53 do
   Enables DNSSEC signing in a specific hosted zone.
   """
   def enable_hosted_zone_dns_sec(%Client{} = client, hosted_zone_id, input, options \\ []) do
-    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/enable-dnssec"
+    url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/enable-dnssec"
     headers = []
     query_params = []
 
@@ -1127,7 +1137,7 @@ defmodule AWS.Route53 do
   Then choose **Service limits** in the navigation pane.
   """
   def get_account_limit(%Client{} = client, type, options \\ []) do
-    url_path = "/2013-04-01/accountlimit/#{URI.encode(type)}"
+    url_path = "/2013-04-01/accountlimit/#{AWS.Util.encode_uri(type)}"
     headers = []
     query_params = []
 
@@ -1157,7 +1167,7 @@ defmodule AWS.Route53 do
   53 DNS servers.
   """
   def get_change(%Client{} = client, id, options \\ []) do
-    url_path = "/2013-04-01/change/#{URI.encode(id)}"
+    url_path = "/2013-04-01/change/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1206,7 +1216,7 @@ defmodule AWS.Route53 do
   key-signing keys (KSKs) in the hosted zone.
   """
   def get_dns_sec(%Client{} = client, hosted_zone_id, options \\ []) do
-    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/dnssec"
+    url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/dnssec"
     headers = []
     query_params = []
 
@@ -1296,7 +1306,7 @@ defmodule AWS.Route53 do
   Gets information about a specified health check.
   """
   def get_health_check(%Client{} = client, health_check_id, options \\ []) do
-    url_path = "/2013-04-01/healthcheck/#{URI.encode(health_check_id)}"
+    url_path = "/2013-04-01/healthcheck/#{AWS.Util.encode_uri(health_check_id)}"
     headers = []
     query_params = []
 
@@ -1339,7 +1349,7 @@ defmodule AWS.Route53 do
   Gets the reason that a specified health check failed most recently.
   """
   def get_health_check_last_failure_reason(%Client{} = client, health_check_id, options \\ []) do
-    url_path = "/2013-04-01/healthcheck/#{URI.encode(health_check_id)}/lastfailurereason"
+    url_path = "/2013-04-01/healthcheck/#{AWS.Util.encode_uri(health_check_id)}/lastfailurereason"
     headers = []
     query_params = []
 
@@ -1360,7 +1370,7 @@ defmodule AWS.Route53 do
   Gets status of a specified health check.
   """
   def get_health_check_status(%Client{} = client, health_check_id, options \\ []) do
-    url_path = "/2013-04-01/healthcheck/#{URI.encode(health_check_id)}/status"
+    url_path = "/2013-04-01/healthcheck/#{AWS.Util.encode_uri(health_check_id)}/status"
     headers = []
     query_params = []
 
@@ -1382,7 +1392,7 @@ defmodule AWS.Route53 do
   assigned to the hosted zone.
   """
   def get_hosted_zone(%Client{} = client, id, options \\ []) do
-    url_path = "/2013-04-01/hostedzone/#{URI.encode(id)}"
+    url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1430,7 +1440,9 @@ defmodule AWS.Route53 do
   case](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-route53).
   """
   def get_hosted_zone_limit(%Client{} = client, hosted_zone_id, type, options \\ []) do
-    url_path = "/2013-04-01/hostedzonelimit/#{URI.encode(hosted_zone_id)}/#{URI.encode(type)}"
+    url_path =
+      "/2013-04-01/hostedzonelimit/#{AWS.Util.encode_uri(hosted_zone_id)}/#{AWS.Util.encode_uri(type)}"
+
     headers = []
     query_params = []
 
@@ -1455,7 +1467,7 @@ defmodule AWS.Route53 do
   Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html).
   """
   def get_query_logging_config(%Client{} = client, id, options \\ []) do
-    url_path = "/2013-04-01/queryloggingconfig/#{URI.encode(id)}"
+    url_path = "/2013-04-01/queryloggingconfig/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1477,7 +1489,7 @@ defmodule AWS.Route53 do
   four name servers that are assigned to the delegation set.
   """
   def get_reusable_delegation_set(%Client{} = client, id, options \\ []) do
-    url_path = "/2013-04-01/delegationset/#{URI.encode(id)}"
+    url_path = "/2013-04-01/delegationset/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1509,7 +1521,7 @@ defmodule AWS.Route53 do
         options \\ []
       ) do
     url_path =
-      "/2013-04-01/reusabledelegationsetlimit/#{URI.encode(delegation_set_id)}/#{URI.encode(type)}"
+      "/2013-04-01/reusabledelegationsetlimit/#{AWS.Util.encode_uri(delegation_set_id)}/#{AWS.Util.encode_uri(type)}"
 
     headers = []
     query_params = []
@@ -1535,7 +1547,9 @@ defmodule AWS.Route53 do
   [DeleteTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html).
   """
   def get_traffic_policy(%Client{} = client, id, version, options \\ []) do
-    url_path = "/2013-04-01/trafficpolicy/#{URI.encode(id)}/#{URI.encode(version)}"
+    url_path =
+      "/2013-04-01/trafficpolicy/#{AWS.Util.encode_uri(id)}/#{AWS.Util.encode_uri(version)}"
+
     headers = []
     query_params = []
 
@@ -1563,7 +1577,7 @@ defmodule AWS.Route53 do
   In the Route 53 console, traffic policy instances are known as policy records.
   """
   def get_traffic_policy_instance(%Client{} = client, id, options \\ []) do
-    url_path = "/2013-04-01/trafficpolicyinstance/#{URI.encode(id)}"
+    url_path = "/2013-04-01/trafficpolicyinstance/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -2064,7 +2078,7 @@ defmodule AWS.Route53 do
         start_record_type \\ nil,
         options \\ []
       ) do
-    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/rrset"
+    url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/rrset"
     headers = []
     query_params = []
 
@@ -2157,7 +2171,9 @@ defmodule AWS.Route53 do
   in the *AWS Billing and Cost Management User Guide*.
   """
   def list_tags_for_resource(%Client{} = client, resource_id, resource_type, options \\ []) do
-    url_path = "/2013-04-01/tags/#{URI.encode(resource_type)}/#{URI.encode(resource_id)}"
+    url_path =
+      "/2013-04-01/tags/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource_id)}"
+
     headers = []
     query_params = []
 
@@ -2181,7 +2197,7 @@ defmodule AWS.Route53 do
   in the *AWS Billing and Cost Management User Guide*.
   """
   def list_tags_for_resources(%Client{} = client, resource_type, input, options \\ []) do
-    url_path = "/2013-04-01/tags/#{URI.encode(resource_type)}"
+    url_path = "/2013-04-01/tags/#{AWS.Util.encode_uri(resource_type)}"
     headers = []
     query_params = []
 
@@ -2471,7 +2487,7 @@ defmodule AWS.Route53 do
         traffic_policy_version_marker \\ nil,
         options \\ []
       ) do
-    url_path = "/2013-04-01/trafficpolicies/#{URI.encode(id)}/versions"
+    url_path = "/2013-04-01/trafficpolicies/#{AWS.Util.encode_uri(id)}/versions"
     headers = []
     query_params = []
 
@@ -2517,7 +2533,9 @@ defmodule AWS.Route53 do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/authorizevpcassociation"
+    url_path =
+      "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/authorizevpcassociation"
+
     headers = []
     query_params = []
 
@@ -2636,7 +2654,7 @@ defmodule AWS.Route53 do
   in the *Amazon Route 53 Developer Guide*.
   """
   def update_health_check(%Client{} = client, health_check_id, input, options \\ []) do
-    url_path = "/2013-04-01/healthcheck/#{URI.encode(health_check_id)}"
+    url_path = "/2013-04-01/healthcheck/#{AWS.Util.encode_uri(health_check_id)}"
     headers = []
     query_params = []
 
@@ -2657,7 +2675,7 @@ defmodule AWS.Route53 do
   Updates the comment for a specified hosted zone.
   """
   def update_hosted_zone_comment(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2013-04-01/hostedzone/#{URI.encode(id)}"
+    url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -2678,7 +2696,9 @@ defmodule AWS.Route53 do
   Updates the comment for a specified traffic policy version.
   """
   def update_traffic_policy_comment(%Client{} = client, id, version, input, options \\ []) do
-    url_path = "/2013-04-01/trafficpolicy/#{URI.encode(id)}/#{URI.encode(version)}"
+    url_path =
+      "/2013-04-01/trafficpolicy/#{AWS.Util.encode_uri(id)}/#{AWS.Util.encode_uri(version)}"
+
     headers = []
     query_params = []
 
@@ -2717,7 +2737,7 @@ defmodule AWS.Route53 do
   associated with the root resource record set name.
   """
   def update_traffic_policy_instance(%Client{} = client, id, input, options \\ []) do
-    url_path = "/2013-04-01/trafficpolicyinstance/#{URI.encode(id)}"
+    url_path = "/2013-04-01/trafficpolicyinstance/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 

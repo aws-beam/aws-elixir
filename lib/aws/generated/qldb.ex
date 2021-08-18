@@ -42,7 +42,7 @@ defmodule AWS.QLDB do
         options \\ []
       ) do
     url_path =
-      "/ledgers/#{URI.encode(ledger_name)}/journal-kinesis-streams/#{URI.encode(stream_id)}"
+      "/ledgers/#{AWS.Util.encode_uri(ledger_name)}/journal-kinesis-streams/#{AWS.Util.encode_uri(stream_id)}"
 
     headers = []
     query_params = []
@@ -91,7 +91,7 @@ defmodule AWS.QLDB do
   set the flag to `false`.
   """
   def delete_ledger(%Client{} = client, name, input, options \\ []) do
-    url_path = "/ledgers/#{URI.encode(name)}"
+    url_path = "/ledgers/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -120,7 +120,7 @@ defmodule AWS.QLDB do
   """
   def describe_journal_kinesis_stream(%Client{} = client, ledger_name, stream_id, options \\ []) do
     url_path =
-      "/ledgers/#{URI.encode(ledger_name)}/journal-kinesis-streams/#{URI.encode(stream_id)}"
+      "/ledgers/#{AWS.Util.encode_uri(ledger_name)}/journal-kinesis-streams/#{AWS.Util.encode_uri(stream_id)}"
 
     headers = []
     query_params = []
@@ -154,7 +154,9 @@ defmodule AWS.QLDB do
   `ResourceNotFoundException`.
   """
   def describe_journal_s3_export(%Client{} = client, export_id, name, options \\ []) do
-    url_path = "/ledgers/#{URI.encode(name)}/journal-s3-exports/#{URI.encode(export_id)}"
+    url_path =
+      "/ledgers/#{AWS.Util.encode_uri(name)}/journal-s3-exports/#{AWS.Util.encode_uri(export_id)}"
+
     headers = []
     query_params = []
 
@@ -175,7 +177,7 @@ defmodule AWS.QLDB do
   Returns information about a ledger, including its state and when it was created.
   """
   def describe_ledger(%Client{} = client, name, options \\ []) do
-    url_path = "/ledgers/#{URI.encode(name)}"
+    url_path = "/ledgers/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -208,7 +210,7 @@ defmodule AWS.QLDB do
   Beyond this limit, journal export requests throw `LimitExceededException`.
   """
   def export_journal_to_s3(%Client{} = client, name, input, options \\ []) do
-    url_path = "/ledgers/#{URI.encode(name)}/journal-s3-exports"
+    url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/journal-s3-exports"
     headers = []
     query_params = []
 
@@ -244,7 +246,7 @@ defmodule AWS.QLDB do
   `InvalidParameterException`.
   """
   def get_block(%Client{} = client, name, input, options \\ []) do
-    url_path = "/ledgers/#{URI.encode(name)}/block"
+    url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/block"
     headers = []
     query_params = []
 
@@ -267,7 +269,7 @@ defmodule AWS.QLDB do
   The response includes a 256-bit hash value and a block address.
   """
   def get_digest(%Client{} = client, name, input, options \\ []) do
-    url_path = "/ledgers/#{URI.encode(name)}/digest"
+    url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/digest"
     headers = []
     query_params = []
 
@@ -291,7 +293,7 @@ defmodule AWS.QLDB do
   `DigestTipAddress` is provided.
   """
   def get_revision(%Client{} = client, name, input, options \\ []) do
-    url_path = "/ledgers/#{URI.encode(name)}/revision"
+    url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/revision"
     headers = []
     query_params = []
 
@@ -330,7 +332,7 @@ defmodule AWS.QLDB do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/ledgers/#{URI.encode(ledger_name)}/journal-kinesis-streams"
+    url_path = "/ledgers/#{AWS.Util.encode_uri(ledger_name)}/journal-kinesis-streams"
     headers = []
     query_params = []
 
@@ -427,7 +429,7 @@ defmodule AWS.QLDB do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/ledgers/#{URI.encode(name)}/journal-s3-exports"
+    url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/journal-s3-exports"
     headers = []
     query_params = []
 
@@ -501,7 +503,7 @@ defmodule AWS.QLDB do
   Returns all tags for a specified Amazon QLDB resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -526,7 +528,7 @@ defmodule AWS.QLDB do
   resource.
   """
   def stream_journal_to_kinesis(%Client{} = client, ledger_name, input, options \\ []) do
-    url_path = "/ledgers/#{URI.encode(ledger_name)}/journal-kinesis-streams"
+    url_path = "/ledgers/#{AWS.Util.encode_uri(ledger_name)}/journal-kinesis-streams"
     headers = []
     query_params = []
 
@@ -550,7 +552,7 @@ defmodule AWS.QLDB do
   resource, your request fails and returns an error.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -573,7 +575,7 @@ defmodule AWS.QLDB do
   You can specify up to 50 tag keys to remove.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -599,7 +601,7 @@ defmodule AWS.QLDB do
   Updates properties on a ledger.
   """
   def update_ledger(%Client{} = client, name, input, options \\ []) do
-    url_path = "/ledgers/#{URI.encode(name)}"
+    url_path = "/ledgers/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -625,7 +627,7 @@ defmodule AWS.QLDB do
   in the *Amazon QLDB Developer Guide*.
   """
   def update_ledger_permissions_mode(%Client{} = client, name, input, options \\ []) do
-    url_path = "/ledgers/#{URI.encode(name)}/permissions-mode"
+    url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/permissions-mode"
     headers = []
     query_params = []
 

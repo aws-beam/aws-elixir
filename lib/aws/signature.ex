@@ -152,7 +152,15 @@ defmodule AWS.Signature do
     {canonical_url, canonical_query_string} = split_url(url)
     canonical_headers = canonical_headers(headers)
     signed_headers = signed_headers(headers)
-    payload_hash = AWS.Util.sha256_hexdigest(body)
+
+    payload_hash =
+      case body do
+        nil ->
+          "UNSIGNED-PAYLOAD"
+
+        body ->
+          AWS.Util.sha256_hexdigest(body)
+      end
 
     Enum.join(
       [

@@ -48,8 +48,7 @@ defmodule AWS.Signature do
   def sign_v4_query(client, now, method, url, headers, body) do
     long_date = NaiveDateTime.to_iso8601(now, :basic) <> "Z"
     short_date = Date.to_iso8601(now, :basic)
-    headers = add_date_header(headers, long_date)
-    canonical_request = canonical_request(method, url, headers, body)
+    canonical_request = canonical_request(method, url, headers, body) |> IO.inspect()
     hashed_canonical_request = Util.sha256_hexdigest(canonical_request)
     region = client.region || @default_region_for_global_services
 

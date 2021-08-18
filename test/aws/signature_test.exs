@@ -57,4 +57,14 @@ defmodule AWS.SignatureTest do
       assert authorization =~ "x-amz-security-token"
     end
   end
+
+  test "sign_options/1" do
+    client = %Client{service: "kms"}
+
+    assert Signature.sign_options(client) == []
+
+    s3_client = %{client | service: "s3"}
+
+    assert Signature.sign_options(s3_client) == [uri_encode_path: false]
+  end
 end

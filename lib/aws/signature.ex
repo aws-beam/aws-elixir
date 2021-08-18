@@ -24,9 +24,13 @@ defmodule AWS.Signature do
       to_string(method),
       url,
       headers,
-      body
+      body,
+      sign_options(client)
     )
   end
+
+  def sign_options(%Client{service: "s3"}), do: [uri_encode_path: false]
+  def sign_options(_), do: []
 
   defp maybe_add_security_token(%Client{session_token: token}, headers) when is_binary(token) do
     [{"X-Amz-Security-Token", token} | headers]

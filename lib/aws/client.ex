@@ -6,7 +6,6 @@ defmodule AWS.Client do
   needed by [IAM](https://aws.amazon.com/iam), and also the `region` for your services.
   The list of regions can be found in the [AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html)
   documentation. You can also use "local" to make requests to your localhost.
-  Note that the region is overwritten with the credential scope when the service is global.
 
   ## Custom HTTP client
 
@@ -24,11 +23,12 @@ defmodule AWS.Client do
 
   ## Additional options
 
-  - `session_token`: an option to set the `X-Amz-Security-Token` when performing
+  * `session_token`: an option to set the `X-Amz-Security-Token` when performing
     the requests.
-  - `port`: is the port to use when making requests. By default is `443`
-  - `proto`: is the protocol to use. It can be "http" or "https". By default it's "https".
-  - `endpoint`: AWS's endpoint. By default it is `amazonaws.com`.
+  * `port`: is the port to use when making requests. By default is `443`
+  * `proto`: is the protocol to use. It can be "http" or "https". By default it's "https".
+  * `endpoint`: the AWS endpoint. By default it's `amazonaws.com`. You can configure this
+  by using `put_endpoint/2` for AWS compatible APIs.
 
   The `service` option is overwritten by each service with its signing name from metadata.
   """
@@ -38,19 +38,47 @@ defmodule AWS.Client do
             session_token: nil,
             region: nil,
             service: nil,
-            endpoint: "amazonaws.com",
+            endpoint: nil,
             proto: "https",
             port: 443,
             http_client: {AWS.HTTPClient, []},
             json_module: {AWS.JSON, []},
             xml_module: {AWS.XML, []}
 
-  @type t :: %__MODULE__{}
+  @typedoc """
+  The endpoint configuration.
+
+  Check `put_endpoint/2` for more details.
+  """
+  @type endpoint_config :: binary() | {:keep_prefixes, binary()} | (map() -> binary())
+
+  @type t :: %__MODULE__{
+          access_key_id: binary() | nil,
+          secret_access_key: binary() | nil,
+          session_token: binary() | nil,
+          service: binary() | nil,
+          endpoint: endpoint_config(),
+          proto: binary(),
+          port: non_neg_integer(),
+          http_client: {module(), keyword()},
+          json_module: {module(), keyword()},
+          xml_module: {module(), keyword()}
+        }
+
+  @aws_default_endpoint "amazonaws.com"
 
   @aws_access_key_id "AWS_ACCESS_KEY_ID"
   @aws_secret_access_key "AWS_SECRET_ACCESS_KEY"
   @aws_session_token "AWS_SESSION_TOKEN"
   @aws_default_region "AWS_DEFAULT_REGION"
+
+  @doc """
+  The default endpoint.
+
+  Check `put_endpoint/2` for more details on how to configure
+  a custom endpoint.
+  """
+  def default_endpoint, do: @aws_default_endpoint
 
   def create() do
     case System.get_env(@aws_default_region) do
@@ -91,6 +119,52 @@ defmodule AWS.Client do
       session_token: token,
       region: region
     }
+  end
+
+  @doc """
+  Configures the endpoint to a custom one.
+
+  This is useful to set a custom endpoint when working with AWS
+  compatible APIs.
+  The following configuration is valid:
+
+  * `"example.com"`: this will be used as it is, without considering
+  regions or endpoint prefixes or account id.
+
+  * `{:keep_prefixes, "example.com"}`: it will keep the same rules from
+  AWS to build the prefixes.
+  For example, if region is "us-east-1" and the service prefix is "s3",
+  then the final endpoint will be `"s3.us-east-1.example.com"`
+
+  * `fn options -> "example.com" end`: a function that will be invoked
+  with options for that request. `options` is a map with the following
+  shape:
+
+      ```
+      %{
+        endpoint: endpoint_config(),
+        region: binary() | nil,
+        service: binary(),
+        global?: boolean(),
+        endpoint_prefix: binary(),
+        account_id: binary() | nil
+      }
+      ```
+
+  ## Examples
+
+      iex> put_endpoint(%Client{}, "example.com")
+      %Client{endpoint: "example.com}
+
+      iex> put_endpoint(%Client{}, {:keep_prefixes, "example.com"})
+      %Client{endpoint: {:keep_prefixes, "example.com}}
+
+      iex> put_endpoint(%Client{}, fn opts -> Enum.join(["baz", opts.region, "foo.com"], ".") end)
+      %Client{endpoint: #Function<>}
+
+  """
+  def put_endpoint(%__MODULE__{} = client, endpoint_config) do
+    %{client | endpoint: endpoint_config}
   end
 
   def request(client, method, url, body, headers, _opts \\ []) do

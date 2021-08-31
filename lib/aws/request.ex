@@ -69,13 +69,7 @@ defmodule AWS.Request do
     client = prepare_client(client, metadata)
     input = input || %{}
 
-    host =
-      if metadata.endpoint_prefix == "s3-control" do
-        account_id = :proplists.get_value("x-amz-account-id", headers)
-        build_host(account_id, client, metadata)
-      else
-        build_host(client, metadata)
-      end
+    host = build_host(client, metadata, headers)
 
     url =
       client
@@ -156,40 +150,61 @@ defmodule AWS.Request do
   defp prepare_client(client, metadata) do
     client = %{client | service: metadata.signing_name}
 
-    if metadata.global? do
+    if metadata.global? and client.region != "local" do
       %{client | region: metadata.credential_scope}
     else
       client
     end
   end
 
-  defp build_host(%Client{region: "local"} = client, _) do
-    if client.endpoint do
-      client.endpoint
-    else
-      "localhost"
+  defp build_host(%Client{} = client, %ServiceMetadata{} = metadata, headers \\ []) do
+    build_options = %{
+      region: client.region,
+      endpoint: client.endpoint,
+      service: metadata.signing_name,
+      global?: metadata.global?,
+      endpoint_prefix: metadata.endpoint_prefix,
+      account_id: :proplists.get_value("x-amz-account-id", headers, nil)
+    }
+
+    case build_options do
+      %{region: "local", endpoint: nil} ->
+        "localhost"
+
+      %{endpoint: endpoint} when is_binary(endpoint) ->
+        endpoint
+
+      %{endpoint: endpoint_fun} when is_function(endpoint_fun, 1) ->
+        endpoint_fun.(build_options)
+
+      %{global?: true, endpoint: endpoint} ->
+        endpoint = resolve_endpoint_sufix(endpoint)
+
+        build_final_endpoint([metadata.endpoint_prefix, endpoint], build_options)
+
+      %{endpoint: endpoint} ->
+        endpoint = resolve_endpoint_sufix(endpoint)
+
+        build_final_endpoint([metadata.endpoint_prefix, client.region, endpoint], build_options)
     end
   end
 
-  defp build_host(%Client{} = client, %ServiceMetadata{} = metadata) do
-    if metadata.global? do
-      "#{metadata.endpoint_prefix}.#{client.endpoint}"
-    else
-      "#{metadata.endpoint_prefix}.#{client.region}.#{client.endpoint}"
-    end
+  defp resolve_endpoint_sufix({:keep_prefixes, sufix}) when is_binary(sufix) do
+    sufix
   end
 
-  defp build_host(account_id, %Client{} = client, %ServiceMetadata{} = metadata) do
-    cond do
-      client.region == "local" ->
-        build_host(client, metadata)
+  defp resolve_endpoint_sufix(nil), do: Client.default_endpoint()
 
-      account_id == :undefined ->
-        raise "missing account_id"
+  defp build_final_endpoint(parts, options) do
+    parts =
+      if options.endpoint_prefix == "s3-control" do
+        account_id = options.account_id || raise "missing account_id"
+        [account_id | parts]
+      else
+        parts
+      end
 
-      true ->
-        "#{account_id}.#{build_host(client, metadata)}"
-    end
+    Enum.join(parts, ".")
   end
 
   defp build_uri(%Client{} = client, host, path \\ "/") do

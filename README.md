@@ -33,7 +33,7 @@ iex> IO.inspect(result)
 %{"HasMoreStreams" => false, "StreamNames" => []}
 ```
 
-If you are using `Amazon.S3`, you can upload a file with integrity check doing:
+If you are using `AWS.S3`, you can upload a file with integrity check doing:
 
 ```elixir
 iex> client = AWS.Client.create("your-access-key-id", "your-secret-access-key", "us-east-1")
@@ -58,7 +58,7 @@ Optionally, you can implement your own (Check `AWS.Client` docs).
 ```elixir
 def deps do
   [
-    {:aws, "~> 0.8.0"},
+    {:aws, "~> 0.9.0"},
     {:hackney, "~> 1.17"}
   ]
 end

@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
 
+## [v0.9.0] - 2021-09-01
+
+### Added
+
+- Add support for configuring the endpoint used by `AWS.Client`.
+This change enable the usage of AWS compatible APIs.
+
+### Changed
+
+- Move functions and modules related to AWS Signature to a new package
+and add this package - [`aws_signature`](https://hex.pm/packages/aws_signature) - as a new dependency.
+
+### Fixed
+
+- Fix encode of URIs to use the correct escaping rule.
+
 ## [v0.8.0] - 2021-07-18
 ### Added
 - Add support for OTP 24 by updating the usage of `:crypto` functions to the new API.
@@ -414,7 +430,8 @@ is an example).
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.8.0...HEAD
+[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.9.0...HEAD
+[v0.9.0]: https://github.com/aws-beam/aws-elixir/compare/v0.8.0...v0.9.0
 [v0.8.0]: https://github.com/aws-beam/aws-elixir/compare/v0.7.0...v0.8.0
 [v0.7.0]: https://github.com/aws-beam/aws-elixir/compare/v0.6.0...v0.7.0
 [v0.6.0]: https://github.com/aws-beam/aws-elixir/compare/v0.5.0...v0.6.0

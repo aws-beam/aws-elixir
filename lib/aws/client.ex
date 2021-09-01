@@ -23,12 +23,12 @@ defmodule AWS.Client do
 
   ## Additional options
 
-  * `session_token`: an option to set the `X-Amz-Security-Token` when performing
+  * `:session_token` - an option to set the `X-Amz-Security-Token` when performing
     the requests.
-  * `port`: is the port to use when making requests. By default is `443`
-  * `proto`: is the protocol to use. It can be "http" or "https". By default it's "https".
-  * `endpoint`: the AWS endpoint. By default it's `amazonaws.com`. You can configure this
-  by using `put_endpoint/2` for AWS compatible APIs.
+  * `:port` - is the port to use when making requests. Defaults to `443`.
+  * `:proto` - is the protocol to use. It can be "http" or "https". Defaults to `"https"`.
+  * `:endpoint` - the AWS endpoint. Defaults to `"amazonaws.com"`. You can configure this
+  using `put_endpoint/2` for AWS compatible APIs.
 
   The `service` option is overwritten by each service with its signing name from metadata.
   """
@@ -163,7 +163,13 @@ defmodule AWS.Client do
       %Client{endpoint: #Function<>}
 
   """
-  def put_endpoint(%__MODULE__{} = client, endpoint_config) do
+  def put_endpoint(%__MODULE__{} = client, endpoint_config)
+      when is_binary(endpoint_config) or is_function(endpoint_config, 1) do
+    %{client | endpoint: endpoint_config}
+  end
+
+  def put_endpoint(%__MODULE__{} = client, {:keep_prefixes, endpoint} = endpoint_config)
+      when is_binary(endpoint) do
     %{client | endpoint: endpoint_config}
   end
 

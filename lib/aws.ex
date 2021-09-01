@@ -17,6 +17,7 @@ defmodule AWS do
       }
 
   Alternatively you can create a `client` with `AWS.Client.create/3`.
+  Check more options for configuration at `AWS.Client` docs.
 
   So we pass this client struct to our service modules:
 
@@ -49,7 +50,7 @@ defmodule AWS do
     @moduledoc """
     It is a struct containing AWS service metadata.
 
-    Each service module has a function that returns its metadata.
+    Each service module has a `metadata` function that returns its metadata.
     """
 
     defstruct abbreviation: nil,

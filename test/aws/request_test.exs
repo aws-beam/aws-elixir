@@ -50,7 +50,9 @@ defmodule AWS.RequestTest do
                  nil
                )
 
-      assert_receive {:request, :get, url, _body, _headers, _options}
+      assert_receive {:request, :get, url, body, _headers, _options}
+
+      assert body == ""
 
       assert url == "https://mobileanalytics.us-east1.amazonaws.com/foo/bar?q=x%26y%3D&size=5"
 
@@ -67,7 +69,9 @@ defmodule AWS.RequestTest do
                  nil
                )
 
-      assert_receive {:request, :get, url, _body, _headers, _options}
+      assert_receive {:request, :get, url, body, _headers, _options}
+
+      assert body == ""
 
       assert url ==
                "https://mobileanalytics.us-east1.amazonaws.com/foo/bar?format=sdk&pretty=true&q=x%26y%3D&size=5"

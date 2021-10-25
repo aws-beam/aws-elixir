@@ -58,7 +58,7 @@ defmodule AWS.Request do
   def request_rest(
         %Client{} = client,
         %ServiceMetadata{} = metadata,
-        method,
+        http_method,
         path,
         query,
         headers,
@@ -92,17 +92,22 @@ defmodule AWS.Request do
     headers = add_headers(additional_headers, headers)
 
     payload =
-      if send_body_as_binary? do
-        Map.fetch!(input, "Body")
-      else
-        encode!(client, metadata.protocol, input)
+      cond do
+        send_body_as_binary? ->
+          Map.fetch!(input, "Body")
+
+        http_method in [:get, :head, :options] ->
+          ""
+
+        true ->
+          encode!(client, metadata.protocol, input)
       end
 
-    headers = Signature.sign_v4(client, now(), method, url, headers, payload)
+    headers = Signature.sign_v4(client, now(), http_method, url, headers, payload)
 
     {response_header_parameters, options} = Keyword.pop(options, :response_header_parameters)
 
-    case Client.request(client, method, url, payload, headers, options) do
+    case Client.request(client, http_method, url, payload, headers, options) do
       {:ok, %{status_code: status_code, body: body} = response}
       when (is_nil(success_status_code) and status_code in 200..299) or
              status_code == success_status_code ->

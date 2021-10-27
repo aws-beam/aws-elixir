@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
 
+## [v0.9.2] - 2021-10-27
+
+### Fixed
+
+- Fix decoding of UTF8 chars when parsing XML responses.
+
 ## [v0.9.1] - 2021-10-26
 
 ### Fixed
@@ -437,7 +443,8 @@ is an example).
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.9.1...HEAD
+[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.9.2...HEAD
+[v0.9.2]: https://github.com/aws-beam/aws-elixir/compare/v0.9.1...v0.9.2
 [v0.9.1]: https://github.com/aws-beam/aws-elixir/compare/v0.9.0...v0.9.1
 [v0.9.0]: https://github.com/aws-beam/aws-elixir/compare/v0.8.0...v0.9.0
 [v0.8.0]: https://github.com/aws-beam/aws-elixir/compare/v0.7.0...v0.8.0

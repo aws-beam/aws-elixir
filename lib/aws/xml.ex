@@ -36,7 +36,8 @@ defmodule AWS.XML do
   end
 
   def decode!(xml, _opts \\ []) do
-    xml_str = :unicode.characters_to_list(xml)
+    # See: https://elixirforum.com/t/utf-8-issue-with-erlang-xmerl-scan-function/1668/9
+    xml_str = :erlang.binary_to_list(xml)
     opts = [{:hook_fun, &hook_fun/2}]
     {element, []} = :xmerl_scan.string(xml_str, opts)
     element

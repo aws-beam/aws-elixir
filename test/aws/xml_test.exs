@@ -4,7 +4,7 @@ defmodule AWS.XMLTest do
   @text "__text"
 
   test "decode!/2 handles lists correctly by merging values in a list" do
-    expected = %{"person" => %{"name" => "foo", "addresses" => %{"address" => ["1", "2"]}}}
+    expected = %{"person" => %{"name" => "foo", "addresses" => %{"address" => ["1", "2", "œ"]}}}
 
     input = """
     <person>
@@ -12,6 +12,7 @@ defmodule AWS.XMLTest do
       <addresses>
         <address>1</address>
         <address>2</address>
+        <address>œ</address>
       </addresses>
     </person>
     """

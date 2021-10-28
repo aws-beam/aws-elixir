@@ -10,7 +10,7 @@ defmodule AWS.Mixfile do
       app: :aws,
       version: @version,
       name: "aws-elixir",
-      elixir: "~> 1.7",
+      elixir: "~> 1.10",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       package: package(),

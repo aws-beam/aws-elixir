@@ -56,6 +56,7 @@ defmodule AWS.Client do
           access_key_id: binary() | nil,
           secret_access_key: binary() | nil,
           session_token: binary() | nil,
+          region: binary() | nil,
           service: binary() | nil,
           endpoint: endpoint_config(),
           proto: binary(),

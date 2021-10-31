@@ -46,6 +46,23 @@ iex> AWS.S3.put_object(client, "your-bucket-name", "foo/your-file-on-s3.txt",
 Note that you may need to specify the `ContentType` attribute when calling `AWS.S3.put_object/4`.
 This is because S3 will use that to store the MIME type of the file.
 
+You can also list objects in a bucket:
+
+```elixir
+# create the client just like the example above
+iex> AWS.S3.list_objects_v2(client, "bucket-name-here")
+```
+
+And download a specific object:
+
+```elixir
+# create the client just like the example above
+# object key is the "file path" in the S3 bucket
+iex> AWS.S3.get_object(client, "bucket-name-here", "object-key-here")
+```
+
+Check all S3 related functions [in the docs here](https://hexdocs.pm/aws/AWS.S3.html).
+
 Remember to check the operation documentation for details:
 [https://docs.aws.amazon.com/](https://docs.aws.amazon.com/)
 

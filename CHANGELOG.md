@@ -81,8 +81,6 @@ is an example).
 - Normalize querystring when signing.
 - Remove duplicated headers.
 
-
-
 ## [v0.6.0] - 2020-08-20
 ### Added
 - Includes support for more AWS APIs.

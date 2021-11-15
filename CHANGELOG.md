@@ -62,6 +62,13 @@ the majority of AWS services.
 - Handle querystring parameters.
 - Allow the user to configure the HTTP client, as well as the JSON parser.
 
+### Backwards Incompatible Changed
+- Update structure of error response from `{:error, {exception, reason}}` to `{:error, {:unexpected_response, response}}`.
+  - You can obtained the previous `exception` and `reason` in this version by decoding the `response.body`, where `exception` is mapped to `response.body["__type"]` and `reason` is mapped to `response.body["message"]`.
+- Update module naming for certain AWS services. E.g.:
+  - `AWS.Cognito` is renamed to `AWS.CognitoIdentity`  
+  - `AWS.Cognito.IdentityProvider` is renamed to `AWS.CognitoIdentityProvider`
+
 ### Changed
 - Improve documentation by using more markdown and removing HTML tags.
 - Rename modules and function names to consider the correct use of abbreviations, like SQS or DB.

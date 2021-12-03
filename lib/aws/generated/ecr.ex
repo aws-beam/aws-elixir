@@ -13,6 +13,10 @@ defmodule AWS.ECR do
   registry for your Docker or Open Container Initiative (OCI) images. Amazon ECR
   supports private repositories with resource-based permissions using IAM so that
   specific users or Amazon EC2 instances can access repositories and images.
+
+  Amazon ECR has service endpoints in each supported Region. For more information,
+  see [Amazon ECR endpoints](https://docs.aws.amazon.com/general/latest/gr/ecr.html) in the
+  *Amazon Web Services General Reference*.
   """
 
   alias AWS.Client
@@ -78,6 +82,19 @@ defmodule AWS.ECR do
   end
 
   @doc """
+  Gets the scanning configuration for one or more repositories.
+  """
+  def batch_get_repository_scanning_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "BatchGetRepositoryScanningConfiguration",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Informs Amazon ECR that the image layer upload has completed for a specified
   registry, repository name, and upload ID.
 
@@ -96,9 +113,19 @@ defmodule AWS.ECR do
   end
 
   @doc """
+  Creates a pull through cache rule.
+
+  A pull through cache rule provides a way to cache images from an external public
+  registry in your Amazon ECR private registry.
+  """
+  def create_pull_through_cache_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreatePullThroughCacheRule", input, options)
+  end
+
+  @doc """
   Creates a repository.
 
-  For more information, see [Amazon ECR Repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html)
+  For more information, see [Amazon ECR repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html)
   in the *Amazon Elastic Container Registry User Guide*.
   """
   def create_repository(%Client{} = client, input, options \\ []) do
@@ -110,6 +137,13 @@ defmodule AWS.ECR do
   """
   def delete_lifecycle_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteLifecyclePolicy", input, options)
+  end
+
+  @doc """
+  Deletes a pull through cache rule.
+  """
+  def delete_pull_through_cache_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePullThroughCacheRule", input, options)
   end
 
   @doc """
@@ -137,6 +171,13 @@ defmodule AWS.ECR do
   end
 
   @doc """
+  Returns the replication status for a specified image.
+  """
+  def describe_image_replication_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeImageReplicationStatus", input, options)
+  end
+
+  @doc """
   Returns the scan findings for the specified image.
   """
   def describe_image_scan_findings(%Client{} = client, input, options \\ []) do
@@ -153,6 +194,13 @@ defmodule AWS.ECR do
   """
   def describe_images(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeImages", input, options)
+  end
+
+  @doc """
+  Returns the pull through cache rules for a registry.
+  """
+  def describe_pull_through_cache_rules(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribePullThroughCacheRules", input, options)
   end
 
   @doc """
@@ -180,9 +228,9 @@ defmodule AWS.ECR do
   The authorization token is valid for 12 hours.
 
   The `authorizationToken` returned is a base64 encoded string that can be decoded
-  and used in a `docker login` command to authenticate to a registry. The AWS CLI
+  and used in a `docker login` command to authenticate to a registry. The CLI
   offers an `get-login-password` command that simplifies the login process. For
-  more information, see [Registry Authentication](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth)
+  more information, see [Registry authentication](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth)
   in the *Amazon Elastic Container Registry User Guide*.
   """
   def get_authorization_token(%Client{} = client, input, options \\ []) do
@@ -225,6 +273,13 @@ defmodule AWS.ECR do
   """
   def get_registry_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetRegistryPolicy", input, options)
+  end
+
+  @doc """
+  Retrieves the scanning configuration for a registry.
+  """
+  def get_registry_scanning_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRegistryScanningConfiguration", input, options)
   end
 
   @doc """
@@ -295,7 +350,7 @@ defmodule AWS.ECR do
   @doc """
   Updates the image tag mutability settings for the specified repository.
 
-  For more information, see [Image Tag Mutability](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html)
+  For more information, see [Image tag mutability](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html)
   in the *Amazon Elastic Container Registry User Guide*.
   """
   def put_image_tag_mutability(%Client{} = client, input, options \\ []) do
@@ -305,7 +360,7 @@ defmodule AWS.ECR do
   @doc """
   Creates or updates the lifecycle policy for the specified repository.
 
-  For more information, see [Lifecycle Policy Template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
+  For more information, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
   """
   def put_lifecycle_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutLifecyclePolicy", input, options)
@@ -314,13 +369,20 @@ defmodule AWS.ECR do
   @doc """
   Creates or updates the permissions policy for your registry.
 
-  A registry policy is used to specify permissions for another AWS account and is
-  used when configuring cross-account replication. For more information, see
-  [Registry permissions](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html)
+  A registry policy is used to specify permissions for another Amazon Web Services
+  account and is used when configuring cross-account replication. For more
+  information, see [Registry permissions](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html)
   in the *Amazon Elastic Container Registry User Guide*.
   """
   def put_registry_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutRegistryPolicy", input, options)
+  end
+
+  @doc """
+  Creates or updates the scanning configuration for your private registry.
+  """
+  def put_registry_scanning_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutRegistryScanningConfiguration", input, options)
   end
 
   @doc """
@@ -329,7 +391,7 @@ defmodule AWS.ECR do
   The existing replication configuration for a repository can be retrieved with
   the `DescribeRegistry` API action. The first time the
   PutReplicationConfiguration API is called, a service-linked IAM role is created
-  in your account for the replication process. For more information, see [Using Service-Linked Roles for Amazon
+  in your account for the replication process. For more information, see [Using service-linked roles for Amazon
   ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html)
   in the *Amazon Elastic Container Registry User Guide*.
 
@@ -345,7 +407,7 @@ defmodule AWS.ECR do
   Applies a repository policy to the specified repository to control access
   permissions.
 
-  For more information, see [Amazon ECR Repository Policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html)
+  For more information, see [Amazon ECR Repository policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html)
   in the *Amazon Elastic Container Registry User Guide*.
   """
   def set_repository_policy(%Client{} = client, input, options \\ []) do
@@ -355,9 +417,9 @@ defmodule AWS.ECR do
   @doc """
   Starts an image vulnerability scan.
 
-  An image scan can only be started once per day on an individual image. This
+  An image scan can only be started once per 24 hours on an individual image. This
   limit includes if an image was scanned on initial push. For more information,
-  see [Image Scanning](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html)
+  see [Image scanning](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html)
   in the *Amazon Elastic Container Registry User Guide*.
   """
   def start_image_scan(%Client{} = client, input, options \\ []) do

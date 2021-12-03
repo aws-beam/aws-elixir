@@ -3,15 +3,21 @@
 
 defmodule AWS.RAM do
   @moduledoc """
-  Use AWS Resource Access Manager to share AWS resources between AWS accounts.
+  This is the *Resource Access Manager API Reference*.
 
-  To share a resource, you create a resource share, associate the resource with
-  the resource share, and specify the principals that can access the resources
-  associated with the resource share. The following principals are supported: AWS
-  accounts, organizational units (OU) from AWS Organizations, and organizations
-  from AWS Organizations.
+  This documentation provides descriptions and syntax for each of the actions and
+  data types in RAM. RAM is a service that helps you securely share your Amazon
+  Web Services resources across Amazon Web Services accounts. If you have multiple
+  Amazon Web Services accounts, you can use RAM to share those resources with
+  other accounts. If you use Organizations to manage your accounts, then you share
+  your resources with your organization or organizational units (OUs). For
+  supported resource types, you can also share resources with individual Identity
+  and Access Management (IAM) roles an users.
 
-  For more information, see the [AWS Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/).
+  To learn more about RAM, see the following resources:
+
+    * [Resource Access Manager product page](http://aws.amazon.com/ram)     * [Resource Access Manager User
+  Guide](https://docs.aws.amazon.com/ram/latest/userguide/)
   """
 
   alias AWS.Client
@@ -34,7 +40,12 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Accepts an invitation to a resource share from another AWS account.
+  Accepts an invitation to a resource share from another Amazon Web Services
+  account.
+
+  After you accept the invitation, the resources included in the resource share
+  are available to interact with in the relevant Amazon Web Services Management
+  Consoles and tools.
   """
   def accept_resource_share_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/acceptresourceshareinvitation"
@@ -55,8 +66,11 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Associates the specified resource share with the specified principals and
-  resources.
+  Adds the specified list of principals and list of resources to a resource share.
+
+  Principals that already have access to this resource share immediately receive
+  access to the added resources. Newly added principals immediately receive access
+  to the resources shared in this resource share.
   """
   def associate_resource_share(%Client{} = client, input, options \\ []) do
     url_path = "/associateresourceshare"
@@ -77,7 +91,12 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Associates a permission with a resource share.
+  Adds or replaces the RAM permission for a resource type included in a resource
+  share.
+
+  You can have exactly one permission associated with each resource type in the
+  resource share. You can add a new RAM permission only if there are currently no
+  resources of that resource type currently in the resource share.
   """
   def associate_resource_share_permission(%Client{} = client, input, options \\ []) do
     url_path = "/associateresourcesharepermission"
@@ -99,6 +118,15 @@ defmodule AWS.RAM do
 
   @doc """
   Creates a resource share.
+
+  You can provide a list of the [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
+  for the resources that you want to share, a list of principals you want to share
+  the resources with, and the permissions to grant those principals.
+
+  Sharing a resource makes it available for use by principals outside of the
+  Amazon Web Services account that created the resource. Sharing doesn't change
+  any permissions or quotas that apply to the resource in the account that created
+  it.
   """
   def create_resource_share(%Client{} = client, input, options \\ []) do
     url_path = "/createresourceshare"
@@ -120,6 +148,10 @@ defmodule AWS.RAM do
 
   @doc """
   Deletes the specified resource share.
+
+  This doesn't delete any of the resources that were associated with the resource
+  share; it only stops the sharing of those resources outside of the Amazon Web
+  Services account that created them.
   """
   def delete_resource_share(%Client{} = client, input, options \\ []) do
     url_path = "/deleteresourceshare"
@@ -168,7 +200,11 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Disassociates an AWS RAM permission from a resource share.
+  Disassociates an RAM permission from a resource share.
+
+  Permission changes take effect immediately. You can remove a RAM permission from
+  a resource share only if there are currently no resources of the relevant
+  resource type currently attached to the resource share.
   """
   def disassociate_resource_share_permission(%Client{} = client, input, options \\ []) do
     url_path = "/disassociateresourcesharepermission"
@@ -189,9 +225,17 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Enables resource sharing within your AWS Organization.
+  Enables resource sharing within your organization in Organizations.
 
-  The caller must be the master account for the AWS Organization.
+  Calling this operation enables RAM to retrieve information about the
+  organization and its structure. This lets you share resources with all of the
+  accounts in an organization by specifying the organization's ID, or all of the
+  accounts in an organizational unit (OU) by specifying the OU's ID. Until you
+  enable sharing within the organization, you can specify only individual Amazon
+  Web Services accounts, or for supported resource types, IAM users and roles.
+
+  You must call this operation from an IAM user or role in the organization's
+  management account.
   """
   def enable_sharing_with_aws_organization(%Client{} = client, input, options \\ []) do
     url_path = "/enablesharingwithawsorganization"
@@ -212,7 +256,7 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Gets the contents of an AWS RAM permission in JSON format.
+  Gets the contents of an RAM permission in JSON format.
   """
   def get_permission(%Client{} = client, input, options \\ []) do
     url_path = "/getpermission"
@@ -233,7 +277,8 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Gets the policies for the specified resources that you own and have shared.
+  Retrieves the resource policies for the specified resources that you own and
+  have shared.
   """
   def get_resource_policies(%Client{} = client, input, options \\ []) do
     url_path = "/getresourcepolicies"
@@ -254,7 +299,8 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Gets the resources or principals for the resource shares that you own.
+  Retrieves the resource and principal associations for resource shares that you
+  own.
   """
   def get_resource_share_associations(%Client{} = client, input, options \\ []) do
     url_path = "/getresourceshareassociations"
@@ -275,7 +321,7 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Gets the invitations that you have received for resource shares.
+  Retrieves details about invitations that you have received for resource shares.
   """
   def get_resource_share_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/getresourceshareinvitations"
@@ -296,8 +342,8 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Gets the resource shares that you own or the resource shares that are shared
-  with you.
+  Retrieves details about the resource shares that you own or that are shared with
+  you.
   """
   def get_resource_shares(%Client{} = client, input, options \\ []) do
     url_path = "/getresourceshares"
@@ -318,8 +364,11 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Lists the resources in a resource share that is shared with you but that the
-  invitation is still pending for.
+  Lists the resources in a resource share that is shared with you but for which
+  the invitation is still `PENDING`.
+
+  That means that you haven't accepted or rejected the invitation and the
+  invitation hasn't expired.
   """
   def list_pending_invitation_resources(%Client{} = client, input, options \\ []) do
     url_path = "/listpendinginvitationresources"
@@ -340,7 +389,8 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Lists the AWS RAM permissions.
+  Retrieves a list of available RAM permissions that you can use for the supported
+  resource types.
   """
   def list_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/listpermissions"
@@ -361,7 +411,7 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Lists the principals that you have shared resources with or that have shared
+  Lists the principals that you are sharing resources with or that are sharing
   resources with you.
   """
   def list_principals(%Client{} = client, input, options \\ []) do
@@ -383,7 +433,7 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Lists the AWS RAM permissions that are associated with a resource share.
+  Lists the RAM permissions that are associated with a resource share.
   """
   def list_resource_share_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/listresourcesharepermissions"
@@ -404,7 +454,7 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Lists the shareable resource types supported by AWS RAM.
+  Lists the resource types that can be shared by RAM.
   """
   def list_resource_types(%Client{} = client, input, options \\ []) do
     url_path = "/listresourcetypes"
@@ -447,16 +497,15 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Resource shares that were created by attaching a policy to a resource are
-  visible only to the resource share owner, and the resource share cannot be
-  modified in AWS RAM.
+  When you attach a resource-based permission policy to a resource, it
+  automatically creates a resource share.
 
-  Use this API action to promote the resource share. When you promote the resource
-  share, it becomes:
+  However, resource shares created this way are visible only to the resource share
+  owner, and the resource share can't be modified in RAM.
 
-    * Visible to all principals that it is shared with.
-
-    * Modifiable in AWS RAM.
+  You can use this operation to promote the resource share to a full RAM resource
+  share. When you promote a resource share, you can then manage the resource share
+  in RAM and it becomes visible to all of the principals you shared it with.
   """
   def promote_resource_share_created_from_policy(%Client{} = client, input, options \\ []) do
     url_path = "/promoteresourcesharecreatedfrompolicy"
@@ -482,7 +531,8 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Rejects an invitation to a resource share from another AWS account.
+  Rejects an invitation to a resource share from another Amazon Web Services
+  account.
   """
   def reject_resource_share_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/rejectresourceshareinvitation"
@@ -503,7 +553,10 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Adds the specified tags to the specified resource share that you own.
+  Adds the specified tag keys and values to the specified resource share.
+
+  The tags are attached only to the resource share, not to the resources that are
+  in the resource share.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tagresource"
@@ -524,7 +577,7 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Removes the specified tags from the specified resource share that you own.
+  Removes the specified tag key and value pairs from the specified resource share.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/untagresource"
@@ -545,7 +598,7 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Updates the specified resource share that you own.
+  Modifies some of the properties of the specified resource share.
   """
   def update_resource_share(%Client{} = client, input, options \\ []) do
     url_path = "/updateresourceshare"

@@ -154,6 +154,30 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Send a request to claim an AWS Elemental device that you have purchased from a
+  third-party vendor.
+
+  After the request succeeds, you will own the device.
+  """
+  def claim_device(%Client{} = client, input, options \\ []) do
+    url_path = "/prod/claimDevice"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a new channel
   """
   def create_channel(%Client{} = client, input, options \\ []) do

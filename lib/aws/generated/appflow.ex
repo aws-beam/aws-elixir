@@ -10,8 +10,8 @@ defmodule AWS.Appflow do
 
   Amazon AppFlow is a fully managed integration service that enables you to
   securely transfer data between software as a service (SaaS) applications like
-  Salesforce, Marketo, Slack, and ServiceNow, and AWS services like Amazon S3 and
-  Amazon Redshift.
+  Salesforce, Marketo, Slack, and ServiceNow, and Amazon Web Services like Amazon
+  S3 and Amazon Redshift.
 
   Use the following links to get started on the Amazon AppFlow API:
 
@@ -60,11 +60,12 @@ defmodule AWS.Appflow do
   end
 
   @doc """
-  Creates a new connector profile associated with your AWS account.
+  Creates a new connector profile associated with your Amazon Web Services
+  account.
 
-  There is a soft quota of 100 connector profiles per AWS account. If you need
-  more connector profiles than this quota allows, you can submit a request to the
-  Amazon AppFlow team through the Amazon AppFlow support channel.
+  There is a soft quota of 100 connector profiles per Amazon Web Services account.
+  If you need more connector profiles than this quota allows, you can submit a
+  request to the Amazon AppFlow team through the Amazon AppFlow support channel.
   """
   def create_connector_profile(%Client{} = client, input, options \\ []) do
     url_path = "/create-connector-profile"

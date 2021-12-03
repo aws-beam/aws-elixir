@@ -3,12 +3,12 @@
 
 defmodule AWS.IoTAnalytics do
   @moduledoc """
-  AWS IoT Analytics allows you to collect large amounts of device data, process
+  IoT Analytics allows you to collect large amounts of device data, process
   messages, and store them.
 
-  You can then query the data and run sophisticated analytics on it. AWS IoT
-  Analytics enables advanced data exploration through integration with Jupyter
-  Notebooks and data visualization through integration with Amazon QuickSight.
+  You can then query the data and run sophisticated analytics on it. IoT Analytics
+  enables advanced data exploration through integration with Jupyter Notebooks and
+  data visualization through integration with Amazon QuickSight.
 
   Traditional analytics and business intelligence tools are designed to process
   structured data. IoT data often comes from devices that record noisy processes
@@ -17,17 +17,16 @@ defmodule AWS.IoTAnalytics do
   cleaned up before analysis can occur. Also, IoT data is often only meaningful in
   the context of other data from external sources.
 
-  AWS IoT Analytics automates the steps required to analyze data from IoT devices.
-  AWS IoT Analytics filters, transforms, and enriches IoT data before storing it
-  in a time-series data store for analysis. You can set up the service to collect
-  only the data you need from your devices, apply mathematical transforms to
-  process the data, and enrich the data with device-specific metadata such as
-  device type and location before storing it. Then, you can analyze your data by
-  running queries using the built-in SQL query engine, or perform more complex
-  analytics and machine learning inference. AWS IoT Analytics includes pre-built
-  models for common IoT use cases so you can answer questions like which devices
-  are about to fail or which customers are at risk of abandoning their wearable
-  devices.
+  IoT Analytics automates the steps required to analyze data from IoT devices. IoT
+  Analytics filters, transforms, and enriches IoT data before storing it in a
+  time-series data store for analysis. You can set up the service to collect only
+  the data you need from your devices, apply mathematical transforms to process
+  the data, and enrich the data with device-specific metadata such as device type
+  and location before storing it. Then, you can analyze your data by running
+  queries using the built-in SQL query engine, or perform more complex analytics
+  and machine learning inference. IoT Analytics includes pre-built models for
+  common IoT use cases so you can answer questions like which devices are about to
+  fail or which customers are at risk of abandoning their wearable devices.
   """
 
   alias AWS.Client
@@ -100,7 +99,7 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Creates a channel.
+  Used to create a channel.
 
   A channel collects data from an MQTT topic and archives the raw, unprocessed
   messages before publishing the data to a pipeline.
@@ -124,7 +123,7 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Creates a dataset.
+  Used to create a dataset.
 
   A dataset stores data retrieved from a data store by applying a `queryAction` (a
   SQL query) or a `containerAction` (executing a containerized application). This
@@ -151,7 +150,7 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Creates the content of a data set by applying a `queryAction` (a SQL query) or a
+  Creates the content of a dataset by applying a `queryAction` (a SQL query) or a
   `containerAction` (executing a containerized application).
   """
   def create_dataset_content(%Client{} = client, dataset_name, input, options \\ []) do
@@ -174,9 +173,6 @@ defmodule AWS.IoTAnalytics do
 
   @doc """
   Creates a data store, which is a repository for messages.
-
-  Only data stores that are used to save pipeline data can be configured with
-  `ParquetConfiguration`.
   """
   def create_datastore(%Client{} = client, input, options \\ []) do
     url_path = "/datastores"
@@ -418,7 +414,7 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Retrieves the current settings of the AWS IoT Analytics logging options.
+  Retrieves the current settings of the IoT Analytics logging options.
   """
   def describe_logging_options(%Client{} = client, options \\ []) do
     url_path = "/logging"
@@ -460,7 +456,7 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Retrieves the contents of a data set as presigned URIs.
+  Retrieves the contents of a dataset as presigned URIs.
   """
   def get_dataset_content(%Client{} = client, dataset_name, version_id \\ nil, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}/content"
@@ -523,7 +519,7 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Lists information about data set contents that have been created.
+  Lists information about dataset contents that have been created.
   """
   def list_dataset_contents(
         %Client{} = client,
@@ -580,7 +576,7 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Retrieves information about data sets.
+  Retrieves information about datasets.
   """
   def list_datasets(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/datasets"
@@ -713,7 +709,7 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Sets or updates the AWS IoT Analytics logging options.
+  Sets or updates the IoT Analytics logging options.
 
   If you update the value of any `loggingOptions` field, it takes up to one minute
   for the change to take effect. Also, if you change the policy attached to the
@@ -888,7 +884,7 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Updates the settings of a channel.
+  Used to update the settings of a channel.
   """
   def update_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_name)}"
@@ -909,7 +905,7 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Updates the settings of a data set.
+  Updates the settings of a dataset.
   """
   def update_dataset(%Client{} = client, dataset_name, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}"
@@ -930,7 +926,7 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Updates the settings of a data store.
+  Used to update the settings of a data store.
   """
   def update_datastore(%Client{} = client, datastore_name, input, options \\ []) do
     url_path = "/datastores/#{AWS.Util.encode_uri(datastore_name)}"

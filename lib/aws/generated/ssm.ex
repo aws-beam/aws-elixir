@@ -9,14 +9,19 @@ defmodule AWS.SSM do
   (AMIs), and configuring operating systems (OSs) and applications at scale.
 
   Systems Manager lets you remotely and securely manage the configuration of your
-  managed instances. A *managed instance* is any Amazon Elastic Compute Cloud
-  instance (EC2 instance), or any on-premises server or virtual machine (VM) in
-  your hybrid environment that has been configured for Systems Manager.
+  managed nodes. A *managed node* is any Amazon Elastic Compute Cloud (Amazon EC2)
+  instance, edge device, or on-premises server or virtual machine (VM) that has
+  been configured for Systems Manager.
+
+  With support for IoT Greengrass Version 2 devices, the phrase *managed instance*
+  has been changed to *managed node* in most of the Systems Manager documentation.
+  The Systems Manager console, API calls, error messages, and SSM documents still
+  use the term instance.
 
   This reference is intended to be used with the [Amazon Web Services Systems Manager User
   Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/).
 
-  To get started, verify prerequisites and configure managed instances. For more
+  To get started, verify prerequisites and configure managed nodes. For more
   information, see [Setting up Amazon Web Services Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html)
   in the *Amazon Web Services Systems Manager User Guide*.
 
@@ -58,13 +63,13 @@ defmodule AWS.SSM do
   @doc """
   Adds or overwrites one or more tags for the specified resource.
 
-  Tags are metadata that you can assign to your documents, managed instances,
+  Tags are metadata that you can assign to your documents, managed nodes,
   maintenance windows, Parameter Store parameters, and patch baselines. Tags
   enable you to categorize your resources in different ways, for example, by
   purpose, owner, or environment. Each tag consists of a key and an optional
   value, both of which you define. For example, you could define a set of tags for
-  your account's managed instances that helps you track each instance's owner and
-  stack level. For example:
+  your account's managed nodes that helps you track each node's owner and stack
+  level. For example:
 
     * `Key=Owner,Value=DbAdmin`
 
@@ -95,11 +100,11 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Associates a related resource to a Systems Manager OpsCenter OpsItem.
+  Associates a related item to a Systems Manager OpsCenter OpsItem.
 
   For example, you can associate an Incident Manager incident or analysis with an
-  OpsItem. Incident Manager is a capability of Amazon Web Services Systems
-  Manager.
+  OpsItem. Incident Manager and OpsCenter are capabilities of Amazon Web Services
+  Systems Manager.
   """
   def associate_ops_item_related_item(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AssociateOpsItemRelatedItem", input, options)
@@ -127,19 +132,19 @@ defmodule AWS.SSM do
 
   @doc """
   Generates an activation code and activation ID you can use to register your
-  on-premises server or virtual machine (VM) with Amazon Web Services Systems
-  Manager.
+  on-premises servers, edge devices, or virtual machine (VM) with Amazon Web
+  Services Systems Manager.
 
   Registering these machines with Systems Manager makes it possible to manage them
   using Systems Manager capabilities. You use the activation code and ID when
   installing SSM Agent on machines in your hybrid environment. For more
-  information about requirements for managing on-premises instances and VMs using
-  Systems Manager, see [Setting up Amazon Web Services Systems Manager for hybrid environments](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html)
+  information about requirements for managing on-premises machines using Systems
+  Manager, see [Setting up Amazon Web Services Systems Manager for hybrid environments](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html)
   in the *Amazon Web Services Systems Manager User Guide*.
 
-  On-premises servers or VMs that are registered with Systems Manager and Amazon
-  Elastic Compute Cloud (Amazon EC2) instances that you manage with Systems
-  Manager are all called *managed instances*.
+  Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, and
+  on-premises servers and VMs that are configured for Systems Manager are all
+  called *managed nodes*.
   """
   def create_activation(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateActivation", input, options)
@@ -147,18 +152,18 @@ defmodule AWS.SSM do
 
   @doc """
   A State Manager association defines the state that you want to maintain on your
-  instances.
+  managed nodes.
 
   For example, an association can specify that anti-virus software must be
-  installed and running on your instances, or that certain ports must be closed.
-  For static targets, the association specifies a schedule for when the
+  installed and running on your managed nodes, or that certain ports must be
+  closed. For static targets, the association specifies a schedule for when the
   configuration is reapplied. For dynamic targets, such as an Amazon Web Services
   resource group or an Amazon Web Services autoscaling group, State Manager, a
   capability of Amazon Web Services Systems Manager applies the configuration when
-  new instances are added to the group. The association also specifies actions to
-  take when applying the configuration. For example, an association for anti-virus
-  software might run once a day. If the software isn't installed, then State
-  Manager installs it. If the software is installed, but the service isn't
+  new managed nodes are added to the group. The association also specifies actions
+  to take when applying the configuration. For example, an association for
+  anti-virus software might run once a day. If the software isn't installed, then
+  State Manager installs it. If the software is installed, but the service isn't
   running, then the association might instruct State Manager to start the service.
   """
   def create_association(%Client{} = client, input, options \\ []) do
@@ -167,13 +172,13 @@ defmodule AWS.SSM do
 
   @doc """
   Associates the specified Amazon Web Services Systems Manager document (SSM
-  document) with the specified instances or targets.
+  document) with the specified managed nodes or targets.
 
-  When you associate a document with one or more instances using instance IDs or
-  tags, Amazon Web Services Systems Manager Agent (SSM Agent) running on the
-  instance processes the document and configures the instance as specified.
+  When you associate a document with one or more managed nodes using IDs or tags,
+  Amazon Web Services Systems Manager Agent (SSM Agent) running on the managed
+  node processes the document and configures the node as specified.
 
-  If you associate a document with an instance that already has an associated
+  If you associate a document with a managed node that already has an associated
   document, the system returns the AssociationAlreadyExists exception.
   """
   def create_association_batch(%Client{} = client, input, options \\ []) do
@@ -184,8 +189,8 @@ defmodule AWS.SSM do
   Creates a Amazon Web Services Systems Manager (SSM document).
 
   An SSM document defines the actions that Systems Manager performs on your
-  managed instances. For more information about SSM documents, including
-  information about supported schemas, features, and syntax, see [Amazon Web Services Systems Manager
+  managed nodes. For more information about SSM documents, including information
+  about supported schemas, features, and syntax, see [Amazon Web Services Systems Manager
   Documents](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html)
   in the *Amazon Web Services Systems Manager User Guide*.
   """
@@ -251,16 +256,17 @@ defmodule AWS.SSM do
   `SyncToDestination` and `SyncFromSource`.
 
   You can configure Systems Manager Inventory to use the `SyncToDestination` type
-  to synchronize Inventory data from multiple Regions to a single Amazon Simple
-  Storage Service (Amazon S3) bucket. For more information, see [Configuring resource data sync for
-  Inventory](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html)
+  to synchronize Inventory data from multiple Amazon Web Services Regions to a
+  single Amazon Simple Storage Service (Amazon S3) bucket. For more information,
+  see [Configuring resource data sync for Inventory](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html)
   in the *Amazon Web Services Systems Manager User Guide*.
 
   You can configure Systems Manager Explorer to use the `SyncFromSource` type to
   synchronize operational work items (OpsItems) and operational data (OpsData)
-  from multiple Regions to a single Amazon S3 bucket. This type can synchronize
-  OpsItems and OpsData from multiple accounts and Regions or `EntireOrganization`
-  by using Organizations. For more information, see [Setting up Systems Manager Explorer to display data from multiple accounts and
+  from multiple Amazon Web Services Regions to a single Amazon S3 bucket. This
+  type can synchronize OpsItems and OpsData from multiple Amazon Web Services
+  accounts and Amazon Web Services Regions or `EntireOrganization` by using
+  Organizations. For more information, see [Setting up Systems Manager Explorer to display data from multiple accounts and
   Regions](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html)
   in the *Amazon Web Services Systems Manager User Guide*.
 
@@ -281,9 +287,9 @@ defmodule AWS.SSM do
   Deletes an activation.
 
   You aren't required to delete an activation. If you delete an activation, you
-  can no longer use it to register additional managed instances. Deleting an
-  activation doesn't de-register managed instances. You must manually de-register
-  managed instances.
+  can no longer use it to register additional managed nodes. Deleting an
+  activation doesn't de-register managed nodes. You must manually de-register
+  managed nodes.
   """
   def delete_activation(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteActivation", input, options)
@@ -291,12 +297,15 @@ defmodule AWS.SSM do
 
   @doc """
   Disassociates the specified Amazon Web Services Systems Manager document (SSM
-  document) from the specified instance.
+  document) from the specified managed node.
 
-  When you disassociate a document from an instance, it doesn't change the
-  configuration of the instance. To change the configuration state of an instance
+  If you created the association by using the `Targets` parameter, then you must
+  delete the association by using the association ID.
+
+  When you disassociate a document from a managed node, it doesn't change the
+  configuration of the node. To change the configuration state of a managed node
   after you disassociate a document, you must create a new document with the
-  desired configuration and associate it with the instance.
+  desired configuration and associate it with the node.
   """
   def delete_association(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteAssociation", input, options)
@@ -304,10 +313,10 @@ defmodule AWS.SSM do
 
   @doc """
   Deletes the Amazon Web Services Systems Manager document (SSM document) and all
-  instance associations to the document.
+  managed node associations to the document.
 
   Before you delete the document, we recommend that you use `DeleteAssociation` to
-  disassociate all instances that are associated with the document.
+  disassociate all managed nodes that are associated with the document.
   """
   def delete_document(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDocument", input, options)
@@ -340,6 +349,9 @@ defmodule AWS.SSM do
 
   @doc """
   Delete a parameter from the system.
+
+  After deleting a parameter, wait for at least 30 seconds to create a parameter
+  with the same name.
   """
   def delete_parameter(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteParameter", input, options)
@@ -347,6 +359,9 @@ defmodule AWS.SSM do
 
   @doc """
   Delete a list of parameters.
+
+  After deleting a parameter, wait for at least 30 seconds to create a parameter
+  with the same name.
   """
   def delete_parameters(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteParameters", input, options)
@@ -362,7 +377,7 @@ defmodule AWS.SSM do
   @doc """
   Deletes a resource data sync configuration.
 
-  After the configuration is deleted, changes to data on managed instances are no
+  After the configuration is deleted, changes to data on managed nodes are no
   longer synced to or from the target. Deleting a sync configuration doesn't
   delete data.
   """
@@ -373,7 +388,7 @@ defmodule AWS.SSM do
   @doc """
   Removes the server or virtual machine from the list of registered servers.
 
-  You can reregister the instance again at any time. If you don't plan to use Run
+  You can reregister the node again at any time. If you don't plan to use Run
   Command on the server, we suggest uninstalling SSM Agent first.
   """
   def deregister_managed_instance(%Client{} = client, input, options \\ []) do
@@ -422,7 +437,7 @@ defmodule AWS.SSM do
   @doc """
   Describes details about the activation, such as the date and time the activation
   was created, its expiration date, the Identity and Access Management (IAM) role
-  assigned to the instances in the activation, and the number of instances
+  assigned to the managed nodes in the activation, and the number of nodes
   registered by using this activation.
   """
   def describe_activations(%Client{} = client, input, options \\ []) do
@@ -430,13 +445,10 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Describes the association for the specified target or instance.
+  Describes the association for the specified target or managed node.
 
   If you created the association by using the `Targets` parameter, then you must
-  retrieve the association by using the association ID. If you created the
-  association by specifying an instance ID and an Amazon Web Services Systems
-  Manager document (SSM document), then you retrieve the association by specifying
-  the document name and the instance ID.
+  retrieve the association by using the association ID.
   """
   def describe_association(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeAssociation", input, options)
@@ -497,15 +509,15 @@ defmodule AWS.SSM do
   (SSM document).
 
   If you created the document, you are the owner. If a document is shared, it can
-  either be shared privately (by specifying a user's account ID) or publicly
-  (*All*).
+  either be shared privately (by specifying a user's Amazon Web Services account
+  ID) or publicly (*All*).
   """
   def describe_document_permission(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDocumentPermission", input, options)
   end
 
   @doc """
-  All associations for the instance(s).
+  All associations for the managed node(s).
   """
   def describe_effective_instance_associations(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -534,40 +546,40 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  The status of the associations for the instance(s).
+  The status of the associations for the managed node(s).
   """
   def describe_instance_associations_status(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeInstanceAssociationsStatus", input, options)
   end
 
   @doc """
-  Describes one or more of your instances, including information about the
-  operating system platform, the version of SSM Agent installed on the instance,
-  instance status, and so on.
+  Describes one or more of your managed nodes, including information about the
+  operating system platform, the version of SSM Agent installed on the managed
+  node, node status, and so on.
 
-  If you specify one or more instance IDs, it returns information for those
-  instances. If you don't specify instance IDs, it returns information for all
-  your instances. If you specify an instance ID that isn't valid or an instance
-  that you don't own, you receive an error.
+  If you specify one or more managed node IDs, it returns information for those
+  managed nodes. If you don't specify node IDs, it returns information for all
+  your managed nodes. If you specify a node ID that isn't valid or a node that you
+  don't own, you receive an error.
 
   The `IamRole` field for this API operation is the Identity and Access Management
-  (IAM) role assigned to on-premises instances. This call doesn't return the IAM
-  role for EC2 instances.
+  (IAM) role assigned to on-premises managed nodes. This call doesn't return the
+  IAM role for EC2 instances.
   """
   def describe_instance_information(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeInstanceInformation", input, options)
   end
 
   @doc """
-  Retrieves the high-level patch state of one or more instances.
+  Retrieves the high-level patch state of one or more managed nodes.
   """
   def describe_instance_patch_states(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeInstancePatchStates", input, options)
   end
 
   @doc """
-  Retrieves the high-level patch state for the instances in the specified patch
-  group.
+  Retrieves the high-level patch state for the managed nodes in the specified
+  patch group.
   """
   def describe_instance_patch_states_for_patch_group(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -580,8 +592,8 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Retrieves information about the patches on the specified instance and their
-  state relative to the patch baseline being used for the instance.
+  Retrieves information about the patches on the specified managed node and their
+  state relative to the patch baseline being used for the node.
   """
   def describe_instance_patches(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeInstancePatches", input, options)
@@ -669,15 +681,15 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Retrieves the maintenance windows in an account.
+  Retrieves the maintenance windows in an Amazon Web Services account.
   """
   def describe_maintenance_windows(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeMaintenanceWindows", input, options)
   end
 
   @doc """
-  Retrieves information about the maintenance window targets or tasks that an
-  instance is associated with.
+  Retrieves information about the maintenance window targets or tasks that a
+  managed node is associated with.
   """
   def describe_maintenance_windows_for_target(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -717,13 +729,18 @@ defmodule AWS.SSM do
   results, it stops the operation and returns the matching values up to that point
   and a `NextToken`. You can specify the `NextToken` in a subsequent call to get
   the next set of results.
+
+  If you change the KMS key alias for the KMS key used to encrypt a parameter,
+  then you must also update the key alias the parameter uses to reference KMS.
+  Otherwise, `DescribeParameters` retrieves whatever the original key alias was
+  referencing.
   """
   def describe_parameters(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeParameters", input, options)
   end
 
   @doc """
-  Lists the patch baselines in your account.
+  Lists the patch baselines in your Amazon Web Services account.
   """
   def describe_patch_baselines(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribePatchBaselines", input, options)
@@ -811,7 +828,7 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Deletes the association between an OpsItem and a related resource.
+  Deletes the association between an OpsItem and a related item.
 
   For example, this API operation can delete an Incident Manager incident from an
   OpsItem. Incident Manager is a capability of Amazon Web Services Systems
@@ -855,16 +872,16 @@ defmodule AWS.SSM do
   plugin.
 
   `GetCommandInvocation` only gives the execution status of a plugin in a
-  document. To get the command execution status on a specific instance, use
-  `ListCommandInvocations`. To get the command execution status across instances,
-  use `ListCommands`.
+  document. To get the command execution status on a specific managed node, use
+  `ListCommandInvocations`. To get the command execution status across managed
+  nodes, use `ListCommands`.
   """
   def get_command_invocation(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetCommandInvocation", input, options)
   end
 
   @doc """
-  Retrieves the Session Manager connection status for an instance to determine
+  Retrieves the Session Manager connection status for a managed node to determine
   whether it is running and ready to receive Session Manager connections.
   """
   def get_connection_status(%Client{} = client, input, options \\ []) do
@@ -886,18 +903,18 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Retrieves the current snapshot for the patch baseline the instance uses.
+  Retrieves the current snapshot for the patch baseline the managed node uses.
 
   This API is primarily used by the `AWS-RunPatchBaseline` Systems Manager
   document (SSM document).
 
   If you run the command locally, such as with the Command Line Interface (CLI),
-  the system attempts to use your local AWS credentials and the operation fails.
-  To avoid this, you can run the command in the Amazon Web Services Systems
-  Manager console. Use Run Command, a capability of Amazon Web Services Systems
-  Manager, with an SSM document that enables you to target an instance with a
-  script or command. For example, run the command using the `AWS-RunShellScript`
-  document or the `AWS-RunPowerShellScript` document.
+  the system attempts to use your local Amazon Web Services credentials and the
+  operation fails. To avoid this, you can run the command in the Amazon Web
+  Services Systems Manager console. Use Run Command, a capability of Amazon Web
+  Services Systems Manager, with an SSM document that enables you to target a
+  managed node with a script or command. For example, run the command using the
+  `AWS-RunShellScript` document or the `AWS-RunPowerShellScript` document.
   """
   def get_deployable_patch_snapshot_for_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -919,6 +936,8 @@ defmodule AWS.SSM do
 
   @doc """
   Query inventory information.
+
+  This includes managed node status, such as `Stopped` or `Terminated`.
   """
   def get_inventory(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetInventory", input, options)
@@ -1018,9 +1037,10 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Get information about a parameter by using the parameter name.
+  Get information about a single parameter by specifying the parameter name.
 
-  Don't confuse this API operation with the `GetParameters` API operation.
+  To get information about more than one parameter at a time, use the
+  `GetParameters` operation.
   """
   def get_parameter(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetParameter", input, options)
@@ -1028,15 +1048,22 @@ defmodule AWS.SSM do
 
   @doc """
   Retrieves the history of all changes to a parameter.
+
+  If you change the KMS key alias for the KMS key used to encrypt a parameter,
+  then you must also update the key alias the parameter uses to reference KMS.
+  Otherwise, `GetParameterHistory` retrieves whatever the original key alias was
+  referencing.
   """
   def get_parameter_history(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetParameterHistory", input, options)
   end
 
   @doc """
-  Get details of a parameter.
+  Get information about one or more parameters by specifying multiple parameter
+  names.
 
-  Don't confuse this API operation with the `GetParameter` API operation.
+  To get information about a single parameter, you can use the `GetParameter`
+  operation instead.
   """
   def get_parameters(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetParameters", input, options)
@@ -1089,7 +1116,7 @@ defmodule AWS.SSM do
   `ResetServiceSetting` to change the value back to the original value defined by
   the Amazon Web Services service team.
 
-  Query the current service setting for the account.
+  Query the current service setting for the Amazon Web Services account.
   """
   def get_service_setting(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetServiceSetting", input, options)
@@ -1141,10 +1168,11 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Returns all State Manager associations in the current account and Region.
+  Returns all State Manager associations in the current Amazon Web Services
+  account and Amazon Web Services Region.
 
   You can limit the results to a specific State Manager association document or
-  instance by specifying a filter. State Manager is a capability of Amazon Web
+  managed node by specifying a filter. State Manager is a capability of Amazon Web
   Services Systems Manager.
   """
   def list_associations(%Client{} = client, input, options \\ []) do
@@ -1152,19 +1180,19 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  An invocation is copy of a command sent to a specific instance.
+  An invocation is copy of a command sent to a specific managed node.
 
-  A command can apply to one or more instances. A command invocation applies to
-  one instance. For example, if a user runs `SendCommand` against three instances,
-  then a command invocation is created for each requested instance ID.
-  `ListCommandInvocations` provide status about command execution.
+  A command can apply to one or more managed nodes. A command invocation applies
+  to one managed node. For example, if a user runs `SendCommand` against three
+  managed nodes, then a command invocation is created for each requested managed
+  node ID. `ListCommandInvocations` provide status about command execution.
   """
   def list_command_invocations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListCommandInvocations", input, options)
   end
 
   @doc """
-  Lists the commands requested by users of the account.
+  Lists the commands requested by users of the Amazon Web Services account.
   """
   def list_commands(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListCommands", input, options)
@@ -1193,7 +1221,8 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Information about approval reviews for a version of an SSM document.
+  Information about approval reviews for a version of a change template in Change
+  Manager.
   """
   def list_document_metadata_history(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDocumentMetadataHistory", input, options)
@@ -1207,7 +1236,8 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Returns all Systems Manager (SSM) documents in the current account and Region.
+  Returns all Systems Manager (SSM) documents in the current Amazon Web Services
+  account and Amazon Web Services Region.
 
   You can limit the results of this request by using a filter.
   """
@@ -1223,7 +1253,8 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Returns a list of all OpsItem events in the current Region and account.
+  Returns a list of all OpsItem events in the current Amazon Web Services Region
+  and Amazon Web Services account.
 
   You can limit the results to events associated with specific OpsItems by
   specifying a filter.
@@ -1233,7 +1264,10 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Lists all related-item resources associated with an OpsItem.
+  Lists all related-item resources associated with a Systems Manager OpsCenter
+  OpsItem.
+
+  OpsCenter is a capability of Amazon Web Services Systems Manager.
   """
   def list_ops_item_related_items(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListOpsItemRelatedItems", input, options)
@@ -1314,7 +1348,7 @@ defmodule AWS.SSM do
     * ExecutionType: Specify patch, association, or Custom:`string`.
 
     * ExecutionTime. The time the patch, association, or custom
-  compliance item was applied to the instance.
+  compliance item was applied to the managed node.
 
     * Id: The patch, association, or custom compliance ID.
 
@@ -1351,7 +1385,7 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Bulk update custom inventory items on one more instance.
+  Bulk update custom inventory items on one or more managed nodes.
 
   The request adds an inventory item, if it doesn't already exist, or updates an
   inventory item, if it does exist.
@@ -1439,7 +1473,7 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Reconnects a session to an instance after it has been disconnected.
+  Reconnects a session to a managed node after it has been disconnected.
 
   Connections can be resumed for disconnected sessions, but not terminated
   sessions.
@@ -1460,7 +1494,7 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Runs commands on one or more managed instances.
+  Runs commands on one or more managed nodes.
   """
   def send_command(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SendCommand", input, options)
@@ -1493,7 +1527,7 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Initiates a connection to a target (for example, an instance) for a Session
+  Initiates a connection to a target (for example, a managed node) for a Session
   Manager session.
 
   Returns a URL and token that can be used to open a WebSocket connection for
@@ -1521,7 +1555,7 @@ defmodule AWS.SSM do
 
   @doc """
   Permanently ends a session and closes the data connection between the Session
-  Manager client and SSM Agent on the instance.
+  Manager client and SSM Agent on the managed node.
 
   A terminated session isn't be resumed.
   """
@@ -1559,7 +1593,11 @@ defmodule AWS.SSM do
 
   @doc """
   Updates the status of the Amazon Web Services Systems Manager document (SSM
-  document) associated with the specified instance.
+  document) associated with the specified managed node.
+
+  `UpdateAssociationStatus` is primarily used by the Amazon Web Services Systems
+  Manager Agent (SSM Agent) to report status updates about your associations and
+  is only used for associations created with the `InstanceId` legacy parameter.
   """
   def update_association_status(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateAssociationStatus", input, options)
@@ -1581,7 +1619,7 @@ defmodule AWS.SSM do
 
   @doc """
   Updates information related to approval reviews for a specific version of a
-  document.
+  change template in Change Manager.
   """
   def update_document_metadata(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateDocumentMetadata", input, options)
@@ -1674,9 +1712,9 @@ defmodule AWS.SSM do
 
   @doc """
   Changes the Identity and Access Management (IAM) role that is assigned to the
-  on-premises instance or virtual machines (VM).
+  on-premises server, edge device, or virtual machines (VM).
 
-  IAM roles are first assigned to these hybrid instances during the activation
+  IAM roles are first assigned to these hybrid nodes during the activation
   process. For more information, see `CreateActivation`.
   """
   def update_managed_instance_role(%Client{} = client, input, options \\ []) do

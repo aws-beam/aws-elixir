@@ -26,6 +26,47 @@ defmodule AWS.Forecast do
   end
 
   @doc """
+  Creates an Amazon Forecast predictor.
+
+  Amazon Forecast creates predictors with AutoPredictor, which involves applying
+  the optimal combination of algorithms to each time series in your datasets. You
+  can use CreateAutoPredictor to create new predictors or upgrade/retrain existing
+  predictors.
+
+  ## Creating new predictors
+
+  The following parameters are required when creating a new predictor:
+
+    * `PredictorName` - A unique name for the predictor.
+
+    * `DatasetGroupArn` - The ARN of the dataset group used to train the
+  predictor.
+
+    * `ForecastFrequency` - The granularity of your forecasts (hourly,
+  daily, weekly, etc).
+
+    * `ForecastHorizon` - The number of time steps being forecasted.
+
+  When creating a new predictor, do not specify a value for
+  `ReferencePredictorArn`.
+
+  ## Upgrading and retraining predictors
+
+  The following parameters are required when retraining or upgrading a predictor:
+
+    * `PredictorName` - A unique name for the predictor.
+
+    * `ReferencePredictorArn` - The ARN of the predictor to retrain or
+  upgrade.
+
+  When upgrading or retraining a predictor, only specify values for the
+  `ReferencePredictorArn` and `PredictorName`.
+  """
+  def create_auto_predictor(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateAutoPredictor", input, options)
+  end
+
+  @doc """
   Creates an Amazon Forecast dataset.
 
   The information about the dataset that you provide helps Forecast understand how
@@ -110,6 +151,109 @@ defmodule AWS.Forecast do
   end
 
   @doc """
+  Explainability is only available for Forecasts and Predictors generated from an
+  AutoPredictor (`CreateAutoPredictor`)
+
+  Creates an Amazon Forecast Explainability.
+
+  Explainability helps you better understand how the attributes in your datasets
+  impact forecast. Amazon Forecast uses a metric called Impact scores to quantify
+  the relative impact of each attribute and determine whether they increase or
+  decrease forecast values.
+
+  To enable Forecast Explainability, your predictor must include at least one of
+  the following: related time series, item metadata, or additional datasets like
+  Holidays and the Weather Index.
+
+  CreateExplainability accepts either a Predictor ARN or Forecast ARN. To receive
+  aggregated Impact scores for all time series and time points in your datasets,
+  provide a Predictor ARN. To receive Impact scores for specific time series and
+  time points, provide a Forecast ARN.
+
+  ## CreateExplainability with a Predictor ARN
+
+  You can only have one Explainability resource per predictor. If you already
+  enabled `ExplainPredictor` in `CreateAutoPredictor`, that predictor already has
+  an Explainability resource.
+
+  The following parameters are required when providing a Predictor ARN:
+
+    * `ExplainabilityName` - A unique name for the Explainability.
+
+    * `ResourceArn` - The Arn of the predictor.
+
+    * `TimePointGranularity` - Must be set to “ALL”.
+
+    * `TimeSeriesGranularity` - Must be set to “ALL”.
+
+  Do not specify a value for the following parameters:
+
+    * `DataSource` - Only valid when TimeSeriesGranularity is
+  “SPECIFIC”.
+
+    * `Schema` - Only valid when TimeSeriesGranularity is “SPECIFIC”.
+
+    * `StartDateTime` - Only valid when TimePointGranularity is
+  “SPECIFIC”.
+
+    * `EndDateTime` - Only valid when TimePointGranularity is
+  “SPECIFIC”.
+
+  ## CreateExplainability with a Forecast ARN
+
+  You can specify a maximum of 50 time series and 1500 time points.
+
+  The following parameters are required when providing a Predictor ARN:
+
+    * `ExplainabilityName` - A unique name for the Explainability.
+
+    * `ResourceArn` - The Arn of the forecast.
+
+    * `TimePointGranularity` - Either “ALL” or “SPECIFIC”.
+
+    * `TimeSeriesGranularity` - Either “ALL” or “SPECIFIC”.
+
+  If you set TimeSeriesGranularity to “SPECIFIC”, you must also provide the
+  following:
+
+    * `DataSource` - The S3 location of the CSV file specifying your
+  time series.
+
+    * `Schema` - The Schema defines the attributes and attribute types
+  listed in the Data Source.
+
+  If you set TimePointGranularity to “SPECIFIC”, you must also provide the
+  following:
+
+    * `StartDateTime` - The first timestamp in the range of time points.
+
+    * `EndDateTime` - The last timestamp in the range of time points.
+  """
+  def create_explainability(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateExplainability", input, options)
+  end
+
+  @doc """
+  Exports an Explainability resource created by the `CreateExplainability`
+  operation.
+
+  Exported files are exported to an Amazon Simple Storage Service (Amazon S3)
+  bucket.
+
+  You must specify a `DataDestination` object that includes an Amazon S3 bucket
+  and an AWS Identity and Access Management (IAM) role that Amazon Forecast can
+  assume to access the Amazon S3 bucket. For more information, see
+  `aws-forecast-iam-roles`.
+
+  The `Status` of the export job must be `ACTIVE` before you can access the export
+  in your Amazon S3 bucket. To get the status, use the
+  `DescribeExplainabilityExport` operation.
+  """
+  def create_explainability_export(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateExplainabilityExport", input, options)
+  end
+
+  @doc """
   Creates a forecast for each item in the `TARGET_TIME_SERIES` dataset that was
   used to train the predictor.
 
@@ -165,6 +309,12 @@ defmodule AWS.Forecast do
   end
 
   @doc """
+  This operation creates a legacy predictor that does not include all the
+  predictor functionalities provided by Amazon Forecast.
+
+  To create a predictor that is compatible with all aspects of Forecast, use
+  CreateAutoPredictor.
+
   Creates an Amazon Forecast predictor.
 
   In the request, provide a dataset group and either specify an algorithm or let
@@ -286,6 +436,23 @@ defmodule AWS.Forecast do
   end
 
   @doc """
+  Deletes an Explainability resource.
+
+  You can delete only predictor that have a status of `ACTIVE` or `CREATE_FAILED`.
+  To get the status, use the `DescribeExplainability` operation.
+  """
+  def delete_explainability(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteExplainability", input, options)
+  end
+
+  @doc """
+  Deletes an Explainability export job.
+  """
+  def delete_explainability_export(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteExplainabilityExport", input, options)
+  end
+
+  @doc """
   Deletes a forecast created using the `CreateForecast` operation.
 
   You can delete only forecasts that have a status of `ACTIVE` or `CREATE_FAILED`.
@@ -357,6 +524,13 @@ defmodule AWS.Forecast do
   end
 
   @doc """
+  Describes a predictor created using the CreateAutoPredictor operation.
+  """
+  def describe_auto_predictor(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAutoPredictor", input, options)
+  end
+
+  @doc """
   Describes an Amazon Forecast dataset created using the `CreateDataset`
   operation.
 
@@ -415,6 +589,22 @@ defmodule AWS.Forecast do
   end
 
   @doc """
+  Describes an Explainability resource created using the `CreateExplainability`
+  operation.
+  """
+  def describe_explainability(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeExplainability", input, options)
+  end
+
+  @doc """
+  Describes an Explainability export created using the
+  `CreateExplainabilityExport` operation.
+  """
+  def describe_explainability_export(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeExplainabilityExport", input, options)
+  end
+
+  @doc """
   Describes a forecast created using the `CreateForecast` operation.
 
   In addition to listing the properties provided in the `CreateForecast` request,
@@ -456,6 +646,12 @@ defmodule AWS.Forecast do
   end
 
   @doc """
+  This operation is only valid for legacy predictors created with CreatePredictor.
+
+  If you are not using a legacy predictor, use DescribeAutoPredictor.
+
+  To upgrade a legacy predictor to AutoPredictor, see Upgrading to AutoPredictor.
+
   Describes a predictor created using the `CreatePredictor` operation.
 
   In addition to listing the properties provided in the `CreatePredictor` request,
@@ -560,6 +756,34 @@ defmodule AWS.Forecast do
   """
   def list_datasets(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDatasets", input, options)
+  end
+
+  @doc """
+  Returns a list of Explainability resources created using the
+  `CreateExplainability` operation.
+
+  This operation returns a summary for each Explainability. You can filter the
+  list using an array of `Filter` objects.
+
+  To retrieve the complete set of properties for a particular Explainability
+  resource, use the ARN with the `DescribeExplainability` operation.
+  """
+  def list_explainabilities(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListExplainabilities", input, options)
+  end
+
+  @doc """
+  Returns a list of Explainability exports created using the
+  `CreateExplainabilityExport` operation.
+
+  This operation returns a summary for each Explainability export. You can filter
+  the list using an array of `Filter` objects.
+
+  To retrieve the complete set of properties for a particular Explainability
+  export, use the ARN with the `DescribeExplainability` operation.
+  """
+  def list_explainability_exports(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListExplainabilityExports", input, options)
   end
 
   @doc """

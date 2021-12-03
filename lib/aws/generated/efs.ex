@@ -6,7 +6,7 @@ defmodule AWS.EFS do
   Amazon Elastic File System
 
   Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage
-  for use with Amazon EC2 instances in the AWS Cloud.
+  for use with Amazon EC2 instances in the Amazon Web Services Cloud.
 
   With Amazon EFS, storage capacity is elastic, growing and shrinking
   automatically as you add and remove files, so your applications have the storage
@@ -72,8 +72,8 @@ defmodule AWS.EFS do
   The operation requires a creation token in the request that Amazon EFS uses to
   ensure idempotent creation (calling the operation with same creation token has
   no effect). If a file system does not currently exist that is owned by the
-  caller's AWS account with the specified creation token, this operation does the
-  following:
+  caller's Amazon Web Services account with the specified creation token, this
+  operation does the following:
 
     * Creates a new, empty file system. The file system will have an
   Amazon EFS assigned ID, and an initial lifecycle state `creating`.
@@ -446,8 +446,8 @@ defmodule AWS.EFS do
 
   Deletes the specified tags from a file system. If the `DeleteTags` request
   includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause
-  an error. For more information about tags and related restrictions, see [Tag Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
-  in the *AWS Billing and Cost Management User Guide*.
+  an error. For more information about tags and related restrictions, see [Tag restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
+  in the *Billing and Cost Management User Guide*.
 
   This operation requires permissions for the `elasticfilesystem:DeleteTags`
   action.
@@ -534,6 +534,13 @@ defmodule AWS.EFS do
     )
   end
 
+  @doc """
+  Returns the account preferences settings for the Amazon Web Services account
+  associated with the user making the request, in the current Amazon Web Services
+  Region.
+
+  For more information, see [Managing Amazon EFS resource IDs](efs/latest/ug/manage-efs-resource-ids.html).
+  """
   def describe_account_preferences(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/account-preferences"
     headers = []
@@ -601,8 +608,9 @@ defmodule AWS.EFS do
   Returns the description of a specific Amazon EFS file system if either the file
   system `CreationToken` or the `FileSystemId` is provided.
 
-  Otherwise, it returns descriptions of all file systems owned by the caller's AWS
-  account in the AWS Region of the endpoint that you're calling.
+  Otherwise, it returns descriptions of all file systems owned by the caller's
+  Amazon Web Services account in the Amazon Web Services Region of the endpoint
+  that you're calling.
 
   When retrieving all file system descriptions, you can optionally specify the
   `MaxItems` parameter to limit the number of descriptions in a response.
@@ -685,6 +693,9 @@ defmodule AWS.EFS do
   which files to move to the EFS Infrequent Access (IA) storage class. For a file
   system without a `LifecycleConfiguration` object, the call returns an empty
   array in the response.
+
+  When EFS Intelligent Tiering is enabled, `TransitionToPrimaryStorageClass` has a
+  value of `AFTER_1_ACCESS`.
 
   This operation requires permissions for the
   `elasticfilesystem:DescribeLifecycleConfiguration` operation.
@@ -952,6 +963,20 @@ defmodule AWS.EFS do
     )
   end
 
+  @doc """
+  Use this operation to set the account preference in the current Amazon Web
+  Services Region to use long 17 character (63 bit) or short 8 character (32 bit)
+  resource IDs for new EFS file system and mount target resources.
+
+  All existing resource IDs are not affected by any changes you make. You can set
+  the ID preference during the opt-in period as EFS transitions to long resource
+  IDs. For more information, see [Managing Amazon EFS resource IDs](https://docs.aws.amazon.com/efs/latest/ug/manage-efs-resource-ids.html).
+
+  Starting in October, 2021, you will receive an error if you try to set the
+  account preference to use the short 8 character format resource ID. Contact
+  Amazon Web Services support if you receive an error and need to use short IDs
+  for file system and mount target resources.
+  """
   def put_account_preferences(%Client{} = client, input, options \\ []) do
     url_path = "/2015-02-01/account-preferences"
     headers = []
@@ -1031,15 +1056,16 @@ defmodule AWS.EFS do
 
   A `LifecycleConfiguration` object defines when files in an Amazon EFS file
   system are automatically transitioned to the lower-cost EFS Infrequent Access
-  (IA) storage class. A `LifecycleConfiguration` applies to all files in a file
-  system.
+  (IA) storage class. To enable EFS Intelligent Tiering, set the value of
+  `TransitionToPrimaryStorageClass` to `AFTER_1_ACCESS`. For more information, see
+  [EFS Lifecycle Management](https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html).
 
   Each Amazon EFS file system supports one lifecycle configuration, which applies
   to all files in the file system. If a `LifecycleConfiguration` object already
   exists for the specified file system, a `PutLifecycleConfiguration` call
   modifies the existing configuration. A `PutLifecycleConfiguration` call with an
   empty `LifecyclePolicies` array in the request body deletes any existing
-  `LifecycleConfiguration` and disables lifecycle management.
+  `LifecycleConfiguration` and turns off lifecycle management for the file system.
 
   In the request, specify the following:
 
@@ -1047,15 +1073,17 @@ defmodule AWS.EFS do
   or modifying lifecycle management.
 
     * A `LifecyclePolicies` array of `LifecyclePolicy` objects that
-  define when files are moved to the IA storage class. The array can contain only
-  one `LifecyclePolicy` item.
+  define when files are moved to the IA storage class. Amazon EFS requires that
+  each `LifecyclePolicy` object have only have a single transition, so the
+  `LifecyclePolicies` array needs to be structured with separate `LifecyclePolicy`
+  objects. See the example requests in the following section for more information.
 
   This operation requires permissions for the
   `elasticfilesystem:PutLifecycleConfiguration` operation.
 
   To apply a `LifecycleConfiguration` object to an encrypted file system, you need
-  the same AWS Key Management Service (AWS KMS) permissions as when you created
-  the encrypted file system.
+  the same Key Management Service permissions as when you created the encrypted
+  file system.
   """
   def put_lifecycle_configuration(%Client{} = client, file_system_id, input, options \\ []) do
     url_path =

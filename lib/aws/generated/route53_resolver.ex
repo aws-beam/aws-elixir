@@ -17,9 +17,9 @@ defmodule AWS.Route53Resolver do
   ## Forward DNS queries from resolvers on your network to Route 53 Resolver
 
   DNS resolvers on your network can forward DNS queries to Resolver in a specified
-  VPC. This allows your DNS resolvers to easily resolve domain names for AWS
-  resources such as EC2 instances or records in a Route 53 private hosted zone.
-  For more information, see [How DNS Resolvers on Your Network Forward DNS Queries to Route 53
+  VPC. This allows your DNS resolvers to easily resolve domain names for Amazon
+  Web Services resources such as EC2 instances or records in a Route 53 private
+  hosted zone. For more information, see [How DNS Resolvers on Your Network Forward DNS Queries to Route 53
   Resolver](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html#resolver-overview-forward-network-to-vpc)
   in the *Amazon Route 53 Developer Guide*.
 
@@ -166,10 +166,10 @@ defmodule AWS.Route53Resolver do
   `AssociateResolverQueryLogConfig`. For more information, see
   [AssociateResolverQueryLogConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverQueryLogConfig.html).
 
-  You can optionally use AWS Resource Access Manager (AWS RAM) to share a query
-  logging configuration with other AWS accounts. The other accounts can then
-  associate VPCs with the configuration. The query logs that Resolver creates for
-  a configuration include all DNS queries that originate in all VPCs that are
+  You can optionally use Resource Access Manager (RAM) to share a query logging
+  configuration with other Amazon Web Services accounts. The other accounts can
+  then associate VPCs with the configuration. The query logs that Resolver creates
+  for a configuration include all DNS queries that originate in all VPCs that are
   associated with the configuration.
   """
   def create_resolver_query_log_config(%Client{} = client, input, options \\ []) do
@@ -227,8 +227,9 @@ defmodule AWS.Route53Resolver do
 
   When you delete a configuration, Resolver stops logging DNS queries for all of
   the Amazon VPCs that are associated with the configuration. This also applies if
-  the query logging configuration is shared with other AWS accounts, and the other
-  accounts have associated VPCs with the shared configuration.
+  the query logging configuration is shared with other Amazon Web Services
+  accounts, and the other accounts have associated VPCs with the shared
+  configuration.
 
   Before you can delete a query logging configuration, you must first disassociate
   all VPCs from the configuration. See
@@ -287,8 +288,8 @@ defmodule AWS.Route53Resolver do
   Disassociates a VPC from a query logging configuration.
 
   Before you can delete a query logging configuration, you must first disassociate
-  all VPCs from the configuration. If you used AWS Resource Access Manager (AWS
-  RAM) to share a query logging configuration with other accounts, VPCs can be
+  all VPCs from the configuration. If you used Resource Access Manager (RAM) to
+  share a query logging configuration with other accounts, VPCs can be
   disassociated from the configuration in the following ways:
 
      The accounts that you shared the configuration with can
@@ -344,14 +345,22 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
-  Returns the AWS Identity and Access Management (AWS IAM) policy for sharing the
-  specified rule group.
+  Returns the Identity and Access Management (Amazon Web Services IAM) policy for
+  sharing the specified rule group.
 
-  You can use the policy to share the rule group using AWS Resource Access Manager
-  (AWS RAM).
+  You can use the policy to share the rule group using Resource Access Manager
+  (RAM).
   """
   def get_firewall_rule_group_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetFirewallRuleGroupPolicy", input, options)
+  end
+
+  @doc """
+  Retrieves the behavior configuration of Route 53 Resolver behavior for a single
+  VPC from Amazon Virtual Private Cloud.
+  """
+  def get_resolver_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetResolverConfig", input, options)
   end
 
   @doc """
@@ -400,7 +409,8 @@ defmodule AWS.Route53Resolver do
   Gets information about a query logging policy.
 
   A query logging policy specifies the Resolver query logging operations and
-  resources that you want to allow another AWS account to be able to use.
+  resources that you want to allow another Amazon Web Services account to be able
+  to use.
   """
   def get_resolver_query_log_config_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetResolverQueryLogConfigPolicy", input, options)
@@ -529,8 +539,18 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+  Retrieves the Resolver configurations that you have defined.
+
+  Route 53 Resolver uses the configurations to manage DNS resolution behavior for
+  your VPCs.
+  """
+  def list_resolver_configs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListResolverConfigs", input, options)
+  end
+
+  @doc """
   Lists the configurations for DNSSEC validation that are associated with the
-  current AWS account.
+  current Amazon Web Services account.
   """
   def list_resolver_dnssec_configs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListResolverDnssecConfigs", input, options)
@@ -544,8 +564,8 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
-  Lists all the Resolver endpoints that were created using the current AWS
-  account.
+  Lists all the Resolver endpoints that were created using the current Amazon Web
+  Services account.
   """
   def list_resolver_endpoints(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListResolverEndpoints", input, options)
@@ -577,14 +597,15 @@ defmodule AWS.Route53Resolver do
 
   @doc """
   Lists the associations that were created between Resolver rules and VPCs using
-  the current AWS account.
+  the current Amazon Web Services account.
   """
   def list_resolver_rule_associations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListResolverRuleAssociations", input, options)
   end
 
   @doc """
-  Lists the Resolver rules that were created using the current AWS account.
+  Lists the Resolver rules that were created using the current Amazon Web Services
+  account.
   """
   def list_resolver_rules(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListResolverRules", input, options)
@@ -598,29 +619,30 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
-  Attaches an AWS Identity and Access Management (AWS IAM) policy for sharing the
-  rule group.
+  Attaches an Identity and Access Management (Amazon Web Services IAM) policy for
+  sharing the rule group.
 
-  You can use the policy to share the rule group using AWS Resource Access Manager
-  (AWS RAM).
+  You can use the policy to share the rule group using Resource Access Manager
+  (RAM).
   """
   def put_firewall_rule_group_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutFirewallRuleGroupPolicy", input, options)
   end
 
   @doc """
-  Specifies an AWS account that you want to share a query logging configuration
-  with, the query logging configuration that you want to share, and the operations
-  that you want the account to be able to perform on the configuration.
+  Specifies an Amazon Web Services account that you want to share a query logging
+  configuration with, the query logging configuration that you want to share, and
+  the operations that you want the account to be able to perform on the
+  configuration.
   """
   def put_resolver_query_log_config_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutResolverQueryLogConfigPolicy", input, options)
   end
 
   @doc """
-  Specifies an AWS rule that you want to share with another account, the account
-  that you want to share the rule with, and the operations that you want the
-  account to be able to perform on the rule.
+  Specifies an Amazon Web Services rule that you want to share with another
+  account, the account that you want to share the rule with, and the operations
+  that you want the account to be able to perform on the rule.
   """
   def put_resolver_rule_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutResolverRulePolicy", input, options)
@@ -669,6 +691,14 @@ defmodule AWS.Route53Resolver do
   """
   def update_firewall_rule_group_association(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateFirewallRuleGroupAssociation", input, options)
+  end
+
+  @doc """
+  Updates the behavior configuration of Route 53 Resolver behavior for a single
+  VPC from Amazon Virtual Private Cloud.
+  """
+  def update_resolver_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateResolverConfig", input, options)
   end
 
   @doc """

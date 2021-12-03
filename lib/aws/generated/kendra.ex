@@ -26,6 +26,30 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+  Grants users or groups in your Amazon Web Services SSO identity source access to
+  your Amazon Kendra experience.
+
+  You can create an Amazon Kendra experience such as a search application. For
+  more information on creating a search application experience, see [Building a search experience with no
+  code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+  """
+  def associate_entities_to_experience(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateEntitiesToExperience", input, options)
+  end
+
+  @doc """
+  Defines the specific permissions of users or groups in your Amazon Web Services
+  SSO identity source with access to your Amazon Kendra experience.
+
+  You can create an Amazon Kendra experience such as a search application. For
+  more information on creating a search application experience, see [Building a search experience with no
+  code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+  """
+  def associate_personas_to_entities(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociatePersonasToEntities", input, options)
+  end
+
+  @doc """
   Removes one or more documents from an index.
 
   The documents must have been added with the `BatchPutDocument` operation.
@@ -83,23 +107,41 @@ defmodule AWS.Kendra do
   added to the query log from the time you cleared suggestions. If you do not see
   any new suggestions, then please allow Amazon Kendra to collect enough queries
   to learn new suggestions.
+
+  `ClearQuerySuggestions` is currently not supported in the Amazon Web Services
+  GovCloud (US-West) region.
   """
   def clear_query_suggestions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ClearQuerySuggestions", input, options)
   end
 
   @doc """
-  Creates a data source that you use to with an Amazon Kendra index.
+  Creates a data source that you want to use with an Amazon Kendra index.
 
   You specify a name, data source connector type and description for your data
-  source. You also specify configuration information such as document metadata
-  (author, source URI, and so on) and user context information.
+  source. You also specify configuration information for the data source
+  connector.
 
   `CreateDataSource` is a synchronous operation. The operation returns 200 if the
   data source was successfully created. Otherwise, an exception is raised.
+
+  Amazon S3 and
+  [custom](https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html)
+  data sources are the only supported data sources in the Amazon Web Services
+  GovCloud (US-West) region.
   """
   def create_data_source(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDataSource", input, options)
+  end
+
+  @doc """
+  Creates an Amazon Kendra experience such as a search application.
+
+  For more information on creating a search application experience, see [Building a search experience with no
+  code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+  """
+  def create_experience(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateExperience", input, options)
   end
 
   @doc """
@@ -133,6 +175,9 @@ defmodule AWS.Kendra do
   bucket. In your text file, enter each block word or phrase on a separate line.
 
   For information on the current quota limits for block lists, see [Quotas for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html).
+
+  `CreateQuerySuggestionsBlockList` is currently not supported in the Amazon Web
+  Services GovCloud (US-West) region.
   """
   def create_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateQuerySuggestionsBlockList", input, options)
@@ -157,6 +202,16 @@ defmodule AWS.Kendra do
   """
   def delete_data_source(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDataSource", input, options)
+  end
+
+  @doc """
+  Deletes your Amazon Kendra experience such as a search application.
+
+  For more information on creating a search application experience, see [Building a search experience with no
+  code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+  """
+  def delete_experience(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteExperience", input, options)
   end
 
   @doc """
@@ -191,6 +246,9 @@ defmodule AWS.Kendra do
   "Engineering" group when calling `PutPrincipalMapping`. You can update your
   internal list of users or sub groups and input this list when calling
   `PutPrincipalMapping`.
+
+  `DeletePrincipalMapping` is currently not supported in the Amazon Web Services
+  GovCloud (US-West) region.
   """
   def delete_principal_mapping(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeletePrincipalMapping", input, options)
@@ -202,6 +260,9 @@ defmodule AWS.Kendra do
   A deleted block list might not take effect right away. Amazon Kendra needs to
   refresh the entire suggestions list to add back the queries that were previously
   blocked.
+
+  `DeleteQuerySuggestionsBlockList` is currently not supported in the Amazon Web
+  Services GovCloud (US-West) region.
   """
   def delete_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteQuerySuggestionsBlockList", input, options)
@@ -219,6 +280,17 @@ defmodule AWS.Kendra do
   """
   def describe_data_source(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDataSource", input, options)
+  end
+
+  @doc """
+  Gets information about your Amazon Kendra experience such as a search
+  application.
+
+  For more information on creating a search application experience, see [Building a search experience with no
+  code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+  """
+  def describe_experience(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeExperience", input, options)
   end
 
   @doc """
@@ -243,6 +315,9 @@ defmodule AWS.Kendra do
   to be processed, when actions were last updated, when actions were received by
   Amazon Kendra, the latest action that should process and apply after other
   actions, and useful error messages if an action could not be processed.
+
+  `DescribePrincipalMapping` is currently not supported in the Amazon Web Services
+  GovCloud (US-West) region.
   """
   def describe_principal_mapping(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribePrincipalMapping", input, options)
@@ -252,6 +327,9 @@ defmodule AWS.Kendra do
   Describes a block list used for query suggestions for an index.
 
   This is used to check the current settings that are applied to a block list.
+
+  `DescribeQuerySuggestionsBlockList` is currently not supported in the Amazon Web
+  Services GovCloud (US-West) region.
   """
   def describe_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeQuerySuggestionsBlockList", input, options)
@@ -261,6 +339,9 @@ defmodule AWS.Kendra do
   Describes the settings of query suggestions for an index.
 
   This is used to check the current settings applied to query suggestions.
+
+  `DescribeQuerySuggestionsConfig` is currently not supported in the Amazon Web
+  Services GovCloud (US-West) region.
   """
   def describe_query_suggestions_config(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeQuerySuggestionsConfig", input, options)
@@ -274,10 +355,47 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+  Prevents users or groups in your Amazon Web Services SSO identity source from
+  accessing your Amazon Kendra experience.
+
+  You can create an Amazon Kendra experience such as a search application. For
+  more information on creating a search application experience, see [Building a search experience with no
+  code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+  """
+  def disassociate_entities_from_experience(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateEntitiesFromExperience", input, options)
+  end
+
+  @doc """
+  Removes the specific permissions of users or groups in your Amazon Web Services
+  SSO identity source with access to your Amazon Kendra experience.
+
+  You can create an Amazon Kendra experience such as a search application. For
+  more information on creating a search application experience, see [Building a search experience with no
+  code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+  """
+  def disassociate_personas_from_entities(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociatePersonasFromEntities", input, options)
+  end
+
+  @doc """
   Fetches the queries that are suggested to your users.
+
+  `GetQuerySuggestions` is currently not supported in the Amazon Web Services
+  GovCloud (US-West) region.
   """
   def get_query_suggestions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetQuerySuggestions", input, options)
+  end
+
+  @doc """
+  Retrieves search metrics data.
+
+  The data provides a snapshot of how your users interact with your search
+  application and how effective the application is.
+  """
+  def get_snapshots(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSnapshots", input, options)
   end
 
   @doc """
@@ -295,6 +413,37 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+  Lists specific permissions of users and groups with access to your Amazon Kendra
+  experience.
+  """
+  def list_entity_personas(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEntityPersonas", input, options)
+  end
+
+  @doc """
+  Lists users or groups in your Amazon Web Services SSO identity source that are
+  granted access to your Amazon Kendra experience.
+
+  You can create an Amazon Kendra experience such as a search application. For
+  more information on creating a search application experience, see [Building a search experience with no
+  code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+  """
+  def list_experience_entities(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListExperienceEntities", input, options)
+  end
+
+  @doc """
+  Lists one or more Amazon Kendra experiences.
+
+  You can create an Amazon Kendra experience such as a search application. For
+  more information on creating a search application experience, see [Building a search experience with no
+  code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+  """
+  def list_experiences(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListExperiences", input, options)
+  end
+
+  @doc """
   Gets a list of FAQ lists associated with an index.
   """
   def list_faqs(%Client{} = client, input, options \\ []) do
@@ -304,6 +453,9 @@ defmodule AWS.Kendra do
   @doc """
   Provides a list of groups that are mapped to users before a given ordering or
   timestamp identifier.
+
+  `ListGroupsOlderThanOrderingId` is currently not supported in the Amazon Web
+  Services GovCloud (US-West) region.
   """
   def list_groups_older_than_ordering_id(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListGroupsOlderThanOrderingId", input, options)
@@ -320,6 +472,9 @@ defmodule AWS.Kendra do
   Lists the block lists used for query suggestions for an index.
 
   For information on the current quota limits for block lists, see [Quotas for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html).
+
+  `ListQuerySuggestionsBlockLists` is currently not supported in the Amazon Web
+  Services GovCloud (US-West) region.
   """
   def list_query_suggestions_block_lists(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListQuerySuggestionsBlockLists", input, options)
@@ -342,7 +497,8 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Maps users to their groups.
+  Maps users to their groups so that you only need to provide the user ID when you
+  issue the query.
 
   You can also map sub groups to groups. For example, the group "Company
   Intellectual Property Teams" includes sub groups "Research" and "Engineering".
@@ -357,6 +513,9 @@ defmodule AWS.Kendra do
 
   If more than five `PUT` actions for a group are currently processing, a
   validation exception is thrown.
+
+  `PutPrincipalMapping` is currently not supported in the Amazon Web Services
+  GovCloud (US-West) region.
   """
   def put_principal_mapping(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutPrincipalMapping", input, options)
@@ -410,7 +569,10 @@ defmodule AWS.Kendra do
 
   @doc """
   Enables you to provide feedback to Amazon Kendra to improve the performance of
-  the service.
+  your index.
+
+  `SubmitFeedback` is currently not supported in the Amazon Web Services GovCloud
+  (US-West) region.
   """
   def submit_feedback(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SubmitFeedback", input, options)
@@ -440,6 +602,16 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+  Updates your Amazon Kendra experience such as a search application.
+
+  For more information on creating a search application experience, see [Building a search experience with no
+  code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+  """
+  def update_experience(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateExperience", input, options)
+  end
+
+  @doc """
   Updates an existing Amazon Kendra index.
   """
   def update_index(%Client{} = client, input, options \\ []) do
@@ -458,6 +630,9 @@ defmodule AWS.Kendra do
 
   Amazon Kendra supports partial updates, so you only need to provide the fields
   you want to update.
+
+  `UpdateQuerySuggestionsBlockList` is currently not supported in the Amazon Web
+  Services GovCloud (US-West) region.
   """
   def update_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateQuerySuggestionsBlockList", input, options)
@@ -477,6 +652,9 @@ defmodule AWS.Kendra do
   number of search queries in your index.
 
   You can still enable/disable query suggestions at any time.
+
+  `UpdateQuerySuggestionsConfig` is currently not supported in the Amazon Web
+  Services GovCloud (US-West) region.
   """
   def update_query_suggestions_config(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateQuerySuggestionsConfig", input, options)

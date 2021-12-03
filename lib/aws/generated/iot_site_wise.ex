@@ -59,6 +59,34 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
+  Associates a time series (data stream) with an asset property.
+  """
+  def associate_time_series_to_asset_property(%Client{} = client, input, options \\ []) do
+    url_path = "/timeseries/associate/"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"alias", "alias"},
+        {"assetId", "assetId"},
+        {"propertyId", "propertyId"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Associates a group (batch) of assets with an IoT SiteWise Monitor project.
   """
   def batch_associate_project_assets(%Client{} = client, project_id, input, options \\ []) do
@@ -297,6 +325,9 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Creates a project in the specified portal.
+
+  Make sure that the project name and description don't contain confidential
+  information.
   """
   def create_project(%Client{} = client, input, options \\ []) do
     url_path = "/projects"
@@ -510,6 +541,51 @@ defmodule AWS.IoTSiteWise do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Deletes a time series (data stream).
+
+  If you delete a time series that's associated with an asset property, the asset
+  property still exists, but the time series will no longer be associated with
+  this asset property.
+
+  To identify a time series, do one of the following:
+
+    * If the time series isn't associated with an asset property,
+  specify the `alias` of the time series.
+
+    * If the time series is associated with an asset property, specify
+  one of the following:
+
+      * The `alias` of the time series.
+
+      * The `assetId` and `propertyId` that identifies the
+  asset property.
+  """
+  def delete_time_series(%Client{} = client, input, options \\ []) do
+    url_path = "/timeseries/delete/"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"alias", "alias"},
+        {"assetId", "assetId"},
+        {"propertyId", "propertyId"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
     )
   end
 
@@ -796,6 +872,67 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
+  Retrieves information about a time series (data stream).
+
+  To identify a time series, do one of the following:
+
+    * If the time series isn't associated with an asset property,
+  specify the `alias` of the time series.
+
+    * If the time series is associated with an asset property, specify
+  one of the following:
+
+      * The `alias` of the time series.
+
+      * The `assetId` and `propertyId` that identifies the
+  asset property.
+  """
+  def describe_time_series(
+        %Client{} = client,
+        alias \\ nil,
+        asset_id \\ nil,
+        property_id \\ nil,
+        options \\ []
+      ) do
+    url_path = "/timeseries/describe/"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(property_id) do
+        [{"propertyId", property_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(asset_id) do
+        [{"assetId", asset_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(alias) do
+        [{"alias", alias} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Disassociates a child asset from the given parent asset through a hierarchy
   defined in the parent asset's model.
   """
@@ -803,6 +940,34 @@ defmodule AWS.IoTSiteWise do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/disassociate"
     headers = []
     query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Disassociates a time series (data stream) from an asset property.
+  """
+  def disassociate_time_series_from_asset_property(%Client{} = client, input, options \\ []) do
+    url_path = "/timeseries/disassociate/"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"alias", "alias"},
+        {"assetId", "assetId"},
+        {"propertyId", "propertyId"}
+      ]
+      |> Request.build_params(input)
 
     Request.request_rest(
       client,
@@ -1113,8 +1278,11 @@ defmodule AWS.IoTSiteWise do
   Get interpolated values for an asset property for a specified time interval,
   during a period of time.
 
-  For example, you can use the this operation to return the interpolated
-  temperature values for a wind turbine every 24 hours over a duration of 7 days.
+  If your time series is missing data points during the specified time interval,
+  you can use interpolation to estimate the missing data.
+
+  For example, you can use this operation to return the interpolated temperature
+  values for a wind turbine every 24 hours over a duration of 7 days.
 
   To identify an asset property, you must specify one of the following:
 
@@ -1131,6 +1299,7 @@ defmodule AWS.IoTSiteWise do
         end_time_in_seconds,
         end_time_offset_in_nanos \\ nil,
         interval_in_seconds,
+        interval_window_in_seconds \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         property_alias \\ nil,
@@ -1197,6 +1366,13 @@ defmodule AWS.IoTSiteWise do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(interval_window_in_seconds) do
+        [{"intervalWindowInSeconds", interval_window_in_seconds} | query_params]
       else
         query_params
       end
@@ -1762,6 +1938,70 @@ defmodule AWS.IoTSiteWise do
     query_params =
       if !is_nil(resource_arn) do
         [{"resourceArn", resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Retrieves a paginated list of time series (data streams).
+  """
+  def list_time_series(
+        %Client{} = client,
+        alias_prefix \\ nil,
+        asset_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        time_series_type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/timeseries/"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(time_series_type) do
+        [{"timeSeriesType", time_series_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(asset_id) do
+        [{"assetId", asset_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(alias_prefix) do
+        [{"aliasPrefix", alias_prefix} | query_params]
       else
         query_params
       end

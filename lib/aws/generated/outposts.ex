@@ -3,13 +3,14 @@
 
 defmodule AWS.Outposts do
   @moduledoc """
-  AWS Outposts is a fully managed service that extends AWS infrastructure, APIs,
-  and tools to customer premises.
+  Amazon Web Services Outposts is a fully managed service that extends Amazon Web
+  Services infrastructure, APIs, and tools to customer premises.
 
-  By providing local access to AWS managed infrastructure, AWS Outposts enables
-  customers to build and run applications on premises using the same programming
-  interfaces as in AWS Regions, while using local compute and storage resources
-  for lower latency and local data processing needs.
+  By providing local access to Amazon Web Services managed infrastructure, Amazon
+  Web Services Outposts enables customers to build and run applications on
+  premises using the same programming interfaces as in Amazon Web Services
+  Regions, while using local compute and storage resources for lower latency and
+  local data processing needs.
   """
 
   alias AWS.Client
@@ -32,12 +33,75 @@ defmodule AWS.Outposts do
   end
 
   @doc """
+  Cancels an order for an Outpost.
+  """
+  def cancel_order(%Client{} = client, order_id, input, options \\ []) do
+    url_path = "/orders/#{AWS.Util.encode_uri(order_id)}/cancel"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates an order for an Outpost.
+  """
+  def create_order(%Client{} = client, input, options \\ []) do
+    url_path = "/orders"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates an Outpost.
 
   You can specify `AvailabilityZone` or `AvailabilityZoneId`.
   """
   def create_outpost(%Client{} = client, input, options \\ []) do
     url_path = "/outposts"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates a site for an Outpost.
+  """
+  def create_site(%Client{} = client, input, options \\ []) do
+    url_path = "/sites"
     headers = []
     query_params = []
 
@@ -91,6 +155,48 @@ defmodule AWS.Outposts do
       query_params,
       headers,
       input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets information about a catalog item.
+  """
+  def get_catalog_item(%Client{} = client, catalog_item_id, options \\ []) do
+    url_path = "/catalog/item/#{AWS.Util.encode_uri(catalog_item_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets an order.
+  """
+  def get_order(%Client{} = client, order_id, options \\ []) do
+    url_path = "/orders/#{AWS.Util.encode_uri(order_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
       options,
       nil
     )
@@ -159,10 +265,180 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Create a list of the Outposts for your AWS account.
+  Gets information about the specified Outpost site.
+  """
+  def get_site(%Client{} = client, site_id, options \\ []) do
+    url_path = "/sites/#{AWS.Util.encode_uri(site_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets the site address.
+  """
+  def get_site_address(%Client{} = client, site_id, address_type, options \\ []) do
+    url_path = "/sites/#{AWS.Util.encode_uri(site_id)}/address"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(address_type) do
+        [{"AddressType", address_type} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Use to create a list of every item in the catalog.
 
   Add filters to your request to return a more specific list of results. Use
-  filters to match an Outpost lifecycle status, Availibility Zone (`us-east-1a`),
+  filters to match an item class, storage option, or EC2 family.
+
+  If you specify multiple filters, the filters are joined with an `AND`, and the
+  request returns only results that match all of the specified filters.
+  """
+  def list_catalog_items(
+        %Client{} = client,
+        ec2_family_filter \\ nil,
+        item_class_filter \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        supported_storage_filter \\ nil,
+        options \\ []
+      ) do
+    url_path = "/catalog/items"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(supported_storage_filter) do
+        [{"SupportedStorageFilter", supported_storage_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(item_class_filter) do
+        [{"ItemClassFilter", item_class_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(ec2_family_filter) do
+        [{"EC2FamilyFilter", ec2_family_filter} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Create a list of the Outpost orders for your Amazon Web Services account.
+
+  You can filter your request by Outpost to return a more specific list of
+  results.
+  """
+  def list_orders(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        outpost_identifier_filter \\ nil,
+        options \\ []
+      ) do
+    url_path = "/list-orders"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(outpost_identifier_filter) do
+        [{"OutpostIdentifierFilter", outpost_identifier_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Create a list of the Outposts for your Amazon Web Services account.
+
+  Add filters to your request to return a more specific list of results. Use
+  filters to match an Outpost lifecycle status, Availability Zone (`us-east-1a`),
   and AZ ID (`use1-az1`).
 
   If you specify multiple filters, the filters are joined with an `AND`, and the
@@ -230,7 +506,7 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Lists the sites for the specified AWS account.
+  Lists the sites for your Amazon Web Services account.
   """
   def list_sites(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/sites"
@@ -323,6 +599,82 @@ defmodule AWS.Outposts do
       client,
       metadata(),
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates the site.
+  """
+  def update_site(%Client{} = client, site_id, input, options \\ []) do
+    url_path = "/sites/#{AWS.Util.encode_uri(site_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates the site address.
+
+  To update a site address with an order `IN_PROGRESS`, you must wait for the
+  order to complete or cancel the order.
+
+  You can update the operating address before you place an order at the site, or
+  after all Outposts that belong to the site have been deactivated.
+  """
+  def update_site_address(%Client{} = client, site_id, input, options \\ []) do
+    url_path = "/sites/#{AWS.Util.encode_uri(site_id)}/address"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Update the physical and logistical details for a rack at a site.
+
+  For more information about hardware requirements for racks, see [Network readiness
+  checklist](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist)
+  in the Amazon Web Services Outposts User Guide.
+
+  To update a rack at a site with an order of `IN_PROGRESS`, you must wait for the
+  order to complete or cancel the order.
+  """
+  def update_site_rack_physical_properties(%Client{} = client, site_id, input, options \\ []) do
+    url_path = "/sites/#{AWS.Util.encode_uri(site_id)}/rackPhysicalProperties"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
       url_path,
       query_params,
       headers,

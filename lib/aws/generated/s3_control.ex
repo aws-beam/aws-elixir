@@ -3,7 +3,8 @@
 
 defmodule AWS.S3Control do
   @moduledoc """
-  AWS S3 Control provides access to Amazon S3 control plane actions.
+  Amazon Web Services S3 Control provides access to Amazon S3 control plane
+  actions.
   """
 
   alias AWS.Client
@@ -221,6 +222,58 @@ defmodule AWS.S3Control do
   """
   def create_job(%Client{} = client, input, options \\ []) do
     url_path = "/v20180820/jobs"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates a Multi-Region Access Point and associates it with the specified
+  buckets.
+
+  For more information about creating Multi-Region Access Points, see [Creating Multi-Region Access
+  Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html)
+  in the *Amazon S3 User Guide*.
+
+  This action will always be routed to the US West (Oregon) Region. For more
+  information about the restrictions around managing Multi-Region Access Points,
+  see [Managing Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html)
+  in the *Amazon S3 User Guide*.
+
+  This request is asynchronous, meaning that you might receive a response before
+  the command has completed. When this request provides a response, it provides a
+  token that you can use to monitor the status of the request with
+  `DescribeMultiRegionAccessPointOperation`.
+
+  The following actions are related to `CreateMultiRegionAccessPoint`:
+
+    *
+  [DeleteMultiRegionAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteMultiRegionAccessPoint.html)     *
+  [DescribeMultiRegionAccessPointOperation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html)
+
+    *
+  [GetMultiRegionAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPoint.html)     *
+  [ListMultiRegionAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListMultiRegionAccessPoints.html)
+  """
+  def create_multi_region_access_point(%Client{} = client, input, options \\ []) do
+    url_path = "/v20180820/async-requests/mrap/create"
 
     {headers, input} =
       [
@@ -522,10 +575,10 @@ defmodule AWS.S3Control do
 
   This implementation of the DELETE action uses the policy subresource to delete
   the policy of a specified Amazon S3 on Outposts bucket. If you are using an
-  identity other than the root user of the AWS account that owns the bucket, the
-  calling identity must have the `s3-outposts:DeleteBucketPolicy` permissions on
-  the specified Outposts bucket and belong to the bucket owner's account to use
-  this action. For more information, see [Using Amazon S3 on
+  identity other than the root user of the Amazon Web Services account that owns
+  the bucket, the calling identity must have the `s3-outposts:DeleteBucketPolicy`
+  permissions on the specified Outposts bucket and belong to the bucket owner's
+  account to use this action. For more information, see [Using Amazon S3 on
   Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
   in *Amazon S3 User Guide*.
 
@@ -534,9 +587,9 @@ defmodule AWS.S3Control do
   an identity that belongs to the bucket owner's account, Amazon S3 returns a `405
   Method Not Allowed` error.
 
-  As a security precaution, the root user of the AWS account that owns a bucket
-  can always use this action, even if the policy explicitly denies the root user
-  the ability to perform this action.
+  As a security precaution, the root user of the Amazon Web Services account that
+  owns a bucket can always use this action, even if the policy explicitly denies
+  the root user the ability to perform this action.
 
   For more information about bucket policies, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
 
@@ -677,7 +730,58 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Removes the `PublicAccessBlock` configuration for an AWS account.
+  Deletes a Multi-Region Access Point.
+
+  This action does not delete the buckets associated with the Multi-Region Access
+  Point, only the Multi-Region Access Point itself.
+
+  This action will always be routed to the US West (Oregon) Region. For more
+  information about the restrictions around managing Multi-Region Access Points,
+  see [Managing Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html)
+  in the *Amazon S3 User Guide*.
+
+  This request is asynchronous, meaning that you might receive a response before
+  the command has completed. When this request provides a response, it provides a
+  token that you can use to monitor the status of the request with
+  `DescribeMultiRegionAccessPointOperation`.
+
+  The following actions are related to `DeleteMultiRegionAccessPoint`:
+
+    *
+  [CreateMultiRegionAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateMultiRegionAccessPoint.html)     *
+  [DescribeMultiRegionAccessPointOperation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html)
+
+    *
+  [GetMultiRegionAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPoint.html)     *
+  [ListMultiRegionAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListMultiRegionAccessPoints.html)
+  """
+  def delete_multi_region_access_point(%Client{} = client, input, options \\ []) do
+    url_path = "/v20180820/async-requests/mrap/delete"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Removes the `PublicAccessBlock` configuration for an Amazon Web Services
+  account.
 
   For more information, see [ Using Amazon S3 block public access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
 
@@ -806,6 +910,57 @@ defmodule AWS.S3Control do
   """
   def describe_job(%Client{} = client, job_id, account_id, options \\ []) do
     url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Retrieves the status of an asynchronous request to manage a Multi-Region Access
+  Point.
+
+  For more information about managing Multi-Region Access Points and how
+  asynchronous requests work, see [Managing Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html)
+  in the *Amazon S3 User Guide*.
+
+  The following actions are related to `GetMultiRegionAccessPoint`:
+
+    *
+  [CreateMultiRegionAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateMultiRegionAccessPoint.html)     *
+  [DeleteMultiRegionAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteMultiRegionAccessPoint.html)
+
+    *
+  [GetMultiRegionAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPoint.html)     *
+  [ListMultiRegionAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListMultiRegionAccessPoints.html)
+  """
+  def describe_multi_region_access_point_operation(
+        %Client{} = client,
+        request_token_arn,
+        account_id,
+        options \\ []
+      ) do
+    url_path =
+      "/v20180820/async-requests/mrap/#{AWS.Util.encode_multi_segment_uri(request_token_arn)}"
+
     headers = []
 
     headers =
@@ -1104,8 +1259,8 @@ defmodule AWS.S3Control do
   For more information, see [ Using Amazon S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
   in the *Amazon S3 User Guide*.
 
-  If you are using an identity other than the root user of the AWS account that
-  owns the Outposts bucket, the calling identity must have the
+  If you are using an identity other than the root user of the Amazon Web Services
+  account that owns the Outposts bucket, the calling identity must have the
   `s3-outposts:GetBucket` permissions on the specified Outposts bucket and belong
   to the Outposts bucket owner's account in order to use this action. Only users
   from Outposts bucket owner account with the right permissions can perform
@@ -1241,10 +1396,10 @@ defmodule AWS.S3Control do
   Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
   in the *Amazon S3 User Guide*.
 
-  If you are using an identity other than the root user of the AWS account that
-  owns the bucket, the calling identity must have the `GetBucketPolicy`
-  permissions on the specified bucket and belong to the bucket owner's account in
-  order to use this action.
+  If you are using an identity other than the root user of the Amazon Web Services
+  account that owns the bucket, the calling identity must have the
+  `GetBucketPolicy` permissions on the specified bucket and belong to the bucket
+  owner's account in order to use this action.
 
   Only users from Outposts bucket owner account with the right permissions can
   perform actions on an Outposts bucket. If you don't have
@@ -1252,9 +1407,9 @@ defmodule AWS.S3Control do
   belongs to the bucket owner's account, Amazon S3 returns a `403 Access Denied`
   error.
 
-  As a security precaution, the root user of the AWS account that owns a bucket
-  can always use this action, even if the policy explicitly denies the root user
-  the ability to perform this action.
+  As a security precaution, the root user of the Amazon Web Services account that
+  owns a bucket can always use this action, even if the policy explicitly denies
+  the root user the ability to perform this action.
 
   For more information about bucket policies, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
 
@@ -1409,7 +1564,138 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Retrieves the `PublicAccessBlock` configuration for an AWS account.
+  Returns configuration information about the specified Multi-Region Access Point.
+
+  This action will always be routed to the US West (Oregon) Region. For more
+  information about the restrictions around managing Multi-Region Access Points,
+  see [Managing Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html)
+  in the *Amazon S3 User Guide*.
+
+  The following actions are related to `GetMultiRegionAccessPoint`:
+
+    *
+  [CreateMultiRegionAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateMultiRegionAccessPoint.html)     *
+  [DeleteMultiRegionAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteMultiRegionAccessPoint.html)
+
+    *
+  [DescribeMultiRegionAccessPointOperation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html)     *
+  [ListMultiRegionAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListMultiRegionAccessPoints.html)
+  """
+  def get_multi_region_access_point(%Client{} = client, name, account_id, options \\ []) do
+    url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_uri(name)}"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns the access control policy of the specified Multi-Region Access Point.
+
+  This action will always be routed to the US West (Oregon) Region. For more
+  information about the restrictions around managing Multi-Region Access Points,
+  see [Managing Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html)
+  in the *Amazon S3 User Guide*.
+
+  The following actions are related to `GetMultiRegionAccessPointPolicy`:
+
+    *
+  [GetMultiRegionAccessPointPolicyStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPointPolicyStatus.html)     *
+  [PutMultiRegionAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutMultiRegionAccessPointPolicy.html)
+  """
+  def get_multi_region_access_point_policy(%Client{} = client, name, account_id, options \\ []) do
+    url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_uri(name)}/policy"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Indicates whether the specified Multi-Region Access Point has an access control
+  policy that allows public access.
+
+  This action will always be routed to the US West (Oregon) Region. For more
+  information about the restrictions around managing Multi-Region Access Points,
+  see [Managing Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html)
+  in the *Amazon S3 User Guide*.
+
+  The following actions are related to `GetMultiRegionAccessPointPolicyStatus`:
+
+    *
+  [GetMultiRegionAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPointPolicy.html)     *
+  [PutMultiRegionAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutMultiRegionAccessPointPolicy.html)
+  """
+  def get_multi_region_access_point_policy_status(
+        %Client{} = client,
+        name,
+        account_id,
+        options \\ []
+      ) do
+    url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_uri(name)}/policystatus"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Retrieves the `PublicAccessBlock` configuration for an Amazon Web Services
+  account.
 
   For more information, see [ Using Amazon S3 block public access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
 
@@ -1672,7 +1958,7 @@ defmodule AWS.S3Control do
 
   @doc """
   Lists current S3 Batch Operations jobs and jobs that have ended within the last
-  30 days for the AWS account making the request.
+  30 days for the Amazon Web Services account making the request.
 
   For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html)
   in the *Amazon S3 User Guide*.
@@ -1724,6 +2010,74 @@ defmodule AWS.S3Control do
     query_params =
       if !is_nil(job_statuses) do
         [{"jobStatuses", job_statuses} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns a list of the Multi-Region Access Points currently associated with the
+  specified Amazon Web Services account.
+
+  Each call can return up to 100 Multi-Region Access Points, the maximum number of
+  Multi-Region Access Points that can be associated with a single account.
+
+  This action will always be routed to the US West (Oregon) Region. For more
+  information about the restrictions around managing Multi-Region Access Points,
+  see [Managing Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html)
+  in the *Amazon S3 User Guide*.
+
+  The following actions are related to `ListMultiRegionAccessPoint`:
+
+    *
+  [CreateMultiRegionAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateMultiRegionAccessPoint.html)     *
+  [DeleteMultiRegionAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteMultiRegionAccessPoint.html)
+
+    *
+  [DescribeMultiRegionAccessPointOperation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html)     *
+  [GetMultiRegionAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPoint.html)
+  """
+  def list_multi_region_access_points(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        account_id,
+        options \\ []
+      ) do
+    url_path = "/v20180820/mrap/instances"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -2039,19 +2393,19 @@ defmodule AWS.S3Control do
   Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
   in the *Amazon S3 User Guide*.
 
-  If you are using an identity other than the root user of the AWS account that
-  owns the Outposts bucket, the calling identity must have the `PutBucketPolicy`
-  permissions on the specified Outposts bucket and belong to the bucket owner's
-  account in order to use this action.
+  If you are using an identity other than the root user of the Amazon Web Services
+  account that owns the Outposts bucket, the calling identity must have the
+  `PutBucketPolicy` permissions on the specified Outposts bucket and belong to the
+  bucket owner's account in order to use this action.
 
   If you don't have `PutBucketPolicy` permissions, Amazon S3 returns a `403 Access
   Denied` error. If you have the correct permissions, but you're not using an
   identity that belongs to the bucket owner's account, Amazon S3 returns a `405
   Method Not Allowed` error.
 
-  As a security precaution, the root user of the AWS account that owns a bucket
-  can always use this action, even if the policy explicitly denies the root user
-  the ability to perform this action.
+  As a security precaution, the root user of the Amazon Web Services account that
+  owns a bucket can always use this action, even if the policy explicitly denies
+  the root user the ability to perform this action.
 
   For more information about bucket policies, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
 
@@ -2107,13 +2461,13 @@ defmodule AWS.S3Control do
   Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
   in the *Amazon S3 User Guide*.
 
-  Use tags to organize your AWS bill to reflect your own cost structure. To do
-  this, sign up to get your AWS account bill with tag key values included. Then,
-  to see the cost of combined resources, organize your billing information
-  according to resources with the same tag key values. For example, you can tag
-  several resources with a specific application name, and then organize your
-  billing information to see the total cost of that application across several
-  services. For more information, see [Cost allocation and tagging](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html).
+  Use tags to organize your Amazon Web Services bill to reflect your own cost
+  structure. To do this, sign up to get your Amazon Web Services account bill with
+  tag key values included. Then, to see the cost of combined resources, organize
+  your billing information according to resources with the same tag key values.
+  For example, you can tag several resources with a specific application name, and
+  then organize your billing information to see the total cost of that application
+  across several services. For more information, see [Cost allocation and tagging](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html).
 
   Within a bucket, if you add a tag that has the same key as an existing tag, the
   new value overwrites the old value. For more information, see [ Using cost allocation in Amazon S3 bucket
@@ -2132,7 +2486,7 @@ defmodule AWS.S3Control do
       * Description: The tag provided was not a valid tag.
   This error can occur if the tag did not pass input validation. For information
   about tag restrictions, see [ User-Defined Tag Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html)
-  and [ AWS-Generated Cost Allocation Tag Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tag-restrictions.html).
+  and [ Amazon Web Services-Generated Cost Allocation Tag Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tag-restrictions.html).
 
     * Error code: `MalformedXMLError`
 
@@ -2226,7 +2580,7 @@ defmodule AWS.S3Control do
       * For tagging-related restrictions related to characters
   and encodings, see [User-Defined Tag
   Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html)
-  in the *AWS Billing and Cost Management User Guide*.
+  in the *Billing and Cost Management User Guide*.
 
   To use this action, you must have permission to perform the `s3:PutJobTagging`
   action.
@@ -2265,7 +2619,51 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Creates or modifies the `PublicAccessBlock` configuration for an AWS account.
+  Associates an access control policy with the specified Multi-Region Access
+  Point.
+
+  Each Multi-Region Access Point can have only one policy, so a request made to
+  this action replaces any existing policy that is associated with the specified
+  Multi-Region Access Point.
+
+  This action will always be routed to the US West (Oregon) Region. For more
+  information about the restrictions around managing Multi-Region Access Points,
+  see [Managing Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html)
+  in the *Amazon S3 User Guide*.
+
+  The following actions are related to `PutMultiRegionAccessPointPolicy`:
+
+    *
+  [GetMultiRegionAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPointPolicy.html)     *
+  [GetMultiRegionAccessPointPolicyStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPointPolicyStatus.html)
+  """
+  def put_multi_region_access_point_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/v20180820/async-requests/mrap/put-policy"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates or modifies the `PublicAccessBlock` configuration for an Amazon Web
+  Services account.
 
   For more information, see [ Using Amazon S3 block public access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
 

@@ -26,6 +26,20 @@ defmodule AWS.Transcribe do
   end
 
   @doc """
+  Creates an analytics category.
+
+  Amazon Transcribe applies the conditions specified by your analytics categories
+  to your call analytics jobs. For each analytics category, you specify one or
+  more rules. For example, you can specify a rule that the customer sentiment was
+  neutral or negative within that category. If you start a call analytics job,
+  Amazon Transcribe applies the category to the analytics job that you've
+  specified.
+  """
+  def create_call_analytics_category(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateCallAnalyticsCategory", input, options)
+  end
+
+  @doc """
   Creates a new custom language model.
 
   Use Amazon S3 prefixes to provide the location of your input files. The time it
@@ -36,7 +50,7 @@ defmodule AWS.Transcribe do
   end
 
   @doc """
-  Creates a new custom vocabulary that you can use to change how Amazon Transcribe
+  Creates a new custom vocabulary that you can use to modify how Amazon Transcribe
   Medical transcribes your audio file.
   """
   def create_medical_vocabulary(%Client{} = client, input, options \\ []) do
@@ -57,6 +71,20 @@ defmodule AWS.Transcribe do
   """
   def create_vocabulary_filter(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateVocabularyFilter", input, options)
+  end
+
+  @doc """
+  Deletes a call analytics category using its name.
+  """
+  def delete_call_analytics_category(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteCallAnalyticsCategory", input, options)
+  end
+
+  @doc """
+  Deletes a call analytics job using its name.
+  """
+  def delete_call_analytics_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteCallAnalyticsJob", input, options)
   end
 
   @doc """
@@ -106,15 +134,35 @@ defmodule AWS.Transcribe do
   @doc """
   Gets information about a single custom language model.
 
-  Use this information to see details about the language model in your AWS
-  account. You can also see whether the base language model used to create your
-  custom language model has been updated. If Amazon Transcribe has updated the
-  base model, you can create a new custom language model using the updated base
-  model. If the language model wasn't created, you can use this operation to
-  understand why Amazon Transcribe couldn't create it.
+  Use this information to see details about the language model in your Amazon Web
+  Services account. You can also see whether the base language model used to
+  create your custom language model has been updated. If Amazon Transcribe has
+  updated the base model, you can create a new custom language model using the
+  updated base model. If the language model wasn't created, you can use this
+  operation to understand why Amazon Transcribe couldn't create it.
   """
   def describe_language_model(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeLanguageModel", input, options)
+  end
+
+  @doc """
+  Retrieves information about a call analytics category.
+  """
+  def get_call_analytics_category(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCallAnalyticsCategory", input, options)
+  end
+
+  @doc """
+  Returns information about a call analytics job.
+
+  To see the status of the job, check the `CallAnalyticsJobStatus` field. If the
+  status is `COMPLETED`, the job is finished and you can find the results at the
+  location specified in the `TranscriptFileUri` field. If you enable personally
+  identifiable information (PII) redaction, the redacted transcript appears in the
+  `RedactedTranscriptFileUri` field.
+  """
+  def get_call_analytics_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCallAnalyticsJob", input, options)
   end
 
   @doc """
@@ -162,6 +210,25 @@ defmodule AWS.Transcribe do
   end
 
   @doc """
+  Provides more information about the call analytics categories that you've
+  created.
+
+  You can use the information in this list to find a specific category. You can
+  then use the operation to get more information about it.
+  """
+  def list_call_analytics_categories(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListCallAnalyticsCategories", input, options)
+  end
+
+  @doc """
+  List call analytics jobs with a specified status or substring that matches their
+  names.
+  """
+  def list_call_analytics_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListCallAnalyticsJobs", input, options)
+  end
+
+  @doc """
   Provides more information about the custom language models you've created.
 
   You can use the information in this list to find a specific custom language
@@ -190,6 +257,14 @@ defmodule AWS.Transcribe do
   end
 
   @doc """
+  Lists all tags associated with a given transcription job, vocabulary, or
+  resource.
+  """
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+  end
+
+  @doc """
   Lists transcription jobs with the specified status.
   """
   def list_transcription_jobs(%Client{} = client, input, options \\ []) do
@@ -213,6 +288,20 @@ defmodule AWS.Transcribe do
   end
 
   @doc """
+  Starts an asynchronous analytics job that not only transcribes the audio
+  recording of a caller and agent, but also returns additional insights.
+
+  These insights include how quickly or loudly the caller or agent was speaking.
+  To retrieve additional insights with your analytics jobs, create categories. A
+  category is a way to classify analytics jobs based on attributes, such as a
+  customer's sentiment or a particular phrase being used during the call. For more
+  information, see the operation.
+  """
+  def start_call_analytics_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartCallAnalyticsJob", input, options)
+  end
+
+  @doc """
   Starts a batch job to transcribe medical speech to text.
   """
   def start_medical_transcription_job(%Client{} = client, input, options \\ []) do
@@ -224,6 +313,30 @@ defmodule AWS.Transcribe do
   """
   def start_transcription_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartTranscriptionJob", input, options)
+  end
+
+  @doc """
+  Tags an Amazon Transcribe resource with the given list of tags.
+  """
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
+  end
+
+  @doc """
+  Removes specified tags from a specified Amazon Transcribe resource.
+  """
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates the call analytics category with new values.
+
+  The `UpdateCallAnalyticsCategory` operation overwrites all of the existing
+  information with the values that you provide in the request.
+  """
+  def update_call_analytics_category(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateCallAnalyticsCategory", input, options)
   end
 
   @doc """

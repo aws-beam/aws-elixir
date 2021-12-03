@@ -3,23 +3,26 @@
 
 defmodule AWS.Batch do
   @moduledoc """
-  Using AWS Batch, you can run batch computing workloads on the AWS Cloud.
+  Batch
+
+  Using Batch, you can run batch computing workloads on the Amazon Web Services
+  Cloud.
 
   Batch computing is a common means for developers, scientists, and engineers to
-  access large amounts of compute resources. AWS Batch uses the advantages of this
+  access large amounts of compute resources. Batch uses the advantages of this
   computing workload to remove the undifferentiated heavy lifting of configuring
   and managing required infrastructure. At the same time, it also adopts a
-  familiar batch computing software approach. Given these advantages, AWS Batch
-  can help you to efficiently provision resources in response to jobs submitted,
-  thus effectively helping you to eliminate capacity constraints, reduce compute
-  costs, and deliver your results more quickly.
+  familiar batch computing software approach. Given these advantages, Batch can
+  help you to efficiently provision resources in response to jobs submitted, thus
+  effectively helping you to eliminate capacity constraints, reduce compute costs,
+  and deliver your results more quickly.
 
-  As a fully managed service, AWS Batch can run batch computing workloads of any
-  scale. AWS Batch automatically provisions compute resources and optimizes
-  workload distribution based on the quantity and scale of your specific
-  workloads. With AWS Batch, there's no need to install or manage batch computing
-  software. This means that you can focus your time and energy on analyzing
-  results and solving your specific problems.
+  As a fully managed service, Batch can run batch computing workloads of any
+  scale. Batch automatically provisions compute resources and optimizes workload
+  distribution based on the quantity and scale of your specific workloads. With
+  Batch, there's no need to install or manage batch computing software. This means
+  that you can focus your time and energy on analyzing results and solving your
+  specific problems.
   """
 
   alias AWS.Client
@@ -42,7 +45,7 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Cancels a job in an AWS Batch job queue.
+  Cancels a job in an Batch job queue.
 
   Jobs that are in the `SUBMITTED`, `PENDING`, or `RUNNABLE` state are canceled.
   Jobs that have progressed to `STARTING` or `RUNNING` aren't canceled, but the
@@ -68,15 +71,15 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Creates an AWS Batch compute environment.
+  Creates an Batch compute environment.
 
   You can create `MANAGED` or `UNMANAGED` compute environments. `MANAGED` compute
-  environments can use Amazon EC2 or AWS Fargate resources. `UNMANAGED` compute
+  environments can use Amazon EC2 or Fargate resources. `UNMANAGED` compute
   environments can only use EC2 resources.
 
-  In a managed compute environment, AWS Batch manages the capacity and instance
-  types of the compute resources within the environment. This is based on the
-  compute resource specification that you define or the [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html)
+  In a managed compute environment, Batch manages the capacity and instance types
+  of the compute resources within the environment. This is based on the compute
+  resource specification that you define or the [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html)
   that you specify when you create the compute environment. Either, you can choose
   to use EC2 On-Demand Instances and EC2 Spot Instances. Or, you can use Fargate
   and Fargate Spot capacity in your managed compute environment. You can
@@ -97,13 +100,12 @@ defmodule AWS.Batch do
   cluster. For more information, see [Launching an Amazon ECS container instance](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
-  AWS Batch doesn't upgrade the AMIs in a compute environment after the
-  environment is created. For example, it doesn't update the AMIs when a newer
-  version of the Amazon ECS optimized AMI is available. Therefore, you're
-  responsible for managing the guest operating system (including its updates and
-  security patches) and any additional application software or utilities that you
-  install on the compute resources. To use a new AMI for your AWS Batch jobs,
-  complete these steps:
+  Batch doesn't upgrade the AMIs in a compute environment after the environment is
+  created. For example, it doesn't update the AMIs when a newer version of the
+  Amazon ECS optimized AMI is available. Therefore, you're responsible for
+  managing the guest operating system (including its updates and security patches)
+  and any additional application software or utilities that you install on the
+  compute resources. To use a new AMI for your Batch jobs, complete these steps:
 
      Create a new compute environment with the new AMI.
 
@@ -132,12 +134,12 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Creates an AWS Batch job queue.
+  Creates an Batch job queue.
 
   When you create a job queue, you associate one or more compute environments to
   the queue and assign an order of preference for the compute environments.
 
-  You also set a priority to the job queue that determines the order that the AWS
+  You also set a priority to the job queue that determines the order that the
   Batch scheduler places jobs onto its associated compute environments. For
   example, if a compute environment is associated with more than one job queue,
   the job queue with a higher priority is given preference for scheduling jobs to
@@ -162,14 +164,35 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Deletes an AWS Batch compute environment.
+  Creates an Batch scheduling policy.
+  """
+  def create_scheduling_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/createschedulingpolicy"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes an Batch compute environment.
 
   Before you can delete a compute environment, you must set its state to
   `DISABLED` with the `UpdateComputeEnvironment` API operation and disassociate it
   from any job queues with the `UpdateJobQueue` API operation. Compute
-  environments that use AWS Fargate resources must terminate all active jobs on
-  that compute environment before deleting the compute environment. If this isn't
-  done, the compute environment enters an invalid state.
+  environments that use Fargate resources must terminate all active jobs on that
+  compute environment before deleting the compute environment. If this isn't done,
+  the compute environment enters an invalid state.
   """
   def delete_compute_environment(%Client{} = client, input, options \\ []) do
     url_path = "/v1/deletecomputeenvironment"
@@ -218,7 +241,30 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Deregisters an AWS Batch job definition.
+  Deletes the specified scheduling policy.
+
+  You can't delete a scheduling policy that's used in any job queues.
+  """
+  def delete_scheduling_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/deleteschedulingpolicy"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deregisters an Batch job definition.
 
   Job definitions are permanently deleted after 180 days.
   """
@@ -311,7 +357,7 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Describes a list of AWS Batch jobs.
+  Describes a list of Batch jobs.
   """
   def describe_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/v1/describejobs"
@@ -332,7 +378,28 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Returns a list of AWS Batch jobs.
+  Describes one or more of your scheduling policies.
+  """
+  def describe_scheduling_policies(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/describeschedulingpolicies"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns a list of Batch jobs.
 
   You must specify only one of the following items:
 
@@ -365,11 +432,32 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Lists the tags for an AWS Batch resource.
+  Returns a list of Batch scheduling policies.
+  """
+  def list_scheduling_policies(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/listschedulingpolicies"
+    headers = []
+    query_params = []
 
-  AWS Batch resources that support tags are compute environments, jobs, job
-  definitions, and job queues. ARNs for child jobs of array and multi-node
-  parallel (MNP) jobs are not supported.
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists the tags for an Batch resource.
+
+  Batch resources that support tags are compute environments, jobs, job
+  definitions, job queues, and scheduling policies. ARNs for child jobs of array
+  and multi-node parallel (MNP) jobs are not supported.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -390,7 +478,7 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Registers an AWS Batch job definition.
+  Registers an Batch job definition.
   """
   def register_job_definition(%Client{} = client, input, options \\ []) do
     url_path = "/v1/registerjobdefinition"
@@ -411,15 +499,18 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Submits an AWS Batch job from a job definition.
+  Submits an Batch job from a job definition.
 
   Parameters that are specified during `SubmitJob` override parameters defined in
   the job definition. vCPU and memory requirements that are specified in the
-  `ResourceRequirements` objects in the job definition are the exception. They
+  `resourceRequirements` objects in the job definition are the exception. They
   can't be overridden this way using the `memory` and `vcpus` parameters. Rather,
   you must specify updates to job definition parameters in a
   `ResourceRequirements` object that's included in the `containerOverrides`
   parameter.
+
+  Job queues with a scheduling policy are limited to 500 active fair share
+  identifiers at a time.
 
   Jobs that run on Fargate resources can't be guaranteed to run for more than 14
   days. This is because, after 14 days, Fargate resources might become unavailable
@@ -447,10 +538,10 @@ defmodule AWS.Batch do
   Associates the specified tags to a resource with the specified `resourceArn`.
 
   If existing tags on a resource aren't specified in the request parameters, they
-  aren't changed. When a resource is deleted, the tags associated with that
-  resource are deleted as well. AWS Batch resources that support tags are compute
-  environments, jobs, job definitions, and job queues. ARNs for child jobs of
-  array and multi-node parallel (MNP) jobs are not supported.
+  aren't changed. When a resource is deleted, the tags that are associated with
+  that resource are deleted as well. Batch resources that support tags are compute
+  environments, jobs, job definitions, job queues, and scheduling policies. ARNs
+  for child jobs of array and multi-node parallel (MNP) jobs are not supported.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -496,7 +587,7 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Deletes specified tags from an AWS Batch resource.
+  Deletes specified tags from an Batch resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -522,7 +613,7 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Updates an AWS Batch compute environment.
+  Updates an Batch compute environment.
   """
   def update_compute_environment(%Client{} = client, input, options \\ []) do
     url_path = "/v1/updatecomputeenvironment"
@@ -547,6 +638,27 @@ defmodule AWS.Batch do
   """
   def update_job_queue(%Client{} = client, input, options \\ []) do
     url_path = "/v1/updatejobqueue"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates a scheduling policy.
+  """
+  def update_scheduling_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/updateschedulingpolicy"
     headers = []
     query_params = []
 

@@ -6,8 +6,7 @@ defmodule AWS.RedshiftData do
   You can use the Amazon Redshift Data API to run queries on Amazon Redshift
   tables.
 
-  You can run individual SQL statements, which are committed if the statement
-  succeeds.
+  You can run SQL statements, which are committed if the statement succeeds.
 
   For more information about the Amazon Redshift Data API, see [Using the Amazon Redshift Data
   API](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html) in the
@@ -31,6 +30,28 @@ defmodule AWS.RedshiftData do
       signing_name: "redshift-data",
       target_prefix: "RedshiftData"
     }
+  end
+
+  @doc """
+  Runs one or more SQL statements, which can be data manipulation language (DML)
+  or data definition language (DDL).
+
+  Depending on the authorization method, use one of the following combinations of
+  request parameters:
+
+    * Secrets Manager - when connecting to a cluster, specify the Amazon
+  Resource Name (ARN) of the secret, the database name, and the cluster identifier
+  that matches the cluster in the secret. When connecting to a serverless
+  endpoint, specify the Amazon Resource Name (ARN) of the secret and the database
+  name.
+
+    * Temporary credentials - when connecting to a cluster, specify the
+  cluster identifier, the database name, and the database user name. Also,
+  permission to call the `redshift:GetClusterCredentials` operation is required.
+  When connecting to a serverless endpoint, specify the database name.
+  """
+  def batch_execute_statement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchExecuteStatement", input, options)
   end
 
   @doc """
@@ -60,12 +81,16 @@ defmodule AWS.RedshiftData do
   column list. Depending on the authorization method, use one of the following
   combinations of request parameters:
 
-    * AWS Secrets Manager - specify the Amazon Resource Name (ARN) of
-  the secret and the cluster identifier that matches the cluster in the secret.
+    * Secrets Manager - when connecting to a cluster, specify the Amazon
+  Resource Name (ARN) of the secret, the database name, and the cluster identifier
+  that matches the cluster in the secret. When connecting to a serverless
+  endpoint, specify the Amazon Resource Name (ARN) of the secret and the database
+  name.
 
-    * Temporary credentials - specify the cluster identifier, the
-  database name, and the database user name. Permission to call the
-  `redshift:GetClusterCredentials` operation is required to use this method.
+    * Temporary credentials - when connecting to a cluster, specify the
+  cluster identifier, the database name, and the database user name. Also,
+  permission to call the `redshift:GetClusterCredentials` operation is required.
+  When connecting to a serverless endpoint, specify the database name.
   """
   def describe_table(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeTable", input, options)
@@ -78,12 +103,16 @@ defmodule AWS.RedshiftData do
   This statement must be a single SQL statement. Depending on the authorization
   method, use one of the following combinations of request parameters:
 
-    * AWS Secrets Manager - specify the Amazon Resource Name (ARN) of
-  the secret and the cluster identifier that matches the cluster in the secret.
+    * Secrets Manager - when connecting to a cluster, specify the Amazon
+  Resource Name (ARN) of the secret, the database name, and the cluster identifier
+  that matches the cluster in the secret. When connecting to a serverless
+  endpoint, specify the Amazon Resource Name (ARN) of the secret and the database
+  name.
 
-    * Temporary credentials - specify the cluster identifier, the
-  database name, and the database user name. Permission to call the
-  `redshift:GetClusterCredentials` operation is required to use this method.
+    * Temporary credentials - when connecting to a cluster, specify the
+  cluster identifier, the database name, and the database user name. Also,
+  permission to call the `redshift:GetClusterCredentials` operation is required.
+  When connecting to a serverless endpoint, specify the database name.
   """
   def execute_statement(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ExecuteStatement", input, options)
@@ -105,12 +134,16 @@ defmodule AWS.RedshiftData do
   authorization method, use one of the following combinations of request
   parameters:
 
-    * AWS Secrets Manager - specify the Amazon Resource Name (ARN) of
-  the secret and the cluster identifier that matches the cluster in the secret.
+    * Secrets Manager - when connecting to a cluster, specify the Amazon
+  Resource Name (ARN) of the secret, the database name, and the cluster identifier
+  that matches the cluster in the secret. When connecting to a serverless
+  endpoint, specify the Amazon Resource Name (ARN) of the secret and the database
+  name.
 
-    * Temporary credentials - specify the cluster identifier, the
-  database name, and the database user name. Permission to call the
-  `redshift:GetClusterCredentials` operation is required to use this method.
+    * Temporary credentials - when connecting to a cluster, specify the
+  cluster identifier, the database name, and the database user name. Also,
+  permission to call the `redshift:GetClusterCredentials` operation is required.
+  When connecting to a serverless endpoint, specify the database name.
   """
   def list_databases(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDatabases", input, options)
@@ -123,12 +156,16 @@ defmodule AWS.RedshiftData do
   authorization method, use one of the following combinations of request
   parameters:
 
-    * AWS Secrets Manager - specify the Amazon Resource Name (ARN) of
-  the secret and the cluster identifier that matches the cluster in the secret.
+    * Secrets Manager - when connecting to a cluster, specify the Amazon
+  Resource Name (ARN) of the secret, the database name, and the cluster identifier
+  that matches the cluster in the secret. When connecting to a serverless
+  endpoint, specify the Amazon Resource Name (ARN) of the secret and the database
+  name.
 
-    * Temporary credentials - specify the cluster identifier, the
-  database name, and the database user name. Permission to call the
-  `redshift:GetClusterCredentials` operation is required to use this method.
+    * Temporary credentials - when connecting to a cluster, specify the
+  cluster identifier, the database name, and the database user name. Also,
+  permission to call the `redshift:GetClusterCredentials` operation is required.
+  When connecting to a serverless endpoint, specify the database name.
   """
   def list_schemas(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListSchemas", input, options)
@@ -152,12 +189,16 @@ defmodule AWS.RedshiftData do
   Depending on the authorization method, use one of the following combinations of
   request parameters:
 
-    * AWS Secrets Manager - specify the Amazon Resource Name (ARN) of
-  the secret and the cluster identifier that matches the cluster in the secret.
+    * Secrets Manager - when connecting to a cluster, specify the Amazon
+  Resource Name (ARN) of the secret, the database name, and the cluster identifier
+  that matches the cluster in the secret. When connecting to a serverless
+  endpoint, specify the Amazon Resource Name (ARN) of the secret and the database
+  name.
 
-    * Temporary credentials - specify the cluster identifier, the
-  database name, and the database user name. Permission to call the
-  `redshift:GetClusterCredentials` operation is required to use this method.
+    * Temporary credentials - when connecting to a cluster, specify the
+  cluster identifier, the database name, and the database user name. Also,
+  permission to call the `redshift:GetClusterCredentials` operation is required.
+  When connecting to a serverless endpoint, specify the database name.
   """
   def list_tables(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTables", input, options)

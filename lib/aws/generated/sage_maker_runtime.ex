@@ -36,8 +36,9 @@ defmodule AWS.SageMakerRuntime do
   Amazon SageMaker might add additional headers. You should not rely on the
   behavior of headers outside those enumerated in the request syntax.
 
-  Calls to `InvokeEndpoint` are authenticated by using AWS Signature Version 4.
-  For information, see [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html)
+  Calls to `InvokeEndpoint` are authenticated by using Amazon Web Services
+  Signature Version 4. For information, see [Authenticating Requests (Amazon Web Services Signature Version
+  4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html)
   in the *Amazon S3 API Reference*.
 
   A customer's model containers must respond to requests within 60 seconds. The
@@ -101,6 +102,62 @@ defmodule AWS.SageMakerRuntime do
       input,
       options,
       nil
+    )
+  end
+
+  @doc """
+  After you deploy a model into production using Amazon SageMaker hosting
+  services, your client applications use this API to get inferences from the model
+  hosted at the specified endpoint in an asynchronous manner.
+
+  Inference requests sent to this API are enqueued for asynchronous processing.
+  The processing of the inference request may or may not complete before the you
+  receive a response from this API. The response from this API will not contain
+  the result of the inference request but contain information about where you can
+  locate it.
+
+  Amazon SageMaker strips all `POST` headers except those supported by the API.
+  Amazon SageMaker might add additional headers. You should not rely on the
+  behavior of headers outside those enumerated in the request syntax.
+
+  Calls to `InvokeEndpointAsync` are authenticated by using Amazon Web Services
+  Signature Version 4. For information, see [Authenticating Requests (Amazon Web Services Signature Version
+  4)](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html)
+  in the *Amazon S3 API Reference*.
+  """
+  def invoke_endpoint_async(%Client{} = client, endpoint_name, input, options \\ []) do
+    url_path = "/endpoints/#{AWS.Util.encode_uri(endpoint_name)}/async-invocations"
+
+    {headers, input} =
+      [
+        {"Accept", "X-Amzn-SageMaker-Accept"},
+        {"ContentType", "X-Amzn-SageMaker-Content-Type"},
+        {"CustomAttributes", "X-Amzn-SageMaker-Custom-Attributes"},
+        {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
+        {"InputLocation", "X-Amzn-SageMaker-InputLocation"},
+        {"RequestTTLSeconds", "X-Amzn-SageMaker-RequestTTLSeconds"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"X-Amzn-SageMaker-OutputLocation", "OutputLocation"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
     )
   end
 end

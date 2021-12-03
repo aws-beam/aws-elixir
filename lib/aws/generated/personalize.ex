@@ -37,7 +37,17 @@ defmodule AWS.Personalize do
   end
 
   @doc """
-  Creates a campaign by deploying a solution version.
+  Creates a batch segment job.
+
+  The operation can handle up to 50 million records and the input file must be in
+  JSON format. For more information, see `recommendations-batch`.
+  """
+  def create_batch_segment_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateBatchSegmentJob", input, options)
+  end
+
+  @doc """
+  Creates a campaign that deploys a solution version.
 
   When a client calls the
   [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html) and
@@ -133,9 +143,8 @@ defmodule AWS.Personalize do
   Creates a job that exports data from your dataset to an Amazon S3 bucket.
 
   To allow Amazon Personalize to export the training data, you must specify an
-  service-linked AWS Identity and Access Management (IAM) role that gives Amazon
-  Personalize `PutObject` permissions for your Amazon S3 bucket. For information,
-  see [Exporting a dataset](https://docs.aws.amazon.com/personalize/latest/dg/export-data.html) in
+  service-linked IAM role that gives Amazon Personalize `PutObject` permissions
+  for your Amazon S3 bucket. For information, see [Exporting a dataset](https://docs.aws.amazon.com/personalize/latest/dg/export-data.html) in
   the Amazon Personalize developer guide.
 
   ## Status
@@ -157,9 +166,8 @@ defmodule AWS.Personalize do
   @doc """
   Creates an empty dataset group.
 
-  A dataset group contains related datasets that supply data for training a model.
-  A dataset group can contain at most three datasets, one for each type of
-  dataset:
+  A dataset group is a container for Amazon Personalize resources. A dataset group
+  can contain at most three datasets, one for each type of dataset:
 
     * Interactions
 
@@ -167,9 +175,12 @@ defmodule AWS.Personalize do
 
     * Users
 
-  To train a model (create a solution), a dataset group that contains an
-  `Interactions` dataset is required. Call `CreateDataset` to add a dataset to the
-  group.
+  A dataset group can be a Domain dataset group, where you specify a domain and
+  use pre-configured resources like recommenders, or a Custom dataset group, where
+  you use custom resources, such as a solution with a solution version, that you
+  deploy with a campaign. If you start with a Domain dataset group, you can still
+  add custom resources such as solutions and solution versions trained with
+  recipes for custom use cases and deployed with campaigns.
 
   A dataset group can be in one of the following states:
 
@@ -184,9 +195,9 @@ defmodule AWS.Personalize do
   You must wait until the `status` of the dataset group is `ACTIVE` before adding
   a dataset to the group.
 
-  You can specify an AWS Key Management Service (KMS) key to encrypt the datasets
-  in the group. If you specify a KMS key, you must also include an AWS Identity
-  and Access Management (IAM) role that has permission to access the key.
+  You can specify an Key Management Service (KMS) key to encrypt the datasets in
+  the group. If you specify a KMS key, you must also include an Identity and
+  Access Management (IAM) role that has permission to access the key.
 
   ## APIs that require a dataset group ARN in the request
 
@@ -212,11 +223,11 @@ defmodule AWS.Personalize do
   Creates a job that imports training data from your data source (an Amazon S3
   bucket) to an Amazon Personalize dataset.
 
-  To allow Amazon Personalize to import the training data, you must specify an AWS
-  Identity and Access Management (IAM) service role that has permission to read
-  from the data source, as Amazon Personalize makes a copy of your data and
-  processes it in an internal AWS system. For information on granting access to
-  your Amazon S3 bucket, see [Giving Amazon Personalize Access to Amazon S3 Resources](https://docs.aws.amazon.com/personalize/latest/dg/granting-personalize-s3-access.html).
+  To allow Amazon Personalize to import the training data, you must specify an IAM
+  service role that has permission to read from the data source, as Amazon
+  Personalize makes a copy of your data and processes it internally. For
+  information on granting access to your Amazon S3 bucket, see [Giving Amazon Personalize Access to Amazon S3
+  Resources](https://docs.aws.amazon.com/personalize/latest/dg/granting-personalize-s3-access.html).
 
   The dataset import job replaces any existing data in the dataset that you
   imported in bulk.
@@ -292,13 +303,51 @@ defmodule AWS.Personalize do
   end
 
   @doc """
+  Creates a recommender with the recipe (a Domain dataset group use case) you
+  specify.
+
+  You create recommenders for a Domain dataset group and specify the recommender's
+  Amazon Resource Name (ARN) when you make a
+  [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
+  request.
+
+  ## Status
+
+  A recommender can be in one of the following states:
+
+    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+
+    * DELETE PENDING > DELETE IN_PROGRESS
+
+  To get the recommender status, call `DescribeRecommender`.
+
+  Wait until the `status` of the recommender is `ACTIVE` before asking the
+  recommender for recommendations.
+
+  ## Related APIs
+
+    * `ListRecommenders`
+
+    * `DescribeRecommender`
+
+    * `UpdateRecommender`
+
+    * `DeleteRecommender`
+  """
+  def create_recommender(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateRecommender", input, options)
+  end
+
+  @doc """
   Creates an Amazon Personalize schema from the specified schema string.
 
   The schema you create must be in Avro JSON format.
 
   Amazon Personalize recognizes three schema variants. Each schema is associated
-  with a dataset type and has a set of required field and keywords. You specify a
-  schema when you call `CreateDataset`.
+  with a dataset type and has a set of required field and keywords. If you are
+  creating a schema for a dataset in a Domain dataset group, you provide the
+  domain of the Domain dataset group. You specify a schema when you call
+  `CreateDataset`.
 
   ## Related APIs
 
@@ -367,7 +416,7 @@ defmodule AWS.Personalize do
   end
 
   @doc """
-  Trains or retrains an active solution.
+  Trains or retrains an active solution in a Custom dataset group.
 
   A solution is created using the `CreateSolution` operation and must be in the
   ACTIVE state before calling `CreateSolutionVersion`. A new version of the
@@ -469,6 +518,17 @@ defmodule AWS.Personalize do
   end
 
   @doc """
+  Deactivates and removes a recommender.
+
+  A deleted recommender can no longer be specified in a
+  [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
+  request.
+  """
+  def delete_recommender(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRecommender", input, options)
+  end
+
+  @doc """
   Deletes a schema.
 
   Before deleting a schema, you must delete all datasets referencing the schema.
@@ -505,6 +565,15 @@ defmodule AWS.Personalize do
   """
   def describe_batch_inference_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeBatchInferenceJob", input, options)
+  end
+
+  @doc """
+  Gets the properties of a batch segment job including name, Amazon Resource Name
+  (ARN), status, input and output configurations, and the ARN of the solution
+  version used to generate segments.
+  """
+  def describe_batch_segment_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeBatchSegmentJob", input, options)
   end
 
   @doc """
@@ -608,6 +677,25 @@ defmodule AWS.Personalize do
   end
 
   @doc """
+  Describes the given recommender, including its status.
+
+  A recommender can be in one of the following states:
+
+    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+
+    * DELETE PENDING > DELETE IN_PROGRESS
+
+  When the `status` is `CREATE FAILED`, the response includes the `failureReason`
+  key, which describes why.
+
+  For more information on recommenders, see
+  [CreateRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateRecommender.html).
+  """
+  def describe_recommender(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeRecommender", input, options)
+  end
+
+  @doc """
   Describes a schema.
 
   For more information on schemas, see `CreateSchema`.
@@ -647,6 +735,14 @@ defmodule AWS.Personalize do
   """
   def list_batch_inference_jobs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListBatchInferenceJobs", input, options)
+  end
+
+  @doc """
+  Gets a list of the batch segment jobs that have been performed off of a solution
+  version that you specify.
+  """
+  def list_batch_segment_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListBatchSegmentJobs", input, options)
   end
 
   @doc """
@@ -737,6 +833,19 @@ defmodule AWS.Personalize do
   end
 
   @doc """
+  Returns a list of recommenders in a given Domain dataset group.
+
+  When a Domain dataset group is not specified, all the recommenders associated
+  with the account are listed. The response provides the properties for each
+  recommender, including the Amazon Resource Name (ARN). For more information on
+  recommenders, see
+  [CreateRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateRecommender.html).
+  """
+  def list_recommenders(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListRecommenders", input, options)
+  end
+
+  @doc """
   Returns the list of schemas associated with the account.
 
   The response provides the properties for each schema, including the Amazon
@@ -805,5 +914,12 @@ defmodule AWS.Personalize do
   """
   def update_campaign(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateCampaign", input, options)
+  end
+
+  @doc """
+  Updates the recommender to modify the recommender configuration.
+  """
+  def update_recommender(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateRecommender", input, options)
   end
 end

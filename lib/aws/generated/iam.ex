@@ -133,8 +133,9 @@ defmodule AWS.IAM do
   Changes the password of the IAM user who is calling this operation.
 
   This operation can be performed using the CLI, the Amazon Web Services API, or
-  the **My Security Credentials** page in the Management Console. The account root
-  user password is not affected by this operation.
+  the **My Security Credentials** page in the Amazon Web Services Management
+  Console. The Amazon Web Services account root user password is not affected by
+  this operation.
 
   Use `UpdateLoginProfile` to use the CLI, the Amazon Web Services API, or the
   **Users** page in the IAM console to change the password for any IAM user. For
@@ -153,28 +154,31 @@ defmodule AWS.IAM do
 
   If you do not specify a user name, IAM determines the user name implicitly based
   on the Amazon Web Services access key ID signing the request. This operation
-  works for access keys under the account. Consequently, you can use this
-  operation to manage account root user credentials. This is true even if the
-  account has no associated users.
+  works for access keys under the Amazon Web Services account. Consequently, you
+  can use this operation to manage Amazon Web Services account root user
+  credentials. This is true even if the Amazon Web Services account has no
+  associated users.
 
   For information about quotas on the number of keys you can create, see [IAM and STS
   quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
 
-  To ensure the security of your account, the secret access key is accessible only
-  during key and user creation. You must save the key (for example, in a text
-  file) if you want to be able to access it again. If a secret key is lost, you
-  can delete the access keys for the associated user and then create new keys.
+  To ensure the security of your Amazon Web Services account, the secret access
+  key is accessible only during key and user creation. You must save the key (for
+  example, in a text file) if you want to be able to access it again. If a secret
+  key is lost, you can delete the access keys for the associated user and then
+  create new keys.
   """
   def create_access_key(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateAccessKey", input, options)
   end
 
   @doc """
-  Creates an alias for your account.
+  Creates an alias for your Amazon Web Services account.
 
-  For information about using an account alias, see [Using an alias for your account ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html)
-  in the *IAM User Guide*.
+  For information about using an Amazon Web Services account alias, see [Using an alias for your Amazon Web Services account
+  ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html) in the
+  *IAM User Guide*.
   """
   def create_account_alias(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateAccountAlias", input, options)
@@ -210,12 +214,12 @@ defmodule AWS.IAM do
   Creates a password for the specified IAM user.
 
   A password allows an IAM user to access Amazon Web Services services through the
-  Management Console.
+  Amazon Web Services Management Console.
 
   You can use the CLI, the Amazon Web Services API, or the **Users** page in the
   IAM console to create a password for any IAM user. Use `ChangePassword` to
   update your own existing password in the **My Security Credentials** page in the
-  Management Console.
+  Amazon Web Services Management Console.
 
   For more information about managing passwords, see [Managing passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html)
   in the *IAM User Guide*.
@@ -249,8 +253,15 @@ defmodule AWS.IAM do
     * A list of thumbprints of one or more server certificates that the
   IdP uses
 
-  You get all of this information from the OIDC IdP that you want to use to access
+  You get all of this information from the OIDC IdP you want to use to access
   Amazon Web Services.
+
+  Amazon Web Services secures communication with some OIDC identity providers
+  (IdPs) through our library of trusted certificate authorities (CAs) instead of
+  using a certificate thumbprint to verify your IdP server certificate. These OIDC
+  IdPs include Google, and those that use an Amazon S3 bucket to host a JSON Web
+  Key Set (JWKS) endpoint. In these cases, your legacy thumbprint remains in your
+  configuration, but is no longer used for validation.
 
   The trust for the OIDC provider is derived from the IAM provider that this
   operation creates. Therefore, it is best to limit access to the
@@ -261,7 +272,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Creates a new managed policy for your account.
+  Creates a new managed policy for your Amazon Web Services account.
 
   This operation creates a policy version with a version identifier of `v1` and
   sets v1 as the policy's default version. For more information about policy
@@ -299,7 +310,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Creates a new role for your account.
+  Creates a new role for your Amazon Web Services account.
 
   For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
   For information about quotas for role names and the number of roles you can
@@ -317,8 +328,8 @@ defmodule AWS.IAM do
   The SAML provider resource that you create with this operation can be used as a
   principal in an IAM role's trust policy. Such a policy can enable federated
   users who sign in using the SAML IdP to assume the role. You can create an IAM
-  role that supports Web-based single sign-on (SSO) to the Management Console or
-  one that supports API access to Amazon Web Services.
+  role that supports Web-based single sign-on (SSO) to the Amazon Web Services
+  Management Console or one that supports API access to Amazon Web Services.
 
   When you create the SAML provider resource, you upload a SAML metadata document
   that you get from your IdP. That document includes the issuer's name, expiration
@@ -329,7 +340,7 @@ defmodule AWS.IAM do
 
   This operation requires [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
 
-  For more information, see [Enabling SAML 2.0 federated users to access the Management
+  For more information, see [Enabling SAML 2.0 federated users to access the Amazon Web Services Management
   Console](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html)
   and [About SAML 2.0-based federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html)
   in the *IAM User Guide*.
@@ -381,7 +392,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Creates a new IAM user for your account.
+  Creates a new IAM user for your Amazon Web Services account.
 
   For information about quotas for the number of IAM users you can create, see
   [IAM and STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
@@ -392,7 +403,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Creates a new virtual MFA device for the account.
+  Creates a new virtual MFA device for the Amazon Web Services account.
 
   After creating the virtual MFA, use `EnableMFADevice` to attach the MFA device
   to an IAM user. For more information about creating and working with virtual MFA
@@ -430,18 +441,18 @@ defmodule AWS.IAM do
 
   If you do not specify a user name, IAM determines the user name implicitly based
   on the Amazon Web Services access key ID signing the request. This operation
-  works for access keys under the account. Consequently, you can use this
-  operation to manage account root user credentials even if the account has no
-  associated users.
+  works for access keys under the Amazon Web Services account. Consequently, you
+  can use this operation to manage Amazon Web Services account root user
+  credentials even if the Amazon Web Services account has no associated users.
   """
   def delete_access_key(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteAccessKey", input, options)
   end
 
   @doc """
-  Deletes the specified account alias.
+  Deletes the specified Amazon Web Services account alias.
 
-  For information about using an Amazon Web Services account alias, see [Using an alias for your account
+  For information about using an Amazon Web Services account alias, see [Using an alias for your Amazon Web Services account
   ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html) in the
   *IAM User Guide*.
   """
@@ -450,7 +461,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Deletes the password policy for the account.
+  Deletes the password policy for the Amazon Web Services account.
 
   There are no parameters.
   """
@@ -497,12 +508,13 @@ defmodule AWS.IAM do
 
   @doc """
   Deletes the password for the specified IAM user, which terminates the user's
-  ability to access Amazon Web Services services through the Management Console.
+  ability to access Amazon Web Services services through the Amazon Web Services
+  Management Console.
 
   You can use the CLI, the Amazon Web Services API, or the **Users** page in the
   IAM console to delete a password for any IAM user. You can use `ChangePassword`
   to update, but not delete, your own password in the ## My Security Credentials
-  page in the Management Console.
+  page in the Amazon Web Services Management Console.
 
   Deleting a user's password does not prevent a user from accessing Amazon Web
   Services through the command line interface or the API. To prevent all user
@@ -683,9 +695,9 @@ defmodule AWS.IAM do
 
   If you do not specify a user name, IAM determines the user name implicitly based
   on the Amazon Web Services access key ID signing the request. This operation
-  works for access keys under the account. Consequently, you can use this
-  operation to manage account root user credentials even if the account has no
-  associated IAM users.
+  works for access keys under the Amazon Web Services account. Consequently, you
+  can use this operation to manage Amazon Web Services account root user
+  credentials even if the Amazon Web Services account has no associated IAM users.
   """
   def delete_signing_certificate(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteSigningCertificate", input, options)
@@ -707,9 +719,9 @@ defmodule AWS.IAM do
   @doc """
   Deletes the specified IAM user.
 
-  Unlike the Management Console, when you delete a user programmatically, you must
-  delete the items attached to the user manually, or the deletion fails. For more
-  information, see [Deleting an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli).
+  Unlike the Amazon Web Services Management Console, when you delete a user
+  programmatically, you must delete the items attached to the user manually, or
+  the deletion fails. For more information, see [Deleting an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli).
   Before attempting to delete a user, remove the following items:
 
     * Password (`DeleteLoginProfile`)
@@ -815,7 +827,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Generates a credential report for the account.
+  Generates a credential report for the Amazon Web Services account.
 
   For more information about the credential report, see [Getting credential reports](https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html)
   in the *IAM User Guide*.
@@ -854,13 +866,13 @@ defmodule AWS.IAM do
   in the *IAM User Guide*.
 
   The data includes all attempts to access Amazon Web Services, not just the
-  successful ones. This includes all attempts that were made using the Management
-  Console, the Amazon Web Services API through any of the SDKs, or any of the
-  command line tools. An unexpected entry in the service last accessed data does
-  not mean that an account has been compromised, because the request might have
-  been denied. Refer to your CloudTrail logs as the authoritative source for
-  information about all API calls and whether they were successful or denied
-  access. For more information, see [Logging IAM events with CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html)
+  successful ones. This includes all attempts that were made using the Amazon Web
+  Services Management Console, the Amazon Web Services API through any of the
+  SDKs, or any of the command line tools. An unexpected entry in the service last
+  accessed data does not mean that an account has been compromised, because the
+  request might have been denied. Refer to your CloudTrail logs as the
+  authoritative source for information about all API calls and whether they were
+  successful or denied access. For more information, see [Logging IAM events with CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html)
   in the *IAM User Guide*.
 
   This operation returns a `JobId`. Use this parameter in the `
@@ -955,12 +967,13 @@ defmodule AWS.IAM do
 
   The service last accessed data includes all attempts to access an Amazon Web
   Services API, not just the successful ones. This includes all attempts that were
-  made using the Management Console, the Amazon Web Services API through any of
-  the SDKs, or any of the command line tools. An unexpected entry in the service
-  last accessed data does not mean that your account has been compromised, because
-  the request might have been denied. Refer to your CloudTrail logs as the
-  authoritative source for information about all API calls and whether they were
-  successful or denied access. For more information, see [Logging IAM events with CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html)
+  made using the Amazon Web Services Management Console, the Amazon Web Services
+  API through any of the SDKs, or any of the command line tools. An unexpected
+  entry in the service last accessed data does not mean that your account has been
+  compromised, because the request might have been denied. Refer to your
+  CloudTrail logs as the authoritative source for information about all API calls
+  and whether they were successful or denied access. For more information,
+  see [Logging IAM events with CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html)
   in the *IAM User Guide*.
 
   The `GenerateServiceLastAccessedDetails` operation returns a `JobId`. Use this
@@ -1035,7 +1048,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Retrieves the password policy for the account.
+  Retrieves the password policy for the Amazon Web Services account.
 
   This tells you the complexity requirements and mandatory rotation periods for
   the IAM user passwords in your account. For more information about using a
@@ -1102,7 +1115,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Retrieves a credential report for the account.
+  Retrieves a credential report for the Amazon Web Services account.
 
   For more information about the credential report, see [Getting credential reports](https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html)
   in the *IAM User Guide*.
@@ -1156,17 +1169,17 @@ defmodule AWS.IAM do
   Retrieves the user name for the specified IAM user.
 
   A login profile is created when you create a password for the user to access the
-  Management Console. If the user does not exist or does not have a password, the
-  operation returns a 404 (`NoSuchEntity`) error.
+  Amazon Web Services Management Console. If the user does not exist or does not
+  have a password, the operation returns a 404 (`NoSuchEntity`) error.
 
   If you create an IAM user with access to the console, the `CreateDate` reflects
   the date you created the initial password for the user.
 
   If you create an IAM user with programmatic access, and then later add a
-  password for the user to access the Management Console, the `CreateDate`
-  reflects the initial password creation date. A user with programmatic access
-  does not have a login profile unless you create a password for the user to
-  access the Management Console.
+  password for the user to access the Amazon Web Services Management Console, the
+  `CreateDate` reflects the initial password creation date. A user with
+  programmatic access does not have a login profile unless you create a password
+  for the user to access the Amazon Web Services Management Console.
   """
   def get_login_profile(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetLoginProfile", input, options)
@@ -1479,23 +1492,25 @@ defmodule AWS.IAM do
 
   If the `UserName` field is not specified, the user name is determined implicitly
   based on the Amazon Web Services access key ID used to sign the request. This
-  operation works for access keys under the account. Consequently, you can use
-  this operation to manage account root user credentials even if the account has
-  no associated users.
+  operation works for access keys under the Amazon Web Services account.
+  Consequently, you can use this operation to manage Amazon Web Services account
+  root user credentials even if the Amazon Web Services account has no associated
+  users.
 
-  To ensure the security of your account, the secret access key is accessible only
-  during key and user creation.
+  To ensure the security of your Amazon Web Services account, the secret access
+  key is accessible only during key and user creation.
   """
   def list_access_keys(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListAccessKeys", input, options)
   end
 
   @doc """
-  Lists the account alias associated with the account (Note: you can have only
-  one).
+  Lists the account alias associated with the Amazon Web Services account (Note:
+  you can have only one).
 
-  For information about using an account alias, see [Using an alias for your account ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html)
-  in the *IAM User Guide*.
+  For information about using an Amazon Web Services account alias, see [Using an alias for your Amazon Web Services account
+  ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html) in the
+  *IAM User Guide*.
   """
   def list_account_aliases(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListAccountAliases", input, options)
@@ -1687,7 +1702,7 @@ defmodule AWS.IAM do
 
   @doc """
   Lists information about the IAM OpenID Connect (OIDC) provider resource objects
-  defined in the account.
+  defined in the Amazon Web Services account.
 
   IAM resource-listing operations return a subset of the available attributes for
   the resource. For example, this operation does not return tags, even though they
@@ -1699,9 +1714,9 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Lists all the managed policies that are available in your account, including
-  your own customer-defined managed policies and all Amazon Web Services managed
-  policies.
+  Lists all the managed policies that are available in your Amazon Web Services
+  account, including your own customer-defined managed policies and all Amazon Web
+  Services managed policies.
 
   You can filter the list of policies that is returned using the optional
   `OnlyAttached`, `Scope`, and `PathPrefix` parameters. For example, to list only
@@ -1922,9 +1937,10 @@ defmodule AWS.IAM do
 
   If the `UserName` field is not specified, the user name is determined implicitly
   based on the Amazon Web Services access key ID used to sign the request for this
-  operation. This operation works for access keys under the account. Consequently,
-  you can use this operation to manage account root user credentials even if the
-  account has no associated users.
+  operation. This operation works for access keys under the Amazon Web Services
+  account. Consequently, you can use this operation to manage Amazon Web Services
+  account root user credentials even if the Amazon Web Services account has no
+  associated users.
   """
   def list_signing_certificates(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListSigningCertificates", input, options)
@@ -1978,8 +1994,8 @@ defmodule AWS.IAM do
   @doc """
   Lists the IAM users that have the specified path prefix.
 
-  If no path prefix is specified, the operation returns all users in the account.
-  If there are none, the operation returns an empty list.
+  If no path prefix is specified, the operation returns all users in the Amazon
+  Web Services account. If there are none, the operation returns an empty list.
 
   IAM resource-listing operations return a subset of the available attributes for
   the resource. For example, this operation does not return tags, even though they
@@ -1993,7 +2009,8 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Lists the virtual MFA devices defined in the account by assignment status.
+  Lists the virtual MFA devices defined in the Amazon Web Services account by
+  assignment status.
 
   If you do not specify an assignment status, the operation returns a list of all
   virtual MFA devices. Assignment status can be `Assigned`, `Unassigned`, or
@@ -2200,7 +2217,7 @@ defmodule AWS.IAM do
 
   @doc """
   Sets the specified version of the global endpoint token as the token version
-  used for the account.
+  used for the Amazon Web Services account.
 
   By default, Security Token Service (STS) is available as a global service, and
   all STS requests go to a single endpoint at `https://sts.amazonaws.com`. Amazon
@@ -2211,11 +2228,12 @@ defmodule AWS.IAM do
 
   If you make an STS call to the global endpoint, the resulting session tokens
   might be valid in some Regions but not others. It depends on the version that is
-  set in this operation. Version 1 tokens are valid only in Regions that are
-  available by default. These tokens do not work in manually enabled Regions, such
-  as Asia Pacific (Hong Kong). Version 2 tokens are valid in all Regions. However,
-  version 2 tokens are longer and might affect systems where you temporarily store
-  tokens. For information, see [Activating and deactivating STS in an Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
+  set in this operation. Version 1 tokens are valid only in Amazon Web Services
+  Regions that are available by default. These tokens do not work in manually
+  enabled Regions, such as Asia Pacific (Hong Kong). Version 2 tokens are valid in
+  all Regions. However, version 2 tokens are longer and might affect systems where
+  you temporarily store tokens. For information, see [Activating and deactivating STS in an Amazon Web Services
+  Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
   in the *IAM User Guide*.
 
   To view the current session token version, see the `GlobalEndpointTokenVersion`
@@ -2690,9 +2708,10 @@ defmodule AWS.IAM do
 
   If the `UserName` is not specified, the user name is determined implicitly based
   on the Amazon Web Services access key ID used to sign the request. This
-  operation works for access keys under the account. Consequently, you can use
-  this operation to manage account root user credentials even if the account has
-  no associated users.
+  operation works for access keys under the Amazon Web Services account.
+  Consequently, you can use this operation to manage Amazon Web Services account
+  root user credentials even if the Amazon Web Services account has no associated
+  users.
 
   For information about rotating keys, see [Managing keys and certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)
   in the *IAM User Guide*.
@@ -2702,7 +2721,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Updates the password policy settings for the account.
+  Updates the password policy settings for the Amazon Web Services account.
 
      This operation does not support partial updates. No parameters are
   required, but if you do not specify a parameter, that parameter's value reverts
@@ -2752,8 +2771,8 @@ defmodule AWS.IAM do
 
   You can use the CLI, the Amazon Web Services API, or the **Users** page in the
   IAM console to change the password for any IAM user. Use `ChangePassword` to
-  change your own password in the **My Security Credentials** page in the
-  Management Console.
+  change your own password in the **My Security Credentials** page in the Amazon
+  Web Services Management Console.
 
   For more information about modifying passwords, see [Managing passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html)
   in the *IAM User Guide*.
@@ -2769,12 +2788,19 @@ defmodule AWS.IAM do
   The list that you pass with this operation completely replaces the existing list
   of thumbprints. (The lists are not merged.)
 
-  Typically, you need to update a thumbprint only when the identity provider's
+  Typically, you need to update a thumbprint only when the identity provider
   certificate changes, which occurs rarely. However, if the provider's certificate
   *does* change, any attempt to assume an IAM role that specifies the OIDC
   provider as a principal fails until the certificate thumbprint is updated.
 
-  Trust for the OIDC provider is derived from the provider's certificate and is
+  Amazon Web Services secures communication with some OIDC identity providers
+  (IdPs) through our library of trusted certificate authorities (CAs) instead of
+  using a certificate thumbprint to verify your IdP server certificate. These OIDC
+  IdPs include Google, and those that use an Amazon S3 bucket to host a JSON Web
+  Key Set (JWKS) endpoint. In these cases, your legacy thumbprint remains in your
+  configuration, but is no longer used for validation.
+
+  Trust for the OIDC provider is derived from the provider certificate and is
   validated by the thumbprint. Therefore, it is best to limit access to the
   `UpdateOpenIDConnectProviderThumbprint` operation to highly privileged users.
   """
@@ -2860,9 +2886,10 @@ defmodule AWS.IAM do
 
   If the `UserName` field is not specified, the user name is determined implicitly
   based on the Amazon Web Services access key ID used to sign the request. This
-  operation works for access keys under the account. Consequently, you can use
-  this operation to manage account root user credentials even if the account has
-  no associated users.
+  operation works for access keys under the Amazon Web Services account.
+  Consequently, you can use this operation to manage Amazon Web Services account
+  root user credentials even if the Amazon Web Services account has no associated
+  users.
   """
   def update_signing_certificate(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateSigningCertificate", input, options)
@@ -2904,7 +2931,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Uploads a server certificate entity for the account.
+  Uploads a server certificate entity for the Amazon Web Services account.
 
   The server certificate entity includes a public key certificate, a private key,
   and an optional certificate chain, which should all be PEM-encoded.
@@ -2950,9 +2977,10 @@ defmodule AWS.IAM do
 
   If the `UserName` is not specified, the IAM user name is determined implicitly
   based on the Amazon Web Services access key ID used to sign the request. This
-  operation works for access keys under the account. Consequently, you can use
-  this operation to manage account root user credentials even if the account has
-  no associated users.
+  operation works for access keys under the Amazon Web Services account.
+  Consequently, you can use this operation to manage Amazon Web Services account
+  root user credentials even if the Amazon Web Services account has no associated
+  users.
 
   Because the body of an X.509 certificate can be large, you should use POST
   rather than GET when calling `UploadSigningCertificate`. For information about

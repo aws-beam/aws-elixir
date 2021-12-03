@@ -45,11 +45,11 @@ defmodule AWS.ElastiCache do
   replication groups, those actions will be replicated to all nodes in the
   replication group. For more information, see [Resource-level permissions](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html).
 
-  For example, you can use cost-allocation tags to your ElastiCache resources, AWS
-  generates a cost allocation report as a comma-separated value (CSV) file with
-  your usage and costs aggregated by your tags. You can apply tags that represent
-  business categories (such as cost centers, application names, or owners) to
-  organize your costs across multiple services.
+  For example, you can use cost-allocation tags to your ElastiCache resources,
+  Amazon generates a cost allocation report as a comma-separated value (CSV) file
+  with your usage and costs aggregated by your tags. You can apply tags that
+  represent business categories (such as cost centers, application names, or
+  owners) to organize your costs across multiple services.
 
   For more information, see [Using Cost Allocation Tags in Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Tagging.html)
   in the *ElastiCache User Guide*.
@@ -273,7 +273,7 @@ defmodule AWS.ElastiCache do
   see [Creating a Subnet Group](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.Creating.html).
   For versions below 5.0.6, the limit is 250 per cluster.
 
-  To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)
+  To request a limit increase, see [Amazon Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)
   and choose the limit type **Nodes per cluster per instance type**.
 
   When a Redis (cluster mode disabled) replication group has been successfully
@@ -300,7 +300,7 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  For Redis engine version 6.x onwards: Creates a Redis user.
+  For Redis engine version 6.0 onwards: Creates a Redis user.
 
   For more information, see [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
   """
@@ -309,7 +309,7 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  For Redis engine version 6.x onwards: Creates a Redis user group.
+  For Redis engine version 6.0 onwards: Creates a Redis user group.
 
   For more information, see [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html)
   """
@@ -455,7 +455,7 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  For Redis engine version 6.x onwards: Deletes a user.
+  For Redis engine version 6.0 onwards: Deletes a user.
 
   The user will be removed from all user groups and in turn removed from all
   replication groups. For more information, see [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
@@ -465,7 +465,7 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  For Redis engine version 6.x onwards: Deletes a user group.
+  For Redis engine version 6.0 onwards: Deletes a user group.
 
   The user group must first be disassociated from the replication group before it
   can be deleted. For more information, see [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
@@ -658,7 +658,7 @@ defmodule AWS.ElastiCache do
   name.
 
   The secondary cluster will no longer receive updates from the primary cluster,
-  but will remain as a standalone cluster in that AWS region.
+  but will remain as a standalone cluster in that Amazon region.
   """
   def disassociate_global_replication_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisassociateGlobalReplicationGroup", input, options)
@@ -902,10 +902,16 @@ defmodule AWS.ElastiCache do
   on a specified node group (called shard in the console) in a replication group
   (called cluster in the console).
 
+  This API is designed for testing the behavior of your application in case of
+  ElastiCache failover. It is not designed to be an operational tool for
+  initiating a failover to overcome a problem you may have with the cluster.
+  Moreover, in certain conditions such as large-scale operational events, Amazon
+  may block this API.
+
   ## Note the following
 
     * A customer can use this operation to test automatic failover on up
-  to 5 shards (called node groups in the ElastiCache API and AWS CLI) in any
+  to 5 shards (called node groups in the ElastiCache API and Amazon CLI) in any
   rolling 24-hour period.
 
     * If calling this operation on shards in different clusters (called
@@ -916,7 +922,7 @@ defmodule AWS.ElastiCache do
   replacement must complete before a subsequent call can be made.
 
     * To determine whether the node replacement is complete you can
-  check Events using the Amazon ElastiCache console, the AWS CLI, or the
+  check Events using the Amazon ElastiCache console, the Amazon CLI, or the
   ElastiCache API. Look for the following automatic failover related events,
   listed here in order of occurrance:
 

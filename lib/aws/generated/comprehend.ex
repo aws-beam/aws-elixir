@@ -322,6 +322,13 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+  Gets a list of summaries of the document classifiers that you have created
+  """
+  def list_document_classifier_summaries(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDocumentClassifierSummaries", input, options)
+  end
+
+  @doc """
   Gets a list of the document classifiers that you have created.
   """
   def list_document_classifiers(%Client{} = client, input, options \\ []) do
@@ -347,6 +354,13 @@ defmodule AWS.Comprehend do
   """
   def list_entities_detection_jobs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListEntitiesDetectionJobs", input, options)
+  end
+
+  @doc """
+  Gets a list of summaries for the entity recognizers that you have created.
+  """
+  def list_entity_recognizer_summaries(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEntityRecognizerSummaries", input, options)
   end
 
   @doc """

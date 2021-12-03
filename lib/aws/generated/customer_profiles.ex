@@ -73,6 +73,15 @@ defmodule AWS.CustomerProfiles do
 
   Each Amazon Connect instance can be associated with only one domain. Multiple
   Amazon Connect instances can be associated with one domain.
+
+  Use this API or
+  [UpdateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html) to enable [identity
+  resolution](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html):
+  set `Matching` to true.
+
+  To prevent cross-service impersonation when you call this API, see
+  [Cross-service confused deputy prevention](https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html)
+  for sample policies that you should apply.
   """
   def create_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
@@ -257,10 +266,74 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  Tests the auto-merging settings of your Identity Resolution Job without merging
+  your data.
+
+  It randomly selects a sample of matching groups from the existing matching
+  results, and applies the automerging settings that you provided. You can then
+  view the number of profiles in the sample, the number of matches, and the number
+  of profiles identified to be merged. This enables you to evaluate the accuracy
+  of the attributes in your matching list.
+
+  You can't view which profiles are matched and would be merged.
+
+  We strongly recommend you use this API to do a dry run of the automerging
+  process before running the Identity Resolution Job. Include **at least** two
+  matching attributes. If your matching list includes too few attributes (such as
+  only `FirstName` or only `LastName`), there may be a large number of matches.
+  This increases the chances of erroneous merges.
+  """
+  def get_auto_merging_preview(%Client{} = client, domain_name, input, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/identity-resolution-jobs/auto-merging-preview"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns information about a specific domain.
   """
   def get_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns information about an Identity Resolution Job in a specific domain.
+
+  Identity Resolution Jobs are set up using the Amazon Connect admin console. For
+  more information, see [Use Identity Resolution to consolidate similar profiles](https://docs.aws.amazon.com/connect/latest/adminguide/use-identity-resolution.html).
+  """
+  def get_identity_resolution_job(%Client{} = client, domain_name, job_id, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/identity-resolution-jobs/#{AWS.Util.encode_uri(job_id)}"
+
     headers = []
     query_params = []
 
@@ -309,9 +382,17 @@ defmodule AWS.CustomerProfiles do
   GetMatches returns potentially matching profiles, based on the results of the
   latest run of a machine learning process.
 
-  Amazon Connect runs a batch process every Saturday at 12AM UTC to identify
-  matching profiles. The results are returned up to seven days after the Saturday
-  run.
+  The process of matching duplicate profiles. If `Matching` = `true`, Amazon
+  Connect Customer Profiles starts a weekly batch process called Identity
+  Resolution Job. If you do not specify a date and time for Identity Resolution
+  Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate
+  profiles in your domains.
+
+  After the Identity Resolution Job completes, use the
+  [GetMatches](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html)
+  API to return and review the results. Or, if you have configured
+  `ExportingConfig` in the `MatchingRequest`, you can download the results from
+  S3.
 
   Amazon Connect uses the following profile attributes to identify matches:
 
@@ -332,6 +413,13 @@ defmodule AWS.CustomerProfiles do
     * FullName
 
     * BusinessName
+
+  For example, two or more profiles—with spelling mistakes such as ## John Doe
+  and **Jhn Doe**, or different casing email addresses such as
+  **JOHN_DOE@ANYCOMPANY.COM** and **johndoe@anycompany.com**, or different phone
+  number formats such as **555-010-0000** and **+1-555-010-0000**—can be detected
+  as belonging to the same customer **John Doe** and merged into a unified
+  profile.
   """
   def get_matches(
         %Client{} = client,
@@ -452,6 +540,49 @@ defmodule AWS.CustomerProfiles do
   """
   def list_domains(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/domains"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists all of the Identity Resolution Jobs in your domain.
+
+  The response sorts the list by `JobStartTime`.
+  """
+  def list_identity_resolution_jobs(
+        %Client{} = client,
+        domain_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/identity-resolution-jobs"
     headers = []
     query_params = []
 
@@ -897,6 +1028,15 @@ defmodule AWS.CustomerProfiles do
   letter queue or an encryption key.
 
   After a domain is created, the name can’t be changed.
+
+  Use this API or
+  [CreateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html) to enable [identity
+  resolution](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html):
+  set `Matching` to true.
+
+  To prevent cross-service impersonation when you call this API, see
+  [Cross-service confused deputy prevention](https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html)
+  for sample policies that you should apply.
   """
   def update_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"

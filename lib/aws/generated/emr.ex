@@ -6,9 +6,9 @@ defmodule AWS.EMR do
   Amazon EMR is a web service that makes it easier to process large amounts of
   data efficiently.
 
-  Amazon EMR uses Hadoop processing combined with several AWS services to do tasks
-  such as web indexing, data mining, log file analysis, machine learning,
-  scientific simulation, and data warehouse management.
+  Amazon EMR uses Hadoop processing combined with several Amazon Web Services
+  services to do tasks such as web indexing, data mining, log file analysis,
+  machine learning, scientific simulation, and data warehouse management.
   """
 
   alias AWS.Client
@@ -77,9 +77,9 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  Adds tags to an Amazon EMR resource.
+  Adds tags to an Amazon EMR resource, such as a cluster or an Amazon EMR Studio.
 
-  Tags make it easier to associate clusters in various ways, such as grouping
+  Tags make it easier to associate resources in various ways, such as grouping
   clusters to track your Amazon EMR resource allocation costs. For more
   information, see [Tag Clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html).
   """
@@ -93,8 +93,10 @@ defmodule AWS.EMR do
   Available only in Amazon EMR versions 4.8.0 and later, excluding version 5.0.0.
   A maximum of 256 steps are allowed in each CancelSteps request. CancelSteps is
   idempotent but asynchronous; it does not guarantee that a step will be canceled,
-  even if the request is successfully submitted. You can only cancel steps that
-  are in a `PENDING` state.
+  even if the request is successfully submitted. When you use Amazon EMR versions
+  5.28.0 and later, you can cancel steps that are in a `PENDING` or `RUNNING`
+  state. In earlier versions of Amazon EMR, you can only cancel steps that are in
+  a `PENDING` state.
   """
   def cancel_steps(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CancelSteps", input, options)
@@ -118,6 +120,10 @@ defmodule AWS.EMR do
   @doc """
   Maps a user or group to the Amazon EMR Studio specified by `StudioId`, and
   applies a session policy to refine Studio permissions for that user or group.
+
+  Use `CreateStudioSessionMapping` to assign users to a Studio when you use Amazon
+  Web Services SSO authentication. For instructions on how to assign users to a
+  Studio when you use IAM authentication, see [Assign a user or group to your EMR Studio](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-manage-users.html#emr-studio-assign-users-groups).
   """
   def create_studio_session_mapping(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateStudioSessionMapping", input, options)
@@ -187,6 +193,17 @@ defmodule AWS.EMR do
   end
 
   @doc """
+  Provides EMR release label details, such as releases available the region where
+  the API request is run, and the available applications for a specific EMR
+  release label.
+
+  Can also list EMR release versions that support a specified version of Spark.
+  """
+  def describe_release_label(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeReleaseLabel", input, options)
+  end
+
+  @doc """
   Provides the details of a security configuration by returning the configuration
   JSON.
   """
@@ -210,8 +227,15 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  Returns the Amazon EMR block public access configuration for your AWS account in
-  the current Region.
+  Returns the auto-termination policy for an Amazon EMR cluster.
+  """
+  def get_auto_termination_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAutoTerminationPolicy", input, options)
+  end
+
+  @doc """
+  Returns the Amazon EMR block public access configuration for your Amazon Web
+  Services account in the current Region.
 
   For more information see [Configure Block Public Access for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html)
   in the *Amazon EMR Management Guide*.
@@ -243,12 +267,13 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  Provides the status of all clusters visible to this AWS account.
+  Provides the status of all clusters visible to this Amazon Web Services account.
 
   Allows you to filter the list of clusters based on certain criteria; for
   example, filtering by cluster creation date and time or by status. This call
-  returns a maximum of 50 clusters per call, but returns a marker to track the
-  paging of the cluster list across multiple ListClusters calls.
+  returns a maximum of 50 clusters in unsorted order per call, but returns a
+  marker to track the paging of the cluster list across multiple ListClusters
+  calls.
   """
   def list_clusters(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListClusters", input, options)
@@ -295,6 +320,13 @@ defmodule AWS.EMR do
   end
 
   @doc """
+  Retrieves release labels of EMR services in the region where the API is called.
+  """
+  def list_release_labels(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListReleaseLabels", input, options)
+  end
+
+  @doc """
   Lists all the security configurations visible to this account, providing their
   creation dates and times, and their names.
 
@@ -308,9 +340,12 @@ defmodule AWS.EMR do
 
   @doc """
   Provides a list of steps for the cluster in reverse order unless you specify
-  `stepIds` with the request of filter by `StepStates`.
+  `stepIds` with the request or filter by `StepStates`.
 
-  You can specify a maximum of 10 `stepIDs`.
+  You can specify a maximum of 10 `stepIDs`. The CLI automatically paginates
+  results to return a list greater than 50 steps. To return more than 50 steps
+  using the CLI, specify a `Marker`, which is a pagination token that indicates
+  the next set of steps to retrieve.
   """
   def list_steps(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListSteps", input, options)
@@ -325,7 +360,8 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  Returns a list of all Amazon EMR Studios associated with the AWS account.
+  Returns a list of all Amazon EMR Studios associated with the Amazon Web Services
+  account.
 
   The list includes details such as ID, Studio Access URL, and creation time for
   each Studio.
@@ -378,8 +414,19 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  Creates or updates an Amazon EMR block public access configuration for your AWS
-  account in the current Region.
+  Creates or updates an auto-termination policy for an Amazon EMR cluster.
+
+  An auto-termination policy defines the amount of idle time in seconds after
+  which a cluster automatically terminates. For alternative cluster termination
+  options, see [Control cluster termination](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html).
+  """
+  def put_auto_termination_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutAutoTerminationPolicy", input, options)
+  end
+
+  @doc """
+  Creates or updates an Amazon EMR block public access configuration for your
+  Amazon Web Services account in the current Region.
 
   For more information see [Configure Block Public Access for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html)
   in the *Amazon EMR Management Guide*.
@@ -409,6 +456,13 @@ defmodule AWS.EMR do
   end
 
   @doc """
+  Removes an auto-termination policy from an Amazon EMR cluster.
+  """
+  def remove_auto_termination_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RemoveAutoTerminationPolicy", input, options)
+  end
+
+  @doc """
   Removes a managed scaling policy from a specified EMR cluster.
   """
   def remove_managed_scaling_policy(%Client{} = client, input, options \\ []) do
@@ -416,9 +470,10 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  Removes tags from an Amazon EMR resource.
+  Removes tags from an Amazon EMR resource, such as a cluster or Amazon EMR
+  Studio.
 
-  Tags make it easier to associate clusters in various ways, such as grouping
+  Tags make it easier to associate resources in various ways, such as grouping
   clusters to track your Amazon EMR resource allocation costs. For more
   information, see [Tag Clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html).
 
@@ -490,16 +545,19 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  Sets the `Cluster$VisibleToAllUsers` value, which determines whether the cluster
-  is visible to all IAM users of the AWS account associated with the cluster.
+  Sets the `Cluster$VisibleToAllUsers` value for an EMR cluster.
 
-  Only the IAM user who created the cluster or the AWS account root user can call
-  this action. The default value, `true`, indicates that all IAM users in the AWS
-  account can perform cluster actions if they have the proper IAM policy
-  permissions. If set to `false`, only the IAM user that created the cluster can
-  perform actions. This action works on running clusters. You can override the
-  default `true` setting when you create a cluster by using the
-  `VisibleToAllUsers` parameter with `RunJobFlow`.
+  When `true`, IAM principals in the Amazon Web Services account can perform EMR
+  cluster actions that their IAM policies allow. When `false`, only the IAM
+  principal that created the cluster and the Amazon Web Services account root user
+  can perform EMR actions on the cluster, regardless of IAM permissions policies
+  attached to other IAM principals.
+
+  This action works on running clusters. When you create a cluster, use the
+  `RunJobFlowInput$VisibleToAllUsers` parameter.
+
+  For more information, see [Understanding the EMR Cluster VisibleToAllUsers Setting](https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users)
+  in the *Amazon EMRManagement Guide*.
   """
   def set_visible_to_all_users(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SetVisibleToAllUsers", input, options)

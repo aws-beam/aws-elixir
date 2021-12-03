@@ -7,12 +7,71 @@ defmodule AWS.Lambda do
 
   ## Overview
 
-  This is the *Lambda API Reference*.
+  Lambda is a compute service that lets you run code without provisioning or
+  managing servers.
 
-  The Lambda Developer Guide provides additional information. For the service
-  overview, see [What is Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html), and for
-  information about how the service works, see [Lambda: How it Works](https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html) in
-  the **Lambda Developer Guide**.
+  Lambda runs your code on a high-availability compute infrastructure and performs
+  all of the administration of the compute resources, including server and
+  operating system maintenance, capacity provisioning and automatic scaling, code
+  monitoring and logging. With Lambda, you can run code for virtually any type of
+  application or backend service. For more information about the Lambda service,
+  see [What is Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) in the **Lambda Developer Guide**.
+
+  The *Lambda API Reference* provides information about each of the API methods,
+  including details about the parameters in each API request and response.
+
+  You can use Software Development Kits (SDKs), Integrated Development Environment
+  (IDE) Toolkits, and command line tools to access the API. For installation
+  instructions, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
+
+  For a list of Region-specific endpoints that Lambda supports, see [Lambda endpoints and quotas
+  ](https://docs.aws.amazon.com/general/latest/gr/lambda-service.html/) in the
+  *Amazon Web Services General Reference.*.
+
+  When making the API calls, you will need to authenticate your request by
+  providing a signature. Lambda supports signature version 4. For more
+  information, see [Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html)
+  in the *Amazon Web Services General Reference.*.
+
+  ## CA certificates
+
+  Because Amazon Web Services SDKs use the CA certificates from your computer,
+  changes to the certificates on the Amazon Web Services servers can cause
+  connection failures when you attempt to use an SDK. You can prevent these
+  failures by keeping your computer's CA certificates and operating system
+  up-to-date. If you encounter this issue in a corporate environment and do not
+  manage your own computer, you might need to ask an administrator to assist with
+  the update process. The following list shows minimum operating system and Java
+  versions:
+
+    * Microsoft Windows versions that have updates from January 2005 or
+  later installed contain at least one of the required CAs in their trust list.
+
+    * Mac OS X 10.4 with Java for Mac OS X 10.4 Release 5 (February
+  2007), Mac OS X 10.5 (October 2007), and later versions contain at least one of
+  the required CAs in their trust list.
+
+    * Red Hat Enterprise Linux 5 (March 2007), 6, and 7 and CentOS 5, 6,
+  and 7 all contain at least one of the required CAs in their default trusted CA
+  list.
+
+    * Java 1.4.2_12 (May 2006), 5 Update 2 (March 2005), and all later
+  versions, including Java 6 (December 2006), 7, and 8, contain at least one of
+  the required CAs in their default trusted CA list.
+
+  When accessing the Lambda management console or Lambda API endpoints, whether
+  through browsers or programmatically, you will need to ensure your client
+  machines support any of the following CAs:
+
+    * Amazon Root CA 1
+
+    * Starfield Services Root Certificate Authority - G2
+
+    * Starfield Class 2 Certification Authority
+
+  Root certificates from the first two authorities are available from [Amazon trust services](https://www.amazontrust.com/repository/), but keeping your
+  computer up-to-date is the more straightforward solution. To learn more about
+  ACM-provided certificates, see [Amazon Web Services Certificate Manager FAQs.](http://aws.amazon.com/certificate-manager/faqs/#certificates)
   """
 
   alias AWS.Client
@@ -82,7 +141,8 @@ defmodule AWS.Lambda do
   You can apply the policy at the function level, or specify a qualifier to
   restrict access to a single version or alias. If you use a qualifier, the
   invoker must use the full Amazon Resource Name (ARN) of that version or alias to
-  invoke the function.
+  invoke the function. Note: Lambda does not support adding policies to version
+  $LATEST.
 
   To grant permission to another account, specify the account ID as the
   `Principal`. For Amazon Web Services services, the principal is a domain-style
@@ -178,21 +238,20 @@ defmodule AWS.Lambda do
 
   Lambda reads items from the event source and triggers the function.
 
-  For details about each event source type, see the following topics. In
-  particular, each of the topics describes the required and optional parameters
-  for the specific event source.
+  For details about how to configure different event sources, see the following
+  topics.
 
-    * [ Configuring a Dynamo DB stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
+    * [ Amazon DynamoDB Streams](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
 
-    * [ Configuring a Kinesis stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
+    * [ Amazon Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
 
-    * [ Configuring an SQS queue as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
+    * [ Amazon SQS](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
 
-    * [ Configuring an MQ broker as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
+    * [ Amazon MQ and RabbitMQ](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
 
-    * [ Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
+    * [ Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
 
-    * [ Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
+    * [ Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
 
   The following error handling options are only available for stream sources
   (DynamoDB and Kinesis):
@@ -213,6 +272,21 @@ defmodule AWS.Lambda do
 
     * `ParallelizationFactor` - Process multiple batches from each shard
   concurrently.
+
+  For information about which configuration parameters apply to each event source,
+  see the following topics.
+
+    * [ Amazon DynamoDB Streams](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params)
+
+    * [ Amazon Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params)
+
+    * [ Amazon SQS](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params)
+
+    * [ Amazon MQ and RabbitMQ](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params)
+
+    * [ Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms)
+
+    * [ Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms)
   """
   def create_event_source_mapping(%Client{} = client, input, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings/"
@@ -249,7 +323,10 @@ defmodule AWS.Lambda do
 
   You set the package type to `Zip` if the deployment package is a [.zip file archive](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip).
   For a .zip file archive, the code property specifies the location of the .zip
-  file. You must also specify the handler and runtime properties.
+  file. You must also specify the handler and runtime properties. The code in the
+  deployment package must be compatible with the target instruction set
+  architecture of the function (`x86-64` or `arm64`). If you do not specify the
+  architecture, the default value is `x86-64`.
 
   When you create a function, Lambda provisions an instance of the function and
   its supporting resources. If your function connects to a VPC, this process can
@@ -1360,10 +1437,13 @@ defmodule AWS.Lambda do
 
   Versions that have been deleted aren't listed. Specify a [runtime identifier](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html)
   to list only versions that indicate that they're compatible with that runtime.
+  Specify a compatible architecture to include only layer versions that are
+  compatible with that architecture.
   """
   def list_layer_versions(
         %Client{} = client,
         layer_name,
+        compatible_architecture \\ nil,
         compatible_runtime \\ nil,
         marker \\ nil,
         max_items \\ nil,
@@ -1394,6 +1474,13 @@ defmodule AWS.Lambda do
         query_params
       end
 
+    query_params =
+      if !is_nil(compatible_architecture) do
+        [{"CompatibleArchitecture", compatible_architecture} | query_params]
+      else
+        query_params
+      end
+
     Request.request_rest(
       client,
       metadata(),
@@ -1408,14 +1495,17 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Lists [Lambda layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
-  and shows information about the latest version of each.
+  Lists [Lambda layers](https://docs.aws.amazon.com/lambda/latest/dg/invocation-layers.html) and
+  shows information about the latest version of each.
 
   Specify a [runtime identifier](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html)
   to list only layers that indicate that they're compatible with that runtime.
+  Specify a compatible architecture to include only layers that are compatible
+  with that [instruction set architecture](https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html).
   """
   def list_layers(
         %Client{} = client,
+        compatible_architecture \\ nil,
         compatible_runtime \\ nil,
         marker \\ nil,
         max_items \\ nil,
@@ -1442,6 +1532,13 @@ defmodule AWS.Lambda do
     query_params =
       if !is_nil(compatible_runtime) do
         [{"CompatibleRuntime", compatible_runtime} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(compatible_architecture) do
+        [{"CompatibleArchitecture", compatible_architecture} | query_params]
       else
         query_params
       end
@@ -1940,6 +2037,21 @@ defmodule AWS.Lambda do
   You can change the function that Lambda invokes, or pause invocation and resume
   later from the same location.
 
+  For details about how to configure different event sources, see the following
+  topics.
+
+    * [ Amazon DynamoDB Streams](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
+
+    * [ Amazon Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
+
+    * [ Amazon SQS](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
+
+    * [ Amazon MQ and RabbitMQ](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
+
+    * [ Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
+
+    * [ Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
+
   The following error handling options are only available for stream sources
   (DynamoDB and Kinesis):
 
@@ -1959,6 +2071,21 @@ defmodule AWS.Lambda do
 
     * `ParallelizationFactor` - Process multiple batches from each shard
   concurrently.
+
+  For information about which configuration parameters apply to each event source,
+  see the following topics.
+
+    * [ Amazon DynamoDB Streams](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params)
+
+    * [ Amazon Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params)
+
+    * [ Amazon SQS](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params)
+
+    * [ Amazon MQ and RabbitMQ](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params)
+
+    * [ Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms)
+
+    * [ Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms)
   """
   def update_event_source_mapping(%Client{} = client, uuid, input, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings/#{AWS.Util.encode_uri(uuid)}"

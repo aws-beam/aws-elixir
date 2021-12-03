@@ -44,10 +44,24 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+  Cancels an in-progress batch import job.
+  """
+  def cancel_batch_import_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CancelBatchImportJob", input, options)
+  end
+
+  @doc """
   Cancels the specified batch prediction job.
   """
   def cancel_batch_prediction_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CancelBatchPredictionJob", input, options)
+  end
+
+  @doc """
+  Creates a batch import job.
+  """
+  def create_batch_import_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateBatchImportJob", input, options)
   end
 
   @doc """
@@ -92,6 +106,13 @@ defmodule AWS.FraudDetector do
   """
   def create_variable(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateVariable", input, options)
+  end
+
+  @doc """
+  Deletes data that was batch imported to Amazon Fraud Detector.
+  """
+  def delete_batch_import_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteBatchImportJob", input, options)
   end
 
   @doc """
@@ -153,11 +174,18 @@ defmodule AWS.FraudDetector do
 
   You cannot delete an event type that is used in a detector or a model.
 
-  When you delete an entity type, Amazon Fraud Detector permanently deletes that
-  entity type and the data is no longer stored in Amazon Fraud Detector.
+  When you delete an event type, Amazon Fraud Detector permanently deletes that
+  event type and the data is no longer stored in Amazon Fraud Detector.
   """
   def delete_event_type(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteEventType", input, options)
+  end
+
+  @doc """
+  Deletes all events of a particular event type.
+  """
+  def delete_events_by_event_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteEventsByEventType", input, options)
   end
 
   @doc """
@@ -273,6 +301,19 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+  Gets all batch import jobs or a specific job of the specified ID.
+
+  This is a paginated API. If you provide a null `maxResults`, this action
+  retrieves a maximum of 50 records per page. If you provide a `maxResults`, the
+  value must be between 1 and 50. To get the next page results, provide the
+  pagination token from the `GetBatchImportJobsResponse` as part of your request.
+  A null pagination token fetches the records from the beginning.
+  """
+  def get_batch_import_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetBatchImportJobs", input, options)
+  end
+
+  @doc """
   Gets all batch prediction jobs or a specific job if you specify a job ID.
 
   This is a paginated API. If you provide a null maxResults, this action retrieves
@@ -283,6 +324,13 @@ defmodule AWS.FraudDetector do
   """
   def get_batch_prediction_jobs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetBatchPredictionJobs", input, options)
+  end
+
+  @doc """
+  Retrieves the status of a `DeleteEventsByEventType` action.
+  """
+  def get_delete_events_by_event_type_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDeleteEventsByEventTypeStatus", input, options)
   end
 
   @doc """
@@ -316,6 +364,15 @@ defmodule AWS.FraudDetector do
   """
   def get_entity_types(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetEntityTypes", input, options)
+  end
+
+  @doc """
+  Retrieves details of events stored with Amazon Fraud Detector.
+
+  This action does not retrieve prediction results.
+  """
+  def get_event(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetEvent", input, options)
   end
 
   @doc """
@@ -355,8 +412,8 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
-  Gets the encryption key if a Key Management Service (KMS) customer master key
-  (CMK) has been specified to be used to encrypt content in Amazon Fraud Detector.
+  Gets the encryption key if a KMS key has been specified to be used to encrypt
+  content in Amazon Fraud Detector.
   """
   def get_kms_encryption_key(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetKMSEncryptionKey", input, options)
@@ -385,10 +442,10 @@ defmodule AWS.FraudDetector do
   @doc """
   Gets one or more models.
 
-  Gets all models for the AWS account if no model type and no model id provided.
-  Gets all models for the AWS account and model type, if the model type is
-  specified but model id is not provided. Gets a specific model if (model type,
-  model id) tuple is specified.
+  Gets all models for the Amazon Web Services account if no model type and no
+  model id provided. Gets all models for the Amazon Web Services account and model
+  type, if the model type is specified but model id is not provided. Gets a
+  specific model if (model type, model id) tuple is specified.
 
   This is a paginated API. If you provide a null `maxResults`, this action
   retrieves a maximum of 10 records per page. If you provide a `maxResults`, the
@@ -498,8 +555,7 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
-  Specifies the Key Management Service (KMS) customer master key (CMK) to be used
-  to encrypt content in Amazon Fraud Detector.
+  Specifies the KMS key to be used to encrypt content in Amazon Fraud Detector.
   """
   def put_kms_encryption_key(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutKMSEncryptionKey", input, options)
@@ -521,6 +577,17 @@ defmodule AWS.FraudDetector do
   """
   def put_outcome(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutOutcome", input, options)
+  end
+
+  @doc """
+  Stores events in Amazon Fraud Detector without generating fraud predictions for
+  those events.
+
+  For example, you can use `SendEvent` to upload a historical dataset, which you
+  can then later use to train a model.
+  """
+  def send_event(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SendEvent", input, options)
   end
 
   @doc """
@@ -570,9 +637,14 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
-  Updates a model.
+  Updates the specified event with a new label.
+  """
+  def update_event_label(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateEventLabel", input, options)
+  end
 
-  You can update the description attribute using this action.
+  @doc """
+  Updates model description.
   """
   def update_model(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateModel", input, options)
@@ -598,7 +670,7 @@ defmodule AWS.FraudDetector do
 
     1. Change the `TRAINING_COMPLETE` status to `ACTIVE`.
 
-    2. Change `ACTIVE`to `INACTIVE`.
+    2. Change `ACTIVE` to `INACTIVE`.
   """
   def update_model_version_status(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateModelVersionStatus", input, options)

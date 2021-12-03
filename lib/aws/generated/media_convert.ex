@@ -188,6 +188,27 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
+  Permanently delete a policy that you created.
+  """
+  def delete_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/2017-08-29/policy"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Permanently delete a preset you have created.
   """
   def delete_preset(%Client{} = client, name, input, options \\ []) do
@@ -300,6 +321,27 @@ defmodule AWS.MediaConvert do
   """
   def get_job_template(%Client{} = client, name, options \\ []) do
     url_path = "/2017-08-29/jobTemplates/#{AWS.Util.encode_uri(name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieve the JSON for your policy.
+  """
+  def get_policy(%Client{} = client, options \\ []) do
+    url_path = "/2017-08-29/policy"
     headers = []
     query_params = []
 
@@ -635,6 +677,30 @@ defmodule AWS.MediaConvert do
       query_params,
       headers,
       nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Create or change your policy.
+
+  For more information about policies, see the user guide at
+  http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+  """
+  def put_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/2017-08-29/policy"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
       options,
       200
     )

@@ -38,10 +38,60 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
+  Configures Amazon CloudWatch log settings for a playback configuration.
+  """
+  def configure_logs_for_playback_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/configureLogs/playbackConfiguration"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a channel.
   """
   def create_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new prefetch schedule for the specified playback configuration.
+  """
+  def create_prefetch_schedule(
+        %Client{} = client,
+        name,
+        playback_configuration_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/prefetchSchedule/#{AWS.Util.encode_uri(playback_configuration_name)}/#{AWS.Util.encode_uri(name)}"
+
     headers = []
     query_params = []
 
@@ -180,6 +230,38 @@ defmodule AWS.MediaTailor do
   """
   def delete_playback_configuration(%Client{} = client, name, input, options \\ []) do
     url_path = "/playbackConfiguration/#{AWS.Util.encode_uri(name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a prefetch schedule for a specific playback configuration.
+
+  If you call DeletePrefetchSchedule on an expired prefetch schedule, MediaTailor
+  returns an HTTP 404 status code.
+  """
+  def delete_prefetch_schedule(
+        %Client{} = client,
+        name,
+        playback_configuration_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/prefetchSchedule/#{AWS.Util.encode_uri(playback_configuration_name)}/#{AWS.Util.encode_uri(name)}"
+
     headers = []
     query_params = []
 
@@ -454,6 +536,33 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
+  Returns information about the prefetch schedule for a specific playback
+  configuration.
+
+  If you call GetPrefetchSchedule on an expired prefetch schedule, MediaTailor
+  returns an HTTP 404 status code.
+  """
+  def get_prefetch_schedule(%Client{} = client, name, playback_configuration_name, options \\ []) do
+    url_path =
+      "/prefetchSchedule/#{AWS.Util.encode_uri(playback_configuration_name)}/#{AWS.Util.encode_uri(name)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns a list of alerts for the given resource.
   """
   def list_alerts(
@@ -577,6 +686,32 @@ defmodule AWS.MediaTailor do
       query_params,
       headers,
       nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new prefetch schedule.
+  """
+  def list_prefetch_schedules(
+        %Client{} = client,
+        playback_configuration_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/prefetchSchedule/#{AWS.Util.encode_uri(playback_configuration_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
       options,
       200
     )

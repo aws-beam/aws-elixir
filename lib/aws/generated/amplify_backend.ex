@@ -135,6 +135,27 @@ defmodule AWS.AmplifyBackend do
   end
 
   @doc """
+  Creates a backend storage resource.
+  """
+  def create_backend_storage(%Client{} = client, app_id, input, options \\ []) do
+    url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/storage"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Generates a one-time challenge code to authenticate a user into your Amplify
   Admin UI.
   """
@@ -220,6 +241,35 @@ defmodule AWS.AmplifyBackend do
       ) do
     url_path =
       "/backend/#{AWS.Util.encode_uri(app_id)}/auth/#{AWS.Util.encode_uri(backend_environment_name)}/remove"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes the specified backend storage resource.
+  """
+  def delete_backend_storage(
+        %Client{} = client,
+        app_id,
+        backend_environment_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/backend/#{AWS.Util.encode_uri(app_id)}/storage/#{AWS.Util.encode_uri(backend_environment_name)}/remove"
 
     headers = []
     query_params = []
@@ -409,6 +459,35 @@ defmodule AWS.AmplifyBackend do
   end
 
   @doc """
+  Gets details for a backend storage resource.
+  """
+  def get_backend_storage(
+        %Client{} = client,
+        app_id,
+        backend_environment_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/backend/#{AWS.Util.encode_uri(app_id)}/storage/#{AWS.Util.encode_uri(backend_environment_name)}/details"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets the challenge token based on the given appId and sessionId.
   """
   def get_token(%Client{} = client, app_id, session_id, options \\ []) do
@@ -461,6 +540,35 @@ defmodule AWS.AmplifyBackend do
   end
 
   @doc """
+  Imports an existing backend storage resource.
+  """
+  def import_backend_storage(
+        %Client{} = client,
+        app_id,
+        backend_environment_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/backend/#{AWS.Util.encode_uri(app_id)}/storage/#{AWS.Util.encode_uri(backend_environment_name)}/import"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists the jobs for the backend of an Amplify app.
   """
   def list_backend_jobs(
@@ -473,6 +581,27 @@ defmodule AWS.AmplifyBackend do
     url_path =
       "/backend/#{AWS.Util.encode_uri(app_id)}/job/#{AWS.Util.encode_uri(backend_environment_name)}"
 
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  The list of S3 buckets in your account.
+  """
+  def list_s3_buckets(%Client{} = client, input, options \\ []) do
+    url_path = "/s3Buckets"
     headers = []
     query_params = []
 
@@ -623,6 +752,35 @@ defmodule AWS.AmplifyBackend do
       ) do
     url_path =
       "/backend/#{AWS.Util.encode_uri(app_id)}/job/#{AWS.Util.encode_uri(backend_environment_name)}/#{AWS.Util.encode_uri(job_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing backend storage resource.
+  """
+  def update_backend_storage(
+        %Client{} = client,
+        app_id,
+        backend_environment_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/backend/#{AWS.Util.encode_uri(app_id)}/storage/#{AWS.Util.encode_uri(backend_environment_name)}"
 
     headers = []
     query_params = []

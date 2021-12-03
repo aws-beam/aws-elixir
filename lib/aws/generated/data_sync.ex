@@ -3,14 +3,14 @@
 
 defmodule AWS.DataSync do
   @moduledoc """
-  AWS DataSync
+  DataSync
 
-  AWS DataSync is a managed data transfer service that makes it simpler for you to
+  DataSync is a managed data transfer service that makes it simpler for you to
   automate moving data between on-premises storage and Amazon Simple Storage
   Service (Amazon S3) or Amazon Elastic File System (Amazon EFS).
 
-  This API interface reference for AWS DataSync contains documentation for a
-  programming interface that you can use to manage AWS DataSync.
+  This API interface reference for DataSync contains documentation for a
+  programming interface that you can use to manage DataSync.
   """
 
   alias AWS.Client
@@ -41,21 +41,21 @@ defmodule AWS.DataSync do
   task execution on the same task and you allow the task execution to complete,
   file content on the destination is complete and consistent. This applies to
   other unexpected failures that interrupt a task execution. In all of these
-  cases, AWS DataSync successfully complete the transfer when you start the next
-  task execution.
+  cases, DataSync successfully complete the transfer when you start the next task
+  execution.
   """
   def cancel_task_execution(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CancelTaskExecution", input, options)
   end
 
   @doc """
-  Activates an AWS DataSync agent that you have deployed on your host.
+  Activates an DataSync agent that you have deployed on your host.
 
   The activation process associates your agent with your account. In the
-  activation process, you specify information such as the AWS Region that you want
-  to activate the agent in. You activate the agent in the AWS Region where your
-  target locations (in Amazon S3 or Amazon EFS) reside. Your tasks are created in
-  this AWS Region.
+  activation process, you specify information such as the Amazon Web Services
+  Region that you want to activate the agent in. You activate the agent in the
+  Amazon Web Services Region where your target locations (in Amazon S3 or Amazon
+  EFS) reside. Your tasks are created in this Amazon Web Services Region.
 
   You can activate the agent in a VPC (virtual private cloud) or provide the agent
   access to a VPC endpoint so you can run tasks without going over the public
@@ -66,8 +66,8 @@ defmodule AWS.DataSync do
   multiple agents for a source location, the status of all the agents must be
   AVAILABLE for the task to run.
 
-  Agents are automatically updated by AWS on a regular basis, using a mechanism
-  that ensures minimal interruption to your tasks.
+  Agents are automatically updated by Amazon Web Services on a regular basis,
+  using a mechanism that ensures minimal interruption to your tasks.
   """
   def create_agent(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateAgent", input, options)
@@ -85,6 +85,13 @@ defmodule AWS.DataSync do
   """
   def create_location_fsx_windows(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateLocationFsxWindows", input, options)
+  end
+
+  @doc """
+  Creates an endpoint for a Hadoop Distributed File System (HDFS).
+  """
+  def create_location_hdfs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLocationHdfs", input, options)
   end
 
   @doc """
@@ -108,9 +115,8 @@ defmodule AWS.DataSync do
   @doc """
   Creates an endpoint for an Amazon S3 bucket.
 
-  For more information, see
-  https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli
-  in the *AWS DataSync User Guide*.
+  For more information, see [Create an Amazon S3 location](https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli)
+  in the *DataSync User Guide*.
   """
   def create_location_s3(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateLocationS3", input, options)
@@ -133,17 +139,18 @@ defmodule AWS.DataSync do
   specifies options such as task scheduling, bandwidth limits, etc. A task is the
   complete definition of a data transfer.
 
-  When you create a task that transfers data between AWS services in different AWS
-  Regions, one of the two locations that you specify must reside in the Region
-  where DataSync is being used. The other location must be specified in a
-  different Region.
+  When you create a task that transfers data between Amazon Web Services services
+  in different Amazon Web Services Regions, one of the two locations that you
+  specify must reside in the Region where DataSync is being used. The other
+  location must be specified in a different Region.
 
-  You can transfer data between commercial AWS Regions except for China, or
-  between AWS GovCloud (US-East and US-West) Regions.
+  You can transfer data between commercial Amazon Web Services Regions except for
+  China, or between Amazon Web Services GovCloud (US) Regions.
 
-  When you use DataSync to copy files or objects between AWS Regions, you pay for
-  data transfer between Regions. This is billed as data transfer OUT from your
-  source Region to your destination Region. For more information, see [Data Transfer pricing](http://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer).
+  When you use DataSync to copy files or objects between Amazon Web Services
+  Regions, you pay for data transfer between Regions. This is billed as data
+  transfer OUT from your source Region to your destination Region. For more
+  information, see [Data Transfer pricing](http://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer).
   """
   def create_task(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateTask", input, options)
@@ -153,16 +160,16 @@ defmodule AWS.DataSync do
   Deletes an agent.
 
   To specify which agent to delete, use the Amazon Resource Name (ARN) of the
-  agent in your request. The operation disassociates the agent from your AWS
-  account. However, it doesn't delete the agent virtual machine (VM) from your
-  on-premises environment.
+  agent in your request. The operation disassociates the agent from your Amazon
+  Web Services account. However, it doesn't delete the agent virtual machine (VM)
+  from your on-premises environment.
   """
   def delete_agent(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteAgent", input, options)
   end
 
   @doc """
-  Deletes the configuration of a location used by AWS DataSync.
+  Deletes the configuration of a location used by DataSync.
   """
   def delete_location(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteLocation", input, options)
@@ -199,6 +206,14 @@ defmodule AWS.DataSync do
   """
   def describe_location_fsx_windows(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeLocationFsxWindows", input, options)
+  end
+
+  @doc """
+  Returns metadata, such as the authentication information about the Hadoop
+  Distributed File System (HDFS) location.
+  """
+  def describe_location_hdfs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLocationHdfs", input, options)
   end
 
   @doc """
@@ -247,8 +262,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Returns a list of agents owned by an AWS account in the AWS Region specified in
-  the request.
+  Returns a list of agents owned by an Amazon Web Services account in the Amazon
+  Web Services Region specified in the request.
 
   The returned list is ordered by agent Amazon Resource Name (ARN).
 
@@ -307,21 +322,21 @@ defmodule AWS.DataSync do
   TRANSFERRING | VERIFYING | SUCCESS/FAILURE.
 
   For detailed information, see the Task Execution section in the Components and
-  Terminology topic in the *AWS DataSync User Guide*.
+  Terminology topic in the *DataSync User Guide*.
   """
   def start_task_execution(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartTaskExecution", input, options)
   end
 
   @doc """
-  Applies a key-value pair to an AWS resource.
+  Applies a key-value pair to an Amazon Web Services resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
-  Removes a tag from an AWS resource.
+  Removes a tag from an Amazon Web Services resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagResource", input, options)
@@ -332,6 +347,14 @@ defmodule AWS.DataSync do
   """
   def update_agent(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateAgent", input, options)
+  end
+
+  @doc """
+  Updates some parameters of a previously created location for a Hadoop
+  Distributed File System cluster.
+  """
+  def update_location_hdfs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateLocationHdfs", input, options)
   end
 
   @doc """

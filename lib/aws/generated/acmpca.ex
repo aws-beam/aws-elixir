@@ -12,11 +12,17 @@ defmodule AWS.ACMPCA do
   The documentation for each action shows the Query API request parameters and the
   XML response. Alternatively, you can use one of the AWS SDKs to access an API
   that's tailored to the programming language or platform that you're using. For
-  more information, see [AWS SDKs](https://aws.amazon.com/tools/#SDKs).  Each ACM Private CA API action has a quota that determines the number of times
-  the action can be called per second. For more information, see [API Rate Quotas
-  in ACM Private
-  CA](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaLimits.html#PcaLimits-api)
-  in the ACM Private CA user guide.
+  more information, see [AWS SDKs](https://aws.amazon.com/tools/#SDKs).  Each ACM Private CA API operation has a quota that determines the number of
+  times the operation can be called per second. ACM Private CA throttles API
+  requests at different rates depending on the operation. Throttling means that
+  ACM Private CA rejects an otherwise valid request because the request exceeds
+  the operation's quota for the number of requests per second. When a request is
+  throttled, ACM Private CA returns a
+  [ThrottlingException](https://docs.aws.amazon.com/acm-pca/latest/APIReference/CommonErrors.html)
+  error. ACM Private CA does not guarantee a minimum request rate for APIs.
+
+  To see an up-to-date list of your ACM Private CA quotas, or to request a quota
+  increase, log into your AWS account and visit the [Service Quotas](https://console.aws.amazon.com/servicequotas/) console.
   """
 
   alias AWS.Client
@@ -41,15 +47,17 @@ defmodule AWS.ACMPCA do
   @doc """
   Creates a root or subordinate private certificate authority (CA).
 
-  You must specify the CA configuration, the certificate revocation list (CRL)
-  configuration, the CA type, and an optional idempotency token to avoid
-  accidental creation of multiple CAs. The CA configuration specifies the name of
-  the algorithm and key size to be used to create the CA private key, the type of
-  signing algorithm that the CA uses, and X.500 subject information. The CRL
-  configuration specifies the CRL expiration period in days (the validity period
-  of the CRL), the Amazon S3 bucket that will contain the CRL, and a CNAME alias
-  for the S3 bucket that is included in certificates issued by the CA. If
-  successful, this action returns the Amazon Resource Name (ARN) of the CA.
+  You must specify the CA configuration, an optional configuration for Online
+  Certificate Status Protocol (OCSP) and/or a certificate revocation list (CRL),
+  the CA type, and an optional idempotency token to avoid accidental creation of
+  multiple CAs. The CA configuration specifies the name of the algorithm and key
+  size to be used to create the CA private key, the type of signing algorithm that
+  the CA uses, and X.500 subject information. The OCSP configuration can
+  optionally specify a custom URL for the OCSP responder. The CRL configuration
+  specifies the CRL expiration period in days (the validity period of the CRL),
+  the Amazon S3 bucket that will contain the CRL, and a CNAME alias for the S3
+  bucket that is included in certificates issued by the CA. If successful, this
+  action returns the Amazon Resource Name (ARN) of the CA.
 
   ACM Private CA assets that are stored in Amazon S3 can be protected with
   encryption. For more information, see [Encrypting Your CRLs](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#crl-encryption).

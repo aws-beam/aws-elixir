@@ -3,9 +3,9 @@
 
 defmodule AWS.SSMIncidents do
   @moduledoc """
-  AWS Systems Manager Incident Manager is an incident management console designed
-  to help users mitigate and recover from incidents affecting their AWS-hosted
-  applications.
+  Systems Manager Incident Manager is an incident management console designed to
+  help users mitigate and recover from incidents affecting their Amazon Web
+  Services-hosted applications.
 
   An incident is any unplanned interruption or reduction in quality of services.
 
@@ -157,7 +157,7 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
-  Deletes the resource policy that AWS Resource Access Manager uses to share your
+  Deletes the resource policy that Resource Access Manager uses to share your
   Incident Manager resource.
   """
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
@@ -224,7 +224,7 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
-  Returns the details of the specified incident record.
+  Returns the details for the specified incident record.
   """
   def get_incident_record(%Client{} = client, arn, options \\ []) do
     url_path = "/getIncidentRecord"
@@ -477,7 +477,7 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
-  Lists timeline events of the specified incident record.
+  Lists timeline events for the specified incident record.
   """
   def list_timeline_events(%Client{} = client, input, options \\ []) do
     url_path = "/listTimelineEvents"
@@ -612,7 +612,7 @@ defmodule AWS.SSMIncidents do
   @doc """
   Update the details of an incident record.
 
-  You can use this action to update an incident record from the defined chat
+  You can use this operation to update an incident record from the defined chat
   channel. For more information about using actions in chat channels, see
   [Interacting through chat](https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html#chat-interact).
   """

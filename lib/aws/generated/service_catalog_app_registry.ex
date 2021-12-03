@@ -3,8 +3,8 @@
 
 defmodule AWS.ServiceCatalogAppRegistry do
   @moduledoc """
-  AWS Service Catalog AppRegistry enables organizations to understand the
-  application context of their AWS resources.
+  Amazon Web Services Service Catalog AppRegistry enables organizations to
+  understand the application context of their Amazon Web Services resources.
 
   AppRegistry provides a repository of your applications, their resources, and the
   application metadata that you use within your enterprise.
@@ -278,6 +278,35 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
+  Gets the resource associated with the application.
+  """
+  def get_associated_resource(
+        %Client{} = client,
+        application,
+        resource,
+        resource_type,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application)}/resources/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Retrieves an attribute group, either by its name or its ID.
 
   The attribute group can be specified either by its unique ID or by its name.
@@ -487,11 +516,12 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
-  Syncs the resource with what is currently recorded in App registry.
+  Syncs the resource with current AppRegistry records.
 
-  Specifically, the resource’s App registry system tags are synced with its
-  associated application. The resource is removed if it is not associated with the
-  application. The caller must have permissions to read and update the resource.
+  Specifically, the resource’s AppRegistry system tags sync with its associated
+  application. We remove the resource's AppRegistry system tags if it does not
+  associate with the application. The caller must have permissions to read and
+  update the resource.
   """
   def sync_resource(%Client{} = client, resource, resource_type, input, options \\ []) do
     url_path = "/sync/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource)}"

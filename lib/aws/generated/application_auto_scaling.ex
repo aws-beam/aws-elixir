@@ -6,40 +6,44 @@ defmodule AWS.ApplicationAutoScaling do
   With Application Auto Scaling, you can configure automatic scaling for the
   following resources:
 
-    * Amazon ECS services
-
-    * Amazon EC2 Spot Fleet requests
-
-    * Amazon EMR clusters
-
     * Amazon AppStream 2.0 fleets
 
-    * Amazon DynamoDB tables and global secondary indexes throughput
-  capacity
-
     * Amazon Aurora Replicas
-
-    * Amazon SageMaker endpoint variants
-
-    * Custom resources provided by your own applications or services
 
     * Amazon Comprehend document classification and entity recognizer
   endpoints
 
-    * AWS Lambda function provisioned concurrency
+    * Amazon DynamoDB tables and global secondary indexes throughput
+  capacity
+
+    * Amazon ECS services
+
+    * Amazon ElastiCache for Redis clusters (replication groups)
+
+    * Amazon EMR clusters
 
     * Amazon Keyspaces (for Apache Cassandra) tables
 
+    * Lambda function provisioned concurrency
+
     * Amazon Managed Streaming for Apache Kafka broker storage
+
+    * Amazon Neptune clusters
+
+    * Amazon SageMaker endpoint variants
+
+    * Spot Fleets (Amazon EC2)
+
+    * Custom resources provided by your own applications or services
 
   ## API Summary
 
   The Application Auto Scaling service API includes three key sets of actions:
 
-    * Register and manage scalable targets - Register AWS or custom
-  resources as scalable targets (a resource that Application Auto Scaling can
-  scale), set minimum and maximum capacity limits, and retrieve information on
-  existing scalable targets.
+    * Register and manage scalable targets - Register Amazon Web
+  Services or custom resources as scalable targets (a resource that Application
+  Auto Scaling can scale), set minimum and maximum capacity limits, and retrieve
+  information on existing scalable targets.
 
     * Configure and manage automatic scaling - Define scaling policies
   to dynamically scale your resources in response to CloudWatch alarms, schedule
@@ -259,6 +263,13 @@ defmodule AWS.ApplicationAutoScaling do
   Include the parameters that identify the scalable target: resource ID, scalable
   dimension, and namespace. Any parameters that you don't specify are not changed
   by this update request.
+
+  If you call the `RegisterScalableTarget` API to update an existing scalable
+  target, Application Auto Scaling retrieves the current capacity of the resource.
+  If it is below the minimum capacity or above the maximum capacity, Application
+  Auto Scaling adjusts the capacity of the scalable target to place it within
+  these bounds, even if you don't include the `MinCapacity` or `MaxCapacity`
+  request parameters.
   """
   def register_scalable_target(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RegisterScalableTarget", input, options)

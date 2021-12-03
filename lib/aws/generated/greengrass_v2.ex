@@ -3,23 +3,23 @@
 
 defmodule AWS.GreengrassV2 do
   @moduledoc """
-  AWS IoT Greengrass brings local compute, messaging, data management, sync, and
-  ML inference capabilities to edge devices.
+  IoT Greengrass brings local compute, messaging, data management, sync, and ML
+  inference capabilities to edge devices.
 
   This enables devices to collect and analyze data closer to the source of
   information, react autonomously to local events, and communicate securely with
   each other on local networks. Local devices can also communicate securely with
-  AWS IoT Core and export IoT data to the AWS Cloud. AWS IoT Greengrass developers
-  can use AWS Lambda functions and components to create and deploy applications to
-  fleets of edge devices for local operation.
+  Amazon Web Services IoT Core and export IoT data to the Amazon Web Services
+  Cloud. IoT Greengrass developers can use Lambda functions and components to
+  create and deploy applications to fleets of edge devices for local operation.
 
-  AWS IoT Greengrass Version 2 provides a new major version of the AWS IoT
-  Greengrass Core software, new APIs, and a new console. Use this API reference to
-  learn how to use the AWS IoT Greengrass V2 API operations to manage components,
-  manage deployments, and core devices.
+  IoT Greengrass Version 2 provides a new major version of the IoT Greengrass Core
+  software, new APIs, and a new console. Use this API reference to learn how to
+  use the IoT Greengrass V2 API operations to manage components, manage
+  deployments, and core devices.
 
-  For more information, see [What is AWS IoT Greengrass?](https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html)
-  in the *AWS IoT Greengrass V2 Developer Guide*.
+  For more information, see [What is IoT Greengrass?](https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html)
+  in the *IoT Greengrass V2 Developer Guide*.
   """
 
   alias AWS.Client
@@ -46,16 +46,16 @@ defmodule AWS.GreengrassV2 do
 
   Use this API operation to specify which client devices can discover a core
   device through cloud discovery. With cloud discovery, client devices connect to
-  AWS IoT Greengrass to retrieve associated core devices' connectivity information
-  and certificates. For more information, see [Configure cloud discovery](https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-cloud-discovery.html)
-  in the *AWS IoT Greengrass V2 Developer Guide*.
+  IoT Greengrass to retrieve associated core devices' connectivity information and
+  certificates. For more information, see [Configure cloud discovery](https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-cloud-discovery.html)
+  in the *IoT Greengrass V2 Developer Guide*.
 
-  Client devices are local IoT devices that connect to and communicate with an AWS
-  IoT Greengrass core device over MQTT. You can connect client devices to a core
-  device to sync MQTT messages and data to AWS IoT Core and interact with client
-  devices in AWS IoT Greengrass components. For more information, see [Interact with local IoT
-  devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/interact-with-local-iot-devices.html)
-  in the *AWS IoT Greengrass V2 Developer Guide*.
+  Client devices are local IoT devices that connect to and communicate with an IoT
+  Greengrass core device over MQTT. You can connect client devices to a core
+  device to sync MQTT messages and data to Amazon Web Services IoT Core and
+  interact with client devices in Greengrass components. For more information, see
+  [Interact with local IoT devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/interact-with-local-iot-devices.html)
+  in the *IoT Greengrass V2 Developer Guide*.
   """
   def batch_associate_client_device_with_core_device(
         %Client{} = client,
@@ -142,10 +142,10 @@ defmodule AWS.GreengrassV2 do
   @doc """
   Creates a component.
 
-  Components are software that run on AWS IoT Greengrass core devices. After you
-  develop and test a component on your core device, you can use this operation to
-  upload your component to AWS IoT Greengrass. Then, you can deploy the component
-  to other core devices.
+  Components are software that run on Greengrass core devices. After you develop
+  and test a component on your core device, you can use this operation to upload
+  your component to IoT Greengrass. Then, you can deploy the component to other
+  core devices.
 
   You can use this operation to do the following:
 
@@ -153,18 +153,18 @@ defmodule AWS.GreengrassV2 do
 
   Create a component from a recipe, which is a file that defines the component's
   metadata, parameters, dependencies, lifecycle, artifacts, and platform
-  capability. For more information, see [AWS IoT Greengrass component recipe reference](https://docs.aws.amazon.com/greengrass/v2/developerguide/component-recipe-reference.html)
-  in the *AWS IoT Greengrass V2 Developer Guide*.
+  capability. For more information, see [IoT Greengrass component recipe reference](https://docs.aws.amazon.com/greengrass/v2/developerguide/component-recipe-reference.html)
+  in the *IoT Greengrass V2 Developer Guide*.
 
   To create a component from a recipe, specify `inlineRecipe` when you call this
   operation.
 
     * ## Create components from Lambda functions
 
-  Create a component from an AWS Lambda function that runs on AWS IoT Greengrass.
-  This creates a recipe and artifacts from the Lambda function's deployment
-  package. You can use this operation to migrate Lambda functions from AWS IoT
-  Greengrass V1 to AWS IoT Greengrass V2.
+  Create a component from an Lambda function that runs on IoT Greengrass. This
+  creates a recipe and artifacts from the Lambda function's deployment package.
+  You can use this operation to migrate Lambda functions from IoT Greengrass V1 to
+  IoT Greengrass V2.
 
   This function only accepts Lambda functions that use the following runtimes:
 
@@ -182,6 +182,8 @@ defmodule AWS.GreengrassV2 do
 
   To create a component from a Lambda function, specify `lambdaFunction` when you
   call this operation.
+
+  IoT Greengrass currently supports Lambda functions on only Linux core devices.
   """
   def create_component_version(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/v2/createComponentVersion"
@@ -202,15 +204,15 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
-  Creates a continuous deployment for a target, which is a AWS IoT Greengrass core
-  device or group of core devices.
+  Creates a continuous deployment for a target, which is a Greengrass core device
+  or group of core devices.
 
   When you add a new core device to a group of core devices that has a deployment,
-  AWS IoT Greengrass deploys that group's deployment to the new device.
+  IoT Greengrass deploys that group's deployment to the new device.
 
   You can define one deployment for each target. When you create a new deployment
   for a target that has an existing deployment, you replace the previous
-  deployment. AWS IoT Greengrass applies the new deployment to the target devices.
+  deployment. IoT Greengrass applies the new deployment to the target devices.
 
   Every deployment has a revision number that indicates how many deployment
   revisions you define for a target. Use this operation to create a new revision
@@ -218,7 +220,7 @@ defmodule AWS.GreengrassV2 do
   deployment when you create it.
 
   For more information, see the [Create deployments](https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html)
-  in the *AWS IoT Greengrass V2 Developer Guide*.
+  in the *IoT Greengrass V2 Developer Guide*.
   """
   def create_deployment(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/v2/deployments"
@@ -239,7 +241,7 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
-  Deletes a version of a component from AWS IoT Greengrass.
+  Deletes a version of a component from IoT Greengrass.
 
   This operation deletes the component's recipe and artifacts. As a result,
   deployments that refer to this component version will fail. If you have
@@ -265,13 +267,13 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
-  Deletes a AWS IoT Greengrass core device, which is an AWS IoT thing.
+  Deletes a Greengrass core device, which is an IoT thing.
 
   This operation removes the core device from the list of core devices. This
-  operation doesn't delete the AWS IoT thing. For more information about how to
-  delete the AWS IoT thing, see
+  operation doesn't delete the IoT thing. For more information about how to delete
+  the IoT thing, see
   [DeleteThing](https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteThing.html)
-  in the *AWS IoT API Reference*.
+  in the *IoT API Reference*.
   """
   def delete_core_device(%Client{} = client, core_device_thing_name, input, options \\ []) do
     url_path = "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}"
@@ -370,7 +372,7 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
-  Retrieves metadata for a AWS IoT Greengrass core device.
+  Retrieves metadata for a Greengrass core device.
   """
   def get_core_device(%Client{} = client, core_device_thing_name, options \\ []) do
     url_path = "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}"
@@ -393,7 +395,7 @@ defmodule AWS.GreengrassV2 do
   @doc """
   Gets a deployment.
 
-  Deployments define the components that run on AWS IoT Greengrass core devices.
+  Deployments define the components that run on Greengrass core devices.
   """
   def get_deployment(%Client{} = client, deployment_id, options \\ []) do
     url_path = "/greengrass/v2/deployments/#{AWS.Util.encode_uri(deployment_id)}"
@@ -551,7 +553,7 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
-  Retrieves a paginated list of AWS IoT Greengrass core devices.
+  Retrieves a paginated list of Greengrass core devices.
   """
   def list_core_devices(
         %Client{} = client,
@@ -663,8 +665,8 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
-  Retrieves a paginated list of deployment jobs that AWS IoT Greengrass sends to
-  AWS IoT Greengrass core devices.
+  Retrieves a paginated list of deployment jobs that IoT Greengrass sends to
+  Greengrass core devices.
   """
   def list_effective_deployments(
         %Client{} = client,
@@ -707,8 +709,7 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
-  Retrieves a paginated list of the components that a AWS IoT Greengrass core
-  device runs.
+  Retrieves a paginated list of the components that a Greengrass core device runs.
   """
   def list_installed_components(
         %Client{} = client,
@@ -751,7 +752,7 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
-  Retrieves the list of tags for an AWS IoT Greengrass resource.
+  Retrieves the list of tags for an IoT Greengrass resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -775,8 +776,8 @@ defmodule AWS.GreengrassV2 do
   Retrieves a list of components that meet the component, version, and platform
   requirements of a deployment.
 
-  AWS IoT Greengrass core devices call this operation when they receive a
-  deployment to identify the components to install.
+  Greengrass core devices call this operation when they receive a deployment to
+  identify the components to install.
 
   This operation identifies components that meet all dependency requirements for a
   deployment. If the requirements conflict, then this operation returns an error
@@ -784,13 +785,13 @@ defmodule AWS.GreengrassV2 do
   version `>2.0.0` and component `B` requires version `<2.0.0` of a component
   dependency.
 
-  When you specify the component candidates to resolve, AWS IoT Greengrass
-  compares each component's digest from the core device with the component's
-  digest in the AWS Cloud. If the digests don't match, then AWS IoT Greengrass
-  specifies to use the version from the AWS Cloud.
+  When you specify the component candidates to resolve, IoT Greengrass compares
+  each component's digest from the core device with the component's digest in the
+  Amazon Web Services Cloud. If the digests don't match, then IoT Greengrass
+  specifies to use the version from the Amazon Web Services Cloud.
 
   To use this operation, you must use the data plane API endpoint and authenticate
-  with an AWS IoT device certificate. For more information, see [AWS IoT Greengrass endpoints and
+  with an IoT device certificate. For more information, see [IoT Greengrass endpoints and
   quotas](https://docs.aws.amazon.com/general/latest/gr/greengrass.html).
   """
   def resolve_component_candidates(%Client{} = client, input, options \\ []) do
@@ -812,7 +813,7 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
-  Adds tags to an AWS IoT Greengrass resource.
+  Adds tags to an IoT Greengrass resource.
 
   If a tag already exists for the resource, this operation updates the tag's
   value.
@@ -836,7 +837,7 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
-  Removes a tag from an AWS IoT Greengrass resource.
+  Removes a tag from an IoT Greengrass resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

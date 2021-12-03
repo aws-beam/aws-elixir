@@ -2,6 +2,13 @@
 # See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.Identitystore do
+  @moduledoc """
+  The AWS Single Sign-On (SSO) Identity Store service provides a single place to
+  retrieve all of your identities (users and groups).
+
+  For more information about AWS, see the [AWS Single Sign-On User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
+  """
+
   alias AWS.Client
   alias AWS.Request
 

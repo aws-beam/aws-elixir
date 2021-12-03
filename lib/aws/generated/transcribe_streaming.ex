@@ -85,10 +85,10 @@ defmodule AWS.TranscribeStreaming do
   end
 
   @doc """
-  Starts a bidirectional HTTP2 stream where audio is streamed to Amazon Transcribe
-  and the transcription results are streamed to your application.
+  Starts a bidirectional HTTP/2 stream where audio is streamed to Amazon
+  Transcribe and the transcription results are streamed to your application.
 
-  The following are encoded as HTTP2 headers:
+  The following are encoded as HTTP/2 headers:
 
     * x-amzn-transcribe-language-code
 
@@ -97,20 +97,30 @@ defmodule AWS.TranscribeStreaming do
     * x-amzn-transcribe-sample-rate
 
     * x-amzn-transcribe-session-id
+
+  See the [ SDK for Go API Reference](https://docs.aws.amazon.com/sdk-for-go/api/service/transcribestreamingservice/#TranscribeStreamingService.StartStreamTranscription)
+  for more detail.
   """
   def start_stream_transcription(%Client{} = client, input, options \\ []) do
     url_path = "/stream-transcription"
 
     {headers, input} =
       [
+        {"ContentIdentificationType", "x-amzn-transcribe-content-identification-type"},
+        {"ContentRedactionType", "x-amzn-transcribe-content-redaction-type"},
         {"EnableChannelIdentification", "x-amzn-transcribe-enable-channel-identification"},
         {"EnablePartialResultsStabilization",
          "x-amzn-transcribe-enable-partial-results-stabilization"},
+        {"IdentifyLanguage", "x-amzn-transcribe-identify-language"},
         {"LanguageCode", "x-amzn-transcribe-language-code"},
+        {"LanguageModelName", "x-amzn-transcribe-language-model-name"},
+        {"LanguageOptions", "x-amzn-transcribe-language-options"},
         {"MediaEncoding", "x-amzn-transcribe-media-encoding"},
         {"MediaSampleRateHertz", "x-amzn-transcribe-sample-rate"},
         {"NumberOfChannels", "x-amzn-transcribe-number-of-channels"},
         {"PartialResultsStability", "x-amzn-transcribe-partial-results-stability"},
+        {"PiiEntityTypes", "x-amzn-transcribe-pii-entity-types"},
+        {"PreferredLanguage", "x-amzn-transcribe-preferred-language"},
         {"SessionId", "x-amzn-transcribe-session-id"},
         {"ShowSpeakerLabel", "x-amzn-transcribe-show-speaker-label"},
         {"VocabularyFilterMethod", "x-amzn-transcribe-vocabulary-filter-method"},
@@ -126,14 +136,21 @@ defmodule AWS.TranscribeStreaming do
         options,
         :response_header_parameters,
         [
+          {"x-amzn-transcribe-content-identification-type", "ContentIdentificationType"},
+          {"x-amzn-transcribe-content-redaction-type", "ContentRedactionType"},
           {"x-amzn-transcribe-enable-channel-identification", "EnableChannelIdentification"},
           {"x-amzn-transcribe-enable-partial-results-stabilization",
            "EnablePartialResultsStabilization"},
+          {"x-amzn-transcribe-identify-language", "IdentifyLanguage"},
           {"x-amzn-transcribe-language-code", "LanguageCode"},
+          {"x-amzn-transcribe-language-model-name", "LanguageModelName"},
+          {"x-amzn-transcribe-language-options", "LanguageOptions"},
           {"x-amzn-transcribe-media-encoding", "MediaEncoding"},
           {"x-amzn-transcribe-sample-rate", "MediaSampleRateHertz"},
           {"x-amzn-transcribe-number-of-channels", "NumberOfChannels"},
           {"x-amzn-transcribe-partial-results-stability", "PartialResultsStability"},
+          {"x-amzn-transcribe-pii-entity-types", "PiiEntityTypes"},
+          {"x-amzn-transcribe-preferred-language", "PreferredLanguage"},
           {"x-amzn-request-id", "RequestId"},
           {"x-amzn-transcribe-session-id", "SessionId"},
           {"x-amzn-transcribe-show-speaker-label", "ShowSpeakerLabel"},

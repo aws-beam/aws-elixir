@@ -45,7 +45,7 @@ defmodule AWS.SNS do
 
   @doc """
   Adds a statement to a topic's access control policy, granting access for the
-  specified accounts to the specified actions.
+  specified Amazon Web Services accounts to the specified actions.
   """
   def add_permission(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AddPermission", input, options)
@@ -53,7 +53,7 @@ defmodule AWS.SNS do
 
   @doc """
   Accepts a phone number and indicates whether the phone holder has opted out of
-  receiving SMS messages from your account.
+  receiving SMS messages from your Amazon Web Services account.
 
   You cannot send SMS messages to a number that is opted out.
 
@@ -93,8 +93,13 @@ defmodule AWS.SNS do
     * For `Baidu`, `PlatformPrincipal` is `API key` and
   `PlatformCredential` is `secret key`.
 
-    * For `APNS` and `APNS_SANDBOX`, `PlatformPrincipal` is `SSL
-  certificate` and `PlatformCredential` is `private key`.
+    * For `APNS` and `APNS_SANDBOX` using certificate credentials,
+  `PlatformPrincipal` is `SSL certificate` and `PlatformCredential` is `private
+  key`.
+
+    * For `APNS` and `APNS_SANDBOX` using token credentials,
+  `PlatformPrincipal` is `signing key ID` and `PlatformCredential` is `signing
+  key`.
 
     * For `GCM` (Firebase Cloud Messaging), there is no
   `PlatformPrincipal` and the `PlatformCredential` is `API key`.
@@ -133,16 +138,16 @@ defmodule AWS.SNS do
   end
 
   @doc """
-  Adds a destination phone number to an account in the SMS sandbox and sends a
-  one-time password (OTP) to that phone number.
+  Adds a destination phone number to an Amazon Web Services account in the SMS
+  sandbox and sends a one-time password (OTP) to that phone number.
 
-  When you start using Amazon SNS to send SMS messages, your account is in the
-  *SMS sandbox*. The SMS sandbox provides a safe environment for you to try Amazon
-  SNS features without risking your reputation as an SMS sender. While your
-  account is in the SMS sandbox, you can use all of the features of Amazon SNS.
-  However, you can send SMS messages only to verified destination phone numbers.
-  For more information, including how to move out of the sandbox to send messages
-  without restrictions, see [SMS sandbox](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) in the
+  When you start using Amazon SNS to send SMS messages, your Amazon Web Services
+  account is in the *SMS sandbox*. The SMS sandbox provides a safe environment for
+  you to try Amazon SNS features without risking your reputation as an SMS sender.
+  While your Amazon Web Services account is in the SMS sandbox, you can use all of
+  the features of Amazon SNS. However, you can send SMS messages only to verified
+  destination phone numbers. For more information, including how to move out of
+  the sandbox to send messages without restrictions, see [SMS sandbox](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) in the
   *Amazon SNS Developer Guide*.
   """
   def create_sms_sandbox_phone_number(%Client{} = client, input, options \\ []) do
@@ -186,15 +191,16 @@ defmodule AWS.SNS do
   end
 
   @doc """
-  Deletes an account's verified or pending phone number from the SMS sandbox.
+  Deletes an Amazon Web Services account's verified or pending phone number from
+  the SMS sandbox.
 
-  When you start using Amazon SNS to send SMS messages, your account is in the
-  *SMS sandbox*. The SMS sandbox provides a safe environment for you to try Amazon
-  SNS features without risking your reputation as an SMS sender. While your
-  account is in the SMS sandbox, you can use all of the features of Amazon SNS.
-  However, you can send SMS messages only to verified destination phone numbers.
-  For more information, including how to move out of the sandbox to send messages
-  without restrictions, see [SMS sandbox](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) in the
+  When you start using Amazon SNS to send SMS messages, your Amazon Web Services
+  account is in the *SMS sandbox*. The SMS sandbox provides a safe environment for
+  you to try Amazon SNS features without risking your reputation as an SMS sender.
+  While your Amazon Web Services account is in the SMS sandbox, you can use all of
+  the features of Amazon SNS. However, you can send SMS messages only to verified
+  destination phone numbers. For more information, including how to move out of
+  the sandbox to send messages without restrictions, see [SMS sandbox](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) in the
   *Amazon SNS Developer Guide*.
   """
   def delete_sms_sandbox_phone_number(%Client{} = client, input, options \\ []) do
@@ -233,7 +239,8 @@ defmodule AWS.SNS do
   end
 
   @doc """
-  Returns the settings for sending SMS messages from your account.
+  Returns the settings for sending SMS messages from your Amazon Web Services
+  account.
 
   These settings are set with the `SetSMSAttributes` action.
   """
@@ -242,15 +249,16 @@ defmodule AWS.SNS do
   end
 
   @doc """
-  Retrieves the SMS sandbox status for the calling account in the target Region.
+  Retrieves the SMS sandbox status for the calling Amazon Web Services account in
+  the target Amazon Web Services Region.
 
-  When you start using Amazon SNS to send SMS messages, your account is in the
-  *SMS sandbox*. The SMS sandbox provides a safe environment for you to try Amazon
-  SNS features without risking your reputation as an SMS sender. While your
-  account is in the SMS sandbox, you can use all of the features of Amazon SNS.
-  However, you can send SMS messages only to verified destination phone numbers.
-  For more information, including how to move out of the sandbox to send messages
-  without restrictions, see [SMS sandbox](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) in the
+  When you start using Amazon SNS to send SMS messages, your Amazon Web Services
+  account is in the *SMS sandbox*. The SMS sandbox provides a safe environment for
+  you to try Amazon SNS features without risking your reputation as an SMS sender.
+  While your Amazon Web Services account is in the SMS sandbox, you can use all of
+  the features of Amazon SNS. However, you can send SMS messages only to verified
+  destination phone numbers. For more information, including how to move out of
+  the sandbox to send messages without restrictions, see [SMS sandbox](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) in the
   *Amazon SNS Developer Guide*.
   """
   def get_sms_sandbox_account_status(%Client{} = client, input, options \\ []) do
@@ -292,7 +300,8 @@ defmodule AWS.SNS do
   end
 
   @doc """
-  Lists the calling account's dedicated origination numbers and their metadata.
+  Lists the calling Amazon Web Services account's dedicated origination numbers
+  and their metadata.
 
   For more information about origination numbers, see [Origination numbers](https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html)
   in the *Amazon SNS Developer Guide*.
@@ -335,16 +344,16 @@ defmodule AWS.SNS do
   end
 
   @doc """
-  Lists the calling account's current verified and pending destination phone
-  numbers in the SMS sandbox.
+  Lists the calling Amazon Web Services account's current verified and pending
+  destination phone numbers in the SMS sandbox.
 
-  When you start using Amazon SNS to send SMS messages, your account is in the
-  *SMS sandbox*. The SMS sandbox provides a safe environment for you to try Amazon
-  SNS features without risking your reputation as an SMS sender. While your
-  account is in the SMS sandbox, you can use all of the features of Amazon SNS.
-  However, you can send SMS messages only to verified destination phone numbers.
-  For more information, including how to move out of the sandbox to send messages
-  without restrictions, see [SMS sandbox](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) in the
+  When you start using Amazon SNS to send SMS messages, your Amazon Web Services
+  account is in the *SMS sandbox*. The SMS sandbox provides a safe environment for
+  you to try Amazon SNS features without risking your reputation as an SMS sender.
+  While your Amazon Web Services account is in the SMS sandbox, you can use all of
+  the features of Amazon SNS. However, you can send SMS messages only to verified
+  destination phone numbers. For more information, including how to move out of
+  the sandbox to send messages without restrictions, see [SMS sandbox](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) in the
   *Amazon SNS Developer Guide*.
   """
   def list_sms_sandbox_phone_numbers(%Client{} = client, input, options \\ []) do
@@ -419,21 +428,57 @@ defmodule AWS.SNS do
   endpoint that is subscribed to the topic. The format of the message depends on
   the notification protocol for each subscribed endpoint.
 
-  When a `messageId` is returned, the message has been saved and Amazon SNS will
-  attempt to deliver it shortly.
+  When a `messageId` is returned, the message is saved and Amazon SNS immediately
+  deliverers it to subscribers.
 
-  To use the `Publish` action for sending a message to a mobile endpoint, such as
-  an app on a Kindle device or mobile phone, you must specify the EndpointArn for
-  the TargetArn parameter. The EndpointArn is returned when making a call with the
-  `CreatePlatformEndpoint` action.
+  To use the `Publish` action for publishing a message to a mobile endpoint, such
+  as an app on a Kindle device or mobile phone, you must specify the EndpointArn
+  for the TargetArn parameter. The EndpointArn is returned when making a call with
+  the `CreatePlatformEndpoint` action.
 
   For more information about formatting messages, see [Send Custom Platform-Specific Payloads in Messages to Mobile
   Devices](https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html).
 
-  You can publish messages only to topics and endpoints in the same Region.
+  You can publish messages only to topics and endpoints in the same Amazon Web
+  Services Region.
   """
   def publish(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "Publish", input, options)
+  end
+
+  @doc """
+  Publishes up to ten messages to the specified topic.
+
+  This is a batch version of `Publish`. For FIFO topics, multiple messages within
+  a single batch are published in the order they are sent, and messages are
+  deduplicated within the batch and across batches for 5 minutes.
+
+  The result of publishing each message is reported individually in the response.
+  Because the batch request can result in a combination of successful and
+  unsuccessful actions, you should check for batch errors even when the call
+  returns an HTTP status code of `200`.
+
+  The maximum allowed individual message size and the maximum total payload size
+  (the sum of the individual lengths of all of the batched messages) are both 256
+  KB (262,144 bytes).
+
+  Some actions take lists of parameters. These lists are specified using the
+  `param.n` notation. Values of `n` are integers starting from 1. For example, a
+  parameter list with two elements looks like this:
+
+  &AttributeName.1=first
+
+  &AttributeName.2=second
+
+  If you send a batch message to a topic, Amazon SNS publishes the batch message
+  to each endpoint that is subscribed to the topic. The format of the batch
+  message depends on the notification protocol for each subscribed endpoint.
+
+  When a `messageId` is returned, the batch message is saved and Amazon SNS
+  immediately delivers the message to subscribers.
+  """
+  def publish_batch(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PublishBatch", input, options)
   end
 
   @doc """
@@ -500,8 +545,8 @@ defmodule AWS.SNS do
   Subscribes an endpoint to an Amazon SNS topic.
 
   If the endpoint type is HTTP/S or email, or if the endpoint and the topic are
-  not in the same account, the endpoint owner must run the `ConfirmSubscription`
-  action to confirm the subscription.
+  not in the same Amazon Web Services account, the endpoint owner must run the
+  `ConfirmSubscription` action to confirm the subscription.
 
   You call the `ConfirmSubscription` action with the token from the subscription
   response. Confirmation tokens are valid for three days.
@@ -530,8 +575,9 @@ defmodule AWS.SNS do
     * A new tag with a key identical to that of an existing tag
   overwrites the existing tag.
 
-    * Tagging actions are limited to 10 TPS per account, per Region. If
-  your application requires a higher throughput, file a [technical support request](https://console.aws.amazon.com/support/home#/case/create?issueType=technical).
+    * Tagging actions are limited to 10 TPS per Amazon Web Services
+  account, per Amazon Web Services Region. If your application requires a higher
+  throughput, file a [technical support request](https://console.aws.amazon.com/support/home#/case/create?issueType=technical).
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TagResource", input, options)
@@ -565,15 +611,15 @@ defmodule AWS.SNS do
 
   @doc """
   Verifies a destination phone number with a one-time password (OTP) for the
-  calling account.
+  calling Amazon Web Services account.
 
-  When you start using Amazon SNS to send SMS messages, your account is in the
-  *SMS sandbox*. The SMS sandbox provides a safe environment for you to try Amazon
-  SNS features without risking your reputation as an SMS sender. While your
-  account is in the SMS sandbox, you can use all of the features of Amazon SNS.
-  However, you can send SMS messages only to verified destination phone numbers.
-  For more information, including how to move out of the sandbox to send messages
-  without restrictions, see [SMS sandbox](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) in the
+  When you start using Amazon SNS to send SMS messages, your Amazon Web Services
+  account is in the *SMS sandbox*. The SMS sandbox provides a safe environment for
+  you to try Amazon SNS features without risking your reputation as an SMS sender.
+  While your Amazon Web Services account is in the SMS sandbox, you can use all of
+  the features of Amazon SNS. However, you can send SMS messages only to verified
+  destination phone numbers. For more information, including how to move out of
+  the sandbox to send messages without restrictions, see [SMS sandbox](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) in the
   *Amazon SNS Developer Guide*.
   """
   def verify_sms_sandbox_phone_number(%Client{} = client, input, options \\ []) do

@@ -31,9 +31,7 @@ defmodule AWS.Kinesis do
   @doc """
   Adds or updates tags for the specified Kinesis data stream.
 
-  Each time you invoke this operation, you can specify up to 10 tags. If you want
-  to add more than 10 tags to your stream, you can invoke this operation multiple
-  times. In total, each stream can have up to 50 tags.
+  You can assign up to 50 tags to a data stream.
 
   If tags have already been assigned to the stream, `AddTagsToStream` overwrites
   any existing tags that correspond to the specified tag keys.
@@ -58,10 +56,11 @@ defmodule AWS.Kinesis do
   records per second, up to a maximum data write total of 1 MiB per second. If the
   amount of data input increases or decreases, you can add or remove shards.
 
-  The stream name identifies the stream. The name is scoped to the AWS account
-  used by the application. It is also scoped by AWS Region. That is, two streams
-  in two different accounts can have the same name, and two streams in the same
-  account, but in two different Regions, can have the same name.
+  The stream name identifies the stream. The name is scoped to the Amazon Web
+  Services account used by the application. It is also scoped by Amazon Web
+  Services Region. That is, two streams in two different accounts can have the
+  same name, and two streams in the same account, but in two different Regions,
+  can have the same name.
 
   `CreateStream` is an asynchronous operation. Upon receiving a `CreateStream`
   request, Kinesis Data Streams immediately returns and sets the stream status to
@@ -77,12 +76,13 @@ defmodule AWS.Kinesis do
 
     * Create more shards than are authorized for your account.
 
-  For the default shard limit for an AWS account, see [Amazon Kinesis Data Streams Limits](https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html)
+  For the default shard limit for an Amazon Web Services account, see [Amazon Kinesis Data Streams
+  Limits](https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html)
   in the *Amazon Kinesis Data Streams Developer Guide*. To increase this limit,
-  [contact AWS Support](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html).
+  [contact Amazon Web Services Support](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html).
 
-  You can use `DescribeStream` to check the stream status, which is returned in
-  `StreamStatus`.
+  You can use `DescribeStreamSummary` to check the stream status, which is
+  returned in `StreamStatus`.
 
   `CreateStream` has a limit of five transactions per second per account.
   """
@@ -122,8 +122,8 @@ defmodule AWS.Kinesis do
   When you delete a stream, any shards in that stream are also deleted, and any
   tags are dissociated from the stream.
 
-  You can use the `DescribeStream` operation to check the state of the stream,
-  which is returned in `StreamStatus`.
+  You can use the `DescribeStreamSummary` operation to check the state of the
+  stream, which is returned in `StreamStatus`.
 
   `DeleteStream` has a limit of five transactions per second per account.
   """
@@ -162,6 +162,11 @@ defmodule AWS.Kinesis do
 
   @doc """
   Describes the specified Kinesis data stream.
+
+  This API has been revised. It's highly recommended that you use the
+  `DescribeStreamSummary` API to get a summarized description of the specified
+  Kinesis data stream and the `ListShards` API to list the shards in a specified
+  data stream and obtain information about each shard.
 
   The information returned includes the stream name, Amazon Resource Name (ARN),
   creation time, enhanced metric configuration, and shard map. The shard map is an
@@ -261,14 +266,17 @@ defmodule AWS.Kinesis do
   call is 10,000.
 
   The size of the data returned by `GetRecords` varies depending on the
-  utilization of the shard. The maximum size of data that `GetRecords` can return
-  is 10 MiB. If a call returns this amount of data, subsequent calls made within
-  the next 5 seconds throw `ProvisionedThroughputExceededException`. If there is
-  insufficient provisioned throughput on the stream, subsequent calls made within
-  the next 1 second throw `ProvisionedThroughputExceededException`. `GetRecords`
-  doesn't return any data when it throws an exception. For this reason, we
-  recommend that you wait 1 second between calls to `GetRecords`. However, it's
-  possible that the application will get exceptions for longer than 1 second.
+  utilization of the shard. It is recommended that consumer applications retrieve
+  records via the `GetRecords` command using the 5 TPS limit to remain caught up.
+  Retrieving records less frequently can lead to consumer applications falling
+  behind. The maximum size of data that `GetRecords` can return is 10 MiB. If a
+  call returns this amount of data, subsequent calls made within the next 5
+  seconds throw `ProvisionedThroughputExceededException`. If there is insufficient
+  provisioned throughput on the stream, subsequent calls made within the next 1
+  second throw `ProvisionedThroughputExceededException`. `GetRecords` doesn't
+  return any data when it throws an exception. For this reason, we recommend that
+  you wait 1 second between calls to `GetRecords`. However, it's possible that the
+  application will get exceptions for longer than 1 second.
 
   To detect whether the application is falling behind in processing, you can use
   the `MillisBehindLatest` response attribute. You can also monitor the stream
@@ -342,7 +350,7 @@ defmodule AWS.Kinesis do
   Increases the Kinesis data stream's retention period, which is the length of
   time data records are accessible after they are added to the stream.
 
-  The maximum value of a stream's retention period is 168 hours (7 days).
+  The maximum value of a stream's retention period is 8760 hours (365 days).
 
   If you choose a longer stream retention period, this operation increases the
   time period during which records that have not yet expired are accessible.
@@ -359,7 +367,10 @@ defmodule AWS.Kinesis do
   @doc """
   Lists the shards in a stream and provides information about each shard.
 
-  This operation has a limit of 100 transactions per second per data stream.
+  This operation has a limit of 1000 transactions per second per data stream.
+
+  This action does not list expired shards. For information about expired shards,
+  see [Data Routing, Data Persistence, and Shard State after a Reshard](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing).
 
   This API is a new operation that is used by the Amazon Kinesis Client Library
   (KCL). If you have a fine-grained IAM policy that only allows specific
@@ -387,7 +398,7 @@ defmodule AWS.Kinesis do
   The number of streams may be too large to return from a single call to
   `ListStreams`. You can limit the number of returned streams using the `Limit`
   parameter. If you do not specify a value for the `Limit` parameter, Kinesis Data
-  Streams uses the default limit, which is currently 10.
+  Streams uses the default limit, which is currently 100.
 
   You can detect if there are more streams available to list by using the
   `HasMoreStreams` flag from the returned output. If there are more streams
@@ -434,8 +445,8 @@ defmodule AWS.Kinesis do
   `ResourceInUseException`. If the specified stream does not exist, `MergeShards`
   returns a `ResourceNotFoundException`.
 
-  You can use `DescribeStream` to check the state of the stream, which is returned
-  in `StreamStatus`.
+  You can use `DescribeStreamSummary` to check the state of the stream, which is
+  returned in `StreamStatus`.
 
   `MergeShards` is an asynchronous operation. Upon receiving a `MergeShards`
   request, Amazon Kinesis Data Streams immediately returns a response and sets the
@@ -443,8 +454,8 @@ defmodule AWS.Kinesis do
   Streams sets the `StreamStatus` to `ACTIVE`. Read and write operations continue
   to work while the stream is in the `UPDATING` state.
 
-  You use `DescribeStream` to determine the shard IDs that are specified in the
-  `MergeShards` request.
+  You use `DescribeStreamSummary` and the `ListShards` APIs to determine the shard
+  IDs that are specified in the `MergeShards` request.
 
   If you try to operate on too many streams in parallel using `CreateStream`,
   `DeleteStream`, `MergeShards`, or `SplitShard`, you receive a
@@ -638,9 +649,9 @@ defmodule AWS.Kinesis do
   information, see [Split a Shard](https://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-resharding-split.html)
   in the *Amazon Kinesis Data Streams Developer Guide*.
 
-  You can use `DescribeStream` to determine the shard ID and hash key values for
-  the `ShardToSplit` and `NewStartingHashKey` parameters that are specified in the
-  `SplitShard` request.
+  You can use `DescribeStreamSummary` and the `ListShards` APIs to determine the
+  shard ID and hash key values for the `ShardToSplit` and `NewStartingHashKey`
+  parameters that are specified in the `SplitShard` request.
 
   `SplitShard` is an asynchronous operation. Upon receiving a `SplitShard`
   request, Kinesis Data Streams immediately returns a response and sets the stream
@@ -648,18 +659,18 @@ defmodule AWS.Kinesis do
   sets the stream status to `ACTIVE`. Read and write operations continue to work
   while the stream is in the `UPDATING` state.
 
-  You can use `DescribeStream` to check the status of the stream, which is
+  You can use `DescribeStreamSummary` to check the status of the stream, which is
   returned in `StreamStatus`. If the stream is in the `ACTIVE` state, you can call
-  `SplitShard`. If a stream is in `CREATING` or `UPDATING` or `DELETING` states,
-  `DescribeStream` returns a `ResourceInUseException`.
+  `SplitShard`.
 
-  If the specified stream does not exist, `DescribeStream` returns a
+  If the specified stream does not exist, `DescribeStreamSummary` returns a
   `ResourceNotFoundException`. If you try to create more shards than are
   authorized for your account, you receive a `LimitExceededException`.
 
-  For the default shard limit for an AWS account, see [Kinesis Data Streams Limits](https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html)
+  For the default shard limit for an Amazon Web Services account, see [Kinesis Data Streams
+  Limits](https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html)
   in the *Amazon Kinesis Data Streams Developer Guide*. To increase this limit,
-  [contact AWS Support](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html).
+  [contact Amazon Web Services Support](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html).
 
   If you try to operate on too many streams simultaneously using `CreateStream`,
   `DeleteStream`, `MergeShards`, and/or `SplitShard`, you receive a
@@ -672,8 +683,8 @@ defmodule AWS.Kinesis do
   end
 
   @doc """
-  Enables or updates server-side encryption using an AWS KMS key for a specified
-  stream.
+  Enables or updates server-side encryption using an Amazon Web Services KMS key
+  for a specified stream.
 
   Starting encryption is an asynchronous operation. Upon receiving the request,
   Kinesis Data Streams returns immediately and sets the status of the stream to
@@ -683,8 +694,8 @@ defmodule AWS.Kinesis do
   write data to your stream while its status is `UPDATING`. Once the status of the
   stream is `ACTIVE`, encryption begins for records written to the stream.
 
-  API Limits: You can successfully apply a new AWS KMS key for server-side
-  encryption 25 times in a rolling 24-hour period.
+  API Limits: You can successfully apply a new Amazon Web Services KMS key for
+  server-side encryption 25 times in a rolling 24-hour period.
 
   Note: It can take up to 5 seconds after the stream is in an `ACTIVE` status
   before all records written to the stream are encrypted. After you enable
@@ -742,8 +753,9 @@ defmodule AWS.Kinesis do
 
   If you call `SubscribeToShard` again with the same `ConsumerARN` and `ShardId`
   within 5 seconds of a successful call, you'll get a `ResourceInUseException`. If
-  you call `SubscribeToShard` 5 seconds or more after a successful call, the first
-  connection will expire and the second call will take over the subscription.
+  you call `SubscribeToShard` 5 seconds or more after a successful call, the
+  second call takes over the subscription and the previous connection expires or
+  fails with a `ResourceInUseException`.
 
   For an example of how to use this operations, see [Enhanced Fan-Out Using the Kinesis Data Streams
   API](/streams/latest/dev/building-enhanced-consumers-api.html).
@@ -782,19 +794,29 @@ defmodule AWS.Kinesis do
 
     * Scale down below half your current shard count for a stream
 
-    * Scale up to more than 500 shards in a stream
+    * Scale up to more than 10000 shards in a stream
 
-    * Scale a stream with more than 500 shards down unless the result is
-  less than 500 shards
+    * Scale a stream with more than 10000 shards down unless the result
+  is less than 10000 shards
 
     * Scale up to more than the shard limit for your account
 
-  For the default limits for an AWS account, see [Streams Limits](https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html)
+  For the default limits for an Amazon Web Services account, see [Streams Limits](https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html)
   in the *Amazon Kinesis Data Streams Developer Guide*. To request an increase in
   the call rate limit, the shard limit for this API, or your overall shard limit,
   use the [limits form](https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase&limitType=service-code-kinesis).
   """
   def update_shard_count(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateShardCount", input, options)
+  end
+
+  @doc """
+  Updates the capacity mode of the data stream.
+
+  Currently, in Kinesis Data Streams, you can choose between an ## on-demand
+  capacity mode and a **provisioned** capacity mode for your data stream.
+  """
+  def update_stream_mode(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateStreamMode", input, options)
   end
 end

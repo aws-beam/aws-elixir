@@ -31,7 +31,8 @@ defmodule AWS.Polly do
   end
 
   @doc """
-  Deletes the specified pronunciation lexicon stored in an AWS Region.
+  Deletes the specified pronunciation lexicon stored in an Amazon Web Services
+  Region.
 
   A lexicon which has been deleted is not available for speech synthesis, nor is
   it possible to retrieve it using either the `GetLexicon` or `ListLexicon` APIs.
@@ -132,8 +133,8 @@ defmodule AWS.Polly do
   end
 
   @doc """
-  Returns the content of the specified pronunciation lexicon stored in an AWS
-  Region.
+  Returns the content of the specified pronunciation lexicon stored in an Amazon
+  Web Services Region.
 
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
@@ -181,7 +182,8 @@ defmodule AWS.Polly do
   end
 
   @doc """
-  Returns a list of pronunciation lexicons stored in an AWS Region.
+  Returns a list of pronunciation lexicons stored in an Amazon Web Services
+  Region.
 
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
@@ -262,7 +264,7 @@ defmodule AWS.Polly do
   end
 
   @doc """
-  Stores a pronunciation lexicon in an AWS Region.
+  Stores a pronunciation lexicon in an Amazon Web Services Region.
 
   If a lexicon with the same name already exists in the region, it is overwritten
   by the new lexicon. Lexicon operations have eventual consistency, therefore, it
@@ -295,10 +297,11 @@ defmodule AWS.Polly do
 
   This operation requires all the standard information needed for speech
   synthesis, plus the name of an Amazon S3 bucket for the service to store the
-  output of the synthesis task and two optional parameters (OutputS3KeyPrefix and
-  SnsTopicArn). Once the synthesis task is created, this operation will return a
-  SpeechSynthesisTask object, which will include an identifier of this task as
-  well as the current status.
+  output of the synthesis task and two optional parameters (`OutputS3KeyPrefix`
+  and `SnsTopicArn`). Once the synthesis task is created, this operation will
+  return a `SpeechSynthesisTask` object, which will include an identifier of this
+  task as well as the current status. The `SpeechSynthesisTask` object is
+  available for 72 hours after starting the asynchronous synthesis task.
   """
   def start_speech_synthesis_task(%Client{} = client, input, options \\ []) do
     url_path = "/v1/synthesisTasks"

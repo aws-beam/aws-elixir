@@ -3,6 +3,8 @@
 
 defmodule AWS.CodeBuild do
   @moduledoc """
+  CodeBuild
+
   CodeBuild is a fully managed build service in the cloud.
 
   CodeBuild compiles your source code, runs unit tests, and produces artifacts
@@ -353,6 +355,44 @@ defmodule AWS.CodeBuild do
   """
   def update_project(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateProject", input, options)
+  end
+
+  @doc """
+  Changes the public visibility for a project.
+
+  The project's build results, logs, and artifacts are available to the general
+  public. For more information, see [Public build projects](https://docs.aws.amazon.com/codebuild/latest/userguide/public-builds.html)
+  in the *CodeBuild User Guide*.
+
+  The following should be kept in mind when making your projects public:
+
+     All of a project's build results, logs, and artifacts, including
+  builds that were run when the project was private, are available to the general
+  public.
+
+     All build logs and artifacts are available to the public.
+  Environment variables, source code, and other sensitive information may have
+  been output to the build logs and artifacts. You must be careful about what
+  information is output to the build logs. Some best practice are:
+
+       Do not store sensitive values, especially Amazon Web
+  Services access key IDs and secret access keys, in environment variables. We
+  recommend that you use an Amazon EC2 Systems Manager Parameter Store or Secrets
+  Manager to store sensitive values.
+
+       Follow [Best practices for using webhooks](https://docs.aws.amazon.com/codebuild/latest/userguide/webhooks.html#webhook-best-practices)
+  in the *CodeBuild User Guide* to limit which entities can trigger a build, and
+  do not store the buildspec in the project itself, to ensure that your webhooks
+  are as secure as possible.
+
+     A malicious user can use public builds to distribute malicious
+  artifacts. We recommend that you review all pull requests to verify that the
+  pull request is a legitimate change. We also recommend that you validate any
+  artifacts with their checksums to make sure that the correct artifacts are being
+  downloaded.
+  """
+  def update_project_visibility(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateProjectVisibility", input, options)
   end
 
   @doc """

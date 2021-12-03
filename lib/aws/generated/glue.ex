@@ -72,6 +72,13 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Retrieves information about a list of blueprints.
+  """
+  def batch_get_blueprints(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetBlueprints", input, options)
+  end
+
+  @doc """
   Returns a list of resource metadata for a given list of crawler names.
 
   After calling the `ListCrawlers` operation, you can call this operation to
@@ -169,6 +176,13 @@ defmodule AWS.Glue do
   """
   def check_schema_version_validity(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CheckSchemaVersionValidity", input, options)
+  end
+
+  @doc """
+  Registers a blueprint with Glue.
+  """
+  def create_blueprint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateBlueprint", input, options)
   end
 
   @doc """
@@ -327,6 +341,13 @@ defmodule AWS.Glue do
   """
   def create_workflow(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateWorkflow", input, options)
+  end
+
+  @doc """
+  Deletes an existing blueprint.
+  """
+  def delete_blueprint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteBlueprint", input, options)
   end
 
   @doc """
@@ -541,6 +562,27 @@ defmodule AWS.Glue do
   """
   def delete_workflow(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteWorkflow", input, options)
+  end
+
+  @doc """
+  Retrieves the details of a blueprint.
+  """
+  def get_blueprint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetBlueprint", input, options)
+  end
+
+  @doc """
+  Retrieves the details of a blueprint run.
+  """
+  def get_blueprint_run(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetBlueprintRun", input, options)
+  end
+
+  @doc """
+  Retrieves the details of blueprint runs for a specified blueprint.
+  """
+  def get_blueprint_runs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetBlueprintRuns", input, options)
   end
 
   @doc """
@@ -976,6 +1018,13 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Lists all the blueprint names in an account.
+  """
+  def list_blueprints(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListBlueprints", input, options)
+  end
+
+  @doc """
   Retrieves the names of all crawler resources in this Amazon Web Services
   account, or the resources with the specified tag.
 
@@ -1200,6 +1249,13 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Starts a new run of the specified blueprint.
+  """
+  def start_blueprint_run(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartBlueprintRun", input, options)
+  end
+
+  @doc """
   Starts a crawl using the specified crawler, regardless of what is scheduled.
 
   If the crawler is already running, returns a
@@ -1377,6 +1433,13 @@ defmodule AWS.Glue do
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates a registered blueprint.
+  """
+  def update_blueprint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateBlueprint", input, options)
   end
 
   @doc """

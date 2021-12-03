@@ -6,38 +6,18 @@ defmodule AWS.Ivs do
   ## Introduction
 
   The Amazon Interactive Video Service (IVS) API is REST compatible, using a
-  standard HTTP API and an AWS EventBridge event stream for responses.
+  standard HTTP API and an Amazon Web Services EventBridge event stream for
+  responses.
 
   JSON is used for both requests and responses, including errors.
 
-  The API is an AWS regional service, currently in these regions: us-west-2,
-  us-east-1, and eu-west-1.
+  The API is an Amazon Web Services regional service. For a list of supported
+  regions and Amazon IVS HTTPS service endpoints, see the [Amazon IVS page](https://docs.aws.amazon.com/general/latest/gr/ivs.html) in the *Amazon Web
+  Services General Reference*.
 
   * **All API request parameters and URLs are case sensitive. ** *
 
   For a summary of notable documentation changes in each release, see [ Document History](https://docs.aws.amazon.com/ivs/latest/userguide/doc-history.html).
-
-  ## Service Endpoints
-
-  The following are the Amazon IVS service endpoints (all HTTPS):
-
-  Region name: US West (Oregon)
-
-    * Region: `us-west-2`
-
-    * Endpoint: `ivs.us-west-2.amazonaws.com`
-
-  Region name: US East (Virginia)
-
-    * Region: `us-east-1`
-
-    * Endpoint: `ivs.us-east-1.amazonaws.com`
-
-  Region name: EU West (Dublin)
-
-    * Region: `eu-west-1`
-
-    * Endpoint: `ivs.eu-west-1.amazonaws.com`
 
   ## Allowed Header Values
 
@@ -75,19 +55,22 @@ defmodule AWS.Ivs do
 
   ## Tagging
 
-  A *tag* is a metadata label that you assign to an AWS resource. A tag comprises
-  a *key* and a *value*, both set by you. For example, you might set a tag as
-  `topic:nature` to label a particular video category. See [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) for
+  A *tag* is a metadata label that you assign to an Amazon Web Services resource.
+  A tag comprises a *key* and a *value*, both set by you. For example, you might
+  set a tag as `topic:nature` to label a particular video category. See [Tagging Amazon Web Services
+  Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) for
   more information, including restrictions that apply to tags.
 
-  Tags can help you identify and organize your AWS resources. For example, you can
-  use the same tag for different resources to indicate that they are related. You
-  can also use tags to manage access (see [ Access Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html)).
+  Tags can help you identify and organize your Amazon Web Services resources. For
+  example, you can use the same tag for different resources to indicate that they
+  are related. You can also use tags to manage access (see [ Access Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html)).
 
   The Amazon IVS API has these tag-related endpoints: `TagResource`,
   `UntagResource`, and `ListTagsForResource`. The following resources support
   tagging: Channels, Stream Keys, Playback Key Pairs, and Recording
   Configurations.
+
+  At most 50 tags can be applied to a resource.
 
   ## Authentication versus Authorization
 
@@ -102,21 +85,21 @@ defmodule AWS.Ivs do
 
   ## Authentication
 
-  All Amazon IVS API requests must be authenticated with a signature. The AWS
-  Command-Line Interface (CLI) and Amazon IVS Player SDKs take care of signing the
-  underlying API calls for you. However, if your application calls the Amazon IVS
-  API directly, it’s your responsibility to sign the requests.
+  All Amazon IVS API requests must be authenticated with a signature. The Amazon
+  Web Services Command-Line Interface (CLI) and Amazon IVS Player SDKs take care
+  of signing the underlying API calls for you. However, if your application calls
+  the Amazon IVS API directly, it’s your responsibility to sign the requests.
 
-  You generate a signature using valid AWS credentials that have permission to
-  perform the requested action. For example, you must sign PutMetadata requests
-  with a signature generated from an IAM user account that has the
-  `ivs:PutMetadata` permission.
+  You generate a signature using valid Amazon Web Services credentials that have
+  permission to perform the requested action. For example, you must sign
+  PutMetadata requests with a signature generated from an IAM user account that
+  has the `ivs:PutMetadata` permission.
 
   For more information:
 
-    * Authentication and generating signatures — See [Authenticating Requests (AWS Signature Version
+    * Authentication and generating signatures — See [Authenticating Requests (Amazon Web Services Signature Version
   4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html)
-  in the *AWS General Reference*.
+  in the *Amazon Web Services General Reference*.
 
     * Managing Amazon IVS permissions — See [Identity and Access Management](https://docs.aws.amazon.com/ivs/latest/userguide/security-iam.html)
   on the Security page of the *Amazon IVS User Guide*.
@@ -133,10 +116,11 @@ defmodule AWS.Ivs do
   simultaneously.
 
     * `ListChannels` — Gets summary information about all channels in
-  your account, in the AWS region where the API request is processed. This list
-  can be filtered to match a specified name or recording-configuration ARN.
-  Filters are mutually exclusive and cannot be used together. If you try to use
-  both filters, you will get an error (409 Conflict Exception).
+  your account, in the Amazon Web Services region where the API request is
+  processed. This list can be filtered to match a specified name or
+  recording-configuration ARN. Filters are mutually exclusive and cannot be used
+  together. If you try to use both filters, you will get an error (409 Conflict
+  Exception).
 
     * `UpdateChannel` — Updates a channel's configuration. This does not
   affect an ongoing stream of this channel. You must stop and restart the stream
@@ -166,17 +150,25 @@ defmodule AWS.Ivs do
     * `GetStream` — Gets information about the active (live) stream on a
   specified channel.
 
+    * `GetStreamSession` — Gets metadata on a specified stream.
+
     * `ListStreams` — Gets summary information about live streams in
-  your account, in the AWS region where the API request is processed.
+  your account, in the Amazon Web Services region where the API request is
+  processed.
+
+    * `ListStreamSessions` — Gets a summary of current and previous
+  streams for a specified channel in your account, in the AWS region where the API
+  request is processed.
 
     * `StopStream` — Disconnects the incoming RTMPS stream for the
   specified channel. Can be used in conjunction with `DeleteStreamKey` to prevent
   further streaming to a channel.
 
     * `PutMetadata` — Inserts metadata into the active stream of the
-  specified channel. A maximum of 5 requests per second per channel is allowed,
-  each with a maximum 1 KB payload. (If 5 TPS is not sufficient for your needs, we
-  recommend batching your data into a single PutMetadata call.)
+  specified channel. At most 5 requests per second per channel are allowed, each
+  with a maximum 1 KB payload. (If 5 TPS is not sufficient for your needs, we
+  recommend batching your data into a single PutMetadata call.) At most 155
+  requests per second per account are allowed.
 
   ## PlaybackKeyPair Endpoints
 
@@ -209,22 +201,22 @@ defmodule AWS.Ivs do
   metadata for the specified ARN.
 
     * `ListRecordingConfigurations` — Gets summary information about all
-  recording configurations in your account, in the AWS region where the API
-  request is processed.
+  recording configurations in your account, in the Amazon Web Services region
+  where the API request is processed.
 
     * `DeleteRecordingConfiguration` — Deletes the recording
   configuration for the specified ARN.
 
-  ## AWS Tags Endpoints
+  ## Amazon Web Services Tags Endpoints
 
-    * `TagResource` — Adds or updates tags for the AWS resource with the
-  specified ARN.
+    * `TagResource` — Adds or updates tags for the Amazon Web Services
+  resource with the specified ARN.
 
     * `UntagResource` — Removes tags from the resource with the
   specified ARN.
 
-    * `ListTagsForResource` — Gets information about AWS tags for the
-  specified ARN.
+    * `ListTagsForResource` — Gets information about Amazon Web Services
+  tags for the specified ARN.
   """
 
   alias AWS.Client
@@ -263,7 +255,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -284,7 +276,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -305,17 +297,17 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates a new recording configuration, used to enable recording to Amazon S3.
 
-  **Known issue:** In the us-east-1 region, if you use the AWS CLI to create a
-  recording configuration, it returns success even if the S3 bucket is in a
-  different region. In this case, the `state` of the recording configuration is
-  `CREATE_FAILED` (instead of `ACTIVE`). (In other regions, the CLI correctly
+  **Known issue:** In the us-east-1 region, if you use the Amazon Web Services CLI
+  to create a recording configuration, it returns success even if the S3 bucket is
+  in a different region. In this case, the `state` of the recording configuration
+  is `CREATE_FAILED` (instead of `ACTIVE`). (In other regions, the CLI correctly
   returns failure if the bucket is in a different region.)
 
   **Workaround:** Ensure that your S3 bucket is in the same region as the
@@ -337,7 +329,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -363,7 +355,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -415,7 +407,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -442,7 +434,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -487,7 +479,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -514,7 +506,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -535,7 +527,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -556,7 +548,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -577,7 +569,28 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
+    )
+  end
+
+  @doc """
+  Gets metadata on a specified stream.
+  """
+  def get_stream_session(%Client{} = client, input, options \\ []) do
+    url_path = "/GetStreamSession"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -604,13 +617,13 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  Gets summary information about all channels in your account, in the AWS region
-  where the API request is processed.
+  Gets summary information about all channels in your account, in the Amazon Web
+  Services region where the API request is processed.
 
   This list can be filtered to match a specified name or recording-configuration
   ARN. Filters are mutually exclusive and cannot be used together. If you try to
@@ -630,7 +643,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -654,13 +667,13 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Gets summary information about all recording configurations in your account, in
-  the AWS region where the API request is processed.
+  the Amazon Web Services region where the API request is processed.
   """
   def list_recording_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/ListRecordingConfigurations"
@@ -676,7 +689,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -697,13 +710,35 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  Gets summary information about live streams in your account, in the AWS region
-  where the API request is processed.
+  Gets a summary of current and previous streams for a specified channel in your
+  account, in the AWS region where the API request is processed.
+  """
+  def list_stream_sessions(%Client{} = client, input, options \\ []) do
+    url_path = "/ListStreamSessions"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets summary information about live streams in your account, in the Amazon Web
+  Services region where the API request is processed.
   """
   def list_streams(%Client{} = client, input, options \\ []) do
     url_path = "/ListStreams"
@@ -719,12 +754,12 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  Gets information about AWS tags for the specified ARN.
+  Gets information about Amazon Web Services tags for the specified ARN.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -740,17 +775,18 @@ defmodule AWS.Ivs do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Inserts metadata into the active stream of the specified channel.
 
-  A maximum of 5 requests per second per channel is allowed, each with a maximum 1
-  KB payload. (If 5 TPS is not sufficient for your needs, we recommend batching
-  your data into a single PutMetadata call.) Also see [Embedding Metadata within a Video Stream](https://docs.aws.amazon.com/ivs/latest/userguide/metadata.html) in
-  the *Amazon IVS User Guide*.
+  At most 5 requests per second per channel are allowed, each with a maximum 1 KB
+  payload. (If 5 TPS is not sufficient for your needs, we recommend batching your
+  data into a single PutMetadata call.) At most 155 requests per second per
+  account are allowed. Also see [Embedding Metadata within a Video Stream](https://docs.aws.amazon.com/ivs/latest/userguide/metadata.html) in the
+  *Amazon IVS User Guide*.
   """
   def put_metadata(%Client{} = client, input, options \\ []) do
     url_path = "/PutMetadata"
@@ -766,7 +802,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -794,12 +830,13 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  Adds or updates tags for the AWS resource with the specified ARN.
+  Adds or updates tags for the Amazon Web Services resource with the specified
+  ARN.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -815,7 +852,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -841,7 +878,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -865,7 +902,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

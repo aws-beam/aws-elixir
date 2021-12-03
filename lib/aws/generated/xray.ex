@@ -3,8 +3,8 @@
 
 defmodule AWS.XRay do
   @moduledoc """
-  AWS X-Ray provides APIs for managing debug traces and retrieving service maps
-  and other data created by processing those traces.
+  Amazon Web Services X-Ray provides APIs for managing debug traces and retrieving
+  service maps and other data created by processing those traces.
   """
 
   alias AWS.Client
@@ -74,12 +74,13 @@ defmodule AWS.XRay do
   @doc """
   Creates a rule to control sampling behavior for instrumented applications.
 
-  Services retrieve rules with `GetSamplingRules`, and evaluate each rule in
-  ascending order of *priority* for each request. If a rule matches, the service
-  records a trace, borrowing it from the reservoir size. After 10 seconds, the
-  service reports back to X-Ray with `GetSamplingTargets` to get updated versions
-  of each in-use rule. The updated rule contains a trace quota that the service
-  can use instead of borrowing from the reservoir.
+  Services retrieve rules with
+  [GetSamplingRules](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html), and evaluate each rule in ascending order of *priority* for each request. If a
+  rule matches, the service records a trace, borrowing it from the reservoir size.
+  After 10 seconds, the service reports back to X-Ray with
+  [GetSamplingTargets](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html)
+  to get updated versions of each in-use rule. The updated rule contains a trace
+  quota that the service can use instead of borrowing from the reservoir.
   """
   def create_sampling_rule(%Client{} = client, input, options \\ []) do
     url_path = "/CreateSamplingRule"
@@ -369,8 +370,9 @@ defmodule AWS.XRay do
   downstream services that they call as a result.
 
   Root services process incoming requests and make calls to downstream services.
-  Root services are applications that use the [AWS X-Ray SDK](https://docs.aws.amazon.com/xray/index.html). Downstream services can be
-  other applications, AWS resources, HTTP web APIs, or SQL databases.
+  Root services are applications that use the [Amazon Web Services X-Ray SDK](https://docs.aws.amazon.com/xray/index.html). Downstream services can be
+  other applications, Amazon Web Services resources, HTTP web APIs, or SQL
+  databases.
   """
   def get_service_graph(%Client{} = client, input, options \\ []) do
     url_path = "/ServiceGraph"
@@ -451,7 +453,7 @@ defmodule AWS.XRay do
 
   For a full list of indexed fields and keywords that you can use in filter
   expressions, see [Using Filter Expressions](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html)
-  in the *AWS X-Ray Developer Guide*.
+  in the *Amazon Web Services X-Ray Developer Guide*.
   """
   def get_trace_summaries(%Client{} = client, input, options \\ []) do
     url_path = "/TraceSummaries"
@@ -472,8 +474,8 @@ defmodule AWS.XRay do
   end
 
   @doc """
-  Returns a list of tags that are applied to the specified AWS X-Ray group or
-  sampling rule.
+  Returns a list of tags that are applied to the specified Amazon Web Services
+  X-Ray group or sampling rule.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/ListTagsForResource"
@@ -515,7 +517,7 @@ defmodule AWS.XRay do
   end
 
   @doc """
-  Used by the AWS X-Ray daemon to upload telemetry.
+  Used by the Amazon Web Services X-Ray daemon to upload telemetry.
   """
   def put_telemetry_records(%Client{} = client, input, options \\ []) do
     url_path = "/TelemetryRecords"
@@ -536,16 +538,16 @@ defmodule AWS.XRay do
   end
 
   @doc """
-  Uploads segment documents to AWS X-Ray.
+  Uploads segment documents to Amazon Web Services X-Ray.
 
   The [X-Ray SDK](https://docs.aws.amazon.com/xray/index.html) generates segment documents and sends them to the X-Ray daemon, which uploads them in batches. A
   segment document can be a completed segment, an in-progress segment, or an array
   of subsegments.
 
   Segments must include the following fields. For the full segment document
-  schema, see [AWS X-Ray Segment
+  schema, see [Amazon Web Services X-Ray Segment
   Documents](https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html)
-  in the *AWS X-Ray Developer Guide*.
+  in the *Amazon Web Services X-Ray Developer Guide*.
 
   ## Required segment document fields
 
@@ -604,7 +606,7 @@ defmodule AWS.XRay do
   end
 
   @doc """
-  Applies tags to an existing AWS X-Ray group or sampling rule.
+  Applies tags to an existing Amazon Web Services X-Ray group or sampling rule.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/TagResource"
@@ -625,7 +627,7 @@ defmodule AWS.XRay do
   end
 
   @doc """
-  Removes tags from an AWS X-Ray group or sampling rule.
+  Removes tags from an Amazon Web Services X-Ray group or sampling rule.
 
   You cannot edit or delete system tags (those with an `aws:` prefix).
   """

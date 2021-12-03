@@ -48,7 +48,7 @@ defmodule AWS.Neptune do
   end
 
   @doc """
-  Associates an Identity and Access Management (IAM) role from an Neptune DB
+  Associates an Identity and Access Management (IAM) role with an Neptune DB
   cluster.
   """
   def add_role_to_db_cluster(%Client{} = client, input, options \\ []) do
@@ -798,8 +798,8 @@ defmodule AWS.Neptune do
   end
 
   @doc """
-  Starts an Amazon Neptune DB cluster that was stopped using the AWS console, the
-  Amazon CLI stop-db-cluster command, or the StopDBCluster API.
+  Starts an Amazon Neptune DB cluster that was stopped using the Amazon console,
+  the Amazon CLI stop-db-cluster command, or the StopDBCluster API.
   """
   def start_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartDBCluster", input, options)

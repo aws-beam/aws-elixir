@@ -524,6 +524,44 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Creates a response headers policy.
+
+  A response headers policy contains information about a set of HTTP response
+  headers and their values. To create a response headers policy, you provide some
+  metadata about the policy, and a set of configurations that specify the response
+  headers.
+
+  After you create a response headers policy, you can use its ID to attach it to
+  one or more cache behaviors in a CloudFront distribution. When it’s attached to
+  a cache behavior, CloudFront adds the headers in the policy to HTTP responses
+  that it sends for requests that match the cache behavior.
+  """
+  def create_response_headers_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/response-headers-policy"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   This API is deprecated.
 
   Amazon CloudFront is deprecating real-time messaging protocol (RTMP)
@@ -906,6 +944,41 @@ defmodule AWS.CloudFront do
       client,
       metadata(),
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a response headers policy.
+
+  You cannot delete a response headers policy if it’s attached to a cache
+  behavior. First update your distributions to remove the response headers policy
+  from all cache behaviors, then delete the response headers policy.
+
+  To delete a response headers policy, you must provide the policy’s identifier
+  and version. To get these values, you can use `ListResponseHeadersPolicies` or
+  `GetResponseHeadersPolicy`.
+  """
+  def delete_response_headers_policy(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/response-headers-policy/#{AWS.Util.encode_uri(id)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
       url_path,
       query_params,
       headers,
@@ -1630,6 +1703,75 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Gets a response headers policy, including metadata (the policy’s identifier and
+  the date and time when the policy was last modified).
+
+  To get a response headers policy, you must provide the policy’s identifier. If
+  the response headers policy is attached to a distribution’s cache behavior, you
+  can get the policy’s identifier using `ListDistributions` or `GetDistribution`.
+  If the response headers policy is not attached to a cache behavior, you can get
+  the identifier using `ListResponseHeadersPolicies`.
+  """
+  def get_response_headers_policy(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/response-headers-policy/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets a response headers policy configuration.
+
+  To get a response headers policy configuration, you must provide the policy’s
+  identifier. If the response headers policy is attached to a distribution’s cache
+  behavior, you can get the policy’s identifier using `ListDistributions` or
+  `GetDistribution`. If the response headers policy is not attached to a cache
+  behavior, you can get the identifier using `ListResponseHeadersPolicies`.
+  """
+  def get_response_headers_policy_config(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/response-headers-policy/#{AWS.Util.encode_uri(id)}/config"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Gets information about a specified RTMP distribution, including the distribution
   configuration.
   """
@@ -1690,7 +1832,8 @@ defmodule AWS.CloudFront do
   Gets a list of cache policies.
 
   You can optionally apply a filter to return only the managed policies created by
-  Amazon Web Services, or only the custom policies created in your account.
+  Amazon Web Services, or only the custom policies created in your Amazon Web
+  Services account.
 
   You can optionally specify the maximum number of items to receive in the
   response. If the total number of items in the list exceeds the maximum that you
@@ -2082,6 +2225,56 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Gets a list of distribution IDs for distributions that have a cache behavior
+  that’s associated with the specified response headers policy.
+
+  You can optionally specify the maximum number of items to receive in the
+  response. If the total number of items in the list exceeds the maximum that you
+  specify, or the default maximum, the response is paginated. To get the next page
+  of items, send a subsequent request that specifies the `NextMarker` value from
+  the current response as the `Marker` value in the subsequent request.
+  """
+  def list_distributions_by_response_headers_policy_id(
+        %Client{} = client,
+        response_headers_policy_id,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/2020-05-31/distributionsByResponseHeadersPolicyId/#{AWS.Util.encode_uri(response_headers_policy_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   List the distributions that are associated with a specified WAF web ACL.
   """
   def list_distributions_by_web_acl_id(
@@ -2205,7 +2398,7 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Gets a list of all CloudFront functions in your account.
+  Gets a list of all CloudFront functions in your Amazon Web Services account.
 
   You can optionally apply a filter to return only the functions that are in the
   specified stage, either `DEVELOPMENT` or `LIVE`.
@@ -2347,7 +2540,8 @@ defmodule AWS.CloudFront do
   Gets a list of origin request policies.
 
   You can optionally apply a filter to return only the managed policies created by
-  Amazon Web Services, or only the custom policies created in your account.
+  Amazon Web Services, or only the custom policies created in your Amazon Web
+  Services account.
 
   You can optionally specify the maximum number of items to receive in the
   response. If the total number of items in the list exceeds the maximum that you
@@ -2453,6 +2647,64 @@ defmodule AWS.CloudFront do
     url_path = "/2020-05-31/realtime-log-config"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets a list of response headers policies.
+
+  You can optionally apply a filter to get only the managed policies created by
+  Amazon Web Services, or only the custom policies created in your Amazon Web
+  Services account.
+
+  You can optionally specify the maximum number of items to receive in the
+  response. If the total number of items in the list exceeds the maximum that you
+  specify, or the default maximum, the response is paginated. To get the next page
+  of items, send a subsequent request that specifies the `NextMarker` value from
+  the current response as the `Marker` value in the subsequent request.
+  """
+  def list_response_headers_policies(
+        %Client{} = client,
+        marker \\ nil,
+        max_items \\ nil,
+        type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/response-headers-policy"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(type) do
+        [{"Type", type} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(max_items) do
@@ -3119,6 +3371,54 @@ defmodule AWS.CloudFront do
     url_path = "/2020-05-31/realtime-log-config/"
     headers = []
     query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates a response headers policy.
+
+  When you update a response headers policy, the entire policy is replaced. You
+  cannot update some policy fields independent of others. To update a response
+  headers policy configuration:
+
+    1. Use `GetResponseHeadersPolicyConfig` to get the current policy’s
+  configuration.
+
+    2. Modify the fields in the response headers policy configuration
+  that you want to update.
+
+    3. Call `UpdateResponseHeadersPolicy`, providing the entire response
+  headers policy configuration, including the fields that you modified and those
+  that you didn’t.
+  """
+  def update_response_headers_policy(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/response-headers-policy/#{AWS.Util.encode_uri(id)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     Request.request_rest(
       client,

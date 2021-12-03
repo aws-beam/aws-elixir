@@ -66,6 +66,33 @@ defmodule AWS.Textract do
   end
 
   @doc """
+  `AnalyzeExpense` synchronously analyzes an input document for financially
+  related relationships between text.
+
+  Information is returned as `ExpenseDocuments` and seperated as follows.
+
+    * `LineItemGroups`- A data set containing `LineItems` which store
+  information about the lines of text, such as an item purchased and its price on
+  a receipt.
+
+    * `SummaryFields`- Contains all other information a receipt, such as
+  header information or the vendors name.
+  """
+  def analyze_expense(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AnalyzeExpense", input, options)
+  end
+
+  @doc """
+  Analyzes identity documents for relevant information.
+
+  This information is extracted and returned as `IdentityDocumentFields`, which
+  records both the normalized field and value of the extracted text.
+  """
+  def analyze_id(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AnalyzeID", input, options)
+  end
+
+  @doc """
   Detects text in the input document.
 
   Amazon Textract can detect lines of text and the words that make up a line of
@@ -170,11 +197,41 @@ defmodule AWS.Textract do
   end
 
   @doc """
+  Gets the results for an Amazon Textract asynchronous operation that analyzes
+  invoices and receipts.
+
+  Amazon Textract finds contact information, items purchased, and vendor name,
+  from input invoices and receipts.
+
+  You start asynchronous invoice/receipt analysis by calling
+  `StartExpenseAnalysis`, which returns a job identifier (`JobId`). Upon
+  completion of the invoice/receipt analysis, Amazon Textract publishes the
+  completion status to the Amazon Simple Notification Service (Amazon SNS) topic.
+  This topic must be registered in the initial call to `StartExpenseAnalysis`. To
+  get the results of the invoice/receipt analysis operation, first ensure that the
+  status value published to the Amazon SNS topic is `SUCCEEDED`. If so, call
+  `GetExpenseAnalysis`, and pass the job identifier (`JobId`) from the initial
+  call to `StartExpenseAnalysis`.
+
+  Use the MaxResults parameter to limit the number of blocks that are returned. If
+  there are more results than specified in `MaxResults`, the value of `NextToken`
+  in the operation response contains a pagination token for getting the next set
+  of results. To get the next page of results, call `GetExpenseAnalysis`, and
+  populate the `NextToken` request parameter with the token value that's returned
+  from the previous call to `GetExpenseAnalysis`.
+
+  For more information, see [Analyzing Invoices and Receipts](https://docs.aws.amazon.com/textract/latest/dg/invoices-receipts.html).
+  """
+  def get_expense_analysis(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetExpenseAnalysis", input, options)
+  end
+
+  @doc """
   Starts the asynchronous analysis of an input document for relationships between
   detected items such as key-value pairs, tables, and selection elements.
 
-  `StartDocumentAnalysis` can analyze text in documents that are in JPEG, PNG, and
-  PDF format. The documents are stored in an Amazon S3 bucket. Use
+  `StartDocumentAnalysis` can analyze text in documents that are in JPEG, PNG,
+  TIFF, and PDF format. The documents are stored in an Amazon S3 bucket. Use
   `DocumentLocation` to specify the bucket name and file name of the document.
 
   `StartDocumentAnalysis` returns a job identifier (`JobId`) that you use to get
@@ -198,7 +255,7 @@ defmodule AWS.Textract do
   text.
 
   `StartDocumentTextDetection` can analyze text in documents that are in JPEG,
-  PNG, and PDF format. The documents are stored in an Amazon S3 bucket. Use
+  PNG, TIFF, and PDF format. The documents are stored in an Amazon S3 bucket. Use
   `DocumentLocation` to specify the bucket name and file name of the document.
 
   `StartTextDetection` returns a job identifier (`JobId`) that you use to get the
@@ -214,5 +271,30 @@ defmodule AWS.Textract do
   """
   def start_document_text_detection(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartDocumentTextDetection", input, options)
+  end
+
+  @doc """
+  Starts the asynchronous analysis of invoices or receipts for data like contact
+  information, items purchased, and vendor names.
+
+  `StartExpenseAnalysis` can analyze text in documents that are in JPEG, PNG, and
+  PDF format. The documents must be stored in an Amazon S3 bucket. Use the
+  `DocumentLocation` parameter to specify the name of your S3 bucket and the name
+  of the document in that bucket.
+
+  `StartExpenseAnalysis` returns a job identifier (`JobId`) that you will provide
+  to `GetExpenseAnalysis` to retrieve the results of the operation. When the
+  analysis of the input invoices/receipts is finished, Amazon Textract publishes a
+  completion status to the Amazon Simple Notification Service (Amazon SNS) topic
+  that you provide to the `NotificationChannel`. To obtain the results of the
+  invoice and receipt analysis operation, ensure that the status value published
+  to the Amazon SNS topic is `SUCCEEDED`. If so, call `GetExpenseAnalysis`, and
+  pass the job identifier (`JobId`) that was returned by your call to
+  `StartExpenseAnalysis`.
+
+  For more information, see [Analyzing Invoices and Receipts](https://docs.aws.amazon.com/textract/latest/dg/invoice-receipts.html).
+  """
+  def start_expense_analysis(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartExpenseAnalysis", input, options)
   end
 end

@@ -294,7 +294,20 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Deletes an image.
+  Deletes an Image Builder image resource.
+
+  This does not delete any EC2 AMIs or ECR container images that are created
+  during the image build process. You must clean those up separately, using the
+  appropriate Amazon EC2 or Amazon ECR console actions, or API or CLI commands.
+
+    * To deregister an EC2 Linux AMI, see [Deregister your Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html) in
+  the * *Amazon EC2 User Guide* *.
+
+    * To deregister an EC2 Windows AMI, see [Deregister your Windows AMI](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/deregister-ami.html)
+  in the * *Amazon EC2 Windows Guide* *.
+
+    * To delete a container image from Amazon ECR, see [Deleting an image](https://docs.aws.amazon.com/AmazonECR/latest/userguide/delete_image.html)
+  in the *Amazon ECR User Guide*.
   """
   def delete_image(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteImage"
@@ -736,6 +749,14 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Returns the list of component build versions for the specified semantic version.
+
+  The semantic version has four nodes: <major>.<minor>.<patch>/<build>. You can
+  assign values for the first three, and can filter on all of them.
+
+  **Filtering:** With semantic versioning, you have the flexibility to use
+  wildcards (x) to specify the most recent versions or nodes when selecting the
+  base image or components for your recipe. When you use a wildcard in any node,
+  all nodes to the right of the first wildcard must also be wildcards.
   """
   def list_component_build_versions(%Client{} = client, input, options \\ []) do
     url_path = "/ListComponentBuildVersions"
@@ -757,6 +778,14 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Returns the list of component build versions for the specified semantic version.
+
+  The semantic version has four nodes: <major>.<minor>.<patch>/<build>. You can
+  assign values for the first three, and can filter on all of them.
+
+  **Filtering:** With semantic versioning, you have the flexibility to use
+  wildcards (x) to specify the most recent versions or nodes when selecting the
+  base image or components for your recipe. When you use a wildcard in any node,
+  all nodes to the right of the first wildcard must also be wildcards.
   """
   def list_components(%Client{} = client, input, options \\ []) do
     url_path = "/ListComponents"
@@ -841,7 +870,7 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   List the Packages that are associated with an Image Build Version, as determined
-  by Amazon EC2 Systems Manager Inventory at build time.
+  by Amazon Web Services Systems Manager Inventory at build time.
   """
   def list_image_packages(%Client{} = client, input, options \\ []) do
     url_path = "/ListImagePackages"
@@ -1019,10 +1048,10 @@ defmodule AWS.Imagebuilder do
   Applies a policy to a container image.
 
   We recommend that you call the RAM API CreateResourceShare
-  (https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html)
+  (https://docs.aws.amazon.com//ram/latest/APIReference/API_CreateResourceShare.html)
   to share resources. If you call the Image Builder API `PutContainerImagePolicy`,
   you must also call the RAM API PromoteResourceShareCreatedFromPolicy
-  (https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
+  (https://docs.aws.amazon.com//ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
   in order for the resource to be visible to all principals with whom the resource
   is shared.
   """

@@ -73,6 +73,9 @@ defmodule AWS.AutoScaling do
   `DescribeLoadBalancerTargetGroups` API. To detach the target group from the Auto
   Scaling group, call the `DetachLoadBalancerTargetGroups` API.
 
+  This operation is additive and does not detach existing target groups or Classic
+  Load Balancers from the Auto Scaling group.
+
   For more information, see [Elastic Load Balancing and Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
@@ -91,6 +94,9 @@ defmodule AWS.AutoScaling do
   To describe the load balancers for an Auto Scaling group, call the
   `DescribeLoadBalancers` API. To detach the load balancer from the Auto Scaling
   group, call the `DetachLoadBalancers` API.
+
+  This operation is additive and does not detach existing Classic Load Balancers
+  or target groups from the Auto Scaling group.
 
   For more information, see [Elastic Load Balancing and Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
@@ -135,9 +141,9 @@ defmodule AWS.AutoScaling do
   This step is a part of the procedure for adding a lifecycle hook to an Auto
   Scaling group:
 
-    1. (Optional) Create a Lambda function and a rule that allows
-  CloudWatch Events to invoke your Lambda function when Amazon EC2 Auto Scaling
-  launches or terminates instances.
+    1. (Optional) Create a Lambda function and a rule that allows Amazon
+  EventBridge to invoke your Lambda function when Amazon EC2 Auto Scaling launches
+  or terminates instances.
 
     2. (Optional) Create a notification target and an IAM role. The
   target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows
@@ -149,8 +155,8 @@ defmodule AWS.AutoScaling do
     4. If you need more time, record the lifecycle action heartbeat to
   keep the instance in a pending state.
 
-    5. ## If you finish before the timeout period ends, complete the
-  lifecycle action.
+    5. ## If you finish before the timeout period ends, send a callback
+  by using the `CompleteLifecycleAction` API call.
 
   For more information, see [Amazon EC2 Auto Scaling lifecycle hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
@@ -305,9 +311,10 @@ defmodule AWS.AutoScaling do
   @doc """
   Describes the current Amazon EC2 Auto Scaling resource quotas for your account.
 
-  When you establish an account, the account has initial quotas on the maximum
-  number of Auto Scaling groups and launch configurations that you can create in a
-  given Region. For more information, see [Amazon EC2 Auto Scaling service quotas](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html)
+  When you establish an Amazon Web Services account, the account has initial
+  quotas on the maximum number of Auto Scaling groups and launch configurations
+  that you can create in a given Region. For more information, see [Amazon EC2 Auto Scaling service
+  quotas](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def describe_account_limits(%Client{} = client, input, options \\ []) do
@@ -333,8 +340,14 @@ defmodule AWS.AutoScaling do
   @doc """
   Gets information about the Auto Scaling groups in the account and Region.
 
-  This operation returns information about instances in Auto Scaling groups. To
-  retrieve information about the instances in a warm pool, you must call the
+  If you specify Auto Scaling group names, the output includes information for
+  only the specified Auto Scaling groups. If you specify filters, the output
+  includes information for only those Auto Scaling groups that meet the filter
+  criteria. If you do not specify group names or filters, the output includes
+  information for all Auto Scaling groups.
+
+  This operation also returns information about instances in Auto Scaling groups.
+  To retrieve information about the instances in a warm pool, you must call the
   `DescribeWarmPool` API.
   """
   def describe_auto_scaling_groups(%Client{} = client, input, options \\ []) do
@@ -716,16 +729,16 @@ defmodule AWS.AutoScaling do
   @doc """
   Creates or updates a lifecycle hook for the specified Auto Scaling group.
 
-  A lifecycle hook tells Amazon EC2 Auto Scaling to perform an action on an
-  instance when the instance launches (before it is put into service) or as the
-  instance terminates (before it is fully terminated).
+  A lifecycle hook enables an Auto Scaling group to be aware of events in the Auto
+  Scaling instance lifecycle, and then perform a custom action when the
+  corresponding lifecycle event occurs.
 
   This step is a part of the procedure for adding a lifecycle hook to an Auto
   Scaling group:
 
-    1. (Optional) Create a Lambda function and a rule that allows
-  CloudWatch Events to invoke your Lambda function when Amazon EC2 Auto Scaling
-  launches or terminates instances.
+    1. (Optional) Create a Lambda function and a rule that allows Amazon
+  EventBridge to invoke your Lambda function when Amazon EC2 Auto Scaling launches
+  or terminates instances.
 
     2. (Optional) Create a notification target and an IAM role. The
   target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows
@@ -738,8 +751,8 @@ defmodule AWS.AutoScaling do
   keep the instance in a pending state using the `RecordLifecycleActionHeartbeat`
   API call.
 
-    5. If you finish before the timeout period ends, complete the
-  lifecycle action using the `CompleteLifecycleAction` API call.
+    5. If you finish before the timeout period ends, send a callback by
+  using the `CompleteLifecycleAction` API call.
 
   For more information, see [Amazon EC2 Auto Scaling lifecycle hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
@@ -844,9 +857,9 @@ defmodule AWS.AutoScaling do
   This step is a part of the procedure for adding a lifecycle hook to an Auto
   Scaling group:
 
-    1. (Optional) Create a Lambda function and a rule that allows
-  CloudWatch Events to invoke your Lambda function when Amazon EC2 Auto Scaling
-  launches or terminates instances.
+    1. (Optional) Create a Lambda function and a rule that allows Amazon
+  EventBridge to invoke your Lambda function when Amazon EC2 Auto Scaling launches
+  or terminates instances.
 
     2. (Optional) Create a notification target and an IAM role. The
   target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows
@@ -858,8 +871,8 @@ defmodule AWS.AutoScaling do
     4. ## If you need more time, record the lifecycle action heartbeat to
   keep the instance in a pending state.
 
-    5. If you finish before the timeout period ends, complete the
-  lifecycle action.
+    5. If you finish before the timeout period ends, send a callback by
+  using the `CompleteLifecycleAction` API call.
 
   For more information, see [Amazon EC2 Auto Scaling lifecycle hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
@@ -909,7 +922,7 @@ defmodule AWS.AutoScaling do
   This operation cannot be called on instances in a warm pool.
 
   For more information about preventing instances that are part of an Auto Scaling
-  group from terminating on scale in, see [Instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection)
+  group from terminating on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
 
   If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling
@@ -920,13 +933,18 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
-  Starts a new instance refresh operation, which triggers a rolling replacement of
-  previously launched instances in the Auto Scaling group with a new group of
-  instances.
+  Starts a new instance refresh operation.
+
+  An instance refresh performs a rolling replacement of all or some instances in
+  an Auto Scaling group. Each instance is terminated first and then replaced,
+  which temporarily reduces the capacity available within your Auto Scaling group.
 
   This operation is part of the [instance refresh feature](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
   in Amazon EC2 Auto Scaling, which helps you update instances in your Auto
-  Scaling group after you make configuration changes.
+  Scaling group. This feature is helpful, for example, when you have a new AMI or
+  a new user data script. You just need to create a new launch template that
+  specifies the new AMI or user data script. Then start an instance refresh to
+  immediately begin the process of updating instances in the group.
 
   If the call succeeds, it creates a new instance refresh request with a unique ID
   that you can use to track its progress. To query its status, call the

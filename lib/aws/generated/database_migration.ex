@@ -120,6 +120,10 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Creates a replication subnet group given a list of the subnet IDs in a VPC.
+
+  The VPC needs to have at least one subnet in at least two availability zones in
+  the Amazon Web Services Region, otherwise the service will throw a
+  `ReplicationSubnetGroupDoesNotCoverEnoughAZs` exception.
   """
   def create_replication_subnet_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateReplicationSubnetGroup", input, options)
@@ -380,12 +384,12 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Returns the task assessment results from the Amazon S3 bucket that DMS creates
-  in your account.
+  in your Amazon Web Services account.
 
   This action always returns the latest results.
 
   For more information about DMS task assessments, see [Creating a task assessment report](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html)
-  in the [ Database Migration Service User Guide](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/Welcome.html).
+  in the *Database Migration Service User Guide*.
   """
   def describe_replication_task_assessment_results(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -566,6 +570,9 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Reloads the target database table with the source data.
+
+  You can only use this operation with a task in the `RUNNING` state, otherwise
+  the service will throw an `InvalidResourceStateFault` exception.
   """
   def reload_tables(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ReloadTables", input, options)
@@ -597,6 +604,19 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Starts the replication task assessment for unsupported data types in the source
   database.
+
+  You can only use this operation for a task if the following conditions are true:
+
+    * The task must be in the `stopped` state.
+
+    * The task must have successful connections to the source and
+  target.
+
+  If either of these conditions are not met, an `InvalidResourceStateFault` error
+  will result.
+
+  For information about DMS task assessments, see [Creating a task assessment report](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html)
+  in the *Database Migration Service User Guide*.
   """
   def start_replication_task_assessment(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartReplicationTaskAssessment", input, options)

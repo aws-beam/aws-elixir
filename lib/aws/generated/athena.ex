@@ -18,8 +18,8 @@ defmodule AWS.Athena do
   API. For more information and to download the driver, see [Accessing Amazon Athena with
   JDBC](https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html).
 
-  For code samples using the AWS SDK for Java, see [Examples and Code Samples](https://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in the
-  *Amazon Athena User Guide*.
+  For code samples using the Amazon Web Services SDK for Java, see [Examples and Code Samples](https://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in
+  the *Amazon Athena User Guide*.
   """
 
   alias AWS.Client
@@ -73,7 +73,8 @@ defmodule AWS.Athena do
   @doc """
   Creates (registers) a data catalog with the specified name and properties.
 
-  Catalogs created are visible to all users of the same AWS account.
+  Catalogs created are visible to all users of the same Amazon Web Services
+  account.
   """
   def create_data_catalog(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDataCatalog", input, options)
@@ -84,8 +85,8 @@ defmodule AWS.Athena do
 
   Requires that you have access to the workgroup.
 
-  For code samples using the AWS SDK for Java, see [Examples and Code Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in the
-  *Amazon Athena User Guide*.
+  For code samples using the Amazon Web Services SDK for Java, see [Examples and Code Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in
+  the *Amazon Athena User Guide*.
   """
   def create_named_query(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateNamedQuery", input, options)
@@ -116,8 +117,8 @@ defmodule AWS.Athena do
   Deletes the named query if you have access to the workgroup in which the query
   was saved.
 
-  For code samples using the AWS SDK for Java, see [Examples and Code Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in the
-  *Amazon Athena User Guide*.
+  For code samples using the Amazon Web Services SDK for Java, see [Examples and Code Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in
+  the *Amazon Athena User Guide*.
   """
   def delete_named_query(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteNamedQuery", input, options)
@@ -219,7 +220,7 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Lists the data catalogs in the current AWS account.
+  Lists the data catalogs in the current Amazon Web Services account.
   """
   def list_data_catalogs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDataCatalogs", input, options)
@@ -247,8 +248,8 @@ defmodule AWS.Athena do
   Requires that you have access to the specified workgroup. If a workgroup is not
   specified, lists the saved queries for the primary workgroup.
 
-  For code samples using the AWS SDK for Java, see [Examples and Code Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in the
-  *Amazon Athena User Guide*.
+  For code samples using the Amazon Web Services SDK for Java, see [Examples and Code Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in
+  the *Amazon Athena User Guide*.
   """
   def list_named_queries(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListNamedQueries", input, options)
@@ -269,8 +270,8 @@ defmodule AWS.Athena do
   primary workgroup. Requires you to have access to the workgroup in which the
   queries ran.
 
-  For code samples using the AWS SDK for Java, see [Examples and Code Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in the
-  *Amazon Athena User Guide*.
+  For code samples using the Amazon Web Services SDK for Java, see [Examples and Code Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in
+  the *Amazon Athena User Guide*.
   """
   def list_query_executions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListQueryExecutions", input, options)
@@ -302,7 +303,8 @@ defmodule AWS.Athena do
 
   Requires you to have access to the workgroup in which the query ran. Running
   queries against an external catalog requires `GetDataCatalog` permission to the
-  catalog. For code samples using the AWS SDK for Java, see [Examples and Code Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in the
+  catalog. For code samples using the Amazon Web Services SDK for Java, see
+  [Examples and Code Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in the
   *Amazon Athena User Guide*.
   """
   def start_query_execution(%Client{} = client, input, options \\ []) do
@@ -314,8 +316,8 @@ defmodule AWS.Athena do
 
   Requires you to have access to the workgroup in which the query ran.
 
-  For code samples using the AWS SDK for Java, see [Examples and Code Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in the
-  *Amazon Athena User Guide*.
+  For code samples using the Amazon Web Services SDK for Java, see [Examples and Code Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in
+  the *Amazon Athena User Guide*.
   """
   def stop_query_execution(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopQueryExecution", input, options)

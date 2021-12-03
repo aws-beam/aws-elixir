@@ -250,12 +250,79 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Creates an agent status for the specified Amazon Connect instance.
+  """
+  def create_agent_status(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/agent-status/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates a contact flow for the specified Amazon Connect instance.
 
   You can also create and update contact flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
   """
   def create_contact_flow(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/contact-flows/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates a contact flow module for the specified Amazon Connect instance.
+  """
+  def create_contact_flow_module(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Creates hours of operation.
+  """
+  def create_hours_of_operation(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -305,7 +372,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Create an AppIntegration association with an Amazon Connect instance.
+  Creates an AWS resource association with an Amazon Connect instance.
   """
   def create_integration_association(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations"
@@ -391,7 +458,30 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates a use case for an AppIntegration association.
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Creates a security profile.
+  """
+  def create_security_profile(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/security-profiles/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates a use case for an integration association.
   """
   def create_use_case(
         %Client{} = client,
@@ -466,6 +556,89 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Deletes a contact flow for the specified Amazon Connect instance.
+  """
+  def delete_contact_flow(%Client{} = client, contact_flow_id, instance_id, input, options \\ []) do
+    url_path =
+      "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes the specified contact flow module.
+  """
+  def delete_contact_flow_module(
+        %Client{} = client,
+        contact_flow_module_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Deletes an hours of operation.
+  """
+  def delete_hours_of_operation(
+        %Client{} = client,
+        hours_of_operation_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Deletes the Amazon Connect instance.
@@ -495,7 +668,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Deletes an AppIntegration association from an Amazon Connect instance.
+  Deletes an AWS resource association from an Amazon Connect instance.
 
   The association must not have any use cases associated with it.
   """
@@ -555,7 +728,38 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Deletes a use case from an AppIntegration association.
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Deletes a security profile.
+  """
+  def delete_security_profile(
+        %Client{} = client,
+        instance_id,
+        security_profile_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/security-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(security_profile_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes a use case from an integration association.
   """
   def delete_use_case(
         %Client{} = client,
@@ -641,6 +845,57 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Describes an agent status.
+  """
+  def describe_agent_status(%Client{} = client, agent_status_id, instance_id, options \\ []) do
+    url_path =
+      "/agent-status/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(agent_status_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Describes the specified contact.
+
+  Contact information remains available in Amazon Connect for 24 months, and then
+  it is deleted.
+  """
+  def describe_contact(%Client{} = client, contact_id, instance_id, options \\ []) do
+    url_path = "/contacts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Describes the specified contact flow.
 
   You can also create and update contact flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
@@ -648,6 +903,34 @@ defmodule AWS.Connect do
   def describe_contact_flow(%Client{} = client, contact_flow_id, instance_id, options \\ []) do
     url_path =
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Describes the specified contact flow module.
+  """
+  def describe_contact_flow_module(
+        %Client{} = client,
+        contact_flow_module_id,
+        instance_id,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}"
 
     headers = []
     query_params = []
@@ -839,6 +1122,36 @@ defmodule AWS.Connect do
   def describe_routing_profile(%Client{} = client, instance_id, routing_profile_id, options \\ []) do
     url_path =
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Gets basic information about the security profle.
+  """
+  def describe_security_profile(
+        %Client{} = client,
+        instance_id,
+        security_profile_id,
+        options \\ []
+      ) do
+    url_path =
+      "/security-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(security_profile_id)}"
 
     headers = []
     query_params = []
@@ -1270,6 +1583,57 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
+  Lists agent statuses.
+  """
+  def list_agent_statuses(
+        %Client{} = client,
+        instance_id,
+        agent_status_types \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/agent-status/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(agent_status_types) do
+        [{"AgentStatusTypes", agent_status_types} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Returns a paginated list of all approved origins associated with the instance.
   """
   def list_approved_origins(
@@ -1363,6 +1727,56 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Provides information about the contact flow modules for the specified Amazon
+  Connect instance.
+  """
+  def list_contact_flow_modules(
+        %Client{} = client,
+        instance_id,
+        contact_flow_module_state \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/contact-flow-modules-summary/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(contact_flow_module_state) do
+        [{"state", contact_flow_module_state} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Provides information about the contact flows for the specified Amazon Connect
   instance.
 
@@ -1400,6 +1814,53 @@ defmodule AWS.Connect do
     query_params =
       if !is_nil(contact_flow_types) do
         [{"contactFlowTypes", contact_flow_types} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  For the specified `referenceTypes`, returns a list of references associated with
+  the contact.
+  """
+  def list_contact_references(
+        %Client{} = client,
+        contact_id,
+        instance_id,
+        next_token \\ nil,
+        reference_types,
+        options \\ []
+      ) do
+    url_path =
+      "/contact/references/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(reference_types) do
+        [{"referenceTypes", reference_types} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1599,12 +2060,13 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Provides summary information about the AppIntegration associations for the
+  Provides summary information about the AWS resource associations for the
   specified Amazon Connect instance.
   """
   def list_integration_associations(
         %Client{} = client,
         instance_id,
+        integration_type \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         options \\ []
@@ -1623,6 +2085,13 @@ defmodule AWS.Connect do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(integration_type) do
+        [{"integrationType", integration_type} | query_params]
       else
         query_params
       end
@@ -2119,6 +2588,52 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Lists the permissions granted to a security profile.
+  """
+  def list_security_profile_permissions(
+        %Client{} = client,
+        instance_id,
+        security_profile_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/security-profiles-permissions/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(security_profile_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Provides summary information about the security profiles for the specified
   Amazon Connect instance.
 
@@ -2188,7 +2703,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Lists the use cases.
+  Lists the use cases for the integration association.
   """
   def list_use_cases(
         %Client{} = client,
@@ -2419,6 +2934,30 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Initiates real-time message streaming for a new chat contact.
+
+  For more information about message streaming, see [Enable real-time chat message streaming](https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html)
+  in the *Amazon Connect Administrator Guide*.
+  """
+  def start_contact_streaming(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/start-streaming"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Places an outbound call to a contact, and then initiates the contact flow.
 
   It performs the actions in the contact flow that's specified (in
@@ -2435,6 +2974,11 @@ defmodule AWS.Connect do
   UK numbers with a 447 prefix are not allowed by default. Before you can dial
   these UK mobile numbers, you must submit a service quota increase request. For
   more information, see [Amazon Connect Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
+  in the *Amazon Connect Administrator Guide*.
+
+  Campaign calls are not allowed by default. Before you can make a call with
+  `TrafficType` = `CAMPAIGN`, you must submit a service quota increase request.
+  For more information, see [Amazon Connect Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
   in the *Amazon Connect Administrator Guide*.
   """
   def start_outbound_voice_contact(%Client{} = client, input, options \\ []) do
@@ -2527,6 +3071,31 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Ends message streaming on a specified contact.
+
+  To restart message streaming on that contact, call the
+  [StartContactStreaming](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html)
+  API.
+  """
+  def stop_contact_streaming(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/stop-streaming"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   When a contact is being recorded, this API suspends recording the call.
 
   For example, you might suspend the call recording while collecting sensitive
@@ -2560,7 +3129,7 @@ defmodule AWS.Connect do
   Adds the specified tags to the specified resource.
 
   The supported resource types are users, routing profiles, queues, quick
-  connects, and contact flows.
+  connects, contact flows, agent status, and hours of operation.
 
   For sample policies that use tags, see [Amazon Connect Identity-Based Policy Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
   in the *Amazon Connect Administrator Guide*.
@@ -2600,6 +3169,58 @@ defmodule AWS.Connect do
       client,
       metadata(),
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Updates agent status.
+  """
+  def update_agent_status(%Client{} = client, agent_status_id, instance_id, input, options \\ []) do
+    url_path =
+      "/agent-status/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(agent_status_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Adds or updates user-defined contact information associated with the specified
+  contact. At least one field to be updated must be present in the request.
+
+  You can add or update user-defined contact information for both ongoing and
+  completed contacts.
+  """
+  def update_contact(%Client{} = client, contact_id, instance_id, input, options \\ []) do
+    url_path = "/contacts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
       url_path,
       query_params,
       headers,
@@ -2685,6 +3306,93 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Updates metadata about specified contact flow.
+  """
+  def update_contact_flow_metadata(
+        %Client{} = client,
+        contact_flow_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/metadata"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates specified contact flow module for the specified Amazon Connect instance.
+  """
+  def update_contact_flow_module_content(
+        %Client{} = client,
+        contact_flow_module_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}/content"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates metadata about specified contact flow module.
+  """
+  def update_contact_flow_module_metadata(
+        %Client{} = client,
+        contact_flow_module_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}/metadata"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   The name of the contact flow.
 
   You can also create and update contact flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
@@ -2698,6 +3406,58 @@ defmodule AWS.Connect do
       ) do
     url_path =
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/name"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates the scheduled time of a task contact that is already scheduled.
+  """
+  def update_contact_schedule(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/schedule"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Updates the hours of operation.
+  """
+  def update_hours_of_operation(
+        %Client{} = client,
+        hours_of_operation_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}"
 
     headers = []
     query_params = []
@@ -3084,6 +3844,37 @@ defmodule AWS.Connect do
       ) do
     url_path =
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/queues"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Updates a security profile.
+  """
+  def update_security_profile(
+        %Client{} = client,
+        instance_id,
+        security_profile_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/security-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(security_profile_id)}"
 
     headers = []
     query_params = []

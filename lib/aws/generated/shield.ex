@@ -3,14 +3,14 @@
 
 defmodule AWS.Shield do
   @moduledoc """
-  AWS Shield Advanced
+  Shield Advanced
 
-  This is the *AWS Shield Advanced API Reference*.
+  This is the *Shield Advanced API Reference*.
 
-  This guide is for developers who need detailed information about the AWS Shield
-  Advanced API actions, data types, and errors. For detailed information about AWS
-  WAF and AWS Shield Advanced features and an overview of how to use the AWS WAF
-  and AWS Shield Advanced APIs, see the [AWS WAF and AWS Shield Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
+  This guide is for developers who need detailed information about the Shield
+  Advanced API actions, data types, and errors. For detailed information about WAF
+  and Shield Advanced features and an overview of how to use the WAF and Shield
+  Advanced APIs, see the [WAF and Shield Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
 
   alias AWS.Client
@@ -33,49 +33,52 @@ defmodule AWS.Shield do
   end
 
   @doc """
-  Authorizes the DDoS Response Team (DRT) to access the specified Amazon S3 bucket
-  containing your AWS WAF logs.
+  Authorizes the Shield Response Team (SRT) to access the specified Amazon S3
+  bucket containing log data such as Application Load Balancer access logs,
+  CloudFront logs, or logs from third party sources.
 
   You can associate up to 10 Amazon S3 buckets with your subscription.
 
-  To use the services of the DRT and make an `AssociateDRTLogBucket` request, you
-  must be subscribed to the [Business Support plan](https://aws.amazon.com/premiumsupport/business-support/) or the
-  [Enterprise Support plan](https://aws.amazon.com/premiumsupport/enterprise-support/).
+  To use the services of the SRT and make an `AssociateDRTLogBucket` request, you
+  must be subscribed to the [Business Support plan](https://docs.aws.amazon.com/premiumsupport/business-support/) or the
+  [Enterprise Support plan](https://docs.aws.amazon.com/premiumsupport/enterprise-support/).
   """
   def associate_drt_log_bucket(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AssociateDRTLogBucket", input, options)
   end
 
   @doc """
-  Authorizes the DDoS Response Team (DRT), using the specified role, to access
-  your AWS account to assist with DDoS attack mitigation during potential attacks.
+  Authorizes the Shield Response Team (SRT) using the specified role, to access
+  your Amazon Web Services account to assist with DDoS attack mitigation during
+  potential attacks.
 
-  This enables the DRT to inspect your AWS WAF configuration and create or update
-  AWS WAF rules and web ACLs.
+  This enables the SRT to inspect your WAF configuration and create or update WAF
+  rules and web ACLs.
 
   You can associate only one `RoleArn` with your subscription. If you submit an
   `AssociateDRTRole` request for an account that already has an associated role,
   the new `RoleArn` will replace the existing `RoleArn`.
 
   Prior to making the `AssociateDRTRole` request, you must attach the
-  [AWSShieldDRTAccessPolicy](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy) managed policy to the role you will specify in the request. For more information
-  see [Attaching and Detaching IAM Policies](
-  https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html).
-  The role must also trust the service principal ` drt.shield.amazonaws.com`. For
-  more information, see [IAM JSON Policy Elements: Principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html).
+  `AWSShieldDRTAccessPolicy` managed policy to the role that you'll specify in the
+  request. You can access this policy in the IAM console at
+  [AWSShieldDRTAccessPolicy](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy). For more information see [Adding and removing IAM identity
+  permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html).
+  The role must also trust the service principal `drt.shield.amazonaws.com`. For
+  more information, see [IAM JSON policy elements: Principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html).
 
-  The DRT will have access only to your AWS WAF and Shield resources. By
-  submitting this request, you authorize the DRT to inspect your AWS WAF and
-  Shield configuration and create and update AWS WAF rules and web ACLs on your
-  behalf. The DRT takes these actions only if explicitly authorized by you.
+  The SRT will have access only to your WAF and Shield resources. By submitting
+  this request, you authorize the SRT to inspect your WAF and Shield configuration
+  and create and update WAF rules and web ACLs on your behalf. The SRT takes these
+  actions only if explicitly authorized by you.
 
   You must have the `iam:PassRole` permission to make an `AssociateDRTRole`
-  request. For more information, see [Granting a User Permissions to Pass a Role to an AWS
-  Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html).
+  request. For more information, see [Granting a user permissions to pass a role to an Amazon Web Services
+  service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html).
 
-  To use the services of the DRT and make an `AssociateDRTRole` request, you must
-  be subscribed to the [Business Support plan](https://aws.amazon.com/premiumsupport/business-support/) or the
-  [Enterprise Support plan](https://aws.amazon.com/premiumsupport/enterprise-support/).
+  To use the services of the SRT and make an `AssociateDRTRole` request, you must
+  be subscribed to the [Business Support plan](https://docs.aws.amazon.com/premiumsupport/business-support/) or the
+  [Enterprise Support plan](https://docs.aws.amazon.com/premiumsupport/enterprise-support/).
   """
   def associate_drt_role(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AssociateDRTRole", input, options)
@@ -84,20 +87,21 @@ defmodule AWS.Shield do
   @doc """
   Adds health-based detection to the Shield Advanced protection for a resource.
 
-  Shield Advanced health-based detection uses the health of your AWS resource to
-  improve responsiveness and accuracy in attack detection and mitigation.
+  Shield Advanced health-based detection uses the health of your Amazon Web
+  Services resource to improve responsiveness and accuracy in attack detection and
+  response.
 
-  You define the health check in Route 53 and then associate it with your Shield
+  You define the health check in Route 53 and then associate it with your Shield
   Advanced protection. For more information, see [Shield Advanced Health-Based Detection](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option)
-  in the [AWS WAF and AWS Shield Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
+  in the *WAF Developer Guide*.
   """
   def associate_health_check(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AssociateHealthCheck", input, options)
   end
 
   @doc """
-  Initializes proactive engagement and sets the list of contacts for the DDoS
-  Response Team (DRT) to use.
+  Initializes proactive engagement and sets the list of contacts for the Shield
+  Response Team (SRT) to use.
 
   You must provide at least one phone number in the emergency contact list.
 
@@ -105,9 +109,9 @@ defmodule AWS.Shield do
   enable proactive engagement, use the calls `DisableProactiveEngagement` and
   `EnableProactiveEngagement`.
 
-  This call defines the list of email addresses and phone numbers that the DDoS
-  Response Team (DRT) can use to contact you for escalations to the DRT and to
-  initiate proactive customer support.
+  This call defines the list of email addresses and phone numbers that the SRT can
+  use to contact you for escalations to the SRT and to initiate proactive customer
+  support.
 
   The contacts that you provide in the request replace any contacts that were
   already defined. If you already have contacts defined and want to use them,
@@ -125,17 +129,18 @@ defmodule AWS.Shield do
   end
 
   @doc """
-  Enables AWS Shield Advanced for a specific AWS resource.
+  Enables Shield Advanced for a specific Amazon Web Services resource.
 
   The resource can be an Amazon CloudFront distribution, Elastic Load Balancing
-  load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an
-  Amazon Route 53 hosted zone.
+  load balancer, Global Accelerator accelerator, Elastic IP Address, or an Amazon
+  Route 53 hosted zone.
 
-  You can add protection to only a single resource with each CreateProtection
-  request. If you want to add protection to multiple resources at once, use the
-  [AWS WAF console](https://console.aws.amazon.com/waf/). For more information see [Getting Started with AWS Shield
+  You can add protection to only a single resource with each `CreateProtection`
+  request. You can add protection to multiple resources at once through the Shield
+  Advanced console at
+  [https://console.aws.amazon.com/wafv2/shieldv2#/](https://console.aws.amazon.com/wafv2/shieldv2#/). For more information see [Getting Started with Shield
   Advanced](https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html)
-  and [Add AWS Shield Advanced Protection to more AWS Resources](https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html).
+  and [Adding Shield Advanced protection to Amazon Web Services resources](https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html).
   """
   def create_protection(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateProtection", input, options)
@@ -153,7 +158,7 @@ defmodule AWS.Shield do
   end
 
   @doc """
-  Activates AWS Shield Advanced for an account.
+  Activates Shield Advanced for an account.
 
   When you initally create a subscription, your subscription is set to be
   automatically renewed at the end of the existing subscription period. You can
@@ -164,7 +169,7 @@ defmodule AWS.Shield do
   end
 
   @doc """
-  Deletes an AWS Shield Advanced `Protection`.
+  Deletes an Shield Advanced `Protection`.
   """
   def delete_protection(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteProtection", input, options)
@@ -178,10 +183,10 @@ defmodule AWS.Shield do
   end
 
   @doc """
-  Removes AWS Shield Advanced from an account.
+  Removes Shield Advanced from an account.
 
-  AWS Shield Advanced requires a 1-year subscription commitment. You cannot delete
-  a subscription prior to the completion of that commitment.
+  Shield Advanced requires a 1-year subscription commitment. You cannot delete a
+  subscription prior to the completion of that commitment.
   """
   def delete_subscription(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteSubscription", input, options)
@@ -195,9 +200,9 @@ defmodule AWS.Shield do
   end
 
   @doc """
-  Provides information about the number and type of attacks AWS Shield has
-  detected in the last year for all resources that belong to your account,
-  regardless of whether you've defined Shield protections for them.
+  Provides information about the number and type of attacks Shield has detected in
+  the last year for all resources that belong to your account, regardless of
+  whether you've defined Shield protections for them.
 
   This operation is available to Shield customers as well as to Shield Advanced
   customers.
@@ -214,18 +219,18 @@ defmodule AWS.Shield do
   end
 
   @doc """
-  Returns the current role and list of Amazon S3 log buckets used by the DDoS
-  Response Team (DRT) to access your AWS account while assisting with attack
-  mitigation.
+  Returns the current role and list of Amazon S3 log buckets used by the Shield
+  Response Team (SRT) to access your Amazon Web Services account while assisting
+  with attack mitigation.
   """
   def describe_drt_access(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDRTAccess", input, options)
   end
 
   @doc """
-  A list of email addresses and phone numbers that the DDoS Response Team (DRT)
+  A list of email addresses and phone numbers that the Shield Response Team (SRT)
   can use to contact you if you have proactive engagement enabled, for escalations
-  to the DRT and to initiate proactive customer support.
+  to the SRT and to initiate proactive customer support.
   """
   def describe_emergency_contact_settings(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeEmergencyContactSettings", input, options)
@@ -246,43 +251,48 @@ defmodule AWS.Shield do
   end
 
   @doc """
-  Provides details about the AWS Shield Advanced subscription for an account.
+  Provides details about the Shield Advanced subscription for an account.
   """
   def describe_subscription(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeSubscription", input, options)
   end
 
   @doc """
-  Removes authorization from the DDoS Response Team (DRT) to notify contacts about
-  escalations to the DRT and to initiate proactive customer support.
+  Disable the Shield Advanced automatic application layer DDoS mitigation feature
+  for the resource.
+
+  This stops Shield Advanced from creating, verifying, and applying WAF rules for
+  attacks that it detects for the resource.
+  """
+  def disable_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DisableApplicationLayerAutomaticResponse",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Removes authorization from the Shield Response Team (SRT) to notify contacts
+  about escalations to the SRT and to initiate proactive customer support.
   """
   def disable_proactive_engagement(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisableProactiveEngagement", input, options)
   end
 
   @doc """
-  Removes the DDoS Response Team's (DRT) access to the specified Amazon S3 bucket
-  containing your AWS WAF logs.
-
-  To make a `DisassociateDRTLogBucket` request, you must be subscribed to the
-  [Business Support plan](https://aws.amazon.com/premiumsupport/business-support/) or the [Enterprise Support
-  plan](https://aws.amazon.com/premiumsupport/enterprise-support/). However, if
-  you are not subscribed to one of these support plans, but had been previously
-  and had granted the DRT access to your account, you can submit a
-  `DisassociateDRTLogBucket` request to remove this access.
+  Removes the Shield Response Team's (SRT) access to the specified Amazon S3
+  bucket containing the logs that you shared previously.
   """
   def disassociate_drt_log_bucket(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisassociateDRTLogBucket", input, options)
   end
 
   @doc """
-  Removes the DDoS Response Team's (DRT) access to your AWS account.
-
-  To make a `DisassociateDRTRole` request, you must be subscribed to the [Business Support plan](https://aws.amazon.com/premiumsupport/business-support/) or the
-  [Enterprise Support plan](https://aws.amazon.com/premiumsupport/enterprise-support/). However, if
-  you are not subscribed to one of these support plans, but had been previously
-  and had granted the DRT access to your account, you can submit a
-  `DisassociateDRTRole` request to remove this access.
+  Removes the Shield Response Team's (SRT) access to your Amazon Web Services
+  account.
   """
   def disassociate_drt_role(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisassociateDRTRole", input, options)
@@ -292,21 +302,58 @@ defmodule AWS.Shield do
   Removes health-based detection from the Shield Advanced protection for a
   resource.
 
-  Shield Advanced health-based detection uses the health of your AWS resource to
-  improve responsiveness and accuracy in attack detection and mitigation.
+  Shield Advanced health-based detection uses the health of your Amazon Web
+  Services resource to improve responsiveness and accuracy in attack detection and
+  response.
 
-  You define the health check in Route 53 and then associate or disassociate it
+  You define the health check in Route 53 and then associate or disassociate it
   with your Shield Advanced protection. For more information, see [Shield Advanced Health-Based
   Detection](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option)
-  in the [AWS WAF and AWS Shield Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
+  in the *WAF Developer Guide*.
   """
   def disassociate_health_check(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisassociateHealthCheck", input, options)
   end
 
   @doc """
-  Authorizes the DDoS Response Team (DRT) to use email and phone to notify
-  contacts about escalations to the DRT and to initiate proactive customer
+  Enable the Shield Advanced automatic application layer DDoS mitigation for the
+  resource.
+
+  This feature is available for Amazon CloudFront distributions only.
+
+  This causes Shield Advanced to create, verify, and apply WAF rules for DDoS
+  attacks that it detects for the resource. Shield Advanced applies the rules in a
+  Shield rule group inside the web ACL that you've associated with the resource.
+  For information about how automatic mitigation works and the requirements for
+  using it, see [Shield Advanced automatic application layer DDoS mitigation](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced-automatic-app-layer-response.html).
+
+  Don't use this action to make changes to automatic mitigation settings when it's
+  already enabled for a resource. Instead, use
+  `UpdateApplicationLayerAutomaticResponse`.
+
+  To use this feature, you must associate a web ACL with the protected resource.
+  The web ACL must be created using the latest version of WAF (v2). You can
+  associate the web ACL through the Shield Advanced console at
+  [https://console.aws.amazon.com/wafv2/shieldv2#/](https://console.aws.amazon.com/wafv2/shieldv2#/). For more information, see [Getting Started with Shield
+  Advanced](https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html).
+
+  You can also do this through the WAF console or the WAF API, but you must manage
+  Shield Advanced automatic mitigation through Shield Advanced. For information
+  about WAF, see [WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
+  """
+  def enable_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "EnableApplicationLayerAutomaticResponse",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Authorizes the Shield Response Team (SRT) to use email and phone to notify
+  contacts about escalations to the SRT and to initiate proactive customer
   support.
   """
   def enable_proactive_engagement(%Client{} = client, input, options \\ []) do
@@ -350,31 +397,46 @@ defmodule AWS.Shield do
   end
 
   @doc """
-  Gets information about AWS tags for a specified Amazon Resource Name (ARN) in
-  AWS Shield.
+  Gets information about Amazon Web Services tags for a specified Amazon Resource
+  Name (ARN) in Shield.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
-  Adds or updates tags for a resource in AWS Shield.
+  Adds or updates tags for a resource in Shield.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
-  Removes tags from a resource in AWS Shield.
+  Removes tags from a resource in Shield.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
+  Updates an existing Shield Advanced automatic application layer DDoS mitigation
+  configuration for the specified resource.
+  """
+  def update_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "UpdateApplicationLayerAutomaticResponse",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Updates the details of the list of email addresses and phone numbers that the
-  DDoS Response Team (DRT) can use to contact you if you have proactive engagement
-  enabled, for escalations to the DRT and to initiate proactive customer support.
+  Shield Response Team (SRT) can use to contact you if you have proactive
+  engagement enabled, for escalations to the SRT and to initiate proactive
+  customer support.
   """
   def update_emergency_contact_settings(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateEmergencyContactSettings", input, options)

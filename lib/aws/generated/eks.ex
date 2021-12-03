@@ -98,10 +98,11 @@ defmodule AWS.EKS do
   Creates an Amazon EKS add-on.
 
   Amazon EKS add-ons help to automate the provisioning and lifecycle management of
-  common operational software for Amazon EKS clusters. Amazon EKS add-ons can only
-  be used with Amazon EKS clusters running version 1.18 with platform version
-  `eks.3` or later because add-ons rely on the Server-side Apply Kubernetes
-  feature, which is only available in Kubernetes 1.18 and later.
+  common operational software for Amazon EKS clusters. Amazon EKS add-ons require
+  clusters running version 1.18 or later because Amazon EKS add-ons rely on the
+  Server-side Apply Kubernetes feature, which is only available in Kubernetes 1.18
+  and later. For more information, see [Amazon EKS add-ons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html) in
+  the *Amazon EKS User Guide*.
   """
   def create_addon(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/addons"
@@ -127,8 +128,8 @@ defmodule AWS.EKS do
   The Amazon EKS control plane consists of control plane instances that run the
   Kubernetes software, such as `etcd` and the API server. The control plane runs
   in an account managed by Amazon Web Services, and the Kubernetes API is exposed
-  via the Amazon EKS API server endpoint. Each Amazon EKS cluster control plane is
-  single-tenant and unique and runs on its own set of Amazon EC2 instances.
+  by the Amazon EKS API server endpoint. Each Amazon EKS cluster control plane is
+  single tenant and unique. It runs on its own set of Amazon EC2 instances.
 
   The cluster control plane is provisioned across multiple Availability Zones and
   fronted by an Elastic Load Balancing Network Load Balancer. Amazon EKS also
@@ -137,13 +138,13 @@ defmodule AWS.EKS do
   support `kubectl exec`, `logs`, and `proxy` data flows).
 
   Amazon EKS nodes run in your Amazon Web Services account and connect to your
-  cluster's control plane via the Kubernetes API server endpoint and a certificate
-  file that is created for your cluster.
+  cluster's control plane over the Kubernetes API server endpoint and a
+  certificate file that is created for your cluster.
 
-  Cluster creation typically takes several minutes. After you create an Amazon EKS
-  cluster, you must configure your Kubernetes tooling to communicate with the API
-  server and launch nodes into your cluster. For more information, see [Managing Cluster
-  Authentication](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html)
+  In most cases, it takes several minutes to create a cluster. After you create an
+  Amazon EKS cluster, you must configure your Kubernetes tooling to communicate
+  with the API server and launch nodes into your cluster. For more information,
+  see [Managing Cluster Authentication](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html)
   and [Launching Amazon EKS nodes](https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html) in
   the *Amazon EKS User Guide*.
   """
@@ -262,7 +263,12 @@ defmodule AWS.EKS do
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/addons/#{AWS.Util.encode_uri(addon_name)}"
 
     headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"preserve", "preserve"}
+      ]
+      |> Request.build_params(input)
 
     Request.request_rest(
       client,
@@ -355,6 +361,27 @@ defmodule AWS.EKS do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups/#{AWS.Util.encode_uri(nodegroup_name)}"
 
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deregisters a connected cluster to remove it from the Amazon EKS control plane.
+  """
+  def deregister_cluster(%Client{} = client, name, input, options \\ []) do
+    url_path = "/cluster-registrations/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -674,7 +701,13 @@ defmodule AWS.EKS do
   Lists the Amazon EKS clusters in your Amazon Web Services account in the
   specified Region.
   """
-  def list_clusters(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_clusters(
+        %Client{} = client,
+        include \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
     url_path = "/clusters"
     headers = []
     query_params = []
@@ -689,6 +722,13 @@ defmodule AWS.EKS do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include) do
+        [{"include", include} | query_params]
       else
         query_params
       end
@@ -907,6 +947,43 @@ defmodule AWS.EKS do
       query_params,
       headers,
       nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Connects a Kubernetes cluster to the Amazon EKS control plane.
+
+  Any Kubernetes cluster can be connected to the Amazon EKS control plane to view
+  current information about the cluster and its nodes.
+
+  Cluster connection requires two steps. First, send a ` `RegisterClusterRequest`
+  ` to add it to the Amazon EKS control plane.
+
+  Second, a
+  [Manifest](https://amazon-eks.s3.us-west-2.amazonaws.com/eks-connector/manifests/eks-connector/latest/eks-connector.yaml)
+  containing the `activationID` and `activationCode` must be applied to the
+  Kubernetes cluster through it's native provider to provide visibility.
+
+  After the Manifest is updated and applied, then the connected cluster is visible
+  to the Amazon EKS control plane. If the Manifest is not applied within three
+  days, then the connected cluster will no longer be visible and must be
+  deregistered. See `DeregisterCluster`.
+  """
+  def register_cluster(%Client{} = client, input, options \\ []) do
+    url_path = "/cluster-registrations"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
       options,
       nil
     )

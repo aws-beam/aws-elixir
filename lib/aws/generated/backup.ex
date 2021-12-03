@@ -3,13 +3,13 @@
 
 defmodule AWS.Backup do
   @moduledoc """
-  AWS Backup
+  Backup
 
-  AWS Backup is a unified backup service designed to protect AWS services and
-  their associated data.
+  Backup is a unified backup service designed to protect Amazon Web Services
+  services and their associated data.
 
-  AWS Backup simplifies the creation, migration, restoration, and deletion of
-  backups, while also providing reporting and auditing.
+  Backup simplifies the creation, migration, restoration, and deletion of backups,
+  while also providing reporting and auditing.
   """
 
   alias AWS.Client
@@ -34,11 +34,11 @@ defmodule AWS.Backup do
   @doc """
   Creates a backup plan using a backup plan name and backup rules.
 
-  A backup plan is a document that contains information that AWS Backup uses to
+  A backup plan is a document that contains information that Backup uses to
   schedule tasks that create recovery points for resources.
 
-  If you call `CreateBackupPlan` with a plan that already exists, an
-  `AlreadyExistsException` is returned.
+  If you call `CreateBackupPlan` with a plan that already exists, you receive an
+  `AlreadyExistsException` exception.
   """
   def create_backup_plan(%Client{} = client, input, options \\ []) do
     url_path = "/backup/plans/"
@@ -62,34 +62,7 @@ defmodule AWS.Backup do
   Creates a JSON document that specifies a set of resources to assign to a backup
   plan.
 
-  Resources can be included by specifying patterns for a `ListOfTags` and selected
-  `Resources`.
-
-  For example, consider the following patterns:
-
-    * `Resources: "arn:aws:ec2:region:account-id:volume/volume-id"`
-
-    * `ConditionKey:"department"`
-
-  `ConditionValue:"finance"`
-
-  `ConditionType:"StringEquals"`
-
-    * `ConditionKey:"importance"`
-
-  `ConditionValue:"critical"`
-
-  `ConditionType:"StringEquals"`
-
-  Using these patterns would back up all Amazon Elastic Block Store (Amazon EBS)
-  volumes that are tagged as `"department=finance"`, `"importance=critical"`, in
-  addition to an EBS volume with the specified volume ID.
-
-  Resources and conditions are additive in that all resources that match the
-  pattern are selected. This shouldn't be confused with a logical AND, where all
-  conditions must match. The matching patterns are logically put together using
-  the OR operator. In other words, all patterns that match are selected for
-  backup.
+  For examples, see [Assigning resources programmatically](https://docs.aws.amazon.com/assigning-resources.html#assigning-resources-json).
   """
   def create_backup_selection(%Client{} = client, backup_plan_id, input, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections/"
@@ -115,8 +88,8 @@ defmodule AWS.Backup do
   A `CreateBackupVault` request includes a name, optionally one or more resource
   tags, an encryption key, and a request ID.
 
-  Sensitive data, such as passport numbers, should not be included the name of a
-  backup vault.
+  Do not include sensitive data, such as passport numbers, in the name of a backup
+  vault.
   """
   def create_backup_vault(%Client{} = client, backup_vault_name, input, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}"
@@ -127,6 +100,59 @@ defmodule AWS.Backup do
       client,
       metadata(),
       :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates a framework with one or more controls.
+
+  A framework is a collection of controls that you can use to evaluate your backup
+  practices. By using pre-built customizable controls to define your policies, you
+  can evaluate whether your backup practices comply with your policies and which
+  resources are not yet in compliance.
+  """
+  def create_framework(%Client{} = client, input, options \\ []) do
+    url_path = "/audit/frameworks"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates a report plan.
+
+  A report plan is a document that contains information about the contents of the
+  report and where Backup will deliver it.
+
+  If you call `CreateReportPlan` with a plan that already exists, you receive an
+  `AlreadyExistsException` exception.
+  """
+  def create_report_plan(%Client{} = client, input, options \\ []) do
+    url_path = "/audit/report-plans"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
       url_path,
       query_params,
       headers,
@@ -241,6 +267,37 @@ defmodule AWS.Backup do
   end
 
   @doc """
+  Deletes Backup Vault Lock from a backup vault specified by a backup vault name.
+
+  If the Vault Lock configuration is immutable, then you cannot delete Vault Lock
+  using API operations, and you will receive an `InvalidRequestException` if you
+  attempt to do so. For more information, see [Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) in
+  the *Backup Developer Guide*.
+  """
+  def delete_backup_vault_lock_configuration(
+        %Client{} = client,
+        backup_vault_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/vault-lock"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes event notifications for the specified backup vault.
   """
   def delete_backup_vault_notifications(
@@ -252,6 +309,27 @@ defmodule AWS.Backup do
     url_path =
       "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/notification-configuration"
 
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes the framework specified by a framework name.
+  """
+  def delete_framework(%Client{} = client, framework_name, input, options \\ []) do
+    url_path = "/audit/frameworks/#{AWS.Util.encode_uri(framework_name)}"
     headers = []
     query_params = []
 
@@ -284,6 +362,27 @@ defmodule AWS.Backup do
     url_path =
       "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points/#{AWS.Util.encode_uri(recovery_point_arn)}"
 
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes the report plan specified by a report plan name.
+  """
+  def delete_report_plan(%Client{} = client, report_plan_name, input, options \\ []) do
+    url_path = "/audit/report-plans/#{AWS.Util.encode_uri(report_plan_name)}"
     headers = []
     query_params = []
 
@@ -364,8 +463,32 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Describes the global settings of the AWS account, including whether it is opted
-  in to cross-account backup.
+  Returns the framework details for the specified `FrameworkName`.
+  """
+  def describe_framework(%Client{} = client, framework_name, options \\ []) do
+    url_path = "/audit/frameworks/#{AWS.Util.encode_uri(framework_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Describes whether the Amazon Web Services account is opted in to cross-account
+  backup.
+
+  Returns an error if the account is not a member of an Organizations
+  organization. Example: `describe-global-settings --region us-west-2`
   """
   def describe_global_settings(%Client{} = client, options \\ []) do
     url_path = "/global-settings"
@@ -387,8 +510,8 @@ defmodule AWS.Backup do
 
   @doc """
   Returns information about a saved resource, including the last time it was
-  backed up, its Amazon Resource Name (ARN), and the AWS service type of the saved
-  resource.
+  backed up, its Amazon Resource Name (ARN), and the Amazon Web Services service
+  type of the saved resource.
   """
   def describe_protected_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}"
@@ -440,14 +563,57 @@ defmodule AWS.Backup do
   @doc """
   Returns the current service opt-in settings for the Region.
 
-  If service-opt-in is enabled for a service, AWS Backup tries to protect that
+  If service opt-in is enabled for a service, Backup tries to protect that
   service's resources in this Region, when the resource is included in an
-  on-demand backup or scheduled backup plan. Otherwise, AWS Backup does not try to
-  protect that service's resources in this Region, AWS Backup does not try to
+  on-demand backup or scheduled backup plan. Otherwise, Backup does not try to
   protect that service's resources in this Region.
   """
   def describe_region_settings(%Client{} = client, options \\ []) do
     url_path = "/account-settings"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns the details associated with creating a report as specified by its
+  `ReportJobId`.
+  """
+  def describe_report_job(%Client{} = client, report_job_id, options \\ []) do
+    url_path = "/audit/report-jobs/#{AWS.Util.encode_uri(report_job_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns a list of all report plans for an Amazon Web Services account and Amazon
+  Web Services Region.
+  """
+  def describe_report_plan(%Client{} = client, report_plan_name, options \\ []) do
+    url_path = "/audit/report-plans/#{AWS.Util.encode_uri(report_plan_name)}"
     headers = []
     query_params = []
 
@@ -486,9 +652,8 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Deletes the specified continuous backup recovery point from AWS Backup and
-  releases control of that continuous backup to the source service, such as Amazon
-  RDS.
+  Deletes the specified continuous backup recovery point from Backup and releases
+  control of that continuous backup to the source service, such as Amazon RDS.
 
   The source service will continue to create and retain continuous backups using
   the lifecycle that you specified in your original backup plan.
@@ -713,7 +878,7 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns the AWS resource types supported by AWS Backup.
+  Returns the Amazon Web Services resource types supported by Backup.
   """
   def get_supported_resource_types(%Client{} = client, options \\ []) do
     url_path = "/supported-resource-types"
@@ -917,9 +1082,8 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns a list of existing backup plans for an authenticated account.
+  Returns a list of all active backup plans for an authenticated account.
 
-  The list is populated only if the advanced option is set for the backup plan.
   The list contains information such as Amazon Resource Names (ARNs), plan IDs,
   creation and deletion dates, version IDs, plan names, and creator request IDs.
   """
@@ -1143,9 +1307,45 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns an array of resources successfully backed up by AWS Backup, including
-  the time the resource was saved, an Amazon Resource Name (ARN) of the resource,
-  and a resource type.
+  Returns a list of all frameworks for an Amazon Web Services account and Amazon
+  Web Services Region.
+  """
+  def list_frameworks(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/audit/frameworks"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns an array of resources successfully backed up by Backup, including the
+  time the resource was saved, an Amazon Resource Name (ARN) of the resource, and
+  a resource type.
   """
   def list_protected_resources(
         %Client{} = client,
@@ -1266,8 +1466,11 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns detailed information about recovery points of the type specified by a
-  resource Amazon Resource Name (ARN).
+  Returns detailed information about all the recovery points of the type specified
+  by a resource Amazon Resource Name (ARN).
+
+  For Amazon EFS and Amazon EC2, this action only lists recovery points created by
+  Backup.
   """
   def list_recovery_points_by_resource(
         %Client{} = client,
@@ -1308,8 +1511,117 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns a list of jobs that AWS Backup initiated to restore a saved resource,
-  including metadata about the recovery process.
+  Returns details about your report jobs.
+  """
+  def list_report_jobs(
+        %Client{} = client,
+        by_creation_after \\ nil,
+        by_creation_before \\ nil,
+        by_report_plan_name \\ nil,
+        by_status \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/audit/report-jobs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_status) do
+        [{"Status", by_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_report_plan_name) do
+        [{"ReportPlanName", by_report_plan_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_creation_before) do
+        [{"CreationBefore", by_creation_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_creation_after) do
+        [{"CreationAfter", by_creation_after} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns a list of your report plans.
+
+  For detailed information about a single report plan, use `DescribeReportPlan`.
+  """
+  def list_report_plans(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/audit/report-plans"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns a list of jobs that Backup initiated to restore a saved resource,
+  including details about the recovery process.
   """
   def list_restore_jobs(
         %Client{} = client,
@@ -1449,6 +1761,41 @@ defmodule AWS.Backup do
   end
 
   @doc """
+  Applies Backup Vault Lock to a backup vault, preventing attempts to delete any
+  recovery point stored in or created in a backup vault.
+
+  Vault Lock also prevents attempts to update the lifecycle policy that controls
+  the retention period of any recovery point currently stored in a backup vault.
+  If specified, Vault Lock enforces a minimum and maximum retention period for
+  future backup and copy jobs that target a backup vault.
+
+  Backup Vault Lock has yet to receive a third-party assessment for SEC 17a-4(f)
+  and CFTC.
+  """
+  def put_backup_vault_lock_configuration(
+        %Client{} = client,
+        backup_vault_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/vault-lock"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Turns on notifications on a backup vault for the specified topic and events.
   """
   def put_backup_vault_notifications(%Client{} = client, backup_vault_name, input, options \\ []) do
@@ -1506,6 +1853,27 @@ defmodule AWS.Backup do
       client,
       metadata(),
       :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Starts an on-demand report job for the specified report plan.
+  """
+  def start_report_job(%Client{} = client, report_plan_name, input, options \\ []) do
+    url_path = "/audit/report-jobs/#{AWS.Util.encode_uri(report_plan_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
       url_path,
       query_params,
       headers,
@@ -1626,9 +1994,33 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Updates the current global settings for the AWS account.
+  Updates an existing framework identified by its `FrameworkName` with the input
+  document in JSON format.
+  """
+  def update_framework(%Client{} = client, framework_name, input, options \\ []) do
+    url_path = "/audit/frameworks/#{AWS.Util.encode_uri(framework_name)}"
+    headers = []
+    query_params = []
 
-  Use the `DescribeGlobalSettings` API to determine the current settings.
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates whether the Amazon Web Services account is opted in to cross-account
+  backup.
+
+  Returns an error if the account is not an Organizations management account. Use
+  the `DescribeGlobalSettings` API to determine the current settings.
   """
   def update_global_settings(%Client{} = client, input, options \\ []) do
     url_path = "/global-settings"
@@ -1652,7 +2044,7 @@ defmodule AWS.Backup do
   Sets the transition lifecycle of a recovery point.
 
   The lifecycle defines when a protected resource is transitioned to cold storage
-  and when it expires. AWS Backup transitions and expires backups automatically
+  and when it expires. Backup transitions and expires backups automatically
   according to the lifecycle that you define.
 
   Backups transitioned to cold storage must be stored in cold storage for a
@@ -1694,14 +2086,36 @@ defmodule AWS.Backup do
   @doc """
   Updates the current service opt-in settings for the Region.
 
-  If service-opt-in is enabled for a service, AWS Backup tries to protect that
+  If service-opt-in is enabled for a service, Backup tries to protect that
   service's resources in this Region, when the resource is included in an
-  on-demand backup or scheduled backup plan. Otherwise, AWS Backup does not try to
+  on-demand backup or scheduled backup plan. Otherwise, Backup does not try to
   protect that service's resources in this Region. Use the
   `DescribeRegionSettings` API to determine the resource types that are supported.
   """
   def update_region_settings(%Client{} = client, input, options \\ []) do
     url_path = "/account-settings"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates an existing report plan identified by its `ReportPlanName` with the
+  input document in JSON format.
+  """
+  def update_report_plan(%Client{} = client, report_plan_name, input, options \\ []) do
+    url_path = "/audit/report-plans/#{AWS.Util.encode_uri(report_plan_name)}"
     headers = []
     query_params = []
 

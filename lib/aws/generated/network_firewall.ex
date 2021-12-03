@@ -28,9 +28,8 @@ defmodule AWS.NetworkFirewall do
   includes filtering traffic going to and coming from an internet gateway, NAT
   gateway, or over VPN or AWS Direct Connect. Network Firewall uses rules that are
   compatible with Suricata, a free, open source intrusion detection system (IDS)
-  engine. For information about Suricata, see the [Suricata website](https://suricata-ids.org/).
-
-  You can use Network Firewall to monitor and protect your VPC traffic in a number
+  engine. AWS Network Firewall supports Suricata version 5.0.2. For information
+  about Suricata, see the [Suricata website](https://suricata-ids.org/).  You can use Network Firewall to monitor and protect your VPC traffic in a number
   of ways. The following are just a few examples:
 
     * Allow domains or IP addresses for known AWS service endpoints,
@@ -46,7 +45,8 @@ defmodule AWS.NetworkFirewall do
   regardless of the port used.
 
   To enable Network Firewall for your VPCs, you perform steps in both Amazon VPC
-  and in Network Firewall. For information about using Amazon VPC, see [Amazon VPC User Guide](https://docs.aws.amazon.com/vpc/latest/userguide/).
+  and in Network Firewall. For information about using Amazon VPC, see [Amazon VPC
+  User Guide](https://docs.aws.amazon.com/vpc/latest/userguide/).
 
   To start using Network Firewall, do the following:
 

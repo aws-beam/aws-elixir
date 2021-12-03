@@ -185,6 +185,28 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
+  Creates a new ruleset that can be used in a profile job to validate the data
+  quality of a dataset.
+  """
+  def create_ruleset(%Client{} = client, input, options \\ []) do
+    url_path = "/rulesets"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates a new schedule for one or more DataBrew jobs.
 
   Jobs can be run at a specific date and time, or at regular intervals.
@@ -277,6 +299,27 @@ defmodule AWS.DataBrew do
     url_path =
       "/recipes/#{AWS.Util.encode_uri(name)}/recipeVersion/#{AWS.Util.encode_uri(recipe_version)}"
 
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes a ruleset.
+  """
+  def delete_ruleset(%Client{} = client, name, input, options \\ []) do
+    url_path = "/rulesets/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -413,6 +456,27 @@ defmodule AWS.DataBrew do
       else
         query_params
       end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Retrieves detailed information about the ruleset.
+  """
+  def describe_ruleset(%Client{} = client, name, options \\ []) do
+    url_path = "/rulesets/#{AWS.Util.encode_uri(name)}"
+    headers = []
+    query_params = []
 
     Request.request_rest(
       client,
@@ -680,6 +744,55 @@ defmodule AWS.DataBrew do
     query_params =
       if !is_nil(recipe_version) do
         [{"recipeVersion", recipe_version} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  List all rulesets available in the current account or rulesets associated with a
+  specific resource (dataset).
+  """
+  def list_rulesets(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        target_arn \\ nil,
+        options \\ []
+      ) do
+    url_path = "/rulesets"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(target_arn) do
+        [{"targetArn", target_arn} | query_params]
       else
         query_params
       end
@@ -1026,6 +1139,27 @@ defmodule AWS.DataBrew do
   """
   def update_recipe_job(%Client{} = client, name, input, options \\ []) do
     url_path = "/recipeJobs/#{AWS.Util.encode_uri(name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates specified ruleset.
+  """
+  def update_ruleset(%Client{} = client, name, input, options \\ []) do
+    url_path = "/rulesets/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 

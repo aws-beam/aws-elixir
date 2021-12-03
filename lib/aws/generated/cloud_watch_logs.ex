@@ -4,11 +4,11 @@
 defmodule AWS.CloudWatchLogs do
   @moduledoc """
   You can use Amazon CloudWatch Logs to monitor, store, and access your log files
-  from EC2 instances, AWS CloudTrail, and other sources.
+  from EC2 instances, CloudTrail, and other sources.
 
   You can then retrieve the associated log data from CloudWatch Logs using the
-  CloudWatch console, CloudWatch Logs commands in the AWS CLI, CloudWatch Logs
-  API, or CloudWatch Logs SDK.
+  CloudWatch console, CloudWatch Logs commands in the Amazon Web Services CLI,
+  CloudWatch Logs API, or CloudWatch Logs SDK.
 
   You can use CloudWatch Logs to:
 
@@ -24,7 +24,7 @@ defmodule AWS.CloudWatchLogs do
   is found, CloudWatch Logs reports the data to a CloudWatch metric that you
   specify.
 
-    * **Monitor AWS CloudTrail logged events**: You can create alarms in
+    * **Monitor CloudTrail logged events**: You can create alarms in
   CloudWatch and receive notifications of particular API activity as captured by
   CloudTrail. You can use the notification to perform troubleshooting.
 
@@ -56,15 +56,15 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
-  Associates the specified AWS Key Management Service (AWS KMS) customer master
-  key (CMK) with the specified log group.
+  Associates the specified Key Management Service customer master key (CMK) with
+  the specified log group.
 
-  Associating an AWS KMS CMK with a log group overrides any existing associations
+  Associating an KMS CMK with a log group overrides any existing associations
   between the log group and a CMK. After a CMK is associated with a log group, all
   newly ingested data for the log group is encrypted using the CMK. This
   association is stored as long as the data encrypted with the CMK is still within
-  Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data
-  whenever it is requested.
+  CloudWatch Logs. This enables CloudWatch Logs to decrypt this data whenever it
+  is requested.
 
   CloudWatch Logs supports only symmetric CMKs. Do not use an associate an
   asymmetric CMK with your log group. For more information, see [Using Symmetric and Asymmetric
@@ -120,7 +120,8 @@ defmodule AWS.CloudWatchLogs do
 
   You must use the following guidelines when naming a log group:
 
-    * Log group names must be unique within a region for an AWS account.
+    * Log group names must be unique within a region for an Amazon Web
+  Services account.
 
     * Log group names can be between 1 and 512 characters long.
 
@@ -131,11 +132,10 @@ defmodule AWS.CloudWatchLogs do
   When you create a log group, by default the log events in the log group never
   expire. To set a retention policy so that events expire and are deleted after a
   specified time, use
-  [PutRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html).  If you associate a AWS Key Management Service (AWS KMS) customer master key
-  (CMK) with the log group, ingested data is encrypted using the CMK. This
-  association is stored as long as the data encrypted with the CMK is still within
-  Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data
-  whenever it is requested.
+  [PutRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html).  If you associate a Key Management Service customer master key (CMK) with the log
+  group, ingested data is encrypted using the CMK. This association is stored as
+  long as the data encrypted with the CMK is still within CloudWatch Logs. This
+  enables CloudWatch Logs to decrypt this data whenever it is requested.
 
   If you attempt to associate a CMK with the log group but the CMK does not exist
   or the CMK is disabled, you receive an `InvalidParameterException` error.
@@ -270,6 +270,13 @@ defmodule AWS.CloudWatchLogs do
 
   You can list all your log groups or filter the results by prefix. The results
   are ASCII-sorted by log group name.
+
+  CloudWatch Logs doesn’t support IAM policies that control access to the
+  `DescribeLogGroups` action by using the `aws:ResourceTag/*key-name* ` condition
+  key. Other CloudWatch Logs actions do support the use of the
+  `aws:ResourceTag/*key-name* ` condition key to control access. For more
+  information about using tags to control access, see [Controlling access to Amazon Web Services resources using
+  tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html).
   """
   def describe_log_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeLogGroups", input, options)
@@ -339,13 +346,13 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
-  Disassociates the associated AWS Key Management Service (AWS KMS) customer
-  master key (CMK) from the specified log group.
+  Disassociates the associated Key Management Service customer master key (CMK)
+  from the specified log group.
 
-  After the AWS KMS CMK is disassociated from the log group, AWS CloudWatch Logs
-  stops encrypting newly ingested data for the log group. All previously ingested
-  data remains encrypted, and AWS CloudWatch Logs requires permissions for the CMK
-  whenever the encrypted data is requested.
+  After the KMS CMK is disassociated from the log group, CloudWatch Logs stops
+  encrypting newly ingested data for the log group. All previously ingested data
+  remains encrypted, and CloudWatch Logs requires permissions for the CMK whenever
+  the encrypted data is requested.
 
   Note that it can take up to 5 minutes for this operation to take effect.
   """
@@ -474,10 +481,10 @@ defmodule AWS.CloudWatchLogs do
   that is used to authorize claims to register a subscription filter against a
   given destination.
 
-  If multiple AWS accounts are sending logs to this destination, each sender
-  account must be listed separately in the policy. The policy does not support
-  specifying `*` as the Principal or the use of the `aws:PrincipalOrgId` global
-  key.
+  If multiple Amazon Web Services accounts are sending logs to this destination,
+  each sender account must be listed separately in the policy. The policy does not
+  support specifying `*` as the Principal or the use of the `aws:PrincipalOrgId`
+  global key.
   """
   def put_destination_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutDestinationPolicy", input, options)
@@ -506,9 +513,10 @@ defmodule AWS.CloudWatchLogs do
 
     * The log events in the batch must be in chronological order by
   their timestamp. The timestamp is the time the event occurred, expressed as the
-  number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for
-  PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format:
-  yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.)
+  number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In Amazon Web Services
+  Tools for PowerShell and the Amazon Web Services SDK for .NET, the timestamp is
+  specified in .NET format: yyyy-mm-ddThh:mm:ss. For example,
+  2017-09-15T13:45:30.)
 
     * A batch of log events in a single request cannot span more than 24
   hours. Otherwise, the operation fails.
@@ -519,7 +527,7 @@ defmodule AWS.CloudWatchLogs do
   Additional requests are throttled. This quota can't be changed.
 
   If a call to `PutLogEvents` returns "UnrecognizedClientException" the most
-  likely cause is an invalid AWS access key ID or secret key.
+  likely cause is an invalid Amazon Web Services access key ID or secret key.
   """
   def put_log_events(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutLogEvents", input, options)
@@ -549,7 +557,7 @@ defmodule AWS.CloudWatchLogs do
 
   You can also set up a billing alarm to alert you if your charges are higher than
   expected. For more information, see [ Creating a Billing Alarm to Monitor Your
-  Estimated AWS
+  Estimated Amazon Web Services
   Charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html).
   """
   def put_metric_filter(%Client{} = client, input, options \\ []) do
@@ -577,10 +585,10 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
-  Creates or updates a resource policy allowing other AWS services to put log
-  events to this account, such as Amazon Route 53.
+  Creates or updates a resource policy allowing other Amazon Web Services services
+  to put log events to this account, such as Amazon Route 53.
 
-  An account can have up to 10 resource policies per AWS Region.
+  An account can have up to 10 resource policies per Amazon Web Services Region.
   """
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutResourcePolicy", input, options)
@@ -618,7 +626,7 @@ defmodule AWS.CloudWatchLogs do
     * An Amazon Kinesis Firehose delivery stream that belongs to the
   same account as the subscription filter, for same-account delivery.
 
-    * An AWS Lambda function that belongs to the same account as the
+    * An Lambda function that belongs to the same account as the
   subscription filter, for same-account delivery.
 
   Each log group can have up to two subscription filters associated with it. If
@@ -666,6 +674,11 @@ defmodule AWS.CloudWatchLogs do
 
   For more information about tags, see [Tag Log Groups in Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging)
   in the *Amazon CloudWatch Logs User Guide*.
+
+  CloudWatch Logs doesn’t support IAM policies that prevent users from assigning
+  specified tags to log groups using the `aws:Resource/*key-name* ` or
+  `aws:TagKeys` condition keys. For more information about using tags to control
+  access, see [Controlling access to Amazon Web Services resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html).
   """
   def tag_log_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TagLogGroup", input, options)
@@ -688,6 +701,10 @@ defmodule AWS.CloudWatchLogs do
   To list the tags for a log group, use
   [ListTagsLogGroup](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html). To add tags, use
   [TagLogGroup](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagLogGroup.html).
+
+  CloudWatch Logs doesn’t support IAM policies that prevent users from assigning
+  specified tags to log groups using the `aws:Resource/*key-name* ` or
+  `aws:TagKeys` condition keys.
   """
   def untag_log_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagLogGroup", input, options)

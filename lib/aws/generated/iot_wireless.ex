@@ -47,6 +47,69 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
+  Associate a multicast group with a FUOTA task.
+  """
+  def associate_multicast_group_with_fuota_task(%Client{} = client, id, input, options \\ []) do
+    url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}/multicast-group"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Associate a wireless device with a FUOTA task.
+  """
+  def associate_wireless_device_with_fuota_task(%Client{} = client, id, input, options \\ []) do
+    url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}/wireless-device"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Associates a wireless device with a multicast group.
+  """
+  def associate_wireless_device_with_multicast_group(%Client{} = client, id, input, options \\ []) do
+    url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/wireless-device"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Associates a wireless device with a thing.
   """
   def associate_wireless_device_with_thing(%Client{} = client, id, input, options \\ []) do
@@ -110,6 +173,27 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
+  Cancels an existing multicast group session.
+  """
+  def cancel_multicast_group_session(%Client{} = client, id, input, options \\ []) do
+    url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/session"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Creates a new destination that maps a device message to an AWS IoT rule.
   """
   def create_destination(%Client{} = client, input, options \\ []) do
@@ -135,6 +219,48 @@ defmodule AWS.IoTWireless do
   """
   def create_device_profile(%Client{} = client, input, options \\ []) do
     url_path = "/device-profiles"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a FUOTA task.
+  """
+  def create_fuota_task(%Client{} = client, input, options \\ []) do
+    url_path = "/fuota-tasks"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a multicast group.
+  """
+  def create_multicast_group(%Client{} = client, input, options \\ []) do
+    url_path = "/multicast-groups"
     headers = []
     query_params = []
 
@@ -299,6 +425,48 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
+  Deletes a FUOTA task.
+  """
+  def delete_fuota_task(%Client{} = client, id, input, options \\ []) do
+    url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a multicast group if it is not in use by a fuota task.
+  """
+  def delete_multicast_group(%Client{} = client, id, input, options \\ []) do
+    url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes a service profile.
   """
   def delete_service_profile(%Client{} = client, id, input, options \\ []) do
@@ -441,6 +609,93 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
+  Disassociates a multicast group from a fuota task.
+  """
+  def disassociate_multicast_group_from_fuota_task(
+        %Client{} = client,
+        id,
+        multicast_group_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/fuota-tasks/#{AWS.Util.encode_uri(id)}/multicast-groups/#{AWS.Util.encode_uri(multicast_group_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Disassociates a wireless device from a FUOTA task.
+  """
+  def disassociate_wireless_device_from_fuota_task(
+        %Client{} = client,
+        id,
+        wireless_device_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/fuota-tasks/#{AWS.Util.encode_uri(id)}/wireless-devices/#{AWS.Util.encode_uri(wireless_device_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Disassociates a wireless device from a multicast group.
+  """
+  def disassociate_wireless_device_from_multicast_group(
+        %Client{} = client,
+        id,
+        wireless_device_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/multicast-groups/#{AWS.Util.encode_uri(id)}/wireless-devices/#{AWS.Util.encode_uri(wireless_device_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Disassociates a wireless device from its currently associated thing.
   """
   def disassociate_wireless_device_from_thing(%Client{} = client, id, input, options \\ []) do
@@ -546,11 +801,97 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Returns current default log-levels, or log levels by resource types, could be
-  for wireless device log options or wireless gateway log options.
+  Gets information about a FUOTA task.
+  """
+  def get_fuota_task(%Client{} = client, id, options \\ []) do
+    url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns current default log levels or log levels by resource types.
+
+  Based on resource types, log levels can be for wireless device log options or
+  wireless gateway log options.
   """
   def get_log_levels_by_resource_types(%Client{} = client, options \\ []) do
     url_path = "/log-levels"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets information about a multicast group.
+  """
+  def get_multicast_group(%Client{} = client, id, options \\ []) do
+    url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets information about a multicast group session.
+  """
+  def get_multicast_group_session(%Client{} = client, id, options \\ []) do
+    url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/session"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Get NetworkAnalyzer configuration.
+  """
+  def get_network_analyzer_configuration(%Client{} = client, configuration_name, options \\ []) do
+    url_path = "/network-analyzer-configurations/#{AWS.Util.encode_uri(configuration_name)}"
     headers = []
     query_params = []
 
@@ -599,8 +940,51 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Fetches the log-level override if any for a given resource-ID and resource-type,
-  coulde be a wireless device or a wireless gateway.
+  Get the event configuration for a particular resource identifier.
+  """
+  def get_resource_event_configuration(
+        %Client{} = client,
+        identifier,
+        identifier_type,
+        partner_type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/event-configurations/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(partner_type) do
+        [{"partnerType", partner_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(identifier_type) do
+        [{"identifierType", identifier_type} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Fetches the log-level override, if any, for a given resource-ID and
+  resource-type.
+
+  It can be used for a wireless device or a wireless gateway.
   """
   def get_resource_log_level(
         %Client{} = client,
@@ -941,6 +1325,122 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
+  Lists the FUOTA tasks registered to your AWS account.
+  """
+  def list_fuota_tasks(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/fuota-tasks"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists the multicast groups registered to your AWS account.
+  """
+  def list_multicast_groups(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/multicast-groups"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  List all multicast groups associated with a fuota task.
+  """
+  def list_multicast_groups_by_fuota_task(
+        %Client{} = client,
+        id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}/multicast-groups"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Lists the partner accounts associated with your AWS account.
   """
   def list_partner_accounts(
@@ -1055,7 +1555,9 @@ defmodule AWS.IoTWireless do
         %Client{} = client,
         destination_name \\ nil,
         device_profile_id \\ nil,
+        fuota_task_id \\ nil,
         max_results \\ nil,
+        multicast_group_id \\ nil,
         next_token \\ nil,
         service_profile_id \\ nil,
         wireless_device_type \\ nil,
@@ -1087,8 +1589,22 @@ defmodule AWS.IoTWireless do
       end
 
     query_params =
+      if !is_nil(multicast_group_id) do
+        [{"multicastGroupId", multicast_group_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(fuota_task_id) do
+        [{"fuotaTaskId", fuota_task_id} | query_params]
       else
         query_params
       end
@@ -1209,8 +1725,10 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Sets the log-level override for a resource-ID and resource-type, could be a
-  wireless gateway or a wireless device.
+  Sets the log-level override for a resource-ID and resource-type.
+
+  This option can be specified for a wireless gateway or a wireless device. A
+  limit of 200 log level override can be set per account.
   """
   def put_resource_log_level(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/log-levels/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -1236,8 +1754,8 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Remove log-level overrides if any for all resources (both wireless devices and
-  wireless gateways).
+  Removes the log-level overrides for all resources; both wireless devices and
+  wireless gateways.
   """
   def reset_all_resource_log_levels(%Client{} = client, input, options \\ []) do
     url_path = "/log-levels"
@@ -1258,8 +1776,10 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Remove log-level override if any for a specific resource-ID and resource-type,
-  could be a wireless device or a wireless gateway.
+  Removes the log-level override, if any, for a specific resource-ID and
+  resource-type.
+
+  It can be used for a wireless device or a wireless gateway.
   """
   def reset_resource_log_level(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/log-levels/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -1285,6 +1805,27 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
+  Sends the specified data to a multicast group.
+  """
+  def send_data_to_multicast_group(%Client{} = client, id, input, options \\ []) do
+    url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/data"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Sends a decrypted application data frame to a device.
   """
   def send_data_to_wireless_device(%Client{} = client, id, input, options \\ []) do
@@ -1302,6 +1843,102 @@ defmodule AWS.IoTWireless do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Starts a bulk association of all qualifying wireless devices with a multicast
+  group.
+  """
+  def start_bulk_associate_wireless_device_with_multicast_group(
+        %Client{} = client,
+        id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/bulk"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Starts a bulk disassociatin of all qualifying wireless devices from a multicast
+  group.
+  """
+  def start_bulk_disassociate_wireless_device_from_multicast_group(
+        %Client{} = client,
+        id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/bulk"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Starts a FUOTA task.
+  """
+  def start_fuota_task(%Client{} = client, id, input, options \\ []) do
+    url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Starts a multicast group session.
+  """
+  def start_multicast_group_session(%Client{} = client, id, input, options \\ []) do
+    url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/session"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
     )
   end
 
@@ -1401,10 +2038,31 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Set default log level, or log levels by resource types, could be for wireless
-  device log options or wireless gateways log options.
+  Updates properties of a FUOTA task.
+  """
+  def update_fuota_task(%Client{} = client, id, input, options \\ []) do
+    url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
 
-  This is to control the log messages that will be displayed in CloudWatch.
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Set default log level, or log levels by resource types.
+
+  This can be for wireless device log options or wireless gateways log options and
+  is used to control the log messages that'll be displayed in CloudWatch.
   """
   def update_log_levels_by_resource_types(%Client{} = client, input, options \\ []) do
     url_path = "/log-levels"
@@ -1425,6 +2083,53 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
+  Updates properties of a multicast group session.
+  """
+  def update_multicast_group(%Client{} = client, id, input, options \\ []) do
+    url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Update NetworkAnalyzer configuration.
+  """
+  def update_network_analyzer_configuration(
+        %Client{} = client,
+        configuration_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/network-analyzer-configurations/#{AWS.Util.encode_uri(configuration_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Updates properties of a partner account.
   """
   def update_partner_account(%Client{} = client, partner_account_id, input, options \\ []) do
@@ -1433,6 +2138,33 @@ defmodule AWS.IoTWireless do
 
     {query_params, input} =
       [
+        {"PartnerType", "partnerType"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Update the event configuration for a particular resource identifier.
+  """
+  def update_resource_event_configuration(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/event-configurations/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"IdentifierType", "identifierType"},
         {"PartnerType", "partnerType"}
       ]
       |> Request.build_params(input)

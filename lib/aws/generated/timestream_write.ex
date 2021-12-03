@@ -3,6 +3,8 @@
 
 defmodule AWS.TimestreamWrite do
   @moduledoc """
+  Amazon Timestream Write
+
   Amazon Timestream is a fast, scalable, fully managed time series database
   service that makes it easy to store and analyze trillions of time series data
   points per day.
@@ -43,9 +45,11 @@ defmodule AWS.TimestreamWrite do
   Creates a new Timestream database.
 
   If the KMS key is not specified, the database will be encrypted with a
-  Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk)
-  for more info. Service quotas apply. For more information, see [Access Management](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html)
-  in the Timestream Developer Guide.
+  Timestream managed KMS key located in your account. Refer to [Amazon Web Services managed KMS
+  keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk)
+  for more info. [Service quotas apply](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html).
+  See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-db.html)
+  for details.
   """
   def create_database(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDatabase", input, options)
@@ -55,12 +59,13 @@ defmodule AWS.TimestreamWrite do
   The CreateTable operation adds a new table to an existing database in your
   account.
 
-  In an AWS account, table names must be at least unique within each Region if
-  they are in the same database. You may have identical table names in the same
-  Region if the tables are in seperate databases. While creating the table, you
-  must specify the table name, database name, and the retention properties.
-  Service quotas apply. For more information, see [Access Management](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html)
-  in the Timestream Developer Guide.
+  In an Amazon Web Services account, table names must be at least unique within
+  each Region if they are in the same database. You may have identical table names
+  in the same Region if the tables are in separate databases. While creating the
+  table, you must specify the table name, database name, and the retention
+  properties. [Service quotas apply](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html).
+  See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-table.html)
+  for details.
   """
   def create_table(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateTable", input, options)
@@ -77,6 +82,9 @@ defmodule AWS.TimestreamWrite do
 
   Due to the nature of distributed retries, the operation can return either
   success or a ResourceNotFoundException. Clients should consider them equivalent.
+
+  See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.delete-db.html)
+  for details.
   """
   def delete_database(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDatabase", input, options)
@@ -90,6 +98,9 @@ defmodule AWS.TimestreamWrite do
 
   Due to the nature of distributed retries, the operation can return either
   success or a ResourceNotFoundException. Clients should consider them equivalent.
+
+  See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.delete-table.html)
+  for details.
   """
   def delete_table(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteTable", input, options)
@@ -100,8 +111,9 @@ defmodule AWS.TimestreamWrite do
   the database was created, and the total number of tables found within the
   database.
 
-  Service quotas apply. For more information, see [Access Management](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html)
-  in the Timestream Developer Guide.
+  [Service quotas apply](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html).
+  See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.describe-db.html)
+  for details.
   """
   def describe_database(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDatabase", input, options)
@@ -113,17 +125,20 @@ defmodule AWS.TimestreamWrite do
 
   This API is available through both Write and Query.
 
-  Because Timestream’s SDKs are designed to transparently work with the service’s
-  architecture, including the management and mapping of the service endpoints, *it
-  is not recommended that you use this API unless*:
+  Because the Timestream SDKs are designed to transparently work with the
+  service’s architecture, including the management and mapping of the service
+  endpoints, *it is not recommended that you use this API unless*:
+
+    * You are using [VPC endpoints (Amazon Web Services PrivateLink) with
+  Timestream](https://docs.aws.amazon.com/timestream/latest/developerguide/VPCEndpoints)
 
     * Your application uses a programming language that does not yet
   have SDK support
 
     * You require better control over the client-side implementation
 
-  For detailed information on how to use DescribeEndpoints, see [The Endpoint Discovery Pattern and REST
-  APIs](https://docs.aws.amazon.com/timestream/latest/developerguide/Using-API.endpoint-discovery.html).
+  For detailed information on how and when to use and implement DescribeEndpoints,
+  see [The Endpoint Discovery Pattern](https://docs.aws.amazon.com/timestream/latest/developerguide/Using.API.html#Using-API.endpoint-discovery).
   """
   def describe_endpoints(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeEndpoints", input, options)
@@ -133,8 +148,9 @@ defmodule AWS.TimestreamWrite do
   Returns information about the table, including the table name, database name,
   retention duration of the memory store and the magnetic store.
 
-  Service quotas apply. For more information, see [Access Management](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html)
-  in the Timestream Developer Guide.
+  [Service quotas apply](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html).
+  See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.describe-table.html)
+  for details.
   """
   def describe_table(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeTable", input, options)
@@ -143,8 +159,9 @@ defmodule AWS.TimestreamWrite do
   @doc """
   Returns a list of your Timestream databases.
 
-  Service quotas apply. For more information, see [Access Management](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html)
-  in the Timestream Developer Guide.
+  [Service quotas apply](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html).
+  See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-db.html)
+  for details.
   """
   def list_databases(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDatabases", input, options)
@@ -153,6 +170,9 @@ defmodule AWS.TimestreamWrite do
   @doc """
   A list of tables, along with the name, status and retention properties of each
   table.
+
+  See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-table.html)
+  for details.
   """
   def list_tables(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTables", input, options)
@@ -188,6 +208,9 @@ defmodule AWS.TimestreamWrite do
   While updating the database, you must specify the database name and the
   identifier of the new KMS key to be used (`KmsKeyId`). If there are any
   concurrent `UpdateDatabase` requests, first writer wins.
+
+  See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.update-db.html)
+  for details.
   """
   def update_database(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateDatabase", input, options)
@@ -204,8 +227,8 @@ defmodule AWS.TimestreamWrite do
   this change was made. Timestream does not retrieve data from the magnetic store
   to populate the memory store.
 
-  Service quotas apply. For more information, see [Access Management](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html)
-  in the Timestream Developer Guide.
+  See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.update-table.html)
+  for details.
   """
   def update_table(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateTable", input, options)
@@ -224,8 +247,36 @@ defmodule AWS.TimestreamWrite do
   of data into Timestream, the query results might not reflect the results of a
   recently completed write operation. The results may also include some stale
   data. If you repeat the query request after a short time, the results should
-  return the latest data. Service quotas apply. For more information, see [Access Management](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html)
-  in the Timestream Developer Guide.
+  return the latest data. [Service quotas apply](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html).
+
+  See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.write.html)
+  for details.
+
+  ## Upserts
+
+  You can use the `Version` parameter in a `WriteRecords` request to update data
+  points. Timestream tracks a version number with each record. `Version` defaults
+  to `1` when not specified for the record in the request. Timestream will update
+  an existing record’s measure value along with its `Version` upon receiving a
+  write request with a higher `Version` number for that record. Upon receiving an
+  update request where the measure value is the same as that of the existing
+  record, Timestream still updates `Version`, if it is greater than the existing
+  value of `Version`. You can update a data point as many times as desired, as
+  long as the value of `Version` continuously increases.
+
+  For example, suppose you write a new record without indicating `Version` in the
+  request. Timestream will store this record, and set `Version` to `1`. Now,
+  suppose you try to update this record with a `WriteRecords` request of the same
+  record with a different measure value but, like before, do not provide
+  `Version`. In this case, Timestream will reject this update with a
+  `RejectedRecordsException` since the updated record’s version is not greater
+  than the existing value of Version. However, if you were to resend the update
+  request with `Version` set to `2`, Timestream would then succeed in updating the
+  record’s value, and the `Version` would be set to `2`. Next, suppose you sent a
+  `WriteRecords` request with this same record and an identical measure value, but
+  with `Version` set to `3`. In this case, Timestream would only update `Version`
+  to `3`. Any further updates would need to send a version number greater than
+  `3`, or the update requests would receive a `RejectedRecordsException`.
   """
   def write_records(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "WriteRecords", input, options)

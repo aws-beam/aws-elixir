@@ -9,15 +9,15 @@ defmodule AWS.AuditManager do
   Manager API operations, data types, and errors.
 
   Audit Manager is a service that provides automated evidence collection so that
-  you can continuously audit your Amazon Web Services usage, and assess the
-  effectiveness of your controls to better manage risk and simplify compliance.
+  you can continually audit your Amazon Web Services usage. You can use it to
+  assess the effectiveness of your controls, manage risk, and simplify compliance.
 
-  Audit Manager provides pre-built frameworks that structure and automate
-  assessments for a given compliance standard. Frameworks include a pre-built
-  collection of controls with descriptions and testing procedures, which are
-  grouped according to the requirements of the specified compliance standard or
-  regulation. You can also customize frameworks and controls to support internal
-  audits with unique requirements.
+  Audit Manager provides prebuilt frameworks that structure and automate
+  assessments for a given compliance standard. Frameworks include a prebuilt
+  collection of controls with descriptions and testing procedures. These controls
+  are grouped according to the requirements of the specified compliance standard
+  or regulation. You can also customize frameworks and controls to support
+  internal audits with specific requirements.
 
   Use the following links to get started with the Audit Manager API:
 
@@ -58,8 +58,8 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Associates an evidence folder to the specified assessment report in Audit
-  Manager.
+  Associates an evidence folder to an assessment report in a Audit Manager
+  assessment.
   """
   def associate_assessment_report_evidence_folder(
         %Client{} = client,
@@ -114,7 +114,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Create a batch of delegations for a specified assessment in Audit Manager.
+  Creates a batch of delegations for an assessment in Audit Manager.
   """
   def batch_create_delegation_by_assessment(
         %Client{} = client,
@@ -140,7 +140,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Deletes the delegations in the specified Audit Manager assessment.
+  Deletes a batch of delegations for an assessment in Audit Manager.
   """
   def batch_delete_delegation_by_assessment(
         %Client{} = client,
@@ -166,8 +166,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Disassociates a list of evidence from the specified assessment report in Audit
-  Manager.
+  Disassociates a list of evidence from an assessment report in Audit Manager.
   """
   def batch_disassociate_assessment_report_evidence(
         %Client{} = client,
@@ -195,8 +194,8 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Uploads one or more pieces of evidence to the specified control in the
-  assessment in Audit Manager.
+  Uploads one or more pieces of evidence to a control in an Audit Manager
+  assessment.
   """
   def batch_import_evidence_to_assessment_control(
         %Client{} = client,
@@ -352,6 +351,32 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
+  Deletes a share request for a custom framework in Audit Manager.
+  """
+  def delete_assessment_framework_share(%Client{} = client, request_id, input, options \\ []) do
+    url_path = "/assessmentFrameworkShareRequests/#{AWS.Util.encode_uri(request_id)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"requestType", "requestType"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes an assessment report from an assessment in Audit Manager.
   """
   def delete_assessment_report(
@@ -423,14 +448,14 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Removes the specified member account as a delegated administrator for Audit
-  Manager.
+  Removes the specified member Amazon Web Services account as a delegated
+  administrator for Audit Manager.
 
-  When you remove a delegated administrator from your Audit Manager settings, or
-  when you deregister a delegated administrator from Organizations, you continue
-  to have access to the evidence that you previously collected under that account.
-  However, Audit Manager will stop collecting and attaching evidence to that
-  delegated administrator account moving forward.
+  When you remove a delegated administrator from your Audit Manager settings, you
+  continue to have access to the evidence that you previously collected under that
+  account. This is also the case when you deregister a delegated administrator
+  from Audit Manager. However, Audit Manager will stop collecting and attaching
+  evidence to that delegated administrator account moving forward.
   """
   def deregister_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/account/deregisterOrganizationAdminAccount"
@@ -543,7 +568,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns the URL of a specified assessment report in Audit Manager.
+  Returns the URL of an assessment report in Audit Manager.
   """
   def get_assessment_report_url(
         %Client{} = client,
@@ -829,8 +854,8 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns a list of evidence folders associated with a specified control of an
-  assessment in Audit Manager.
+  Returns a list of evidence folders that are associated with a specified control
+  of an assessment in Audit Manager.
   """
   def get_evidence_folders_by_assessment_control(
         %Client{} = client,
@@ -860,6 +885,48 @@ defmodule AWS.AuditManager do
       else
         query_params
       end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets the latest analytics data for all your current active assessments.
+  """
+  def get_insights(%Client{} = client, options \\ []) do
+    url_path = "/insights"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets the latest analytics data for a specific active assessment.
+  """
+  def get_insights_by_assessment(%Client{} = client, assessment_id, options \\ []) do
+    url_path = "/insights/assessments/#{AWS.Util.encode_uri(assessment_id)}"
+    headers = []
+    query_params = []
 
     Request.request_rest(
       client,
@@ -919,7 +986,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns the settings for the specified account.
+  Returns the settings for the specified Amazon Web Services account.
   """
   def get_settings(%Client{} = client, attribute, options \\ []) do
     url_path = "/settings/#{AWS.Util.encode_uri(attribute)}"
@@ -940,8 +1007,119 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns a list of the frameworks available in the Audit Manager framework
-  library.
+  Lists the latest analytics data for controls within a specific control domain
+  and a specific active assessment.
+
+  Control insights are listed only if the control belongs to the control domain
+  and assessment that was specified. Moreover, the control must have collected
+  evidence on the `lastUpdated` date of `controlInsightsByAssessment`. If neither
+  of these conditions are met, no data is listed for that control.
+  """
+  def list_assessment_control_insights_by_control_domain(
+        %Client{} = client,
+        assessment_id,
+        control_domain_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/insights/controls-by-assessment"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(control_domain_id) do
+        [{"controlDomainId", control_domain_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(assessment_id) do
+        [{"assessmentId", assessment_id} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns a list of sent or received share requests for custom frameworks in Audit
+  Manager.
+  """
+  def list_assessment_framework_share_requests(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        request_type,
+        options \\ []
+      ) do
+    url_path = "/assessmentFrameworkShareRequests"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(request_type) do
+        [{"requestType", request_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns a list of the frameworks that are available in the Audit Manager
+  framework library.
   """
   def list_assessment_frameworks(
         %Client{} = client,
@@ -1031,8 +1209,66 @@ defmodule AWS.AuditManager do
   @doc """
   Returns a list of current and past assessments from Audit Manager.
   """
-  def list_assessments(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_assessments(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
     url_path = "/assessments"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists the latest analytics data for control domains across all of your active
+  assessments.
+
+  A control domain is listed only if at least one of the controls within that
+  domain collected evidence on the `lastUpdated` date of `controlDomainInsights`.
+  If this condition isn’t met, no data is listed for that control domain.
+  """
+  def list_control_domain_insights(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/insights/control-domains"
     headers = []
     query_params = []
 
@@ -1046,6 +1282,112 @@ defmodule AWS.AuditManager do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists analytics data for control domains within a specified active assessment.
+
+  A control domain is listed only if at least one of the controls within that
+  domain collected evidence on the `lastUpdated` date of `controlDomainInsights`.
+  If this condition isn’t met, no data is listed for that domain.
+  """
+  def list_control_domain_insights_by_assessment(
+        %Client{} = client,
+        assessment_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/insights/control-domains-by-assessment"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(assessment_id) do
+        [{"assessmentId", assessment_id} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists the latest analytics data for controls within a specific control domain
+  across all active assessments.
+
+  Control insights are listed only if the control belongs to the control domain
+  that was specified and the control collected evidence on the `lastUpdated` date
+  of `controlInsightsMetadata`. If neither of these conditions are met, no data is
+  listed for that control.
+  """
+  def list_control_insights_by_control_domain(
+        %Client{} = client,
+        control_domain_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/insights/controls"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(control_domain_id) do
+        [{"controlDomainId", control_domain_id} | query_params]
       else
         query_params
       end
@@ -1112,7 +1454,8 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns a list of keywords that pre-mapped to the specified control data source.
+  Returns a list of keywords that are pre-mapped to the specified control data
+  source.
   """
   def list_keywords_for_data_source(
         %Client{} = client,
@@ -1216,7 +1559,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Enables Audit Manager for the specified account.
+  Enables Audit Manager for the specified Amazon Web Services account.
   """
   def register_account(%Client{} = client, input, options \\ []) do
     url_path = "/account/registerAccount"
@@ -1237,11 +1580,45 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Enables an account within the organization as the delegated administrator for
-  Audit Manager.
+  Enables an Amazon Web Services account within the organization as the delegated
+  administrator for Audit Manager.
   """
   def register_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/account/registerOrganizationAdminAccount"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates a share request for a custom framework in Audit Manager.
+
+  The share request specifies a recipient and notifies them that a custom
+  framework is available. Recipients have 120 days to accept or decline the
+  request. If no action is taken, the share request expires.
+
+  When you invoke the `StartAssessmentFrameworkShare` API, you are about to share
+  a custom framework with another Amazon Web Services account. You may not share a
+  custom framework that is derived from a standard framework if the standard
+  framework is designated as not eligible for sharing by Amazon Web Services,
+  unless you have obtained permission to do so from the owner of the standard
+  framework. To learn more about which standard frameworks are eligible for
+  sharing, see [Framework sharing eligibility](https://docs.aws.amazon.com/audit-manager/latest/userguide/share-custom-framework-concepts-and-terminology.html#eligibility)
+  in the *Audit Manager User Guide*.
+  """
+  def start_assessment_framework_share(%Client{} = client, framework_id, input, options \\ []) do
+    url_path = "/assessmentFrameworks/#{AWS.Util.encode_uri(framework_id)}/shareRequests"
     headers = []
     query_params = []
 
@@ -1390,6 +1767,27 @@ defmodule AWS.AuditManager do
   """
   def update_assessment_framework(%Client{} = client, framework_id, input, options \\ []) do
     url_path = "/assessmentFrameworks/#{AWS.Util.encode_uri(framework_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates a share request for a custom framework in Audit Manager.
+  """
+  def update_assessment_framework_share(%Client{} = client, request_id, input, options \\ []) do
+    url_path = "/assessmentFrameworkShareRequests/#{AWS.Util.encode_uri(request_id)}"
     headers = []
     query_params = []
 

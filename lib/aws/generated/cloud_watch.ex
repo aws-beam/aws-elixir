@@ -3,8 +3,8 @@
 
 defmodule AWS.CloudWatch do
   @moduledoc """
-  Amazon CloudWatch monitors your Amazon Web Services (AWS) resources and the
-  applications you run on AWS in real time.
+  Amazon CloudWatch monitors your Amazon Web Services (Amazon Web Services)
+  resources and the applications you run on Amazon Web Services in real time.
 
   You can use CloudWatch to collect and track metrics, which are the variables you
   want to measure for your resources and applications.
@@ -16,10 +16,10 @@ defmodule AWS.CloudWatch do
   increased load. You can also use this data to stop under-used instances to save
   money.
 
-  In addition to monitoring the built-in metrics that come with AWS, you can
-  monitor your own custom metrics. With CloudWatch, you gain system-wide
-  visibility into resource utilization, application performance, and operational
-  health.
+  In addition to monitoring the built-in metrics that come with Amazon Web
+  Services, you can monitor your own custom metrics. With CloudWatch, you gain
+  system-wide visibility into resource utilization, application performance, and
+  operational health.
   """
 
   alias AWS.Client
@@ -111,6 +111,11 @@ defmodule AWS.CloudWatch do
   are returned.
 
   CloudWatch retains the history of an alarm even if you delete the alarm.
+
+  To use this operation and return information about a composite alarm, you must
+  be signed on with the `cloudwatch:DescribeAlarmHistory` permission that is
+  scoped to `*`. You can't return information about composite alarms if your
+  `cloudwatch:DescribeAlarmHistory` permission has a narrower scope.
   """
   def describe_alarm_history(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeAlarmHistory", input, options)
@@ -121,6 +126,11 @@ defmodule AWS.CloudWatch do
 
   You can filter the results by specifying a prefix for the alarm name, the alarm
   state, or a prefix for any action.
+
+  To use this operation and return information about composite alarms, you must be
+  signed on with the `cloudwatch:DescribeAlarms` permission that is scoped to `*`.
+  You can't return information about composite alarms if your
+  `cloudwatch:DescribeAlarms` permission has a narrower scope.
   """
   def describe_alarms(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeAlarms", input, options)
@@ -142,8 +152,11 @@ defmodule AWS.CloudWatch do
   @doc """
   Lists the anomaly detection models that you have created in your account.
 
-  You can list all models in your account or filter the results to only the models
-  that are related to a certain namespace, metric name, or metric dimension.
+  For single metric anomaly detectors, you can list all of the models in your
+  account or filter the results to only the models that are related to a certain
+  namespace, metric name, or metric dimension. For metric math anomaly detectors,
+  you can list them by adding `METRIC_MATH` to the `AnomalyDetectorTypes` array.
+  This will return all metric math anomaly detectors in your account.
   """
   def describe_anomaly_detectors(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeAnomalyDetectors", input, options)
@@ -341,8 +354,8 @@ defmodule AWS.CloudWatch do
 
   CloudWatch started retaining 5-minute and 1-hour metric data as of July 9, 2016.
 
-  For information about metrics and dimensions supported by AWS services, see the
-  [Amazon CloudWatch Metrics and Dimensions Reference](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html)
+  For information about metrics and dimensions supported by Amazon Web Services
+  services, see the [Amazon CloudWatch Metrics and Dimensions Reference](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html)
   in the *Amazon CloudWatch User Guide*.
   """
   def get_metric_statistics(%Client{} = client, input, options \\ []) do
@@ -489,6 +502,11 @@ defmodule AWS.CloudWatch do
   When you update an existing alarm, its state is left unchanged, but the update
   completely overwrites the previous configuration of the alarm.
 
+  To use this operation, you must be signed on with the
+  `cloudwatch:PutCompositeAlarm` permission that is scoped to `*`. You can't
+  create a composite alarms if your `cloudwatch:PutCompositeAlarm` permission has
+  a narrower scope.
+
   If you are an IAM user, you must have `iam:CreateServiceLinkedRole` to create a
   composite alarm that has Systems Manager OpsItem actions.
   """
@@ -557,12 +575,32 @@ defmodule AWS.CloudWatch do
     * The `iam:CreateServiceLinkedRole` to create an alarm with Systems
   Manager OpsItem actions.
 
-  The first time you create an alarm in the AWS Management Console, the CLI, or by
-  using the PutMetricAlarm API, CloudWatch creates the necessary service-linked
-  role for you. The service-linked roles are called
+  The first time you create an alarm in the Amazon Web Services Management
+  Console, the CLI, or by using the PutMetricAlarm API, CloudWatch creates the
+  necessary service-linked role for you. The service-linked roles are called
   `AWSServiceRoleForCloudWatchEvents` and
-  `AWSServiceRoleForCloudWatchAlarms_ActionSSM`. For more information, see [AWS service-linked
+  `AWSServiceRoleForCloudWatchAlarms_ActionSSM`. For more information, see [Amazon Web Services service-linked
   role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role).
+
+  ## Cross-account alarms
+
+  You can set an alarm on metrics in the current account, or in another account.
+  To create a cross-account alarm that watches a metric in a different account,
+  you must have completed the following pre-requisites:
+
+    * The account where the metrics are located (the *sharing account*)
+  must already have a sharing role named **CloudWatch-CrossAccountSharingRole**.
+  If it does not already have this role, you must create it using the instructions
+  in **Set up a sharing account** in [ Cross-account cross-Region CloudWatch console](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html#enable-cross-account-cross-Region).
+  The policy for that role must grant access to the ID of the account where you
+  are creating the alarm.
+
+    * The account where you are creating the alarm (the *monitoring
+  account*) must already have a service-linked role named
+  **AWSServiceRoleForCloudWatchCrossAccount** to allow CloudWatch to assume the
+  sharing role in the sharing account. If it does not, you must create it
+  following the directions in **Set up a monitoring account** in [ Cross-account cross-Region CloudWatch
+  console](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html#enable-cross-account-cross-Region).
   """
   def put_metric_alarm(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutMetricAlarm", input, options)
@@ -627,10 +665,10 @@ defmodule AWS.CloudWatch do
   @doc """
   Creates or updates a metric stream.
 
-  Metric streams can automatically stream CloudWatch metrics to AWS destinations
-  including Amazon S3 and to many third-party solutions.
+  Metric streams can automatically stream CloudWatch metrics to Amazon Web
+  Services destinations including Amazon S3 and to many third-party solutions.
 
-  For more information, see [ Using Metric Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Metric-Streams.html).
+  For more information, see [ Using Metric Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html).
 
   To create a metric stream, you must be logged on to an account that has the
   `iam:PassRole` permission and either the `CloudWatchFullAccess` policy or the
@@ -705,8 +743,8 @@ defmodule AWS.CloudWatch do
   to scope user permissions by granting a user permission to access or change only
   resources with certain tag values.
 
-  Tags don't have any semantic meaning to AWS and are interpreted strictly as
-  strings of characters.
+  Tags don't have any semantic meaning to Amazon Web Services and are interpreted
+  strictly as strings of characters.
 
   You can use the `TagResource` action with an alarm that already has tags. If you
   specify a new tag key for the alarm, this tag is appended to the list of tags

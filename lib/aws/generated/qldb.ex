@@ -61,7 +61,7 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Creates a new ledger in your AWS account in the current Region.
+  Creates a new ledger in your account in the current Region.
   """
   def create_ledger(%Client{} = client, input, options \\ []) do
     url_path = "/ledgers"
@@ -174,7 +174,8 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns information about a ledger, including its state and when it was created.
+  Returns information about a ledger, including its state, permissions mode,
+  encryption at rest settings, and when it was created.
   """
   def describe_ledger(%Client{} = client, name, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}"
@@ -365,7 +366,7 @@ defmodule AWS.QLDB do
 
   @doc """
   Returns an array of journal export job descriptions for all ledgers that are
-  associated with the current AWS account and Region.
+  associated with the current account and Region.
 
   This action returns a maximum of `MaxResults` items, and is paginated so that
   you can retrieve all the items by calling `ListJournalS3Exports` multiple times.
@@ -461,7 +462,7 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns an array of ledger summaries that are associated with the current AWS
+  Returns an array of ledger summaries that are associated with the current
   account and Region.
 
   This action returns a maximum of 100 items and is paginated so that you can

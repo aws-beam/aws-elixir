@@ -3,10 +3,8 @@
 
 defmodule AWS.LicenseManager do
   @moduledoc """
-  AWS License Manager
-
-  AWS License Manager makes it easier to manage licenses from software vendors
-  across multiple AWS accounts and on-premises servers.
+  License Manager makes it easier to manage licenses from software vendors across
+  multiple Amazon Web Services accounts and on-premises servers.
   """
 
   alias AWS.Client
@@ -61,7 +59,8 @@ defmodule AWS.LicenseManager do
   @doc """
   Creates a grant for the specified license.
 
-  A grant shares the use of license entitlements with specific AWS accounts.
+  A grant shares the use of license entitlements with specific Amazon Web Services
+  accounts.
   """
   def create_grant(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateGrant", input, options)
@@ -96,7 +95,20 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
-  Creates a new report generator.
+  Creates a new license conversion task.
+  """
+  def create_license_conversion_task_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "CreateLicenseConversionTaskForResource",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Creates a report generator.
   """
   def create_license_manager_report_generator(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -150,11 +162,11 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
-  Delete an existing report generator.
+  Deletes the specified report generator.
 
   This action deletes the report generator, which stops it from generating future
-  reports and cannot be reversed. However, the previous reports from this
-  generator will remain in your S3 bucket.
+  reports. The action cannot be reversed. It has no effect on the previous reports
+  from this generator.
   """
   def delete_license_manager_report_generator(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -213,7 +225,14 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
-  Gets information on the specified report generator.
+  Gets information about the specified license type conversion task.
+  """
+  def get_license_conversion_task(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLicenseConversionTask", input, options)
+  end
+
+  @doc """
+  Gets information about the specified report generator.
   """
   def get_license_manager_report_generator(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetLicenseManagerReportGenerator", input, options)
@@ -275,6 +294,13 @@ defmodule AWS.LicenseManager do
   """
   def list_license_configurations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListLicenseConfigurations", input, options)
+  end
+
+  @doc """
+  Lists the license type conversion tasks for your account.
+  """
+  def list_license_conversion_tasks(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListLicenseConversionTasks", input, options)
   end
 
   @doc """
@@ -388,8 +414,8 @@ defmodule AWS.LicenseManager do
   @doc """
   Updates a report generator.
 
-  After you make changes to a report generator, it will start generating new
-  reports within 60 minutes of being updated.
+  After you make changes to a report generator, it starts generating new reports
+  within 60 minutes of being updated.
   """
   def update_license_manager_report_generator(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -402,13 +428,13 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
-  Adds or removes the specified license configurations for the specified AWS
-  resource.
+  Adds or removes the specified license configurations for the specified Amazon
+  Web Services resource.
 
   You can update the license specifications of AMIs, instances, and hosts. You
-  cannot update the license specifications for launch templates and AWS
-  CloudFormation templates, as they send license configurations to the operation
-  that creates the resource.
+  cannot update the license specifications for launch templates and CloudFormation
+  templates, as they send license configurations to the operation that creates the
+  resource.
   """
   def update_license_specifications_for_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(

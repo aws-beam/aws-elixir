@@ -356,8 +356,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves the Amazon Macie configuration settings for an Amazon Web Services
-  organization.
+  Retrieves the Amazon Macie configuration settings for an organization in
+  Organizations.
   """
   def describe_organization_configuration(%Client{} = client, options \\ []) do
     url_path = "/admin/configuration"
@@ -378,7 +378,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Disables an Amazon Macie account and deletes Macie resources for the account.
+  Disables Amazon Macie and deletes all settings and resources for a Macie
+  account.
   """
   def disable_macie(%Client{} = client, input, options \\ []) do
     url_path = "/macie"
@@ -400,7 +401,7 @@ defmodule AWS.Macie2 do
 
   @doc """
   Disables an account as the delegated Amazon Macie administrator account for an
-  Amazon Web Services organization.
+  organization in Organizations.
   """
   def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/admin"
@@ -516,7 +517,7 @@ defmodule AWS.Macie2 do
 
   @doc """
   Designates an account as the delegated Amazon Macie administrator account for an
-  Amazon Web Services organization.
+  organization in Organizations.
   """
   def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/admin"
@@ -559,8 +560,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves (queries) aggregated statistical data for all the S3 buckets that
-  Amazon Macie monitors and analyzes.
+  Retrieves (queries) aggregated statistical data about S3 buckets that Amazon
+  Macie monitors and analyzes.
   """
   def get_bucket_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/datasources/s3/statistics"
@@ -950,8 +951,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves information about all the Amazon Macie membership invitations that
-  were received by an account.
+  Retrieves information about the Amazon Macie membership invitations that were
+  received by an account.
   """
   def list_invitations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/invitations"
@@ -980,6 +981,28 @@ defmodule AWS.Macie2 do
       query_params,
       headers,
       nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves information about all the managed data identifiers that Amazon Macie
+  currently provides.
+  """
+  def list_managed_data_identifiers(%Client{} = client, input, options \\ []) do
+    url_path = "/managed-data-identifiers/list"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
       options,
       200
     )
@@ -1036,7 +1059,7 @@ defmodule AWS.Macie2 do
 
   @doc """
   Retrieves information about the delegated Amazon Macie administrator account for
-  an Amazon Web Services organization.
+  an organization in Organizations.
   """
   def list_organization_admin_accounts(
         %Client{} = client,
@@ -1275,8 +1298,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Suspends or re-enables an Amazon Macie account, or updates the configuration
-  settings for a Macie account.
+  Suspends or re-enables Amazon Macie, or updates the configuration settings for a
+  Macie account.
   """
   def update_macie_session(%Client{} = client, input, options \\ []) do
     url_path = "/macie"
@@ -1297,7 +1320,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Enables an Amazon Macie administrator to suspend or re-enable a member account.
+  Enables an Amazon Macie administrator to suspend or re-enable Macie for a member
+  account.
   """
   def update_member_session(%Client{} = client, id, input, options \\ []) do
     url_path = "/macie/members/#{AWS.Util.encode_uri(id)}"
@@ -1318,8 +1342,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Updates the Amazon Macie configuration settings for an Amazon Web Services
-  organization.
+  Updates the Amazon Macie configuration settings for an organization in
+  Organizations.
   """
   def update_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/admin/configuration"

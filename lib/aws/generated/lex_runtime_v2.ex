@@ -156,6 +156,24 @@ defmodule AWS.LexRuntimeV2 do
 
   In response, Amazon Lex V2 returns the next message to convey to the user and an
   optional response card to display.
+
+  If the optional post-fulfillment response is specified, the messages are
+  returned as follows. For more information, see
+  [PostFulfillmentStatusSpecification](https://docs.aws.amazon.com/lexv2/latest/dg/API_PostFulfillmentStatusSpecification.html).    * **Success message** - Returned if the Lambda function completes
+  successfully and the intent state is fulfilled or ready fulfillment if the
+  message is present.
+
+    * **Failed message** - The failed message is returned if the Lambda
+  function throws an exception or if the Lambda function returns a failed intent
+  state without a message.
+
+    * **Timeout message** - If you don't configure a timeout message and
+  a timeout, and the Lambda function doesn't return within 30 seconds, the timeout
+  message is returned. If you configure a timeout, the timeout message is returned
+  when the period times out.
+
+  For more information, see [Completion
+  message](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete.html).
   """
   def recognize_text(
         %Client{} = client,
@@ -216,6 +234,24 @@ defmodule AWS.LexRuntimeV2 do
   The example contains a Java application that compresses and encodes a Java
   object to send to Amazon Lex V2, and a second that decodes and decompresses a
   response from Amazon Lex V2.
+
+  If the optional post-fulfillment response is specified, the messages are
+  returned as follows. For more information, see
+  [PostFulfillmentStatusSpecification](https://docs.aws.amazon.com/lexv2/latest/dg/API_PostFulfillmentStatusSpecification.html).    * **Success message** - Returned if the Lambda function completes
+  successfully and the intent state is fulfilled or ready fulfillment if the
+  message is present.
+
+    * **Failed message** - The failed message is returned if the Lambda
+  function throws an exception or if the Lambda function returns a failed intent
+  state without a message.
+
+    * **Timeout message** - If you don't configure a timeout message and
+  a timeout, and the Lambda function doesn't return within 30 seconds, the timeout
+  message is returned. If you configure a timeout, the timeout message is returned
+  when the period times out.
+
+  For more information, see [Completion
+  message](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete.html).
   """
   def recognize_utterance(
         %Client{} = client,
@@ -279,6 +315,32 @@ defmodule AWS.LexRuntimeV2 do
 
   Audio input must be in the following format: `audio/lpcm sample-rate=8000
   sample-size-bits=16 channel-count=1; is-big-endian=false`.
+
+  If the optional post-fulfillment response is specified, the messages are
+  returned as follows. For more information, see
+  [PostFulfillmentStatusSpecification](https://docs.aws.amazon.com/lexv2/latest/dg/API_PostFulfillmentStatusSpecification.html).    * **Success message** - Returned if the Lambda function completes
+  successfully and the intent state is fulfilled or ready fulfillment if the
+  message is present.
+
+    * **Failed message** - The failed message is returned if the Lambda
+  function throws an exception or if the Lambda function returns a failed intent
+  state without a message.
+
+    * **Timeout message** - If you don't configure a timeout message and
+  a timeout, and the Lambda function doesn't return within 30 seconds, the timeout
+  message is returned. If you configure a timeout, the timeout message is returned
+  when the period times out.
+
+  For more information, see [Completion
+  message](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete.html).
+
+  If the optional update message is configured, it is played at the specified
+  frequency while the Lambda function is running and the update message state is
+  active. If the fulfillment update message is not active, the Lambda function
+  runs with a 30 second timeout.
+
+  For more information, see [Update message
+  ](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-update.html)
 
   The `StartConversation` operation is supported only in the following SDKs:
 

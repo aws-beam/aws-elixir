@@ -5,8 +5,8 @@ defmodule AWS.DLM do
   @moduledoc """
   Amazon Data Lifecycle Manager
 
-  With Amazon Data Lifecycle Manager, you can manage the lifecycle of your AWS
-  resources.
+  With Amazon Data Lifecycle Manager, you can manage the lifecycle of your Amazon
+  Web Services resources.
 
   You create lifecycle policies, which are used to automate operations on the
   specified resources.
@@ -36,7 +36,8 @@ defmodule AWS.DLM do
   end
 
   @doc """
-  Creates a policy to manage the lifecycle of the specified AWS resources.
+  Creates a policy to manage the lifecycle of the specified Amazon Web Services
+  resources.
 
   You can create up to 100 lifecycle policies.
   """

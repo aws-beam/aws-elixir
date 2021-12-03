@@ -27,6 +27,27 @@ defmodule AWS.Braket do
   end
 
   @doc """
+  Cancels an Amazon Braket job.
+  """
+  def cancel_job(%Client{} = client, job_arn, input, options \\ []) do
+    url_path = "/job/#{AWS.Util.encode_uri(job_arn)}/cancel"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Cancels the specified task.
   """
   def cancel_quantum_task(%Client{} = client, quantum_task_arn, input, options \\ []) do
@@ -44,6 +65,27 @@ defmodule AWS.Braket do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Creates an Amazon Braket job.
+  """
+  def create_job(%Client{} = client, input, options \\ []) do
+    url_path = "/job"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
     )
   end
 
@@ -73,6 +115,27 @@ defmodule AWS.Braket do
   """
   def get_device(%Client{} = client, device_arn, options \\ []) do
     url_path = "/device/#{AWS.Util.encode_uri(device_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves the specified Amazon Braket job.
+  """
+  def get_job(%Client{} = client, job_arn, options \\ []) do
+    url_path = "/job/#{AWS.Util.encode_uri(job_arn)}"
     headers = []
     query_params = []
 
@@ -136,6 +199,27 @@ defmodule AWS.Braket do
   """
   def search_devices(%Client{} = client, input, options \\ []) do
     url_path = "/devices"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Searches for Amazon Braket jobs that match the specified filter values.
+  """
+  def search_jobs(%Client{} = client, input, options \\ []) do
+    url_path = "/jobs"
     headers = []
     query_params = []
 

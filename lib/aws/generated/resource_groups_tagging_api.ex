@@ -40,7 +40,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   tag policies.
 
   For more information on tag policies, see [Tag Policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html)
-  in the *AWS Organizations User Guide.*
+  in the *Organizations User Guide.*
 
   You can call this operation only from the organization's management account and
   from the us-east-1 Region.
@@ -58,7 +58,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
 
   @doc """
   Returns all the tagged or previously tagged resources that are located in the
-  specified Region for the AWS account.
+  specified Amazon Web Services Region for the account.
 
   Depending on what information you want returned, you can also specify the
   following:
@@ -69,7 +69,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
 
     * Information about compliance with the account's effective tag
   policy. For more information on tag policies, see [Tag Policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html)
-  in the *AWS Organizations User Guide.*
+  in the *Organizations User Guide.*
 
   This operation supports pagination, where the response can be sent in multiple
   pages. You should check the `PaginationToken` response parameter to determine if
@@ -83,8 +83,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   end
 
   @doc """
-  Returns all tag keys currently in use in the specified Region for the calling
-  AWS account.
+  Returns all tag keys currently in use in the specified Amazon Web Services
+  Region for the calling account.
 
   This operation supports pagination, where the response can be sent in multiple
   pages. You should check the `PaginationToken` response parameter to determine if
@@ -98,8 +98,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   end
 
   @doc """
-  Returns all tag values for the specified key that are used in the specified AWS
-  Region for the calling AWS account.
+  Returns all tag values for the specified key that are used in the specified
+  Amazon Web Services Region for the calling account.
 
   This operation supports pagination, where the response can be sent in multiple
   pages. You should check the `PaginationToken` response parameter to determine if
@@ -138,13 +138,16 @@ defmodule AWS.ResourceGroupsTaggingAPI do
     * Not all resources can have tags. For a list of services with
   resources that support tagging using this operation, see [Services that support the Resource Groups Tagging
   API](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/supported-services.html).
+  If the resource doesn't yet support this operation, the resource's service might
+  support tagging using its own API operations. For more information, refer to the
+  documentation for that service.
 
     * Each resource can have up to 50 tags. For other limits, see [Tag Naming and Usage
   Conventions](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions)
-  in the *AWS General Reference.*
+  in the *Amazon Web Services General Reference.*
 
-    * You can only tag resources that are located in the specified AWS
-  Region for the AWS account.
+    * You can only tag resources that are located in the specified
+  Amazon Web Services Region for the Amazon Web Services account.
 
     * To add tags to a resource, you need the necessary permissions for
   the service that the resource belongs to as well as permissions for adding tags.
@@ -154,6 +157,17 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   sensitive information in tags. We use tags to provide you with billing and
   administration services. Tags are not intended to be used for private or
   sensitive data.
+
+  ## Minimum permissions
+
+  In addition to the `tag:TagResources` permission required by this operation, you
+  must also have the tagging permission defined by the service that created the
+  resource. For example, to tag an Amazon EC2 instance using the `TagResources`
+  operation, you must have both of the following permissions:
+
+    * `tag:TagResource`
+
+    * `ec2:CreateTags`
   """
   def tag_resources(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TagResources", input, options)
@@ -171,8 +185,20 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   tags. For more information, see the documentation for the service whose resource
   you want to untag.
 
-    * You can only tag resources that are located in the specified AWS
-  Region for the calling AWS account.
+    * You can only tag resources that are located in the specified
+  Amazon Web Services Region for the calling Amazon Web Services account.
+
+  ## Minimum permissions
+
+  In addition to the `tag:UntagResources` permission required by this operation,
+  you must also have the remove tags permission defined by the service that
+  created the resource. For example, to remove the tags from an Amazon EC2
+  instance using the `UntagResources` operation, you must have both of the
+  following permissions:
+
+    * `tag:UntagResource`
+
+    * `ec2:DeleteTags`
   """
   def untag_resources(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagResources", input, options)

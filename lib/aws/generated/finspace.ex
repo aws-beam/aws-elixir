@@ -3,7 +3,7 @@
 
 defmodule AWS.Finspace do
   @moduledoc """
-  The FinSpace management service provides the APIs for managing the FinSpace
+  The FinSpace management service provides the APIs for managing FinSpace
   environments.
   """
 

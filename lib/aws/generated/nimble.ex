@@ -2,6 +2,17 @@
 # See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.Nimble do
+  @moduledoc """
+  Welcome to the Amazon Nimble Studio API reference.
+
+  This API reference provides methods, schema, resources, parameters, and more to
+  help you get the most out of Nimble Studio.
+
+  Nimble Studio is a virtual studio that empowers visual effects, animation, and
+  interactive content teams to create content securely within a scalable, private
+  cloud service.
+  """
+
   alias AWS.Client
   alias AWS.Request
 
@@ -185,12 +196,12 @@ defmodule AWS.Nimble do
   You may optionally specify a KMS key in the StudioEncryptionConfiguration.
 
   In Nimble Studio, resource names, descriptions, initialization scripts, and
-  other data you provide are always encrypted at rest using an AWS KMS key. By
-  default, this key is owned by AWS and managed on your behalf. You may provide
-  your own AWS KMS key when calling CreateStudio to encrypt this data using a key
-  you own and manage.
+  other data you provide are always encrypted at rest using an KMS key. By
+  default, this key is owned by Amazon Web Services and managed on your behalf.
+  You may provide your own KMS key when calling CreateStudio to encrypt this data
+  using a key you own and manage.
 
-  When providing an AWS KMS key during studio creation, Nimble Studio creates KMS
+  When providing an KMS key during studio creation, Nimble Studio creates KMS
   grants in your account to provide your studio user and admin roles access to
   these KMS keys.
 
@@ -655,7 +666,7 @@ defmodule AWS.Nimble do
   @doc """
   Gets StreamingSession resource.
 
-  Invoke this operation to poll for a streaming session state while creating or
+  anvoke this operation to poll for a streaming session state while creating or
   deleting a session.
   """
   def get_streaming_session(%Client{} = client, session_id, studio_id, options \\ []) do
@@ -960,8 +971,8 @@ defmodule AWS.Nimble do
   @doc """
   List the streaming image resources available to this studio.
 
-  This list will contain both images provided by AWS, as well as streaming images
-  that you have created in your studio.
+  This list will contain both images provided by Amazon Web Services, as well as
+  streaming images that you have created in your studio.
   """
   def list_streaming_images(
         %Client{} = client,
@@ -1009,6 +1020,7 @@ defmodule AWS.Nimble do
         studio_id,
         created_by \\ nil,
         next_token \\ nil,
+        owned_by \\ nil,
         session_ids \\ nil,
         options \\ []
       ) do
@@ -1019,6 +1031,13 @@ defmodule AWS.Nimble do
     query_params =
       if !is_nil(session_ids) do
         [{"sessionIds", session_ids} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(owned_by) do
+        [{"ownedBy", owned_by} | query_params]
       else
         query_params
       end
@@ -1149,7 +1168,8 @@ defmodule AWS.Nimble do
   end
 
   @doc """
-  List studios in your AWS account in the requested AWS Region.
+  List studios in your Amazon Web Services account in the requested Amazon Web
+  Services Region.
   """
   def list_studios(%Client{} = client, next_token \\ nil, options \\ []) do
     url_path = "/2020-08-01/studios"
@@ -1264,17 +1284,48 @@ defmodule AWS.Nimble do
   end
 
   @doc """
-  Repairs the SSO configuration for a given studio.
+  Transitions sessions from the STOPPED state into the READY state.
 
-  If the studio has a valid AWS SSO configuration currently associated with it,
-  this operation will fail with a validation error.
+  The START_IN_PROGRESS state is the intermediate state between the STOPPED and
+  READY states.
+  """
+  def start_streaming_session(%Client{} = client, session_id, studio_id, input, options \\ []) do
+    url_path =
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions/#{AWS.Util.encode_uri(session_id)}/start"
 
-  If the studio does not have a valid AWS SSO configuration currently associated
-  with it, then a new AWS SSO application is created for the studio and the studio
-  is changed to the READY state.
+    {headers, input} =
+      [
+        {"clientToken", "X-Amz-Client-Token"}
+      ]
+      |> Request.build_params(input)
 
-  After the AWS SSO application is repaired, you must use the Amazon Nimble Studio
-  console to add administrators and users to your studio.
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Repairs the Amazon Web Services SSO configuration for a given studio.
+
+  If the studio has a valid Amazon Web Services SSO configuration currently
+  associated with it, this operation will fail with a validation error.
+
+  If the studio does not have a valid Amazon Web Services SSO configuration
+  currently associated with it, then a new Amazon Web Services SSO application is
+  created for the studio and the studio is changed to the READY state.
+
+  After the Amazon Web Services SSO application is repaired, you must use the
+  Amazon Nimble Studio console to add administrators and users to your studio.
   """
   def start_studio_s_s_o_configuration_repair(%Client{} = client, studio_id, input, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/sso-configuration"
@@ -1291,6 +1342,37 @@ defmodule AWS.Nimble do
       client,
       metadata(),
       :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Transitions sessions from the READY state into the STOPPED state.
+
+  The STOP_IN_PROGRESS state is the intermediate state between the READY and
+  STOPPED states.
+  """
+  def stop_streaming_session(%Client{} = client, session_id, studio_id, input, options \\ []) do
+    url_path =
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions/#{AWS.Util.encode_uri(session_id)}/stop"
+
+    {headers, input} =
+      [
+        {"clientToken", "X-Amz-Client-Token"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
       url_path,
       query_params,
       headers,

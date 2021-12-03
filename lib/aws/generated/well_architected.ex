@@ -3,13 +3,12 @@
 
 defmodule AWS.WellArchitected do
   @moduledoc """
-  AWS Well-Architected Tool
+  Well-Architected Tool
 
-  This is the *AWS Well-Architected Tool API Reference*.
+  This is the *Well-Architected Tool API Reference*.
 
-  The AWS Well-Architected Tool API provides programmatic access to the [AWS Well-Architected Tool](http://aws.amazon.com/well-architected-tool) in the [AWS Management Console](https://console.aws.amazon.com/wellarchitected). For
-  information about the AWS Well-Architected Tool, see the [AWS Well-Architected Tool User
-  Guide](https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html).
+  The WA Tool API provides programmatic access to the [Well-Architected Tool](http://aws.amazon.com/well-architected-tool) in the [Amazon Web Services Management Console](https://console.aws.amazon.com/wellarchitected). For
+  information about the Well-Architected Tool, see the [Well-Architected Tool User Guide](https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html).
   """
 
   alias AWS.Client
@@ -33,6 +32,16 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Associate a lens to a workload.
+
+  Up to 10 lenses can be associated with a workload in a single API operation. A
+  maximum of 20 lenses can be associated with a workload.
+
+  ## Disclaimer
+
+  By accessing and/or applying custom lenses created by another Amazon Web
+  Services user or account, you acknowledge that custom lenses created by other
+  users and shared with you are Third Party Content as defined in the Amazon Web
+  Services Customer Agreement.
   """
   def associate_lenses(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/associateLenses"
@@ -43,6 +52,67 @@ defmodule AWS.WellArchitected do
       client,
       metadata(),
       :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Create a lens share.
+
+  The owner of a lens can share it with other Amazon Web Services accounts and IAM
+  users in the same Amazon Web Services Region. Shared access to a lens is not
+  removed until the lens invitation is deleted.
+
+  ## Disclaimer
+
+  By sharing your custom lenses with other Amazon Web Services accounts, you
+  acknowledge that Amazon Web Services will make your custom lenses available to
+  those other accounts. Those other accounts may continue to access and use your
+  shared custom lenses even if you delete the custom lenses from your own Amazon
+  Web Services account or terminate your Amazon Web Services account.
+  """
+  def create_lens_share(%Client{} = client, lens_alias, input, options \\ []) do
+    url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/shares"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Create a new lens version.
+
+  A lens can have up to 100 versions.
+
+  After a lens has been imported, create a new lens version to publish it. The
+  owner of a lens can share the lens with other Amazon Web Services accounts and
+  IAM users in the same Amazon Web Services Region. Only the owner of a lens can
+  delete it.
+  """
+  def create_lens_version(%Client{} = client, lens_alias, input, options \\ []) do
+    url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/versions"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
       url_path,
       query_params,
       headers,
@@ -76,11 +146,12 @@ defmodule AWS.WellArchitected do
   @doc """
   Create a new workload.
 
-  The owner of a workload can share the workload with other AWS accounts and IAM
-  users in the same AWS Region. Only the owner of a workload can delete it.
+  The owner of a workload can share the workload with other Amazon Web Services
+  accounts and IAM users in the same Amazon Web Services Region. Only the owner of
+  a workload can delete it.
 
   For more information, see [Defining a Workload](https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html)
-  in the *AWS Well-Architected Tool User Guide*.
+  in the *Well-Architected Tool User Guide*.
   """
   def create_workload(%Client{} = client, input, options \\ []) do
     url_path = "/workloads"
@@ -103,12 +174,12 @@ defmodule AWS.WellArchitected do
   @doc """
   Create a workload share.
 
-  The owner of a workload can share it with other AWS accounts and IAM users in
-  the same AWS Region. Shared access to a workload is not removed until the
-  workload invitation is deleted.
+  The owner of a workload can share it with other Amazon Web Services accounts and
+  IAM users in the same Amazon Web Services Region. Shared access to a workload is
+  not removed until the workload invitation is deleted.
 
   For more information, see [Sharing a Workload](https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-sharing.html)
-  in the *AWS Well-Architected Tool User Guide*.
+  in the *Well-Architected Tool User Guide*.
   """
   def create_workload_share(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/shares"
@@ -119,6 +190,85 @@ defmodule AWS.WellArchitected do
       client,
       metadata(),
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Delete an existing lens.
+
+  Only the owner of a lens can delete it. After the lens is deleted, Amazon Web
+  Services accounts and IAM users that you shared the lens with can continue to
+  use it, but they will no longer be able to apply it to new workloads.
+
+  ## Disclaimer
+
+  By sharing your custom lenses with other Amazon Web Services accounts, you
+  acknowledge that Amazon Web Services will make your custom lenses available to
+  those other accounts. Those other accounts may continue to access and use your
+  shared custom lenses even if you delete the custom lenses from your own Amazon
+  Web Services account or terminate your Amazon Web Services account.
+  """
+  def delete_lens(%Client{} = client, lens_alias, input, options \\ []) do
+    url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"ClientRequestToken", "ClientRequestToken"},
+        {"LensStatus", "LensStatus"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Delete a lens share.
+
+  After the lens share is deleted, Amazon Web Services accounts and IAM users that
+  you shared the lens with can continue to use it, but they will no longer be able
+  to apply it to new workloads.
+
+  ## Disclaimer
+
+  By sharing your custom lenses with other Amazon Web Services accounts, you
+  acknowledge that Amazon Web Services will make your custom lenses available to
+  those other accounts. Those other accounts may continue to access and use your
+  shared custom lenses even if you delete the custom lenses from your own Amazon
+  Web Services account or terminate your Amazon Web Services account.
+  """
+  def delete_lens_share(%Client{} = client, lens_alias, share_id, input, options \\ []) do
+    url_path =
+      "/lenses/#{AWS.Util.encode_uri(lens_alias)}/shares/#{AWS.Util.encode_uri(share_id)}"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"ClientRequestToken", "ClientRequestToken"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
       url_path,
       query_params,
       headers,
@@ -185,8 +335,10 @@ defmodule AWS.WellArchitected do
   @doc """
   Disassociate a lens from a workload.
 
-  The AWS Well-Architected Framework lens (`wellarchitected`) cannot be removed
-  from a workload.
+  Up to 10 lenses can be disassociated from a workload in a single API operation.
+
+  The Amazon Web Services Well-Architected Framework lens (`wellarchitected`)
+  cannot be removed from a workload.
   """
   def disassociate_lenses(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/disassociateLenses"
@@ -201,6 +353,47 @@ defmodule AWS.WellArchitected do
       query_params,
       headers,
       input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Export an existing lens.
+
+  Lenses are defined in JSON. For more information, see [JSON format specification](https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html)
+  in the *Well-Architected Tool User Guide*. Only the owner of a lens can export
+  it.
+
+  ## Disclaimer
+
+  Do not include or gather personal identifiable information (PII) of end users or
+  other identifiable individuals in or via your custom lenses. If your custom lens
+  or those shared with you and used in your account do include or collect PII you
+  are responsible for: ensuring that the included PII is processed in accordance
+  with applicable law, providing adequate privacy notices, and obtaining necessary
+  consents for processing such data.
+  """
+  def export_lens(%Client{} = client, lens_alias, lens_version \\ nil, options \\ []) do
+    url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/export"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(lens_version) do
+        [{"LensVersion", lens_version} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
       options,
       nil
     )
@@ -226,6 +419,34 @@ defmodule AWS.WellArchitected do
     query_params =
       if !is_nil(milestone_number) do
         [{"MilestoneNumber", milestone_number} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Get an existing lens.
+  """
+  def get_lens(%Client{} = client, lens_alias, lens_version \\ nil, options \\ []) do
+    url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(lens_version) do
+        [{"LensVersion", lens_version} | query_params]
       else
         query_params
       end
@@ -321,12 +542,20 @@ defmodule AWS.WellArchitected do
   def get_lens_version_difference(
         %Client{} = client,
         lens_alias,
-        base_lens_version,
+        base_lens_version \\ nil,
+        target_lens_version \\ nil,
         options \\ []
       ) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/versionDifference"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(target_lens_version) do
+        [{"TargetLensVersion", target_lens_version} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(base_lens_version) do
@@ -387,6 +616,44 @@ defmodule AWS.WellArchitected do
       query_params,
       headers,
       nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Import a new lens.
+
+  The lens cannot be applied to workloads or shared with other Amazon Web Services
+  accounts until it's published with `CreateLensVersion`
+
+  Lenses are defined in JSON. For more information, see [JSON format specification](https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html)
+  in the *Well-Architected Tool User Guide*.
+
+  A custom lens cannot exceed 500 KB in size.
+
+  ## Disclaimer
+
+  Do not include or gather personal identifiable information (PII) of end users or
+  other identifiable individuals in or via your custom lenses. If your custom lens
+  or those shared with you and used in your account do include or collect PII you
+  are responsible for: ensuring that the included PII is processed in accordance
+  with applicable law, providing adequate privacy notices, and obtaining necessary
+  consents for processing such data.
+  """
+  def import_lens(%Client{} = client, input, options \\ []) do
+    url_path = "/importLens"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
       options,
       nil
     )
@@ -562,9 +829,66 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
+  List the lens shares associated with the lens.
+  """
+  def list_lens_shares(
+        %Client{} = client,
+        lens_alias,
+        max_results \\ nil,
+        next_token \\ nil,
+        shared_with_prefix \\ nil,
+        options \\ []
+      ) do
+    url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/shares"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(shared_with_prefix) do
+        [{"SharedWithPrefix", shared_with_prefix} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   List the available lenses.
   """
-  def list_lenses(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_lenses(
+        %Client{} = client,
+        lens_name \\ nil,
+        lens_status \\ nil,
+        lens_type \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
     url_path = "/lenses"
     headers = []
     query_params = []
@@ -579,6 +903,27 @@ defmodule AWS.WellArchitected do
     query_params =
       if !is_nil(max_results) do
         [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(lens_type) do
+        [{"LensType", lens_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(lens_status) do
+        [{"LensStatus", lens_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(lens_name) do
+        [{"LensName", lens_name} | query_params]
       else
         query_params
       end
@@ -643,8 +988,10 @@ defmodule AWS.WellArchitected do
   """
   def list_share_invitations(
         %Client{} = client,
+        lens_name_prefix \\ nil,
         max_results \\ nil,
         next_token \\ nil,
+        share_resource_type \\ nil,
         workload_name_prefix \\ nil,
         options \\ []
       ) do
@@ -660,6 +1007,13 @@ defmodule AWS.WellArchitected do
       end
 
     query_params =
+      if !is_nil(share_resource_type) do
+        [{"ShareResourceType", share_resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(next_token) do
         [{"NextToken", next_token} | query_params]
       else
@@ -669,6 +1023,13 @@ defmodule AWS.WellArchitected do
     query_params =
       if !is_nil(max_results) do
         [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(lens_name_prefix) do
+        [{"LensNamePrefix", lens_name_prefix} | query_params]
       else
         query_params
       end

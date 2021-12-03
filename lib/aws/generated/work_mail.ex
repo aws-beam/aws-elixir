@@ -142,6 +142,10 @@ defmodule AWS.WorkMail do
 
   @doc """
   Deletes an access control rule for the specified WorkMail organization.
+
+  Deleting already deleted and non-existing rules does not produce an error. In
+  those cases, the service sends back an HTTP 200 response with an empty HTTP
+  body.
   """
   def delete_access_control_rule(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteAccessControlRule", input, options)
@@ -169,8 +173,24 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+  Deletes the mobile device access override for the given WorkMail organization,
+  user, and device.
+
+  Deleting already deleted and non-existing overrides does not produce an error.
+  In those cases, the service sends back an HTTP 200 response with an empty HTTP
+  body.
+  """
+  def delete_mobile_device_access_override(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteMobileDeviceAccessOverride", input, options)
+  end
+
+  @doc """
   Deletes a mobile device access rule for the specified Amazon WorkMail
   organization.
+
+  Deleting already deleted and non-existing rules does not produce an error. In
+  those cases, the service sends back an HTTP 200 response with an empty HTTP
+  body.
   """
   def delete_mobile_device_access_rule(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteMobileDeviceAccessRule", input, options)
@@ -227,10 +247,28 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+  Removes a domain from Amazon WorkMail, stops email routing to WorkMail, and
+  removes the authorization allowing WorkMail use.
+
+  SES keeps the domain because other applications may use it. You must first
+  remove any email address used by WorkMail entities before you remove the domain.
+  """
+  def deregister_mail_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeregisterMailDomain", input, options)
+  end
+
+  @doc """
   Returns the data available for the group.
   """
   def describe_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeGroup", input, options)
+  end
+
+  @doc """
+  Lists the settings in a DMARC policy for a specified organization.
+  """
+  def describe_inbound_dmarc_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeInboundDmarcSettings", input, options)
   end
 
   @doc """
@@ -292,6 +330,14 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+  Gets details for a mail domain, including domain records required to configure
+  your domain with recommended security.
+  """
+  def get_mail_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetMailDomain", input, options)
+  end
+
+  @doc """
   Requests a user's mailbox details for a specified organization and user.
   """
   def get_mailbox_details(%Client{} = client, input, options \\ []) do
@@ -307,6 +353,14 @@ defmodule AWS.WorkMail do
   """
   def get_mobile_device_access_effect(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetMobileDeviceAccessEffect", input, options)
+  end
+
+  @doc """
+  Gets the mobile device access override for the given WorkMail organization,
+  user, and device.
+  """
+  def get_mobile_device_access_override(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetMobileDeviceAccessOverride", input, options)
   end
 
   @doc """
@@ -340,6 +394,13 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+  Lists the mail domains in a given Amazon WorkMail organization.
+  """
+  def list_mail_domains(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListMailDomains", input, options)
+  end
+
+  @doc """
   Lists the mailbox export jobs started for the specified organization within the
   last seven days.
   """
@@ -353,6 +414,14 @@ defmodule AWS.WorkMail do
   """
   def list_mailbox_permissions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListMailboxPermissions", input, options)
+  end
+
+  @doc """
+  Lists all the mobile device access overrides for any given combination of
+  WorkMail organization, user, or device.
+  """
+  def list_mobile_device_access_overrides(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListMobileDeviceAccessOverrides", input, options)
   end
 
   @doc """
@@ -413,6 +482,13 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+  Enables or disables a DMARC policy for a given organization.
+  """
+  def put_inbound_dmarc_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutInboundDmarcSettings", input, options)
+  end
+
+  @doc """
   Sets permissions for a user, group, or resource.
 
   This replaces any pre-existing permissions.
@@ -422,10 +498,30 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+  Creates or updates a mobile device access override for the given WorkMail
+  organization, user, and device.
+  """
+  def put_mobile_device_access_override(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutMobileDeviceAccessOverride", input, options)
+  end
+
+  @doc """
   Puts a retention policy to the specified organization.
   """
   def put_retention_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutRetentionPolicy", input, options)
+  end
+
+  @doc """
+  Registers a new domain in Amazon WorkMail and SES, and configures it for use by
+  WorkMail.
+
+  Emails received by SES for this domain are routed to the specified WorkMail
+  organization, and WorkMail has permanent permission to use the specified domain
+  for sending your users' emails.
+  """
+  def register_mail_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RegisterMailDomain", input, options)
   end
 
   @doc """
@@ -479,6 +575,16 @@ defmodule AWS.WorkMail do
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates the default mail domain for an organization.
+
+  The default mail domain is used by the WorkMail AWS Console to suggest an email
+  address when enabling a mail user. You can only have one default domain.
+  """
+  def update_default_mail_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDefaultMailDomain", input, options)
   end
 
   @doc """

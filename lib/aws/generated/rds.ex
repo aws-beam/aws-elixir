@@ -69,14 +69,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Associates an Identity and Access Management (IAM) role from an Amazon Aurora DB
-  cluster.
-
-  For more information, see [Authorizing Amazon Aurora MySQL to Access Other Amazon Web Services Services on Your
-  Behalf](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html)
-  in the *Amazon Aurora User Guide*.
-
-  This action only applies to Aurora DB clusters.
+  Associates an Identity and Access Management (IAM) role with a DB cluster.
   """
   def add_role_to_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AddRoleToDBCluster", input, options)
@@ -88,6 +81,8 @@ defmodule AWS.RDS do
 
   To add a role to a DB instance, the status of the DB instance must be
   `available`.
+
+  This command doesn't apply to RDS Custom.
   """
   def add_role_to_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AddRoleToDBInstance", input, options)
@@ -127,7 +122,7 @@ defmodule AWS.RDS do
   First, EC2 or VPC security groups can be added to the DBSecurityGroup if the
   application using the database is running on EC2 or VPC instances. Second, IP
   ranges are available if the application accessing your database is running on
-  the Internet. Required parameters for this API are one of CIDR range,
+  the internet. Required parameters for this API are one of CIDR range,
   EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either
   EC2SecurityGroupName or EC2SecurityGroupId for non-VPC).
 
@@ -165,8 +160,6 @@ defmodule AWS.RDS do
 
   @doc """
   Copies the specified DB cluster parameter group.
-
-  This action only applies to Aurora DB clusters.
   """
   def copy_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CopyDBClusterParameterGroup", input, options)
@@ -200,11 +193,10 @@ defmodule AWS.RDS do
   The pre-signed URL request must contain the following parameter values:
 
       * `KmsKeyId` - The Amazon Web Services KMS key
-  identifier for the customer master key (CMK) to use to encrypt the copy of the
-  DB cluster snapshot in the destination Amazon Web Services Region. This is the
-  same identifier for both the `CopyDBClusterSnapshot` action that is called in
-  the destination Amazon Web Services Region, and the action contained in the
-  pre-signed URL.
+  identifier for the KMS key to use to encrypt the copy of the DB cluster snapshot
+  in the destination Amazon Web Services Region. This is the same identifier for
+  both the `CopyDBClusterSnapshot` action that is called in the destination Amazon
+  Web Services Region, and the action contained in the pre-signed URL.
 
       * `DestinationRegion` - The name of the Amazon Web
   Services Region that the DB cluster snapshot is to be created in.
@@ -241,14 +233,18 @@ defmodule AWS.RDS do
   cluster snapshot identified by `TargetDBClusterSnapshotIdentifier` while that DB
   cluster snapshot is in "copying" status.
 
-  For more information on copying encrypted DB cluster snapshots from one Amazon
-  Web Services Region to another, see [ Copying a Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html)
+  For more information on copying encrypted Amazon Aurora DB cluster snapshots
+  from one Amazon Web Services Region to another, see [ Copying a Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html)
   in the *Amazon Aurora User Guide.*
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
-  This action only applies to Aurora DB clusters.
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
+  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  in the *Amazon RDS User Guide.*
+
+  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CopyDBClusterSnapshot", input, options)
@@ -269,6 +265,8 @@ defmodule AWS.RDS do
   You can copy a snapshot from one Amazon Web Services Region to another. In that
   case, the Amazon Web Services Region where you call the `CopyDBSnapshot` action
   is the destination Amazon Web Services Region for the DB snapshot copy.
+
+  This command doesn't apply to RDS Custom.
 
   For more information about copying snapshots, see [Copying a DB Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBSnapshot)
   in the *Amazon RDS User Guide.*
@@ -297,18 +295,62 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Creates a new Amazon Aurora DB cluster.
+  Creates a custom DB engine version (CEV).
 
-  You can use the `ReplicationSourceIdentifier` parameter to create the DB cluster
-  as a read replica of another DB cluster or Amazon RDS MySQL or PostgreSQL DB
-  instance. For cross-region replication where the DB cluster identified by
-  `ReplicationSourceIdentifier` is encrypted, you must also specify the
+  A CEV is a binary volume snapshot of a database engine and specific AMI. The
+  only supported engine is Oracle Database 19c Enterprise Edition with the January
+  2021 or later RU/RUR.
+
+  Amazon RDS, which is a fully managed service, supplies the Amazon Machine Image
+  (AMI) and database software. The Amazon RDS database software is preinstalled,
+  so you need only select a DB engine and version, and create your database. With
+  Amazon RDS Custom, you upload your database installation files in Amazon S3.
+
+  When you create a custom engine version, you specify the files in a JSON
+  document called a CEV manifest. This document describes installation .zip files
+  stored in Amazon S3. RDS Custom creates your CEV from the installation files
+  that you provided. This service model is called Bring Your Own Media (BYOM).
+
+  Creation takes approximately two hours. If creation fails, RDS Custom issues
+  `RDS-EVENT-0196` with the message `Creation failed for custom engine version`,
+  and includes details about the failure. For example, the event prints missing
+  files.
+
+  After you create the CEV, it is available for use. You can create multiple CEVs,
+  and create multiple RDS Custom instances from any CEV. You can also change the
+  status of a CEV to make it available or inactive.
+
+  The MediaImport service that imports files from Amazon S3 to create CEVs isn't
+  integrated with Amazon Web Services CloudTrail. If you turn on data logging for
+  Amazon RDS in CloudTrail, calls to the `CreateCustomDbEngineVersion` event
+  aren't logged. However, you might see calls from the API gateway that accesses
+  your Amazon S3 bucket. These calls originate from the MediaImport service for
+  the `CreateCustomDbEngineVersion` event.
+
+  For more information, see [ Creating a CEV](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.create)
+  in the *Amazon RDS User Guide*.
+  """
+  def create_custom_db_engine_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateCustomDBEngineVersion", input, options)
+  end
+
+  @doc """
+  Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster.
+
+  You can use the `ReplicationSourceIdentifier` parameter to create an Amazon
+  Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or
+  PostgreSQL DB instance. For cross-Region replication where the DB cluster
+  identified by `ReplicationSourceIdentifier` is encrypted, also specify the
   `PreSignedUrl` parameter.
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
-  This action only applies to Aurora DB clusters.
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
+  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  in the *Amazon RDS User Guide.*
+
+  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def create_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBCluster", input, options)
@@ -335,10 +377,15 @@ defmodule AWS.RDS do
   values for any of the parameters, you must modify the group after creating it
   using `ModifyDBClusterParameterGroup`. Once you've created a DB cluster
   parameter group, you need to associate it with your DB cluster using
-  `ModifyDBCluster`. When you associate a new DB cluster parameter group with a
-  running DB cluster, you need to reboot the DB instances in the DB cluster
-  without failover for the new DB cluster parameter group and associated settings
-  to take effect.
+  `ModifyDBCluster`.
+
+  When you associate a new DB cluster parameter group with a running Aurora DB
+  cluster, reboot the DB instances in the DB cluster without failover for the new
+  DB cluster parameter group and associated settings to take effect.
+
+  When you associate a new DB cluster parameter group with a running Multi-AZ DB
+  cluster, reboot the DB cluster without failover for the new DB cluster parameter
+  group and associated settings to take effect.
 
   After you create a DB cluster parameter group, you should wait at least 5
   minutes before creating your first DB cluster that uses that DB cluster
@@ -351,10 +398,14 @@ defmodule AWS.RDS do
   `DescribeDBClusterParameters` action to verify that your DB cluster parameter
   group has been created or modified.
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
-  This action only applies to Aurora DB clusters.
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
+  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  in the *Amazon RDS User Guide.*
+
+  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def create_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBClusterParameterGroup", input, options)
@@ -363,10 +414,14 @@ defmodule AWS.RDS do
   @doc """
   Creates a snapshot of a DB cluster.
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
-  This action only applies to Aurora DB clusters.
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
+  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  in the *Amazon RDS User Guide.*
+
+  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBClusterSnapshot", input, options)
@@ -406,11 +461,13 @@ defmodule AWS.RDS do
   A DB parameter group is initially created with the default parameters for the
   database engine used by the DB instance. To provide custom values for any of the
   parameters, you must modify the group after creating it using
-  *ModifyDBParameterGroup*. Once you've created a DB parameter group, you need to
-  associate it with your DB instance using *ModifyDBInstance*. When you associate
+  `ModifyDBParameterGroup`. Once you've created a DB parameter group, you need to
+  associate it with your DB instance using `ModifyDBInstance`. When you associate
   a new DB parameter group with a running DB instance, you need to reboot the DB
   instance without failover for the new DB parameter group and associated settings
   to take effect.
+
+  This command doesn't apply to RDS Custom.
 
   After you create a DB parameter group, you should wait at least 5 minutes before
   creating your first DB instance that uses that DB parameter group as the default
@@ -532,6 +589,8 @@ defmodule AWS.RDS do
   Creates a new option group.
 
   You can create up to 20 option groups.
+
+  This command doesn't apply to RDS Custom.
   """
   def create_option_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateOptionGroup", input, options)
@@ -550,16 +609,47 @@ defmodule AWS.RDS do
   end
 
   @doc """
+  Deletes a custom engine version.
+
+  To run this command, make sure you meet the following prerequisites:
+
+    * The CEV must not be the default for RDS Custom. If it is, change
+  the default before running this command.
+
+    * The CEV must not be associated with an RDS Custom DB instance, RDS
+  Custom instance snapshot, or automated backup of your RDS Custom instance.
+
+  Typically, deletion takes a few minutes.
+
+  The MediaImport service that imports files from Amazon S3 to create CEVs isn't
+  integrated with Amazon Web Services CloudTrail. If you turn on data logging for
+  Amazon RDS in CloudTrail, calls to the `DeleteCustomDbEngineVersion` event
+  aren't logged. However, you might see calls from the API gateway that accesses
+  your Amazon S3 bucket. These calls originate from the MediaImport service for
+  the `DeleteCustomDbEngineVersion` event.
+
+  For more information, see [ Deleting a CEV](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.delete)
+  in the *Amazon RDS User Guide*.
+  """
+  def delete_custom_db_engine_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteCustomDBEngineVersion", input, options)
+  end
+
+  @doc """
   The DeleteDBCluster action deletes a previously provisioned DB cluster.
 
   When you delete a DB cluster, all automated backups for that DB cluster are
   deleted and can't be recovered. Manual DB cluster snapshots of the specified DB
   cluster are not deleted.
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
-  This action only applies to Aurora DB clusters.
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
+  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  in the *Amazon RDS User Guide.*
+
+  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def delete_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBCluster", input, options)
@@ -580,10 +670,14 @@ defmodule AWS.RDS do
   The DB cluster parameter group to be deleted can't be associated with any DB
   clusters.
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
-  This action only applies to Aurora DB clusters.
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
+  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  in the *Amazon RDS User Guide.*
+
+  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBClusterParameterGroup", input, options)
@@ -596,10 +690,14 @@ defmodule AWS.RDS do
 
   The DB cluster snapshot must be in the `available` state to be deleted.
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
-  This action only applies to Aurora DB clusters.
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
+  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  in the *Amazon RDS User Guide.*
+
+  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBClusterSnapshot", input, options)
@@ -781,7 +879,7 @@ defmodule AWS.RDS do
   @doc """
   Returns information about backtracks for a DB cluster.
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
   This action only applies to Aurora MySQL DB clusters.
@@ -805,10 +903,14 @@ defmodule AWS.RDS do
   If a `DBClusterParameterGroupName` parameter is specified, the list will contain
   only the description of the specified DB cluster parameter group.
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
-  This action only applies to Aurora DB clusters.
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
+  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  in the *Amazon RDS User Guide.*
+
+  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterParameterGroups", input, options)
@@ -817,10 +919,14 @@ defmodule AWS.RDS do
   @doc """
   Returns the detailed parameter list for a particular DB cluster parameter group.
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
-  This action only applies to Aurora DB clusters.
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
+  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  in the *Amazon RDS User Guide.*
+
+  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def describe_db_cluster_parameters(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterParameters", input, options)
@@ -840,8 +946,6 @@ defmodule AWS.RDS do
   To add or remove access for an Amazon Web Services account to copy or restore a
   manual DB cluster snapshot, or to make the manual DB cluster snapshot public or
   private, use the `ModifyDBClusterSnapshotAttribute` API action.
-
-  This action only applies to Aurora DB clusters.
   """
   def describe_db_cluster_snapshot_attributes(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -858,22 +962,32 @@ defmodule AWS.RDS do
 
   This API action supports pagination.
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
-  This action only applies to Aurora DB clusters.
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
+  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  in the *Amazon RDS User Guide.*
+
+  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def describe_db_cluster_snapshots(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterSnapshots", input, options)
   end
 
   @doc """
-  Returns information about provisioned Aurora DB clusters.
+  Returns information about Amazon Aurora DB clusters and Multi-AZ DB clusters.
 
   This API supports pagination.
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
+
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
+  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  in the *Amazon RDS User Guide.*
+
+  The Multi-AZ DB clusters feature is in preview and is subject to change.
 
   This operation can also return information for Amazon Neptune DB instances and
   Amazon DocumentDB instances.
@@ -917,6 +1031,8 @@ defmodule AWS.RDS do
 
   @doc """
   Returns a list of DB log files for the DB instance.
+
+  This command doesn't apply to RDS Custom.
   """
   def describe_db_log_files(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBLogFiles", input, options)
@@ -1024,7 +1140,7 @@ defmodule AWS.RDS do
   Returns the default engine and system parameter information for the cluster
   database engine.
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
   """
   def describe_engine_default_cluster_parameters(%Client{} = client, input, options \\ []) do
@@ -1098,7 +1214,7 @@ defmodule AWS.RDS do
 
   This API supports pagination.
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
   This action only applies to Aurora DB clusters.
@@ -1130,7 +1246,8 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Returns a list of orderable DB instance options for the specified engine.
+  Returns a list of orderable DB instance options for the specified DB engine, DB
+  engine version, and DB instance class.
   """
   def describe_orderable_db_instance_options(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeOrderableDBInstanceOptions", input, options)
@@ -1181,6 +1298,8 @@ defmodule AWS.RDS do
   you can make to your DB instance.
 
   You can use this information when you call `ModifyDBInstance`.
+
+  This command doesn't apply to RDS Custom.
   """
   def describe_valid_db_instance_modifications(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -1194,6 +1313,8 @@ defmodule AWS.RDS do
 
   @doc """
   Downloads all or a portion of the specified log file, up to 1 MB in size.
+
+  This command doesn't apply to RDS Custom.
   """
   def download_db_log_file_portion(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DownloadDBLogFilePortion", input, options)
@@ -1202,20 +1323,32 @@ defmodule AWS.RDS do
   @doc """
   Forces a failover for a DB cluster.
 
-  A failover for a DB cluster promotes one of the Aurora Replicas (read-only
-  instances) in the DB cluster to be the primary instance (the cluster writer).
+  For an Aurora DB cluster, failover for a DB cluster promotes one of the Aurora
+  Replicas (read-only instances) in the DB cluster to be the primary DB instance
+  (the cluster writer).
 
-  Amazon Aurora will automatically fail over to an Aurora Replica, if one exists,
-  when the primary instance fails. You can force a failover when you want to
-  simulate a failure of a primary instance for testing. Because each instance in a
-  DB cluster has its own endpoint address, you will need to clean up and
-  re-establish any existing connections that use those endpoint addresses when the
-  failover is complete.
+  For a Multi-AZ DB cluster, failover for a DB cluster promotes one of the
+  readable standby DB instances (read-only instances) in the DB cluster to be the
+  primary DB instance (the cluster writer).
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  An Amazon Aurora DB cluster automatically fails over to an Aurora Replica, if
+  one exists, when the primary DB instance fails. A Multi-AZ DB cluster
+  automatically fails over to a readbable standby DB instance when the primary DB
+  instance fails.
+
+  To simulate a failure of a primary instance for testing, you can force a
+  failover. Because each instance in a DB cluster has its own endpoint address,
+  make sure to clean up and re-establish any existing connections that use those
+  endpoint addresses when the failover is complete.
+
+  For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
-  This action only applies to Aurora DB clusters.
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
+  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  in the *Amazon RDS User Guide.*
+
+  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def failover_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "FailoverDBCluster", input, options)
@@ -1315,21 +1448,45 @@ defmodule AWS.RDS do
   dropped. For more information about scaling points, see [ Autoscaling for Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling)
   in the *Amazon Aurora User Guide*.
 
-  This action only applies to Aurora DB clusters.
+  This action only applies to Aurora Serverless DB clusters.
   """
   def modify_current_db_cluster_capacity(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyCurrentDBClusterCapacity", input, options)
   end
 
   @doc """
-  Modify a setting for an Amazon Aurora DB cluster.
+  Modifies the status of a custom engine version (CEV).
 
-  You can change one or more database configuration parameters by specifying these
-  parameters and the new values in the request. For more information on Amazon
-  Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  You can find CEVs to modify by calling `DescribeDBEngineVersions`.
+
+  The MediaImport service that imports files from Amazon S3 to create CEVs isn't
+  integrated with Amazon Web Services CloudTrail. If you turn on data logging for
+  Amazon RDS in CloudTrail, calls to the `ModifyCustomDbEngineVersion` event
+  aren't logged. However, you might see calls from the API gateway that accesses
+  your Amazon S3 bucket. These calls originate from the MediaImport service for
+  the `ModifyCustomDbEngineVersion` event.
+
+  For more information, see [Modifying CEV status](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.modify)
+  in the *Amazon RDS User Guide*.
+  """
+  def modify_custom_db_engine_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ModifyCustomDBEngineVersion", input, options)
+  end
+
+  @doc """
+  Modify the settings for an Amazon Aurora DB cluster or a Multi-AZ DB cluster.
+
+  You can change one or more settings by specifying these parameters and the new
+  values in the request.
+
+  For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
-  This action only applies to Aurora DB clusters.
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
+  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  in the *Amazon RDS User Guide.*
+
+  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def modify_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBCluster", input, options)
@@ -1351,9 +1508,6 @@ defmodule AWS.RDS do
   `ParameterName`, `ParameterValue`, and `ApplyMethod`. A maximum of 20 parameters
   can be modified in a single request.
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
-
   After you create a DB cluster parameter group, you should wait at least 5
   minutes before creating your first DB cluster that uses that DB cluster
   parameter group as the default parameter group. This allows Amazon RDS to fully
@@ -1371,7 +1525,14 @@ defmodule AWS.RDS do
   connections and retry any transactions that were active when the parameter
   changes took effect.
 
-  This action only applies to Aurora DB clusters.
+  For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  in the *Amazon Aurora User Guide.*
+
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
+  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  in the *Amazon RDS User Guide.*
+
+  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def modify_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBClusterParameterGroup", input, options)
@@ -1401,8 +1562,6 @@ defmodule AWS.RDS do
   manual DB cluster snapshot, or whether a manual DB cluster snapshot is public or
   private, use the `DescribeDBClusterSnapshotAttributes` API action. The accounts
   are returned as values for the `restore` attribute.
-
-  This action only applies to Aurora DB clusters.
   """
   def modify_db_cluster_snapshot_attribute(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBClusterSnapshotAttribute", input, options)
@@ -1468,7 +1627,8 @@ defmodule AWS.RDS do
 
   The snapshot can be encrypted or unencrypted, but not shared or public.
 
-  Amazon RDS supports upgrading DB snapshots for MySQL, Oracle, and PostgreSQL.
+  Amazon RDS supports upgrading DB snapshots for MySQL, PostgreSQL, and Oracle.
+  This command doesn't apply to RDS Custom.
   """
   def modify_db_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBSnapshot", input, options)
@@ -1533,7 +1693,7 @@ defmodule AWS.RDS do
 
   You can change one or more database configuration parameters by specifying these
   parameters and the new values in the request. For more information on Amazon
-  Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
   This action only applies to Aurora DB clusters.
@@ -1560,7 +1720,8 @@ defmodule AWS.RDS do
   backups on your read replica, configure the automated backup window so that
   daily backups do not interfere with read replica promotion.
 
-     This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.
+     This command doesn't apply to Aurora MySQL, Aurora PostgreSQL, or
+  RDS Custom.
   """
   def promote_read_replica(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PromoteReadReplica", input, options)
@@ -1568,8 +1729,6 @@ defmodule AWS.RDS do
 
   @doc """
   Promotes a read replica DB cluster to a standalone DB cluster.
-
-  This action only applies to Aurora DB clusters.
   """
   def promote_read_replica_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PromoteReadReplicaDBCluster", input, options)
@@ -1589,6 +1748,28 @@ defmodule AWS.RDS do
   end
 
   @doc """
+  You might need to reboot your DB cluster, usually for maintenance reasons.
+
+  For example, if you make certain modifications, or if you change the DB cluster
+  parameter group associated with the DB cluster, reboot the DB cluster for the
+  changes to take effect.
+
+  Rebooting a DB cluster restarts the database engine service. Rebooting a DB
+  cluster results in a momentary outage, during which the DB cluster status is set
+  to rebooting.
+
+  Use this operation only for a non-Aurora Multi-AZ DB cluster. The Multi-AZ DB
+  clusters feature is in preview and is subject to change.
+
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
+  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  in the *Amazon RDS User Guide.*
+  """
+  def reboot_db_cluster(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RebootDBCluster", input, options)
+  end
+
+  @doc """
   You might need to reboot your DB instance, usually for maintenance reasons.
 
   For example, if you make certain modifications, or if you change the DB
@@ -1601,6 +1782,8 @@ defmodule AWS.RDS do
 
   For more information about rebooting, see [Rebooting a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RebootInstance.html)
   in the *Amazon RDS User Guide.*
+
+  This command doesn't apply to RDS Custom.
   """
   def reboot_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RebootDBInstance", input, options)
@@ -1618,7 +1801,7 @@ defmodule AWS.RDS do
   Detaches an Aurora secondary cluster from an Aurora global database cluster.
 
   The cluster becomes a standalone cluster with read-write capability instead of
-  being read-only and receiving data from a primary cluster in a different region.
+  being read-only and receiving data from a primary cluster in a different Region.
 
   This action only applies to Aurora DB clusters.
   """
@@ -1627,14 +1810,17 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Disassociates an Amazon Web Services Identity and Access Management (IAM) role
-  from an Amazon Aurora DB cluster.
+  Removes the asssociation of an Amazon Web Services Identity and Access
+  Management (IAM) role from a DB cluster.
 
-  For more information, see [Authorizing Amazon Aurora MySQL to Access Other Amazon Web Services Services on Your Behalf
-  ](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html)
-  in the *Amazon Aurora User Guide*.
+  For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  in the *Amazon Aurora User Guide.*
 
-  This action only applies to Aurora DB clusters.
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
+  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  in the *Amazon RDS User Guide.*
+
+  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def remove_role_from_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RemoveRoleFromDBCluster", input, options)
@@ -1685,10 +1871,14 @@ defmodule AWS.RDS do
   for every DB instance in your DB cluster that you want the updated static
   parameter to apply to.
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
-  This action only applies to Aurora DB clusters.
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
+  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  in the *Amazon RDS User Guide.*
+
+  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def reset_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ResetDBClusterParameterGroup", input, options)
@@ -1724,7 +1914,7 @@ defmodule AWS.RDS do
   cluster in `DBClusterIdentifier`. You can create DB instances only after the
   `RestoreDBClusterFromS3` action has completed and the DB cluster is available.
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
   This action only applies to Aurora DB clusters. The source DB engine must be
@@ -1737,8 +1927,6 @@ defmodule AWS.RDS do
   @doc """
   Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
 
-  This action only applies to Aurora DB clusters.
-
   The target DB cluster is created from the source snapshot with a default
   configuration. If you don't specify a security group, the new DB cluster is
   associated with the default security group.
@@ -1750,10 +1938,14 @@ defmodule AWS.RDS do
   `RestoreDBClusterFromSnapshot` action has completed and the DB cluster is
   available.
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
-  This action only applies to Aurora DB clusters.
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
+  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  in the *Amazon RDS User Guide.*
+
+  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def restore_db_cluster_from_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RestoreDBClusterFromSnapshot", input, options)
@@ -1767,17 +1959,21 @@ defmodule AWS.RDS do
   DB cluster with the same configuration as the original DB cluster, except that
   the new DB cluster is created with the default DB security group.
 
-  This action only restores the DB cluster, not the DB instances for that DB
-  cluster. You must invoke the `CreateDBInstance` action to create DB instances
-  for the restored DB cluster, specifying the identifier of the restored DB
-  cluster in `DBClusterIdentifier`. You can create DB instances only after the
+  For Aurora, this action only restores the DB cluster, not the DB instances for
+  that DB cluster. You must invoke the `CreateDBInstance` action to create DB
+  instances for the restored DB cluster, specifying the identifier of the restored
+  DB cluster in `DBClusterIdentifier`. You can create DB instances only after the
   `RestoreDBClusterToPointInTime` action has completed and the DB cluster is
   available.
 
-  For more information on Amazon Aurora, see [ What Is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
-  This action only applies to Aurora DB clusters.
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
+  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  in the *Amazon RDS User Guide.*
+
+  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def restore_db_cluster_to_point_in_time(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RestoreDBClusterToPointInTime", input, options)
@@ -1821,6 +2017,8 @@ defmodule AWS.RDS do
   RDS DB instance running MySQL. For more information, see [Importing Data into an Amazon RDS MySQL DB
   Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
   in the *Amazon RDS User Guide.*
+
+  This command doesn't apply to RDS Custom.
   """
   def restore_db_instance_from_s3(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RestoreDBInstanceFromS3", input, options)
@@ -1891,8 +2089,8 @@ defmodule AWS.RDS do
   Stopped](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html)
   in the *Amazon RDS User Guide.*
 
-  This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora DB
-  clusters, use `StartDBCluster` instead.
+  This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.
+  For Aurora DB clusters, use `StartDBCluster` instead.
   """
   def start_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartDBInstance", input, options)
@@ -1901,6 +2099,8 @@ defmodule AWS.RDS do
   @doc """
   Enables replication of automated backups to a different Amazon Web Services
   Region.
+
+  This command doesn't apply to RDS Custom.
 
   For more information, see [ Replicating Automated Backups to Another Amazon Web Services
   Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html)
@@ -1920,6 +2120,8 @@ defmodule AWS.RDS do
   Starts an export of a snapshot to Amazon S3.
 
   The provided IAM role must have access to the S3 bucket.
+
+  This command doesn't apply to RDS Custom.
   """
   def start_export_task(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartExportTask", input, options)
@@ -1964,8 +2166,8 @@ defmodule AWS.RDS do
   For more information, see [ Stopping an Amazon RDS DB Instance Temporarily](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html)
   in the *Amazon RDS User Guide.*
 
-  This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora
-  clusters, use `StopDBCluster` instead.
+  This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.
+  For Aurora clusters, use `StopDBCluster` instead.
   """
   def stop_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopDBInstance", input, options)
@@ -1973,6 +2175,8 @@ defmodule AWS.RDS do
 
   @doc """
   Stops automated backup replication for a DB instance.
+
+  This command doesn't apply to RDS Custom.
 
   For more information, see [ Replicating Automated Backups to Another Amazon Web Services
   Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html)

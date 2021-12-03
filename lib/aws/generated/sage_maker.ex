@@ -86,17 +86,19 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  This action batch describes a list of versioned model packages
+  """
+  def batch_describe_model_package(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchDescribeModelPackage", input, options)
+  end
+
+  @doc """
   Creates an *action*.
 
   An action is a lineage tracking entity that represents an action or activity.
   For example, a model deployment or an HPO job. Generally, an action involves at
   least one input or output artifact. For more information, see [Amazon SageMaker ML Lineage
   Tracking](https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html).
-
-  `CreateAction` can only be invoked from within an SageMaker managed environment.
-  This includes SageMaker training jobs, processing jobs, transform jobs, and
-  SageMaker notebooks. A call to `CreateAction` from outside one of these
-  environments results in an error.
   """
   def create_action(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateAction", input, options)
@@ -138,11 +140,6 @@ defmodule AWS.SageMaker do
   An artifact is a lineage tracking entity that represents a URI addressable
   object or data. Some examples are the S3 URI of a dataset and the ECR registry
   path of an image. For more information, see [Amazon SageMaker ML Lineage Tracking](https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html).
-
-  `CreateArtifact` can only be invoked from within an SageMaker managed
-  environment. This includes SageMaker training jobs, processing jobs, transform
-  jobs, and SageMaker notebooks. A call to `CreateArtifact` from outside one of
-  these environments results in an error.
   """
   def create_artifact(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateArtifact", input, options)
@@ -151,7 +148,7 @@ defmodule AWS.SageMaker do
   @doc """
   Creates an Autopilot job.
 
-  Find the best performing model after you run an Autopilot job by calling .
+  Find the best-performing model after you run an Autopilot job by calling .
 
   For information about how to use Autopilot, see [Automate Model Development with Amazon SageMaker
   Autopilot](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html).
@@ -218,11 +215,6 @@ defmodule AWS.SageMaker do
   A context is a lineage tracking entity that represents a logical grouping of
   other tracking or experiment entities. Some examples are an endpoint and a model
   package. For more information, see [Amazon SageMaker ML Lineage Tracking](https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html).
-
-  `CreateContext` can only be invoked from within an SageMaker managed
-  environment. This includes SageMaker training jobs, processing jobs, transform
-  jobs, and SageMaker notebooks. A call to `CreateContext` from outside one of
-  these environments results in an error.
   """
   def create_context(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateContext", input, options)
@@ -261,9 +253,8 @@ defmodule AWS.SageMaker do
 
   SageMaker uses the Amazon Web Services Key Management Service (Amazon Web
   Services KMS) to encrypt the EFS volume attached to the domain with an Amazon
-  Web Services managed customer master key (CMK) by default. For more control, you
-  can specify a customer managed CMK. For more information, see [Protect Data at Rest Using
-  Encryption](https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html).
+  Web Services managed key by default. For more control, you can specify a
+  customer managed key. For more information, see [Protect Data at Rest Using Encryption](https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html).
 
   ## VPC configuration
 
@@ -314,8 +305,7 @@ defmodule AWS.SageMaker do
   Use this API to deploy models using Amazon SageMaker hosting services.
 
   For an example that calls this method when deploying a model to Amazon SageMaker
-  hosting services, see [Deploy the Model to Amazon SageMaker Hosting Services (Amazon Web Services SDK for Python (Boto
-  3)).](https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html#ex1-deploy-model-boto)
+  hosting services, see the [Create Endpoint example notebook.](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-fundamentals/create-endpoint/create_endpoint.ipynb)
 
   You must not delete an `EndpointConfig` that is in use by an endpoint that is
   live or while the `UpdateEndpoint` or `CreateEndpoint` operations are being
@@ -359,7 +349,7 @@ defmodule AWS.SageMaker do
   `CreateEndpoint` and `CreateEndpointConfig` API operations, add the following
   policies to the role.
 
-     Option 1: For a full Amazon SageMaker access, search and attach the
+     Option 1: For a full SageMaker access, search and attach the
   `AmazonSageMakerFullAccess` policy.
 
      Option 2: For granting a limited access to an IAM role, paste the
@@ -373,7 +363,7 @@ defmodule AWS.SageMaker do
 
   `]`
 
-  For more information, see [Amazon SageMaker API Permissions: Actions, Permissions, and Resources
+  For more information, see [SageMaker API Permissions: Actions, Permissions, and Resources
   Reference](https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html).
   """
   def create_endpoint(%Client{} = client, input, options \\ []) do
@@ -401,10 +391,6 @@ defmodule AWS.SageMaker do
   you want to host two models, A and B, and you assign traffic weight 2 for model
   A and 1 for model B. Amazon SageMaker distributes two-thirds of the traffic to
   Model A, and one-third to model B.
-
-  For an example that calls this method when deploying a model to Amazon SageMaker
-  hosting services, see [Deploy the Model to Amazon SageMaker Hosting Services (Amazon Web Services SDK for Python (Boto
-  3)).](https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html#ex1-deploy-model-boto)
 
   When you call `CreateEndpoint`, a load call is made to DynamoDB to verify that
   your endpoint configuration exists. When you read data from a DynamoDB table
@@ -523,6 +509,15 @@ defmodule AWS.SageMaker do
   """
   def create_image_version(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateImageVersion", input, options)
+  end
+
+  @doc """
+  Starts a recommendation job.
+
+  You can create either an instance recommendation or load test job.
+  """
+  def create_inference_recommendations_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateInferenceRecommendationsJob", input, options)
   end
 
   @doc """
@@ -833,6 +828,13 @@ defmodule AWS.SageMaker do
   """
   def create_project(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateProject", input, options)
+  end
+
+  @doc """
+  Creates a new Studio Lifecycle Configuration.
+  """
+  def create_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateStudioLifecycleConfig", input, options)
   end
 
   @doc """
@@ -1318,6 +1320,17 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Deletes the Studio Lifecycle Configuration.
+
+  In order to delete the Lifecycle Configuration, there must be no running apps
+  using the Lifecycle Configuration. You must also remove the Lifecycle
+  Configuration from UserSettings in all Domains and UserProfiles.
+  """
+  def delete_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteStudioLifecycleConfig", input, options)
+  end
+
+  @doc """
   Deletes the specified tags from an Amazon SageMaker resource.
 
   To list a resource's tags, use the `ListTags` API.
@@ -1569,10 +1582,36 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Provides the results of the Inference Recommender job.
+
+  One or more recommendation jobs are returned.
+  """
+  def describe_inference_recommendations_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeInferenceRecommendationsJob",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Gets information about a labeling job.
   """
   def describe_labeling_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeLabelingJob", input, options)
+  end
+
+  @doc """
+  Provides a list of properties for the requested lineage group.
+
+  For more information, see [ Cross-Account Lineage Tracking
+  ](https://docs.aws.amazon.com/sagemaker/latest/dg/xaccount-lineage-tracking.html)
+  in the *Amazon SageMaker Developer Guide*.
+  """
+  def describe_lineage_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLineageGroup", input, options)
   end
 
   @doc """
@@ -1604,10 +1643,10 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns a description of the specified model package, which is used to create
-  Amazon SageMaker models or list them on Amazon Web Services Marketplace.
+  SageMaker models or list them on Amazon Web Services Marketplace.
 
-  To create models in Amazon SageMaker, buyers can subscribe to model packages
-  listed on Amazon Web Services Marketplace.
+  To create models in SageMaker, buyers can subscribe to model packages listed on
+  Amazon Web Services Marketplace.
   """
   def describe_model_package(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeModelPackage", input, options)
@@ -1696,6 +1735,13 @@ defmodule AWS.SageMaker do
   """
   def describe_project(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeProject", input, options)
+  end
+
+  @doc """
+  Describes the Studio Lifecycle Configuration.
+  """
+  def describe_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeStudioLifecycleConfig", input, options)
   end
 
   @doc """
@@ -1826,6 +1872,13 @@ defmodule AWS.SageMaker do
   """
   def get_device_fleet_report(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetDeviceFleetReport", input, options)
+  end
+
+  @doc """
+  The resource policy for the lineage group.
+  """
+  def get_lineage_group_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLineageGroupPolicy", input, options)
   end
 
   @doc """
@@ -2058,6 +2111,13 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Lists recommendation jobs that satisfy various filters.
+  """
+  def list_inference_recommendations_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListInferenceRecommendationsJobs", input, options)
+  end
+
+  @doc """
   Gets a list of labeling jobs.
   """
   def list_labeling_jobs(%Client{} = client, input, options \\ []) do
@@ -2069,6 +2129,17 @@ defmodule AWS.SageMaker do
   """
   def list_labeling_jobs_for_workteam(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListLabelingJobsForWorkteam", input, options)
+  end
+
+  @doc """
+  A list of lineage groups shared with your Amazon Web Services account.
+
+  For more information, see [ Cross-Account Lineage Tracking
+  ](https://docs.aws.amazon.com/sagemaker/latest/dg/xaccount-lineage-tracking.html)
+  in the *Amazon SageMaker Developer Guide*.
+  """
+  def list_lineage_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListLineageGroups", input, options)
   end
 
   @doc """
@@ -2089,6 +2160,14 @@ defmodule AWS.SageMaker do
       input,
       options
     )
+  end
+
+  @doc """
+  Lists the domain, framework, task, and model name of standard machine learning
+  models found in common model zoos.
+  """
+  def list_model_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListModelMetadata", input, options)
   end
 
   @doc """
@@ -2195,6 +2274,13 @@ defmodule AWS.SageMaker do
   """
   def list_projects(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListProjects", input, options)
+  end
+
+  @doc """
+  Lists the Studio Lifecycle Configurations in your Amazon Web Services Account.
+  """
+  def list_studio_lifecycle_configs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListStudioLifecycleConfigs", input, options)
   end
 
   @doc """
@@ -2330,6 +2416,17 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Use this action to inspect your lineage and discover relationships between
+  entities.
+
+  For more information, see [ Querying Lineage Entities](https://docs.aws.amazon.com/sagemaker/latest/dg/querying-lineage-entities.html)
+  in the *Amazon SageMaker Developer Guide*.
+  """
+  def query_lineage(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "QueryLineage", input, options)
+  end
+
+  @doc """
   Register devices.
   """
   def register_devices(%Client{} = client, input, options \\ []) do
@@ -2341,6 +2438,13 @@ defmodule AWS.SageMaker do
   """
   def render_ui_template(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RenderUiTemplate", input, options)
+  end
+
+  @doc """
+  Retry the execution of the pipeline.
+  """
+  def retry_pipeline_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RetryPipelineExecution", input, options)
   end
 
   @doc """
@@ -2454,6 +2558,13 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Stops an Inference Recommender job.
+  """
+  def stop_inference_recommendations_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopInferenceRecommendationsJob", input, options)
+  end
+
+  @doc """
   Stops a running labeling job.
 
   A job that is stopped cannot be restarted. Any results obtained before the job
@@ -2490,6 +2601,8 @@ defmodule AWS.SageMaker do
   @doc """
   Stops a pipeline execution.
 
+  ## Callback Step
+
   A pipeline execution won't stop while a callback step is running. When you call
   `StopPipelineExecution` on a pipeline execution with a running callback step,
   SageMaker Pipelines sends an additional Amazon SQS message to the specified SQS
@@ -2503,6 +2616,16 @@ defmodule AWS.SageMaker do
 
   Only when SageMaker Pipelines receives one of these calls will it stop the
   pipeline execution.
+
+  ## Lambda Step
+
+  A pipeline execution can't be stopped while a lambda step is running because the
+  Lambda function invoked by the lambda step can't be stopped. If you attempt to
+  stop the execution while the Lambda function is running, the pipeline waits for
+  the Lambda function to finish or until the timeout is hit, whichever occurs
+  first, and then stops. If the Lambda function finishes, the pipeline execution
+  status is `Stopped`. If the timeout is hit the pipeline execution status is
+  `Failed`.
   """
   def stop_pipeline_execution(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopPipelineExecution", input, options)
@@ -2700,6 +2823,18 @@ defmodule AWS.SageMaker do
   """
   def update_pipeline_execution(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdatePipelineExecution", input, options)
+  end
+
+  @doc """
+  Updates a machine learning (ML) project that is created from a template that
+  sets up an ML pipeline from training to deploying an approved model.
+
+  You must not update a project that is in use. If you update the
+  `ServiceCatalogProvisioningUpdateDetails` of a project that is active or being
+  created, or updated, you may lose resources already created by the project.
+  """
+  def update_project(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateProject", input, options)
   end
 
   @doc """

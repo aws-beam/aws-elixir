@@ -786,10 +786,17 @@ defmodule AWS.Elasticsearch do
   Returns the name of all Elasticsearch domains owned by the current user's
   account.
   """
-  def list_domain_names(%Client{} = client, options \\ []) do
+  def list_domain_names(%Client{} = client, engine_type \\ nil, options \\ []) do
     url_path = "/2015-01-01/domain"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(engine_type) do
+        [{"engineType", engine_type} | query_params]
+      else
+        query_params
+      end
 
     Request.request_rest(
       client,

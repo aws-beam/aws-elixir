@@ -132,6 +132,27 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
+  Creates a new message template for messages using the in-app message channel.
+  """
+  def create_in_app_template(%Client{} = client, template_name, input, options \\ []) do
+    url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/inapp"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a journey for an application.
   """
   def create_journey(%Client{} = client, application_id, input, options \\ []) do
@@ -548,6 +569,32 @@ defmodule AWS.Pinpoint do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Deletes a message template for messages sent using the in-app message channel.
+  """
+  def delete_in_app_template(%Client{} = client, template_name, input, options \\ []) do
+    url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/inapp"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"Version", "version"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -1556,6 +1603,58 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
+  Retrieves the in-app messages targeted for the provided endpoint ID.
+  """
+  def get_in_app_messages(%Client{} = client, application_id, endpoint_id, options \\ []) do
+    url_path =
+      "/v1/apps/#{AWS.Util.encode_uri(application_id)}/endpoints/#{AWS.Util.encode_uri(endpoint_id)}/inappmessages"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves the content and settings of a message template for messages sent
+  through the in-app channel.
+  """
+  def get_in_app_template(%Client{} = client, template_name, version \\ nil, options \\ []) do
+    url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/inapp"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(version) do
+        [{"version", version} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves information about the status, configuration, and other settings for a
   journey.
   """
@@ -2451,6 +2550,27 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
+  Send an OTP message
+  """
+  def send_o_t_p_message(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/otp"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates and sends a message to a list of users.
   """
   def send_users_messages(%Client{} = client, application_id, input, options \\ []) do
@@ -2819,6 +2939,34 @@ defmodule AWS.Pinpoint do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Updates an existing message template for messages sent through the in-app
+  message channel.
+  """
+  def update_in_app_template(%Client{} = client, template_name, input, options \\ []) do
+    url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/inapp"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"CreateNewVersion", "create-new-version"},
+        {"Version", "version"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
     )
   end
 

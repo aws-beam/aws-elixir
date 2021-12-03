@@ -65,7 +65,7 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   An input processor pre-processes records on the input stream before the
   application's SQL code executes. Currently, the only input processor available
-  is [AWS Lambda](https://docs.aws.amazon.com/lambda/).
+  is [Amazon Lambda](https://docs.aws.amazon.com/lambda/).
   """
   def add_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -83,10 +83,10 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   If you want Kinesis Data Analytics to deliver data from an in-application stream
   within your application to an external destination (such as an Kinesis data
-  stream, a Kinesis Data Firehose delivery stream, or an AWS Lambda function), you
-  add the relevant configuration to your application using this operation. You can
-  configure one or more outputs for your application. Each output configuration
-  maps an in-application stream and an external destination.
+  stream, a Kinesis Data Firehose delivery stream, or an Amazon Lambda function),
+  you add the relevant configuration to your application using this operation. You
+  can configure one or more outputs for your application. Each output
+  configuration maps an in-application stream and an external destination.
 
   You can use one of the output configurations to deliver data from your
   in-application error stream to an external destination so that you can analyze

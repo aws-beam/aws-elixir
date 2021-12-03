@@ -32,10 +32,9 @@ defmodule AWS.WAFV2 do
 
   This API guide is for developers who need detailed information about WAF API
   actions, data types, and errors. For detailed information about WAF features and
-  an overview of how to use WAF, see the [WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
+  an overview of how to use WAF, see the [WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
 
-  You can make calls using the endpoints listed in [Amazon Web Services Service Endpoints for
-  WAF](https://docs.aws.amazon.com/general/latest/gr/rande.html#waf_region).
+  You can make calls using the endpoints listed in [WAF endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/waf.html).
 
     * For regional applications, you can use any of the endpoints in the
   list. A regional application can be an Application Load Balancer (ALB), an
@@ -267,6 +266,21 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
+  Retrieves the specified managed rule set.
+
+  This is intended for use only by vendors of managed rule sets. Vendors are
+  Amazon Web Services and Amazon Web Services Marketplace sellers.
+
+  Vendors, you can use the managed rule set APIs to provide controlled rollout of
+  your versioned managed rule group offerings for your customers. The APIs are
+  `ListManagedRuleSets`, `GetManagedRuleSet`, `PutManagedRuleSetVersions`, and
+  `UpdateManagedRuleSetVersionExpiryDate`.
+  """
+  def get_managed_rule_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetManagedRuleSet", input, options)
+  end
+
+  @doc """
   Returns the IAM policy that is attached to the specified rule group.
 
   You must be the owner of the rule group to perform this operation.
@@ -276,11 +290,23 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  Retrieves the keys that are currently blocked by a rate-based rule.
+  Retrieves the keys that are currently blocked by a rate-based rule instance.
 
   The maximum number of managed keys that can be blocked for a single rate-based
-  rule is 10,000. If more than 10,000 addresses exceed the rate limit, those with
-  the highest rates are blocked.
+  rule instance is 10,000. If more than 10,000 addresses exceed the rate limit,
+  those with the highest rates are blocked.
+
+  For a rate-based rule that you've defined inside a rule group, provide the name
+  of the rule group reference statement in your request, in addition to the
+  rate-based rule name and the web ACL name.
+
+  WAF monitors web requests and manages keys independently for each unique
+  combination of web ACL, optional rule group, and rate-based rule. For example,
+  if you define a rate-based rule inside a rule group, and then use the rule group
+  in a web ACL, WAF monitors web requests and manages keys for that web ACL, rule
+  group reference statement, and rate-based rule instance. If you use the same
+  rule group in a second web ACL, WAF monitors web requests and manages keys for
+  this second usage completely independent of your first.
   """
   def get_rate_based_statement_managed_keys(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetRateBasedStatementManagedKeys", input, options)
@@ -334,10 +360,24 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
+  Returns a list of the available versions for the specified managed rule group.
+  """
+  def list_available_managed_rule_group_versions(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "ListAvailableManagedRuleGroupVersions",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Retrieves an array of managed rule groups that are available for you to use.
 
-  This list includes all Amazon Web Services Managed Rules rule groups and the
-  Marketplace managed rule groups that you're subscribed to.
+  This list includes all Amazon Web Services Managed Rules rule groups and all of
+  the Amazon Web Services Marketplace managed rule groups that you're subscribed
+  to.
   """
   def list_available_managed_rule_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListAvailableManagedRuleGroups", input, options)
@@ -355,6 +395,21 @@ defmodule AWS.WAFV2 do
   """
   def list_logging_configurations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListLoggingConfigurations", input, options)
+  end
+
+  @doc """
+  Retrieves the managed rule sets that you own.
+
+  This is intended for use only by vendors of managed rule sets. Vendors are
+  Amazon Web Services and Amazon Web Services Marketplace sellers.
+
+  Vendors, you can use the managed rule set APIs to provide controlled rollout of
+  your versioned managed rule group offerings for your customers. The APIs are
+  `ListManagedRuleSets`, `GetManagedRuleSet`, `PutManagedRuleSetVersions`, and
+  `UpdateManagedRuleSetVersionExpiryDate`.
+  """
+  def list_managed_rule_sets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListManagedRuleSets", input, options)
   end
 
   @doc """
@@ -414,25 +469,21 @@ defmodule AWS.WAFV2 do
   You can access information about all traffic that WAF inspects using the
   following steps:
 
-    1. Create an Amazon Kinesis Data Firehose.
+    1. Create your logging destination. You can use an Amazon CloudWatch
+  Logs log group, an Amazon Simple Storage Service (Amazon S3) bucket, or an
+  Amazon Kinesis Data Firehose. For information about configuring logging
+  destinations and the permissions that are required for each, see [Logging web ACL traffic
+  information](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html)
+  in the *WAF Developer Guide*.
 
-  Create the data firehose with a PUT source and in the Region that you are
-  operating. If you are capturing logs for Amazon CloudFront, always create the
-  firehose in US East (N. Virginia).
-
-  Give the data firehose a name that starts with the prefix `aws-waf-logs-`. For
-  example, `aws-waf-logs-us-east-2-analytics`.
-
-  Do not create the data firehose using a `Kinesis stream` as your source.
-
-    2. Associate that firehose to your web ACL using a
+    2. Associate your logging destination to your web ACL using a
   `PutLoggingConfiguration` request.
 
   When you successfully enable logging using a `PutLoggingConfiguration` request,
-  WAF will create a service linked role with the necessary permissions to write
-  logs to the Amazon Kinesis Data Firehose. For more information, see [Logging Web ACL Traffic
-  Information](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html)
-  in the *WAF Developer Guide*.
+  WAF creates an additional role or policy that is required to write logs to the
+  logging destination. For an Amazon CloudWatch Logs log group, WAF creates a
+  resource policy on the log group. For an Amazon S3 bucket, WAF creates a bucket
+  policy. For an Amazon Kinesis Data Firehose, WAF creates a service-linked role.
 
   This operation completely replaces the mutable specifications that you already
   have for the logging configuration with the ones that you provide to this call.
@@ -442,6 +493,35 @@ defmodule AWS.WAFV2 do
   """
   def put_logging_configuration(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutLoggingConfiguration", input, options)
+  end
+
+  @doc """
+  Defines the versions of your managed rule set that you are offering to the
+  customers.
+
+  Customers see your offerings as managed rule groups with versioning.
+
+  This is intended for use only by vendors of managed rule sets. Vendors are
+  Amazon Web Services and Amazon Web Services Marketplace sellers.
+
+  Vendors, you can use the managed rule set APIs to provide controlled rollout of
+  your versioned managed rule group offerings for your customers. The APIs are
+  `ListManagedRuleSets`, `GetManagedRuleSet`, `PutManagedRuleSetVersions`, and
+  `UpdateManagedRuleSetVersionExpiryDate`.
+
+  Customers retrieve their managed rule group list by calling
+  `ListAvailableManagedRuleGroups`. The name that you provide here for your
+  managed rule set is the name the customer sees for the corresponding managed
+  rule group. Customers can retrieve the available versions for a managed rule
+  group by calling `ListAvailableManagedRuleGroupVersions`. You provide a rule
+  group specification for each version. For each managed rule set, you must
+  specify a version that you recommend using.
+
+  To initiate the expiration of a managed rule group version, use
+  `UpdateManagedRuleSetVersionExpiryDate`.
+  """
+  def put_managed_rule_set_versions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutManagedRuleSetVersions", input, options)
   end
 
   @doc """
@@ -503,6 +583,31 @@ defmodule AWS.WAFV2 do
   """
   def update_ip_set(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateIPSet", input, options)
+  end
+
+  @doc """
+  Updates the expiration information for your managed rule set.
+
+  Use this to initiate the expiration of a managed rule group version. After you
+  initiate expiration for a version, WAF excludes it from the reponse to
+  `ListAvailableManagedRuleGroupVersions` for the managed rule group.
+
+  This is intended for use only by vendors of managed rule sets. Vendors are
+  Amazon Web Services and Amazon Web Services Marketplace sellers.
+
+  Vendors, you can use the managed rule set APIs to provide controlled rollout of
+  your versioned managed rule group offerings for your customers. The APIs are
+  `ListManagedRuleSets`, `GetManagedRuleSet`, `PutManagedRuleSetVersions`, and
+  `UpdateManagedRuleSetVersionExpiryDate`.
+  """
+  def update_managed_rule_set_version_expiry_date(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "UpdateManagedRuleSetVersionExpiryDate",
+      input,
+      options
+    )
   end
 
   @doc """

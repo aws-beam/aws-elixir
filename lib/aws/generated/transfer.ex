@@ -70,11 +70,23 @@ defmodule AWS.Transfer do
   `IdentityProviderType` set to `SERVICE_MANAGED`. Using parameters for
   `CreateUser`, you can specify the user name, set the home directory, store the
   user's public key, and assign the user's Amazon Web Services Identity and Access
-  Management (IAM) role. You can also optionally add a scope-down policy, and
-  assign metadata with tags that can be used to group and search for users.
+  Management (IAM) role. You can also optionally add a session policy, and assign
+  metadata with tags that can be used to group and search for users.
   """
   def create_user(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateUser", input, options)
+  end
+
+  @doc """
+  Allows you to create a workflow with specified steps and step details the
+  workflow invokes after file transfer completes.
+
+  After creating a workflow, you can associate the workflow created with any
+  transfer servers by specifying the `workflow-details` field in `CreateServer`
+  and `UpdateServer` operations.
+  """
+  def create_workflow(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateWorkflow", input, options)
   end
 
   @doc """
@@ -96,8 +108,6 @@ defmodule AWS.Transfer do
 
   @doc """
   Deletes a user's Secure Shell (SSH) public key.
-
-  No response is returned from this operation.
   """
   def delete_ssh_public_key(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteSshPublicKey", input, options)
@@ -116,6 +126,13 @@ defmodule AWS.Transfer do
   end
 
   @doc """
+  Deletes the specified workflow.
+  """
+  def delete_workflow(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteWorkflow", input, options)
+  end
+
+  @doc """
   Describes the access that is assigned to the specific file transfer
   protocol-enabled server, as identified by its `ServerId` property and its
   `ExternalID`.
@@ -125,6 +142,14 @@ defmodule AWS.Transfer do
   """
   def describe_access(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeAccess", input, options)
+  end
+
+  @doc """
+  You can use `DescribeExecution` to check the details of the execution of the
+  specified workflow.
+  """
+  def describe_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeExecution", input, options)
   end
 
   @doc """
@@ -161,6 +186,13 @@ defmodule AWS.Transfer do
   end
 
   @doc """
+  Describes the specified workflow.
+  """
+  def describe_workflow(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeWorkflow", input, options)
+  end
+
+  @doc """
   Adds a Secure Shell (SSH) public key to a user account identified by a
   `UserName` value assigned to the specific file transfer protocol-enabled server,
   identified by `ServerId`.
@@ -177,6 +209,13 @@ defmodule AWS.Transfer do
   """
   def list_accesses(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListAccesses", input, options)
+  end
+
+  @doc """
+  Lists all executions for the specified workflow.
+  """
+  def list_executions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListExecutions", input, options)
   end
 
   @doc """
@@ -211,6 +250,24 @@ defmodule AWS.Transfer do
   """
   def list_users(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListUsers", input, options)
+  end
+
+  @doc """
+  Lists all of your workflows.
+  """
+  def list_workflows(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListWorkflows", input, options)
+  end
+
+  @doc """
+  Sends a callback for asynchronous custom steps.
+
+  The `ExecutionId`, `WorkflowId`, and `Token` are passed to the target resource
+  during execution of a custom step of a workflow. You must include those with
+  their callback as well as providing a status.
+  """
+  def send_workflow_step_state(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SendWorkflowStepState", input, options)
   end
 
   @doc """
@@ -272,6 +329,27 @@ defmodule AWS.Transfer do
   method as soon as you create your server. By doing so, you can troubleshoot
   issues with the identity provider integration to ensure that your users can
   successfully use the service.
+
+  The `ServerId` and `UserName` parameters are required. The `ServerProtocol`,
+  `SourceIp`, and `UserPassword` are all optional.
+
+  You cannot use `TestIdentityProvider` if the `IdentityProviderType` of your
+  server is `SERVICE_MANAGED`.
+
+    * If you provide any incorrect values for any parameters, the
+  `Response` field is empty.
+
+    * If you provide a server ID for a server that uses service-managed
+  users, you get an error:
+
+  ` An error occurred (InvalidRequestException) when calling the
+  TestIdentityProvider operation: s-*server-ID* not configured for external auth `
+
+    * If you enter a Server ID for the `--server-id` parameter that does
+  not identify an actual Transfer server, you receive the following error:
+
+  `An error occurred (ResourceNotFoundException) when calling the
+  TestIdentityProvider operation: Unknown server`
   """
   def test_identity_provider(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TestIdentityProvider", input, options)

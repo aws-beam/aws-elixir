@@ -5,32 +5,13 @@ defmodule AWS.SESv2 do
   @moduledoc """
   Amazon SES API v2
 
-  Welcome to the Amazon SES API v2 Reference.
+  [Amazon SES](http://aws.amazon.com/ses) is an Amazon Web Services service that you can use to send email messages to your customers.
 
-  This guide provides information about the Amazon SES API v2, including supported
-  operations, data types, parameters, and schemas.
-
-  [Amazon SES](https://aws.amazon.com/pinpoint) is an AWS service that you can use to send email messages to your customers.
-
-  If you're new to Amazon SES API v2, you might find it helpful to also review the
+  If you're new to Amazon SES API v2, you might find it helpful to review the
   [Amazon Simple Email Service Developer
   Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/). The *Amazon SES
   Developer Guide* provides information and code samples that demonstrate how to
   use Amazon SES API v2 features programmatically.
-
-  The Amazon SES API v2 is available in several AWS Regions and it provides an
-  endpoint for each of these Regions. For a list of all the Regions and endpoints
-  where the API is currently available, see [AWS Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region)
-  in the *Amazon Web Services General Reference*. To learn more about AWS Regions,
-  see [Managing AWS Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the
-  *Amazon Web Services General Reference*.
-
-  In each Region, AWS maintains multiple Availability Zones. These Availability
-  Zones are physically isolated from each other, but are united by private,
-  low-latency, high-throughput, and highly redundant network connections. These
-  Availability Zones enable us to provide very high levels of availability and
-  redundancy, while also minimizing latency. To learn more about the number of
-  Availability Zones that are available in each Region, see [AWS Global Infrastructure](http://aws.amazon.com/about-aws/global-infrastructure/).
   """
 
   alias AWS.Client
@@ -189,9 +170,9 @@ defmodule AWS.SESv2 do
   Create a new pool of dedicated IP addresses.
 
   A pool can include one or more dedicated IP addresses that are associated with
-  your AWS account. You can associate a pool with a configuration set. When you
-  send an email that uses that configuration set, the message is sent from one of
-  the addresses in the associated pool.
+  your Amazon Web Services account. You can associate a pool with a configuration
+  set. When you send an email that uses that configuration set, the message is
+  sent from one of the addresses in the associated pool.
   """
   def create_dedicated_ip_pool(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/dedicated-ip-pools"
@@ -264,7 +245,7 @@ defmodule AWS.SESv2 do
   DKIM (BYODKIM). To use BYODKIM, your call to the `CreateEmailIdentity` operation
   has to include the `DkimSigningAttributes` object. When you specify this object,
   you provide a selector (a component of the DNS record name that identifies the
-  public key that you want to use for DKIM authentication) and a private key.
+  public key to use for DKIM authentication) and a private key.
 
   When you verify a domain, this operation provides a set of DKIM tokens, which
   you can convert into CNAME tokens. You add these CNAME tokens to the DNS
@@ -490,7 +471,7 @@ defmodule AWS.SESv2 do
   Deletes an existing custom verification email template.
 
   For more information about custom verification email templates, see [Using Custom Verification Email
-  Templates](https://docs.aws.amazon.com/es/latest/DeveloperGuide/send-email-verify-address-custom.html)
+  Templates](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html)
   in the *Amazon SES Developer Guide*.
 
   You can execute this operation no more than once per second.
@@ -652,7 +633,7 @@ defmodule AWS.SESv2 do
 
   @doc """
   Obtain information about the email-sending status and capabilities of your
-  Amazon SES account in the current AWS Region.
+  Amazon SES account in the current Amazon Web Services Region.
   """
   def get_account(%Client{} = client, options \\ []) do
     url_path = "/v2/email/account"
@@ -863,7 +844,8 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  List the dedicated IP addresses that are associated with your AWS account.
+  List the dedicated IP addresses that are associated with your Amazon Web
+  Services account.
   """
   def get_dedicated_ips(
         %Client{} = client,
@@ -920,8 +902,8 @@ defmodule AWS.SESv2 do
 
   When you use the Deliverability dashboard, you pay a monthly subscription
   charge, in addition to any other fees that you accrue by using Amazon SES and
-  other AWS services. For more information about the features and cost of a
-  Deliverability dashboard subscription, see [Amazon SES Pricing](http://aws.amazon.com/ses/pricing/).
+  other Amazon Web Services services. For more information about the features and
+  cost of a Deliverability dashboard subscription, see [Amazon SES Pricing](http://aws.amazon.com/ses/pricing/).
   """
   def get_deliverability_dashboard_options(%Client{} = client, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard"
@@ -1279,7 +1261,7 @@ defmodule AWS.SESv2 do
 
   @doc """
   Lists the existing custom verification email templates for your account in the
-  current AWS Region.
+  current Amazon Web Services Region.
 
   For more information about custom verification email templates, see [Using Custom Verification Email
   Templates](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html)
@@ -1325,8 +1307,8 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  List all of the dedicated IP pools that exist in your AWS account in the current
-  Region.
+  List all of the dedicated IP pools that exist in your Amazon Web Services
+  account in the current Region.
   """
   def list_dedicated_ip_pools(
         %Client{} = client,
@@ -1473,8 +1455,8 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Returns a list of all of the email identities that are associated with your AWS
-  account.
+  Returns a list of all of the email identities that are associated with your
+  Amazon Web Services account.
 
   An identity can be either an email address or a domain. This operation returns
   identities that are verified as well as those that aren't. This operation
@@ -1518,8 +1500,8 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Lists the email templates present in your Amazon SES account in the current AWS
-  Region.
+  Lists the email templates present in your Amazon SES account in the current
+  Amazon Web Services Region.
 
   You can execute this operation no more than once per second.
   """
@@ -1806,7 +1788,7 @@ defmodule AWS.SESv2 do
 
   @doc """
   Enable or disable collection of reputation metrics for emails that you send
-  using a particular configuration set in a specific AWS Region.
+  using a particular configuration set in a specific Amazon Web Services Region.
   """
   def put_configuration_set_reputation_options(
         %Client{} = client,
@@ -1835,7 +1817,7 @@ defmodule AWS.SESv2 do
 
   @doc """
   Enable or disable email sending for messages that use a particular configuration
-  set in a specific AWS Region.
+  set in a specific Amazon Web Services Region.
   """
   def put_configuration_set_sending_options(
         %Client{} = client,
@@ -1923,7 +1905,7 @@ defmodule AWS.SESv2 do
   Move a dedicated IP address to an existing dedicated IP pool.
 
   The dedicated IP address that you specify must already exist, and must be
-  associated with your AWS account.
+  associated with your Amazon Web Services account.
 
   The dedicated IP pool you specify must already exist. You can create a new pool
   by using the `CreateDedicatedIpPool` operation.
@@ -1973,8 +1955,8 @@ defmodule AWS.SESv2 do
 
   When you use the Deliverability dashboard, you pay a monthly subscription
   charge, in addition to any other fees that you accrue by using Amazon SES and
-  other AWS services. For more information about the features and cost of a
-  Deliverability dashboard subscription, see [Amazon SES Pricing](http://aws.amazon.com/ses/pricing/).
+  other Amazon Web Services services. For more information about the features and
+  cost of a Deliverability dashboard subscription, see [Amazon SES Pricing](http://aws.amazon.com/ses/pricing/).
   """
   def put_deliverability_dashboard_option(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard"
@@ -2049,6 +2031,8 @@ defmodule AWS.SESv2 do
 
     * Update the signing attributes for an identity that uses Bring Your
   Own DKIM (BYODKIM).
+
+    * Update the key length that should be used for Easy DKIM.
 
     * Change from using no DKIM authentication to using Easy DKIM.
 
@@ -2190,7 +2174,7 @@ defmodule AWS.SESv2 do
 
   @doc """
   Adds an email address to the list of identities for your Amazon SES account in
-  the current AWS Region and attempts to verify it.
+  the current Amazon Web Services Region and attempts to verify it.
 
   As a result of executing this operation, a customized verification email is sent
   to the specified address.
@@ -2223,7 +2207,7 @@ defmodule AWS.SESv2 do
   @doc """
   Sends an email message.
 
-  You can use the Amazon SES API v2 to send two types of messages:
+  You can use the Amazon SES API v2 to send the following types of messages:
 
     * **Simple** – A standard email message. When you create this type
   of message, you specify the sender, the recipient, and the message body, and

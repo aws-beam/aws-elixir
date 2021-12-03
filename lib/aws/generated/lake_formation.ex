@@ -3,9 +3,9 @@
 
 defmodule AWS.LakeFormation do
   @moduledoc """
-  AWS Lake Formation
+  Lake Formation
 
-  Defines the public endpoint for the AWS Lake Formation service.
+  Defines the public endpoint for the Lake Formation service.
   """
 
   alias AWS.Client
@@ -19,54 +19,244 @@ defmodule AWS.LakeFormation do
       credential_scope: nil,
       endpoint_prefix: "lakeformation",
       global?: false,
-      protocol: "json",
+      protocol: "rest-json",
       service_id: "LakeFormation",
       signature_version: "v4",
       signing_name: "lakeformation",
-      target_prefix: "AWSLakeFormation"
+      target_prefix: nil
     }
   end
 
   @doc """
-  Attaches one or more tags to an existing resource.
+  Attaches one or more LF-tags to an existing resource.
   """
   def add_l_f_tags_to_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddLFTagsToResource", input, options)
+    url_path = "/AddLFTagsToResource"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Batch operation to grant permissions to the principal.
   """
   def batch_grant_permissions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchGrantPermissions", input, options)
+    url_path = "/BatchGrantPermissions"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Batch operation to revoke permissions from the principal.
   """
   def batch_revoke_permissions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchRevokePermissions", input, options)
+    url_path = "/BatchRevokePermissions"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
-  Creates a tag with the specified name and values.
+  Attempts to cancel the specified transaction.
+
+  Returns an exception if the transaction was previously committed.
+  """
+  def cancel_transaction(%Client{} = client, input, options \\ []) do
+    url_path = "/CancelTransaction"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Attempts to commit the specified transaction.
+
+  Returns an exception if the transaction was previously aborted. This API action
+  is idempotent if called multiple times for the same transaction.
+  """
+  def commit_transaction(%Client{} = client, input, options \\ []) do
+    url_path = "/CommitTransaction"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates a data cell filter to allow one to grant access to certain columns on
+  certain rows.
+  """
+  def create_data_cells_filter(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateDataCellsFilter"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates an LF-tag with the specified name and values.
   """
   def create_l_f_tag(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateLFTag", input, options)
+    url_path = "/CreateLFTag"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
-  Deletes the specified tag key name.
+  Deletes a data cell filter.
+  """
+  def delete_data_cells_filter(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteDataCellsFilter"
+    headers = []
+    query_params = []
 
-  If the attribute key does not exist or the tag does not exist, then the
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes the specified LF-tag key name.
+
+  If the attribute key does not exist or the LF-tag does not exist, then the
   operation will not do anything. If the attribute key exists, then the operation
   checks if any resources are tagged with this attribute key, if yes, the API
-  throws a 400 Exception with the message "Delete not allowed" as the tag key is
-  still attached with resources. You can consider untagging resources with this
-  tag key.
+  throws a 400 Exception with the message "Delete not allowed" as the LF-tag key
+  is still attached with resources. You can consider untagging resources with this
+  LF-tag key.
   """
   def delete_l_f_tag(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteLFTag", input, options)
+    url_path = "/DeleteLFTag"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  For a specific governed table, provides a list of Amazon S3 objects that will be
+  written during the current transaction and that can be automatically deleted if
+  the transaction is canceled.
+
+  Without this call, no Amazon S3 objects are automatically deleted when a
+  transaction cancels.
+
+  The Glue ETL library function `write_dynamic_frame.from_catalog()` includes an
+  option to automatically call `DeleteObjectsOnCancel` before writes. For more
+  information, see [Rolling Back Amazon S3 Writes](https://docs.aws.amazon.com/lake-formation/latest/dg/transactions-data-operations.html#rolling-back-writes).
+  """
+  def delete_objects_on_cancel(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteObjectsOnCancel"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -76,15 +266,89 @@ defmodule AWS.LakeFormation do
   policy attached to your service-linked role.
   """
   def deregister_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterResource", input, options)
+    url_path = "/DeregisterResource"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
-  Retrieves the current data access role for the given resource registered in AWS
-  Lake Formation.
+  Retrieves the current data access role for the given resource registered in Lake
+  Formation.
   """
   def describe_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeResource", input, options)
+    url_path = "/DescribeResource"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns the details of a single transaction.
+  """
+  def describe_transaction(%Client{} = client, input, options \\ []) do
+    url_path = "/DescribeTransaction"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Indicates to the service that the specified transaction is still active and
+  should not be treated as idle and aborted.
+
+  Write transactions that remain idle for a long period are automatically aborted
+  unless explicitly extended.
+  """
+  def extend_transaction(%Client{} = client, input, options \\ []) do
+    url_path = "/ExtendTransaction"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -92,7 +356,21 @@ defmodule AWS.LakeFormation do
   data lake.
   """
   def get_data_lake_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDataLakeSettings", input, options)
+    url_path = "/GetDataLakeSettings"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -103,21 +381,176 @@ defmodule AWS.LakeFormation do
   catalog is encrypted.
   """
   def get_effective_permissions_for_path(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetEffectivePermissionsForPath", input, options)
+    url_path = "/GetEffectivePermissionsForPath"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
-  Returns a tag definition.
+  Returns an LF-tag definition.
   """
   def get_l_f_tag(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetLFTag", input, options)
+    url_path = "/GetLFTag"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
-  Returns the tags applied to a resource.
+  Returns the state of a query previously submitted.
+
+  Clients are expected to poll `GetQueryState` to monitor the current state of the
+  planning before retrieving the work units. A query state is only visible to the
+  principal that made the initial call to `StartQueryPlanning`.
+  """
+  def get_query_state(%Client{} = client, input, options \\ []) do
+    url_path = "/GetQueryState"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves statistics on the planning and execution of a query.
+  """
+  def get_query_statistics(%Client{} = client, input, options \\ []) do
+    url_path = "/GetQueryStatistics"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the LF-tags applied to a resource.
   """
   def get_resource_l_f_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetResourceLFTags", input, options)
+    url_path = "/GetResourceLFTags"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns the set of Amazon S3 objects that make up the specified governed table.
+
+  A transaction ID or timestamp can be specified for time-travel queries.
+  """
+  def get_table_objects(%Client{} = client, input, options \\ []) do
+    url_path = "/GetTableObjects"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns the work units resulting from the query.
+
+  Work units can be executed in any order and in parallel.
+  """
+  def get_work_unit_results(%Client{} = client, input, options \\ []) do
+    url_path = "/GetWorkUnitResults"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves the work units generated by the `StartQueryPlanning` operation.
+  """
+  def get_work_units(%Client{} = client, input, options \\ []) do
+    url_path = "/GetWorkUnits"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -128,14 +561,63 @@ defmodule AWS.LakeFormation do
   Data](https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
   """
   def grant_permissions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GrantPermissions", input, options)
+    url_path = "/GrantPermissions"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
-  Lists tags that the requester has permission to view.
+  Lists all the data cell filters on a table.
+  """
+  def list_data_cells_filter(%Client{} = client, input, options \\ []) do
+    url_path = "/ListDataCellsFilter"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists LF-tags that the requester has permission to view.
   """
   def list_l_f_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListLFTags", input, options)
+    url_path = "/ListLFTags"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -151,14 +633,91 @@ defmodule AWS.LakeFormation do
   Data](https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
   """
   def list_permissions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPermissions", input, options)
+    url_path = "/ListPermissions"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the resources registered to be managed by the Data Catalog.
   """
   def list_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListResources", input, options)
+    url_path = "/ListResources"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns the configuration of all storage optimizers associated with a specified
+  table.
+  """
+  def list_table_storage_optimizers(%Client{} = client, input, options \\ []) do
+    url_path = "/ListTableStorageOptimizers"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns metadata about transactions and their status.
+
+  To prevent the response from growing indefinitely, only uncommitted transactions
+  and those available for time-travel queries are returned.
+
+  This operation can help you identify uncommitted transactions or to get
+  information about transactions.
+  """
+  def list_transactions(%Client{} = client, input, options \\ []) do
+    url_path = "/ListTransactions"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -172,7 +731,21 @@ defmodule AWS.LakeFormation do
   list and pass that list in this API.
   """
   def put_data_lake_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutDataLakeSettings", input, options)
+    url_path = "/PutDataLakeSettings"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -186,7 +759,7 @@ defmodule AWS.LakeFormation do
   inline policy and attaches it to the service-linked role. When you register
   subsequent paths, Lake Formation adds the path to the existing policy.
 
-  The following request registers a new location and gives AWS Lake Formation
+  The following request registers a new location and gives Lake Formation
   permission to use the service-linked role to access that location.
 
   `ResourceArn = arn:aws:s3:::my-bucket UseServiceLinkedRole = true`
@@ -197,17 +770,45 @@ defmodule AWS.LakeFormation do
   `arn:aws:iam::12345:role/my-data-access-role`
   """
   def register_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterResource", input, options)
+    url_path = "/RegisterResource"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
-  Removes a tag from the resource.
+  Removes an LF-tag from the resource.
 
   Only database, table, or tableWithColumns resource are allowed. To tag columns,
   use the column inclusion list in `tableWithColumns` to specify column input.
   """
   def remove_l_f_tags_from_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveLFTagsFromResource", input, options)
+    url_path = "/RemoveLFTagsFromResource"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -215,7 +816,21 @@ defmodule AWS.LakeFormation do
   data organized in underlying data storage such as Amazon S3.
   """
   def revoke_permissions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RevokePermissions", input, options)
+    url_path = "/RevokePermissions"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -227,39 +842,186 @@ defmodule AWS.LakeFormation do
   are valid to verify whether the returned resources can be shared.
   """
   def search_databases_by_l_f_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SearchDatabasesByLFTags", input, options)
+    url_path = "/SearchDatabasesByLFTags"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   This operation allows a search on `TABLE` resources by `LFTag`s.
 
   This will be used by admins who want to grant user permissions on certain
-  LFTags. Before making a grant, the admin can use `SearchTablesByLFTags` to find
+  LF-tags. Before making a grant, the admin can use `SearchTablesByLFTags` to find
   all resources where the given `LFTag`s are valid to verify whether the returned
   resources can be shared.
   """
   def search_tables_by_l_f_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SearchTablesByLFTags", input, options)
+    url_path = "/SearchTablesByLFTags"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
-  Updates the list of possible values for the specified tag key.
+  Submits a request to process a query statement.
 
-  If the tag does not exist, the operation throws an EntityNotFoundException. The
-  values in the delete key values will be deleted from list of possible values. If
-  any value in the delete key values is attached to a resource, then API errors
-  out with a 400 Exception - "Update not allowed". Untag the attribute before
-  deleting the tag key's value.
+  This operation generates work units that can be retrieved with the
+  `GetWorkUnits` operation as soon as the query state is WORKUNITS_AVAILABLE or
+  FINISHED.
+  """
+  def start_query_planning(%Client{} = client, input, options \\ []) do
+    url_path = "/StartQueryPlanning"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts a new transaction and returns its transaction ID.
+
+  Transaction IDs are opaque objects that you can use to identify a transaction.
+  """
+  def start_transaction(%Client{} = client, input, options \\ []) do
+    url_path = "/StartTransaction"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates the list of possible values for the specified LF-tag key.
+
+  If the LF-tag does not exist, the operation throws an EntityNotFoundException.
+  The values in the delete key values will be deleted from list of possible
+  values. If any value in the delete key values is attached to a resource, then
+  API errors out with a 400 Exception - "Update not allowed". Untag the attribute
+  before deleting the LF-tag key's value.
   """
   def update_l_f_tag(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateLFTag", input, options)
+    url_path = "/UpdateLFTag"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates the data access role used for vending access to the given (registered)
-  resource in AWS Lake Formation.
+  resource in Lake Formation.
   """
   def update_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateResource", input, options)
+    url_path = "/UpdateResource"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates the manifest of Amazon S3 objects that make up the specified governed
+  table.
+  """
+  def update_table_objects(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateTableObjects"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates the configuration of the storage optimizers for a table.
+  """
+  def update_table_storage_optimizer(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateTableStorageOptimizer"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

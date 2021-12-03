@@ -57,11 +57,12 @@ defmodule AWS.Route53 do
   To perform the association, the VPC and the private hosted zone must already
   exist. You can't convert a public hosted zone into a private hosted zone.
 
-  If you want to associate a VPC that was created by using one AWS account with a
-  private hosted zone that was created by using a different account, the AWS
-  account that created the private hosted zone must first submit a
-  `CreateVPCAssociationAuthorization` request. Then the account that created the
-  VPC must submit an `AssociateVPCWithHostedZone` request.
+  If you want to associate a VPC that was created by using one Amazon Web Services
+  account with a private hosted zone that was created by using a different
+  account, the Amazon Web Services account that created the private hosted zone
+  must first submit a `CreateVPCAssociationAuthorization` request. Then the
+  account that created the VPC must submit an `AssociateVPCWithHostedZone`
+  request.
   """
   def associate_vpc_with_hosted_zone(%Client{} = client, hosted_zone_id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/associatevpc"
@@ -137,9 +138,9 @@ defmodule AWS.Route53 do
     * `DELETE`: Deletes an existing resource record set that has the
   specified values.
 
-    * `UPSERT`: If a resource record set does not already exist, AWS
-  creates it. If a resource set does exist, Route 53 updates it with the values in
-  the request.
+    * `UPSERT`: If a resource record set does not already exist, Amazon
+  Web Services creates it. If a resource set does exist, Route 53 updates it with
+  the values in the request.
 
   ## Syntaxes for Creating, Updating, and Deleting Resource Record Sets
 
@@ -188,7 +189,7 @@ defmodule AWS.Route53 do
   Adds, edits, or deletes tags for a health check or a hosted zone.
 
   For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
-  in the *AWS Billing and Cost Management User Guide*.
+  in the *Billing and Cost Management User Guide*.
   """
   def change_tags_for_resource(
         %Client{} = client,
@@ -406,8 +407,9 @@ defmodule AWS.Route53 do
 
        You must create the log group in the us-east-1 region.
 
-       You must use the same AWS account to create the log
-  group and the hosted zone that you want to configure query logging for.
+       You must use the same Amazon Web Services account to
+  create the log group and the hosted zone that you want to configure query
+  logging for.
 
        When you create log groups for query logging, we
   recommend that you use a consistent prefix, for example:
@@ -415,10 +417,11 @@ defmodule AWS.Route53 do
   `/aws/route53/*hosted zone name* `
 
   In the next step, you'll create a resource policy, which controls access to one
-  or more log groups and the associated AWS resources, such as Route 53 hosted
-  zones. There's a limit on the number of resource policies that you can create,
-  so we recommend that you use a consistent prefix so you can use the same
-  resource policy for all the log groups that you create for query logging.
+  or more log groups and the associated Amazon Web Services resources, such as
+  Route 53 hosted zones. There's a limit on the number of resource policies that
+  you can create, so we recommend that you use a consistent prefix so you can use
+  the same resource policy for all the log groups that you create for query
+  logging.
 
      Create a CloudWatch Logs resource policy, and give it the
   permissions that Route 53 needs to create log streams and to send query logs to
@@ -430,7 +433,7 @@ defmodule AWS.Route53 do
   `arn:aws:logs:us-east-1:123412341234:log-group:/aws/route53/*`
 
   You can't use the CloudWatch console to create or edit a resource policy. You
-  must use the CloudWatch API, one of the AWS SDKs, or the AWS CLI.
+  must use the CloudWatch API, one of the Amazon Web Services SDKs, or the CLI.
 
   ### Log Streams and Edge Locations
 
@@ -511,7 +514,7 @@ defmodule AWS.Route53 do
 
   @doc """
   Creates a delegation set (a group of four name servers) that can be reused by
-  multiple hosted zones that were created by the same AWS account.
+  multiple hosted zones that were created by the same Amazon Web Services account.
 
   You can also create a reusable delegation set that uses the four name servers
   that are associated with an existing hosted zone. Specify the hosted zone ID in
@@ -685,9 +688,9 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Authorizes the AWS account that created a specified VPC to submit an
-  `AssociateVPCWithHostedZone` request to associate the VPC with a specified
-  hosted zone that was created by a different account.
+  Authorizes the Amazon Web Services account that created a specified VPC to
+  submit an `AssociateVPCWithHostedZone` request to associate the VPC with a
+  specified hosted zone that was created by a different account.
 
   To submit a `CreateVPCAssociationAuthorization` request, you must use the
   account that created the hosted zone. After you authorize the association, use
@@ -760,7 +763,7 @@ defmodule AWS.Route53 do
   information, see [Replacing and Deleting Health Checks](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html#health-checks-deleting.html)
   in the *Amazon Route 53 Developer Guide*.
 
-  If you're using AWS Cloud Map and you configured Cloud Map to create a Route 53
+  If you're using Cloud Map and you configured Cloud Map to create a Route 53
   health check when you register an instance, you can't use the Route 53
   `DeleteHealthCheck` command to delete the health check. The health check is
   deleted automatically when you deregister the instance; there can be a delay of
@@ -787,7 +790,7 @@ defmodule AWS.Route53 do
   @doc """
   Deletes a hosted zone.
 
-  If the hosted zone was created by another service, such as AWS Cloud Map, see
+  If the hosted zone was created by another service, such as Cloud Map, see
   [Deleting Public Hosted Zones That Were Created by Another Service](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html#delete-public-hosted-zone-created-by-another-service)
   in the *Amazon Route 53 Developer Guide* for information about how to delete it.
   (The process is the same for public and private hosted zones that were created
@@ -830,7 +833,7 @@ defmodule AWS.Route53 do
   hosted zone.
 
     * Use the `ListHostedZones` action to get a list of the hosted zones
-  associated with the current AWS account.
+  associated with the current Amazon Web Services account.
   """
   def delete_hosted_zone(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(id)}"
@@ -1001,9 +1004,9 @@ defmodule AWS.Route53 do
   You must use the account that created the hosted zone to submit a
   `DeleteVPCAssociationAuthorization` request.
 
-  Sending this request only prevents the AWS account that created the VPC from
-  associating the VPC with the Amazon Route 53 hosted zone in the future. If the
-  VPC is already associated with the hosted zone,
+  Sending this request only prevents the Amazon Web Services account that created
+  the VPC from associating the VPC with the Amazon Route 53 hosted zone in the
+  future. If the VPC is already associated with the hosted zone,
   `DeleteVPCAssociationAuthorization` won't disassociate the VPC from the hosted
   zone. If you want to delete an existing association, use
   `DisassociateVPCFromHostedZone`.
@@ -1072,11 +1075,11 @@ defmodule AWS.Route53 do
   either the account that created the hosted zone or the account that created the
   Amazon VPC.
 
-    * Some services, such as AWS Cloud Map and Amazon Elastic File
-  System (Amazon EFS) automatically create hosted zones and associate VPCs with
-  the hosted zones. A service can create a hosted zone using your account or using
-  its own account. You can disassociate a VPC from a hosted zone only if the
-  service created the hosted zone using your account.
+    * Some services, such as Cloud Map and Amazon Elastic File System
+  (Amazon EFS) automatically create hosted zones and associate VPCs with the
+  hosted zones. A service can create a hosted zone using your account or using its
+  own account. You can disassociate a VPC from a hosted zone only if the service
+  created the hosted zone using your account.
 
   When you run
   [DisassociateVPCFromHostedZone](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZonesByVPC.html),
@@ -1131,8 +1134,9 @@ defmodule AWS.Route53 do
   [Limits](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html) in the *Amazon Route 53 Developer Guide*. To request a higher limit, [open a
   case](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-route53).
 
-  You can also view account limits in AWS Trusted Advisor. Sign in to the AWS
-  Management Console and open the Trusted Advisor console at
+  You can also view account limits in Amazon Web Services Trusted Advisor. Sign in
+  to the Amazon Web Services Management Console and open the Trusted Advisor
+  console at
   [https://console.aws.amazon.com/trustedadvisor/](https://console.aws.amazon.com/trustedadvisor).
   Then choose **Service limits** in the navigation pane.
   """
@@ -1189,8 +1193,8 @@ defmodule AWS.Route53 do
   information that is already available to the public.
 
   `GetCheckerIpRanges` still works, but we recommend that you download
-  ip-ranges.json, which includes IP address ranges for all AWS services. For more
-  information, see [IP Address Ranges of Amazon Route 53 Servers](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html)
+  ip-ranges.json, which includes IP address ranges for all Amazon Web Services
+  services. For more information, see [IP Address Ranges of Amazon Route 53 Servers](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html)
   in the *Amazon Route 53 Developer Guide*.
   """
   def get_checker_ip_ranges(%Client{} = client, options \\ []) do
@@ -1324,8 +1328,8 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Retrieves the number of health checks that are associated with the current AWS
-  account.
+  Retrieves the number of health checks that are associated with the current
+  Amazon Web Services account.
   """
   def get_health_check_count(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/healthcheckcount"
@@ -1368,6 +1372,10 @@ defmodule AWS.Route53 do
 
   @doc """
   Gets status of a specified health check.
+
+  This API is intended for use during development to diagnose behavior. It doesn’t
+  support production use-cases with high query rates that require immediate and
+  actionable responses.
   """
   def get_health_check_status(%Client{} = client, health_check_id, options \\ []) do
     url_path = "/2013-04-01/healthcheck/#{AWS.Util.encode_uri(health_check_id)}/status"
@@ -1410,8 +1418,8 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Retrieves the number of hosted zones that are associated with the current AWS
-  account.
+  Retrieves the number of hosted zones that are associated with the current Amazon
+  Web Services account.
   """
   def get_hosted_zone_count(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/hostedzonecount"
@@ -1596,7 +1604,7 @@ defmodule AWS.Route53 do
 
   @doc """
   Gets the number of traffic policy instances that are associated with the current
-  AWS account.
+  Amazon Web Services account.
   """
   def get_traffic_policy_instance_count(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/trafficpolicyinstancecount"
@@ -1685,8 +1693,8 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Retrieve a list of the health checks that are associated with the current AWS
-  account.
+  Retrieve a list of the health checks that are associated with the current Amazon
+  Web Services account.
   """
   def list_health_checks(%Client{} = client, marker \\ nil, max_items \\ nil, options \\ []) do
     url_path = "/2013-04-01/healthcheck"
@@ -1722,7 +1730,7 @@ defmodule AWS.Route53 do
 
   @doc """
   Retrieves a list of the public and private hosted zones that are associated with
-  the current AWS account.
+  the current Amazon Web Services account.
 
   The response includes a `HostedZones` child element for each hosted zone.
 
@@ -1779,7 +1787,7 @@ defmodule AWS.Route53 do
   Retrieves a list of your hosted zones in lexicographic order.
 
   The response includes a `HostedZones` child element for each hosted zone created
-  by the current AWS account.
+  by the current Amazon Web Services account.
 
   `ListHostedZonesByName` sorts hosted zones by name with the labels reversed. For
   example:
@@ -1815,7 +1823,7 @@ defmodule AWS.Route53 do
   current response.
 
     * If the value of `IsTruncated` in the response is true, there are
-  more hosted zones associated with the current AWS account.
+  more hosted zones associated with the current Amazon Web Services account.
 
   If `IsTruncated` is false, this response includes the last hosted zone that is
   associated with the current account. The `NextDNSName` element and
@@ -1823,10 +1831,10 @@ defmodule AWS.Route53 do
 
     * The `NextDNSName` and `NextHostedZoneId` elements in the response
   contain the domain name and the hosted zone ID of the next hosted zone that is
-  associated with the current AWS account. If you want to list more hosted zones,
-  make another call to `ListHostedZonesByName`, and specify the value of
-  `NextDNSName` and `NextHostedZoneId` in the `dnsname` and `hostedzoneid`
-  parameters, respectively.
+  associated with the current Amazon Web Services account. If you want to list
+  more hosted zones, make another call to `ListHostedZonesByName`, and specify the
+  value of `NextDNSName` and `NextHostedZoneId` in the `dnsname` and
+  `hostedzoneid` parameters, respectively.
   """
   def list_hosted_zones_by_name(
         %Client{} = client,
@@ -1875,19 +1883,21 @@ defmodule AWS.Route53 do
 
   @doc """
   Lists all the private hosted zones that a specified VPC is associated with,
-  regardless of which AWS account or AWS service owns the hosted zones.
+  regardless of which Amazon Web Services account or Amazon Web Services service
+  owns the hosted zones.
 
   The `HostedZoneOwner` structure in the response contains one of the following
   values:
 
     * An `OwningAccount` element, which contains the account number of
-  either the current AWS account or another AWS account. Some services, such as
-  AWS Cloud Map, create hosted zones using the current account.
+  either the current Amazon Web Services account or another Amazon Web Services
+  account. Some services, such as Cloud Map, create hosted zones using the current
+  account.
 
-    * An `OwningService` element, which identifies the AWS service that
-  created and owns the hosted zone. For example, if a hosted zone was created by
-  Amazon Elastic File System (Amazon EFS), the value of `Owner` is
-  `efs.amazonaws.com`.
+    * An `OwningService` element, which identifies the Amazon Web
+  Services service that created and owns the hosted zone. For example, if a hosted
+  zone was created by Amazon Elastic File System (Amazon EFS), the value of
+  `Owner` is `efs.amazonaws.com`.
   """
   def list_hosted_zones_by_vpc(
         %Client{} = client,
@@ -1944,8 +1954,8 @@ defmodule AWS.Route53 do
 
   @doc """
   Lists the configurations for DNS query logging that are associated with the
-  current AWS account or the configuration that is associated with a specified
-  hosted zone.
+  current Amazon Web Services account or the configuration that is associated with
+  a specified hosted zone.
 
   For more information about DNS query logs, see
   [CreateQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html). Additional information, including the format of DNS query logs, appears in
@@ -2125,7 +2135,7 @@ defmodule AWS.Route53 do
 
   @doc """
   Retrieves a list of the reusable delegation sets that are associated with the
-  current AWS account.
+  current Amazon Web Services account.
   """
   def list_reusable_delegation_sets(
         %Client{} = client,
@@ -2168,7 +2178,7 @@ defmodule AWS.Route53 do
   Lists tags for one health check or hosted zone.
 
   For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
-  in the *AWS Billing and Cost Management User Guide*.
+  in the *Billing and Cost Management User Guide*.
   """
   def list_tags_for_resource(%Client{} = client, resource_id, resource_type, options \\ []) do
     url_path =
@@ -2194,7 +2204,7 @@ defmodule AWS.Route53 do
   Lists tags for up to 10 health checks or hosted zones.
 
   For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
-  in the *AWS Billing and Cost Management User Guide*.
+  in the *Billing and Cost Management User Guide*.
   """
   def list_tags_for_resources(%Client{} = client, resource_type, input, options \\ []) do
     url_path = "/2013-04-01/tags/#{AWS.Util.encode_uri(resource_type)}"
@@ -2216,7 +2226,7 @@ defmodule AWS.Route53 do
 
   @doc """
   Gets information about the latest version for every traffic policy that is
-  associated with the current AWS account.
+  associated with the current Amazon Web Services account.
 
   Policies are listed in the order that they were created in.
 
@@ -2263,7 +2273,7 @@ defmodule AWS.Route53 do
 
   @doc """
   Gets information about the traffic policy instances that you created by using
-  the current AWS account.
+  the current Amazon Web Services account.
 
   After you submit an `UpdateTrafficPolicyInstance` request, there's a brief delay
   while Amazon Route 53 creates the resource record sets that are specified in the

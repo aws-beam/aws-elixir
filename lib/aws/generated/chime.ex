@@ -8,9 +8,10 @@ defmodule AWS.Chime do
   accounts, users, and Voice Connectors.
 
   This guide provides detailed information about the Amazon Chime API, including
-  operations, types, inputs and outputs, and error codes. It also includes some
-  server-side API actions to use with the Amazon Chime SDK. For more information
-  about the Amazon Chime SDK, see [ Using the Amazon Chime SDK
+  operations, types, inputs and outputs, and error codes. It also includes API
+  actions for use with the Amazon Chime SDK, which developers use to build their
+  own communication applications. For more information about the Amazon Chime SDK,
+  see [ Using the Amazon Chime SDK
   ](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the *Amazon
   Chime Developer Guide*.
 
@@ -1903,7 +1904,7 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Returns the full details of an `AppInstanceUser` .
+  Returns the full details of an `AppInstanceUser`.
   """
   def describe_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
@@ -5177,6 +5178,48 @@ defmodule AWS.Chime do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Starts transcription for the specified `meetingId`.
+  """
+  def start_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
+    url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=start"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Stops transcription for the specified `meetingId`.
+  """
+  def stop_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
+    url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=stop"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
     )
   end
 

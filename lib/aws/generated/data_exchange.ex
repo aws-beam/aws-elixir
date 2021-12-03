@@ -70,6 +70,27 @@ defmodule AWS.DataExchange do
   end
 
   @doc """
+  This operation creates an event action.
+  """
+  def create_event_action(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/event-actions"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   This operation creates a job.
   """
   def create_job(%Client{} = client, input, options \\ []) do
@@ -156,6 +177,27 @@ defmodule AWS.DataExchange do
   end
 
   @doc """
+  This operation deletes the event action.
+  """
+  def delete_event_action(%Client{} = client, event_action_id, input, options \\ []) do
+    url_path = "/v1/event-actions/#{AWS.Util.encode_uri(event_action_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   This operation deletes a revision.
   """
   def delete_revision(%Client{} = client, data_set_id, revision_id, input, options \\ []) do
@@ -206,6 +248,27 @@ defmodule AWS.DataExchange do
   """
   def get_data_set(%Client{} = client, data_set_id, options \\ []) do
     url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  This operation retrieves information about an event action.
+  """
+  def get_event_action(%Client{} = client, event_action_id, options \\ []) do
+    url_path = "/v1/event-actions/#{AWS.Util.encode_uri(event_action_id)}"
     headers = []
     query_params = []
 
@@ -361,6 +424,54 @@ defmodule AWS.DataExchange do
   end
 
   @doc """
+  This operation lists your event actions.
+  """
+  def list_event_actions(
+        %Client{} = client,
+        event_source_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/event-actions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(event_source_id) do
+        [{"eventSourceId", event_source_id} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
   This operation lists your jobs sorted by CreatedAt in descending order.
   """
   def list_jobs(
@@ -483,6 +594,57 @@ defmodule AWS.DataExchange do
   end
 
   @doc """
+  This operation invokes an API Gateway API asset.
+
+  The request is proxied to the provider’s API Gateway API.
+  """
+  def send_api_asset(%Client{} = client, input, options \\ []) do
+    url_path = "/v1"
+
+    {headers, input} =
+      [
+        {"AssetId", "x-amzn-dataexchange-asset-id"},
+        {"DataSetId", "x-amzn-dataexchange-data-set-id"},
+        {"Method", "x-amzn-dataexchange-http-method"},
+        {"Path", "x-amzn-dataexchange-path"},
+        {"RevisionId", "x-amzn-dataexchange-revision-id"}
+      ]
+      |> Request.build_params(input)
+
+    {query_params, input} =
+      [
+        {"QueryStringParameters", ""}
+      ]
+      |> Request.build_params(input)
+
+    options =
+      Keyword.put(
+        options,
+        :send_body_as_binary?,
+        true
+      )
+
+    options =
+      Keyword.put(
+        options,
+        :receive_body_as_binary?,
+        true
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   This operation starts a job.
   """
   def start_job(%Client{} = client, job_id, input, options \\ []) do
@@ -578,6 +740,27 @@ defmodule AWS.DataExchange do
   """
   def update_data_set(%Client{} = client, data_set_id, input, options \\ []) do
     url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  This operation updates the event action.
+  """
+  def update_event_action(%Client{} = client, event_action_id, input, options \\ []) do
+    url_path = "/v1/event-actions/#{AWS.Util.encode_uri(event_action_id)}"
     headers = []
     query_params = []
 

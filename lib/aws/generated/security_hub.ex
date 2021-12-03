@@ -4,41 +4,42 @@
 defmodule AWS.SecurityHub do
   @moduledoc """
   Security Hub provides you with a comprehensive view of the security state of
-  your AWS environment and resources.
+  your Amazon Web Services environment and resources.
 
   It also provides you with the readiness status of your environment based on
   controls from supported security standards. Security Hub collects security data
-  from AWS accounts, services, and integrated third-party products and helps you
-  analyze security trends in your environment to identify the highest priority
-  security issues. For more information about Security Hub, see the * [AWS Security Hub User
-  Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html)
+  from Amazon Web Services accounts, services, and integrated third-party products
+  and helps you analyze security trends in your environment to identify the
+  highest priority security issues. For more information about Security Hub, see
+  the *Security Hub[User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html)
   *.
 
   When you use operations in the Security Hub API, the requests are executed only
-  in the AWS Region that is currently active or in the specific AWS Region that
-  you specify in your request. Any configuration or settings change that results
-  from the operation is applied only to that Region. To make the same change in
-  other Regions, execute the same command for each Region to apply the change to.
+  in the Amazon Web Services Region that is currently active or in the specific
+  Amazon Web Services Region that you specify in your request. Any configuration
+  or settings change that results from the operation is applied only to that
+  Region. To make the same change in other Regions, execute the same command for
+  each Region to apply the change to.
 
-  For example, if your Region is set to `us-west-2`, when you use `
-  `CreateMembers` ` to add a member account to Security Hub, the association of
-  the member account with the administrator account is created only in the
-  `us-west-2` Region. Security Hub must be enabled for the member account in the
-  same Region that the invitation was sent from.
+  For example, if your Region is set to `us-west-2`, when you use `CreateMembers`
+  to add a member account to Security Hub, the association of the member account
+  with the administrator account is created only in the `us-west-2` Region.
+  Security Hub must be enabled for the member account in the same Region that the
+  invitation was sent from.
 
   The following throttling limits apply to using Security Hub API operations.
 
-    * ` `BatchEnableStandards` ` - `RateLimit` of 1 request per second,
+    * `BatchEnableStandards` - `RateLimit` of 1 request per second,
   `BurstLimit` of 1 request per second.
 
-    * ` `GetFindings` ` - `RateLimit` of 3 requests per second.
-  `BurstLimit` of 6 requests per second.
+    * `GetFindings` - `RateLimit` of 3 requests per second. `BurstLimit`
+  of 6 requests per second.
 
-    * ` `UpdateFindings` ` - `RateLimit` of 1 request per second.
+    * `UpdateFindings` - `RateLimit` of 1 request per second.
   `BurstLimit` of 5 requests per second.
 
-    * ` `UpdateStandardsControl` ` - `RateLimit` of 1 request per
-  second, `BurstLimit` of 5 requests per second.
+    * `UpdateStandardsControl` - `RateLimit` of 1 request per second,
+  `BurstLimit` of 5 requests per second.
 
     * All other operations - `RateLimit` of 10 requests per second.
   `BurstLimit` of 30 requests per second.
@@ -134,7 +135,7 @@ defmodule AWS.SecurityHub do
   Disables the standards specified by the provided `StandardsSubscriptionArns`.
 
   For more information, see [Security Standards](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html)
-  section of the *AWS Security Hub User Guide*.
+  section of the *Security Hub User Guide*.
   """
   def batch_disable_standards(%Client{} = client, input, options \\ []) do
     url_path = "/standards/deregister"
@@ -157,10 +158,10 @@ defmodule AWS.SecurityHub do
   @doc """
   Enables the standards specified by the provided `StandardsArn`.
 
-  To obtain the ARN for a standard, use the ` `DescribeStandards` ` operation.
+  To obtain the ARN for a standard, use the `DescribeStandards` operation.
 
   For more information, see the [Security Standards](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html)
-  section of the *AWS Security Hub User Guide*.
+  section of the *Security Hub User Guide*.
   """
   def batch_enable_standards(%Client{} = client, input, options \\ []) do
     url_path = "/standards/register"
@@ -271,7 +272,7 @@ defmodule AWS.SecurityHub do
   You can configure IAM policies to restrict access to fields and field values.
   For example, you might not want member accounts to be able to suppress findings
   or change the finding severity. See [Configuring access to BatchUpdateFindings](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access)
-  in the *AWS Security Hub User Guide*.
+  in the *Security Hub User Guide*.
   """
   def batch_update_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings/batchupdate"
@@ -299,6 +300,32 @@ defmodule AWS.SecurityHub do
   """
   def create_action_target(%Client{} = client, input, options \\ []) do
     url_path = "/actionTargets"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Used to enable finding aggregation.
+
+  Must be called from the aggregation Region.
+
+  For more details about cross-Region replication, see [Configuring finding aggregation](securityhub/latest/userguide/finding-aggregation.html) in the
+  *Security Hub User Guide*.
+  """
+  def create_finding_aggregator(%Client{} = client, input, options \\ []) do
+    url_path = "/findingAggregator/create"
     headers = []
     query_params = []
 
@@ -351,32 +378,40 @@ defmodule AWS.SecurityHub do
   `CreateMembers` is always used to add accounts that are not organization
   members.
 
-  For accounts that are part of an organization, `CreateMembers` is only used in
-  the following cases:
+  For accounts that are managed using Organizations, `CreateMembers` is only used
+  in the following cases:
 
-    * Security Hub is not configured to automatically add new accounts
-  in an organization.
+    * Security Hub is not configured to automatically add new
+  organization accounts.
 
     * The account was disassociated or deleted in Security Hub.
 
   This action can only be used by an account that has Security Hub enabled. To
-  enable Security Hub, you can use the ` `EnableSecurityHub` ` operation.
+  enable Security Hub, you can use the `EnableSecurityHub` operation.
 
   For accounts that are not organization members, you create the account
   association and then send an invitation to the member account. To send the
-  invitation, you use the ` `InviteMembers` ` operation. If the account owner
-  accepts the invitation, the account becomes a member account in Security Hub.
+  invitation, you use the `InviteMembers` operation. If the account owner accepts
+  the invitation, the account becomes a member account in Security Hub.
 
-  Accounts that are part of an organization do not receive an invitation. They
+  Accounts that are managed using Organizations do not receive an invitation. They
   automatically become a member account in Security Hub.
 
+    * If the organization account does not have Security Hub enabled,
+  then Security Hub and the default standards are automatically enabled. Note that
+  Security Hub cannot be enabled automatically for the organization management
+  account. The organization management account must enable Security Hub before the
+  administrator account enables it as a member account.
+
+    * For organization accounts that already have Security Hub enabled,
+  Security Hub does not make any other changes to those accounts. It does not
+  change their enabled standards or controls.
+
   A permissions policy is added that permits the administrator account to view the
-  findings generated in the member account. When Security Hub is enabled in a
-  member account, the member account findings are also visible to the
-  administrator account.
+  findings generated in the member account.
 
   To remove the association between the administrator and member accounts, use the
-  ` `DisassociateFromMasterAccount` ` or ` `DisassociateMembers` ` operation.
+  `DisassociateFromMasterAccount` or `DisassociateMembers` operation.
   """
   def create_members(%Client{} = client, input, options \\ []) do
     url_path = "/members"
@@ -445,6 +480,35 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Deletes a finding aggregator.
+
+  When you delete the finding aggregator, you stop finding aggregation.
+
+  When you stop finding aggregation, findings that were already aggregated to the
+  aggregation Region are still visible from the aggregation Region. New findings
+  and finding updates are not aggregated.
+  """
+  def delete_finding_aggregator(%Client{} = client, finding_aggregator_arn, input, options \\ []) do
+    url_path =
+      "/findingAggregator/delete/#{AWS.Util.encode_multi_segment_uri(finding_aggregator_arn)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes the insight specified by the `InsightArn`.
   """
   def delete_insight(%Client{} = client, insight_arn, input, options \\ []) do
@@ -466,7 +530,8 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Deletes invitations received by the AWS account to become a member account.
+  Deletes invitations received by the Amazon Web Services account to become a
+  member account.
 
   This operation is only used by accounts that are not part of an organization.
   Organization accounts do not receive invitations.
@@ -962,9 +1027,9 @@ defmodule AWS.SecurityHub do
   When you use the `EnableSecurityHub` operation to enable Security Hub, you also
   automatically enable the following standards.
 
-    * CIS AWS Foundations
+    * CIS Amazon Web Services Foundations
 
-    * AWS Foundational Security Best Practices
+    * Amazon Web Services Foundational Security Best Practices
 
   You do not enable the Payment Card Industry Data Security Standard (PCI DSS)
   standard.
@@ -972,12 +1037,12 @@ defmodule AWS.SecurityHub do
   To not enable the automatically enabled standards, set `EnableDefaultStandards`
   to `false`.
 
-  After you enable Security Hub, to enable a standard, use the `
-  `BatchEnableStandards` ` operation. To disable a standard, use the `
-  `BatchDisableStandards` ` operation.
+  After you enable Security Hub, to enable a standard, use the
+  `BatchEnableStandards` operation. To disable a standard, use the
+  `BatchDisableStandards` operation.
 
-  To learn more, see [Setting Up AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html)
-  in the *AWS Security Hub User Guide*.
+  To learn more, see the [setup information](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html)
+  in the *Security Hub User Guide*.
   """
   def enable_security_hub(%Client{} = client, input, options \\ []) do
     url_path = "/accounts"
@@ -1044,7 +1109,34 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Returns the current finding aggregation configuration.
+  """
+  def get_finding_aggregator(%Client{} = client, finding_aggregator_arn, options \\ []) do
+    url_path =
+      "/findingAggregator/get/#{AWS.Util.encode_multi_segment_uri(finding_aggregator_arn)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns a list of findings that match the specified criteria.
+
+  If finding aggregation is enabled, then when you call `GetFindings` from the
+  aggregation Region, the results include all of the matching findings from both
+  the aggregation Region and the linked Regions.
   """
   def get_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings"
@@ -1194,14 +1286,14 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Invites other AWS accounts to become member accounts for the Security Hub
-  administrator account that the invitation is sent from.
+  Invites other Amazon Web Services accounts to become member accounts for the
+  Security Hub administrator account that the invitation is sent from.
 
   This operation is only used to invite accounts that do not belong to an
   organization. Organization accounts do not receive invitations.
 
-  Before you can use this action to invite a member, you must first use the `
-  `CreateMembers` ` action to create the member account in Security Hub.
+  Before you can use this action to invite a member, you must first use the
+  `CreateMembers` action to create the member account in Security Hub.
 
   When the account owner enables Security Hub and accepts the invitation to become
   a member account, the administrator account can view the findings generated from
@@ -1267,11 +1359,54 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Lists all Security Hub membership invitations that were sent to the current AWS
-  account.
+  If finding aggregation is enabled, then `ListFindingAggregators` returns the ARN
+  of the finding aggregator.
+
+  You can run this operation from any Region.
+  """
+  def list_finding_aggregators(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/findingAggregator/list"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists all Security Hub membership invitations that were sent to the current
+  Amazon Web Services account.
 
   This operation is only used by accounts that are managed by invitation. Accounts
-  that are managed using the integration with AWS Organizations do not receive
+  that are managed using the integration with Organizations do not receive
   invitations.
   """
   def list_invitations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
@@ -1473,6 +1608,33 @@ defmodule AWS.SecurityHub do
   """
   def update_action_target(%Client{} = client, action_target_arn, input, options \\ []) do
     url_path = "/actionTargets/#{AWS.Util.encode_multi_segment_uri(action_target_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates the finding aggregation configuration.
+
+  Used to update the Region linking mode and the list of included or excluded
+  Regions. You cannot use `UpdateFindingAggregator` to change the aggregation
+  Region.
+
+  You must run `UpdateFindingAggregator` from the current aggregation Region.
+  """
+  def update_finding_aggregator(%Client{} = client, input, options \\ []) do
+    url_path = "/findingAggregator/update"
     headers = []
     query_params = []
 

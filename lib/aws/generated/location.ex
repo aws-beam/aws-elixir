@@ -32,6 +32,8 @@ defmodule AWS.Location do
   This allows the tracker resource to communicate location data to the linked
   geofence collection.
 
+  You can associate up to five geofence collections to each tracker resource.
+
   Currently not supported — Cross-account configurations, such as creating
   associations between a tracker resource in one account and a geofence collection
   in another account.
@@ -104,11 +106,19 @@ defmodule AWS.Location do
   Evaluates device positions against the geofence geometries from a given geofence
   collection.
 
-  The evaluation determines if the device has entered or exited a geofenced area,
-  which publishes ENTER or EXIT geofence events to Amazon EventBridge.
+  This operation always returns an empty response because geofences are
+  asynchronously evaluated. The evaluation determines if the device has entered or
+  exited a geofenced area, and then publishes one of the following events to
+  Amazon EventBridge:
 
-  The last geofence that a device was observed within, if any, is tracked for 30
-  days after the most recent device position update
+    * `ENTER` if Amazon Location determines that the tracked device has
+  entered a geofenced area.
+
+    * `EXIT` if Amazon Location determines that the tracked device has
+  exited a geofenced area.
+
+  The last geofence that a device was observed within is tracked for 30 days after
+  the most recent device position update.
   """
   def batch_evaluate_geofences(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/positions"
@@ -129,7 +139,7 @@ defmodule AWS.Location do
   end
 
   @doc """
-  A batch request to retrieve all device positions.
+  Lists the latest device positions for requested devices.
   """
   def batch_get_device_position(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/get-positions"
@@ -175,12 +185,17 @@ defmodule AWS.Location do
   @doc """
   Uploads position update data for one or more devices to a tracker resource.
 
-  Amazon Location uses the data when reporting the last known device position and
-  position history.
+  Amazon Location uses the data when it reports the last known device position and
+  position history. Amazon Location retains location data for 30 days.
 
-  Only one position update is stored per sample time. Location data is sampled at
-  a fixed rate of one position per 30-second interval and retained for 30 days
-  before it's deleted.
+  Position updates are handled based on the `PositionFiltering` property of the
+  tracker. When `PositionFiltering` is set to `TimeBased`, updates are evaluated
+  against linked geofence collections, and location data is stored at a maximum of
+  one position per 30 second interval. If your update frequency is more often than
+  every 30 seconds, only one update per 30 seconds is stored for each unique
+  device ID. When `PositionFiltering` is set to `DistanceBased` filtering,
+  location data is stored and evaluated against linked geofence collections only
+  if the device has moved more than 30 m (98.4 ft).
   """
   def batch_update_device_position(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/positions"
@@ -205,7 +220,7 @@ defmodule AWS.Location do
   given the following required parameters: `DeparturePostiton` and
   `DestinationPosition`.
 
-  Requires that you first [create aroute calculator resource](https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html)
+  Requires that you first [create a route calculator resource](https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html).
 
   By default, a request that doesn't specify a departure time uses the best time
   of day to travel with the best traffic conditions when calculating the route.
@@ -217,10 +232,10 @@ defmodule AWS.Location do
   predictive traffic data at the given time.
 
   You can't specify both `DepartureTime` and `DepartureNow` in a single request.
-  Specifying both parameters returns an error message.
+  Specifying both parameters returns a validation error.
 
     * [Specifying a travel mode](https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode)
-  using TravelMode. This lets you specify additional route preference such as
+  using TravelMode. This lets you specify an additional route preference such as
   `CarModeOptions` if traveling by `Car`, or `TruckModeOptions` if traveling by
   `Truck`.
   """
@@ -286,8 +301,11 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Creates a place index resource in your AWS account, which supports functions
-  with geospatial data sourced from your chosen data provider.
+  Creates a place index resource in your AWS account.
+
+  Use a place index resource to geocode addresses and other text queries by using
+  the `SearchPlaceIndexForText` operation, and reverse geocode coordinates by
+  using the `SearchPlaceIndexForPosition` operation.
   """
   def create_place_index(%Client{} = client, input, options \\ []) do
     url_path = "/places/v0/indexes"
@@ -824,7 +842,7 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Lists the latest device positions for requested devices.
+  A batch request to retrieve all device positions.
   """
   def list_device_positions(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/list-positions"
@@ -950,7 +968,8 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Returns the tags for the specified Amazon Location Service resource.
+  Returns a list of tags that are applied to the specified Amazon Location
+  resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1063,12 +1082,14 @@ defmodule AWS.Location do
   Geocodes free-form text, such as an address, name, city, or region to allow you
   to search for Places or points of interest.
 
-  Includes the option to apply additional parameters to narrow your list of
-  results.
+  Optional parameters let you narrow your search results by bounding box or
+  country, or bias your search toward a specific position on the globe.
 
   You can search for places near a given position using `BiasPosition`, or filter
   results within a bounding box using `FilterBBox`. Providing both parameters
   simultaneously returns an error.
+
+  Search results are returned in order of highest to lowest relevance.
   """
   def search_place_index_for_text(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/text"
@@ -1096,16 +1117,13 @@ defmodule AWS.Location do
   them to scope user permissions, by granting a user permission to access or
   change only resources with certain tag values.
 
-  Tags don't have any semantic meaning to AWS and are interpreted strictly as
-  strings of characters.
-
-  You can use the `TagResource` action with an Amazon Location Service resource
+  You can use the `TagResource` operation with an Amazon Location Service resource
   that already has tags. If you specify a new tag key for the resource, this tag
   is appended to the tags already associated with the resource. If you specify a
-  tag key that is already associated with the resource, the new tag value that you
+  tag key that's already associated with the resource, the new tag value that you
   specify replaces the previous value for that tag.
 
-  You can associate as many as 50 tags with a resource.
+  You can associate up to 50 tags with a resource.
 
   `
   """
@@ -1128,7 +1146,7 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Removes one or more tags from the specified Amazon Location Service resource.
+  Removes one or more tags from the specified Amazon Location resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1144,6 +1162,111 @@ defmodule AWS.Location do
       client,
       metadata(),
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the specified properties of a given geofence collection.
+  """
+  def update_geofence_collection(%Client{} = client, collection_name, input, options \\ []) do
+    url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the specified properties of a given map resource.
+  """
+  def update_map(%Client{} = client, map_name, input, options \\ []) do
+    url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the specified properties of a given place index resource.
+  """
+  def update_place_index(%Client{} = client, index_name, input, options \\ []) do
+    url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the specified properties for a given route calculator resource.
+  """
+  def update_route_calculator(%Client{} = client, calculator_name, input, options \\ []) do
+    url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the specified properties of a given tracker resource.
+  """
+  def update_tracker(%Client{} = client, tracker_name, input, options \\ []) do
+    url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
       url_path,
       query_params,
       headers,

@@ -6,17 +6,17 @@ defmodule AWS.DevOpsGuru do
   Amazon DevOps Guru is a fully managed service that helps you identify anomalous
   behavior in business critical operational applications.
 
-  You specify the AWS resources that you want DevOps Guru to cover, then the
-  Amazon CloudWatch metrics and AWS CloudTrail events related to those resources
-  are analyzed. When anomalous behavior is detected, DevOps Guru creates an
-  *insight* that includes recommendations, related events, and related metrics
-  that can help you improve your operational applications. For more information,
-  see [What is Amazon DevOps Guru](https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html).
+  You specify the Amazon Web Services resources that you want DevOps Guru to
+  cover, then the Amazon CloudWatch metrics and Amazon Web Services CloudTrail
+  events related to those resources are analyzed. When anomalous behavior is
+  detected, DevOps Guru creates an *insight* that includes recommendations,
+  related events, and related metrics that can help you improve your operational
+  applications. For more information, see [What is Amazon DevOps Guru](https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html).
 
   You can specify 1 or 2 Amazon Simple Notification Service topics so you are
   notified every time a new insight is created. You can also enable DevOps Guru to
-  generate an OpsItem in AWS Systems Manager for each insight to help you manage
-  and track your work addressing insights.
+  generate an OpsItem in Amazon Web Services Systems Manager for each insight to
+  help you manage and track your work addressing insights.
 
   To learn about the DevOps Guru workflow, see [How DevOps Guru works](https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html#how-it-works).
   To learn about DevOps Guru concepts, see [Concepts in DevOps Guru](https://docs.aws.amazon.com/devops-guru/latest/userguide/concepts.html).
@@ -52,9 +52,10 @@ defmodule AWS.DevOpsGuru do
   required policy on your behalf to send notifications using Amazon SNS in your
   account. For more information, see [Permissions for cross account Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html).
 
-  If you use an Amazon SNS topic that is encrypted by an AWS Key Management
-  Service customer-managed key (CMK), then you must add permissions to the CMK.
-  For more information, see [Permissions for AWS KMS–encrypted Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html).
+  If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key
+  Management Service customer-managed key (CMK), then you must add permissions to
+  the CMK. For more information, see [Permissions for Amazon Web Services KMS–encrypted Amazon SNS
+  topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html).
   """
   def add_notification_channel(%Client{} = client, input, options \\ []) do
     url_path = "/channels"
@@ -76,9 +77,11 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Returns the number of open reactive insights, the number of open proactive
-  insights, and the number of metrics analyzed in your AWS account.
+  insights, and the number of metrics analyzed in your Amazon Web Services
+  account.
 
-  Use these numbers to gauge the health of operations in your AWS account.
+  Use these numbers to gauge the health of operations in your Amazon Web Services
+  account.
   """
   def describe_account_health(%Client{} = client, options \\ []) do
     url_path = "/accounts/health"
@@ -124,10 +127,17 @@ defmodule AWS.DevOpsGuru do
   @doc """
   Returns details about an anomaly that you specify using its ID.
   """
-  def describe_anomaly(%Client{} = client, id, options \\ []) do
+  def describe_anomaly(%Client{} = client, id, account_id \\ nil, options \\ []) do
     url_path = "/anomalies/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(account_id) do
+        [{"AccountId", account_id} | query_params]
+      else
+        query_params
+      end
 
     Request.request_rest(
       client,
@@ -143,8 +153,8 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Returns the most recent feedback submitted in the current AWS account and
-  Region.
+  Returns the most recent feedback submitted in the current Amazon Web Services
+  account and Region.
   """
   def describe_feedback(%Client{} = client, input, options \\ []) do
     url_path = "/feedback"
@@ -167,10 +177,17 @@ defmodule AWS.DevOpsGuru do
   @doc """
   Returns details about an insight that you specify using its ID.
   """
-  def describe_insight(%Client{} = client, id, options \\ []) do
+  def describe_insight(%Client{} = client, id, account_id \\ nil, options \\ []) do
     url_path = "/insights/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(account_id) do
+        [{"AccountId", account_id} | query_params]
+      else
+        query_params
+      end
 
     Request.request_rest(
       client,
@@ -186,14 +203,87 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
+  Returns active insights, predictive insights, and resource hours analyzed in
+  last hour.
+  """
+  def describe_organization_health(%Client{} = client, input, options \\ []) do
+    url_path = "/organization/health"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns an overview of your organization's history based on the specified time
+  range.
+
+  The overview includes the total reactive and proactive insights.
+  """
+  def describe_organization_overview(%Client{} = client, input, options \\ []) do
+    url_path = "/organization/overview"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Provides an overview of your system's health.
+
+  If additional member accounts are part of your organization, you can filter
+  those accounts using the `AccountIds` field.
+  """
+  def describe_organization_resource_collection_health(%Client{} = client, input, options \\ []) do
+    url_path = "/organization/health/resource-collection"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns the number of open proactive insights, open reactive insights, and the
   Mean Time to Recover (MTTR) for all closed insights in resource collections in
   your account.
 
-  You specify the type of AWS resources collection. The one type of AWS resource
-  collection supported is AWS CloudFormation stacks. DevOps Guru can be configured
-  to analyze only the AWS resources that are defined in the stacks. You can
-  specify up to 500 AWS CloudFormation stacks.
+  You specify the type of Amazon Web Services resources collection. The two types
+  of Amazon Web Services resource collections supported are Amazon Web Services
+  CloudFormation stacks and Amazon Web Services resources that contain the same
+  Amazon Web Services tag. DevOps Guru can be configured to analyze the Amazon Web
+  Services resources that are defined in the stacks or that are tagged using the
+  same tag *key*. You can specify up to 500 Amazon Web Services CloudFormation
+  stacks.
   """
   def describe_resource_collection_health(
         %Client{} = client,
@@ -230,8 +320,9 @@ defmodule AWS.DevOpsGuru do
   @doc """
   Returns the integration status of services that are integrated with DevOps Guru.
 
-  The one service that can be integrated with DevOps Guru is AWS Systems Manager,
-  which can be used to create an OpsItem for each generated insight.
+  The one service that can be integrated with DevOps Guru is Amazon Web Services
+  Systems Manager, which can be used to create an OpsItem for each generated
+  insight.
   """
   def describe_service_integration(%Client{} = client, options \\ []) do
     url_path = "/service-integrations"
@@ -252,8 +343,8 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Returns an estimate of the monthly cost for DevOps Guru to analyze your AWS
-  resources.
+  Returns an estimate of the monthly cost for DevOps Guru to analyze your Amazon
+  Web Services resources.
 
   For more information, see [Estimate your Amazon DevOps Guru costs](https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html)
   and [Amazon DevOps Guru pricing](http://aws.amazon.com/devops-guru/pricing/).
@@ -284,11 +375,15 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Returns lists AWS resources that are of the specified resource collection type.
+  Returns lists Amazon Web Services resources that are of the specified resource
+  collection type.
 
-  The one type of AWS resource collection supported is AWS CloudFormation stacks.
-  DevOps Guru can be configured to analyze only the AWS resources that are defined
-  in the stacks. You can specify up to 500 AWS CloudFormation stacks.
+  The two types of Amazon Web Services resource collections supported are Amazon
+  Web Services CloudFormation stacks and Amazon Web Services resources that
+  contain the same Amazon Web Services tag. DevOps Guru can be configured to
+  analyze the Amazon Web Services resources that are defined in the stacks or that
+  are tagged using the same tag *key*. You can specify up to 500 Amazon Web
+  Services CloudFormation stacks.
   """
   def get_resource_collection(
         %Client{} = client,
@@ -367,7 +462,7 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Returns a list of insights in your AWS account.
+  Returns a list of insights in your Amazon Web Services account.
 
   You can specify which insights are returned by their start time and status
   (`ONGOING`, `CLOSED`, or `ANY`).
@@ -400,6 +495,27 @@ defmodule AWS.DevOpsGuru do
   """
   def list_notification_channels(%Client{} = client, input, options \\ []) do
     url_path = "/channels"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a list of insights associated with the account or OU Id.
+  """
+  def list_organization_insights(%Client{} = client, input, options \\ []) do
+    url_path = "/organization/insights"
     headers = []
     query_params = []
 
@@ -486,7 +602,7 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Returns a list of insights in your AWS account.
+  Returns a list of insights in your Amazon Web Services account.
 
   You can specify which insights are returned by their start time, one or more
   statuses (`ONGOING`, `CLOSED`, and `CLOSED`), one or more severities (`LOW`,
@@ -514,8 +630,36 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Starts the creation of an estimate of the monthly cost to analyze your AWS
-  resources.
+  Returns a list of insights in your organization.
+
+  You can specify which insights are returned by their start time, one or more
+  statuses (`ONGOING`, `CLOSED`, and `CLOSED`), one or more severities (`LOW`,
+  `MEDIUM`, and `HIGH`), and type (`REACTIVE` or `PROACTIVE`).
+
+  Use the `Filters` parameter to specify status and severity search parameters.
+  Use the `Type` parameter to specify `REACTIVE` or `PROACTIVE` in your search.
+  """
+  def search_organization_insights(%Client{} = client, input, options \\ []) do
+    url_path = "/organization/insights/search"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts the creation of an estimate of the monthly cost to analyze your Amazon
+  Web Services resources.
   """
   def start_cost_estimation(%Client{} = client, input, options \\ []) do
     url_path = "/cost-estimation"
@@ -538,10 +682,13 @@ defmodule AWS.DevOpsGuru do
   @doc """
   Updates the collection of resources that DevOps Guru analyzes.
 
-  The one type of AWS resource collection supported is AWS CloudFormation stacks.
-  DevOps Guru can be configured to analyze only the AWS resources that are defined
-  in the stacks. You can specify up to 500 AWS CloudFormation stacks. This method
-  also creates the IAM role required for you to use DevOps Guru.
+  The two types of Amazon Web Services resource collections supported are Amazon
+  Web Services CloudFormation stacks and Amazon Web Services resources that
+  contain the same Amazon Web Services tag. DevOps Guru can be configured to
+  analyze the Amazon Web Services resources that are defined in the stacks or that
+  are tagged using the same tag *key*. You can specify up to 500 Amazon Web
+  Services CloudFormation stacks. This method also creates the IAM role required
+  for you to use DevOps Guru.
   """
   def update_resource_collection(%Client{} = client, input, options \\ []) do
     url_path = "/resource-collections"
@@ -565,8 +712,9 @@ defmodule AWS.DevOpsGuru do
   Enables or disables integration with a service that can be integrated with
   DevOps Guru.
 
-  The one service that can be integrated with DevOps Guru is AWS Systems Manager,
-  which can be used to create an OpsItem for each generated insight.
+  The one service that can be integrated with DevOps Guru is Amazon Web Services
+  Systems Manager, which can be used to create an OpsItem for each generated
+  insight.
   """
   def update_service_integration(%Client{} = client, input, options \\ []) do
     url_path = "/service-integrations"

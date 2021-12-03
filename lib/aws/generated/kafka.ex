@@ -89,6 +89,28 @@ defmodule AWS.Kafka do
   end
 
   @doc """
+  Creates a new Amazon MSK cluster of either the provisioned or the serverless
+  type.
+  """
+  def create_cluster_v2(%Client{} = client, input, options \\ []) do
+    url_path = "/api/v2/clusters"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a new MSK configuration.
   """
   def create_configuration(%Client{} = client, input, options \\ []) do
@@ -186,6 +208,28 @@ defmodule AWS.Kafka do
   """
   def describe_cluster_operation(%Client{} = client, cluster_operation_arn, options \\ []) do
     url_path = "/v1/operations/#{AWS.Util.encode_uri(cluster_operation_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a description of the MSK cluster of either the provisioned or the
+  serverless type whose Amazon Resource Name (ARN) is specified in the request.
+  """
+  def describe_cluster_v2(%Client{} = client, cluster_arn, options \\ []) do
+    url_path = "/api/v2/clusters/#{AWS.Util.encode_uri(cluster_arn)}"
     headers = []
     query_params = []
 
@@ -386,6 +430,62 @@ defmodule AWS.Kafka do
   end
 
   @doc """
+  Returns a list of all the MSK clusters in the current Region.
+  """
+  def list_clusters_v2(
+        %Client{} = client,
+        cluster_name_filter \\ nil,
+        cluster_type_filter \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/api/v2/clusters"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(cluster_type_filter) do
+        [{"clusterTypeFilter", cluster_type_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(cluster_name_filter) do
+        [{"clusterNameFilter", cluster_name_filter} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns a list of all the revisions of an MSK configuration.
   """
   def list_configuration_revisions(
@@ -467,7 +567,7 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Returns a list of Kafka versions.
+  Returns a list of Apache Kafka versions.
   """
   def list_kafka_versions(
         %Client{} = client,
@@ -810,6 +910,27 @@ defmodule AWS.Kafka do
   end
 
   @doc """
+  Updates the connectivity configuration for the cluster.
+  """
+  def update_connectivity(%Client{} = client, cluster_arn, input, options \\ []) do
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/connectivity"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates the monitoring settings for the cluster.
 
   You can use this operation to specify which Apache Kafka metrics you want Amazon
@@ -825,6 +946,28 @@ defmodule AWS.Kafka do
       client,
       metadata(),
       :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  You can use this operation to update the encrypting and authentication settings
+  for an existing cluster.
+  """
+  def update_security(%Client{} = client, cluster_arn, input, options \\ []) do
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/security"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
       url_path,
       query_params,
       headers,

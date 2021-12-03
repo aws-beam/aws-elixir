@@ -46,6 +46,15 @@ defmodule AWS.AppStream do
   end
 
   @doc """
+  Associates the specified application with the specified fleet.
+
+  This is only supported for Elastic fleets.
+  """
+  def associate_application_fleet(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateApplicationFleet", input, options)
+  end
+
+  @doc """
   Associates the specified fleet with the specified stack.
   """
   def associate_fleet(%Client{} = client, input, options \\ []) do
@@ -80,6 +89,37 @@ defmodule AWS.AppStream do
   end
 
   @doc """
+  Creates an app block.
+
+  App blocks are an Amazon AppStream 2.0 resource that stores the details about
+  the virtual hard disk in an S3 bucket. It also stores the setup script with
+  details about how to mount the virtual hard disk. The virtual hard disk includes
+  the application binaries and other files necessary to launch your applications.
+  Multiple applications can be assigned to a single app block.
+
+  This is only supported for Elastic fleets.
+  """
+  def create_app_block(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateAppBlock", input, options)
+  end
+
+  @doc """
+  Creates an application.
+
+  Applications are an Amazon AppStream 2.0 resource that stores the details about
+  how to launch applications on Elastic fleet streaming instances. An application
+  consists of the launch details, icon, and display name. Applications are
+  associated with an app block that contains the application binaries and other
+  files. The applications assigned to an Elastic fleet are the applications users
+  can launch.
+
+  This is only supported for Elastic fleets.
+  """
+  def create_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateApplication", input, options)
+  end
+
+  @doc """
   Creates a Directory Config object in AppStream 2.0.
 
   This object includes the configuration information required to join fleets and
@@ -92,7 +132,8 @@ defmodule AWS.AppStream do
   @doc """
   Creates a fleet.
 
-  A fleet consists of streaming instances that run a specified image.
+  A fleet consists of streaming instances that run a specified image when using
+  Always-On or On-Demand.
   """
   def create_fleet(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateFleet", input, options)
@@ -166,6 +207,20 @@ defmodule AWS.AppStream do
   end
 
   @doc """
+  Deletes an app block.
+  """
+  def delete_app_block(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAppBlock", input, options)
+  end
+
+  @doc """
+  Deletes an application.
+  """
+  def delete_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteApplication", input, options)
+  end
+
+  @doc """
   Deletes the specified Directory Config object from AppStream 2.0.
 
   This object includes the information required to join streaming instances to an
@@ -232,6 +287,35 @@ defmodule AWS.AppStream do
   """
   def delete_user(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteUser", input, options)
+  end
+
+  @doc """
+  Retrieves a list that describes one or more app blocks.
+  """
+  def describe_app_blocks(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAppBlocks", input, options)
+  end
+
+  @doc """
+  Retrieves a list that describes one or more application fleet associations.
+
+  Either ApplicationArn or FleetName must be specified.
+  """
+  def describe_application_fleet_associations(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeApplicationFleetAssociations",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Retrieves a list that describes one or more applications.
+  """
+  def describe_applications(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeApplications", input, options)
   end
 
   @doc """
@@ -348,6 +432,13 @@ defmodule AWS.AppStream do
   end
 
   @doc """
+  Disassociates the specified application from the fleet.
+  """
+  def disassociate_application_fleet(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateApplicationFleet", input, options)
+  end
+
+  @doc """
   Disassociates the specified fleet from the specified stack.
   """
   def disassociate_fleet(%Client{} = client, input, options \\ []) do
@@ -457,6 +548,13 @@ defmodule AWS.AppStream do
   end
 
   @doc """
+  Updates the specified application.
+  """
+  def update_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateApplication", input, options)
+  end
+
+  @doc """
   Updates the specified Directory Config object in AppStream 2.0.
 
   This object includes the configuration information required to join fleets and
@@ -470,10 +568,23 @@ defmodule AWS.AppStream do
   Updates the specified fleet.
 
   If the fleet is in the `STOPPED` state, you can update any attribute except the
-  fleet name. If the fleet is in the `RUNNING` state, you can update the
-  `DisplayName`, `ComputeCapacity`, `ImageARN`, `ImageName`,
+  fleet name.
+
+  If the fleet is in the `RUNNING` state, you can update the following based on
+  the fleet type:
+
+    * Always-On and On-Demand fleet types
+
+  You can update the `DisplayName`, `ComputeCapacity`, `ImageARN`, `ImageName`,
   `IdleDisconnectTimeoutInSeconds`, and `DisconnectTimeoutInSeconds` attributes.
-  If the fleet is in the `STARTING` or `STOPPING` state, you can't update it.
+
+    * Elastic fleet type
+
+  You can update the `DisplayName`, `IdleDisconnectTimeoutInSeconds`,
+  `DisconnectTimeoutInSeconds`, `MaxConcurrentSessions`, and
+  `UsbDeviceFilterStrings` attributes.
+
+  If the fleet is in the `STARTING` or `STOPPED` state, you can't update it.
   """
   def update_fleet(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateFleet", input, options)

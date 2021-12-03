@@ -3,19 +3,19 @@
 
 defmodule AWS.CloudWatchEvents do
   @moduledoc """
-  Amazon EventBridge helps you to respond to state changes in your AWS resources.
+  Amazon EventBridge helps you to respond to state changes in your Amazon Web
+  Services resources.
 
-  When your resources change state, they automatically send events into an event
+  When your resources change state, they automatically send events to an event
   stream. You can create rules that match selected events in the stream and route
   them to targets to take action. You can also use rules to take action on a
   predetermined schedule. For example, you can configure rules to:
 
-    * Automatically invoke an AWS Lambda function to update DNS entries
-  when an event notifies you that Amazon EC2 instance enters the running state.
+    * Automatically invoke an Lambda function to update DNS entries when
+  an event notifies you that Amazon EC2 instance enters the running state.
 
-    * Direct specific API records from AWS CloudTrail to an Amazon
-  Kinesis data stream for detailed analysis of potential security or availability
-  risks.
+    * Direct specific API records from CloudTrail to an Amazon Kinesis
+  data stream for detailed analysis of potential security or availability risks.
 
     * Periodically invoke a built-in target to create a snapshot of an
   Amazon EBS volume.
@@ -105,30 +105,31 @@ defmodule AWS.CloudWatchEvents do
   @doc """
   Called by an SaaS partner to create a partner event source.
 
-  This operation is not used by AWS customers.
+  This operation is not used by Amazon Web Services customers.
 
-  Each partner event source can be used by one AWS account to create a matching
-  partner event bus in that AWS account. A SaaS partner must create one partner
-  event source for each AWS account that wants to receive those event types.
+  Each partner event source can be used by one Amazon Web Services account to
+  create a matching partner event bus in that Amazon Web Services account. A SaaS
+  partner must create one partner event source for each Amazon Web Services
+  account that wants to receive those event types.
 
   A partner event source creates events based on resources within the SaaS
   partner's service or application.
 
-  An AWS account that creates a partner event bus that matches the partner event
-  source can use that event bus to receive events from the partner, and then
-  process them using AWS Events rules and targets.
+  An Amazon Web Services account that creates a partner event bus that matches the
+  partner event source can use that event bus to receive events from the partner,
+  and then process them using Amazon Web Services Events rules and targets.
 
   Partner event source names follow this format:
 
   ` *partner_name*/*event_namespace*/*event_name* `
 
   *partner_name* is determined during partner registration and identifies the
-  partner to AWS customers. *event_namespace* is determined by the partner and is
-  a way for the partner to categorize their events. *event_name* is determined by
-  the partner, and should uniquely identify an event-generating resource within
-  the partner system. The combination of *event_namespace* and *event_name* should
-  help AWS customers decide whether to create an event bus to receive these
-  events.
+  partner to Amazon Web Services customers. *event_namespace* is determined by the
+  partner and is a way for the partner to categorize their events. *event_name* is
+  determined by the partner, and should uniquely identify an event-generating
+  resource within the partner system. The combination of *event_namespace* and
+  *event_name* should help Amazon Web Services customers decide whether to create
+  an event bus to receive these events.
   """
   def create_partner_event_source(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreatePartnerEventSource", input, options)
@@ -143,7 +144,8 @@ defmodule AWS.CloudWatchEvents do
   When you deactivate a partner event source, the source goes into PENDING state.
   If it remains in PENDING state for more than two weeks, it is deleted.
 
-  To activate a deactivated partner event source, use `ActivateEventSource`.
+  To activate a deactivated partner event source, use
+  [ActivateEventSource](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ActivateEventSource.html).
   """
   def deactivate_event_source(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeactivateEventSource", input, options)
@@ -193,10 +195,10 @@ defmodule AWS.CloudWatchEvents do
   @doc """
   This operation is used by SaaS partners to delete a partner event source.
 
-  This operation is not used by AWS customers.
+  This operation is not used by Amazon Web Services customers.
 
   When you delete an event source, the status of the corresponding partner event
-  bus in the AWS customer account becomes DELETED.
+  bus in the Amazon Web Services customer account becomes DELETED.
   """
   def delete_partner_event_source(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeletePartnerEventSource", input, options)
@@ -206,7 +208,7 @@ defmodule AWS.CloudWatchEvents do
   Deletes the specified rule.
 
   Before you can delete the rule, you must remove all targets, using
-  `RemoveTargets`.
+  [RemoveTargets](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemoveTargets.html).
 
   When you delete a rule, incoming events might continue to match to the deleted
   rule. Allow a short period of time for changes to take effect.
@@ -215,11 +217,11 @@ defmodule AWS.CloudWatchEvents do
   succeed. When you call delete rule for a non-existent custom eventbus,
   `ResourceNotFoundException` is returned.
 
-  Managed rules are rules created and managed by another AWS service on your
-  behalf. These rules are created by those other AWS services to support
-  functionality in those services. You can delete these rules using the `Force`
-  option, but you should do so only if you are sure the other service is not still
-  using that rule.
+  Managed rules are rules created and managed by another Amazon Web Services
+  service on your behalf. These rules are created by those other Amazon Web
+  Services services to support functionality in those services. You can delete
+  these rules using the `Force` option, but you should do so only if you are sure
+  the other service is not still using that rule.
   """
   def delete_rule(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteRule", input, options)
@@ -249,15 +251,15 @@ defmodule AWS.CloudWatchEvents do
   @doc """
   Displays details about an event bus in your account.
 
-  This can include the external AWS accounts that are permitted to write events to
-  your default event bus, and the associated policy. For custom event buses and
-  partner event buses, it displays the name, ARN, policy, state, and creation
-  time.
+  This can include the external Amazon Web Services accounts that are permitted to
+  write events to your default event bus, and the associated policy. For custom
+  event buses and partner event buses, it displays the name, ARN, policy, state,
+  and creation time.
 
   To enable your account to receive events from other accounts on its default
-  event bus, use `PutPermission`.
-
-  For more information about partner event buses, see `CreateEventBus`.
+  event bus, use
+  [PutPermission](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPermission.html).  For more information about partner event buses, see
+  [CreateEventBus](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html).
   """
   def describe_event_bus(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeEventBus", input, options)
@@ -275,9 +277,10 @@ defmodule AWS.CloudWatchEvents do
   An SaaS partner can use this operation to list details about a partner event
   source that they have created.
 
-  AWS customers do not use this operation. Instead, AWS customers can use
-  `DescribeEventSource` to see details about a partner event source that is shared
-  with them.
+  Amazon Web Services customers do not use this operation. Instead, Amazon Web
+  Services customers can use
+  [DescribeEventSource](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventSource.html)
+  to see details about a partner event source that is shared with them.
   """
   def describe_partner_event_source(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribePartnerEventSource", input, options)
@@ -304,7 +307,8 @@ defmodule AWS.CloudWatchEvents do
   Describes the specified rule.
 
   DescribeRule does not list the targets of a rule. To see the targets associated
-  with a rule, use `ListTargetsByRule`.
+  with a rule, use
+  [ListTargetsByRule](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html).
   """
   def describe_rule(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeRule", input, options)
@@ -369,19 +373,20 @@ defmodule AWS.CloudWatchEvents do
 
   @doc """
   You can use this to see all the partner event sources that have been shared with
-  your AWS account.
+  your Amazon Web Services account.
 
-  For more information about partner event sources, see `CreateEventBus`.
+  For more information about partner event sources, see
+  [CreateEventBus](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html).
   """
   def list_event_sources(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListEventSources", input, options)
   end
 
   @doc """
-  An SaaS partner can use this operation to display the AWS account ID that a
-  particular partner event source name is associated with.
+  An SaaS partner can use this operation to display the Amazon Web Services
+  account ID that a particular partner event source name is associated with.
 
-  This operation is not used by AWS customers.
+  This operation is not used by Amazon Web Services customers.
   """
   def list_partner_event_source_accounts(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListPartnerEventSourceAccounts", input, options)
@@ -391,7 +396,7 @@ defmodule AWS.CloudWatchEvents do
   An SaaS partner can use this operation to list all the partner event source
   names that they have created.
 
-  This operation is not used by AWS customers.
+  This operation is not used by Amazon Web Services customers.
   """
   def list_partner_event_sources(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListPartnerEventSources", input, options)
@@ -424,7 +429,8 @@ defmodule AWS.CloudWatchEvents do
   rule names.
 
   ListRules does not list the targets of a rule. To see the targets associated
-  with a rule, use `ListTargetsByRule`.
+  with a rule, use
+  [ListTargetsByRule](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html).
   """
   def list_rules(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListRules", input, options)
@@ -456,15 +462,15 @@ defmodule AWS.CloudWatchEvents do
   @doc """
   This is used by SaaS partners to write events to a customer's partner event bus.
 
-  AWS customers do not use this operation.
+  Amazon Web Services customers do not use this operation.
   """
   def put_partner_events(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutPartnerEvents", input, options)
   end
 
   @doc """
-  Running `PutPermission` permits the specified AWS account or AWS organization to
-  put events to the specified *event bus*.
+  Running `PutPermission` permits the specified Amazon Web Services account or
+  Amazon Web Services organization to put events to the specified *event bus*.
 
   Amazon EventBridge (CloudWatch Events) rules in your account are triggered by
   these events arriving to an event bus in your account.
@@ -472,19 +478,20 @@ defmodule AWS.CloudWatchEvents do
   For another account to send events to your account, that external account must
   have an EventBridge rule with your account's event bus as a target.
 
-  To enable multiple AWS accounts to put events to your event bus, run
-  `PutPermission` once for each of these accounts. Or, if all the accounts are
-  members of the same AWS organization, you can run `PutPermission` once
-  specifying `Principal` as "*" and specifying the AWS organization ID in
-  `Condition`, to grant permissions to all accounts in that organization.
+  To enable multiple Amazon Web Services accounts to put events to your event bus,
+  run `PutPermission` once for each of these accounts. Or, if all the accounts are
+  members of the same Amazon Web Services organization, you can run
+  `PutPermission` once specifying `Principal` as "*" and specifying the Amazon Web
+  Services organization ID in `Condition`, to grant permissions to all accounts in
+  that organization.
 
   If you grant permissions using an organization, then accounts in that
   organization must specify a `RoleArn` with proper permissions when they use
   `PutTarget` to add your account's event bus as a target. For more information,
-  see [Sending and Receiving Events Between AWS Accounts](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html)
+  see [Sending and Receiving Events Between Amazon Web Services Accounts](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html)
   in the *Amazon EventBridge User Guide*.
 
-  The permission policy on the default event bus cannot exceed 10 KB in size.
+  The permission policy on the event bus cannot exceed 10 KB in size.
   """
   def put_permission(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutPermission", input, options)
@@ -494,14 +501,14 @@ defmodule AWS.CloudWatchEvents do
   Creates or updates the specified rule.
 
   Rules are enabled by default, or based on value of the state. You can disable a
-  rule using `DisableRule`.
-
-  A single rule watches for events from a single event bus. Events generated by
-  AWS services go to your account's default event bus. Events generated by SaaS
-  partner services or applications go to the matching partner event bus. If you
-  have custom applications or services, you can specify whether their events go to
-  your default event bus or a custom event bus that you have created. For more
-  information, see `CreateEventBus`.
+  rule using
+  [DisableRule](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DisableRule.html).  A single rule watches for events from a single event bus. Events generated by
+  Amazon Web Services services go to your account's default event bus. Events
+  generated by SaaS partner services or applications go to the matching partner
+  event bus. If you have custom applications or services, you can specify whether
+  their events go to your default event bus or a custom event bus that you have
+  created. For more information, see
+  [CreateEventBus](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html).
 
   If you are updating an existing rule, the rule is replaced with what you specify
   in this `PutRule` command. If you omit arguments in `PutRule`, the old values
@@ -525,13 +532,14 @@ defmodule AWS.CloudWatchEvents do
   permissions.
 
   If you are updating an existing rule, any tags you specify in the `PutRule`
-  operation are ignored. To update the tags of an existing rule, use `TagResource`
-  and `UntagResource`.
+  operation are ignored. To update the tags of an existing rule, use
+  [TagResource](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_TagResource.html) and
+  [UntagResource](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UntagResource.html).
 
-  Most services in AWS treat : or / as the same character in Amazon Resource Names
-  (ARNs). However, EventBridge uses an exact match in event patterns and rules. Be
-  sure to use the correct ARN characters when creating event patterns so that they
-  match the ARN syntax in the event you want to match.
+  Most services in Amazon Web Services treat : or / as the same character in
+  Amazon Resource Names (ARNs). However, EventBridge uses an exact match in event
+  patterns and rules. Be sure to use the correct ARN characters when creating
+  event patterns so that they match the ARN syntax in the event you want to match.
 
   In EventBridge, it is possible to create rules that lead to infinite loops,
   where a rule is fired repeatedly. For example, a rule might detect that ACLs
@@ -565,13 +573,13 @@ defmodule AWS.CloudWatchEvents do
 
     * API Gateway
 
-    * AWS Batch job queue
+    * Batch job queue
 
     * CloudWatch Logs group
 
     * CodeBuild project
 
-    * CodePineline
+    * CodePipeline
 
     * Amazon EC2 `CreateSnapshot` API call
 
@@ -583,7 +591,7 @@ defmodule AWS.CloudWatchEvents do
 
     * Amazon ECS tasks
 
-    * Event bus in a different AWS account or Region.
+    * Event bus in a different Amazon Web Services account or Region.
 
   You can use an event bus in the US East (N. Virginia) us-east-1, US West
   (Oregon) us-west-2, or Europe (Ireland) eu-west-1 Regions as a target for a
@@ -595,7 +603,7 @@ defmodule AWS.CloudWatchEvents do
 
     * Kinesis stream (Kinesis Data Stream)
 
-    * AWS Lambda function
+    * Lambda function
 
     * Redshift clusters (Data API statement execution)
 
@@ -611,7 +619,7 @@ defmodule AWS.CloudWatchEvents do
 
     * Step Functions state machines
 
-  Creating rules with built-in targets is supported only in the AWS Management
+  Creating rules with built-in targets is supported only in the Management
   Console. The built-in targets are `EC2 CreateSnapshot API call`, `EC2
   RebootInstances API call`, `EC2 StopInstances API call`, and `EC2
   TerminateInstances API call`.
@@ -623,34 +631,34 @@ defmodule AWS.CloudWatchEvents do
   field.
 
   To be able to make API calls against the resources that you own, Amazon
-  EventBridge (CloudWatch Events) needs the appropriate permissions. For AWS
-  Lambda and Amazon SNS resources, EventBridge relies on resource-based policies.
-  For EC2 instances, Kinesis data streams, AWS Step Functions state machines and
-  API Gateway REST APIs, EventBridge relies on IAM roles that you specify in the
-  `RoleARN` argument in `PutTargets`. For more information, see [Authentication and Access
-  Control](https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html)
+  EventBridge needs the appropriate permissions. For Lambda and Amazon SNS
+  resources, EventBridge relies on resource-based policies. For EC2 instances,
+  Kinesis Data Streams, Step Functions state machines and API Gateway REST APIs,
+  EventBridge relies on IAM roles that you specify in the `RoleARN` argument in
+  `PutTargets`. For more information, see [Authentication and Access Control](https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html)
   in the *Amazon EventBridge User Guide*.
 
-  If another AWS account is in the same region and has granted you permission
-  (using `PutPermission`), you can send events to that account. Set that account's
-  event bus as a target of the rules in your account. To send the matched events
-  to the other account, specify that account's event bus as the `Arn` value when
-  you run `PutTargets`. If your account sends events to another account, your
-  account is charged for each sent event. Each event sent to another account is
-  charged as a custom event. The account receiving the event is not charged. For
-  more information, see [Amazon EventBridge (CloudWatch Events) Pricing](https://aws.amazon.com/eventbridge/pricing/).
+  If another Amazon Web Services account is in the same region and has granted you
+  permission (using `PutPermission`), you can send events to that account. Set
+  that account's event bus as a target of the rules in your account. To send the
+  matched events to the other account, specify that account's event bus as the
+  `Arn` value when you run `PutTargets`. If your account sends events to another
+  account, your account is charged for each sent event. Each event sent to another
+  account is charged as a custom event. The account receiving the event is not
+  charged. For more information, see [Amazon EventBridge Pricing](http://aws.amazon.com/eventbridge/pricing/).
 
   `Input`, `InputPath`, and `InputTransformer` are not available with `PutTarget`
-  if the target is an event bus of a different AWS account.
+  if the target is an event bus of a different Amazon Web Services account.
 
   If you are setting the event bus of another account as the target, and that
   account granted permission to your account through an organization instead of
   directly by the account ID, then you must specify a `RoleArn` with proper
-  permissions in the `Target` structure. For more information, see [Sending and Receiving Events Between AWS
+  permissions in the `Target` structure. For more information, see [Sending and Receiving Events Between Amazon Web Services
   Accounts](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html)
   in the *Amazon EventBridge User Guide*.
 
-  For more information about enabling cross-account events, see `PutPermission`.
+  For more information about enabling cross-account events, see
+  [PutPermission](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPermission.html).
 
   **Input**, **InputPath**, and **InputTransformer** are mutually exclusive and
   optional parameters of a target. When a rule is triggered due to a matched
@@ -688,12 +696,13 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
-  Revokes the permission of another AWS account to be able to put events to the
-  specified event bus.
+  Revokes the permission of another Amazon Web Services account to be able to put
+  events to the specified event bus.
 
   Specify the account to revoke by the `StatementId` value that you associated
   with the account when you granted it permission with `PutPermission`. You can
-  find the `StatementId` by using `DescribeEventBus`.
+  find the `StatementId` by using
+  [DescribeEventBus](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventBus.html).
   """
   def remove_permission(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RemovePermission", input, options)
@@ -742,8 +751,8 @@ defmodule AWS.CloudWatchEvents do
   resources with certain tag values. In EventBridge, rules and event buses can be
   tagged.
 
-  Tags don't have any semantic meaning to AWS and are interpreted strictly as
-  strings of characters.
+  Tags don't have any semantic meaning to Amazon Web Services and are interpreted
+  strictly as strings of characters.
 
   You can use the `TagResource` action with a resource that already has tags. If
   you specify a new tag key, this tag is appended to the list of tags associated
@@ -760,10 +769,10 @@ defmodule AWS.CloudWatchEvents do
   @doc """
   Tests whether the specified event pattern matches the provided event.
 
-  Most services in AWS treat : or / as the same character in Amazon Resource Names
-  (ARNs). However, EventBridge uses an exact match in event patterns and rules. Be
-  sure to use the correct ARN characters when creating event patterns so that they
-  match the ARN syntax in the event you want to match.
+  Most services in Amazon Web Services treat : or / as the same character in
+  Amazon Resource Names (ARNs). However, EventBridge uses an exact match in event
+  patterns and rules. Be sure to use the correct ARN characters when creating
+  event patterns so that they match the ARN syntax in the event you want to match.
   """
   def test_event_pattern(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TestEventPattern", input, options)

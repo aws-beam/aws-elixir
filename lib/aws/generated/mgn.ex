@@ -135,6 +135,27 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  Deletes a single vCenter client by ID.
+  """
+  def delete_vcenter_client(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteVcenterClient"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Retrieves detailed Job log with paging.
   """
   def describe_job_log_items(%Client{} = client, input, options \\ []) do
@@ -220,6 +241,46 @@ defmodule AWS.Mgn do
       query_params,
       headers,
       input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all vCenter clients.
+  """
+  def describe_vcenter_clients(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/DescribeVcenterClients"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
       options,
       200
     )
@@ -451,6 +512,27 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  Starts replication on source server by ID.
+  """
+  def start_replication(%Client{} = client, input, options \\ []) do
+    url_path = "/StartReplication"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lauches a Test Instance for specific Source Servers.
 
   This command starts a LAUNCH job whose initiatedBy property is StartTest and
@@ -598,6 +680,27 @@ defmodule AWS.Mgn do
   """
   def update_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateReplicationConfigurationTemplate"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates source server Replication Type by ID.
+  """
+  def update_source_server_replication_type(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateSourceServerReplicationType"
     headers = []
     query_params = []
 

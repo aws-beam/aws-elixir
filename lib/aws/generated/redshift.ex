@@ -70,6 +70,16 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  From a datashare consumer account, associates a datashare with the account
+  (AssociateEntireAccount) or the specified namespace (ConsumerArn).
+
+  If you make this association, the consumer can consume the datashare.
+  """
+  def associate_data_share_consumer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateDataShareConsumer", input, options)
+  end
+
+  @doc """
   Adds an inbound (ingress) rule to an Amazon Redshift security group.
 
   Depending on whether the application accessing your cluster is running on the
@@ -80,7 +90,8 @@ defmodule AWS.Redshift do
 
   If you authorize access to an Amazon EC2 security group, specify
   *EC2SecurityGroupName* and *EC2SecurityGroupOwnerId*. The Amazon EC2 security
-  group and Amazon Redshift cluster must be in the same Region.
+  group and Amazon Redshift cluster must be in the same Amazon Web Services
+  Region.
 
   If you authorize access to a CIDR/IP address range, specify *CIDRIP*. For an
   overview of CIDR blocks, see the Wikipedia article on [Classless Inter-Domain Routing](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -102,6 +113,17 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  From a data producer account, authorizes the sharing of a datashare with one or
+  more consumer accounts.
+
+  To authorize a datashare for a data consumer, the producer account must have the
+  correct access privileges.
+  """
+  def authorize_data_share(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AuthorizeDataShare", input, options)
+  end
+
+  @doc """
   Grants access to a cluster.
   """
   def authorize_endpoint_access(%Client{} = client, input, options \\ []) do
@@ -109,7 +131,8 @@ defmodule AWS.Redshift do
   end
 
   @doc """
-  Authorizes the specified account to restore the specified snapshot.
+  Authorizes the specified Amazon Web Services account to restore the specified
+  snapshot.
 
   For more information about working with snapshots, go to [Amazon Redshift Snapshots](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html)
   in the *Amazon Redshift Cluster Management Guide*.
@@ -260,10 +283,10 @@ defmodule AWS.Redshift do
   cluster and source identifier = my-cluster-1, notifications will be sent for all
   the cluster events for my-cluster-1. If you specify a source type but do not
   specify a source identifier, you will receive notice of the events for the
-  objects of that type in your account. If you do not specify either the
-  SourceType nor the SourceIdentifier, you will be notified of events generated
-  from all Amazon Redshift sources belonging to your account. You must specify a
-  source type if you specify a source ID.
+  objects of that type in your Amazon Web Services account. If you do not specify
+  either the SourceType nor the SourceIdentifier, you will be notified of events
+  generated from all Amazon Redshift sources belonging to your Amazon Web Services
+  account. You must specify a source type if you specify a source ID.
   """
   def create_event_subscription(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateEventSubscription", input, options)
@@ -352,6 +375,13 @@ defmodule AWS.Redshift do
   """
   def create_usage_limit(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateUsageLimit", input, options)
+  end
+
+  @doc """
+  From the producer account, removes authorization from the specified datashare.
+  """
+  def deauthorize_data_share(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeauthorizeDataShare", input, options)
   end
 
   @doc """
@@ -603,8 +633,8 @@ defmodule AWS.Redshift do
   snapshots.
 
   By default, this operation returns information about all snapshots of all
-  clusters that are owned by your account. No information is returned for
-  snapshots owned by inactive accounts.
+  clusters that are owned by your Amazon Web Services account. No information is
+  returned for snapshots owned by inactive Amazon Web Services accounts.
 
   If you specify both tag keys and tag values in the same request, Amazon Redshift
   returns all snapshots that match any combination of the specified keys and
@@ -626,7 +656,7 @@ defmodule AWS.Redshift do
   your cluster subnet groups.
 
   By default, this operation returns information about all cluster subnet groups
-  that are defined in your account.
+  that are defined in your Amazon Web Services account.
 
   If you specify both tag keys and tag values in the same request, Amazon Redshift
   returns all subnet groups that match any combination of the specified keys and
@@ -681,6 +711,30 @@ defmodule AWS.Redshift do
   """
   def describe_clusters(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeClusters", input, options)
+  end
+
+  @doc """
+  Shows the status of any inbound or outbound datashares available in the
+  specified account.
+  """
+  def describe_data_shares(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDataShares", input, options)
+  end
+
+  @doc """
+  Returns a list of datashares where the account identifier being called is a
+  consumer account identifier.
+  """
+  def describe_data_shares_for_consumer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDataSharesForConsumer", input, options)
+  end
+
+  @doc """
+  Returns a list of datashares when the account identifier being called is a
+  producer account identifier.
+  """
+  def describe_data_shares_for_producer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDataSharesForProducer", input, options)
   end
 
   @doc """
@@ -755,7 +809,7 @@ defmodule AWS.Redshift do
   Returns information about the specified HSM client certificate.
 
   If no certificate ID is specified, returns information about all the HSM
-  certificates owned by your account.
+  certificates owned by your Amazon Web Services account.
 
   If you specify both tag keys and tag values in the same request, Amazon Redshift
   returns all HSM client certificates that match any combination of the specified
@@ -775,7 +829,7 @@ defmodule AWS.Redshift do
   Returns information about the specified Amazon Redshift HSM configuration.
 
   If no configuration ID is specified, returns information about all the HSM
-  configurations owned by your account.
+  configurations owned by your Amazon Web Services account.
 
   If you specify both tag keys and tag values in the same request, Amazon Redshift
   returns all HSM connections that match any combination of the specified keys and
@@ -811,12 +865,12 @@ defmodule AWS.Redshift do
   Returns a list of orderable cluster options.
 
   Before you create a new cluster you can use this operation to find what options
-  are available, such as the EC2 Availability Zones (AZ) in the specific Region
-  that you can specify, and the node types you can request. The node types differ
-  by available storage, memory, CPU and price. With the cost involved you might
-  want to obtain a list of cluster options in the specific region and specify
-  values when creating a cluster. For more information about managing clusters, go
-  to [Amazon Redshift Clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html)
+  are available, such as the EC2 Availability Zones (AZ) in the specific Amazon
+  Web Services Region that you can specify, and the node types you can request.
+  The node types differ by available storage, memory, CPU and price. With the cost
+  involved you might want to obtain a list of cluster options in the specific
+  region and specify values when creating a cluster. For more information about
+  managing clusters, go to [Amazon Redshift Clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html)
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def describe_orderable_cluster_options(%Client{} = client, input, options \\ []) do
@@ -828,6 +882,16 @@ defmodule AWS.Redshift do
   """
   def describe_partners(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribePartners", input, options)
+  end
+
+  @doc """
+  Returns exchange status details and associated metadata for a reserved-node
+  exchange.
+
+  Statuses include such values as in progress and requested.
+  """
+  def describe_reserved_node_exchange_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeReservedNodeExchangeStatus", input, options)
   end
 
   @doc """
@@ -876,8 +940,8 @@ defmodule AWS.Redshift do
   end
 
   @doc """
-  Returns a list of snapshot copy grants owned by the account in the destination
-  region.
+  Returns a list of snapshot copy grants owned by the Amazon Web Services account
+  in the destination region.
 
   For more information about managing snapshot copy grants, go to [Amazon Redshift Database
   Encryption](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html)
@@ -991,6 +1055,13 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  From a consumer account, remove association for the specified datashare.
+  """
+  def disassociate_data_share_consumer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateDataShareConsumer", input, options)
+  end
+
+  @doc """
   Starts logging information, such as queries and connection attempts, for the
   specified Amazon Redshift cluster.
   """
@@ -1035,6 +1106,23 @@ defmodule AWS.Redshift do
   """
   def get_cluster_credentials(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetClusterCredentials", input, options)
+  end
+
+  @doc """
+  Gets the configuration options for the reserved-node exchange.
+
+  These options include information about the source reserved node and target
+  reserved node offering. Details include the node type, the price, the node
+  count, and the offering type.
+  """
+  def get_reserved_node_exchange_configuration_options(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "GetReservedNodeExchangeConfigurationOptions",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -1106,6 +1194,8 @@ defmodule AWS.Redshift do
   @doc """
   Modifies the parameters of a parameter group.
 
+  For the parameters parameter, it can't contain ASCII characters.
+
   For more information about parameters and parameter groups, go to [Amazon Redshift Parameter
   Groups](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
   in the *Amazon Redshift Cluster Management Guide*.
@@ -1163,8 +1253,9 @@ defmodule AWS.Redshift do
   end
 
   @doc """
-  Modifies the number of days to retain snapshots in the destination Region after
-  they are copied from the source Region.
+  Modifies the number of days to retain snapshots in the destination Amazon Web
+  Services Region after they are copied from the source Amazon Web Services
+  Region.
 
   By default, this operation only changes the retention period of copied automated
   snapshots. The retention periods for both new and existing copied automated
@@ -1230,6 +1321,13 @@ defmodule AWS.Redshift do
   """
   def reboot_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RebootCluster", input, options)
+  end
+
+  @doc """
+  From the consumer account, rejects the specified datashare.
+  """
+  def reject_data_share(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RejectDataShare", input, options)
   end
 
   @doc """
@@ -1350,7 +1448,8 @@ defmodule AWS.Redshift do
   end
 
   @doc """
-  Removes the ability of the specified account to restore the specified snapshot.
+  Removes the ability of the specified Amazon Web Services account to restore the
+  specified snapshot.
 
   If the account is currently restoring the snapshot, the restore will run to
   completion.

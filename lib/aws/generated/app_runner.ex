@@ -3,30 +3,30 @@
 
 defmodule AWS.AppRunner do
   @moduledoc """
-  AWS App Runner
+  App Runner
 
-  AWS App Runner is an application service that provides a fast, simple, and
+  App Runner is an application service that provides a fast, simple, and
   cost-effective way to go directly from an existing container image or source
-  code to a running service in the AWS cloud in seconds.
+  code to a running service in the Amazon Web Services Cloud in seconds.
 
   You don't need to learn new technologies, decide which compute service to use,
-  or understand how to provision and configure AWS resources.
+  or understand how to provision and configure Amazon Web Services resources.
 
   App Runner connects directly to your container registry or source code
   repository. It provides an automatic delivery pipeline with fully managed
   operations, high performance, scalability, and security.
 
-  For more information about App Runner, see the [AWS App Runner Developer Guide](https://docs.aws.amazon.com/apprunner/latest/dg/). For release
-  information, see the [AWS App Runner Release Notes](https://docs.aws.amazon.com/apprunner/latest/relnotes/).
+  For more information about App Runner, see the [App Runner Developer Guide](https://docs.aws.amazon.com/apprunner/latest/dg/). For release
+  information, see the [App Runner Release Notes](https://docs.aws.amazon.com/apprunner/latest/relnotes/).
 
   To install the Software Development Kits (SDKs), Integrated Development
   Environment (IDE) Toolkits, and command line tools that you can use to access
   the API, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).  ## Endpoints
 
-  For a list of Region-specific endpoints that App Runner supports, see [AWS App
+  For a list of Region-specific endpoints that App Runner supports, see [App
   Runner endpoints and
   quotas](https://docs.aws.amazon.com/general/latest/gr/apprunner.html) in the
-  *AWS General Reference*.
+  *Amazon Web Services General Reference*.
   """
 
   alias AWS.Client
@@ -49,7 +49,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
-  Associate your own domain name with the AWS App Runner subdomain URL of your App
+  Associate your own domain name with the App Runner subdomain URL of your App
   Runner service.
 
   After you call `AssociateCustomDomain` and receive a successful response, use
@@ -65,7 +65,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
-  Create an AWS App Runner automatic scaling configuration resource.
+  Create an App Runner automatic scaling configuration resource.
 
   App Runner requires this resource when you create App Runner services that
   require non-default auto scaling settings. You can share an auto scaling
@@ -77,8 +77,8 @@ defmodule AWS.AppRunner do
   revision of an auto scaling configuration or a specific revision.
 
   Configure a higher `MinSize` to increase the spread of your App Runner service
-  over more Availability Zones in the AWS Region. The tradeoff is a higher minimal
-  cost.
+  over more Availability Zones in the Amazon Web Services Region. The tradeoff is
+  a higher minimal cost.
 
   Configure a lower `MaxSize` to control your cost. The tradeoff is lower
   responsiveness during peak demand.
@@ -88,7 +88,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
-  Create an AWS App Runner connection resource.
+  Create an App Runner connection resource.
 
   App Runner requires a connection resource when you create App Runner services
   that access private repositories from certain third-party providers. You can
@@ -103,7 +103,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
-  Create an AWS App Runner service.
+  Create an App Runner service.
 
   After the service is created, the action also automatically starts a deployment.
 
@@ -117,7 +117,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
-  Delete an AWS App Runner automatic scaling configuration resource.
+  Delete an App Runner automatic scaling configuration resource.
 
   You can delete a specific revision or the latest active revision. You can't
   delete a configuration that's used by one or more App Runner services.
@@ -127,7 +127,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
-  Delete an AWS App Runner connection.
+  Delete an App Runner connection.
 
   You must first ensure that there are no running App Runner services that use
   this connection. If there are any, the `DeleteConnection` action fails.
@@ -137,7 +137,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
-  Delete an AWS App Runner service.
+  Delete an App Runner service.
 
   This is an asynchronous operation. On a successful call, you can use the
   returned `OperationId` and the `ListOperations` call to track the operation's
@@ -148,7 +148,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
-  Return a full description of an AWS App Runner automatic scaling configuration
+  Return a full description of an App Runner automatic scaling configuration
   resource.
   """
   def describe_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
@@ -156,7 +156,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
-  Return a description of custom domain names that are associated with an AWS App
+  Return a description of custom domain names that are associated with an App
   Runner service.
   """
   def describe_custom_domains(%Client{} = client, input, options \\ []) do
@@ -164,14 +164,14 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
-  Return a full description of an AWS App Runner service.
+  Return a full description of an App Runner service.
   """
   def describe_service(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeService", input, options)
   end
 
   @doc """
-  Disassociate a custom domain name from an AWS App Runner service.
+  Disassociate a custom domain name from an App Runner service.
 
   Certificates tracking domain validity are associated with a custom domain and
   are stored in [AWS Certificate Manager (ACM)](https://docs.aws.amazon.com/acm/latest/userguide). These certificates
@@ -183,8 +183,8 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
-  Returns a list of AWS App Runner automatic scaling configurations in your AWS
-  account.
+  Returns a list of App Runner automatic scaling configurations in your Amazon Web
+  Services account.
 
   You can query the revisions for a specific configuration name or the revisions
   for all configurations in your account. You can optionally query only the latest
@@ -195,15 +195,15 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
-  Returns a list of AWS App Runner connections that are associated with your AWS
-  account.
+  Returns a list of App Runner connections that are associated with your Amazon
+  Web Services account.
   """
   def list_connections(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListConnections", input, options)
   end
 
   @doc """
-  Return a list of operations that occurred on an AWS App Runner service.
+  Return a list of operations that occurred on an App Runner service.
 
   The resulting list of `OperationSummary` objects is sorted in reverse
   chronological order. The first object on the list represents the last started
@@ -214,14 +214,15 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
-  Returns a list of running AWS App Runner services in your AWS account.
+  Returns a list of running App Runner services in your Amazon Web Services
+  account.
   """
   def list_services(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListServices", input, options)
   end
 
   @doc """
-  List tags that are associated with for an AWS App Runner resource.
+  List tags that are associated with for an App Runner resource.
 
   The response contains a list of tag key-value pairs.
   """
@@ -230,7 +231,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
-  Pause an active AWS App Runner service.
+  Pause an active App Runner service.
 
   App Runner reduces compute capacity for the service to zero and loses state (for
   example, ephemeral storage is removed).
@@ -244,7 +245,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
-  Resume an active AWS App Runner service.
+  Resume an active App Runner service.
 
   App Runner provisions compute capacity for the service.
 
@@ -258,7 +259,7 @@ defmodule AWS.AppRunner do
 
   @doc """
   Initiate a manual deployment of the latest commit in a source code repository or
-  the latest image in a source image repository to an AWS App Runner service.
+  the latest image in a source image repository to an App Runner service.
 
   For a source code repository, App Runner retrieves the commit and builds a
   Docker image. For a source image repository, App Runner retrieves the latest
@@ -290,7 +291,7 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
-  Update an AWS App Runner service.
+  Update an App Runner service.
 
   You can update the source configuration and instance configuration of the
   service. You can also update the ARN of the auto scaling configuration resource

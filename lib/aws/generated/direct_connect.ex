@@ -8,11 +8,12 @@ defmodule AWS.DirectConnect do
 
   One end of the cable is connected to your router, the other to an Direct Connect
   router. With this connection in place, you can create virtual interfaces
-  directly to the Cloud (for example, to Amazon EC2 and Amazon S3) and to Amazon
-  VPC, bypassing Internet service providers in your network path. A connection
-  provides access to all Regions except the China (Beijing) and (China) Ningxia
-  Regions. Amazon Web Services resources in the China Regions can only be accessed
-  through locations associated with those Regions.
+  directly to the Amazon Web Services Cloud (for example, to Amazon EC2 and Amazon
+  S3) and to Amazon VPC, bypassing Internet service providers in your network
+  path. A connection provides access to all Amazon Web Services Regions except the
+  China (Beijing) and (China) Ningxia Regions. Amazon Web Services resources in
+  the China Regions can only be accessed through locations associated with those
+  Regions.
   """
 
   alias AWS.Client
@@ -81,7 +82,8 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
-  Provisions a private virtual interface to be owned by the specified account.
+  Provisions a private virtual interface to be owned by the specified Amazon Web
+  Services account.
 
   Virtual interfaces created using this action must be confirmed by the owner
   using `ConfirmPrivateVirtualInterface`. Until then, the virtual interface is in
@@ -92,10 +94,11 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
-  Provisions a public virtual interface to be owned by the specified account.
+  Provisions a public virtual interface to be owned by the specified Amazon Web
+  Services account.
 
   The owner of a connection calls this function to provision a public virtual
-  interface to be owned by the specified account.
+  interface to be owned by the specified Amazon Web Services account.
 
   Virtual interfaces created using this function must be confirmed by the owner
   using `ConfirmPublicVirtualInterface`. Until this step has been completed, the
@@ -111,13 +114,14 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
-  Provisions a transit virtual interface to be owned by the specified account.
+  Provisions a transit virtual interface to be owned by the specified Amazon Web
+  Services account.
 
   Use this type of interface to connect a transit gateway to your Direct Connect
   gateway.
 
   The owner of a connection provisions a transit virtual interface to be owned by
-  the specified account.
+  the specified Amazon Web Services account.
 
   After you create a transit virtual interface, it must be confirmed by the owner
   using `ConfirmTransitVirtualInterface`. Until this step has been completed, the
@@ -216,7 +220,16 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
-  Accepts ownership of a private virtual interface created by another account.
+  The confirmation of the terms of agreement when creating the connection/link
+  aggregation group (LAG).
+  """
+  def confirm_customer_agreement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ConfirmCustomerAgreement", input, options)
+  end
+
+  @doc """
+  Accepts ownership of a private virtual interface created by another Amazon Web
+  Services account.
 
   After the virtual interface owner makes this call, the virtual interface is
   created and attached to the specified virtual private gateway or Direct Connect
@@ -227,7 +240,8 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
-  Accepts ownership of a public virtual interface created by another account.
+  Accepts ownership of a public virtual interface created by another Amazon Web
+  Services account.
 
   After the virtual interface owner makes this call, the specified virtual
   interface is created and made available to handle traffic.
@@ -237,7 +251,8 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
-  Accepts ownership of a transit virtual interface created by another account.
+  Accepts ownership of a transit virtual interface created by another Amazon Web
+  Services account.
 
   After the owner of the transit virtual interface makes this call, the specified
   transit virtual interface is created and made available to handle traffic.
@@ -291,11 +306,12 @@ defmodule AWS.DirectConnect do
   Creates a Direct Connect gateway, which is an intermediate object that enables
   you to connect a set of virtual interfaces and virtual private gateways.
 
-  A Direct Connect gateway is global and visible in any Region after it is
-  created. The virtual interfaces and virtual private gateways that are connected
-  through a Direct Connect gateway can be in different Regions. This enables you
-  to connect to a VPC in any Region, regardless of the Region in which the virtual
-  interfaces are located, and pass traffic between them.
+  A Direct Connect gateway is global and visible in any Amazon Web Services Region
+  after it is created. The virtual interfaces and virtual private gateways that
+  are connected through a Direct Connect gateway can be in different Amazon Web
+  Services Regions. This enables you to connect to a VPC in any Region, regardless
+  of the Region in which the virtual interfaces are located, and pass traffic
+  between them.
   """
   def create_direct_connect_gateway(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDirectConnectGateway", input, options)
@@ -323,7 +339,7 @@ defmodule AWS.DirectConnect do
   gateway with the specified Direct Connect gateway.
 
   You can associate a Direct Connect gateway and virtual private gateway or
-  transit gateway that is owned by any account.
+  transit gateway that is owned by any Amazon Web Services account.
   """
   def create_direct_connect_gateway_association_proposal(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -387,9 +403,10 @@ defmodule AWS.DirectConnect do
   associated with the dedicated connection are automatically disassociated and
   re-associated with the LAG. The connection ID does not change.
 
-  If the account used to create a LAG is a registered Direct Connect Partner, the
-  LAG is automatically enabled to host sub-connections. For a LAG owned by a
-  partner, any associated virtual interfaces cannot be directly configured.
+  If the Amazon Web Services account used to create a LAG is a registered Direct
+  Connect Partner, the LAG is automatically enabled to host sub-connections. For a
+  LAG owned by a partner, any associated virtual interfaces cannot be directly
+  configured.
   """
   def create_lag(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateLag", input, options)
@@ -402,8 +419,9 @@ defmodule AWS.DirectConnect do
   private virtual interface can be connected to either a Direct Connect gateway or
   a Virtual Private Gateway (VGW). Connecting the private virtual interface to a
   Direct Connect gateway enables the possibility for connecting to multiple VPCs,
-  including VPCs in different Regions. Connecting the private virtual interface to
-  a VGW only provides access to a single VPC within the same Region.
+  including VPCs in different Amazon Web Services Regions. Connecting the private
+  virtual interface to a VGW only provides access to a single VPC within the same
+  Region.
 
   Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an
   update to the underlying physical connection if it wasn't updated to support
@@ -587,6 +605,14 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+  Get and view a list of customer agreements, along with their signed status and
+  whether the customer is an NNIPartner, NNIPartnerV2, or a nonPartner.
+  """
+  def describe_customer_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeCustomerMetadata", input, options)
+  end
+
+  @doc """
   Describes one or more association proposals for connection between a virtual
   private gateway or transit gateway and a Direct Connect gateway.
   """
@@ -702,7 +728,8 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
-  Lists the interconnects owned by the account or only the specified interconnect.
+  Lists the interconnects owned by the Amazon Web Services account or only the
+  specified interconnect.
   """
   def describe_interconnects(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeInterconnects", input, options)
@@ -730,13 +757,20 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
-  Lists the Direct Connect locations in the current Region.
+  Lists the Direct Connect locations in the current Amazon Web Services Region.
 
   These are the locations that can be selected when calling `CreateConnection` or
   `CreateInterconnect`.
   """
   def describe_locations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeLocations", input, options)
+  end
+
+  @doc """
+  Details about the router.
+  """
+  def describe_router_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeRouterConfiguration", input, options)
   end
 
   @doc """
@@ -747,7 +781,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
-  Lists the virtual private gateways owned by the account.
+  Lists the virtual private gateways owned by the Amazon Web Services account.
 
   You can create one or more Direct Connect private virtual interfaces linked to a
   virtual private gateway.
@@ -757,7 +791,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
-  Displays all virtual interfaces for an account.
+  Displays all virtual interfaces for an Amazon Web Services account.
 
   Virtual interfaces deleted fewer than 15 minutes before you make the request are
   also returned. If you specify a connection ID, only the virtual interfaces
@@ -860,6 +894,13 @@ defmodule AWS.DirectConnect do
   """
   def update_connection(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateConnection", input, options)
+  end
+
+  @doc """
+  Updates the name of a current Direct Connect gateway.
+  """
+  def update_direct_connect_gateway(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDirectConnectGateway", input, options)
   end
 
   @doc """

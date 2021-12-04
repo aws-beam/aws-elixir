@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
 
+## [v0.10.0] - 2021-12-03
+
+### Fixed
+
+- Don't display access key or secret key when inspecting `AWS.Client`.
+- Add the `region` to `AWS.Client.t`
+
+### Changed
+
+- Update the APIs to the version 1.42.18 of Go SDK. There is a breaking
+change: `AWS.API.Pricing` changed to `AWS.Pricing`. Several modules were
+added.
+- Require Elixir ~> 1.10
+
 ## [v0.9.2] - 2021-10-27
 
 ### Fixed
@@ -450,7 +464,8 @@ is an example).
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.9.2...HEAD
+[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.10.0...HEAD
+[v0.10.0]: https://github.com/aws-beam/aws-elixir/compare/v0.9.2...v0.10.0
 [v0.9.2]: https://github.com/aws-beam/aws-elixir/compare/v0.9.1...v0.9.2
 [v0.9.1]: https://github.com/aws-beam/aws-elixir/compare/v0.9.0...v0.9.1
 [v0.9.0]: https://github.com/aws-beam/aws-elixir/compare/v0.8.0...v0.9.0

@@ -75,7 +75,7 @@ Optionally, you can implement your own (Check `AWS.Client` docs).
 ```elixir
 def deps do
   [
-    {:aws, "~> 0.9.0"},
+    {:aws, "~> 0.10.0"},
     {:hackney, "~> 1.17"}
   ]
 end

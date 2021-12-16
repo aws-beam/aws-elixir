@@ -51,7 +51,7 @@ defmodule AWS.Client do
 
   Check `put_endpoint/2` for more details.
   """
-  @type endpoint_config :: binary() | {:keep_prefixes, binary()} | (map() -> binary())
+  @type endpoint_config :: binary() | {:keep_prefixes, binary()} | (map() -> binary()) | nil
 
   @type t :: %__MODULE__{
           access_key_id: binary() | nil,

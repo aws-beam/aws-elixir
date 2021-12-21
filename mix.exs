@@ -28,6 +28,7 @@ defmodule AWS.Mixfile do
     [
       {:aws_signature, "~> 0.3"},
       {:jason, "~> 1.2"},
+      {:telemetry, "~> 0.4.0 or ~> 1.0"},
       {:dialyxir, "~> 1.1.0", only: [:dev], runtime: false},
       {:earmark, "~> 1.4", only: [:dev]},
       {:ex_doc, "~> 0.24", only: [:dev]},

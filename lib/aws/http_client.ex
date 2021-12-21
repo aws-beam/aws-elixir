@@ -29,10 +29,12 @@ defmodule AWS.HTTPClient do
               {:ok, %{status_code: integer(), headers: [{binary(), binary()}], body: binary()}}
               | {:error, term()}
 
+  @hackney_pool_name :aws_pool
+
   def request(method, url, body, headers, options) do
     ensure_hackney_running!()
 
-    options = [:with_body | options]
+    options = [:with_body | options] |> Keyword.put_new(:pool, @hackney_pool_name)
 
     case :hackney.request(method, url, headers, body, options) do
       {:ok, status_code, response_headers, body} ->

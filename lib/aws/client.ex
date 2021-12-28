@@ -33,7 +33,7 @@ defmodule AWS.Client do
   The `service` option is overwritten by each service with its signing name from metadata.
   """
 
-  @derive {Inspect, except: [:access_key_id, :secret_access_key]}
+  @derive {Inspect, except: [:access_key_id, :secret_access_key, :session_token]}
   defstruct access_key_id: nil,
             secret_access_key: nil,
             session_token: nil,

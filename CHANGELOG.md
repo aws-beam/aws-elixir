@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
 
+## [v0.10.1] - 2021-02-02
+
+## Fixed
+
+- Update `AWS.Client` typespecs to accept `nil` for the `endpoint` field.
+- Isolate Hackney connection pool for requests. Now the pool is named `:aws_pool`.
+- Don't display the `:session_token` field when inspecting `AWS.Client`.
+
 ## [v0.10.0] - 2021-12-03
 
 ### Fixed
@@ -464,7 +472,8 @@ is an example).
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.10.0...HEAD
+[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.10.1...HEAD
+[v0.10.1]: https://github.com/aws-beam/aws-elixir/compare/v0.10.0...v0.10.1
 [v0.10.0]: https://github.com/aws-beam/aws-elixir/compare/v0.9.2...v0.10.0
 [v0.9.2]: https://github.com/aws-beam/aws-elixir/compare/v0.9.1...v0.9.2
 [v0.9.1]: https://github.com/aws-beam/aws-elixir/compare/v0.9.0...v0.9.1

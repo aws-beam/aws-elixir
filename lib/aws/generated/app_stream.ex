@@ -55,6 +55,13 @@ defmodule AWS.AppStream do
   end
 
   @doc """
+  Associates an application to entitle.
+  """
+  def associate_application_to_entitlement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateApplicationToEntitlement", input, options)
+  end
+
+  @doc """
   Associates the specified fleet with the specified stack.
   """
   def associate_fleet(%Client{} = client, input, options \\ []) do
@@ -127,6 +134,20 @@ defmodule AWS.AppStream do
   """
   def create_directory_config(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDirectoryConfig", input, options)
+  end
+
+  @doc """
+  Creates a new entitlement.
+
+  Entitlements control access to specific applications within a stack, based on
+  user attributes. Entitlements apply to SAML 2.0 federated user identities.
+  Amazon AppStream 2.0 user pool and streaming URL users are entitled to all
+  applications in a stack. Entitlements don't apply to the desktop stream view
+  application, or to applications managed by a dynamic app provider using the
+  Dynamic Application Framework.
+  """
+  def create_entitlement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateEntitlement", input, options)
   end
 
   @doc """
@@ -231,6 +252,13 @@ defmodule AWS.AppStream do
   end
 
   @doc """
+  Deletes the specified entitlement.
+  """
+  def delete_entitlement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteEntitlement", input, options)
+  end
+
+  @doc """
   Deletes the specified fleet.
   """
   def delete_fleet(%Client{} = client, input, options \\ []) do
@@ -331,6 +359,13 @@ defmodule AWS.AppStream do
   """
   def describe_directory_configs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDirectoryConfigs", input, options)
+  end
+
+  @doc """
+  Retrieves a list that describes one of more entitlements.
+  """
+  def describe_entitlements(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEntitlements", input, options)
   end
 
   @doc """
@@ -439,6 +474,19 @@ defmodule AWS.AppStream do
   end
 
   @doc """
+  Deletes the specified application from the specified entitlement.
+  """
+  def disassociate_application_from_entitlement(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DisassociateApplicationFromEntitlement",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Disassociates the specified fleet from the specified stack.
   """
   def disassociate_fleet(%Client{} = client, input, options \\ []) do
@@ -474,6 +522,13 @@ defmodule AWS.AppStream do
   """
   def list_associated_stacks(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListAssociatedStacks", input, options)
+  end
+
+  @doc """
+  Retrieves a list of entitled applications.
+  """
+  def list_entitled_applications(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEntitledApplications", input, options)
   end
 
   @doc """
@@ -562,6 +617,13 @@ defmodule AWS.AppStream do
   """
   def update_directory_config(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateDirectoryConfig", input, options)
+  end
+
+  @doc """
+  Updates the specified entitlement.
+  """
+  def update_entitlement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateEntitlement", input, options)
   end
 
   @doc """

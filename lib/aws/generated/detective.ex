@@ -3,23 +3,36 @@
 
 defmodule AWS.Detective do
   @moduledoc """
-  Detective uses machine learning and purpose-built visualizations to help you
-  analyze and investigate security issues across your Amazon Web Services (AWS)
-  workloads.
+  Detective uses machine learning and purpose-built visualizations to help you to
+  analyze and investigate security issues across your Amazon Web Services (Amazon
+  Web Services) workloads.
 
   Detective automatically extracts time-based events such as login attempts, API
-  calls, and network traffic from AWS CloudTrail and Amazon Virtual Private Cloud
+  calls, and network traffic from CloudTrail and Amazon Virtual Private Cloud
   (Amazon VPC) flow logs. It also extracts findings detected by Amazon GuardDuty.
 
   The Detective API primarily supports the creation and management of behavior
   graphs. A behavior graph contains the extracted data from a set of member
   accounts, and is created and managed by an administrator account.
 
-  Every behavior graph is specific to a Region. You can only use the API to manage
-  graphs that belong to the Region that is associated with the currently selected
-  endpoint.
+  To add a member account to the behavior graph, the administrator account sends
+  an invitation to the account. When the account accepts the invitation, it
+  becomes a member account in the behavior graph.
 
-  A Detective administrator account can use the Detective API to do the following:
+  Detective is also integrated with Organizations. The organization management
+  account designates the Detective administrator account for the organization.
+  That account becomes the administrator account for the organization behavior
+  graph. The Detective administrator account can enable any organization account
+  as a member account in the organization behavior graph. The organization
+  accounts do not receive invitations. The Detective administrator account can
+  also invite other accounts to the organization behavior graph.
+
+  Every behavior graph is specific to a Region. You can only use the API to manage
+  behavior graphs that belong to the Region that is associated with the currently
+  selected endpoint.
+
+  The administrator account for a behavior graph can use the Detective API to do
+  the following:
 
     * Enable and disable Detective. Enabling Detective creates a new
   behavior graph.
@@ -30,7 +43,20 @@ defmodule AWS.Detective do
 
     * Remove member accounts from a behavior graph.
 
-  A member account can use the Detective API to do the following:
+    * Apply tags to a behavior graph.
+
+  The organization management account can use the Detective API to select the
+  delegated administrator for Detective.
+
+  The Detective administrator account for an organization can use the Detective
+  API to do the following:
+
+    * Perform all of the functions of an administrator account.
+
+    * Determine whether to automatically enable new organization
+  accounts as member accounts in the organization behavior graph.
+
+  An invited member account can use the Detective API to do the following:
 
     * View the list of behavior graphs that they are invited to.
 
@@ -139,25 +165,34 @@ defmodule AWS.Detective do
   end
 
   @doc """
-  Sends a request to invite the specified AWS accounts to be member accounts in
-  the behavior graph.
+  `CreateMembers` is used to send invitations to accounts.
 
-  This operation can only be called by the administrator account for a behavior
-  graph.
+  For the organization behavior graph, the Detective administrator account uses
+  `CreateMembers` to enable organization accounts as member accounts.
+
+  For invited accounts, `CreateMembers` sends a request to invite the specified
+  Amazon Web Services accounts to be member accounts in the behavior graph. This
+  operation can only be called by the administrator account for a behavior graph.
 
   `CreateMembers` verifies the accounts and then invites the verified accounts.
   The administrator can optionally specify to not send invitation emails to the
   member accounts. This would be used when the administrator manages their member
   accounts centrally.
 
-  The request provides the behavior graph ARN and the list of accounts to invite.
+  For organization accounts in the organization behavior graph, `CreateMembers`
+  attempts to enable the accounts. The organization accounts do not receive
+  invitations.
+
+  The request provides the behavior graph ARN and the list of accounts to invite
+  or to enable.
 
   The response separates the requested accounts into two lists:
 
-    * The accounts that `CreateMembers` was able to start the
-  verification for. This list includes member accounts that are being verified,
-  that have passed verification and are to be invited, and that have failed
-  verification.
+    * The accounts that `CreateMembers` was able to process. For invited
+  accounts, includes member accounts that are being verified, that have passed
+  verification and are to be invited, and that have failed verification. For
+  organization accounts in the organization behavior graph, includes accounts that
+  can be enabled and that cannot be enabled.
 
     * The accounts that `CreateMembers` was unable to process. This list
   includes accounts that were already invited to be member accounts in the
@@ -184,8 +219,8 @@ defmodule AWS.Detective do
   @doc """
   Disables the specified behavior graph and queues it to be deleted.
 
-  This operation removes the graph from each member account's list of behavior
-  graphs.
+  This operation removes the behavior graph from each member account's list of
+  behavior graphs.
 
   `DeleteGraph` can only be called by the administrator account for a behavior
   graph.
@@ -209,13 +244,24 @@ defmodule AWS.Detective do
   end
 
   @doc """
-  Deletes one or more member accounts from the administrator account's behavior
+  Removes the specified member accounts from the behavior graph.
+
+  The removed accounts no longer contribute data to the behavior graph. This
+  operation can only be called by the administrator account for the behavior
   graph.
 
-  This operation can only be called by a Detective administrator account. That
-  account cannot use `DeleteMembers` to delete their own account from the behavior
-  graph. To disable a behavior graph, the administrator account uses the
-  `DeleteGraph` API method.
+  For invited accounts, the removed accounts are deleted from the list of accounts
+  in the behavior graph. To restore the account, the administrator account must
+  send another invitation.
+
+  For organization accounts in the organization behavior graph, the Detective
+  administrator account can always enable the organization account again.
+  Organization accounts that are not enabled as member accounts are not included
+  in the `ListMembers` results for the organization behavior graph.
+
+  An administrator account cannot use `DeleteMembers` to remove their own account
+  from the behavior graph. To disable a behavior graph, the administrator account
+  uses the `DeleteGraph` API method.
   """
   def delete_members(%Client{} = client, input, options \\ []) do
     url_path = "/graph/members/removal"
@@ -236,13 +282,103 @@ defmodule AWS.Detective do
   end
 
   @doc """
+  Returns information about the configuration for the organization behavior graph.
+
+  Currently indicates whether to automatically enable new organization accounts as
+  member accounts.
+
+  Can only be called by the Detective administrator account for the organization.
+  """
+  def describe_organization_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/orgs/describeOrganizationConfiguration"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Removes the Detective administrator account for the organization in the current
+  Region.
+
+  Deletes the behavior graph for that account.
+
+  Can only be called by the organization management account. Before you can select
+  a different Detective administrator account, you must remove the Detective
+  administrator account in all Regions.
+  """
+  def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
+    url_path = "/orgs/disableAdminAccount"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Removes the member account from the specified behavior graph.
 
-  This operation can only be called by a member account that has the `ENABLED`
-  status.
+  This operation can only be called by an invited member account that has the
+  `ENABLED` status.
+
+  `DisassociateMembership` cannot be called by an organization account in the
+  organization behavior graph. For the organization behavior graph, the Detective
+  administrator account determines which organization accounts to enable or
+  disable as member accounts.
   """
   def disassociate_membership(%Client{} = client, input, options \\ []) do
     url_path = "/membership/removal"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Designates the Detective administrator account for the organization in the
+  current Region.
+
+  If the account does not have Detective enabled, then enables Detective for that
+  account and creates a new behavior graph.
+
+  Can only be called by the organization management account.
+
+  The Detective administrator account for an organization must be the same in all
+  Regions. If you already designated a Detective administrator account in another
+  Region, then you must designate the same account.
+  """
+  def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
+    url_path = "/orgs/enableAdminAccount"
     headers = []
     query_params = []
 
@@ -312,7 +448,7 @@ defmodule AWS.Detective do
   Retrieves the list of open and accepted behavior graph invitations for the
   member account.
 
-  This operation can only be called by a member account.
+  This operation can only be called by an invited member account.
 
   Open invitations are invitations that the member account has not responded to.
 
@@ -341,10 +477,39 @@ defmodule AWS.Detective do
   @doc """
   Retrieves the list of member accounts for a behavior graph.
 
-  Does not return member accounts that were removed from the behavior graph.
+  For invited accounts, the results do not include member accounts that were
+  removed from the behavior graph.
+
+  For the organization behavior graph, the results do not include organization
+  accounts that the Detective administrator account has not enabled as member
+  accounts.
   """
   def list_members(%Client{} = client, input, options \\ []) do
     url_path = "/graph/members/list"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns information about the Detective administrator account for an
+  organization.
+
+  Can only be called by the organization management account.
+  """
+  def list_organization_admin_accounts(%Client{} = client, input, options \\ []) do
+    url_path = "/orgs/adminAccountslist"
     headers = []
     query_params = []
 
@@ -385,7 +550,12 @@ defmodule AWS.Detective do
   @doc """
   Rejects an invitation to contribute the account data to a behavior graph.
 
-  This operation must be called by a member account that has the `INVITED` status.
+  This operation must be called by an invited member account that has the
+  `INVITED` status.
+
+  `RejectInvitation` cannot be called by an organization account in the
+  organization behavior graph. In the organization behavior graph, organization
+  accounts do not receive an invitation.
   """
   def reject_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/invitation/removal"
@@ -479,6 +649,30 @@ defmodule AWS.Detective do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Updates the configuration for the Organizations integration in the current
+  Region.
+
+  Can only be called by the Detective administrator account for the organization.
+  """
+  def update_organization_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/orgs/updateOrganizationConfiguration"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
     )
   end
 end

@@ -968,6 +968,18 @@ defmodule AWS.Glue do
     Request.request_post(client, metadata(), "GetTriggers", input, options)
   end
 
+  def get_unfiltered_partition_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetUnfilteredPartitionMetadata", input, options)
+  end
+
+  def get_unfiltered_partitions_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetUnfilteredPartitionsMetadata", input, options)
+  end
+
+  def get_unfiltered_table_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetUnfilteredTableMetadata", input, options)
+  end
+
   @doc """
   Retrieves a specified function definition from the Data Catalog.
   """

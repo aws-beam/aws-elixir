@@ -3218,4 +3218,25 @@ defmodule AWS.Pinpoint do
       202
     )
   end
+
+  @doc """
+  Verify an OTP
+  """
+  def verify_o_t_p_message(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/verify-otp"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
 end

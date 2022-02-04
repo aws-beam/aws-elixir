@@ -485,11 +485,11 @@ defmodule AWS.S3 do
   bucket ACL to specify the accounts or groups that should be granted specific
   permissions on the bucket.
 
-  If your CreateBucket request includes the `BucketOwnerEnforced` value for the
-  `x-amz-object-ownership` header, your request can either not specify an ACL or
-  specify bucket owner full control ACLs, such as the `bucket-owner-full-control`
-  canned ACL or an equivalent ACL expressed in the XML format. For more
-  information, see [Controlling object ownership](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html)
+  If your CreateBucket request sets bucket owner enforced for S3 Object Ownership
+  and specifies a bucket ACL that provides access to an external Amazon Web
+  Services account, your request fails with a `400` error and returns the
+  `InvalidBucketAclWithObjectOwnership` error code. For more information, see
+  [Controlling object ownership](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html)
   in the *Amazon S3 User Guide*.
 
   There are two ways to grant the appropriate permissions using the request
@@ -7165,6 +7165,7 @@ defmodule AWS.S3 do
   This action is not supported by Amazon S3 on Outposts.
 
   For more information about Amazon S3 Select, see [Selecting Content from Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html)
+  and [SELECT Command](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-glacier-select-sql-reference-select.html)
   in the *Amazon S3 User Guide*.
 
   For more information about using SQL with Amazon S3 Select, see [ SQL Reference for Amazon S3 Select and S3 Glacier

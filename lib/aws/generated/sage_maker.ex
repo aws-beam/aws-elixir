@@ -2654,12 +2654,12 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Stops a transform job.
+  Stops a batch transform job.
 
   When Amazon SageMaker receives a `StopTransformJob` request, the status of the
   job changes to `Stopping`. After Amazon SageMaker stops the job, the status is
-  set to `Stopped`. When you stop a transform job before it is completed, Amazon
-  SageMaker doesn't store the job's output in Amazon S3.
+  set to `Stopped`. When you stop a batch transform job before it is completed,
+  Amazon SageMaker doesn't store the job's output in Amazon S3.
   """
   def stop_transform_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopTransformJob", input, options)

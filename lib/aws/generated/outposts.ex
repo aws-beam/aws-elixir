@@ -609,6 +609,27 @@ defmodule AWS.Outposts do
   end
 
   @doc """
+  Updates an Outpost.
+  """
+  def update_outpost(%Client{} = client, outpost_id, input, options \\ []) do
+    url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Updates the site.
   """
   def update_site(%Client{} = client, site_id, input, options \\ []) do

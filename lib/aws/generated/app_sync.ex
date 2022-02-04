@@ -27,6 +27,27 @@ defmodule AWS.AppSync do
   end
 
   @doc """
+  Maps an endpoint to your custom domain.
+  """
+  def associate_api(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/v1/domainnames/#{AWS.Util.encode_uri(domain_name)}/apiassociation"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates a cache for the GraphQL API.
   """
   def create_api_cache(%Client{} = client, api_id, input, options \\ []) do
@@ -48,8 +69,7 @@ defmodule AWS.AppSync do
   end
 
   @doc """
-  Creates a unique key that you can distribute to clients who are executing your
-  API.
+  Creates a unique key that you can distribute to clients who invoke your API.
   """
   def create_api_key(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/apikeys"
@@ -91,9 +111,30 @@ defmodule AWS.AppSync do
   end
 
   @doc """
+  Creates a custom `DomainName` object.
+  """
+  def create_domain_name(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/domainnames"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates a `Function` object.
 
-  A function is a reusable entity. Multiple functions can be used to compose the
+  A function is a reusable entity. You can use multiple functions to compose the
   resolver logic.
   """
   def create_function(%Client{} = client, api_id, input, options \\ []) do
@@ -139,7 +180,7 @@ defmodule AWS.AppSync do
   Creates a `Resolver` object.
 
   A resolver converts incoming requests into a format that a data source can
-  understand and converts the data source's responses into GraphQL.
+  understand, and converts the data source's responses into GraphQL.
   """
   def create_resolver(%Client{} = client, api_id, type_name, input, options \\ []) do
     url_path =
@@ -246,6 +287,27 @@ defmodule AWS.AppSync do
   end
 
   @doc """
+  Deletes a custom `DomainName` object.
+  """
+  def delete_domain_name(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/v1/domainnames/#{AWS.Util.encode_uri(domain_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes a `Function`.
   """
   def delete_function(%Client{} = client, api_id, function_id, input, options \\ []) do
@@ -334,6 +396,27 @@ defmodule AWS.AppSync do
   end
 
   @doc """
+  Removes an `ApiAssociation` object from a custom domain.
+  """
+  def disassociate_api(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/v1/domainnames/#{AWS.Util.encode_uri(domain_name)}/apiassociation"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Flushes an `ApiCache` object.
   """
   def flush_api_cache(%Client{} = client, api_id, input, options \\ []) do
@@ -349,6 +432,27 @@ defmodule AWS.AppSync do
       query_params,
       headers,
       input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Retrieves an `ApiAssociation` object.
+  """
+  def get_api_association(%Client{} = client, domain_name, options \\ []) do
+    url_path = "/v1/domainnames/#{AWS.Util.encode_uri(domain_name)}/apiassociation"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
       options,
       nil
     )
@@ -380,6 +484,27 @@ defmodule AWS.AppSync do
   """
   def get_data_source(%Client{} = client, api_id, name, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/datasources/#{AWS.Util.encode_uri(name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Retrieves a custom `DomainName` object.
+  """
+  def get_domain_name(%Client{} = client, domain_name, options \\ []) do
+    url_path = "/v1/domainnames/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
 
@@ -610,6 +735,41 @@ defmodule AWS.AppSync do
         options \\ []
       ) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/datasources"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists multiple custom domain names.
+  """
+  def list_domain_names(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/v1/domainnames"
     headers = []
     query_params = []
 
@@ -968,7 +1128,7 @@ defmodule AWS.AppSync do
   @doc """
   Updates an API key.
 
-  The key can be updated while it is not deleted.
+  You can update the key as long as it's not deleted.
   """
   def update_api_key(%Client{} = client, api_id, id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/apikeys/#{AWS.Util.encode_uri(id)}"
@@ -993,6 +1153,27 @@ defmodule AWS.AppSync do
   """
   def update_data_source(%Client{} = client, api_id, name, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/datasources/#{AWS.Util.encode_uri(name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates a custom `DomainName` object.
+  """
+  def update_domain_name(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/v1/domainnames/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
 

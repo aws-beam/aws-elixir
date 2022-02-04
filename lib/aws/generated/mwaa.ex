@@ -9,6 +9,50 @@ defmodule AWS.MWAA do
   reference documentation.
 
   For more information, see [What Is Amazon MWAA?](https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html).
+
+  ` ## Endpoints
+
+    * `api.airflow.{region}.amazonaws.com` - This endpoint is used for
+  environment management.
+
+      *
+  [CreateEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_CreateEnvironment.html)       *
+  [DeleteEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_DeleteEnvironment.html)
+
+      *
+  [GetEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_GetEnvironment.html)       *
+  [ListEnvironments](https://docs.aws.amazon.com/mwaa/latest/API/API_ListEnvironments.html)
+
+      *
+  [ListTagsForResource](https://docs.aws.amazon.com/mwaa/latest/API/API_ListTagsForResource.html)       *
+  [TagResource](https://docs.aws.amazon.com/mwaa/latest/API/API_TagResource.html)
+
+      *
+  [UntagResource](https://docs.aws.amazon.com/mwaa/latest/API/API_UntagResource.html)       *
+  [UpdateEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_UpdateEnvironment.html)
+
+    * `env.airflow.{region}.amazonaws.com` - This endpoint is used to
+  operate the Airflow environment.
+
+      *
+  [CreateCliToken](https://docs.aws.amazon.com/mwaa/latest/API/API_CreateCliToken.html )
+
+      *
+  [CreateWebLoginToken](https://docs.aws.amazon.com/mwaa/latest/API/API_CreateWebLoginToken.html)
+
+    * `ops.airflow.{region}.amazonaws.com` - This endpoint is used to
+  push environment metrics that track environment health.
+
+      *
+  [PublishMetrics](https://docs.aws.amazon.com/mwaa/latest/API/API_PublishMetrics.html )
+
+  ## Regions
+
+  For a list of regions that Amazon MWAA supports, see [Region
+  availability](https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html#regions-mwaa)
+  in the *Amazon MWAA User Guide*.
+
+  `
   """
 
   alias AWS.Client
@@ -31,7 +75,9 @@ defmodule AWS.MWAA do
   end
 
   @doc """
-  Create a CLI token to use Airflow CLI.
+  Creates a CLI token for the Airflow CLI.
+
+  To learn more, see [Creating an Apache Airflow CLI token](https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-cli.html).
   """
   def create_cli_token(%Client{} = client, name, input, options \\ []) do
     url_path = "/clitoken/#{AWS.Util.encode_uri(name)}"
@@ -73,8 +119,9 @@ defmodule AWS.MWAA do
   end
 
   @doc """
-  Create a JWT token to be used to login to Airflow Web UI with claims based
-  Authentication.
+  Creates a web login token for the Airflow Web UI.
+
+  To learn more, see [Creating an Apache Airflow web login token](https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-web.html).
   """
   def create_web_login_token(%Client{} = client, name, input, options \\ []) do
     url_path = "/webtoken/#{AWS.Util.encode_uri(name)}"
@@ -116,8 +163,7 @@ defmodule AWS.MWAA do
   end
 
   @doc """
-  Retrieves the details of an Amazon Managed Workflows for Apache Airflow (MWAA)
-  environment.
+  Describes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
   """
   def get_environment(%Client{} = client, name, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
@@ -197,7 +243,9 @@ defmodule AWS.MWAA do
   end
 
   @doc """
-  An operation for publishing metrics from the customers to the Ops plane.
+  **Internal only**.
+
+  Publishes environment health metrics to Amazon CloudWatch.
   """
   def publish_metrics(%Client{} = client, environment_name, input, options \\ []) do
     url_path = "/metrics/environments/#{AWS.Util.encode_uri(environment_name)}"

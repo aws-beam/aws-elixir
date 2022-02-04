@@ -13,10 +13,10 @@ defmodule AWS.SSM do
   instance, edge device, or on-premises server or virtual machine (VM) that has
   been configured for Systems Manager.
 
-  With support for IoT Greengrass Version 2 devices, the phrase *managed instance*
-  has been changed to *managed node* in most of the Systems Manager documentation.
-  The Systems Manager console, API calls, error messages, and SSM documents still
-  use the term instance.
+  With support for IoT Greengrass core devices, the phrase *managed instance* has
+  been changed to *managed node* in most of the Systems Manager documentation. The
+  Systems Manager console, API calls, error messages, and SSM documents still use
+  the term *instance*.
 
   This reference is intended to be used with the [Amazon Web Services Systems Manager User
   Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/).
@@ -1574,7 +1574,14 @@ defmodule AWS.SSM do
   Updates an association.
 
   You can update the association name and version, the document version, schedule,
-  parameters, and Amazon Simple Storage Service (Amazon S3) output.
+  parameters, and Amazon Simple Storage Service (Amazon S3) output. When you call
+  `UpdateAssociation`, the system drops all optional parameters from the request
+  and overwrites the association with null values for those parameters. This is by
+  design. You must specify all optional parameters in the call, even if you are
+  not changing the parameters. This includes the `Name` parameter. Before calling
+  this API action, we recommend that you call the `DescribeAssociation` API
+  operation and make a note of all optional parameters required for your
+  `UpdateAssociation` call.
 
   In order to call this API operation, your Identity and Access Management (IAM)
   user account, group, or role must be configured with permission to call the
@@ -1585,7 +1592,8 @@ defmodule AWS.SSM do
   <resource_arn>`
 
   When you update an association, the association immediately runs against the
-  specified targets.
+  specified targets. You can add the `ApplyOnlyAtCronInterval` parameter to run
+  the association during the next schedule run.
   """
   def update_association(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateAssociation", input, options)

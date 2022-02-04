@@ -848,7 +848,7 @@ defmodule AWS.ElastiCache do
   clusters.
 
   If you make changes to parameters that require a Redis (cluster mode enabled)
-  cluster reboot for the changes to be applied, see [Rebooting a Cluster](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html)
+  cluster reboot for the changes to be applied, see [Rebooting a Cluster](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes.rebooting.html)
   for an alternate process.
   """
   def reboot_cache_cluster(%Client{} = client, input, options \\ []) do

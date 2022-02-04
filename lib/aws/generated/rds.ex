@@ -304,7 +304,8 @@ defmodule AWS.RDS do
   Amazon RDS, which is a fully managed service, supplies the Amazon Machine Image
   (AMI) and database software. The Amazon RDS database software is preinstalled,
   so you need only select a DB engine and version, and create your database. With
-  Amazon RDS Custom, you upload your database installation files in Amazon S3.
+  Amazon RDS Custom for Oracle, you upload your database installation files in
+  Amazon S3.
 
   When you create a custom engine version, you specify the files in a JSON
   document called a CEV manifest. This document describes installation .zip files
@@ -551,12 +552,12 @@ defmodule AWS.RDS do
   `EventCategories` = `Availability`, `Backup`.
 
   If you specify both the `SourceType` and `SourceIds`, such as `SourceType` =
-  `db-instance` and `SourceIdentifier` = `myDBInstance1`, you are notified of all
-  the `db-instance` events for the specified source. If you specify a `SourceType`
-  but do not specify a `SourceIdentifier`, you receive notice of the events for
-  that source type for all your RDS sources. If you don't specify either the
-  SourceType or the `SourceIdentifier`, you are notified of events generated from
-  all RDS sources belonging to your customer account.
+  `db-instance` and `SourceIds` = `myDBInstance1`, you are notified of all the
+  `db-instance` events for the specified source. If you specify a `SourceType` but
+  do not specify `SourceIds`, you receive notice of the events for that source
+  type for all your RDS sources. If you don't specify either the SourceType or the
+  `SourceIds`, you are notified of events generated from all RDS sources belonging
+  to your customer account.
 
   RDS event notification is only available for unencrypted SNS topics. If you
   specify an encrypted SNS topic, event notifications aren't sent for the topic.
@@ -1165,9 +1166,11 @@ defmodule AWS.RDS do
   Displays a list of categories for all event source types, or, if specified, for
   a specified source type.
 
-  You can see a list of the event categories and source types in [
-  Events](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html)
-  in the *Amazon RDS User Guide.*
+  You can also see this list in the "Amazon RDS event categories and event
+  messages" section of the [ *Amazon RDS User Guide*
+  ](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html)
+  or the [ *Amazon Aurora User Guide*
+  ](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html).
   """
   def describe_event_categories(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeEventCategories", input, options)
@@ -1188,13 +1191,14 @@ defmodule AWS.RDS do
 
   @doc """
   Returns events related to DB instances, DB clusters, DB parameter groups, DB
-  security groups, DB snapshots, and DB cluster snapshots for the past 14 days.
+  security groups, DB snapshots, DB cluster snapshots, and RDS Proxies for the
+  past 14 days.
 
-  Events specific to a particular DB instances, DB clusters, DB parameter groups,
-  DB security groups, DB snapshots, and DB cluster snapshots group can be obtained
-  by providing the name as a parameter.
+  Events specific to a particular DB instance, DB cluster, DB parameter group, DB
+  security group, DB snapshot, DB cluster snapshot group, or RDS Proxy can be
+  obtained by providing the name as a parameter.
 
-  By default, the past hour of events are returned.
+  By default, RDS returns events that were generated in the past hour.
   """
   def describe_events(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeEvents", input, options)

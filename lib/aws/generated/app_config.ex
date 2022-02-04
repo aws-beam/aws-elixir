@@ -15,9 +15,10 @@ defmodule AWS.AppConfig do
   production systems where a simple typo could cause an unexpected outage,
   AppConfig includes validators. A validator provides a syntactic or semantic
   check to ensure that the configuration you want to deploy works as intended. To
-  validate your application configuration data, you provide a schema or a Lambda
-  function that runs against the configuration. The configuration deployment or
-  update can only proceed when the configuration data is valid.
+  validate your application configuration data, you provide a schema or an Amazon
+  Web Services Lambda function that runs against the configuration. The
+  configuration deployment or update can only proceed when the configuration data
+  is valid.
 
   During a configuration deployment, AppConfig monitors the application to ensure
   that the deployment is successful. If the system encounters an error, AppConfig
@@ -29,11 +30,11 @@ defmodule AWS.AppConfig do
 
   AppConfig supports multiple use cases. Here are some examples:
 
+    * **Feature flags**: Use AppConfig to turn on new features that
+  require a timely deployment, such as a product launch or announcement.
+
     * **Application tuning**: Use AppConfig to carefully introduce
   changes to your application that can only be tested with production traffic.
-
-    * **Feature toggle**: Use AppConfig to turn on new features that
-  require a timely deployment, such as a product launch or announcement.
 
     * **Allow list**: Use AppConfig to allow premium subscribers to
   access paid content.
@@ -106,7 +107,7 @@ defmodule AWS.AppConfig do
   to the configuration data.
 
     * A validator for the configuration data. Available validators
-  include either a JSON Schema or an Lambda function.
+  include either a JSON Schema or an Amazon Web Services Lambda function.
 
   For more information, see [Create a Configuration and a Configuration Profile](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html)
   in the *AppConfig User Guide*.
@@ -388,18 +389,34 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Retrieves information about a configuration.
+  Retrieves the latest deployed configuration.
 
-  AppConfig uses the value of the `ClientConfigurationVersion` parameter to
-  identify the configuration version on your clients. If you don’t send
-  `ClientConfigurationVersion` with each call to `GetConfiguration`, your clients
-  receive the current configuration. You are charged each time your clients
-  receive a configuration.
+  Note the following important information.
 
-  To avoid excess charges, we recommend that you include the
-  `ClientConfigurationVersion` value with every call to `GetConfiguration`. This
-  value must be saved on your client. Subsequent calls to `GetConfiguration` must
-  pass this value by using the `ClientConfigurationVersion` parameter.
+     This API action has been deprecated. Calls to receive configuration
+  data should use the
+  [StartConfigurationSession](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html) and
+  [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html)
+  APIs instead.
+
+     `GetConfiguration` is a priced call. For more information, see
+  [Pricing](https://aws.amazon.com/systems-manager/pricing/).     AppConfig uses the value of the `ClientConfigurationVersion`
+  parameter to identify the configuration version on your clients. If you don’t
+  send `ClientConfigurationVersion` with each call to `GetConfiguration`, your
+  clients receive the current configuration. You are charged each time your
+  clients receive a configuration.
+
+  To avoid excess charges, we recommend you use the
+  [StartConfigurationSession](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/StartConfigurationSession.html)
+  and
+  [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/GetLatestConfiguration.html)
+  APIs, which track the client configuration version on your behalf. If you choose
+  to continue using `GetConfiguration`, we recommend that you include the
+  `ClientConfigurationVersion` value with every call to `GetConfiguration`. The
+  value to use for `ClientConfigurationVersion` comes from the
+  `ConfigurationVersion` attribute returned by `GetConfiguration` when there is
+  new or updated data, and should be saved for subsequent calls to
+  `GetConfiguration`.
   """
   def get_configuration(
         %Client{} = client,
@@ -733,7 +750,7 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Lists the deployments for an environment.
+  Lists the deployments for an environment in descending deployment number order.
   """
   def list_deployments(
         %Client{} = client,

@@ -33,8 +33,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   calls to update or get the state of one or more routing controls. Each cluster
   has a name, status, Amazon Resource Name (ARN), and an array of the five cluster
   endpoints (one for each supported Amazon Web Services Region) that you can use
-  with API calls to the Amazon Route 53 Application Recovery Controller cluster
-  data plane.
+  with API calls to the cluster data plane.
   """
   def create_cluster(%Client{} = client, input, options \\ []) do
     url_path = "/cluster"
@@ -61,7 +60,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   together in a single transaction. You can use a control panel to centrally view
   the operational status of applications across your organization, and trigger
   multi-app failovers in a single transaction, for example, to fail over an
-  Availability Zone or AWS Region.
+  Availability Zone or Amazon Web Services Region.
   """
   def create_control_panel(%Client{} = client, input, options \\ []) do
     url_path = "/controlpanel"
@@ -112,20 +111,25 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Creates a safety rule in a control panel.
 
-  Safety rules let you add safeguards around enabling and disabling routing
-  controls, to help prevent unexpected outcomes.
+  Safety rules let you add safeguards around changing routing control states, and
+  for enabling and disabling routing controls, to help prevent unexpected
+  outcomes.
 
   There are two types of safety rules: assertion rules and gating rules.
 
-  Assertion rule: An assertion rule enforces that, when a routing control state is
-  changed, the criteria set by the rule configuration is met. Otherwise, the
-  change to the routing control is not accepted.
+  Assertion rule: An assertion rule enforces that, when you change a routing
+  control state, that a certain criteria is met. For example, the criteria might
+  be that at least one routing control state is On after the transation so that
+  traffic continues to flow to at least one cell for the application. This ensures
+  that you avoid a fail-open scenario.
 
-  Gating rule: A gating rule verifies that a set of gating controls evaluates as
-  true, based on a rule configuration that you specify. If the gating rule
-  evaluates to true, Amazon Route 53 Application Recovery Controller allows a set
-  of routing control state changes to run and complete against the set of target
-  controls.
+  Gating rule: A gating rule lets you configure a gating routing control as an
+  overall "on/off" switch for a group of routing controls. Or, you can configure
+  more complex gating scenarios, for example by configuring multiple gating
+  routing controls.
+
+  For more information, see [Safety rules](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.safety-rules.html)
+  in the Amazon Route 53 Application Recovery Controller Developer Guide.
   """
   def create_safety_rule(%Client{} = client, input, options \\ []) do
     url_path = "/safetyrule"
@@ -305,8 +309,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
-  Describes the safety rules (that is, the assertion rules and gating rules) for
-  the routing controls in a control panel.
+  Returns information about a safety rule.
   """
   def describe_safety_rule(%Client{} = client, safety_rule_arn, options \\ []) do
     url_path = "/safetyrule/#{AWS.Util.encode_uri(safety_rule_arn)}"
@@ -406,7 +409,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
-  Returns an array of control panels for a cluster.
+  Returns an array of control panels in an account or in a cluster.
   """
   def list_control_panels(
         %Client{} = client,
@@ -542,6 +545,74 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
+  Lists the tags for a resource.
+  """
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Adds a tag to a resource.
+  """
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes a tag from a resource.
+  """
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"TagKeys", "TagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates a control panel.
 
   The only update you can make to a control panel is to change the name of the
@@ -591,11 +662,10 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
-  Update a safety rule (an assertion rule or gating rule) for the routing controls
-  in a control panel.
+  Update a safety rule (an assertion rule or gating rule).
 
   You can only update the name and the waiting period for a safety rule. To make
-  other updates, delete the safety rule and create a new safety rule.
+  other updates, delete the safety rule and create a new one.
   """
   def update_safety_rule(%Client{} = client, input, options \\ []) do
     url_path = "/safetyrule"

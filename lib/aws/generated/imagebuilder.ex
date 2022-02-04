@@ -748,6 +748,37 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
+  When you export your virtual machine (VM) from its virtualization environment,
+  that process creates a set of one or more disk container files that act as
+  snapshots of your VM’s environment, settings, and data.
+
+  The Amazon EC2 API
+  [ImportImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html) action uses those files to import your VM and create an AMI. To import using the
+  CLI command, see
+  [import-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html)
+
+  You can reference the task ID from the VM import to pull in the AMI that the
+  import created as the base image for your Image Builder recipe.
+  """
+  def import_vm_image(%Client{} = client, input, options \\ []) do
+    url_path = "/ImportVmImage"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns the list of component build versions for the specified semantic version.
 
   The semantic version has four nodes: <major>.<minor>.<patch>/<build>. You can

@@ -3,14 +3,14 @@
 
 defmodule AWS.CognitoIdentityProvider do
   @moduledoc """
-  Using the Amazon Cognito User Pools API, you can create a user pool to manage
+  Using the Amazon Cognito user pools API, you can create a user pool to manage
   directories and users.
 
   You can authenticate a user to obtain tokens related to user identity and access
   policies.
 
-  This API reference provides information about user pools in Amazon Cognito User
-  Pools.
+  This API reference provides information about user pools in Amazon Cognito user
+  pools.
 
   For more information, see the [Amazon Cognito Documentation](https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html).
   """
@@ -64,29 +64,32 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Creates a new user in the specified user pool.
 
-  If `MessageAction` is not set, the default is to send a welcome message via
-  email or phone (SMS).
+  If `MessageAction` isn't set, the default is to send a welcome message via email
+  or phone (SMS).
 
-  This action might generate an SMS text message. Starting June 1, 2021, U.S.
-  telecom carriers require that you register an origination phone number before
-  you can send SMS messages to U.S. phone numbers. If you use SMS text messages in
-  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Cognito will use the
-  the registered number automatically. Otherwise, Cognito users that must receive
-  SMS messages might be unable to sign up, activate their accounts, or sign in.
+  This action might generate an SMS text message. Starting June 1, 2021, US
+  telecom carriers require you to register an origination phone number before you
+  can send SMS messages to U.S. phone numbers. If you use SMS text messages in
+  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito will
+  use the registered number automatically. Otherwise, Amazon Cognito users that
+  must receive SMS messages might be unable to sign up, activate their accounts,
+  or sign in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service, Amazon SNS might place your account in SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you’ll
-  have limitations, such as sending messages to only verified phone numbers. After
-  testing in the sandbox environment, you can move out of the SMS sandbox and into
-  production. For more information, see [ SMS message settings for Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  Web Service, Amazon Simple Notification Service might place your account in SMS
+  sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you
+  will have limitations, such as sending messages only to verified phone numbers.
+  After testing in the sandbox environment, you can move out of the SMS sandbox
+  and into production. For more information, see [ SMS message settings for Amazon Cognito User
+  Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
   in the *Amazon Cognito Developer Guide*.
 
   This message is based on a template that you configured in your call to create
   or update a user pool. This template includes your custom sign-up instructions
   and placeholders for user name and temporary password.
 
-  Alternatively, you can call `AdminCreateUser` with “SUPPRESS” for the
-  `MessageAction` parameter, and Amazon Cognito will not send any email.
+  Alternatively, you can call `AdminCreateUser` with `SUPPRESS` for the
+  `MessageAction` parameter, and Amazon Cognito won't send any email.
 
   In either case, the user will be in the `FORCE_CHANGE_PASSWORD` state until they
   sign in and change their password.
@@ -123,12 +126,12 @@ defmodule AWS.CognitoIdentityProvider do
   Disables the user from signing in with the specified external (SAML or social)
   identity provider.
 
-  If the user to disable is a Cognito User Pools native username + password user,
-  they are not permitted to use their password to sign-in. If the user to disable
-  is a linked external IdP user, any link between that user and an existing user
-  is removed. The next time the external user (no longer attached to the
-  previously linked `DestinationUser`) signs in, they must create a new user
-  account. See
+  If the user to disable is a Amazon Cognito User Pools native username + password
+  user, they aren't permitted to use their password to sign in. If the user to
+  deactivate is a linked external identity provider (IdP) user, any link between
+  that user and an existing user is removed. The next time the external user (no
+  longer attached to the previously linked `DestinationUser`) signs in, they must
+  create a new user account. See
   [AdminLinkProviderForUser](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html).
 
   This action is enabled only for admin access and requires developer credentials.
@@ -136,9 +139,9 @@ defmodule AWS.CognitoIdentityProvider do
   The `ProviderName` must match the value specified when creating an IdP for the
   pool.
 
-  To disable a native username + password user, the `ProviderName` value must be
-  `Cognito` and the `ProviderAttributeName` must be `Cognito_Subject`, with the
-  `ProviderAttributeValue` being the name that is used in the user pool for the
+  To deactivate a native username + password user, the `ProviderName` value must
+  be `Cognito` and the `ProviderAttributeName` must be `Cognito_Subject`. The
+  `ProviderAttributeValue` must be the name that is used in the user pool for the
   user.
 
   The `ProviderAttributeName` must always be `Cognito_Subject` for social identity
@@ -146,7 +149,7 @@ defmodule AWS.CognitoIdentityProvider do
   was used when the user was originally linked as a source user.
 
   For de-linking a SAML identity, there are two scenarios. If the linked identity
-  has not yet been used to sign-in, the `ProviderAttributeName` and
+  has not yet been used to sign in, the `ProviderAttributeName` and
   `ProviderAttributeValue` must be the same values that were used for the
   `SourceUser` when the identities were originally linked using `
   AdminLinkProviderForUser` call. (If the linking was done with
@@ -211,18 +214,21 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Initiates the authentication flow, as an administrator.
 
-  This action might generate an SMS text message. Starting June 1, 2021, U.S.
-  telecom carriers require that you register an origination phone number before
-  you can send SMS messages to U.S. phone numbers. If you use SMS text messages in
-  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Cognito will use the
-  the registered number automatically. Otherwise, Cognito users that must receive
-  SMS messages might be unable to sign up, activate their accounts, or sign in.
+  This action might generate an SMS text message. Starting June 1, 2021, US
+  telecom carriers require you to register an origination phone number before you
+  can send SMS messages to U.S. phone numbers. If you use SMS text messages in
+  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito will
+  use the registered number automatically. Otherwise, Amazon Cognito users that
+  must receive SMS messages might be unable to sign up, activate their accounts,
+  or sign in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service, Amazon SNS might place your account in SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you’ll
-  have limitations, such as sending messages to only verified phone numbers. After
-  testing in the sandbox environment, you can move out of the SMS sandbox and into
-  production. For more information, see [ SMS message settings for Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  Web Service, Amazon Simple Notification Service might place your account in SMS
+  sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you
+  will have limitations, such as sending messages only to verified phone numbers.
+  After testing in the sandbox environment, you can move out of the SMS sandbox
+  and into production. For more information, see [ SMS message settings for Amazon Cognito User
+  Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
   in the *Amazon Cognito Developer Guide*.
 
   Calling this action requires developer credentials.
@@ -237,12 +243,12 @@ defmodule AWS.CognitoIdentityProvider do
   name and value from the external identity provider.
 
   This allows you to create a link from the existing user account to an external
-  federated user identity that has not yet been used to sign in, so that the
-  federated user identity can be used to sign in as the existing user account.
+  federated user identity that has not yet been used to sign in. You can then use
+  the federated user identity to sign in as the existing user account.
 
   For example, if there is an existing user with a username and password, this API
-  links that user to a federated user identity, so that when the federated user
-  identity is used, the user signs in as the existing user account.
+  links that user to a federated user identity. When the user signs in with a
+  federated user identity, they sign in as the existing user account.
 
   The maximum number of federated identities linked to a user is 5.
 
@@ -251,7 +257,7 @@ defmodule AWS.CognitoIdentityProvider do
   external identity providers and provider attributes that have been trusted by
   the application owner.
 
-  This action is enabled only for admin access and requires developer credentials.
+  This action is administrative and requires developer credentials.
   """
   def admin_link_provider_for_user(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AdminLinkProviderForUser", input, options)
@@ -276,8 +282,8 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Lists a history of user activity and any risks detected as part of Amazon
-  Cognito advanced security.
+  A history of user activity and any risks detected as part of Amazon Cognito
+  advanced security.
   """
   def admin_list_user_auth_events(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AdminListUserAuthEvents", input, options)
@@ -306,18 +312,21 @@ defmodule AWS.CognitoIdentityProvider do
   verified email exists for the user, calling this API will also result in sending
   a message to the end user with the code to change their password.
 
-  This action might generate an SMS text message. Starting June 1, 2021, U.S.
-  telecom carriers require that you register an origination phone number before
-  you can send SMS messages to U.S. phone numbers. If you use SMS text messages in
-  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Cognito will use the
-  the registered number automatically. Otherwise, Cognito users that must receive
-  SMS messages might be unable to sign up, activate their accounts, or sign in.
+  This action might generate an SMS text message. Starting June 1, 2021, US
+  telecom carriers require you to register an origination phone number before you
+  can send SMS messages to U.S. phone numbers. If you use SMS text messages in
+  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito will
+  use the registered number automatically. Otherwise, Amazon Cognito users that
+  must receive SMS messages might be unable to sign up, activate their accounts,
+  or sign in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service, Amazon SNS might place your account in SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you’ll
-  have limitations, such as sending messages to only verified phone numbers. After
-  testing in the sandbox environment, you can move out of the SMS sandbox and into
-  production. For more information, see [ SMS message settings for Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  Web Service, Amazon Simple Notification Service might place your account in SMS
+  sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you
+  will have limitations, such as sending messages only to verified phone numbers.
+  After testing in the sandbox environment, you can move out of the SMS sandbox
+  and into production. For more information, see [ SMS message settings for Amazon Cognito User
+  Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
   in the *Amazon Cognito Developer Guide*.
 
   Calling this action requires developer credentials.
@@ -329,18 +338,21 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Responds to an authentication challenge, as an administrator.
 
-  This action might generate an SMS text message. Starting June 1, 2021, U.S.
-  telecom carriers require that you register an origination phone number before
-  you can send SMS messages to U.S. phone numbers. If you use SMS text messages in
-  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Cognito will use the
-  the registered number automatically. Otherwise, Cognito users that must receive
-  SMS messages might be unable to sign up, activate their accounts, or sign in.
+  This action might generate an SMS text message. Starting June 1, 2021, US
+  telecom carriers require you to register an origination phone number before you
+  can send SMS messages to U.S. phone numbers. If you use SMS text messages in
+  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito will
+  use the registered number automatically. Otherwise, Amazon Cognito users that
+  must receive SMS messages might be unable to sign up, activate their accounts,
+  or sign in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service, Amazon SNS might place your account in SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you’ll
-  have limitations, such as sending messages to only verified phone numbers. After
-  testing in the sandbox environment, you can move out of the SMS sandbox and into
-  production. For more information, see [ SMS message settings for Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  Web Service, Amazon Simple Notification Service might place your account in SMS
+  sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you
+  will have limitations, such as sending messages only to verified phone numbers.
+  After testing in the sandbox environment, you can move out of the SMS sandbox
+  and into production. For more information, see [ SMS message settings for Amazon Cognito User
+  Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
   in the *Amazon Cognito Developer Guide*.
 
   Calling this action requires developer credentials.
@@ -350,13 +362,13 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Sets the user's multi-factor authentication (MFA) preference, including which
-  MFA options are enabled and if any are preferred.
+  The user's multi-factor authentication (MFA) preference, including which MFA
+  options are activated, and if any are preferred.
 
   Only one factor can be set as preferred. The preferred MFA factor will be used
-  to authenticate a user if multiple factors are enabled. If multiple options are
-  enabled and no preference is set, a challenge to choose an MFA option will be
-  returned during sign in.
+  to authenticate a user if multiple factors are activated. If multiple options
+  are activated and no preference is set, a challenge to choose an MFA option will
+  be returned during sign-in.
   """
   def admin_set_user_mfa_preference(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AdminSetUserMFAPreference", input, options)
@@ -368,14 +380,14 @@ defmodule AWS.CognitoIdentityProvider do
   Works on any user.
 
   The password can be temporary or permanent. If it is temporary, the user status
-  will be placed into the `FORCE_CHANGE_PASSWORD` state. When the user next tries
-  to sign in, the InitiateAuth/AdminInitiateAuth response will contain the
-  `NEW_PASSWORD_REQUIRED` challenge. If the user does not sign in before it
-  expires, the user will not be able to sign in and their password will need to be
-  reset by an administrator.
+  enters the `FORCE_CHANGE_PASSWORD` state. When the user next tries to sign in,
+  the InitiateAuth/AdminInitiateAuth response will contain the
+  `NEW_PASSWORD_REQUIRED` challenge. If the user doesn't sign in before it
+  expires, the user won't be able to sign in, and an administrator must reset
+  their password.
 
   Once the user has set a new password, or the password is permanent, the user
-  status will be set to `Confirmed`.
+  status is set to `Confirmed`.
   """
   def admin_set_user_password(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AdminSetUserPassword", input, options)
@@ -384,8 +396,8 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   *This action is no longer supported.* You can use it to configure only SMS MFA.
 
-  You can't use it to configure TOTP software token MFA. To configure either type
-  of MFA, use
+  You can't use it to configure time-based one-time password (TOTP) software token
+  MFA. To configure either type of MFA, use
   [AdminSetUserMFAPreference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html)
   instead.
   """
@@ -394,7 +406,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Provides feedback for an authentication event as to whether it was from a valid
+  Provides feedback for an authentication event indicating if it was from a valid
   user.
 
   This feedback is used for improving the risk evaluation decision for the user
@@ -425,18 +437,21 @@ defmodule AWS.CognitoIdentityProvider do
   In addition to updating user attributes, this API can also be used to mark phone
   and email as verified.
 
-  This action might generate an SMS text message. Starting June 1, 2021, U.S.
-  telecom carriers require that you register an origination phone number before
-  you can send SMS messages to U.S. phone numbers. If you use SMS text messages in
-  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Cognito will use the
-  the registered number automatically. Otherwise, Cognito users that must receive
-  SMS messages might be unable to sign up, activate their accounts, or sign in.
+  This action might generate an SMS text message. Starting June 1, 2021, US
+  telecom carriers require you to register an origination phone number before you
+  can send SMS messages to U.S. phone numbers. If you use SMS text messages in
+  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito will
+  use the registered number automatically. Otherwise, Amazon Cognito users that
+  must receive SMS messages might be unable to sign up, activate their accounts,
+  or sign in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service, Amazon SNS might place your account in SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you’ll
-  have limitations, such as sending messages to only verified phone numbers. After
-  testing in the sandbox environment, you can move out of the SMS sandbox and into
-  production. For more information, see [ SMS message settings for Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  Web Service, Amazon Simple Notification Service might place your account in SMS
+  sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you
+  will have limitations, such as sending messages only to verified phone numbers.
+  After testing in the sandbox environment, you can move out of the SMS sandbox
+  and into production. For more information, see [ SMS message settings for Amazon Cognito User
+  Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
   in the *Amazon Cognito Developer Guide*.
 
   Calling this action requires developer credentials.
@@ -450,7 +465,7 @@ defmodule AWS.CognitoIdentityProvider do
 
   It also invalidates all refresh tokens issued to a user. The user's current
   access and Id tokens remain valid until their expiry. Access and Id tokens
-  expire one hour after they are issued.
+  expire one hour after they're issued.
 
   Calling this action requires developer credentials.
   """
@@ -465,10 +480,10 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling AssociateSoftwareToken immediately disassociates the existing software
   token from the user account. If the user doesn't subsequently verify the
-  software token, their account is essentially set up to authenticate without MFA.
-  If MFA config is set to Optional at the user pool level, the user can then login
-  without MFA. However, if MFA is set to Required for the user pool, the user will
-  be asked to setup a new software token MFA during sign in.
+  software token, their account is set up to authenticate without MFA. If MFA
+  config is set to Optional at the user pool level, the user can then log in
+  without MFA. However, if MFA is set to Required for the user pool, the user is
+  asked to set up a new software token MFA during sign-in.
   """
   def associate_software_token(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AssociateSoftwareToken", input, options)
@@ -522,7 +537,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Creates a new OAuth2.0 resource server and defines custom scopes in it.
+  Creates a new OAuth2.0 resource server and defines custom scopes within it.
   """
   def create_resource_server(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateResourceServer", input, options)
@@ -539,18 +554,21 @@ defmodule AWS.CognitoIdentityProvider do
   Creates a new Amazon Cognito user pool and sets the password policy for the
   pool.
 
-  This action might generate an SMS text message. Starting June 1, 2021, U.S.
-  telecom carriers require that you register an origination phone number before
-  you can send SMS messages to U.S. phone numbers. If you use SMS text messages in
-  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Cognito will use the
-  the registered number automatically. Otherwise, Cognito users that must receive
-  SMS messages might be unable to sign up, activate their accounts, or sign in.
+  This action might generate an SMS text message. Starting June 1, 2021, US
+  telecom carriers require you to register an origination phone number before you
+  can send SMS messages to U.S. phone numbers. If you use SMS text messages in
+  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito will
+  use the registered number automatically. Otherwise, Amazon Cognito users that
+  must receive SMS messages might be unable to sign up, activate their accounts,
+  or sign in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service, Amazon SNS might place your account in SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you’ll
-  have limitations, such as sending messages to only verified phone numbers. After
-  testing in the sandbox environment, you can move out of the SMS sandbox and into
-  production. For more information, see [ SMS message settings for Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  Web Service, Amazon Simple Notification Service might place your account in SMS
+  sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you
+  will have limitations, such as sending messages only to verified phone numbers.
+  After testing in the sandbox environment, you can move out of the SMS sandbox
+  and into production. For more information, see [ SMS message settings for Amazon Cognito User
+  Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
   in the *Amazon Cognito Developer Guide*.
   """
   def create_user_pool(%Client{} = client, input, options \\ []) do
@@ -561,7 +579,7 @@ defmodule AWS.CognitoIdentityProvider do
   Creates the user pool client.
 
   When you create a new user pool client, token revocation is automatically
-  enabled. For more information about revoking tokens, see
+  activated. For more information about revoking tokens, see
   [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html).
   """
   def create_user_pool_client(%Client{} = client, input, options \\ []) do
@@ -700,19 +718,22 @@ defmodule AWS.CognitoIdentityProvider do
   in the *Amazon Cognito Developer Guide*. If neither a verified phone number nor
   a verified email exists, an `InvalidParameterException` is thrown. To use the
   confirmation code for resetting the password, call
-  [ConfirmForgotPassword](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html).  This action might generate an SMS text message. Starting June 1, 2021, U.S.
-  telecom carriers require that you register an origination phone number before
-  you can send SMS messages to U.S. phone numbers. If you use SMS text messages in
+  [ConfirmForgotPassword](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html).  This action might generate an SMS text message. Starting June 1, 2021, US
+  telecom carriers require you to register an origination phone number before you
+  can send SMS messages to U.S. phone numbers. If you use SMS text messages in
   Amazon Cognito, you must register a phone number with [Amazon
-  Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Cognito will use the
-  the registered number automatically. Otherwise, Cognito users that must receive
-  SMS messages might be unable to sign up, activate their accounts, or sign in.
+  Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito will
+  use the registered number automatically. Otherwise, Amazon Cognito users that
+  must receive SMS messages might be unable to sign up, activate their accounts,
+  or sign in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service, Amazon SNS might place your account in SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you’ll
-  have limitations, such as sending messages to only verified phone numbers. After
-  testing in the sandbox environment, you can move out of the SMS sandbox and into
-  production. For more information, see [ SMS message settings for Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  Web Service, Amazon Simple Notification Service might place your account in SMS
+  sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you
+  will have limitations, such as sending messages only to verified phone numbers.
+  After testing in the sandbox environment, you can move out of the SMS sandbox
+  and into production. For more information, see [ SMS message settings for Amazon Cognito User
+  Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
   in the *Amazon Cognito Developer Guide*.
   """
   def forgot_password(%Client{} = client, input, options \\ []) do
@@ -720,8 +741,8 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Gets the header information for the .csv file to be used as input for the user
-  import job.
+  Gets the header information for the comma-separated value (CSV) file to be used
+  as input for the user import job.
   """
   def get_csv_header(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetCSVHeader", input, options)
@@ -758,12 +779,12 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Gets the UI Customization information for a particular app client's app UI, if
-  there is something set.
+  Gets the user interface (UI) Customization information for a particular app
+  client's app UI, if any such information exists for the client.
 
   If nothing is set for the particular client, but there is an existing pool level
-  customization (app `clientId` will be `ALL`), then that is returned. If nothing
-  is present, then an empty shape is returned.
+  customization (the app `clientId` is `ALL`), then that information is returned.
+  If nothing is present, then an empty shape is returned.
   """
   def get_ui_customization(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetUICustomization", input, options)
@@ -779,18 +800,21 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Gets the user attribute verification code for the specified attribute name.
 
-  This action might generate an SMS text message. Starting June 1, 2021, U.S.
-  telecom carriers require that you register an origination phone number before
-  you can send SMS messages to U.S. phone numbers. If you use SMS text messages in
-  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Cognito will use the
-  the registered number automatically. Otherwise, Cognito users that must receive
-  SMS messages might be unable to sign up, activate their accounts, or sign in.
+  This action might generate an SMS text message. Starting June 1, 2021, US
+  telecom carriers require you to register an origination phone number before you
+  can send SMS messages to U.S. phone numbers. If you use SMS text messages in
+  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito will
+  use the registered number automatically. Otherwise, Amazon Cognito users that
+  must receive SMS messages might be unable to sign up, activate their accounts,
+  or sign in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service, Amazon SNS might place your account in SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you’ll
-  have limitations, such as sending messages to only verified phone numbers. After
-  testing in the sandbox environment, you can move out of the SMS sandbox and into
-  production. For more information, see [ SMS message settings for Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  Web Service, Amazon Simple Notification Service might place your account in SMS
+  sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you
+  will have limitations, such as sending messages only to verified phone numbers.
+  After testing in the sandbox environment, you can move out of the SMS sandbox
+  and into production. For more information, see [ SMS message settings for Amazon Cognito User
+  Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
   in the *Amazon Cognito Developer Guide*.
   """
   def get_user_attribute_verification_code(%Client{} = client, input, options \\ []) do
@@ -808,8 +832,8 @@ defmodule AWS.CognitoIdentityProvider do
   Signs out users from all devices.
 
   It also invalidates all refresh tokens issued to a user. The user's current
-  access and Id tokens remain valid until their expiry. Access and Id tokens
-  expire one hour after they are issued.
+  access and ID tokens remain valid until their expiry. Access and Id tokens
+  expire one hour after they're issued.
   """
   def global_sign_out(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GlobalSignOut", input, options)
@@ -818,18 +842,21 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Initiates the authentication flow.
 
-  This action might generate an SMS text message. Starting June 1, 2021, U.S.
-  telecom carriers require that you register an origination phone number before
-  you can send SMS messages to U.S. phone numbers. If you use SMS text messages in
-  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Cognito will use the
-  the registered number automatically. Otherwise, Cognito users that must receive
-  SMS messages might be unable to sign up, activate their accounts, or sign in.
+  This action might generate an SMS text message. Starting June 1, 2021, US
+  telecom carriers require you to register an origination phone number before you
+  can send SMS messages to U.S. phone numbers. If you use SMS text messages in
+  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito will
+  use the registered number automatically. Otherwise, Amazon Cognito users that
+  must receive SMS messages might be unable to sign up, activate their accounts,
+  or sign in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service, Amazon SNS might place your account in SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you’ll
-  have limitations, such as sending messages to only verified phone numbers. After
-  testing in the sandbox environment, you can move out of the SMS sandbox and into
-  production. For more information, see [ SMS message settings for Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  Web Service, Amazon Simple Notification Service might place your account in SMS
+  sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you
+  will have limitations, such as sending messages only to verified phone numbers.
+  After testing in the sandbox environment, you can move out of the SMS sandbox
+  and into production. For more information, see [ SMS message settings for Amazon Cognito User
+  Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
   in the *Amazon Cognito Developer Guide*.
   """
   def initiate_auth(%Client{} = client, input, options \\ []) do
@@ -893,7 +920,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Lists the user pools associated with an account.
+  Lists the user pools associated with an Amazon Web Services account.
   """
   def list_user_pools(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListUserPools", input, options)
@@ -919,18 +946,21 @@ defmodule AWS.CognitoIdentityProvider do
   Resends the confirmation (for confirmation of registration) to a specific user
   in the user pool.
 
-  This action might generate an SMS text message. Starting June 1, 2021, U.S.
-  telecom carriers require that you register an origination phone number before
-  you can send SMS messages to U.S. phone numbers. If you use SMS text messages in
-  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Cognito will use the
-  the registered number automatically. Otherwise, Cognito users that must receive
-  SMS messages might be unable to sign up, activate their accounts, or sign in.
+  This action might generate an SMS text message. Starting June 1, 2021, US
+  telecom carriers require you to register an origination phone number before you
+  can send SMS messages to U.S. phone numbers. If you use SMS text messages in
+  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito will
+  use the registered number automatically. Otherwise, Amazon Cognito users that
+  must receive SMS messages might be unable to sign up, activate their accounts,
+  or sign in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service, Amazon SNS might place your account in SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you’ll
-  have limitations, such as sending messages to only verified phone numbers. After
-  testing in the sandbox environment, you can move out of the SMS sandbox and into
-  production. For more information, see [ SMS message settings for Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  Web Service, Amazon Simple Notification Service might place your account in SMS
+  sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you
+  will have limitations, such as sending messages only to verified phone numbers.
+  After testing in the sandbox environment, you can move out of the SMS sandbox
+  and into production. For more information, see [ SMS message settings for Amazon Cognito User
+  Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
   in the *Amazon Cognito Developer Guide*.
   """
   def resend_confirmation_code(%Client{} = client, input, options \\ []) do
@@ -940,18 +970,21 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Responds to the authentication challenge.
 
-  This action might generate an SMS text message. Starting June 1, 2021, U.S.
-  telecom carriers require that you register an origination phone number before
-  you can send SMS messages to U.S. phone numbers. If you use SMS text messages in
-  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Cognito will use the
-  the registered number automatically. Otherwise, Cognito users that must receive
-  SMS messages might be unable to sign up, activate their accounts, or sign in.
+  This action might generate an SMS text message. Starting June 1, 2021, US
+  telecom carriers require you to register an origination phone number before you
+  can send SMS messages to U.S. phone numbers. If you use SMS text messages in
+  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito will
+  use the registered number automatically. Otherwise, Amazon Cognito users that
+  must receive SMS messages might be unable to sign up, activate their accounts,
+  or sign in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service, Amazon SNS might place your account in SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you’ll
-  have limitations, such as sending messages to only verified phone numbers. After
-  testing in the sandbox environment, you can move out of the SMS sandbox and into
-  production. For more information, see [ SMS message settings for Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  Web Service, Amazon Simple Notification Service might place your account in SMS
+  sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you
+  will have limitations, such as sending messages only to verified phone numbers.
+  After testing in the sandbox environment, you can move out of the SMS sandbox
+  and into production. For more information, see [ SMS message settings for Amazon Cognito User
+  Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
   in the *Amazon Cognito Developer Guide*.
   """
   def respond_to_auth_challenge(%Client{} = client, input, options \\ []) do
@@ -961,8 +994,8 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Revokes all of the access tokens generated by the specified refresh token.
 
-  After the token is revoked, you can not use the revoked token to access Cognito
-  authenticated APIs.
+  After the token is revoked, you can't use the revoked token to access Amazon
+  Cognito authenticated APIs.
   """
   def revoke_token(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RevokeToken", input, options)
@@ -974,7 +1007,7 @@ defmodule AWS.CognitoIdentityProvider do
   To delete the risk configuration for `UserPoolId` or `ClientId`, pass null
   values for all four configuration types.
 
-  To enable Amazon Cognito advanced security features, update the user pool to
+  To activate Amazon Cognito advanced security features, update the user pool to
   include the `UserPoolAddOns` key`AdvancedSecurityMode`.
   """
   def set_risk_configuration(%Client{} = client, input, options \\ []) do
@@ -982,13 +1015,14 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Sets the UI customization information for a user pool's built-in app UI.
+  Sets the user interface (UI) customization information for a user pool's
+  built-in app UI.
 
   You can specify app UI customization settings for a single client (with a
   specific `clientId`) or for all clients (by setting the `clientId` to `ALL`). If
-  you specify `ALL`, the default configuration will be used for every client that
-  has no UI customization set previously. If you specify UI customization settings
-  for a particular client, it will no longer fall back to the `ALL` configuration.
+  you specify `ALL`, the default configuration is used for every client that has
+  no previously set UI customization. If you specify UI customization settings for
+  a particular client, it will no longer return to the `ALL` configuration.
 
   To use this API, your user pool must have a domain associated with it.
   Otherwise, there is no place to host the app's pages, and the service will throw
@@ -1000,15 +1034,15 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Set the user's multi-factor authentication (MFA) method preference, including
-  which MFA factors are enabled and if any are preferred.
+  which MFA factors are activated and if any are preferred.
 
   Only one factor can be set as preferred. The preferred MFA factor will be used
-  to authenticate a user if multiple factors are enabled. If multiple options are
-  enabled and no preference is set, a challenge to choose an MFA option will be
-  returned during sign in. If an MFA type is enabled for a user, the user will be
-  prompted for MFA during all sign in attempts, unless device tracking is turned
-  on and the device has been trusted. If you would like MFA to be applied
-  selectively based on the assessed risk level of sign in attempts, disable MFA
+  to authenticate a user if multiple factors are activated. If multiple options
+  are activated and no preference is set, a challenge to choose an MFA option will
+  be returned during sign-in. If an MFA type is activated for a user, the user
+  will be prompted for MFA during all sign-in attempts unless device tracking is
+  turned on and the device has been trusted. If you want MFA to be applied
+  selectively based on the assessed risk level of sign-in attempts, deactivate MFA
   for users and turn on Adaptive Authentication for the user pool.
   """
   def set_user_mfa_preference(%Client{} = client, input, options \\ []) do
@@ -1016,20 +1050,23 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Set the user pool multi-factor authentication (MFA) configuration.
+  Sets the user pool multi-factor authentication (MFA) configuration.
 
-  This action might generate an SMS text message. Starting June 1, 2021, U.S.
-  telecom carriers require that you register an origination phone number before
-  you can send SMS messages to U.S. phone numbers. If you use SMS text messages in
-  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Cognito will use the
-  the registered number automatically. Otherwise, Cognito users that must receive
-  SMS messages might be unable to sign up, activate their accounts, or sign in.
+  This action might generate an SMS text message. Starting June 1, 2021, US
+  telecom carriers require you to register an origination phone number before you
+  can send SMS messages to U.S. phone numbers. If you use SMS text messages in
+  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito will
+  use the registered number automatically. Otherwise, Amazon Cognito users that
+  must receive SMS messages might be unable to sign up, activate their accounts,
+  or sign in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service, Amazon SNS might place your account in SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you’ll
-  have limitations, such as sending messages to only verified phone numbers. After
-  testing in the sandbox environment, you can move out of the SMS sandbox and into
-  production. For more information, see [ SMS message settings for Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  Web Service, Amazon Simple Notification Service might place your account in SMS
+  sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you
+  will have limitations, such as sending messages only to verified phone numbers.
+  After testing in the sandbox environment, you can move out of the SMS sandbox
+  and into production. For more information, see [ SMS message settings for Amazon Cognito User
+  Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
   in the *Amazon Cognito Developer Guide*.
   """
   def set_user_pool_mfa_config(%Client{} = client, input, options \\ []) do
@@ -1039,8 +1076,8 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   *This action is no longer supported.* You can use it to configure only SMS MFA.
 
-  You can't use it to configure TOTP software token MFA. To configure either type
-  of MFA, use
+  You can't use it to configure time-based one-time password (TOTP) software token
+  MFA. To configure either type of MFA, use
   [SetUserMFAPreference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.html)
   instead.
   """
@@ -1052,18 +1089,21 @@ defmodule AWS.CognitoIdentityProvider do
   Registers the user in the specified user pool and creates a user name, password,
   and user attributes.
 
-  This action might generate an SMS text message. Starting June 1, 2021, U.S.
-  telecom carriers require that you register an origination phone number before
-  you can send SMS messages to U.S. phone numbers. If you use SMS text messages in
-  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Cognito will use the
-  the registered number automatically. Otherwise, Cognito users that must receive
-  SMS messages might be unable to sign up, activate their accounts, or sign in.
+  This action might generate an SMS text message. Starting June 1, 2021, US
+  telecom carriers require you to register an origination phone number before you
+  can send SMS messages to U.S. phone numbers. If you use SMS text messages in
+  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito will
+  use the registered number automatically. Otherwise, Amazon Cognito users that
+  must receive SMS messages might be unable to sign up, activate their accounts,
+  or sign in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service, Amazon SNS might place your account in SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you’ll
-  have limitations, such as sending messages to only verified phone numbers. After
-  testing in the sandbox environment, you can move out of the SMS sandbox and into
-  production. For more information, see [ SMS message settings for Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  Web Service, Amazon Simple Notification Service might place your account in SMS
+  sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you
+  will have limitations, such as sending messages only to verified phone numbers.
+  After testing in the sandbox environment, you can move out of the SMS sandbox
+  and into production. For more information, see [ SMS message settings for Amazon Cognito User
+  Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
   in the *Amazon Cognito Developer Guide*.
   """
   def sign_up(%Client{} = client, input, options \\ []) do
@@ -1094,12 +1134,13 @@ defmodule AWS.CognitoIdentityProvider do
   general category for more specific values. For example, if you have two versions
   of a user pool, one for testing and another for production, you might assign an
   `Environment` tag key to both user pools. The value of this key might be `Test`
-  for one user pool and `Production` for the other.
+  for one user pool, and `Production` for the other.
 
   Tags are useful for cost tracking and access control. You can activate your tags
   so that they appear on the Billing and Cost Management console, where you can
-  track the costs associated with your user pools. In an IAM policy, you can
-  constrain permissions for user pools based on specific tags or tag values.
+  track the costs associated with your user pools. In an Identity and Access
+  Management policy, you can constrain permissions for user pools based on
+  specific tags or tag values.
 
   You can use this action up to 5 times per second, per account. A user pool can
   have as many as 50 tags.
@@ -1111,14 +1152,14 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Removes the specified tags from an Amazon Cognito user pool.
 
-  You can use this action up to 5 times per second, per account
+  You can use this action up to 5 times per second, per account.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
-  Provides the feedback for an authentication event whether it was from a valid
+  Provides the feedback for an authentication event, whether it was from a valid
   user or not.
 
   This feedback is used for improving the risk evaluation decision for the user
@@ -1156,8 +1197,7 @@ defmodule AWS.CognitoIdentityProvider do
 
   All other fields are read-only.
 
-  If you don't provide a value for an attribute, it will be set to the default
-  value.
+  If you don't provide a value for an attribute, it is set to the default value.
   """
   def update_resource_server(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateResourceServer", input, options)
@@ -1166,18 +1206,21 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Allows a user to update a specific attribute (one at a time).
 
-  This action might generate an SMS text message. Starting June 1, 2021, U.S.
-  telecom carriers require that you register an origination phone number before
-  you can send SMS messages to U.S. phone numbers. If you use SMS text messages in
-  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Cognito will use the
-  the registered number automatically. Otherwise, Cognito users that must receive
-  SMS messages might be unable to sign up, activate their accounts, or sign in.
+  This action might generate an SMS text message. Starting June 1, 2021, US
+  telecom carriers require you to register an origination phone number before you
+  can send SMS messages to U.S. phone numbers. If you use SMS text messages in
+  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito will
+  use the registered number automatically. Otherwise, Amazon Cognito users that
+  must receive SMS messages might be unable to sign up, activate their accounts,
+  or sign in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service, Amazon SNS might place your account in SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you’ll
-  have limitations, such as sending messages to only verified phone numbers. After
-  testing in the sandbox environment, you can move out of the SMS sandbox and into
-  production. For more information, see [ SMS message settings for Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  Web Service, Amazon Simple Notification Service might place your account in SMS
+  sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you
+  will have limitations, such as sending messages only to verified phone numbers.
+  After testing in the sandbox environment, you can move out of the SMS sandbox
+  and into production. For more information, see [ SMS message settings for Amazon Cognito User
+  Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
   in the *Amazon Cognito Developer Guide*.
   """
   def update_user_attributes(%Client{} = client, input, options \\ []) do
@@ -1191,19 +1234,22 @@ defmodule AWS.CognitoIdentityProvider do
   [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html). If you don't provide a value for an attribute, it will be set to the default
   value.
 
-  This action might generate an SMS text message. Starting June 1, 2021, U.S.
-  telecom carriers require that you register an origination phone number before
-  you can send SMS messages to U.S. phone numbers. If you use SMS text messages in
+  This action might generate an SMS text message. Starting June 1, 2021, US
+  telecom carriers require you to register an origination phone number before you
+  can send SMS messages to U.S. phone numbers. If you use SMS text messages in
   Amazon Cognito, you must register a phone number with [Amazon
-  Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Cognito will use the
-  the registered number automatically. Otherwise, Cognito users that must receive
-  SMS messages might be unable to sign up, activate their accounts, or sign in.
+  Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito will
+  use the registered number automatically. Otherwise, Amazon Cognito users that
+  must receive SMS messages might be unable to sign up, activate their accounts,
+  or sign in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service, Amazon SNS might place your account in SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you’ll
-  have limitations, such as sending messages to only verified phone numbers. After
-  testing in the sandbox environment, you can move out of the SMS sandbox and into
-  production. For more information, see [ SMS message settings for Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  Web Service, Amazon Simple Notification Service might place your account in SMS
+  sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you
+  will have limitations, such as sending messages only to verified phone numbers.
+  After testing in the sandbox environment, you can move out of the SMS sandbox
+  and into production. For more information, see [ SMS message settings for Amazon Cognito User
+  Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
   in the *Amazon Cognito Developer Guide*.
   """
   def update_user_pool(%Client{} = client, input, options \\ []) do
@@ -1230,7 +1276,7 @@ defmodule AWS.CognitoIdentityProvider do
   your user pool.
 
   You can use this operation to provide the Amazon Resource Name (ARN) of a new
-  certificate to Amazon Cognito. You cannot use it to change the domain for a user
+  certificate to Amazon Cognito. You can't use it to change the domain for a user
   pool.
 
   A custom domain is used to host the Amazon Cognito hosted UI, which provides
@@ -1248,7 +1294,7 @@ defmodule AWS.CognitoIdentityProvider do
   you must provide this ARN to Amazon Cognito.
 
   When you add your new certificate in ACM, you must choose US East (N. Virginia)
-  as the Region.
+  as the Amazon Web Services Region.
 
   After you submit your request, Amazon Cognito requires up to 1 hour to
   distribute your new certificate to your custom domain.
@@ -1261,8 +1307,8 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Use this API to register a user's entered TOTP code and mark the user's software
-  token MFA status as "verified" if successful.
+  Use this API to register a user's entered time-based one-time password (TOTP)
+  code and mark the user's software token MFA status as "verified" if successful.
 
   The request takes an access token or a session string, but not both.
   """

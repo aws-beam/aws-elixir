@@ -385,6 +385,15 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+  Gets details of the past fraud predictions for the specified event ID, event
+  type, detector ID, and detector version ID that was generated in the specified
+  time period.
+  """
+  def get_event_prediction_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetEventPredictionMetadata", input, options)
+  end
+
+  @doc """
   Gets all event types or a specific event type if name is provided.
 
   This is a paginated API. If you provide a null `maxResults`, this action
@@ -498,6 +507,26 @@ defmodule AWS.FraudDetector do
   """
   def get_variables(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetVariables", input, options)
+  end
+
+  @doc """
+  Gets a list of past predictions.
+
+  The list can be filtered by detector ID, detector version ID, event ID, event
+  type, or by specifying a time period. If filter is not specified, the most
+  recent prediction is returned.
+
+  For example, the following filter lists all past predictions for `xyz` event
+  type - `{ "eventType":{ "value": "xyz" }” } `
+
+  This is a paginated API. If you provide a null `maxResults`, this action will
+  retrieve a maximum of 10 records per page. If you provide a `maxResults`, the
+  value must be between 50 and 100. To get the next page results, provide the
+  `nextToken` from the response as part of your request. A null `nextToken`
+  fetches the records from the beginning.
+  """
+  def list_event_predictions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEventPredictions", input, options)
   end
 
   @doc """

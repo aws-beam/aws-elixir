@@ -202,7 +202,7 @@ defmodule AWS.LookoutVision do
   operation.
 
   It might take a few seconds to delete a model. To determine if a model has been
-  deleted, call `ListProjects` and check if the version of the model
+  deleted, call `ListModels` and check if the version of the model
   (`ModelVersion`) is in the `Models` array.
 
   This operation requires permissions to perform the `lookoutvision:DeleteModel`
@@ -305,6 +305,35 @@ defmodule AWS.LookoutVision do
   def describe_model(%Client{} = client, model_version, project_name, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models/#{AWS.Util.encode_uri(model_version)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Describes an Amazon Lookout for Vision model packaging job.
+
+  This operation requires permissions to perform the
+  `lookoutvision:DescribeModelPackagingJob` operation.
+
+  For more information, see *Using your Amazon Lookout for Vision model on an edge
+  device* in the Amazon Lookout for Vision Developer Guide.
+  """
+  def describe_model_packaging_job(%Client{} = client, job_name, project_name, options \\ []) do
+    url_path =
+      "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/modelpackagingjobs/#{AWS.Util.encode_uri(job_name)}"
 
     headers = []
     query_params = []
@@ -483,7 +512,57 @@ defmodule AWS.LookoutVision do
   end
 
   @doc """
+  Lists the model packaging jobs created for an Amazon Lookout for Vision project.
+
+  This operation requires permissions to perform the
+  `lookoutvision:ListModelPackagingJobs` operation.
+
+  For more information, see *Using your Amazon Lookout for Vision model on an edge
+  device* in the Amazon Lookout for Vision Developer Guide.
+  """
+  def list_model_packaging_jobs(
+        %Client{} = client,
+        project_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/modelpackagingjobs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Lists the versions of a model in an Amazon Lookout for Vision project.
+
+  The `ListModels` operation is eventually consistent. Recent calls to
+  `CreateModel` might take a while to appear in the response from `ListProjects`.
 
   This operation requires permissions to perform the `lookoutvision:ListModels`
   operation.
@@ -528,6 +607,10 @@ defmodule AWS.LookoutVision do
 
   @doc """
   Lists the Amazon Lookout for Vision projects in your AWS account.
+
+  The `ListProjects` operation is eventually consistent. Recent calls to
+  `CreateProject` and `DeleteProject` might take a while to appear in the response
+  from `ListProjects`.
 
   This operation requires permissions to perform the `lookoutvision:ListProjects`
   operation.
@@ -632,6 +715,64 @@ defmodule AWS.LookoutVision do
   end
 
   @doc """
+  Starts an Amazon Lookout for Vision model packaging job.
+
+  A model packaging job creates an AWS IoT Greengrass component for a Lookout for
+  Vision model. You can use the component to deploy your model to an edge device
+  managed by Greengrass.
+
+  Use the `DescribeModelPackagingJob` API to determine the current status of the
+  job. The model packaging job is complete if the value of `Status` is
+  `SUCCEEDED`.
+
+  To deploy the component to the target device, use the component name and
+  component version with the AWS IoT Greengrass
+  [CreateDeployment](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_CreateDeployment.html)
+  API.
+
+  This operation requires the following permissions:
+
+    * `lookoutvision:StartModelPackagingJobs`
+
+    * `s3:PutObject`
+
+    * `s3:GetBucketLocation`
+
+    * `greengrass:CreateComponentVersion`
+
+    * `greengrass:DescribeComponent`
+
+    * (Optional) `greengrass:TagResource`. Only required if you want to
+  tag the component.
+
+  For more information, see *Using your Amazon Lookout for Vision model on an edge
+  device* in the Amazon Lookout for Vision Developer Guide.
+  """
+  def start_model_packaging_job(%Client{} = client, project_name, input, options \\ []) do
+    url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/modelpackagingjobs"
+
+    {headers, input} =
+      [
+        {"ClientToken", "X-Amzn-Client-Token"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Stops the hosting of a running model.
 
   The operation might take a while to complete. To check the current status, call
@@ -727,10 +868,21 @@ defmodule AWS.LookoutVision do
   end
 
   @doc """
-  Adds one or more JSON Line entries to a dataset.
+  Adds or updates one or more JSON Line entries in a dataset.
 
   A JSON Line includes information about an image used for training or testing an
-  Amazon Lookout for Vision model. The following is an example JSON Line.
+  Amazon Lookout for Vision model.
+
+  To update an existing JSON Line, use the `source-ref` field to identify the JSON
+  Line. The JSON line that you supply replaces the existing JSON line. Any
+  existing annotations that are not in the new JSON line are removed from the
+  dataset.
+
+  For more information, see *Defining JSON lines for anomaly classification* in
+  the Amazon Lookout for Vision Developer Guide.
+
+  The images you reference in the `source-ref` field of a JSON line, must be in
+  the same S3 bucket as the existing images in the dataset.
 
   Updating a dataset might take a while to complete. To check the current status,
   call `DescribeDataset` and check the `Status` field in the response.

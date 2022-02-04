@@ -157,6 +157,31 @@ defmodule AWS.Appflow do
   end
 
   @doc """
+  Describes the given custom connector registered in your Amazon Web Services
+  account.
+
+  This API can be used for custom connectors that are registered in your account
+  and also for Amazon authored connectors.
+  """
+  def describe_connector(%Client{} = client, input, options \\ []) do
+    url_path = "/describe-connector"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Provides details regarding the entity used with the connector, with a
   description of the data model for each entity.
   """
@@ -299,6 +324,31 @@ defmodule AWS.Appflow do
   end
 
   @doc """
+  Returns the list of all registered custom connectors in your Amazon Web Services
+  account.
+
+  This API lists only custom connectors registered in this account, not the Amazon
+  Web Services authored connectors.
+  """
+  def list_connectors(%Client{} = client, input, options \\ []) do
+    url_path = "/list-connectors"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Lists all of the flows associated with your account.
   """
   def list_flows(%Client{} = client, input, options \\ []) do
@@ -335,6 +385,29 @@ defmodule AWS.Appflow do
       query_params,
       headers,
       nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Registers a new connector with your Amazon Web Services account.
+
+  Before you can register the connector, you must deploy lambda in your account.
+  """
+  def register_connector(%Client{} = client, input, options \\ []) do
+    url_path = "/register-connector"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
       options,
       nil
     )
@@ -394,6 +467,28 @@ defmodule AWS.Appflow do
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Unregisters the custom connector registered in your account that matches the
+  connectorLabel provided in the request.
+  """
+  def unregister_connector(%Client{} = client, input, options \\ []) do
+    url_path = "/unregister-connector"
     headers = []
     query_params = []
 

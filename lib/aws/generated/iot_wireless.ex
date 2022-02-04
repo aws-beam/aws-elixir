@@ -3,7 +3,23 @@
 
 defmodule AWS.IoTWireless do
   @moduledoc """
-  AWS IoT Wireless API documentation
+  AWS IoT Wireless provides bi-directional communication between
+  internet-connected wireless devices and the AWS Cloud.
+
+  To onboard both LoRaWAN and Sidewalk devices to AWS IoT, use the IoT Wireless
+  API. These wireless devices use the Low Power Wide Area Networking (LPWAN)
+  communication protocol to communicate with AWS IoT.
+
+  Using the API, you can perform create, read, update, and delete operations for
+  your wireless devices, gateways, destinations, and profiles. After onboarding
+  your devices, you can use the API operations to set log levels and monitor your
+  devices with CloudWatch.
+
+  You can also use the API operations to create multicast groups and schedule a
+  multicast session for sending a downlink message to devices in the group. By
+  using Firmware Updates Over-The-Air (FUOTA) API operations, you can create a
+  FUOTA task and schedule a session to update the firmware of individual devices
+  or an entire group of devices in a multicast group.
   """
 
   alias AWS.Client
@@ -452,6 +468,33 @@ defmodule AWS.IoTWireless do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  The operation to delete queued messages.
+  """
+  def delete_queued_messages(%Client{} = client, id, input, options \\ []) do
+    url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/data"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"MessageId", "messageId"},
+        {"WirelessDeviceType", "WirelessDeviceType"}
+      ]
+      |> Request.build_params(input)
 
     Request.request_rest(
       client,
@@ -1452,6 +1495,55 @@ defmodule AWS.IoTWireless do
     url_path = "/partner-accounts"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  The operation to list queued messages.
+  """
+  def list_queued_messages(
+        %Client{} = client,
+        id,
+        max_results \\ nil,
+        next_token \\ nil,
+        wireless_device_type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/data"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(wireless_device_type) do
+        [{"WirelessDeviceType", wireless_device_type} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do

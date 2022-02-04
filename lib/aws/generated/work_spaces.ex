@@ -82,6 +82,18 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
+  Creates a client-add-in for Amazon Connect within a directory.
+
+  You can create only one Amazon Connect client add-in within a directory.
+
+  This client add-in allows WorkSpaces users to seamlessly connect to Amazon
+  Connect.
+  """
+  def create_connect_client_add_in(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateConnectClientAddIn", input, options)
+  end
+
+  @doc """
   Creates the specified connection alias for use with cross-Region redirection.
 
   For more information, see [ Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
@@ -157,6 +169,14 @@ defmodule AWS.WorkSpaces do
   """
   def create_workspaces(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateWorkspaces", input, options)
+  end
+
+  @doc """
+  Deletes a client-add-in for Amazon Connect that is configured within a
+  directory.
+  """
+  def delete_connect_client_add_in(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteConnectClientAddIn", input, options)
   end
 
   @doc """
@@ -258,6 +278,13 @@ defmodule AWS.WorkSpaces do
   """
   def describe_client_properties(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeClientProperties", input, options)
+  end
+
+  @doc """
+  Retrieves a list of Amazon Connect client add-ins that have been created.
+  """
+  def describe_connect_client_add_ins(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeConnectClientAddIns", input, options)
   end
 
   @doc """
@@ -600,6 +627,16 @@ defmodule AWS.WorkSpaces do
   """
   def terminate_workspaces(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TerminateWorkspaces", input, options)
+  end
+
+  @doc """
+  Updates a Amazon Connect client add-in.
+
+  Use this action to update the name and endpoint URL of a Amazon Connect client
+  add-in.
+  """
+  def update_connect_client_add_in(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateConnectClientAddIn", input, options)
   end
 
   @doc """

@@ -3,8 +3,8 @@
 
 defmodule AWS.ComprehendMedical do
   @moduledoc """
-  Amazon Comprehend Medical extracts structured information from unstructured
-  clinical text.
+  Comprehend Medical; extracts structured information from unstructured clinical
+  text.
 
   Use these actions to gain insight in your documents.
   """
@@ -63,6 +63,15 @@ defmodule AWS.ComprehendMedical do
   """
   def describe_rx_norm_inference_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeRxNormInferenceJob", input, options)
+  end
+
+  @doc """
+  Gets the properties associated with an InferSNOMEDCT job.
+
+  Use this operation to get the status of an inference job.
+  """
+  def describe_s_n_o_m_e_d_c_t_inference_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeSNOMEDCTInferenceJob", input, options)
   end
 
   @doc """
@@ -133,6 +142,15 @@ defmodule AWS.ComprehendMedical do
   end
 
   @doc """
+  InferSNOMEDCT detects possible medical concepts as entities and links them to
+  codes from the Systematized Nomenclature of Medicine, Clinical Terms (SNOMED-CT)
+  ontology
+  """
+  def infer_s_n_o_m_e_d_c_t(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "InferSNOMEDCT", input, options)
+  end
+
+  @doc """
   Gets a list of medical entity detection jobs that you have submitted.
   """
   def list_entities_detection_v2_jobs(%Client{} = client, input, options \\ []) do
@@ -159,6 +177,13 @@ defmodule AWS.ComprehendMedical do
   """
   def list_rx_norm_inference_jobs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListRxNormInferenceJobs", input, options)
+  end
+
+  @doc """
+  Gets a list of InferSNOMEDCT jobs a user has submitted.
+  """
+  def list_s_n_o_m_e_d_c_t_inference_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSNOMEDCTInferenceJobs", input, options)
   end
 
   @doc """
@@ -201,6 +226,16 @@ defmodule AWS.ComprehendMedical do
   end
 
   @doc """
+  Starts an asynchronous job to detect medical concepts and link them to the
+  SNOMED-CT ontology.
+
+  Use the DescribeSNOMEDCTInferenceJob operation to track the status of a job.
+  """
+  def start_s_n_o_m_e_d_c_t_inference_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartSNOMEDCTInferenceJob", input, options)
+  end
+
+  @doc """
   Stops a medical entities detection job in progress.
   """
   def stop_entities_detection_v2_job(%Client{} = client, input, options \\ []) do
@@ -226,5 +261,12 @@ defmodule AWS.ComprehendMedical do
   """
   def stop_rx_norm_inference_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopRxNormInferenceJob", input, options)
+  end
+
+  @doc """
+  Stops an InferSNOMEDCT inference job in progress.
+  """
+  def stop_s_n_o_m_e_d_c_t_inference_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopSNOMEDCTInferenceJob", input, options)
   end
 end

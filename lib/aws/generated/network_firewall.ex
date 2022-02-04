@@ -244,6 +244,18 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+  High-level information about a rule group, returned by operations like create
+  and describe.
+
+  You can use the information provided in the metadata to retrieve and manage a
+  rule group. You can retrieve all objects for a rule group by calling
+  `DescribeRuleGroup`.
+  """
+  def describe_rule_group_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeRuleGroupMetadata", input, options)
+  end
+
+  @doc """
   Removes the specified subnet associations from the firewall.
 
   This removes the firewall endpoints from the subnets and removes any network
@@ -390,6 +402,13 @@ defmodule AWS.NetworkFirewall do
     Request.request_post(client, metadata(), "UpdateFirewallPolicy", input, options)
   end
 
+  @doc """
+  Modifies the flag, `ChangeProtection`, which indicates whether it is possible to
+  change the firewall.
+
+  If the flag is set to `TRUE`, the firewall is protected from changes. This
+  setting helps protect against accidentally changing a firewall that's in use.
+  """
   def update_firewall_policy_change_protection(%Client{} = client, input, options \\ []) do
     Request.request_post(
       client,

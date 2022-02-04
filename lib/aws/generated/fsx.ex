@@ -196,6 +196,8 @@ defmodule AWS.FSx do
 
     * Amazon FSx for NetApp ONTAP
 
+    * Amazon FSx for OpenZFS
+
     * Amazon FSx for Windows File Server
 
   This operation requires a client request token in the request that Amazon FSx
@@ -704,7 +706,7 @@ defmodule AWS.FSx do
 
     * `WeeklyMaintenanceStartTime`
 
-  For FSx for Lustre file systems, you can update the following properties:
+  For Amazon FSx for Lustre file systems, you can update the following properties:
 
     * `AutoImportPolicy`
 
@@ -718,13 +720,18 @@ defmodule AWS.FSx do
 
     * `WeeklyMaintenanceStartTime`
 
-  For FSx for ONTAP file systems, you can update the following properties:
+  For Amazon FSx for NetApp ONTAP file systems, you can update the following
+  properties:
 
     * `AutomaticBackupRetentionDays`
 
     * `DailyAutomaticBackupStartTime`
 
+    * `DiskIopsConfiguration`
+
     * `FsxAdminPassword`
+
+    * `StorageCapacity`
 
     * `WeeklyMaintenanceStartTime`
 
@@ -738,8 +745,6 @@ defmodule AWS.FSx do
     * `CopyTagsToVolumes`
 
     * `DailyAutomaticBackupStartTime`
-
-    * `DiskIopsConfiguration`
 
     * `ThroughputCapacity`
 

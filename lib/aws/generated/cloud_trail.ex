@@ -63,11 +63,49 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+  Cancels a query if the query is not in a terminated state, such as `CANCELLED`,
+  `FAILED` or `FINISHED`.
+
+  You must specify an ARN value for `EventDataStore`. The ID of the query that you
+  want to cancel is also required. When you run `CancelQuery`, the query status
+  might show as `CANCELLED` even if the operation is not yet finished.
+  """
+  def cancel_query(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CancelQuery", input, options)
+  end
+
+  @doc """
+  Creates a new event data store.
+  """
+  def create_event_data_store(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateEventDataStore", input, options)
+  end
+
+  @doc """
   Creates a trail that specifies the settings for delivery of log data to an
   Amazon S3 bucket.
   """
   def create_trail(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateTrail", input, options)
+  end
+
+  @doc """
+  Disables the event data store specified by `EventDataStore`, which accepts an
+  event data store ARN.
+
+  After you run `DeleteEventDataStore`, the event data store enters a
+  `PENDING_DELETION` state, and is automatically deleted after a wait period of
+  seven days. `TerminationProtectionEnabled` must be set to `False` on the event
+  data store; this operation cannot work if `TerminationProtectionEnabled` is
+  `True`.
+
+  After you run `DeleteEventDataStore` on an event data store, you cannot run
+  `ListQueries`, `DescribeQuery`, or `GetQueryResults` on queries that are using
+  an event data store in a `PENDING_DELETION` state. An event data store in the
+  `PENDING_DELETION` state does not incur costs.
+  """
+  def delete_event_data_store(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteEventDataStore", input, options)
   end
 
   @doc """
@@ -82,11 +120,29 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+  Returns metadata about a query, including query run time in milliseconds, number
+  of events scanned and matched, and query status.
+
+  You must specify an ARN for `EventDataStore`, and a value for `QueryID`.
+  """
+  def describe_query(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeQuery", input, options)
+  end
+
+  @doc """
   Retrieves settings for one or more trails associated with the current region for
   your account.
   """
   def describe_trails(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeTrails", input, options)
+  end
+
+  @doc """
+  Returns information about an event data store specified as either an ARN or the
+  ID portion of the ARN.
+  """
+  def get_event_data_store(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetEventDataStore", input, options)
   end
 
   @doc """
@@ -129,6 +185,16 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+  Gets event data results of a query.
+
+  You must specify the `QueryID` value returned by the `StartQuery` operation, and
+  an ARN for `EventDataStore`.
+  """
+  def get_query_results(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetQueryResults", input, options)
+  end
+
+  @doc """
   Returns settings information for a specified trail.
   """
   def get_trail(%Client{} = client, input, options \\ []) do
@@ -148,6 +214,14 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+  Returns information about all event data stores in the account, in the current
+  region.
+  """
+  def list_event_data_stores(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEventDataStores", input, options)
+  end
+
+  @doc """
   Returns all public keys whose private keys were used to sign the digest files
   within the specified time range.
 
@@ -161,6 +235,19 @@ defmodule AWS.CloudTrail do
   """
   def list_public_keys(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListPublicKeys", input, options)
+  end
+
+  @doc """
+  Returns a list of queries and query statuses for the past seven days.
+
+  You must specify an ARN value for `EventDataStore`. Optionally, to shorten the
+  list of results, you can specify a time range, formatted as timestamps, by
+  adding `StartTime` and `EndTime` parameters, and a `QueryStatus` value. Valid
+  values for `QueryStatus` include `QUEUED`, `RUNNING`, `FINISHED`, `FAILED`, or
+  `CANCELLED`.
+  """
+  def list_queries(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListQueries", input, options)
   end
 
   @doc """
@@ -277,8 +364,8 @@ defmodule AWS.CloudTrail do
   you want to enable on an existing trail.
 
   You also use `PutInsightSelectors` to turn off Insights event logging, by
-  passing an empty list of insight types. The valid Insights event type in this
-  release is `ApiCallRateInsight`.
+  passing an empty list of insight types. The valid Insights event types in this
+  release are `ApiErrorRateInsight` and `ApiCallRateInsight`.
   """
   def put_insight_selectors(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutInsightSelectors", input, options)
@@ -289,6 +376,18 @@ defmodule AWS.CloudTrail do
   """
   def remove_tags(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RemoveTags", input, options)
+  end
+
+  @doc """
+  Restores a deleted event data store specified by `EventDataStore`, which accepts
+  an event data store ARN.
+
+  You can only restore a deleted event data store within the seven-day wait period
+  after deletion. Restoring an event data store can take several minutes,
+  depending on the size of the event data store.
+  """
+  def restore_event_data_store(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RestoreEventDataStore", input, options)
   end
 
   @doc """
@@ -305,6 +404,16 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+  Starts a CloudTrail Lake query.
+
+  The required `QueryStatement` parameter provides your SQL query, enclosed in
+  single quotation marks.
+  """
+  def start_query(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartQuery", input, options)
+  end
+
+  @doc """
   Suspends the recording of Amazon Web Services API calls and log file delivery
   for the specified trail.
 
@@ -317,6 +426,22 @@ defmodule AWS.CloudTrail do
   """
   def stop_logging(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopLogging", input, options)
+  end
+
+  @doc """
+  Updates an event data store.
+
+  The required `EventDataStore` value is an ARN or the ID portion of the ARN.
+  Other parameters are optional, but at least one optional parameter must be
+  specified, or CloudTrail throws an error. `RetentionPeriod` is in days, and
+  valid values are integers between 90 and 2555. By default,
+  `TerminationProtection` is enabled. `AdvancedEventSelectors` includes or
+  excludes management and data events in your event data store; for more
+  information about `AdvancedEventSelectors`, see
+  `PutEventSelectorsRequest$AdvancedEventSelectors`.
+  """
+  def update_event_data_store(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateEventDataStore", input, options)
   end
 
   @doc """

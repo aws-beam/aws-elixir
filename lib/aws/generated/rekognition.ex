@@ -48,7 +48,7 @@ defmodule AWS.Rekognition do
 
   In response, the operation returns an array of face matches ordered by
   similarity score in descending order. For each face match, the response provides
-  a bounding box of the face, facial landmarks, pose details (pitch, role, and
+  a bounding box of the face, facial landmarks, pose details (pitch, roll, and
   yaw), quality (brightness and sharpness), and confidence value (indicating the
   level of confidence that the bounding box contains a face). The response also
   provides a similarity score, which indicates how closely the faces match.
@@ -614,8 +614,8 @@ defmodule AWS.Rekognition do
   `TextDetections`. Each `TextDetection` element provides information about a
   single word or line of text that was detected in the image.
 
-  A word is one or more ISO basic latin script characters that are not separated
-  by spaces. `DetectText` can detect up to 100 words in an image.
+  A word is one or more script characters that are not separated by spaces.
+  `DetectText` can detect up to 100 words in an image.
 
   A line is a string of equally spaced words. A line isn't necessarily a complete
   sentence. For example, a driver's license number is detected as a line. A line
@@ -1078,9 +1078,9 @@ defmodule AWS.Rekognition do
   If you request all facial attributes (by using the `detectionAttributes`
   parameter), Amazon Rekognition returns detailed facial attributes, such as
   facial landmarks (for example, location of eye and mouth) and other facial
-  attributes. If you provide the same image, specify the same collection, and use
-  the same external ID in the `IndexFaces` operation, Amazon Rekognition doesn't
-  save duplicate face metadata.
+  attributes. If you provide the same image, specify the same collection, use the
+  same external ID, and use the same model version in the `IndexFaces` operation,
+  Amazon Rekognition doesn't save duplicate face metadata.
 
   The input image is passed either as base64-encoded image bytes, or as a
   reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call

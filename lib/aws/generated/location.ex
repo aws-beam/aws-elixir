@@ -119,6 +119,9 @@ defmodule AWS.Location do
 
   The last geofence that a device was observed within is tracked for 30 days after
   the most recent device position update.
+
+  Geofence evaluation uses the given device position. It does not account for the
+  optional `Accuracy` of a `DevicePositionUpdate`.
   """
   def batch_evaluate_geofences(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/positions"
@@ -193,9 +196,20 @@ defmodule AWS.Location do
   against linked geofence collections, and location data is stored at a maximum of
   one position per 30 second interval. If your update frequency is more often than
   every 30 seconds, only one update per 30 seconds is stored for each unique
-  device ID. When `PositionFiltering` is set to `DistanceBased` filtering,
-  location data is stored and evaluated against linked geofence collections only
-  if the device has moved more than 30 m (98.4 ft).
+  device ID.
+
+  When `PositionFiltering` is set to `DistanceBased` filtering, location data is
+  stored and evaluated against linked geofence collections only if the device has
+  moved more than 30 m (98.4 ft).
+
+  When `PositionFiltering` is set to `AccuracyBased` filtering, location data is
+  stored and evaluated against linked geofence collections only if the device has
+  moved more than the measured accuracy. For example, if two consecutive updates
+  from a device have a horizontal accuracy of 5 m and 10 m, the second update is
+  neither stored or evaluated if the device has moved less than 15 m. If
+  `PositionFiltering` is set to `AccuracyBased` filtering, Amazon Location uses
+  the default value `{ "Horizontal": 0}` when accuracy is not provided on a
+  `DevicePositionUpdate`.
   """
   def batch_update_device_position(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/positions"
@@ -217,7 +231,7 @@ defmodule AWS.Location do
 
   @doc """
   [Calculates a route](https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html)
-  given the following required parameters: `DeparturePostiton` and
+  given the following required parameters: `DeparturePosition` and
   `DestinationPosition`.
 
   Requires that you first [create a route calculator resource](https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html).
@@ -227,20 +241,74 @@ defmodule AWS.Location do
 
   Additional options include:
 
-    * [Specifying a departure time](https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time)
-  using either `DepartureTime` or `DepartureNow`. This calculates a route based on
+    * [Specifying a departure time](https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html)
+  using either `DepartureTime` or `DepartNow`. This calculates a route based on
   predictive traffic data at the given time.
 
-  You can't specify both `DepartureTime` and `DepartureNow` in a single request.
+  You can't specify both `DepartureTime` and `DepartNow` in a single request.
   Specifying both parameters returns a validation error.
 
-    * [Specifying a travel mode](https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode)
-  using TravelMode. This lets you specify an additional route preference such as
-  `CarModeOptions` if traveling by `Car`, or `TruckModeOptions` if traveling by
-  `Truck`.
+    * [Specifying a travel mode](https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html)
+  using TravelMode sets the transportation mode used to calculate the routes. This
+  also lets you specify additional route preferences in `CarModeOptions` if
+  traveling by `Car`, or `TruckModeOptions` if traveling by `Truck`.
   """
   def calculate_route(%Client{} = client, calculator_name, input, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}/calculate/route"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  [ Calculates a route matrix](https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html)
+  given the following required parameters: `DeparturePositions` and
+  `DestinationPositions`.
+
+  `CalculateRouteMatrix` calculates routes and returns the travel time and travel
+  distance from each departure position to each destination position in the
+  request. For example, given departure positions A and B, and destination
+  positions X and Y, `CalculateRouteMatrix` will return time and distance for
+  routes from A to X, A to Y, B to X, and B to Y (in that order). The number of
+  results returned (and routes calculated) will be the number of
+  `DeparturePositions` times the number of `DestinationPositions`.
+
+  Your account is charged for each route calculated, not the number of requests.
+
+  Requires that you first [create a route calculator resource](https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html).
+
+  By default, a request that doesn't specify a departure time uses the best time
+  of day to travel with the best traffic conditions when calculating routes.
+
+  Additional options include:
+
+    * [ Specifying a departure time](https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html)
+  using either `DepartureTime` or `DepartNow`. This calculates routes based on
+  predictive traffic data at the given time.
+
+  You can't specify both `DepartureTime` and `DepartNow` in a single request.
+  Specifying both parameters returns a validation error.
+
+    * [Specifying a travel mode](https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html)
+  using TravelMode sets the transportation mode used to calculate the routes. This
+  also lets you specify additional route preferences in `CarModeOptions` if
+  traveling by `Car`, or `TruckModeOptions` if traveling by `Truck`.
+  """
+  def calculate_route_matrix(%Client{} = client, calculator_name, input, options \\ []) do
+    url_path =
+      "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}/calculate/route-matrix"
+
     headers = []
     query_params = []
 
@@ -281,6 +349,10 @@ defmodule AWS.Location do
   @doc """
   Creates a map resource in your AWS account, which provides map tiles of
   different styles sourced from global location data providers.
+
+  If your application is tracking or routing assets you use in your business, such
+  as delivery vehicles or employees, you may only use HERE as your geolocation
+  provider. See section 82 of the [AWS service terms](http://aws.amazon.com/service-terms) for more details.
   """
   def create_map(%Client{} = client, input, options \\ []) do
     url_path = "/maps/v0/maps"
@@ -305,7 +377,12 @@ defmodule AWS.Location do
 
   Use a place index resource to geocode addresses and other text queries by using
   the `SearchPlaceIndexForText` operation, and reverse geocode coordinates by
-  using the `SearchPlaceIndexForPosition` operation.
+  using the `SearchPlaceIndexForPosition` operation, and enable autosuggestions by
+  using the `SearchPlaceIndexForSuggestions` operation.
+
+  If your application is tracking or routing assets you use in your business, such
+  as delivery vehicles or employees, you may only use HERE as your geolocation
+  provider. See section 82 of the [AWS service terms](http://aws.amazon.com/service-terms) for more details.
   """
   def create_place_index(%Client{} = client, input, options \\ []) do
     url_path = "/places/v0/indexes"
@@ -331,6 +408,10 @@ defmodule AWS.Location do
   You can send requests to a route calculator resource to estimate travel time,
   distance, and get directions. A route calculator sources traffic and road
   network data from your chosen data provider.
+
+  If your application is tracking or routing assets you use in your business, such
+  as delivery vehicles or employees, you may only use HERE as your geolocation
+  provider. See section 82 of the [AWS service terms](http://aws.amazon.com/service-terms) for more details.
   """
   def create_route_calculator(%Client{} = client, input, options \\ []) do
     url_path = "/routes/v0/calculators"
@@ -1062,6 +1143,38 @@ defmodule AWS.Location do
   """
   def search_place_index_for_position(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/position"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Generates suggestions for addresses and points of interest based on partial or
+  misspelled free-form text.
+
+  This operation is also known as autocomplete, autosuggest, or fuzzy matching.
+
+  Optional parameters let you narrow your search results by bounding box or
+  country, or bias your search toward a specific position on the globe.
+
+  You can search for suggested place names near a specified position by using
+  `BiasPosition`, or filter results within a bounding box by using `FilterBBox`.
+  These parameters are mutually exclusive; using both `BiasPosition` and
+  `FilterBBox` in the same command returns an error.
+  """
+  def search_place_index_for_suggestions(%Client{} = client, index_name, input, options \\ []) do
+    url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/suggestions"
     headers = []
     query_params = []
 

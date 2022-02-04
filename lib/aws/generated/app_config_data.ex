@@ -3,8 +3,47 @@
 
 defmodule AWS.AppConfigData do
   @moduledoc """
-  Use the AppConfigData API, a capability of AWS AppConfig, to retrieve deployed
-  configuration.
+  AppConfig Data provides the data plane APIs your application uses to retrieve
+  configuration data.
+
+  Here's how it works:
+
+  Your application retrieves configuration data by first establishing a
+  configuration session using the AppConfig Data `StartConfigurationSession` API
+  action. Your session's client then makes periodic calls to
+  `GetLatestConfiguration` to check for and retrieve the latest data available.
+
+  When calling `StartConfigurationSession`, your code sends the following
+  information:
+
+    * Identifiers (ID or name) of an AppConfig application, environment,
+  and configuration profile that the session tracks.
+
+    * (Optional) The minimum amount of time the session's client must
+  wait between calls to `GetLatestConfiguration`.
+
+  In response, AppConfig provides an `InitialConfigurationToken` to be given to
+  the session's client and used the first time it calls `GetLatestConfiguration`
+  for that session.
+
+  When calling `GetLatestConfiguration`, your client code sends the most recent
+  `ConfigurationToken` value it has and receives in response:
+
+    * `NextPollConfigurationToken`: the `ConfigurationToken` value to
+  use on the next call to `GetLatestConfiguration`.
+
+    * `NextPollIntervalInSeconds`: the duration the client should wait
+  before making its next call to `GetLatestConfiguration`. This duration may vary
+  over the course of the session, so it should be used instead of the value sent
+  on the `StartConfigurationSession` call.
+
+    * The configuration: the latest data intended for the session. This
+  may be empty if the client already has the latest version of the configuration.
+
+  For more information and to view example CLI commands that show how to retrieve
+  a configuration using the AppConfig Data `StartConfigurationSession` and
+  `GetLatestConfiguration` API actions, see [Receiving the configuration](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration)
+  in the *AppConfig User Guide*.
   """
 
   alias AWS.Client
@@ -29,18 +68,21 @@ defmodule AWS.AppConfigData do
   @doc """
   Retrieves the latest deployed configuration.
 
-  This API may return empty Configuration data if the client already has the
-  latest version. See StartConfigurationSession to obtain an
-  InitialConfigurationToken to call this API.
+  This API may return empty configuration data if the client already has the
+  latest version. For more information about this API action and to view example
+  CLI commands that show how to use it with the `StartConfigurationSession` API
+  action, see [Receiving the configuration](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration)
+  in the *AppConfig User Guide*.
 
-  Each call to GetLatestConfiguration returns a new ConfigurationToken
-  (NextPollConfigurationToken in the response). This new token MUST be provided to
-  the next call to GetLatestConfiguration when polling for configuration updates.
+  Note the following important information.
 
-  To avoid excess charges, we recommend that you include the
-  `ClientConfigurationVersion` value with every call to `GetConfiguration`. This
-  value must be saved on your client. Subsequent calls to `GetConfiguration` must
-  pass this value by using the `ClientConfigurationVersion` parameter.
+     Each configuration token is only valid for one call to
+  `GetLatestConfiguration`. The `GetLatestConfiguration` response includes a
+  `NextPollConfigurationToken` that should always replace the token used for the
+  just-completed call in preparation for the next one.
+
+     `GetLatestConfiguration` is a priced call. For more information,
+  see [Pricing](https://aws.amazon.com/systems-manager/pricing/).
   """
   def get_latest_configuration(%Client{} = client, configuration_token, options \\ []) do
     url_path = "/configuration"
@@ -81,7 +123,10 @@ defmodule AWS.AppConfigData do
   @doc """
   Starts a configuration session used to retrieve a deployed configuration.
 
-  See the GetLatestConfiguration API for more details.
+  For more information about this API action and to view example CLI commands that
+  show how to use it with the `GetLatestConfiguration` API action, see [Receiving the
+  configuration](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration)
+  in the *AppConfig User Guide*.
   """
   def start_configuration_session(%Client{} = client, input, options \\ []) do
     url_path = "/configurationsessions"

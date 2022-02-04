@@ -134,6 +134,27 @@ defmodule AWS.LookoutMetrics do
   end
 
   @doc """
+  Deactivates an anomaly detector.
+  """
+  def deactivate_anomaly_detector(%Client{} = client, input, options \\ []) do
+    url_path = "/DeactivateAnomalyDetector"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes an alert.
   """
   def delete_alert(%Client{} = client, input, options \\ []) do
@@ -371,6 +392,28 @@ defmodule AWS.LookoutMetrics do
   """
   def list_anomaly_detectors(%Client{} = client, input, options \\ []) do
     url_path = "/ListAnomalyDetectors"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns a list of measures that are potential causes or effects of an anomaly
+  group.
+  """
+  def list_anomaly_group_related_metrics(%Client{} = client, input, options \\ []) do
+    url_path = "/ListAnomalyGroupRelatedMetrics"
     headers = []
     query_params = []
 

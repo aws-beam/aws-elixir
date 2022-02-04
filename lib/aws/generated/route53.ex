@@ -859,6 +859,13 @@ defmodule AWS.Route53 do
   Before you can delete a KSK, you must deactivate it. The KSK must be deactivated
   before you can delete it regardless of whether the hosted zone is enabled for
   DNSSEC signing.
+
+  You can use
+  [DeactivateKeySigningKey](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeactivateKeySigningKey.html) to deactivate the key before you delete it.
+
+  Use
+  [GetDNSSEC](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetDNSSEC.html)
+  to verify that the KSK is in an `INACTIVE` status.
   """
   def delete_key_signing_key(%Client{} = client, hosted_zone_id, name, input, options \\ []) do
     url_path =

@@ -4888,6 +4888,7 @@ defmodule AWS.IoT do
   def list_job_executions_for_thing(
         %Client{} = client,
         thing_name,
+        job_id \\ nil,
         max_results \\ nil,
         namespace_id \\ nil,
         next_token \\ nil,
@@ -4922,6 +4923,13 @@ defmodule AWS.IoT do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(job_id) do
+        [{"jobId", job_id} | query_params]
       else
         query_params
       end

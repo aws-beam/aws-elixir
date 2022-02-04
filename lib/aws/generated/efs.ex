@@ -6,7 +6,8 @@ defmodule AWS.EFS do
   Amazon Elastic File System
 
   Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage
-  for use with Amazon EC2 instances in the Amazon Web Services Cloud.
+  for use with Amazon EC2 Linux and Mac instances in the Amazon Web Services
+  Cloud.
 
   With Amazon EFS, storage capacity is elastic, growing and shrinking
   automatically as you add and remove files, so your applications have the storage
@@ -271,6 +272,88 @@ defmodule AWS.EFS do
   end
 
   @doc """
+  Creates a replication configuration that replicates an existing EFS file system
+  to a new, read-only file system.
+
+  For more information, see [Amazon EFS replication](https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html).
+  The replication configuration specifies the following:
+
+    * **Source file system** - an existing EFS file system that you want
+  replicated. The source file system cannot be a destination file system in an
+  existing replication configuration.
+
+    * **Destination file system configuration** - the configuration of
+  the destination file system to which the source file system will be replicated.
+  There can only be one destination file system in a replication configuration.
+
+      * **Amazon Web Services Region** - The Amazon Web
+  Services Region in which the destination file system is created. EFS Replication
+  is available in all Amazon Web Services Region that Amazon EFS is available in,
+  except the following regions: Asia Pacific (Hong Kong) Europe (Milan), Middle
+  East (Bahrain), Africa (Cape Town), and Asia Pacific (Jakarta).
+
+      * **Availability zone** - If you want the destination
+  file system to use One Zone availability and durability, you must specify the
+  Availability Zone to create the file system in. For more information about EFS
+  storage classes, see [ Amazon EFS storage classes](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the
+  *Amazon EFS User Guide*.
+
+      * **Encryption** - All destination file systems are
+  created with encryption at rest enabled. You can specify the KMS key that is
+  used to encrypt the destination file system. Your service-managed KMS key for
+  Amazon EFS is used if you don't specify a KMS key. You cannot change this after
+  the file system is created.
+
+  The following properties are set by default:
+
+    * **Performance mode** - The destination file system's performance
+  mode will match that of the source file system, unless the destination file
+  system uses One Zone storage. In that case, the *General Purpose* performance
+  mode is used. The Performance mode cannot be changed.
+
+    * **Throughput mode** - The destination file system use the Bursting
+  throughput mode by default. You can modify the throughput mode once the file
+  system is created.
+
+  The following properties are turned off by default:
+
+    * **Lifecycle management** - EFS lifecycle management and
+  intelligent tiering are not enabled on the destination file system. You can
+  enable EFS lifecycle management and intelligent tiering after the destination
+  file system is created.
+
+    * **Automatic backups** - Automatic daily backups not enabled on the
+  destination file system. You can change this setting after the file system is
+  created.
+
+  For more information, see [Amazon EFS replication](https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html).
+  """
+  def create_replication_configuration(
+        %Client{} = client,
+        source_file_system_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/2015-02-01/file-systems/#{AWS.Util.encode_uri(source_file_system_id)}/replication-configuration"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   DEPRECATED - CreateTags is deprecated and not maintained.
 
   Please use the API action to create tags for EFS resources.
@@ -423,6 +506,39 @@ defmodule AWS.EFS do
   """
   def delete_mount_target(%Client{} = client, mount_target_id, input, options \\ []) do
     url_path = "/2015-02-01/mount-targets/#{AWS.Util.encode_uri(mount_target_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes an existing replication configuration.
+
+  To delete a replication configuration, you must make the request from the Amazon
+  Web Services Region in which the destination file system is located. Deleting a
+  replication configuration ends the replication process. You can write to the
+  destination file system once it's status becomes `Writeable`.
+  """
+  def delete_replication_configuration(
+        %Client{} = client,
+        source_file_system_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/2015-02-01/file-systems/#{AWS.Util.encode_uri(source_file_system_id)}/replication-configuration"
+
     headers = []
     query_params = []
 
@@ -808,6 +924,56 @@ defmodule AWS.EFS do
     query_params =
       if !is_nil(access_point_id) do
         [{"AccessPointId", access_point_id} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves the replication configurations for either a specific file system, or
+  all configurations for the Amazon Web Services account in an Amazon Web Services
+  Region if a file system is not specified.
+  """
+  def describe_replication_configurations(
+        %Client{} = client,
+        file_system_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2015-02-01/file-systems/replication-configurations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(file_system_id) do
+        [{"FileSystemId", file_system_id} | query_params]
       else
         query_params
       end

@@ -61,7 +61,7 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Creates a new ledger in your account in the current Region.
+  Creates a new ledger in your Amazon Web Services account in the current Region.
   """
   def create_ledger(%Client{} = client, input, options \\ []) do
     url_path = "/ledgers"
@@ -199,7 +199,14 @@ defmodule AWS.QLDB do
   Exports journal contents within a date and time range from a ledger into a
   specified Amazon Simple Storage Service (Amazon S3) bucket.
 
-  The data is written as files in Amazon Ion format.
+  A journal export job can write the data objects in either the text or binary
+  representation of Amazon Ion format, or in *JSON Lines* text format.
+
+  In JSON Lines format, each journal block in the exported data object is a valid
+  JSON object that is delimited by a newline. You can use this format to easily
+  integrate JSON exports with analytics tools such as Glue and Amazon Athena
+  because these services can parse newline-delimited JSON automatically. For more
+  information about the format, see [JSON Lines](https://jsonlines.org/).
 
   If the ledger with the given `Name` doesn't exist, then throws
   `ResourceNotFoundException`.
@@ -366,7 +373,7 @@ defmodule AWS.QLDB do
 
   @doc """
   Returns an array of journal export job descriptions for all ledgers that are
-  associated with the current account and Region.
+  associated with the current Amazon Web Services account and Region.
 
   This action returns a maximum of `MaxResults` items, and is paginated so that
   you can retrieve all the items by calling `ListJournalS3Exports` multiple times.
@@ -462,8 +469,8 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns an array of ledger summaries that are associated with the current
-  account and Region.
+  Returns an array of ledger summaries that are associated with the current Amazon
+  Web Services account and Region.
 
   This action returns a maximum of 100 items and is paginated so that you can
   retrieve all the items by calling `ListLedgers` multiple times.

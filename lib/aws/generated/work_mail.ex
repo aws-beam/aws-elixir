@@ -159,6 +159,13 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+  Deletes the email monitoring configuration for a specified organization.
+  """
+  def delete_email_monitoring_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteEmailMonitoringConfiguration", input, options)
+  end
+
+  @doc """
   Deletes a group from Amazon WorkMail.
   """
   def delete_group(%Client{} = client, input, options \\ []) do
@@ -255,6 +262,20 @@ defmodule AWS.WorkMail do
   """
   def deregister_mail_domain(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeregisterMailDomain", input, options)
+  end
+
+  @doc """
+  Describes the current email monitoring configuration for a specified
+  organization.
+  """
+  def describe_email_monitoring_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeEmailMonitoringConfiguration",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -479,6 +500,14 @@ defmodule AWS.WorkMail do
   """
   def put_access_control_rule(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutAccessControlRule", input, options)
+  end
+
+  @doc """
+  Creates or updates the email monitoring configuration for a specified
+  organization.
+  """
+  def put_email_monitoring_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutEmailMonitoringConfiguration", input, options)
   end
 
   @doc """

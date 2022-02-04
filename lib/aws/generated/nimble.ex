@@ -666,7 +666,7 @@ defmodule AWS.Nimble do
   @doc """
   Gets StreamingSession resource.
 
-  anvoke this operation to poll for a streaming session state while creating or
+  Invoke this operation to poll for a streaming session state while creating or
   deleting a session.
   """
   def get_streaming_session(%Client{} = client, session_id, studio_id, options \\ []) do
@@ -1128,6 +1128,8 @@ defmodule AWS.Nimble do
 
   @doc """
   Get all users in a given studio membership.
+
+  `ListStudioMembers` only returns admin members.
   """
   def list_studio_members(
         %Client{} = client,

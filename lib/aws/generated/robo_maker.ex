@@ -69,6 +69,9 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Cancels the specified deployment job.
+
+  This API will no longer be supported as of May 2, 2022. Use it to remove
+  resources that were created for Deployment Service.
   """
   def cancel_deployment_job(%Client{} = client, input, options \\ []) do
     url_path = "/cancelDeploymentJob"
@@ -178,6 +181,8 @@ defmodule AWS.RoboMaker do
   @doc """
   Deploys a specific version of a robot application to robots in a fleet.
 
+  This API is no longer supported and will throw an error if used.
+
   The robot application must have a numbered `applicationVersion` for consistency
   reasons. To create a new version, use `CreateRobotApplicationVersion` or see
   [Creating a Robot Application Version](https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html).
@@ -205,6 +210,8 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Creates a fleet, a logical group of robots running the same robot application.
+
+  This API is no longer supported and will throw an error if used.
   """
   def create_fleet(%Client{} = client, input, options \\ []) do
     url_path = "/createFleet"
@@ -226,6 +233,8 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Creates a robot.
+
+  This API is no longer supported and will throw an error if used.
   """
   def create_robot(%Client{} = client, input, options \\ []) do
     url_path = "/createRobot"
@@ -418,6 +427,9 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Deletes a fleet.
+
+  This API will no longer be supported as of May 2, 2022. Use it to remove
+  resources that were created for Deployment Service.
   """
   def delete_fleet(%Client{} = client, input, options \\ []) do
     url_path = "/deleteFleet"
@@ -439,6 +451,9 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Deletes a robot.
+
+  This API will no longer be supported as of May 2, 2022. Use it to remove
+  resources that were created for Deployment Service.
   """
   def delete_robot(%Client{} = client, input, options \\ []) do
     url_path = "/deleteRobot"
@@ -523,6 +538,9 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Deregisters a robot.
+
+  This API will no longer be supported as of May 2, 2022. Use it to remove
+  resources that were created for Deployment Service.
   """
   def deregister_robot(%Client{} = client, input, options \\ []) do
     url_path = "/deregisterRobot"
@@ -544,6 +562,9 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Describes a deployment job.
+
+  This API will no longer be supported as of May 2, 2022. Use it to remove
+  resources that were created for Deployment Service.
   """
   def describe_deployment_job(%Client{} = client, input, options \\ []) do
     url_path = "/describeDeploymentJob"
@@ -565,6 +586,9 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Describes a fleet.
+
+  This API will no longer be supported as of May 2, 2022. Use it to remove
+  resources that were created for Deployment Service.
   """
   def describe_fleet(%Client{} = client, input, options \\ []) do
     url_path = "/describeFleet"
@@ -586,6 +610,9 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Describes a robot.
+
+  This API will no longer be supported as of May 2, 2022. Use it to remove
+  resources that were created for Deployment Service.
   """
   def describe_robot(%Client{} = client, input, options \\ []) do
     url_path = "/describeRobot"
@@ -798,6 +825,9 @@ defmodule AWS.RoboMaker do
   Returns a list of deployment jobs for a fleet.
 
   You can optionally provide filters to retrieve specific deployment jobs.
+
+  This API will no longer be supported as of May 2, 2022. Use it to remove
+  resources that were created for Deployment Service.
   """
   def list_deployment_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/listDeploymentJobs"
@@ -821,6 +851,9 @@ defmodule AWS.RoboMaker do
   Returns a list of fleets.
 
   You can optionally provide filters to retrieve specific fleets.
+
+  This API will no longer be supported as of May 2, 2022. Use it to remove
+  resources that were created for Deployment Service.
   """
   def list_fleets(%Client{} = client, input, options \\ []) do
     url_path = "/listFleets"
@@ -867,6 +900,9 @@ defmodule AWS.RoboMaker do
   Returns a list of robots.
 
   You can optionally provide filters to retrieve specific robots.
+
+  This API will no longer be supported as of May 2, 2022. Use it to remove
+  resources that were created for Deployment Service.
   """
   def list_robots(%Client{} = client, input, options \\ []) do
     url_path = "/listRobots"
@@ -1062,6 +1098,8 @@ defmodule AWS.RoboMaker do
 
   @doc """
   Registers a robot with a fleet.
+
+  This API is no longer supported and will throw an error if used.
   """
   def register_robot(%Client{} = client, input, options \\ []) do
     url_path = "/registerRobot"
@@ -1129,6 +1167,9 @@ defmodule AWS.RoboMaker do
   Syncrhonizes robots in a fleet to the latest deployment.
 
   This is helpful if robots were added after a deployment.
+
+  This API will no longer be supported as of May 2, 2022. Use it to remove
+  resources that were created for Deployment Service.
   """
   def sync_deployment_job(%Client{} = client, input, options \\ []) do
     url_path = "/syncDeploymentJob"

@@ -510,6 +510,57 @@ defmodule AWS.LakeFormation do
   end
 
   @doc """
+  This API is identical to `GetTemporaryTableCredentials` except that this is used
+  when the target Data Catalog resource is of type Partition.
+
+  Lake Formation restricts the permission of the vended credentials with the same
+  scope down policy which restricts access to a single Amazon S3 prefix.
+  """
+  def get_temporary_glue_partition_credentials(%Client{} = client, input, options \\ []) do
+    url_path = "/GetTemporaryGluePartitionCredentials"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Allows a caller in a secure environment to assume a role with permission to
+  access Amazon S3.
+
+  In order to vend such credentials, Lake Formation assumes the role associated
+  with a registered location, for example an Amazon S3 bucket, with a scope down
+  policy which restricts the access to a single prefix.
+  """
+  def get_temporary_glue_table_credentials(%Client{} = client, input, options \\ []) do
+    url_path = "/GetTemporaryGlueTableCredentials"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns the work units resulting from the query.
 
   Work units can be executed in any order and in parallel.

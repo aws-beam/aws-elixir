@@ -42,7 +42,37 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
-  Associate a list of client devices with a core device.
+  Associates a Greengrass service role with IoT Greengrass for your Amazon Web
+  Services account in this Amazon Web Services Region.
+
+  IoT Greengrass uses this role to verify the identity of client devices and
+  manage core device connectivity information. The role must include the
+  [AWSGreengrassResourceAccessRolePolicy](https://console.aws.amazon.com/iam/home#/policies/arn:awsiam::aws:policy/service-role/AWSGreengrassResourceAccessRolePolicy) managed policy or a custom policy that defines equivalent permissions for the
+  IoT Greengrass features that you use. For more information, see [Greengrass
+  service
+  role](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html)
+  in the *IoT Greengrass Version 2 Developer Guide*.
+  """
+  def associate_service_role_to_account(%Client{} = client, input, options \\ []) do
+    url_path = "/greengrass/servicerole"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associates a list of client devices with a core device.
 
   Use this API operation to specify which client devices can discover a core
   device through cloud discovery. With cloud discovery, client devices connect to
@@ -83,7 +113,7 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
-  Disassociate a list of client devices from a core device.
+  Disassociates a list of client devices from a core device.
 
   After you disassociate a client device from a core device, the client device
   won't be able to use cloud discovery to retrieve the core device's connectivity
@@ -315,6 +345,33 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
+  Disassociates the Greengrass service role from IoT Greengrass for your Amazon
+  Web Services account in this Amazon Web Services Region.
+
+  Without a service role, IoT Greengrass can't verify the identity of client
+  devices or manage core device connectivity information. For more information,
+  see [Greengrass service role](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html)
+  in the *IoT Greengrass Version 2 Developer Guide*.
+  """
+  def disassociate_service_role_from_account(%Client{} = client, input, options \\ []) do
+    url_path = "/greengrass/servicerole"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets the recipe for a version of a component.
 
   Core devices can call this operation to identify the artifacts and requirements
@@ -372,6 +429,35 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
+  Retrieves connectivity information for a Greengrass core device.
+
+  Connectivity information includes endpoints and ports where client devices can
+  connect to an MQTT broker on the core device. When a client device calls the
+  [Greengrass discovery API](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-discover-api.html),
+  IoT Greengrass returns connectivity information for all of the core devices
+  where the client device can connect. For more information, see [Connect client devices to core
+  devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/connect-client-devices.html)
+  in the *IoT Greengrass Version 2 Developer Guide*.
+  """
+  def get_connectivity_info(%Client{} = client, thing_name, options \\ []) do
+    url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves metadata for a Greengrass core device.
   """
   def get_core_device(%Client{} = client, core_device_thing_name, options \\ []) do
@@ -412,6 +498,33 @@ defmodule AWS.GreengrassV2 do
       nil,
       options,
       nil
+    )
+  end
+
+  @doc """
+  Gets the service role associated with IoT Greengrass for your Amazon Web
+  Services account in this Amazon Web Services Region.
+
+  IoT Greengrass uses this role to verify the identity of client devices and
+  manage core device connectivity information. For more information, see
+  [Greengrass service role](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html)
+  in the *IoT Greengrass Version 2 Developer Guide*.
+  """
+  def get_service_role_for_account(%Client{} = client, options \\ []) do
+    url_path = "/greengrass/servicerole"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
     )
   end
 
@@ -859,6 +972,35 @@ defmodule AWS.GreengrassV2 do
       input,
       options,
       nil
+    )
+  end
+
+  @doc """
+  Updates connectivity information for a Greengrass core device.
+
+  Connectivity information includes endpoints and ports where client devices can
+  connect to an MQTT broker on the core device. When a client device calls the
+  [Greengrass discovery API](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-discover-api.html),
+  IoT Greengrass returns connectivity information for all of the core devices
+  where the client device can connect. For more information, see [Connect client devices to core
+  devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/connect-client-devices.html)
+  in the *IoT Greengrass Version 2 Developer Guide*.
+  """
+  def update_connectivity_info(%Client{} = client, thing_name, input, options \\ []) do
+    url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
     )
   end
 end

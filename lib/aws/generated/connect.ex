@@ -16,8 +16,8 @@ defmodule AWS.Connect do
   For more information, see [Amazon Connect Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
   in the *Amazon Connect Administrator Guide*.
 
-  You can connect programmatically to an AWS service by using an endpoint. For a
-  list of Amazon Connect endpoints, see [Amazon Connect Endpoints](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  You can connect programmatically to an Amazon Web Services service by using an
+  endpoint. For a list of Amazon Connect endpoints, see [Amazon Connect Endpoints](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
 
   Working with contact flows? Check out the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
   """
@@ -72,6 +72,38 @@ defmodule AWS.Connect do
   """
   def associate_bot(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/bot"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Associates an existing vocabulary as the default.
+
+  Contact Lens for Amazon Connect uses the vocabulary in post-call and real-time
+  analysis sessions for the given language.
+  """
+  def associate_default_vocabulary(
+        %Client{} = client,
+        instance_id,
+        language_code,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/default-vocabulary/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(language_code)}"
+
     headers = []
     query_params = []
 
@@ -372,7 +404,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates an AWS resource association with an Amazon Connect instance.
+  Creates an Amazon Web Services resource association with an Amazon Connect
+  instance.
   """
   def create_integration_association(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations"
@@ -556,6 +589,31 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Creates a custom vocabulary associated with your Amazon Connect instance.
+
+  You can set a custom vocabulary to be your default vocabulary for a given
+  language. Contact Lens for Amazon Connect uses the default vocabulary in
+  post-call and real-time contact analysis sessions for that language.
+  """
+  def create_vocabulary(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/vocabulary/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes a contact flow for the specified Amazon Connect instance.
   """
   def delete_contact_flow(%Client{} = client, contact_flow_id, instance_id, input, options \\ []) do
@@ -668,7 +726,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Deletes an AWS resource association from an Amazon Connect instance.
+  Deletes an Amazon Web Services resource association from an Amazon Connect
+  instance.
 
   The association must not have any use cases associated with it.
   """
@@ -835,6 +894,29 @@ defmodule AWS.Connect do
       client,
       metadata(),
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes the vocabulary that has the given identifier.
+  """
+  def delete_vocabulary(%Client{} = client, instance_id, vocabulary_id, input, options \\ []) do
+    url_path =
+      "/vocabulary-remove/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(vocabulary_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
       url_path,
       query_params,
       headers,
@@ -1227,6 +1309,29 @@ defmodule AWS.Connect do
   """
   def describe_user_hierarchy_structure(%Client{} = client, instance_id, options \\ []) do
     url_path = "/user-hierarchy-structure/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Describes the specified vocabulary.
+  """
+  def describe_vocabulary(%Client{} = client, instance_id, vocabulary_id, options \\ []) do
+    url_path =
+      "/vocabulary/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(vocabulary_id)}"
+
     headers = []
     query_params = []
 
@@ -1879,6 +1984,27 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Lists the default vocabularies for the specified Amazon Connect instance.
+  """
+  def list_default_vocabularies(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/default-vocabulary-summary/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Provides information about the hours of operation for the specified Amazon
   Connect instance.
 
@@ -2060,8 +2186,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Provides summary information about the AWS resource associations for the
-  specified Amazon Connect instance.
+  Provides summary information about the Amazon Web Services resource associations
+  for the specified Amazon Connect instance.
   """
   def list_integration_associations(
         %Client{} = client,
@@ -2858,6 +2984,28 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Searches for vocabularies within a specific Amazon Connect instance using
+  `State`, `NameStartsWith`, and `LanguageCode`.
+  """
+  def search_vocabularies(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/vocabulary-summary/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Initiates a contact flow to start a new chat for the customer.
 
   Response of this API provides a token required to obtain credentials from the
@@ -2869,13 +3017,17 @@ defmodule AWS.Connect do
   [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html)
   with WEBSOCKET and CONNECTION_CREDENTIALS.
 
-  A 429 error occurs in two situations:
+  A 429 error occurs in the following situations:
 
     * API rate limit is exceeded. API TPS throttling returns a
   `TooManyRequests` exception.
 
     * The [quota for concurrent active chats](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
   is exceeded. Active chat throttling returns a `LimitExceededException`.
+
+  If you use the `ChatDurationInMinutes` parameter and receive a 400 error, your
+  account may not support the ability to configure custom chat durations. For more
+  information, contact Amazon Web Services Support.
 
   For more information about chat, see
   [Chat](https://docs.aws.amazon.com/connect/latest/adminguide/chat.html) in the

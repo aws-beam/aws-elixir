@@ -389,6 +389,27 @@ defmodule AWS.RAM do
   end
 
   @doc """
+  Lists the available versions of the specified RAM permission.
+  """
+  def list_permission_versions(%Client{} = client, input, options \\ []) do
+    url_path = "/listpermissionversions"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Retrieves a list of available RAM permissions that you can use for the supported
   resource types.
   """

@@ -81,6 +81,13 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+  Creates an endpoint for an Amazon FSx for Lustre file system.
+  """
+  def create_location_fsx_lustre(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLocationFsxLustre", input, options)
+  end
+
+  @doc """
   Creates an endpoint for an Amazon FSx for Windows File Server file system.
   """
   def create_location_fsx_windows(%Client{} = client, input, options \\ []) do
@@ -198,6 +205,14 @@ defmodule AWS.DataSync do
   """
   def describe_location_efs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeLocationEfs", input, options)
+  end
+
+  @doc """
+  Returns metadata, such as the path information about an Amazon FSx for Lustre
+  location.
+  """
+  def describe_location_fsx_lustre(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLocationFsxLustre", input, options)
   end
 
   @doc """

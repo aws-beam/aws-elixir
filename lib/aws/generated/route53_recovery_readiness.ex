@@ -3,7 +3,7 @@
 
 defmodule AWS.Route53RecoveryReadiness do
   @moduledoc """
-  AWS Route53 Recovery Readiness
+  Recovery readiness
   """
 
   alias AWS.Client
@@ -26,7 +26,7 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Creates a new Cell.
+  Creates a cell in an account.
   """
   def create_cell(%Client{} = client, input, options \\ []) do
     url_path = "/cells"
@@ -47,7 +47,11 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Create a new cross account readiness authorization.
+  Creates a cross-account readiness authorization.
+
+  This lets you authorize another account to work with Route 53 Application
+  Recovery Controller, for example, to check the readiness status of resources in
+  a separate account.
   """
   def create_cross_account_authorization(%Client{} = client, input, options \\ []) do
     url_path = "/crossaccountauthorizations"
@@ -68,7 +72,12 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Creates a new Readiness Check.
+  Creates a readiness check in an account.
+
+  A readiness check monitors a resource set in your application, such as a set of
+  Amazon Aurora instances, that Application Recovery Controller is auditing
+  recovery readiness for. The audits run once every minute on every resource
+  that's associated with a readiness check.
   """
   def create_readiness_check(%Client{} = client, input, options \\ []) do
     url_path = "/readinesschecks"
@@ -89,7 +98,10 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Creates a new Recovery Group.
+  Creates a recovery group in an account.
+
+  A recovery group corresponds to an application and includes a list of the cells
+  that make up the application.
   """
   def create_recovery_group(%Client{} = client, input, options \\ []) do
     url_path = "/recoverygroups"
@@ -110,7 +122,11 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Creates a new Resource Set.
+  Creates a resource set.
+
+  A resource set is a set of resources of one type that span multiple cells. You
+  can associate a resource set with a readiness check to monitor the resources for
+  failover readiness.
   """
   def create_resource_set(%Client{} = client, input, options \\ []) do
     url_path = "/resourcesets"
@@ -131,7 +147,9 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Deletes an existing Cell.
+  Delete a cell.
+
+  When successful, the response code is 204, with no response body.
   """
   def delete_cell(%Client{} = client, cell_name, input, options \\ []) do
     url_path = "/cells/#{AWS.Util.encode_uri(cell_name)}"
@@ -152,7 +170,7 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Delete cross account readiness authorization
+  Deletes cross account readiness authorization.
   """
   def delete_cross_account_authorization(
         %Client{} = client,
@@ -178,7 +196,7 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Deletes an existing Readiness Check.
+  Deletes a readiness check.
   """
   def delete_readiness_check(%Client{} = client, readiness_check_name, input, options \\ []) do
     url_path = "/readinesschecks/#{AWS.Util.encode_uri(readiness_check_name)}"
@@ -199,7 +217,7 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Deletes an existing Recovery Group.
+  Deletes a recovery group.
   """
   def delete_recovery_group(%Client{} = client, recovery_group_name, input, options \\ []) do
     url_path = "/recoverygroups/#{AWS.Util.encode_uri(recovery_group_name)}"
@@ -220,7 +238,7 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Deletes an existing Resource Set.
+  Deletes a resource set.
   """
   def delete_resource_set(%Client{} = client, resource_set_name, input, options \\ []) do
     url_path = "/resourcesets/#{AWS.Util.encode_uri(resource_set_name)}"
@@ -241,8 +259,8 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Returns a collection of recommendations to improve resilliance and readiness
-  check quality for a Recovery Group.
+  Gets recommendations about architecture designs for improving resiliency for an
+  application, based on a recovery group.
   """
   def get_architecture_recommendations(
         %Client{} = client,
@@ -285,7 +303,9 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Returns information about a Cell.
+  Gets information about a cell including cell name, cell Amazon Resource Name
+  (ARN), ARNs of nested cells for this cell, and a list of those cell ARNs with
+  their associated recovery group ARNs.
   """
   def get_cell(%Client{} = client, cell_name, options \\ []) do
     url_path = "/cells/#{AWS.Util.encode_uri(cell_name)}"
@@ -306,7 +326,10 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Returns information about readiness of a Cell.
+  Gets readiness for a cell.
+
+  Aggregates the readiness of all the resources that are associated with the cell
+  into a single value.
   """
   def get_cell_readiness_summary(
         %Client{} = client,
@@ -347,7 +370,7 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Returns information about a ReadinessCheck.
+  Gets details about a readiness check.
   """
   def get_readiness_check(%Client{} = client, readiness_check_name, options \\ []) do
     url_path = "/readinesschecks/#{AWS.Util.encode_uri(readiness_check_name)}"
@@ -368,8 +391,11 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Returns detailed information about the status of an individual resource within a
-  Readiness Check's Resource Set.
+  Gets individual readiness status for a readiness check.
+
+  To see the overall readiness status for a recovery group, that considers the
+  readiness status for all the readiness checks in the recovery group, use
+  GetRecoveryGroupReadinessSummary.
   """
   def get_readiness_check_resource_status(
         %Client{} = client,
@@ -413,7 +439,11 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Returns information about the status of a Readiness Check.
+  Gets the readiness status for an individual readiness check.
+
+  To see the overall readiness status for a recovery group, that considers the
+  readiness status for all the readiness checks in a recovery group, use
+  GetRecoveryGroupReadinessSummary.
   """
   def get_readiness_check_status(
         %Client{} = client,
@@ -454,7 +484,8 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Returns information about a Recovery Group.
+  Gets details about a recovery group, including a list of the cells that are
+  included in it.
   """
   def get_recovery_group(%Client{} = client, recovery_group_name, options \\ []) do
     url_path = "/recoverygroups/#{AWS.Util.encode_uri(recovery_group_name)}"
@@ -475,7 +506,10 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Returns information about a Recovery Group.
+  Displays a summary of information about a recovery group's readiness status.
+
+  Includes the readiness checks for resources in the recovery group and the
+  readiness status of each one.
   """
   def get_recovery_group_readiness_summary(
         %Client{} = client,
@@ -516,7 +550,8 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Returns information about a Resource Set.
+  Displays the details about a resource set, including a list of the resources in
+  the set.
   """
   def get_resource_set(%Client{} = client, resource_set_name, options \\ []) do
     url_path = "/resourcesets/#{AWS.Util.encode_uri(resource_set_name)}"
@@ -537,7 +572,7 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Returns a collection of Cells.
+  Lists the cells for an account.
   """
   def list_cells(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/cells"
@@ -572,7 +607,8 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Returns a collection of cross account readiness authorizations.
+  Lists the cross-account readiness authorizations that are in place for an
+  account.
   """
   def list_cross_account_authorizations(
         %Client{} = client,
@@ -612,7 +648,7 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Returns a collection of Readiness Checks.
+  Lists the readiness checks for an account.
   """
   def list_readiness_checks(
         %Client{} = client,
@@ -652,7 +688,7 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Returns a collection of Recovery Groups.
+  Lists the recovery groups in an account.
   """
   def list_recovery_groups(
         %Client{} = client,
@@ -692,7 +728,7 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Returns a collection of Resource Sets.
+  Lists the resource sets in an account.
   """
   def list_resource_sets(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/resourcesets"
@@ -727,7 +763,8 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Returns a collection of rules that are applied as part of Readiness Checks.
+  Lists all readiness rules, or lists the readiness rules for a specific resource
+  type.
   """
   def list_rules(
         %Client{} = client,
@@ -775,7 +812,7 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Returns a list of the tags assigned to the specified resource.
+  Lists the tags for a resource.
   """
   def list_tags_for_resources(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -796,9 +833,7 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Adds tags to the specified resource.
-
-  You can specify one or more tags to add.
+  Adds a tag to a resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -819,9 +854,7 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Removes tags from the specified resource.
-
-  You can specify one or more tags to remove.
+  Removes a tag from a resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -847,7 +880,8 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Updates an existing Cell.
+  Updates a cell to replace the list of nested cells with a new list of nested
+  cells.
   """
   def update_cell(%Client{} = client, cell_name, input, options \\ []) do
     url_path = "/cells/#{AWS.Util.encode_uri(cell_name)}"
@@ -868,7 +902,7 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Updates an exisiting Readiness Check.
+  Updates a readiness check.
   """
   def update_readiness_check(%Client{} = client, readiness_check_name, input, options \\ []) do
     url_path = "/readinesschecks/#{AWS.Util.encode_uri(readiness_check_name)}"
@@ -889,7 +923,7 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Updates an existing Recovery Group.
+  Updates a recovery group.
   """
   def update_recovery_group(%Client{} = client, recovery_group_name, input, options \\ []) do
     url_path = "/recoverygroups/#{AWS.Util.encode_uri(recovery_group_name)}"
@@ -910,7 +944,7 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Updates an existing Resource Set.
+  Updates a resource set.
   """
   def update_resource_set(%Client{} = client, resource_set_name, input, options \\ []) do
     url_path = "/resourcesets/#{AWS.Util.encode_uri(resource_set_name)}"

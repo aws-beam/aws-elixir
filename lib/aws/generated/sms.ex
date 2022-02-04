@@ -3,16 +3,25 @@
 
 defmodule AWS.SMS do
   @moduledoc """
-  AWS Server Migration Service
+  ## Product update
 
-  AWS Server Migration Service (AWS SMS) makes it easier and faster for you to
-  migrate your on-premises workloads to AWS.
+  As of March 31, 2022, Amazon Web Services will discontinue Server Migration
+  Service (Amazon Web Services SMS).
 
-  To learn more about AWS SMS, see the following resources:
+  Going forward, we recommend [Amazon Web Services Application Migration Service](http://aws.amazon.com/application-migration-service) (Amazon Web
+  Services MGN) as the primary migration service for lift-and-shift migrations.
 
-    * [AWS Server Migration Service product page](http://aws.amazon.com/server-migration-service/)
+  You can initiate new migration jobs in Server Migration Service until January 1,
+  2022. Complete these active migration projects by March 31, 2022. For more
+  information, see [When to Choose AWS Application Migration Service](http://aws.amazon.com/application-migration-service/when-to-choose-aws-mgn/).
 
-    * [AWS Server Migration Service User Guide](https://docs.aws.amazon.com/server-migration-service/latest/userguide/)
+  Server Migration Service (Server Migration Service) makes it easier and faster
+  for you to migrate your on-premises workloads to Amazon Web Services. To learn
+  more about Server Migration Service, see the following resources:
+
+    * [Server Migration Service product page](http://aws.amazon.com/server-migration-service/)
+
+    * [Server Migration Service User Guide](https://docs.aws.amazon.com/server-migration-service/latest/userguide/)
   """
 
   alias AWS.Client
@@ -48,7 +57,8 @@ defmodule AWS.SMS do
   Creates a replication job.
 
   The replication job schedules periodic replication runs to replicate your server
-  to AWS. Each replication run creates an Amazon Machine Image (AMI).
+  to Amazon Web Services. Each replication run creates an Amazon Machine Image
+  (AMI).
   """
   def create_replication_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateReplicationJob", input, options)
@@ -58,7 +68,7 @@ defmodule AWS.SMS do
   Deletes the specified application.
 
   Optionally deletes the launched stack associated with the application and all
-  AWS SMS replication jobs for servers in the application.
+  Server Migration Service replication jobs for servers in the application.
   """
   def delete_app(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteApp", input, options)
@@ -88,9 +98,10 @@ defmodule AWS.SMS do
   @doc """
   Deletes the specified replication job.
 
-  After you delete a replication job, there are no further replication runs. AWS
-  deletes the contents of the Amazon S3 bucket used to store AWS SMS artifacts.
-  The AMIs created by the replication runs are not deleted.
+  After you delete a replication job, there are no further replication runs.
+  Amazon Web Services deletes the contents of the Amazon S3 bucket used to store
+  Server Migration Service artifacts. The AMIs created by the replication runs are
+  not deleted.
   """
   def delete_replication_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteReplicationJob", input, options)
@@ -104,7 +115,7 @@ defmodule AWS.SMS do
   end
 
   @doc """
-  Disassociates the specified connector from AWS SMS.
+  Disassociates the specified connector from Server Migration Service.
 
   After you disassociate a connector, it is no longer available to support
   replication jobs.
@@ -122,9 +133,8 @@ defmodule AWS.SMS do
   end
 
   @doc """
-  Generates an AWS CloudFormation template based on the current launch
-  configuration and writes it to an Amazon S3 object in the customer’s Amazon S3
-  bucket.
+  Generates an CloudFormation template based on the current launch configuration
+  and writes it to an Amazon S3 object in the customer’s Amazon S3 bucket.
   """
   def generate_template(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GenerateTemplate", input, options)
@@ -168,7 +178,7 @@ defmodule AWS.SMS do
   end
 
   @doc """
-  Describes the connectors registered with the AWS SMS.
+  Describes the connectors registered with the Server Migration Service.
   """
   def get_connectors(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetConnectors", input, options)
@@ -199,7 +209,7 @@ defmodule AWS.SMS do
   end
 
   @doc """
-  Allows application import from AWS Migration Hub.
+  Allows application import from Migration Hub.
   """
   def import_app_catalog(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ImportAppCatalog", input, options)
@@ -218,7 +228,7 @@ defmodule AWS.SMS do
   end
 
   @doc """
-  Launches the specified application as a stack in AWS CloudFormation.
+  Launches the specified application as a stack in CloudFormation.
   """
   def launch_app(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "LaunchApp", input, options)
@@ -232,8 +242,8 @@ defmodule AWS.SMS do
   end
 
   @doc """
-  Provides information to AWS SMS about whether application validation is
-  successful.
+  Provides information to Server Migration Service about whether application
+  validation is successful.
   """
   def notify_app_validation_output(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "NotifyAppValidationOutput", input, options)

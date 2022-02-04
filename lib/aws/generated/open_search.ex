@@ -337,6 +337,40 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Returns information about the current blue/green deployment happening on a
+  domain, including a change ID, status, and progress stages.
+  """
+  def describe_domain_change_progress(
+        %Client{} = client,
+        domain_name,
+        change_id \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/progress"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(change_id) do
+        [{"changeid", change_id} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Provides cluster configuration information about the specified domain, such as
   the state, creation date, update version, and update date for cluster options.
   """

@@ -164,6 +164,13 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+  Deletes a resource-based policy that is attached to a custom model.
+  """
+  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteResourcePolicy", input, options)
+  end
+
+  @doc """
   Gets the properties associated with a document classification job.
 
   Use this operation to get the status of a classification job.
@@ -246,6 +253,14 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+  Gets the details of a resource-based policy that is attached to a custom model,
+  including the JSON body of the policy.
+  """
+  def describe_resource_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeResourcePolicy", input, options)
+  end
+
+  @doc """
   Gets the properties associated with a sentiment detection job.
 
   Use this operation to get the status of a detection job.
@@ -312,6 +327,22 @@ defmodule AWS.Comprehend do
   """
   def detect_syntax(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DetectSyntax", input, options)
+  end
+
+  @doc """
+  Creates a new custom model that replicates a source custom model that you
+  import.
+
+  The source model can be in your AWS account or another one.
+
+  If the source model is in another AWS account, then it must have a
+  resource-based policy that authorizes you to import it.
+
+  The source model must be in the same AWS region that you're using when you
+  import. You can't import a model that's in a different region.
+  """
+  def import_model(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ImportModel", input, options)
   end
 
   @doc """
@@ -418,6 +449,16 @@ defmodule AWS.Comprehend do
   """
   def list_topics_detection_jobs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTopicsDetectionJobs", input, options)
+  end
+
+  @doc """
+  Attaches a resource-based policy to a custom model.
+
+  You can use this policy to authorize an entity in another AWS account to import
+  the custom model, which replicates it in Amazon Comprehend in their account.
+  """
+  def put_resource_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutResourcePolicy", input, options)
   end
 
   @doc """

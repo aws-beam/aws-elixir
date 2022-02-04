@@ -491,6 +491,36 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
+  Removes a custom vocabulary from the specified locale in the specified bot.
+  """
+  def delete_custom_vocabulary(
+        %Client{} = client,
+        bot_id,
+        bot_version,
+        locale_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/customvocabulary"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Removes a previous export and the associated files stored in an S3 bucket.
   """
   def delete_export(%Client{} = client, export_id, input, options \\ []) do
@@ -849,6 +879,35 @@ defmodule AWS.LexModelsV2 do
   def describe_bot_version(%Client{} = client, bot_id, bot_version, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Provides metadata information about a custom vocabulary.
+  """
+  def describe_custom_vocabulary_metadata(
+        %Client{} = client,
+        bot_id,
+        bot_version,
+        locale_id,
+        options \\ []
+      ) do
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/customvocabulary/DEFAULT/metadata"
 
     headers = []
     query_params = []
@@ -1235,7 +1294,7 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
-  Lists the exports for a bot or bot locale.
+  Lists the exports for a bot, bot locale, or custom vocabulary.
 
   Exports are kept in the list for 7 days.
   """
@@ -1258,7 +1317,7 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
-  Lists the imports for a bot or bot locale.
+  Lists the imports for a bot, bot locale, or custom vocabulary.
 
   Imports are kept in the list for 7 days.
   """
@@ -1475,8 +1534,8 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
-  Starts importing a bot or bot locale from a zip archive that you uploaded to an
-  S3 bucket.
+  Starts importing a bot, bot locale, or custom vocabulary from a zip archive that
+  you uploaded to an S3 bucket.
   """
   def start_import(%Client{} = client, input, options \\ []) do
     url_path = "/imports/"

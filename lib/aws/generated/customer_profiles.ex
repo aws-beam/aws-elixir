@@ -372,8 +372,6 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and subject to change.
-
   Before calling this API, use
   [CreateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html) or
   [UpdateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html)
@@ -788,12 +786,12 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and subject to change.
-
   Runs an AWS Lambda job that does the following:
 
-    1. All the profileKeys in the `ProfileToBeMerged` will be moved to
-  the main profile.
+    1.
+
+  All the profileKeys in the `ProfileToBeMerged` will be moved to the main
+  profile.
 
     2. All the objects in the `ProfileToBeMerged` will be moved to the
   main profile.

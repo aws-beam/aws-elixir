@@ -11,17 +11,18 @@ defmodule AWS.Health do
   You can use the API operations to get information about events that might affect
   your Amazon Web Services services and resources.
 
-     You must have a Business or Enterprise Support plan from [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/) to use the Health
-  API. If you call the Health API from an Amazon Web Services account that doesn't
-  have a Business or Enterprise Support plan, you receive a
-  `SubscriptionRequiredException` error.
+     You must have a Business, Enterprise On-Ramp, or Enterprise Support
+  plan from [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/) to use the Health API. If you call the Health API from an Amazon Web Services
+  account that doesn't have a Business, Enterprise On-Ramp, or Enterprise Support
+  plan, you receive a `SubscriptionRequiredException` error.
 
      You can use the Health endpoint health.us-east-1.amazonaws.com
   (HTTPS) to call the Health API operations. Health supports a multi-Region
   application architecture and has two regional endpoints in an active-passive
   configuration. You can use the high availability endpoint example to determine
   which Amazon Web Services Region is active, so that you can get the latest
-  information from the API. For more information, see [Accessing the Health API](https://docs.aws.amazon.com/health/latest/ug/health-api.html) in the
+  information from the API. For more information, see [Accessing the Health
+  API](https://docs.aws.amazon.com/health/latest/ug/health-api.html) in the
   *Health User Guide*.
 
   For authentication of requests, Health uses the [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
@@ -382,13 +383,14 @@ defmodule AWS.Health do
 
   To call this operation, you must meet the following requirements:
 
-     You must have a Business or Enterprise Support plan from [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/) to use the Health
-  API. If you call the Health API from an Amazon Web Services account that doesn't
-  have a Business or Enterprise Support plan, you receive a
-  `SubscriptionRequiredException` error.
+     You must have a Business, Enterprise On-Ramp, or Enterprise Support
+  plan from [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/) to use the Health API. If you call the Health API from an Amazon Web Services
+  account that doesn't have a Business, Enterprise On-Ramp, or Enterprise Support
+  plan, you receive a `SubscriptionRequiredException` error.
 
      You must have permission to call this operation from the
-  organization's management account. For example IAM policies, see [Health identity-based policy
+  organization's management account. For example IAM policies, see [Health
+  identity-based policy
   examples](https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html).
 
   If you don't have the required support plan, you can instead use the Health

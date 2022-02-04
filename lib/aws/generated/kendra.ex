@@ -146,6 +146,8 @@ defmodule AWS.Kendra do
 
   @doc """
   Creates an new set of frequently asked question (FAQ) questions and answers.
+
+  Adding FAQs to an index is an asynchronous operation.
   """
   def create_faq(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateFaq", input, options)

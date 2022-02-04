@@ -311,6 +311,31 @@ defmodule AWS.Personalize do
   [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
   request.
 
+  ## Minimum recommendation requests per second
+
+  When you create a recommender, you can configure the recommender's minimum
+  recommendation requests per second. The minimum recommendation requests per
+  second (`minRecommendationRequestsPerSecond`) specifies the baseline
+  recommendation request throughput provisioned by Amazon Personalize. The default
+  minRecommendationRequestsPerSecond is `1`. A recommendation request is a single
+  `GetRecommendations` operation. Request throughput is measured in requests per
+  second and Amazon Personalize uses your requests per second to derive your
+  requests per hour and the price of your recommender usage.
+
+  If your requests per second increases beyond
+  `minRecommendationRequestsPerSecond`, Amazon Personalize auto-scales the
+  provisioned capacity up and down, but never below
+  `minRecommendationRequestsPerSecond`. There's a short time delay while the
+  capacity is increased that might cause loss of requests.
+
+  Your bill is the greater of either the minimum requests per hour (based on
+  minRecommendationRequestsPerSecond) or the actual number of requests. The actual
+  request throughput used is calculated as the average requests/second within a
+  one-hour window. We recommend starting with the default
+  `minRecommendationRequestsPerSecond`, track your usage using Amazon CloudWatch
+  metrics, and then increase the `minRecommendationRequestsPerSecond` as
+  necessary.
+
   ## Status
 
   A recommender can be in one of the following states:

@@ -13,20 +13,21 @@ defmodule AWS.PI do
 
   When Performance Insights is enabled, the Amazon RDS Performance Insights API
   provides visibility into the performance of your DB instance. Amazon CloudWatch
-  provides the authoritative source for AWS service-vended monitoring metrics.
-  Performance Insights offers a domain-specific view of DB load.
+  provides the authoritative source for Amazon Web Services service-vended
+  monitoring metrics. Performance Insights offers a domain-specific view of DB
+  load.
 
-  DB load is measured as Average Active Sessions. Performance Insights provides
+  DB load is measured as average active sessions. Performance Insights provides
   the data to API consumers as a two-dimensional time-series dataset. The time
   dimension provides DB load data for each time point in the queried time range.
   Each time point decomposes overall load in relation to the requested dimensions,
   measured at that time point. Examples include SQL, Wait event, User, and Host.
 
     * To learn more about Performance Insights and Amazon Aurora DB
-  instances, go to the [Amazon Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html).
+  instances, go to the [ Amazon Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html).
 
     * To learn more about Performance Insights and Amazon RDS DB
-  instances, go to the [Amazon RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html).
+  instances, go to the [ Amazon RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html).
   """
 
   alias AWS.Client
@@ -63,12 +64,22 @@ defmodule AWS.PI do
   source.
 
   For example, if you specify a SQL ID, `GetDimensionKeyDetails` retrieves the
-  full text of the dimension `db.sql.statement` associated with this ID. This
+  full text of the dimension `db.sql.statement`cassociated with this ID. This
   operation is useful because `GetResourceMetrics` and `DescribeDimensionKeys`
   don't support retrieval of large SQL statement text.
   """
   def get_dimension_key_details(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetDimensionKeyDetails", input, options)
+  end
+
+  @doc """
+  Retrieve the metadata for different features.
+
+  For example, the metadata might indicate that a feature is turned on or off on a
+  specific DB instance.
+  """
+  def get_resource_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetResourceMetadata", input, options)
   end
 
   @doc """
@@ -83,5 +94,21 @@ defmodule AWS.PI do
   """
   def get_resource_metrics(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetResourceMetrics", input, options)
+  end
+
+  @doc """
+  Retrieve the dimensions that can be queried for each specified metric type on a
+  specified DB instance.
+  """
+  def list_available_resource_dimensions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAvailableResourceDimensions", input, options)
+  end
+
+  @doc """
+  Retrieve metrics of the specified types that can be queried for a specified DB
+  instance.
+  """
+  def list_available_resource_metrics(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAvailableResourceMetrics", input, options)
   end
 end

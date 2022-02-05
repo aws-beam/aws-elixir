@@ -191,6 +191,13 @@ defmodule AWS.Athena do
   *Amazon Athena User Guide*. This request does not execute the query but returns
   results. Use `StartQueryExecution` to run a query.
 
+  If the original query execution ran using an
+  `ResultConfiguration$ExpectedBucketOwner` setting, the setting also applies to
+  Amazon S3 read operations when `GetQueryResults` is called. If an expected
+  bucket owner has been specified and the query results are in an Amazon S3 bucket
+  whose owner account ID is different from the expected bucket owner, the
+  `GetQueryResults` call fails with an Amazon S3 permissions error.
+
   To stream query results successfully, the IAM principal with permission to call
   `GetQueryResults` also must have permissions to the Amazon S3 `GetObject` action
   for the Athena query results location.

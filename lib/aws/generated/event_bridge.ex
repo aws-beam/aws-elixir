@@ -565,6 +565,8 @@ defmodule AWS.EventBridge do
 
   Targets are the resources that are invoked when a rule is triggered.
 
+  Each rule can have up to five (5) targets associated with it at one time.
+
   You can configure the following as targets for Events:
 
     * [API destination](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html)
@@ -582,6 +584,8 @@ defmodule AWS.EventBridge do
     * CodePipeline
 
     * Amazon EC2 `CreateSnapshot` API call
+
+    * EC2 Image Builder
 
     * Amazon EC2 `RebootInstances` API call
 
@@ -609,7 +613,7 @@ defmodule AWS.EventBridge do
 
     * Amazon SNS topic
 
-    * Amazon SQS queues (includes FIFO queues
+    * Amazon SQS queues (includes FIFO queues)
 
     * SSM Automation
 
@@ -712,6 +716,10 @@ defmodule AWS.EventBridge do
   Removes the specified targets from the specified rule.
 
   When the rule is triggered, those targets are no longer be invoked.
+
+  A successful execution of `RemoveTargets` doesn't guarantee all targets are
+  removed from the rule, it means that the target(s) listed in the request are
+  removed.
 
   When you remove a target, when the associated rule triggers, removed targets
   might continue to be invoked. Allow a short period of time for changes to take

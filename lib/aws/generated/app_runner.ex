@@ -71,10 +71,11 @@ defmodule AWS.AppRunner do
   require non-default auto scaling settings. You can share an auto scaling
   configuration across multiple services.
 
-  Create multiple revisions of a configuration by using the same
-  `AutoScalingConfigurationName` and different `AutoScalingConfigurationRevision`
-  values. When you create a service, you can set it to use the latest active
-  revision of an auto scaling configuration or a specific revision.
+  Create multiple revisions of a configuration by calling this action multiple
+  times using the same `AutoScalingConfigurationName`. The call returns
+  incremental `AutoScalingConfigurationRevision` values. When you create a
+  service, you can set it to use the latest active revision of an auto scaling
+  configuration or a specific revision.
 
   Configure a higher `MinSize` to increase the spread of your App Runner service
   over more Availability Zones in the Amazon Web Services Region. The tradeoff is
@@ -117,6 +118,16 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+  Create an App Runner VPC connector resource.
+
+  App Runner requires this resource when you want to associate your App Runner
+  service to a custom Amazon Virtual Private Cloud (Amazon VPC).
+  """
+  def create_vpc_connector(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateVpcConnector", input, options)
+  end
+
+  @doc """
   Delete an App Runner automatic scaling configuration resource.
 
   You can delete a specific revision or the latest active revision. You can't
@@ -148,6 +159,15 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+  Delete an App Runner VPC connector resource.
+
+  You can't delete a connector that's used by one or more App Runner services.
+  """
+  def delete_vpc_connector(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteVpcConnector", input, options)
+  end
+
+  @doc """
   Return a full description of an App Runner automatic scaling configuration
   resource.
   """
@@ -168,6 +188,13 @@ defmodule AWS.AppRunner do
   """
   def describe_service(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeService", input, options)
+  end
+
+  @doc """
+  Return a description of an App Runner VPC connector resource.
+  """
+  def describe_vpc_connector(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeVpcConnector", input, options)
   end
 
   @doc """
@@ -228,6 +255,13 @@ defmodule AWS.AppRunner do
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Returns a list of App Runner VPC connectors in your Amazon Web Services account.
+  """
+  def list_vpc_connectors(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListVpcConnectors", input, options)
   end
 
   @doc """

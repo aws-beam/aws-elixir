@@ -52,7 +52,7 @@ defmodule AWS.Kendra do
   @doc """
   Removes one or more documents from an index.
 
-  The documents must have been added with the `BatchPutDocument` operation.
+  The documents must have been added with the `BatchPutDocument` API.
 
   The documents are deleted asynchronously. You can see the progress of the
   deletion by using Amazon Web Services CloudWatch. Any error messages related to
@@ -65,17 +65,15 @@ defmodule AWS.Kendra do
   @doc """
   Returns the indexing status for one or more documents submitted with the [
   BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html)
-  operation.
+  API.
 
-  When you use the `BatchPutDocument` operation, documents are indexed
-  asynchronously. You can use the `BatchGetDocumentStatus` operation to get the
-  current status of a list of documents so that you can determine if they have
-  been successfully indexed.
+  When you use the `BatchPutDocument` API, documents are indexed asynchronously.
+  You can use the `BatchGetDocumentStatus` API to get the current status of a list
+  of documents so that you can determine if they have been successfully indexed.
 
-  You can also use the `BatchGetDocumentStatus` operation to check the status of
-  the [
+  You can also use the `BatchGetDocumentStatus` API to check the status of the [
   BatchDeleteDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html)
-  operation. When a document is deleted from the index, Amazon Kendra returns
+  API. When a document is deleted from the index, Amazon Kendra returns
   `NOT_FOUND` as the status.
   """
   def batch_get_document_status(%Client{} = client, input, options \\ []) do
@@ -85,11 +83,10 @@ defmodule AWS.Kendra do
   @doc """
   Adds one or more documents to an index.
 
-  The `BatchPutDocument` operation enables you to ingest inline documents or a set
-  of documents stored in an Amazon S3 bucket. Use this operation to ingest your
-  text and unstructured text into an index, add custom attributes to the
-  documents, and to attach an access control list to the documents added to the
-  index.
+  The `BatchPutDocument` API enables you to ingest inline documents or a set of
+  documents stored in an Amazon S3 bucket. Use this API to ingest your text and
+  unstructured text into an index, add custom attributes to the documents, and to
+  attach an access control list to the documents added to the index.
 
   The documents are indexed asynchronously. You can see the progress of the batch
   using Amazon Web Services CloudWatch. Any error messages related to processing
@@ -156,12 +153,12 @@ defmodule AWS.Kendra do
   @doc """
   Creates a new Amazon Kendra index.
 
-  Index creation is an asynchronous operation. To determine if index creation has
+  Index creation is an asynchronous API. To determine if index creation has
   completed, check the `Status` field returned from a call to `DescribeIndex`. The
   `Status` field is set to `ACTIVE` when the index is ready to use.
 
   Once the index is active you can index your documents using the
-  `BatchPutDocument` operation or using one of the supported data sources.
+  `BatchPutDocument` API or using one of the supported data sources.
   """
   def create_index(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateIndex", input, options)
@@ -199,7 +196,7 @@ defmodule AWS.Kendra do
 
   An exception is not thrown if the data source is already being deleted. While
   the data source is being deleted, the `Status` field returned by a call to the
-  `DescribeDataSource` operation is set to `DELETING`. For more information, see
+  `DescribeDataSource` API is set to `DELETING`. For more information, see
   [Deleting Data Sources](https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html).
   """
   def delete_data_source(%Client{} = client, input, options \\ []) do
@@ -228,7 +225,7 @@ defmodule AWS.Kendra do
 
   An exception is not thrown if the index is already being deleted. While the
   index is being deleted, the `Status` field returned by a call to the
-  `DescribeIndex` operation is set to `DELETING`.
+  `DescribeIndex` API is set to `DELETING`.
   """
   def delete_index(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteIndex", input, options)
@@ -278,7 +275,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Gets information about a Amazon Kendra data source.
+  Gets information about an Amazon Kendra data source.
   """
   def describe_data_source(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDataSource", input, options)
@@ -526,8 +523,8 @@ defmodule AWS.Kendra do
   @doc """
   Searches an active index.
 
-  Use this API to search your documents using query. The `Query` operation enables
-  to do faceted search and to filter results based on document attributes.
+  Use this API to search your documents using query. The `Query` API enables to do
+  faceted search and to filter results based on document attributes.
 
   It also enables you to provide user context that Amazon Kendra uses to enforce
   document access control in the search results.
@@ -561,7 +558,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Stops a running synchronization job.
+  Stops a synchronization job that is currently running.
 
   You can't stop a scheduled synchronization job.
   """

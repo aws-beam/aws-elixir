@@ -732,7 +732,7 @@ defmodule AWS.LookoutVision do
 
   This operation requires the following permissions:
 
-    * `lookoutvision:StartModelPackagingJobs`
+    * `lookoutvision:StartModelPackagingJob`
 
     * `s3:PutObject`
 

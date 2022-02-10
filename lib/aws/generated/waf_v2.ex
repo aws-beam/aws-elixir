@@ -252,6 +252,17 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
+  Generates a presigned download URL for the specified release of the mobile SDK.
+
+  The mobile SDK is not generally available. Customers who have access to the
+  mobile SDK can use it to establish and manage Security Token Service (STS)
+  security tokens for use in HTTP(S) requests from a mobile device to WAF.
+  """
+  def generate_mobile_sdk_release_url(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GenerateMobileSdkReleaseUrl", input, options)
+  end
+
+  @doc """
   Retrieves the specified `IPSet`.
   """
   def get_ip_set(%Client{} = client, input, options \\ []) do
@@ -278,6 +289,18 @@ defmodule AWS.WAFV2 do
   """
   def get_managed_rule_set(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetManagedRuleSet", input, options)
+  end
+
+  @doc """
+  Retrieves information for the specified mobile SDK release, including release
+  notes and tags.
+
+  The mobile SDK is not generally available. Customers who have access to the
+  mobile SDK can use it to establish and manage Security Token Service (STS)
+  security tokens for use in HTTP(S) requests from a mobile device to WAF.
+  """
+  def get_mobile_sdk_release(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetMobileSdkRelease", input, options)
   end
 
   @doc """
@@ -410,6 +433,18 @@ defmodule AWS.WAFV2 do
   """
   def list_managed_rule_sets(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListManagedRuleSets", input, options)
+  end
+
+  @doc """
+  Retrieves a list of the available releases for the mobile SDK and the specified
+  device platform.
+
+  The mobile SDK is not generally available. Customers who have access to the
+  mobile SDK can use it to establish and manage Security Token Service (STS)
+  security tokens for use in HTTP(S) requests from a mobile device to WAF.
+  """
+  def list_mobile_sdk_releases(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListMobileSdkReleases", input, options)
   end
 
   @doc """

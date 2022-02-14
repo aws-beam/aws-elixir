@@ -105,13 +105,17 @@ jobs:
           base: master
           branch: update-services-aws-sdk-go-${{ env.LATEST_AWS_SDK_GO_TAG }}
           title: Update services based on ${{ env.LATEST_AWS_SDK_GO_TAG }} of AWS Go SDK 
-          commit-message: Update services based on ${{ env.LATEST_AWS_SDK_GO_TAG }} of AWS Go SDK 
           author: GitHub <noreply@github.com>
           delete-branch: true
           body: |
             This is an automated pull request.
             It was triggered GitHub actions. The details can be found at
             https://github.com/aws-beam/aws-elixir/actions/workflows/codegen.yml
+
+            For changes, please check https://github.com/aws/aws-sdk-go/releases/tag/${{ env.LATEST_AWS_SDK_GO_TAG }}
+
+          commit-message: |
+            Update services based on ${{ env.LATEST_AWS_SDK_GO_TAG }} of AWS Go SDK 
 
             For changes, please check https://github.com/aws/aws-sdk-go/releases/tag/${{ env.LATEST_AWS_SDK_GO_TAG }}
 

@@ -62,7 +62,7 @@ defmodule AWS.Backup do
   Creates a JSON document that specifies a set of resources to assign to a backup
   plan.
 
-  For examples, see [Assigning resources programmatically](https://docs.aws.amazon.com/assigning-resources.html#assigning-resources-json).
+  For examples, see [Assigning resources programmatically](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-json).
   """
   def create_backup_selection(%Client{} = client, backup_plan_id, input, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections/"
@@ -1696,7 +1696,10 @@ defmodule AWS.Backup do
   Returns a list of key-value pairs assigned to a target recovery point, backup
   plan, or backup vault.
 
-  `ListTags` are currently only supported with Amazon EFS backups.
+  `ListTags` only works for resource types that support full Backup management of
+  their backups. Those resource types are listed in the "Full Backup management"
+  section of the [ Feature availability by resource](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource)
+  table.
   """
   def list_tags(
         %Client{} = client,
@@ -2048,14 +2051,16 @@ defmodule AWS.Backup do
   according to the lifecycle that you define.
 
   Backups transitioned to cold storage must be stored in cold storage for a
-  minimum of 90 days. Therefore, the “expire after days” setting must be 90 days
-  greater than the “transition to cold after days” setting. The “transition to
-  cold after days” setting cannot be changed after a backup has been transitioned
-  to cold.
+  minimum of 90 days. Therefore, the “retention” setting must be 90 days greater
+  than the “transition to cold after days” setting. The “transition to cold after
+  days” setting cannot be changed after a backup has been transitioned to cold.
 
-  Only Amazon EFS file system backups can be transitioned to cold storage.
+  Only resource types that support full Backup management can transition their
+  backups to cold storage. Those resource types are listed in the "Full Backup
+  management" section of the [ Feature availability by resource](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource)
+  table. Backup ignores this expression for other resource types.
 
-  Does not support continuous backups.
+  This operation does not support continuous backups.
   """
   def update_recovery_point_lifecycle(
         %Client{} = client,

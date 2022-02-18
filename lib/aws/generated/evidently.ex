@@ -483,11 +483,19 @@ defmodule AWS.Evidently do
         project,
         max_results \\ nil,
         next_token \\ nil,
+        status \\ nil,
         options \\ []
       ) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/experiments"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do
@@ -565,11 +573,19 @@ defmodule AWS.Evidently do
         project,
         max_results \\ nil,
         next_token \\ nil,
+        status \\ nil,
         options \\ []
       ) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do

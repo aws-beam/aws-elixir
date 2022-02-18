@@ -335,9 +335,9 @@ defmodule AWS.Redshift do
   end
 
   @doc """
-  Creates a snapshot copy grant that permits Amazon Redshift to use a customer
-  master key (CMK) from Key Management Service (KMS) to encrypt copied snapshots
-  in a destination region.
+  Creates a snapshot copy grant that permits Amazon Redshift to use an encrypted
+  symmetric key from Key Management Service (KMS) to encrypt copied snapshots in a
+  destination region.
 
   For more information about managing snapshot copy grants, go to [Amazon Redshift Database
   Encryption](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html)
@@ -1045,10 +1045,9 @@ defmodule AWS.Redshift do
   Disables the automatic copying of snapshots from one region to another region
   for a specified cluster.
 
-  If your cluster and its snapshots are encrypted using a customer master key
-  (CMK) from Key Management Service, use `DeleteSnapshotCopyGrant` to delete the
-  grant that grants Amazon Redshift permission to the CMK in the destination
-  region.
+  If your cluster and its snapshots are encrypted using an encrypted symmetric key
+  from Key Management Service, use `DeleteSnapshotCopyGrant` to delete the grant
+  that grants Amazon Redshift permission to the key in the destination region.
   """
   def disable_snapshot_copy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisableSnapshotCopy", input, options)
@@ -1178,7 +1177,9 @@ defmodule AWS.Redshift do
   Modifies the list of Identity and Access Management (IAM) roles that can be used
   by the cluster to access other Amazon Web Services services.
 
-  A cluster can have up to 10 IAM roles associated at any time.
+  The maximum number of IAM roles that you can associate is subject to a quota.
+  For more information, go to [Quotas and limits](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html)
+  in the *Amazon Redshift Cluster Management Guide*.
   """
   def modify_cluster_iam_roles(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyClusterIamRoles", input, options)

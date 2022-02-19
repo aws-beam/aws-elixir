@@ -187,6 +187,19 @@ defmodule AWS.Budgets do
   end
 
   @doc """
+  Lists the budget names and notifications that are associated with an account.
+  """
+  def describe_budget_notifications_for_account(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeBudgetNotificationsForAccount",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Describes the history for `DAILY`, `MONTHLY`, and `QUARTERLY` budgets.
 
   Budget history isn't available for `ANNUAL` budgets.

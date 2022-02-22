@@ -102,6 +102,31 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  Creates an integration workflow.
+
+  An integration workflow is an async process which ingests historic data and sets
+  up an integration for ongoing updates. The supported Amazon AppFlow sources are
+  Salesforce, ServiceNow, and Marketo.
+  """
+  def create_integration_workflow(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/workflows/integrations"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates a standard profile.
 
   A standard profile represents the following attributes for a customer profile in
@@ -266,6 +291,31 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  Deletes the specified workflow and all its corresponding resources.
+
+  This is an async process.
+  """
+  def delete_workflow(%Client{} = client, domain_name, workflow_id, input, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/workflows/#{AWS.Util.encode_uri(workflow_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Tests the auto-merging settings of your Identity Resolution Job without merging
   your data.
 
@@ -410,8 +460,6 @@ defmodule AWS.CustomerProfiles do
 
     * FullName
 
-    * BusinessName
-
   For example, two or more profiles—with spelling mistakes such as ## John Doe
   and **Jhn Doe**, or different casing email addresses such as
   **JOHN_DOE@ANYCOMPANY.COM** and **johndoe@anycompany.com**, or different phone
@@ -507,6 +555,73 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  Get details of specified workflow.
+  """
+  def get_workflow(%Client{} = client, domain_name, workflow_id, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/workflows/#{AWS.Util.encode_uri(workflow_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Get granular list of steps in workflow.
+  """
+  def get_workflow_steps(
+        %Client{} = client,
+        domain_name,
+        workflow_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/workflows/#{AWS.Util.encode_uri(workflow_id)}/steps"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Lists all of the integrations associated to a specific URI in the AWS account.
   """
   def list_account_integrations(%Client{} = client, input, options \\ []) do
@@ -515,6 +630,7 @@ defmodule AWS.CustomerProfiles do
 
     {query_params, input} =
       [
+        {"IncludeHidden", "include-hidden"},
         {"MaxResults", "max-results"},
         {"NextToken", "next-token"}
       ]
@@ -617,6 +733,7 @@ defmodule AWS.CustomerProfiles do
   def list_integrations(
         %Client{} = client,
         domain_name,
+        include_hidden \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         options \\ []
@@ -635,6 +752,13 @@ defmodule AWS.CustomerProfiles do
     query_params =
       if !is_nil(max_results) do
         [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include_hidden) do
+        [{"include-hidden", include_hidden} | query_params]
       else
         query_params
       end
@@ -780,6 +904,33 @@ defmodule AWS.CustomerProfiles do
       query_params,
       headers,
       nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Query to list all workflows.
+  """
+  def list_workflows(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/workflows"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "max-results"},
+        {"NextToken", "next-token"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
       options,
       nil
     )

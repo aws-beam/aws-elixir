@@ -256,7 +256,9 @@ defmodule AWS.WAFV2 do
 
   The mobile SDK is not generally available. Customers who have access to the
   mobile SDK can use it to establish and manage Security Token Service (STS)
-  security tokens for use in HTTP(S) requests from a mobile device to WAF.
+  security tokens for use in HTTP(S) requests from a mobile device to WAF. For
+  more information, see [WAF client application integration](https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html)
+  in the *WAF Developer Guide*.
   """
   def generate_mobile_sdk_release_url(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GenerateMobileSdkReleaseUrl", input, options)
@@ -297,7 +299,9 @@ defmodule AWS.WAFV2 do
 
   The mobile SDK is not generally available. Customers who have access to the
   mobile SDK can use it to establish and manage Security Token Service (STS)
-  security tokens for use in HTTP(S) requests from a mobile device to WAF.
+  security tokens for use in HTTP(S) requests from a mobile device to WAF. For
+  more information, see [WAF client application integration](https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html)
+  in the *WAF Developer Guide*.
   """
   def get_mobile_sdk_release(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetMobileSdkRelease", input, options)
@@ -441,7 +445,9 @@ defmodule AWS.WAFV2 do
 
   The mobile SDK is not generally available. Customers who have access to the
   mobile SDK can use it to establish and manage Security Token Service (STS)
-  security tokens for use in HTTP(S) requests from a mobile device to WAF.
+  security tokens for use in HTTP(S) requests from a mobile device to WAF. For
+  more information, see [WAF client application integration](https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html)
+  in the *WAF Developer Guide*.
   """
   def list_mobile_sdk_releases(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListMobileSdkReleases", input, options)
@@ -501,7 +507,9 @@ defmodule AWS.WAFV2 do
   Enables the specified `LoggingConfiguration`, to start logging from a web ACL,
   according to the configuration provided.
 
-  You can access information about all traffic that WAF inspects using the
+  You can define one logging destination per web ACL.
+
+  You can access information about the traffic that WAF inspects using the
   following steps:
 
     1. Create your logging destination. You can use an Amazon CloudWatch
@@ -519,6 +527,9 @@ defmodule AWS.WAFV2 do
   logging destination. For an Amazon CloudWatch Logs log group, WAF creates a
   resource policy on the log group. For an Amazon S3 bucket, WAF creates a bucket
   policy. For an Amazon Kinesis Data Firehose, WAF creates a service-linked role.
+
+  For additional information about web ACL logging, see [Logging web ACL traffic information](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html)
+  in the *WAF Developer Guide*.
 
   This operation completely replaces the mutable specifications that you already
   have for the logging configuration with the ones that you provide to this call.

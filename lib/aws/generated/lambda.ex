@@ -2111,6 +2111,18 @@ defmodule AWS.Lambda do
   If code signing is enabled for the function, the code package must be signed by
   a trusted publisher. For more information, see [Configuring code signing](https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html).
 
+  If the function's package type is `Image`, you must specify the code package in
+  `ImageUri` as the URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the
+  Amazon ECR registry.
+
+  If the function's package type is `Zip`, you must specify the deployment package
+  as a [.zip file archive](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip).
+  Enter the Amazon S3 bucket and key of the code .zip file location. You can also
+  provide the function code inline using the `ZipFile` field.
+
+  The code in the deployment package must be compatible with the target
+  instruction set architecture of the function (`x86-64` or `arm64`).
+
   The function's code is locked when you publish a version. You can't modify the
   code of a published version, only the unpublished version.
 

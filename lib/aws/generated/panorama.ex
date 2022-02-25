@@ -49,7 +49,7 @@ defmodule AWS.Panorama do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -70,7 +70,7 @@ defmodule AWS.Panorama do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -91,7 +91,7 @@ defmodule AWS.Panorama do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -112,7 +112,7 @@ defmodule AWS.Panorama do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -133,7 +133,7 @@ defmodule AWS.Panorama do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -154,12 +154,15 @@ defmodule AWS.Panorama do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes a package.
+
+  To delete a package, you need permission to call `s3:DeleteObject` in addition
+  to permissions for the AWS Panorama API.
   """
   def delete_package(%Client{} = client, package_id, input, options \\ []) do
     url_path = "/packages/#{AWS.Util.encode_uri(package_id)}"
@@ -180,7 +183,7 @@ defmodule AWS.Panorama do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -216,7 +219,7 @@ defmodule AWS.Panorama do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -237,7 +240,7 @@ defmodule AWS.Panorama do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
@@ -262,7 +265,7 @@ defmodule AWS.Panorama do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
@@ -283,7 +286,7 @@ defmodule AWS.Panorama do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
@@ -304,7 +307,7 @@ defmodule AWS.Panorama do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
@@ -332,7 +335,7 @@ defmodule AWS.Panorama do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
@@ -353,7 +356,7 @@ defmodule AWS.Panorama do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
@@ -374,7 +377,7 @@ defmodule AWS.Panorama do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
@@ -395,7 +398,7 @@ defmodule AWS.Panorama do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
@@ -439,7 +442,7 @@ defmodule AWS.Panorama do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
@@ -482,7 +485,7 @@ defmodule AWS.Panorama do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
@@ -525,7 +528,7 @@ defmodule AWS.Panorama do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
@@ -581,7 +584,7 @@ defmodule AWS.Panorama do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
@@ -616,7 +619,7 @@ defmodule AWS.Panorama do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
@@ -664,7 +667,7 @@ defmodule AWS.Panorama do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
@@ -704,7 +707,7 @@ defmodule AWS.Panorama do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
@@ -784,7 +787,7 @@ defmodule AWS.Panorama do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
@@ -824,7 +827,7 @@ defmodule AWS.Panorama do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
@@ -859,7 +862,7 @@ defmodule AWS.Panorama do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
@@ -880,7 +883,7 @@ defmodule AWS.Panorama do
       headers,
       nil,
       options,
-      nil
+      200
     )
   end
 
@@ -905,7 +908,7 @@ defmodule AWS.Panorama do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -935,7 +938,7 @@ defmodule AWS.Panorama do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -961,7 +964,7 @@ defmodule AWS.Panorama do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -982,7 +985,7 @@ defmodule AWS.Panorama do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1008,7 +1011,7 @@ defmodule AWS.Panorama do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1029,7 +1032,7 @@ defmodule AWS.Panorama do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

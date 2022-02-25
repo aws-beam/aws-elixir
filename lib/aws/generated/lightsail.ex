@@ -168,8 +168,8 @@ defmodule AWS.Lightsail do
 
   Access keys grant full programmatic access to the specified bucket and its
   objects. You can have a maximum of two access keys per bucket. Use the
-  `GetBucketAccessKeys` action to get a list of current access keys for a specific
-  bucket. For more information about access keys, see [Creating access keys for a bucket in Amazon
+  [GetBucketAccessKeys](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketAccessKeys.html) action to get a list of current access keys for a specific bucket. For more
+  information about access keys, see [Creating access keys for a bucket in Amazon
   Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys)
   in the *Amazon Lightsail Developer Guide*.
 
@@ -420,10 +420,16 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Creates an SSH key pair.
+  Creates a custom SSH key pair that you can use with an Amazon Lightsail
+  instance.
+
+  Use the
+  [DownloadDefaultKeyPair](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DownloadDefaultKeyPair.html) action to create a Lightsail default key pair in an Amazon Web Services Region
+  where a default key pair does not currently exist.
 
   The `create key pair` operation supports tag-based access control via request
-  tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  tags. For more information, see the [Amazon Lightsail Developer
+  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def create_key_pair(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateKeyPair", input, options)
@@ -677,11 +683,20 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Deletes a specific SSH key pair.
+  Deletes the specified key pair by removing the public key from Amazon Lightsail.
+
+  You can delete key pairs that were created using the
+  [ImportKeyPair](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_ImportKeyPair.html) and
+  [CreateKeyPair](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateKeyPair.html)
+  actions, as well as the Lightsail default key pair. A new default key pair will
+  not be created unless you launch an instance without specifying a custom key
+  pair, or you call the
+  [DownloadDefaultKeyPair](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DownloadDefaultKeyPair.html) API.
 
   The `delete key pair` operation supports tag-based access control via resource
   tags applied to the resource identified by `key pair name`. For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer
+  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def delete_key_pair(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteKeyPair", input, options)
@@ -807,7 +822,10 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Downloads the default SSH key pair from the user's account.
+  Downloads the regional Amazon Lightsail default key pair.
+
+  This action also creates a Lightsail default key pair if a default key pair does
+  not currently exist in the Amazon Web Services Region.
   """
   def download_default_key_pair(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DownloadDefaultKeyPair", input, options)
@@ -899,8 +917,8 @@ defmodule AWS.Lightsail do
 
   This action does not return the secret access key value of an access key. You
   can get a secret access key only when you create it from the response of the
-  `CreateBucketAccessKey` action. If you lose the secret access key, you must
-  create a new access key.
+  [CreateBucketAccessKey](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html)
+  action. If you lose the secret access key, you must create a new access key.
   """
   def get_bucket_access_keys(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetBucketAccessKeys", input, options)
@@ -912,7 +930,9 @@ defmodule AWS.Lightsail do
   The bucket bundle specifies the monthly cost, storage quota, and data transfer
   quota for a bucket.
 
-  Use the `UpdateBucketBundle` action to update the bundle for a bucket.
+  Use the
+  [UpdateBucketBundle](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html)
+  action to update the bundle for a bucket.
   """
   def get_bucket_bundles(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetBucketBundles", input, options)
@@ -1159,7 +1179,9 @@ defmodule AWS.Lightsail do
   operation.
 
   An export snapshot record can be used to create a new Amazon EC2 instance and
-  its related resources with the `CreateCloudFormationStack` action.
+  its related resources with the
+  [CreateCloudFormationStack](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateCloudFormationStack.html)
+  action.
   """
   def get_export_snapshot_records(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetExportSnapshotRecords", input, options)
@@ -1753,8 +1775,10 @@ defmodule AWS.Lightsail do
   A bucket bundle specifies the monthly cost, storage space, and data transfer
   quota for a bucket. You can update a bucket's bundle only one time within a
   monthly AWS billing cycle. To determine if you can update a bucket's bundle, use
-  the `GetBuckets` action. The `ableToUpdateBundle` parameter in the response will
-  indicate whether you can currently update a bucket's bundle.
+  the
+  [GetBuckets](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html)
+  action. The `ableToUpdateBundle` parameter in the response will indicate whether
+  you can currently update a bucket's bundle.
 
   Update a bucket's bundle if it's consistently going over its storage space or
   data transfer quota, or if a bucket's usage is consistently in the lower range

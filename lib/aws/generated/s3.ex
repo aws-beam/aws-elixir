@@ -174,8 +174,15 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumCRC32", "x-amz-checksum-crc32"},
+        {"ChecksumCRC32C", "x-amz-checksum-crc32c"},
+        {"ChecksumSHA1", "x-amz-checksum-sha1"},
+        {"ChecksumSHA256", "x-amz-checksum-sha256"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
-        {"RequestPayer", "x-amz-request-payer"}
+        {"RequestPayer", "x-amz-request-payer"},
+        {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
+        {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
+        {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"}
       ]
       |> Request.build_params(input)
 
@@ -218,7 +225,7 @@ defmodule AWS.S3 do
   You can store individual objects of up to 5 TB in Amazon S3. You create a copy
   of your object up to 5 GB in size in a single atomic action using this API.
   However, to copy an object greater than 5 GB, you must use the multipart upload
-  Upload Part - Copy API. For more information, see [Copy Object Using the REST Multipart Upload
+  Upload Part - Copy (UploadPartCopy) API. For more information, see [Copy Object Using the REST Multipart Upload
   API](https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html).
 
   All copy requests must be authenticated. Additionally, you must have *read*
@@ -264,7 +271,7 @@ defmodule AWS.S3 do
   in the *Amazon S3 User Guide*. For a complete list of Amazon S3-specific
   condition keys, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html).
 
-  ##  `x-amz-copy-source-if` Headers
+  ## x-amz-copy-source-if Headers
 
   To only copy an object under certain conditions, such as whether the `Etag`
   matches or whether the object was modified before or after a specified date, use
@@ -336,6 +343,13 @@ defmodule AWS.S3 do
   If your bucket uses the bucket owner enforced setting for Object Ownership, all
   objects written to the bucket by any account will be owned by the bucket owner.
 
+  ## Checksums
+
+  When copying an object, if it has a checksum, that checksum will be copied to
+  the new object by default. When you copy the object over, you may optionally
+  specify a different checksum algorithm to use with the
+  `x-amz-checksum-algorithm` header.
+
   ## Storage Class Options
 
   You can use the `CopyObject` action to change the storage class of an object
@@ -377,6 +391,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-checksum-algorithm"},
         {"CopySourceSSECustomerAlgorithm",
          "x-amz-copy-source-server-side-encryption-customer-algorithm"},
         {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
@@ -706,11 +721,11 @@ defmodule AWS.S3 do
   If you want Amazon Web Services to manage the keys used to encrypt data, specify
   the following headers in the request.
 
-       x-amz-server-side-encryption
+       `x-amz-server-side-encryption`
 
-       x-amz-server-side-encryption-aws-kms-key-id
+       `x-amz-server-side-encryption-aws-kms-key-id`
 
-       x-amz-server-side-encryption-context
+       `x-amz-server-side-encryption-context`
 
   If you specify `x-amz-server-side-encryption:aws:kms`, but don't provide
   `x-amz-server-side-encryption-aws-kms-key-id`, Amazon S3 uses the Amazon Web
@@ -725,11 +740,11 @@ defmodule AWS.S3 do
      Use customer-provided encryption keys – If you want to manage your
   own encryption keys, provide all the following headers in the request.
 
-       x-amz-server-side-encryption-customer-algorithm
+       `x-amz-server-side-encryption-customer-algorithm`
 
-       x-amz-server-side-encryption-customer-key
+       `x-amz-server-side-encryption-customer-key`
 
-       x-amz-server-side-encryption-customer-key-MD5
+       `x-amz-server-side-encryption-customer-key-MD5`
 
   For more information about server-side encryption with KMS keys (SSE-KMS), see
   [Protecting Data Using Server-Side Encryption with KMS keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html).
@@ -756,15 +771,15 @@ defmodule AWS.S3 do
   the header, you specify a list of grantees who get the specific permission. To
   grant permissions explicitly, use:
 
-       x-amz-grant-read
+       `x-amz-grant-read`
 
-       x-amz-grant-write
+       `x-amz-grant-write`
 
-       x-amz-grant-read-acp
+       `x-amz-grant-read-acp`
 
-       x-amz-grant-write-acp
+       `x-amz-grant-write-acp`
 
-       x-amz-grant-full-control
+       `x-amz-grant-full-control`
 
   You specify each grantee as a type=value pair, where the type is one of the
   following:
@@ -828,6 +843,7 @@ defmodule AWS.S3 do
         {"ACL", "x-amz-acl"},
         {"BucketKeyEnabled", "x-amz-server-side-encryption-bucket-key-enabled"},
         {"CacheControl", "Cache-Control"},
+        {"ChecksumAlgorithm", "x-amz-checksum-algorithm"},
         {"ContentDisposition", "Content-Disposition"},
         {"ContentEncoding", "Content-Encoding"},
         {"ContentLanguage", "Content-Language"},
@@ -864,6 +880,7 @@ defmodule AWS.S3 do
           {"x-amz-abort-date", "AbortDate"},
           {"x-amz-abort-rule-id", "AbortRuleId"},
           {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
+          {"x-amz-checksum-algorithm", "ChecksumAlgorithm"},
           {"x-amz-request-charged", "RequestCharged"},
           {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
           {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
@@ -1663,6 +1680,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"BypassGovernanceRetention", "x-amz-bypass-governance-retention"},
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"MFA", "x-amz-mfa"},
         {"RequestPayer", "x-amz-request-payer"}
@@ -1907,13 +1925,14 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  Returns the cors configuration information set for the bucket.
+  Returns the Cross-Origin Resource Sharing (CORS) configuration information set
+  for the bucket.
 
-  To use this operation, you must have permission to perform the s3:GetBucketCORS
-  action. By default, the bucket owner has this permission and can grant it to
-  others.
+  To use this operation, you must have permission to perform the
+  `s3:GetBucketCORS` action. By default, the bucket owner has this permission and
+  can grant it to others.
 
-  For more information about cors, see [ Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html).
+  For more information about CORS, see [ Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html).
 
   The following operations are related to `GetBucketCors`:
 
@@ -2741,7 +2760,7 @@ defmodule AWS.S3 do
 
   `GetBucketTagging` has the following special error:
 
-    * Error code: `NoSuchTagSetError`
+    * Error code: `NoSuchTagSet`
 
       * Description: There is no tag set associated with the
   bucket.
@@ -2893,9 +2912,7 @@ defmodule AWS.S3 do
   `/examplebucket/photos/2006/February/sample.jpg`. For more information about
   request types, see [HTTP Host Header Bucket Specification](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#VirtualHostingSpecifyBucket).
 
-  To distribute large files to many people, you can save bandwidth costs by using
-  BitTorrent. For more information, see [Amazon S3 Torrent](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html). For
-  more information about returning the ACL of an object, see
+  For more information about returning the ACL of an object, see
   [GetObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html).  If the object you are retrieving is stored in the S3 Glacier or S3 Glacier Deep
   Archive storage class, or S3 Intelligent-Tiering Archive or S3
   Intelligent-Tiering Deep Archive tiers, before you can retrieve the object you
@@ -2959,7 +2976,7 @@ defmodule AWS.S3 do
   [PutBucketVersioning](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html).  ## Overriding Response Header Values
 
   There are times when you want to override certain response header values in a
-  GET response. For example, you might override the Content-Disposition response
+  GET response. For example, you might override the `Content-Disposition` response
   header value in your GET request.
 
   You can override values for a set of response headers using the following query
@@ -3021,6 +3038,7 @@ defmodule AWS.S3 do
         response_content_type \\ nil,
         response_expires \\ nil,
         version_id \\ nil,
+        checksum_mode \\ nil,
         expected_bucket_owner \\ nil,
         if_match \\ nil,
         if_modified_since \\ nil,
@@ -3035,6 +3053,13 @@ defmodule AWS.S3 do
       ) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}"
     headers = []
+
+    headers =
+      if !is_nil(checksum_mode) do
+        [{"x-amz-checksum-mode", checksum_mode} | headers]
+      else
+        headers
+      end
 
     headers =
       if !is_nil(expected_bucket_owner) do
@@ -3169,36 +3194,40 @@ defmodule AWS.S3 do
         options,
         :response_header_parameters,
         [
-          {"accept-ranges", "AcceptRanges"},
-          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
-          {"Cache-Control", "CacheControl"},
-          {"Content-Disposition", "ContentDisposition"},
-          {"Content-Encoding", "ContentEncoding"},
-          {"Content-Language", "ContentLanguage"},
-          {"Content-Length", "ContentLength"},
-          {"Content-Range", "ContentRange"},
-          {"Content-Type", "ContentType"},
+          {"x-amz-checksum-crc32c", "ChecksumCRC32C"},
           {"x-amz-delete-marker", "DeleteMarker"},
-          {"ETag", "ETag"},
-          {"x-amz-expiration", "Expiration"},
-          {"Expires", "Expires"},
-          {"Last-Modified", "LastModified"},
-          {"x-amz-missing-meta", "MissingMeta"},
-          {"x-amz-object-lock-legal-hold", "ObjectLockLegalHoldStatus"},
-          {"x-amz-object-lock-mode", "ObjectLockMode"},
           {"x-amz-object-lock-retain-until-date", "ObjectLockRetainUntilDate"},
-          {"x-amz-mp-parts-count", "PartsCount"},
-          {"x-amz-replication-status", "ReplicationStatus"},
-          {"x-amz-request-charged", "RequestCharged"},
           {"x-amz-restore", "Restore"},
-          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
+          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
+          {"Content-Type", "ContentType"},
           {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
-          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-          {"x-amz-server-side-encryption", "ServerSideEncryption"},
-          {"x-amz-storage-class", "StorageClass"},
-          {"x-amz-tagging-count", "TagCount"},
+          {"x-amz-object-lock-legal-hold", "ObjectLockLegalHoldStatus"},
           {"x-amz-version-id", "VersionId"},
-          {"x-amz-website-redirect-location", "WebsiteRedirectLocation"}
+          {"accept-ranges", "AcceptRanges"},
+          {"x-amz-website-redirect-location", "WebsiteRedirectLocation"},
+          {"Content-Language", "ContentLanguage"},
+          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
+          {"Content-Encoding", "ContentEncoding"},
+          {"x-amz-checksum-sha256", "ChecksumSHA256"},
+          {"ETag", "ETag"},
+          {"Last-Modified", "LastModified"},
+          {"Content-Range", "ContentRange"},
+          {"Expires", "Expires"},
+          {"x-amz-tagging-count", "TagCount"},
+          {"x-amz-expiration", "Expiration"},
+          {"x-amz-replication-status", "ReplicationStatus"},
+          {"Cache-Control", "CacheControl"},
+          {"x-amz-storage-class", "StorageClass"},
+          {"x-amz-missing-meta", "MissingMeta"},
+          {"Content-Length", "ContentLength"},
+          {"x-amz-object-lock-mode", "ObjectLockMode"},
+          {"Content-Disposition", "ContentDisposition"},
+          {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"},
+          {"x-amz-mp-parts-count", "PartsCount"},
+          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
+          {"x-amz-checksum-crc32", "ChecksumCRC32"},
+          {"x-amz-checksum-sha1", "ChecksumSHA1"}
         ]
       )
 
@@ -3225,7 +3254,10 @@ defmodule AWS.S3 do
   @doc """
   Returns the access control list (ACL) of an object.
 
-  To use this operation, you must have `READ_ACP` access to the object.
+  To use this operation, you must have `s3:GetObjectAcl` permissions or `READ_ACP`
+  access to the object. For more information, see [Mapping of ACL permissions and access policy
+  permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#acl-access-policy-permission-mapping)
+  in the *Amazon S3 User Guide*
 
   This action is not supported by Amazon S3 on Outposts.
 
@@ -3246,9 +3278,10 @@ defmodule AWS.S3 do
 
     *
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)     *
-  [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
+  [GetObjectAttributes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
 
     *
+  [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)     *
   [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
   """
   def get_object_acl(
@@ -3307,11 +3340,218 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  Gets an object's current Legal Hold status.
+  Retrieves all the metadata from an object without returning the object itself.
+
+  This action is useful if you're interested only in an object's metadata. To use
+  `GetObjectAttributes`, you must have READ access to the object.
+
+  `GetObjectAttributes` combines the functionality of `GetObjectAcl`,
+  `GetObjectLegalHold`, `GetObjectLockConfiguration`, `GetObjectRetention`,
+  `GetObjectTagging`, `HeadObject`, and `ListParts`. All of the data returned with
+  each of those individual calls can be returned with a single call to
+  `GetObjectAttributes`.
+
+  If you encrypt an object by using server-side encryption with customer-provided
+  encryption keys (SSE-C) when you store the object in Amazon S3, then when you
+  retrieve the metadata from the object, you must use the following headers:
+
+    * `x-amz-server-side-encryption-customer-algorithm`
+
+    * `x-amz-server-side-encryption-customer-key`
+
+    * `x-amz-server-side-encryption-customer-key-MD5`
+
+  For more information about SSE-C, see [Server-Side Encryption (Using Customer-Provided Encryption
+  Keys)](https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html)
+  in the *Amazon S3 User Guide*.
+
+     Encryption request headers, such as `x-amz-server-side-encryption`,
+  should not be sent for GET requests if your object uses server-side encryption
+  with Amazon Web Services KMS keys stored in Amazon Web Services Key Management
+  Service (SSE-KMS) or server-side encryption with Amazon S3 managed encryption
+  keys (SSE-S3). If your object does use these types of keys, you'll get an HTTP
+  `400 Bad Request` error.
+
+     The last modified property in this case is the creation date of the
+  object.
+
+  Consider the following when using request headers:
+
+    * If both of the `If-Match` and `If-Unmodified-Since` headers are
+  present in the request as follows, then Amazon S3 returns the HTTP status code
+  `200 OK` and the data requested:
+
+      * `If-Match` condition evaluates to `true`.
+
+      * `If-Unmodified-Since` condition evaluates to `false`.
+
+    * If both of the `If-None-Match` and `If-Modified-Since` headers are
+  present in the request as follows, then Amazon S3 returns the HTTP status code
+  `304 Not Modified`:
+
+      * `If-None-Match` condition evaluates to `false`.
+
+      * `If-Modified-Since` condition evaluates to `true`.
+
+  For more information about conditional requests, see [RFC 7232](https://tools.ietf.org/html/rfc7232).
+
+  ## Permissions
+
+  The permissions that you need to use this operation depend on whether the bucket
+  is versioned. If the bucket is versioned, you need both the
+  `s3:GetObjectVersion` and `s3:GetObjectVersionAttributes` permissions for this
+  operation. If the bucket is not versioned, you need the `s3:GetObject` and
+  `s3:GetObjectAttributes` permissions. For more information, see [Specifying Permissions in a
+  Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html)
+  in the *Amazon S3 User Guide*. If the object that you request does not exist,
+  the error Amazon S3 returns depends on whether you also have the `s3:ListBucket`
+  permission.
+
+    * If you have the `s3:ListBucket` permission on the bucket, Amazon
+  S3 returns an HTTP status code `404 Not Found` ("no such key") error.
+
+    * If you don't have the `s3:ListBucket` permission, Amazon S3
+  returns an HTTP status code `403 Forbidden` ("access denied") error.
+
+  The following actions are related to `GetObjectAttributes`:
+
+    *
+  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)     *
+  [GetObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html)
+
+    *
+  [GetObjectLegalHold](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLegalHold.html)     *
+  [GetObjectLockConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLockConfiguration.html)
+
+    *
+  [GetObjectRetention](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectRetention.html)     *
+  [GetObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html)
+
+    *
+  [HeadObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html)     *
+  [ListParts](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
+  """
+  def get_object_attributes(
+        %Client{} = client,
+        bucket,
+        key,
+        version_id \\ nil,
+        expected_bucket_owner \\ nil,
+        max_parts \\ nil,
+        object_attributes,
+        part_number_marker \\ nil,
+        request_payer \\ nil,
+        sse_customer_algorithm \\ nil,
+        sse_customer_key \\ nil,
+        sse_customer_key_md5 \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?attributes"
+
+    headers = []
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(max_parts) do
+        [{"x-amz-max-parts", max_parts} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(object_attributes) do
+        [{"x-amz-object-attributes", object_attributes} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(part_number_marker) do
+        [{"x-amz-part-number-marker", part_number_marker} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(request_payer) do
+        [{"x-amz-request-payer", request_payer} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(sse_customer_algorithm) do
+        [{"x-amz-server-side-encryption-customer-algorithm", sse_customer_algorithm} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(sse_customer_key) do
+        [{"x-amz-server-side-encryption-customer-key", sse_customer_key} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(sse_customer_key_md5) do
+        [{"x-amz-server-side-encryption-customer-key-MD5", sse_customer_key_md5} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(version_id) do
+        [{"versionId", version_id} | query_params]
+      else
+        query_params
+      end
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-delete-marker", "DeleteMarker"},
+          {"Last-Modified", "LastModified"},
+          {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-version-id", "VersionId"}
+        ]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets an object's current legal hold status.
 
   For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
 
   This action is not supported by Amazon S3 on Outposts.
+
+  The following action is related to `GetObjectLegalHold`:
+
+    *
+  [GetObjectAttributes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
   """
   def get_object_legal_hold(
         %Client{} = client,
@@ -3369,6 +3609,11 @@ defmodule AWS.S3 do
   The rule specified in the Object Lock configuration will be applied by default
   to every new object placed in the specified bucket. For more information, see
   [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
+
+  The following action is related to `GetObjectLockConfiguration`:
+
+    *
+  [GetObjectAttributes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
   """
   def get_object_lock_configuration(
         %Client{} = client,
@@ -3407,6 +3652,11 @@ defmodule AWS.S3 do
   For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
 
   This action is not supported by Amazon S3 on Outposts.
+
+  The following action is related to `GetObjectRetention`:
+
+    *
+  [GetObjectAttributes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
   """
   def get_object_retention(
         %Client{} = client,
@@ -3476,11 +3726,14 @@ defmodule AWS.S3 do
 
   For information about the Amazon S3 object tagging feature, see [Object Tagging](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html).
 
-  The following action is related to `GetObjectTagging`:
+  The following actions are related to `GetObjectTagging`:
 
     *
-  [PutObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html)     *
-  [DeleteObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html)
+  [DeleteObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html)     *
+  [GetObjectAttributes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
+
+    *
+  [PutObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html)
   """
   def get_object_tagging(
         %Client{} = client,
@@ -3792,16 +4045,18 @@ defmodule AWS.S3 do
     * If you don’t have the `s3:ListBucket` permission, Amazon S3
   returns an HTTP status code 403 ("access denied") error.
 
-  The following action is related to `HeadObject`:
+  The following actions are related to `HeadObject`:
 
     *
-  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)     *
+  [GetObjectAttributes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
   """
   def head_object(%Client{} = client, bucket, key, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}"
 
     {headers, input} =
       [
+        {"ChecksumMode", "x-amz-checksum-mode"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"IfMatch", "If-Match"},
         {"IfModifiedSince", "If-Modified-Since"},
@@ -3827,35 +4082,39 @@ defmodule AWS.S3 do
         options,
         :response_header_parameters,
         [
-          {"accept-ranges", "AcceptRanges"},
-          {"x-amz-archive-status", "ArchiveStatus"},
-          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
-          {"Cache-Control", "CacheControl"},
-          {"Content-Disposition", "ContentDisposition"},
-          {"Content-Encoding", "ContentEncoding"},
-          {"Content-Language", "ContentLanguage"},
-          {"Content-Length", "ContentLength"},
-          {"Content-Type", "ContentType"},
+          {"x-amz-checksum-crc32c", "ChecksumCRC32C"},
           {"x-amz-delete-marker", "DeleteMarker"},
-          {"ETag", "ETag"},
-          {"x-amz-expiration", "Expiration"},
-          {"Expires", "Expires"},
-          {"Last-Modified", "LastModified"},
-          {"x-amz-missing-meta", "MissingMeta"},
-          {"x-amz-object-lock-legal-hold", "ObjectLockLegalHoldStatus"},
-          {"x-amz-object-lock-mode", "ObjectLockMode"},
           {"x-amz-object-lock-retain-until-date", "ObjectLockRetainUntilDate"},
-          {"x-amz-mp-parts-count", "PartsCount"},
-          {"x-amz-replication-status", "ReplicationStatus"},
-          {"x-amz-request-charged", "RequestCharged"},
           {"x-amz-restore", "Restore"},
-          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
+          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
+          {"Content-Type", "ContentType"},
           {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
-          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-          {"x-amz-server-side-encryption", "ServerSideEncryption"},
-          {"x-amz-storage-class", "StorageClass"},
+          {"x-amz-object-lock-legal-hold", "ObjectLockLegalHoldStatus"},
           {"x-amz-version-id", "VersionId"},
-          {"x-amz-website-redirect-location", "WebsiteRedirectLocation"}
+          {"accept-ranges", "AcceptRanges"},
+          {"x-amz-website-redirect-location", "WebsiteRedirectLocation"},
+          {"Content-Language", "ContentLanguage"},
+          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
+          {"Content-Encoding", "ContentEncoding"},
+          {"x-amz-checksum-sha256", "ChecksumSHA256"},
+          {"ETag", "ETag"},
+          {"x-amz-archive-status", "ArchiveStatus"},
+          {"Last-Modified", "LastModified"},
+          {"Expires", "Expires"},
+          {"x-amz-expiration", "Expiration"},
+          {"x-amz-replication-status", "ReplicationStatus"},
+          {"Cache-Control", "CacheControl"},
+          {"x-amz-storage-class", "StorageClass"},
+          {"x-amz-missing-meta", "MissingMeta"},
+          {"Content-Length", "ContentLength"},
+          {"x-amz-object-lock-mode", "ObjectLockMode"},
+          {"Content-Disposition", "ContentDisposition"},
+          {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"},
+          {"x-amz-mp-parts-count", "PartsCount"},
+          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
+          {"x-amz-checksum-crc32", "ChecksumCRC32"},
+          {"x-amz-checksum-sha1", "ChecksumSHA1"}
         ]
       )
 
@@ -4144,6 +4403,8 @@ defmodule AWS.S3 do
 
   @doc """
   Returns a list of all buckets owned by the authenticated sender of the request.
+
+  To use this operation, you must have the `s3:ListAllMyBuckets` permission.
   """
   def list_buckets(%Client{} = client, options \\ []) do
     url_path = "/"
@@ -4633,6 +4894,9 @@ defmodule AWS.S3 do
   requests you can include the part-number-marker query string parameter and set
   its value to the `NextPartNumberMarker` field value from the previous response.
 
+  If the upload was created using a checksum algorithm, you will need to have
+  permission to the `kms:Decrypt` action for the request to succeed.
+
   For more information on multipart uploads, see [Uploading Objects Using
   Multipart
   Upload](https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html).
@@ -4651,6 +4915,7 @@ defmodule AWS.S3 do
   [AbortMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
 
     *
+  [GetObjectAttributes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)     *
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
   def list_parts(
@@ -4662,6 +4927,9 @@ defmodule AWS.S3 do
         upload_id,
         expected_bucket_owner \\ nil,
         request_payer \\ nil,
+        sse_customer_algorithm \\ nil,
+        sse_customer_key \\ nil,
+        sse_customer_key_md5 \\ nil,
         options \\ []
       ) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}"
@@ -4677,6 +4945,27 @@ defmodule AWS.S3 do
     headers =
       if !is_nil(request_payer) do
         [{"x-amz-request-payer", request_payer} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(sse_customer_algorithm) do
+        [{"x-amz-server-side-encryption-customer-algorithm", sse_customer_algorithm} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(sse_customer_key) do
+        [{"x-amz-server-side-encryption-customer-key", sse_customer_key} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(sse_customer_key_md5) do
+        [{"x-amz-server-side-encryption-customer-key-MD5", sse_customer_key_md5} | headers]
       else
         headers
       end
@@ -4735,7 +5024,7 @@ defmodule AWS.S3 do
   perform faster data transfers to Amazon S3.
 
   To use this operation, you must have permission to perform the
-  s3:PutAccelerateConfiguration action. The bucket owner has this permission by
+  `s3:PutAccelerateConfiguration` action. The bucket owner has this permission by
   default. The bucket owner can grant this permission to others. For more
   information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
   and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
@@ -4770,6 +5059,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
       |> Request.build_params(input)
@@ -4945,6 +5235,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ACL", "x-amz-acl"},
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"GrantFullControl", "x-amz-grant-full-control"},
@@ -5106,6 +5397,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
@@ -5133,7 +5425,10 @@ defmodule AWS.S3 do
   Default encryption for a bucket can use server-side encryption with Amazon
   S3-managed keys (SSE-S3) or customer managed keys (SSE-KMS). If you specify
   default encryption using SSE-KMS, you can also configure Amazon S3 Bucket Key.
-  For information about default encryption, see [Amazon S3 default bucket encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html)
+  When the default encryption is SSE-KMS, if you upload an object to the bucket
+  and do not specify the KMS key to use for encryption, Amazon S3 uses the default
+  Amazon Web Services managed KMS key for your account. For information about
+  default encryption, see [Amazon S3 default bucket encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html)
   in the *Amazon S3 User Guide*. For more information about S3 Bucket Keys, see
   [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the
   *Amazon S3 User Guide*.
@@ -5160,6 +5455,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
@@ -5417,6 +5713,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
@@ -5441,7 +5738,10 @@ defmodule AWS.S3 do
   Creates a new lifecycle configuration for the bucket or replaces an existing
   lifecycle configuration.
 
-  For information about lifecycle configuration, see [Managing your storage lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html).
+  Keep in mind that this will overwrite an existing lifecycle configuration, so if
+  you want to retain any configuration details, they must be included in the new
+  lifecycle configuration. For information about lifecycle configuration, see
+  [Managing your storage lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html).
 
   Bucket lifecycle configuration now supports specifying a lifecycle rule using an
   object key name prefix, one or more object tags, or a combination of both.
@@ -5479,18 +5779,18 @@ defmodule AWS.S3 do
   configuration). Only the resource owner (that is, the Amazon Web Services
   account that created it) can access the resource. The resource owner can
   optionally grant access permissions to others by writing an access policy. For
-  this operation, a user must get the s3:PutLifecycleConfiguration permission.
+  this operation, a user must get the `s3:PutLifecycleConfiguration` permission.
 
   You can also explicitly deny permissions. Explicit deny also supersedes any
   other permissions. If you want to block users or accounts from removing or
   deleting objects from your bucket, you must deny them permissions for the
   following actions:
 
-    * s3:DeleteObject
+    * `s3:DeleteObject`
 
-    * s3:DeleteObjectVersion
+    * `s3:DeleteObjectVersion`
 
-    * s3:PutLifecycleConfiguration
+    * `s3:PutLifecycleConfiguration`
 
   For more information about permissions, see [Managing Access Permissions to Your Amazon S3
   Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
@@ -5508,6 +5808,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
       |> Request.build_params(input)
@@ -5598,6 +5899,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
@@ -5692,6 +5994,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
@@ -5742,6 +6045,10 @@ defmodule AWS.S3 do
 
   You can disable notifications by adding the empty NotificationConfiguration
   element.
+
+  For more information about the number of event notification configurations that
+  you can create per bucket, see [Amazon S3 service quotas](https://docs.aws.amazon.com/general/latest/gr/s3.html#limits_s3) in
+  *Amazon Web Services General Reference*.
 
   By default, only the bucket owner can configure notifications on a bucket.
   However, bucket owners can use a bucket policy to grant permission to other
@@ -5860,6 +6167,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ConfirmRemoveSelfBucketAccess", "x-amz-confirm-remove-self-bucket-access"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
@@ -5949,6 +6257,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"Token", "x-amz-bucket-object-lock-token"}
@@ -5989,6 +6298,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
@@ -6066,6 +6376,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
@@ -6089,8 +6400,6 @@ defmodule AWS.S3 do
   @doc """
   Sets the versioning state of an existing bucket.
 
-  To set the versioning state, you must be the bucket owner.
-
   You can set the versioning state with one of the following values:
 
   **Enabled**—Enables versioning for the objects in the bucket. All objects added
@@ -6103,8 +6412,9 @@ defmodule AWS.S3 do
   state; a
   [GetBucketVersioning](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html) request does not return a versioning state value.
 
-  If the bucket owner enables MFA Delete in the bucket versioning configuration,
-  the bucket owner must include the `x-amz-mfa request` header and the `Status`
+  In order to enable MFA Delete, you must be the bucket owner. If you are the
+  bucket owner and want to enable MFA Delete in the bucket versioning
+  configuration, you must include the `x-amz-mfa request` header and the `Status`
   and the `MfaDelete` request elements in a request to set the versioning state of
   the bucket.
 
@@ -6131,6 +6441,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"MFA", "x-amz-mfa"}
@@ -6226,6 +6537,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
@@ -6345,34 +6657,39 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
-        {"ACL", "x-amz-acl"},
-        {"BucketKeyEnabled", "x-amz-server-side-encryption-bucket-key-enabled"},
-        {"CacheControl", "Cache-Control"},
-        {"ContentDisposition", "Content-Disposition"},
-        {"ContentEncoding", "Content-Encoding"},
-        {"ContentLanguage", "Content-Language"},
-        {"ContentLength", "Content-Length"},
-        {"ContentMD5", "Content-MD5"},
-        {"ContentType", "Content-Type"},
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
-        {"Expires", "Expires"},
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
+        {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
         {"GrantFullControl", "x-amz-grant-full-control"},
-        {"GrantRead", "x-amz-grant-read"},
-        {"GrantReadACP", "x-amz-grant-read-acp"},
-        {"GrantWriteACP", "x-amz-grant-write-acp"},
-        {"ObjectLockLegalHoldStatus", "x-amz-object-lock-legal-hold"},
-        {"ObjectLockMode", "x-amz-object-lock-mode"},
+        {"ACL", "x-amz-acl"},
+        {"ChecksumCRC32C", "x-amz-checksum-crc32c"},
         {"ObjectLockRetainUntilDate", "x-amz-object-lock-retain-until-date"},
         {"RequestPayer", "x-amz-request-payer"},
-        {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
-        {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
+        {"BucketKeyEnabled", "x-amz-server-side-encryption-bucket-key-enabled"},
+        {"ContentType", "Content-Type"},
         {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
-        {"SSEKMSEncryptionContext", "x-amz-server-side-encryption-context"},
-        {"SSEKMSKeyId", "x-amz-server-side-encryption-aws-kms-key-id"},
-        {"ServerSideEncryption", "x-amz-server-side-encryption"},
-        {"StorageClass", "x-amz-storage-class"},
+        {"ObjectLockLegalHoldStatus", "x-amz-object-lock-legal-hold"},
         {"Tagging", "x-amz-tagging"},
-        {"WebsiteRedirectLocation", "x-amz-website-redirect-location"}
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"WebsiteRedirectLocation", "x-amz-website-redirect-location"},
+        {"ContentLanguage", "Content-Language"},
+        {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
+        {"ContentEncoding", "Content-Encoding"},
+        {"ChecksumSHA256", "x-amz-checksum-sha256"},
+        {"Expires", "Expires"},
+        {"ContentMD5", "Content-MD5"},
+        {"GrantWriteACP", "x-amz-grant-write-acp"},
+        {"SSEKMSEncryptionContext", "x-amz-server-side-encryption-context"},
+        {"CacheControl", "Cache-Control"},
+        {"StorageClass", "x-amz-storage-class"},
+        {"GrantRead", "x-amz-grant-read"},
+        {"ContentLength", "Content-Length"},
+        {"ObjectLockMode", "x-amz-object-lock-mode"},
+        {"ContentDisposition", "Content-Disposition"},
+        {"ServerSideEncryption", "x-amz-server-side-encryption"},
+        {"SSEKMSKeyId", "x-amz-server-side-encryption-aws-kms-key-id"},
+        {"GrantReadACP", "x-amz-grant-read-acp"},
+        {"ChecksumCRC32", "x-amz-checksum-crc32"},
+        {"ChecksumSHA1", "x-amz-checksum-sha1"}
       ]
       |> Request.build_params(input)
 
@@ -6384,6 +6701,10 @@ defmodule AWS.S3 do
         :response_header_parameters,
         [
           {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
+          {"x-amz-checksum-crc32", "ChecksumCRC32"},
+          {"x-amz-checksum-crc32c", "ChecksumCRC32C"},
+          {"x-amz-checksum-sha1", "ChecksumSHA1"},
+          {"x-amz-checksum-sha256", "ChecksumSHA256"},
           {"ETag", "ETag"},
           {"x-amz-expiration", "Expiration"},
           {"x-amz-request-charged", "RequestCharged"},
@@ -6572,6 +6893,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ACL", "x-amz-acl"},
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"GrantFullControl", "x-amz-grant-full-control"},
@@ -6610,7 +6932,7 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  Applies a Legal Hold configuration to the specified object.
+  Applies a legal hold configuration to the specified object.
 
   For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
 
@@ -6622,6 +6944,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"RequestPayer", "x-amz-request-payer"}
@@ -6674,6 +6997,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"RequestPayer", "x-amz-request-payer"},
@@ -6712,13 +7036,6 @@ defmodule AWS.S3 do
   Retention configuration requires the `s3:BypassGovernanceRetention` permission.
 
   This action is not supported by Amazon S3 on Outposts.
-
-  ## Permissions
-
-  When the Object Lock retention mode is set to compliance, you need
-  `s3:PutObjectRetention` and `s3:BypassGovernanceRetention` permissions. For
-  other requests to `PutObjectRetention`, only `s3:PutObjectRetention` permissions
-  are required.
   """
   def put_object_retention(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
@@ -6727,6 +7044,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"BypassGovernanceRetention", "x-amz-bypass-governance-retention"},
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"RequestPayer", "x-amz-request-payer"}
@@ -6811,6 +7129,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"RequestPayer", "x-amz-request-payer"}
@@ -6876,6 +7195,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
@@ -7012,31 +7332,31 @@ defmodule AWS.S3 do
   one of the following data access tier options in the `Tier` element of the
   request body:
 
-    * ** `Expedited` ** - Expedited retrievals allow you to quickly
-  access your data stored in the S3 Glacier storage class or S3
-  Intelligent-Tiering Archive tier when occasional urgent requests for a subset of
-  archives are required. For all but the largest archived objects (250 MB+), data
-  accessed using Expedited retrievals is typically made available within 1–5
-  minutes. Provisioned capacity ensures that retrieval capacity for Expedited
-  retrievals is available when you need it. Expedited retrievals and provisioned
-  capacity are not available for objects stored in the S3 Glacier Deep Archive
-  storage class or S3 Intelligent-Tiering Deep Archive tier.
+    * `Expedited` - Expedited retrievals allow you to quickly access
+  your data stored in the S3 Glacier storage class or S3 Intelligent-Tiering
+  Archive tier when occasional urgent requests for a subset of archives are
+  required. For all but the largest archived objects (250 MB+), data accessed
+  using Expedited retrievals is typically made available within 1–5 minutes.
+  Provisioned capacity ensures that retrieval capacity for Expedited retrievals is
+  available when you need it. Expedited retrievals and provisioned capacity are
+  not available for objects stored in the S3 Glacier Deep Archive storage class or
+  S3 Intelligent-Tiering Deep Archive tier.
 
-    * ** `Standard` ** - Standard retrievals allow you to access any of
-  your archived objects within several hours. This is the default option for
-  retrieval requests that do not specify the retrieval option. Standard retrievals
-  typically finish within 3–5 hours for objects stored in the S3 Glacier storage
-  class or S3 Intelligent-Tiering Archive tier. They typically finish within 12
-  hours for objects stored in the S3 Glacier Deep Archive storage class or S3
+    * `Standard` - Standard retrievals allow you to access any of your
+  archived objects within several hours. This is the default option for retrieval
+  requests that do not specify the retrieval option. Standard retrievals typically
+  finish within 3–5 hours for objects stored in the S3 Glacier storage class or S3
+  Intelligent-Tiering Archive tier. They typically finish within 12 hours for
+  objects stored in the S3 Glacier Deep Archive storage class or S3
   Intelligent-Tiering Deep Archive tier. Standard retrievals are free for objects
   stored in S3 Intelligent-Tiering.
 
-    * ** `Bulk` ** - Bulk retrievals are the lowest-cost retrieval
-  option in S3 Glacier, enabling you to retrieve large amounts, even petabytes, of
-  data inexpensively. Bulk retrievals typically finish within 5–12 hours for
-  objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive
-  tier. They typically finish within 48 hours for objects stored in the S3 Glacier
-  Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier. Bulk
+    * `Bulk` - Bulk retrievals are the lowest-cost retrieval option in
+  S3 Glacier, enabling you to retrieve large amounts, even petabytes, of data
+  inexpensively. Bulk retrievals typically finish within 5–12 hours for objects
+  stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive tier.
+  They typically finish within 48 hours for objects stored in the S3 Glacier Deep
+  Archive storage class or S3 Intelligent-Tiering Deep Archive tier. Bulk
   retrievals are free for objects stored in S3 Intelligent-Tiering.
 
   For more information about archive retrieval options and provisioned capacity
@@ -7118,6 +7438,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"RequestPayer", "x-amz-request-payer"}
       ]
@@ -7376,6 +7697,11 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
+        {"ChecksumCRC32", "x-amz-checksum-crc32"},
+        {"ChecksumCRC32C", "x-amz-checksum-crc32c"},
+        {"ChecksumSHA1", "x-amz-checksum-sha1"},
+        {"ChecksumSHA256", "x-amz-checksum-sha256"},
         {"ContentLength", "Content-Length"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
@@ -7399,6 +7725,10 @@ defmodule AWS.S3 do
         :response_header_parameters,
         [
           {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
+          {"x-amz-checksum-crc32", "ChecksumCRC32"},
+          {"x-amz-checksum-crc32c", "ChecksumCRC32C"},
+          {"x-amz-checksum-sha1", "ChecksumSHA1"},
+          {"x-amz-checksum-sha256", "ChecksumSHA256"},
           {"ETag", "ETag"},
           {"x-amz-request-charged", "RequestCharged"},
           {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
@@ -7459,11 +7789,11 @@ defmodule AWS.S3 do
   in the *Amazon S3 User Guide*.
 
     * For information about copying objects using a single atomic action
-  vs. the multipart upload, see [Operations on Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html)
+  vs. a multipart upload, see [Operations on Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html)
   in the *Amazon S3 User Guide*.
 
     * For information about using server-side encryption with
-  customer-provided encryption keys with the UploadPartCopy operation, see
+  customer-provided encryption keys with the `UploadPartCopy` operation, see
   [CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html) and
   [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html).
 
@@ -7655,6 +7985,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ErrorMessage", "x-amz-fwd-error-message"},
+        {"ChecksumCRC32C", "x-amz-fwd-header-x-amz-checksum-crc32c"},
         {"DeleteMarker", "x-amz-fwd-header-x-amz-delete-marker"},
         {"ObjectLockRetainUntilDate", "x-amz-fwd-header-x-amz-object-lock-retain-until-date"},
         {"RequestToken", "x-amz-request-token"},
@@ -7671,6 +8002,7 @@ defmodule AWS.S3 do
         {"SSECustomerAlgorithm",
          "x-amz-fwd-header-x-amz-server-side-encryption-customer-algorithm"},
         {"ContentEncoding", "x-amz-fwd-header-Content-Encoding"},
+        {"ChecksumSHA256", "x-amz-fwd-header-x-amz-checksum-sha256"},
         {"ETag", "x-amz-fwd-header-ETag"},
         {"LastModified", "x-amz-fwd-header-Last-Modified"},
         {"ErrorCode", "x-amz-fwd-error-code"},
@@ -7688,7 +8020,9 @@ defmodule AWS.S3 do
         {"RequestCharged", "x-amz-fwd-header-x-amz-request-charged"},
         {"ServerSideEncryption", "x-amz-fwd-header-x-amz-server-side-encryption"},
         {"PartsCount", "x-amz-fwd-header-x-amz-mp-parts-count"},
-        {"SSEKMSKeyId", "x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id"}
+        {"SSEKMSKeyId", "x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id"},
+        {"ChecksumCRC32", "x-amz-fwd-header-x-amz-checksum-crc32"},
+        {"ChecksumSHA1", "x-amz-fwd-header-x-amz-checksum-sha1"}
       ]
       |> Request.build_params(input)
 

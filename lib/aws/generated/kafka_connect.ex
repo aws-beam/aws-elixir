@@ -111,6 +111,27 @@ defmodule AWS.KafkaConnect do
   end
 
   @doc """
+  Deletes a custom plugin.
+  """
+  def delete_custom_plugin(%Client{} = client, custom_plugin_arn, input, options \\ []) do
+    url_path = "/v1/custom-plugins/#{AWS.Util.encode_uri(custom_plugin_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns summary information about the connector.
   """
   def describe_connector(%Client{} = client, connector_arn, options \\ []) do

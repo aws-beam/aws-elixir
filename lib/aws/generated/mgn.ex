@@ -135,7 +135,7 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Deletes a single vCenter client by ID.
+  Deletes a given vCenter client by ID.
   """
   def delete_vcenter_client(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteVcenterClient"
@@ -156,7 +156,7 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Retrieves detailed Job log with paging.
+  Retrieves detailed job log items with paging.
   """
   def describe_job_log_items(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeJobLogItems"
@@ -180,11 +180,11 @@ defmodule AWS.Mgn do
   Returns a list of Jobs.
 
   Use the JobsID and fromDate and toData filters to limit which jobs are returned.
-  The response is sorted by creationDataTime - latest date first. Jobs are normaly
-  created by the StartTest, StartCutover, and TerminateTargetInstances APIs. Jobs
-  are also created by DiagnosticLaunch and TerminateDiagnosticInstances, which are
-  APIs available only to *Support* and only used in response to relevant support
-  tickets.
+  The response is sorted by creationDataTime - latest date first. Jobs are
+  normally created by the StartTest, StartCutover, and TerminateTargetInstances
+  APIs. Jobs are also created by DiagnosticLaunch and
+  TerminateDiagnosticInstances, which are APIs available only to *Support* and
+  only used in response to relevant support tickets.
   """
   def describe_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeJobs"
@@ -247,7 +247,7 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Lists all vCenter clients.
+  Returns a list of the installed vCenter clients.
   """
   def describe_vcenter_clients(
         %Client{} = client,
@@ -293,13 +293,13 @@ defmodule AWS.Mgn do
   Application Migration Service for enabling the replication of these source
   servers will be terminated / deleted within 90 minutes. Launched Test or Cutover
   instances will NOT be terminated. If the agent on the source server has not been
-  prevented from communciating with the Application Migration Service service,
+  prevented from communicating with the Application Migration Service service,
   then it will receive a command to uninstall itself (within approximately 10
   minutes). The following properties of the SourceServer will be changed
   immediately: dataReplicationInfo.dataReplicationState will be set to
   DISCONNECTED; The totalStorageBytes property for each of
   dataReplicationInfo.replicatedDisks will be set to zero;
-  dataReplicationInfo.lagDuration and dataReplicationInfo.lagDurationwill be
+  dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be
   nullified.
   """
   def disconnect_from_service(%Client{} = client, input, options \\ []) do
@@ -328,11 +328,11 @@ defmodule AWS.Mgn do
   minutes. Launched Test or Cutover instances will NOT be terminated. The AWS
   Replication Agent will receive a command to uninstall itself (within 10
   minutes). The following properties of the SourceServer will be changed
-  immediately: dataReplicationInfo.dataReplicationState will be to DISCONNECTED;
-  The SourceServer.lifeCycle.state will be changed to CUTOVER; The
+  immediately: dataReplicationInfo.dataReplicationState will be changed to
+  DISCONNECTED; The SourceServer.lifeCycle.state will be changed to CUTOVER; The
   totalStorageBytes property fo each of dataReplicationInfo.replicatedDisks will
   be set to zero; dataReplicationInfo.lagDuration and
-  dataReplicationInfo.lagDurationwill be nullified.
+  dataReplicationInfo.lagDuration will be nullified.
   """
   def finalize_cutover(%Client{} = client, input, options \\ []) do
     url_path = "/FinalizeCutover"
@@ -440,7 +440,7 @@ defmodule AWS.Mgn do
   Archives specific Source Servers by setting the SourceServer.isArchived property
   to true for specified SourceServers by ID.
 
-  This command only works for SourceServers with a lifecycle.state which equals
+  This command only works for SourceServers with a lifecycle. state which equals
   DISCONNECTED or CUTOVER.
   """
   def mark_as_archived(%Client{} = client, input, options \\ []) do
@@ -512,7 +512,7 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Starts replication on source server by ID.
+  Starts replication for SNAPSHOT_SHIPPING agents.
   """
   def start_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StartReplication"
@@ -533,7 +533,7 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Lauches a Test Instance for specific Source Servers.
+  Launches a Test Instance for specific Source Servers.
 
   This command starts a LAUNCH job whose initiatedBy property is StartTest and
   changes the SourceServer.lifeCycle.state property to TESTING.
@@ -697,7 +697,8 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Updates source server Replication Type by ID.
+  Allows you to change between the AGENT_BASED replication type and the
+  SNAPSHOT_SHIPPING replication type.
   """
   def update_source_server_replication_type(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateSourceServerReplicationType"

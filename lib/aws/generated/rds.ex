@@ -243,8 +243,6 @@ defmodule AWS.RDS do
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
-
-  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CopyDBClusterSnapshot", input, options)
@@ -355,8 +353,6 @@ defmodule AWS.RDS do
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
-
-  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def create_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBCluster", input, options)
@@ -410,8 +406,6 @@ defmodule AWS.RDS do
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
-
-  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def create_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBClusterParameterGroup", input, options)
@@ -426,8 +420,6 @@ defmodule AWS.RDS do
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
-
-  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBClusterSnapshot", input, options)
@@ -654,8 +646,6 @@ defmodule AWS.RDS do
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
-
-  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def delete_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBCluster", input, options)
@@ -682,8 +672,6 @@ defmodule AWS.RDS do
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
-
-  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBClusterParameterGroup", input, options)
@@ -702,8 +690,6 @@ defmodule AWS.RDS do
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
-
-  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBClusterSnapshot", input, options)
@@ -915,8 +901,6 @@ defmodule AWS.RDS do
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
-
-  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterParameterGroups", input, options)
@@ -931,8 +915,6 @@ defmodule AWS.RDS do
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
-
-  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def describe_db_cluster_parameters(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterParameters", input, options)
@@ -974,8 +956,6 @@ defmodule AWS.RDS do
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
-
-  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def describe_db_cluster_snapshots(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterSnapshots", input, options)
@@ -992,8 +972,6 @@ defmodule AWS.RDS do
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
-
-  The Multi-AZ DB clusters feature is in preview and is subject to change.
 
   This operation can also return information for Amazon Neptune DB instances and
   Amazon DocumentDB instances.
@@ -1356,8 +1334,6 @@ defmodule AWS.RDS do
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
-
-  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def failover_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "FailoverDBCluster", input, options)
@@ -1494,8 +1470,6 @@ defmodule AWS.RDS do
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
-
-  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def modify_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBCluster", input, options)
@@ -1540,8 +1514,6 @@ defmodule AWS.RDS do
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
-
-  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def modify_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBClusterParameterGroup", input, options)
@@ -1767,8 +1739,7 @@ defmodule AWS.RDS do
   cluster results in a momentary outage, during which the DB cluster status is set
   to rebooting.
 
-  Use this operation only for a non-Aurora Multi-AZ DB cluster. The Multi-AZ DB
-  clusters feature is in preview and is subject to change.
+  Use this operation only for a non-Aurora Multi-AZ DB cluster.
 
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
@@ -1828,8 +1799,6 @@ defmodule AWS.RDS do
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
-
-  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def remove_role_from_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RemoveRoleFromDBCluster", input, options)
@@ -1886,8 +1855,6 @@ defmodule AWS.RDS do
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
-
-  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def reset_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ResetDBClusterParameterGroup", input, options)
@@ -1953,8 +1920,6 @@ defmodule AWS.RDS do
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
-
-  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def restore_db_cluster_from_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RestoreDBClusterFromSnapshot", input, options)
@@ -1981,8 +1946,6 @@ defmodule AWS.RDS do
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
-
-  The Multi-AZ DB clusters feature is in preview and is subject to change.
   """
   def restore_db_cluster_to_point_in_time(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RestoreDBClusterToPointInTime", input, options)

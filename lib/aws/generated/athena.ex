@@ -357,6 +357,15 @@ defmodule AWS.Athena do
   end
 
   @doc """
+  Updates a `NamedQuery` object.
+
+  The database or workgroup cannot be updated.
+  """
+  def update_named_query(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateNamedQuery", input, options)
+  end
+
+  @doc """
   Updates a prepared statement.
   """
   def update_prepared_statement(%Client{} = client, input, options \\ []) do

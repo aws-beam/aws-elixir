@@ -249,10 +249,10 @@ defmodule AWS.FSx do
 
   If a file system with the specified client request token exists and the
   parameters match, this operation returns the description of the file system. If
-  a client request token with the specified by the file system exists and the
-  parameters don't match, this call returns `IncompatibleParameterError`. If a
-  file system with the specified client request token doesn't exist, this
-  operation does the following:
+  a file system with the specified client request token exists but the parameters
+  don't match, this call returns `IncompatibleParameterError`. If a file system
+  with the specified client request token doesn't exist, this operation does the
+  following:
 
     * Creates a new Amazon FSx file system from backup with an assigned
   ID, and an initial lifecycle state of `CREATING`.
@@ -282,7 +282,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
-  Creates a snapshot of an existing Amazon FSx for OpenZFS file system.
+  Creates a snapshot of an existing Amazon FSx for OpenZFS volume.
 
   With snapshots, you can easily undo file changes and compare file versions by
   restoring the volume to a previous version.
@@ -398,7 +398,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
-  Deletes the Amazon FSx snapshot.
+  Deletes an Amazon FSx for OpenZFS snapshot.
 
   After deletion, the snapshot no longer exists, and its data is gone. Deleting a
   snapshot doesn't affect snapshots stored in a file system backup.
@@ -551,8 +551,8 @@ defmodule AWS.FSx do
   end
 
   @doc """
-  Returns the description of specific Amazon FSx snapshots, if a `SnapshotIds`
-  value is provided.
+  Returns the description of specific Amazon FSx for OpenZFS snapshots, if a
+  `SnapshotIds` value is provided.
 
   Otherwise, this operation returns all snapshots owned by your Amazon Web
   Services account in the Amazon Web Services Region of the endpoint that you're
@@ -755,7 +755,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
-  Updates the name of a snapshot.
+  Updates the name of an Amazon FSx for OpenZFS snapshot.
   """
   def update_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateSnapshot", input, options)

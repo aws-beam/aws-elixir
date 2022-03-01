@@ -17,7 +17,7 @@ defmodule AWS.AmplifyUIBuilder do
   The Amplify Framework is a comprehensive set of SDKs, libraries, tools, and
   documentation for client app development. For more information, see the [Amplify
   Framework](https://docs.amplify.aws/). For more information about deploying an
-  Amplify application to Amazon Web Services, see the [Amplify Console User Guide](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html).
+  Amplify application to Amazon Web Services, see the [Amplify User Guide](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html).
   """
 
   alias AWS.Client
@@ -166,12 +166,25 @@ defmodule AWS.AmplifyUIBuilder do
   Exports component configurations to code that is ready to integrate into an
   Amplify app.
   """
-  def export_components(%Client{} = client, app_id, environment_name, options \\ []) do
+  def export_components(
+        %Client{} = client,
+        app_id,
+        environment_name,
+        next_token \\ nil,
+        options \\ []
+      ) do
     url_path =
       "/export/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/components"
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
 
     Request.request_rest(
       client,
@@ -190,12 +203,25 @@ defmodule AWS.AmplifyUIBuilder do
   Exports theme configurations to code that is ready to integrate into an Amplify
   app.
   """
-  def export_themes(%Client{} = client, app_id, environment_name, options \\ []) do
+  def export_themes(
+        %Client{} = client,
+        app_id,
+        environment_name,
+        next_token \\ nil,
+        options \\ []
+      ) do
     url_path =
       "/export/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/themes"
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
 
     Request.request_rest(
       client,

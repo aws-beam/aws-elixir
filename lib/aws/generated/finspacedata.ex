@@ -89,6 +89,49 @@ defmodule AWS.Finspacedata do
   end
 
   @doc """
+  Creates a group of permissions for various actions that a user can perform in
+  FinSpace.
+  """
+  def create_permission_group(%Client{} = client, input, options \\ []) do
+    url_path = "/permission-group"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates a new user in FinSpace.
+  """
+  def create_user(%Client{} = client, input, options \\ []) do
+    url_path = "/user"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes a FinSpace Dataset.
   """
   def delete_dataset(%Client{} = client, dataset_id, input, options \\ []) do
@@ -105,6 +148,76 @@ defmodule AWS.Finspacedata do
       client,
       metadata(),
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes a permission group.
+
+  This action is irreversible.
+  """
+  def delete_permission_group(%Client{} = client, permission_group_id, input, options \\ []) do
+    url_path = "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Denies access to the FinSpace web application and API for the specified user.
+  """
+  def disable_user(%Client{} = client, user_id, input, options \\ []) do
+    url_path = "/user/#{AWS.Util.encode_uri(user_id)}/disable"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Allows the specified user to access the FinSpace web application and API.
+  """
+  def enable_user(%Client{} = client, user_id, input, options \\ []) do
+    url_path = "/user/#{AWS.Util.encode_uri(user_id)}/enable"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
       url_path,
       query_params,
       headers,
@@ -207,6 +320,27 @@ defmodule AWS.Finspacedata do
       else
         query_params
       end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Retrieves details for a specific user.
+  """
+  def get_user(%Client{} = client, user_id, options \\ []) do
+    url_path = "/user/#{AWS.Util.encode_uri(user_id)}"
+    headers = []
+    query_params = []
 
     Request.request_rest(
       client,
@@ -361,6 +495,100 @@ defmodule AWS.Finspacedata do
   end
 
   @doc """
+  Lists all available permission groups in FinSpace.
+  """
+  def list_permission_groups(%Client{} = client, max_results, next_token \\ nil, options \\ []) do
+    url_path = "/permission-group"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists all available user accounts in FinSpace.
+  """
+  def list_users(%Client{} = client, max_results, next_token \\ nil, options \\ []) do
+    url_path = "/user"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Resets the password for a specified user ID and generates a temporary one.
+
+  Only a superuser can reset password for other users. Resetting the password
+  immediately invalidates the previous password associated with the user.
+  """
+  def reset_user_password(%Client{} = client, user_id, input, options \\ []) do
+    url_path = "/user/#{AWS.Util.encode_uri(user_id)}/password"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Updates a FinSpace Changeset.
   """
   def update_changeset(%Client{} = client, changeset_id, dataset_id, input, options \\ []) do
@@ -388,6 +616,52 @@ defmodule AWS.Finspacedata do
   """
   def update_dataset(%Client{} = client, dataset_id, input, options \\ []) do
     url_path = "/datasetsv2/#{AWS.Util.encode_uri(dataset_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Modifies the details of a permission group.
+
+  You cannot modify a `permissionGroupID`.
+  """
+  def update_permission_group(%Client{} = client, permission_group_id, input, options \\ []) do
+    url_path = "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Modifies the details of the specified user account.
+
+  You cannot update the `userId` for a user.
+  """
+  def update_user(%Client{} = client, user_id, input, options \\ []) do
+    url_path = "/user/#{AWS.Util.encode_uri(user_id)}"
     headers = []
     query_params = []
 

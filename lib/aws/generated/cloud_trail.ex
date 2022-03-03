@@ -64,7 +64,7 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Cancels a query if the query is not in a terminated state, such as `CANCELLED`,
-  `FAILED` or `FINISHED`.
+  `FAILED`, `TIMED_OUT`, or `FINISHED`.
 
   You must specify an ARN value for `EventDataStore`. The ID of the query that you
   want to cancel is also required. When you run `CancelQuery`, the query status
@@ -243,8 +243,8 @@ defmodule AWS.CloudTrail do
   You must specify an ARN value for `EventDataStore`. Optionally, to shorten the
   list of results, you can specify a time range, formatted as timestamps, by
   adding `StartTime` and `EndTime` parameters, and a `QueryStatus` value. Valid
-  values for `QueryStatus` include `QUEUED`, `RUNNING`, `FINISHED`, `FAILED`, or
-  `CANCELLED`.
+  values for `QueryStatus` include `QUEUED`, `RUNNING`, `FINISHED`, `FAILED`,
+  `TIMED_OUT`, or `CANCELLED`.
   """
   def list_queries(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListQueries", input, options)

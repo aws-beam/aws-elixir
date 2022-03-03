@@ -341,6 +341,11 @@ defmodule AWS.ECR do
   end
 
   @doc """
+  The `PutImageScanningConfiguration` API is being deprecated, in favor of
+  specifying the image scanning configuration at the registry level.
+
+  For more information, see `PutRegistryScanningConfiguration`.
+
   Updates the image scanning configuration for the specified repository.
   """
   def put_image_scanning_configuration(%Client{} = client, input, options \\ []) do

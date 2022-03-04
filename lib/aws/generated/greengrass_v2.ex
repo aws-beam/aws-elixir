@@ -246,8 +246,7 @@ defmodule AWS.GreengrassV2 do
 
   Every deployment has a revision number that indicates how many deployment
   revisions you define for a target. Use this operation to create a new revision
-  of an existing deployment. This operation returns the revision number of the new
-  deployment when you create it.
+  of an existing deployment.
 
   For more information, see the [Create deployments](https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html)
   in the *IoT Greengrass V2 Developer Guide*.
@@ -433,7 +432,7 @@ defmodule AWS.GreengrassV2 do
 
   Connectivity information includes endpoints and ports where client devices can
   connect to an MQTT broker on the core device. When a client device calls the
-  [Greengrass discovery API](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-discover-api.html),
+  [IoT Greengrass discovery API](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-discover-api.html),
   IoT Greengrass returns connectivity information for all of the core devices
   where the client device can connect. For more information, see [Connect client devices to core
   devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/connect-client-devices.html)
@@ -980,7 +979,7 @@ defmodule AWS.GreengrassV2 do
 
   Connectivity information includes endpoints and ports where client devices can
   connect to an MQTT broker on the core device. When a client device calls the
-  [Greengrass discovery API](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-discover-api.html),
+  [IoT Greengrass discovery API](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-discover-api.html),
   IoT Greengrass returns connectivity information for all of the core devices
   where the client device can connect. For more information, see [Connect client devices to core
   devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/connect-client-devices.html)

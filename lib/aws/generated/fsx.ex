@@ -323,7 +323,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
-  Creates an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS storage volume.
+  Creates an FSx for ONTAP or Amazon FSx for OpenZFS storage volume.
   """
   def create_volume(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateVolume", input, options)

@@ -31,7 +31,7 @@ defmodule AWS.TimestreamQuery do
   Cancellation is provided only if the query has not completed running before the
   cancellation request was issued. Because cancellation is an idempotent
   operation, subsequent cancellation requests will return a `CancellationMessage`,
-  indicating that the query has already been canceled. See [code sample](https://docs.aws.amazon.com/Timestream/latest/developerguide/code-samples.cancel-query.html)
+  indicating that the query has already been canceled. See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.cancel-query.html)
   for details.
   """
   def cancel_query(%Client{} = client, input, options \\ []) do
@@ -71,7 +71,7 @@ defmodule AWS.TimestreamQuery do
   endpoints, *it is not recommended that you use this API unless*:
 
     * You are using [VPC endpoints (Amazon Web Services PrivateLink) with Timestream
-  ](https://docs.aws.amazon.com/Timestream/latest/developerguide/VPCEndpoints)
+  ](https://docs.aws.amazon.com/timestream/latest/developerguide/VPCEndpoints)
 
     * Your application uses a programming language that does not yet
   have SDK support
@@ -79,7 +79,7 @@ defmodule AWS.TimestreamQuery do
     * You require better control over the client-side implementation
 
   For detailed information on how and when to use and implement DescribeEndpoints,
-  see [The Endpoint Discovery Pattern](https://docs.aws.amazon.com/Timestream/latest/developerguide/Using.API.html#Using-API.endpoint-discovery).
+  see [The Endpoint Discovery Pattern](https://docs.aws.amazon.com/timestream/latest/developerguide/Using.API.html#Using-API.endpoint-discovery).
   """
   def describe_endpoints(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeEndpoints", input, options)
@@ -131,7 +131,7 @@ defmodule AWS.TimestreamQuery do
   Amazon Timestream data.
 
   `Query` will time out after 60 seconds. You must update the default timeout in
-  the SDK to support a timeout of 60 seconds. See the [code sample](https://docs.aws.amazon.com/Timestream/latest/developerguide/code-samples.run-query.html)
+  the SDK to support a timeout of 60 seconds. See the [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html)
   for details.
 
   Your query request will fail in the following cases:

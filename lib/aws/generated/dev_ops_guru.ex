@@ -153,6 +153,28 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
+  This operation lists details about a DevOps Guru event source that is shared
+  with your account.
+  """
+  def describe_event_sources_config(%Client{} = client, input, options \\ []) do
+    url_path = "/event-sources"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns the most recent feedback submitted in the current Amazon Web Services
   account and Region.
   """
@@ -663,6 +685,27 @@ defmodule AWS.DevOpsGuru do
   """
   def start_cost_estimation(%Client{} = client, input, options \\ []) do
     url_path = "/cost-estimation"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the event source configuration.
+  """
+  def update_event_sources_config(%Client{} = client, input, options \\ []) do
+    url_path = "/event-sources"
     headers = []
     query_params = []
 

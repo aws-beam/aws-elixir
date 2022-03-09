@@ -22,6 +22,10 @@ defmodule AWS.Keyspaces do
   Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cassandra-apis.html)
   in the *Amazon Keyspaces Developer Guide*.
 
+  To learn how Amazon Keyspaces API actions are tracked in CloudTrail, see [Amazon Keyspaces information in
+  CloudTrail](https://docs.aws.amazon.com/keyspaces/latest/devguide/logging-using-cloudtrail.html#service-name-info-in-cloudtrail)
+  in the *Amazon Keyspaces Developer Guide*.
+
   For more information about Amazon Web Services APIs, for example how to
   implement retry logic or how to sign Amazon Web Services API requests, see
   [Amazon Web Services APIs](https://docs.aws.amazon.com/general/latest/gr/aws-apis.html) in the
@@ -114,6 +118,9 @@ defmodule AWS.Keyspaces do
   @doc """
   Returns information about the table, including the table's name and current
   status, the keyspace name, configuration settings, and metadata.
+
+  To read table metadata using `GetTable`, `Select` action permissions for the
+  table and system tables are required to complete the operation.
   """
   def get_table(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetTable", input, options)
@@ -194,9 +201,12 @@ defmodule AWS.Keyspaces do
   Associates a set of tags with a Amazon Keyspaces resource.
 
   You can then activate these user-defined tags so that they appear on the Cost
-  Management Console for cost allocation tracking.
+  Management Console for cost allocation tracking. For more information, see
+  [Adding tags and labels to Amazon Keyspaces resources](https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html)
+  in the *Amazon Keyspaces Developer Guide*.
 
-  For more information, see [Adding tags and labels to Amazon Keyspaces resources](https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html)
+  For IAM policy examples that show how to control access to Amazon Keyspaces
+  resources based on tags, see [Amazon Keyspaces resource access based on tags](https://docs.aws.amazon.com/keyspaces/latest/devguide/security_iam_id-based-policy-examples-tags)
   in the *Amazon Keyspaces Developer Guide*.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do

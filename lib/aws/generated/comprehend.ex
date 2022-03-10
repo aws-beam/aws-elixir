@@ -270,6 +270,21 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+  Gets the properties associated with a targeted sentiment detection job.
+
+  Use this operation to get the status of the job.
+  """
+  def describe_targeted_sentiment_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeTargetedSentimentDetectionJob",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Gets the properties associated with a topic detection job.
 
   Use this operation to get the status of a detection job.
@@ -445,6 +460,13 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+  Gets a list of targeted sentiment detection jobs that you have submitted.
+  """
+  def list_targeted_sentiment_detection_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTargetedSentimentDetectionJobs", input, options)
+  end
+
+  @doc """
   Gets a list of the topic detection jobs that you have submitted.
   """
   def list_topics_detection_jobs(%Client{} = client, input, options \\ []) do
@@ -520,10 +542,20 @@ defmodule AWS.Comprehend do
   @doc """
   Starts an asynchronous sentiment detection job for a collection of documents.
 
-  use the operation to track the status of a job.
+  Use the operation to track the status of a job.
   """
   def start_sentiment_detection_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartSentimentDetectionJob", input, options)
+  end
+
+  @doc """
+  Starts an asynchronous targeted sentiment detection job for a collection of
+  documents.
+
+  Use the operation to track the status of a job.
+  """
+  def start_targeted_sentiment_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartTargetedSentimentDetectionJob", input, options)
   end
 
   @doc """
@@ -623,6 +655,25 @@ defmodule AWS.Comprehend do
   """
   def stop_sentiment_detection_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopSentimentDetectionJob", input, options)
+  end
+
+  @doc """
+  Stops a targeted sentiment detection job in progress.
+
+  If the job state is `IN_PROGRESS` the job is marked for termination and put into
+  the `STOP_REQUESTED` state. If the job completes before it can be stopped, it is
+  put into the `COMPLETED` state; otherwise the job is be stopped and put into the
+  `STOPPED` state.
+
+  If the job is in the `COMPLETED` or `FAILED` state when you call the
+  `StopDominantLanguageDetectionJob` operation, the operation returns a 400
+  Internal Request Exception.
+
+  When a job is stopped, any documents already processed are written to the output
+  location.
+  """
+  def stop_targeted_sentiment_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopTargetedSentimentDetectionJob", input, options)
   end
 
   @doc """

@@ -237,7 +237,9 @@ defmodule AWS.SecretsManager do
 
   @doc """
   Lists the secrets that are stored by Secrets Manager in the Amazon Web Services
-  account.
+  account, not including secrets that are marked for deletion.
+
+  To see secrets marked for deletion, use the Secrets Manager console.
 
   To list the versions of a secret, use `ListSecretVersionIds`.
 

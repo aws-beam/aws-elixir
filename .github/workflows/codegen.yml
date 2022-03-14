@@ -105,7 +105,10 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add lib/aws/generated/*
           git add .latest-tag-aws-sdk-go
-          git commit -m "Update services based on ${{ env.LATEST_AWS_SDK_GO_TAG }} of AWS Go SDK"
+          echo "Update services based on ${{ env.LATEST_AWS_SDK_GO_TAG }} of AWS Go SDK" >> commit-msg
+          echo >> commit-msg
+          echo "Reference: https://github.com/aws/aws-sdk-go/releases/tag/${{ env.LATEST_AWS_SDK_GO_TAG }}" >> commit-msg
+          git commit -F commit-msg
 
       - name: Push changes
         uses: ad-m/github-push-action@master

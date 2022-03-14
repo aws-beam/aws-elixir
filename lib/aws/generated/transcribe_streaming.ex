@@ -125,7 +125,9 @@ defmodule AWS.TranscribeStreaming do
         {"ShowSpeakerLabel", "x-amzn-transcribe-show-speaker-label"},
         {"VocabularyFilterMethod", "x-amzn-transcribe-vocabulary-filter-method"},
         {"VocabularyFilterName", "x-amzn-transcribe-vocabulary-filter-name"},
-        {"VocabularyName", "x-amzn-transcribe-vocabulary-name"}
+        {"VocabularyFilterNames", "x-amzn-transcribe-vocabulary-filter-names"},
+        {"VocabularyName", "x-amzn-transcribe-vocabulary-name"},
+        {"VocabularyNames", "x-amzn-transcribe-vocabulary-names"}
       ]
       |> Request.build_params(input)
 
@@ -156,7 +158,9 @@ defmodule AWS.TranscribeStreaming do
           {"x-amzn-transcribe-show-speaker-label", "ShowSpeakerLabel"},
           {"x-amzn-transcribe-vocabulary-filter-method", "VocabularyFilterMethod"},
           {"x-amzn-transcribe-vocabulary-filter-name", "VocabularyFilterName"},
-          {"x-amzn-transcribe-vocabulary-name", "VocabularyName"}
+          {"x-amzn-transcribe-vocabulary-filter-names", "VocabularyFilterNames"},
+          {"x-amzn-transcribe-vocabulary-name", "VocabularyName"},
+          {"x-amzn-transcribe-vocabulary-names", "VocabularyNames"}
         ]
       )
 

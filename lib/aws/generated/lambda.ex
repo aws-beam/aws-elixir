@@ -135,8 +135,8 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Grants an Amazon Web Services service or another account permission to use a
-  function.
+  Grants an Amazon Web Services service, account, or organization permission to
+  use a function.
 
   You can apply the policy at the function level, or specify a qualifier to
   restrict access to a single version or alias. If you use a qualifier, the
@@ -145,12 +145,14 @@ defmodule AWS.Lambda do
   $LATEST.
 
   To grant permission to another account, specify the account ID as the
-  `Principal`. For Amazon Web Services services, the principal is a domain-style
-  identifier defined by the service, like `s3.amazonaws.com` or
-  `sns.amazonaws.com`. For Amazon Web Services services, you can also specify the
-  ARN of the associated resource as the `SourceArn`. If you grant permission to a
-  service principal without specifying the source, other accounts could
-  potentially configure resources in their account to invoke your Lambda function.
+  `Principal`. To grant permission to an organization defined in Organizations,
+  specify the organization ID as the `PrincipalOrgID`. For Amazon Web Services
+  services, the principal is a domain-style identifier defined by the service,
+  like `s3.amazonaws.com` or `sns.amazonaws.com`. For Amazon Web Services
+  services, you can also specify the ARN of the associated resource as the
+  `SourceArn`. If you grant permission to a service principal without specifying
+  the source, other accounts could potentially configure resources in their
+  account to invoke your Lambda function.
 
   This action adds a statement to a resource-based permissions policy for the
   function. For more information about function policies, see [Lambda Function Policies](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).

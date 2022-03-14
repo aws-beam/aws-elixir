@@ -506,12 +506,54 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Lists the sites for your Amazon Web Services account.
+  Create a list of the Outpost sites for your Amazon Web Services account.
+
+  Add operating address filters to your request to return a more specific list of
+  results. Use filters to match site city, country code, or state/region of the
+  operating address.
+
+  If you specify multiple filters, the filters are joined with an `AND`, and the
+  request returns only results that match all of the specified filters.
   """
-  def list_sites(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_sites(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        operating_address_city_filter \\ nil,
+        operating_address_country_code_filter \\ nil,
+        operating_address_state_or_region_filter \\ nil,
+        options \\ []
+      ) do
     url_path = "/sites"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(operating_address_state_or_region_filter) do
+        [
+          {"OperatingAddressStateOrRegionFilter", operating_address_state_or_region_filter}
+          | query_params
+        ]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(operating_address_country_code_filter) do
+        [
+          {"OperatingAddressCountryCodeFilter", operating_address_country_code_filter}
+          | query_params
+        ]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(operating_address_city_filter) do
+        [{"OperatingAddressCityFilter", operating_address_city_filter} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do

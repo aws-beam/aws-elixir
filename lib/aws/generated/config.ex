@@ -995,8 +995,9 @@ defmodule AWS.Config do
   The source account can be individual account(s) or an organization.
 
   `accountIds` that are passed will be replaced with existing accounts. If you
-  want to add additional accounts into the aggregator, call `DescribeAggregator`
-  to get the previous accounts and then append new ones.
+  want to add additional accounts into the aggregator, call
+  `DescribeConfigurationAggregators` to get the previous accounts and then append
+  new ones.
 
   Config should be enabled in source accounts and regions you want to aggregate.
 

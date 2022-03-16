@@ -141,7 +141,7 @@ defmodule AWS.RDS do
   Backtracks a DB cluster to a specific time, without creating a new DB cluster.
 
   For more information on backtracking, see [ Backtracking an Aurora DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   This action only applies to Aurora MySQL DB clusters.
   """
@@ -235,14 +235,14 @@ defmodule AWS.RDS do
 
   For more information on copying encrypted Amazon Aurora DB cluster snapshots
   from one Amazon Web Services Region to another, see [ Copying a Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
-  in the *Amazon RDS User Guide.*
+  in the *Amazon RDS User Guide*.
   """
   def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CopyDBClusterSnapshot", input, options)
@@ -267,7 +267,7 @@ defmodule AWS.RDS do
   This command doesn't apply to RDS Custom.
 
   For more information about copying snapshots, see [Copying a DB Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBSnapshot)
-  in the *Amazon RDS User Guide.*
+  in the *Amazon RDS User Guide*.
   """
   def copy_db_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CopyDBSnapshot", input, options)
@@ -348,11 +348,11 @@ defmodule AWS.RDS do
   `PreSignedUrl` parameter.
 
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
-  in the *Amazon RDS User Guide.*
+  in the *Amazon RDS User Guide*.
   """
   def create_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBCluster", input, options)
@@ -401,11 +401,11 @@ defmodule AWS.RDS do
   group has been created or modified.
 
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
-  in the *Amazon RDS User Guide.*
+  in the *Amazon RDS User Guide*.
   """
   def create_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBClusterParameterGroup", input, options)
@@ -415,11 +415,11 @@ defmodule AWS.RDS do
   Creates a snapshot of a DB cluster.
 
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
-  in the *Amazon RDS User Guide.*
+  in the *Amazon RDS User Guide*.
   """
   def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBClusterSnapshot", input, options)
@@ -641,11 +641,11 @@ defmodule AWS.RDS do
   cluster are not deleted.
 
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
-  in the *Amazon RDS User Guide.*
+  in the *Amazon RDS User Guide*.
   """
   def delete_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBCluster", input, options)
@@ -667,11 +667,11 @@ defmodule AWS.RDS do
   clusters.
 
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
-  in the *Amazon RDS User Guide.*
+  in the *Amazon RDS User Guide*.
   """
   def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBClusterParameterGroup", input, options)
@@ -685,11 +685,11 @@ defmodule AWS.RDS do
   The DB cluster snapshot must be in the `available` state to be deleted.
 
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
-  in the *Amazon RDS User Guide.*
+  in the *Amazon RDS User Guide*.
   """
   def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBClusterSnapshot", input, options)
@@ -872,7 +872,7 @@ defmodule AWS.RDS do
   Returns information about backtracks for a DB cluster.
 
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   This action only applies to Aurora MySQL DB clusters.
   """
@@ -896,11 +896,11 @@ defmodule AWS.RDS do
   only the description of the specified DB cluster parameter group.
 
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
-  in the *Amazon RDS User Guide.*
+  in the *Amazon RDS User Guide*.
   """
   def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterParameterGroups", input, options)
@@ -910,11 +910,11 @@ defmodule AWS.RDS do
   Returns the detailed parameter list for a particular DB cluster parameter group.
 
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
-  in the *Amazon RDS User Guide.*
+  in the *Amazon RDS User Guide*.
   """
   def describe_db_cluster_parameters(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterParameters", input, options)
@@ -951,11 +951,11 @@ defmodule AWS.RDS do
   This API action supports pagination.
 
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
-  in the *Amazon RDS User Guide.*
+  in the *Amazon RDS User Guide*.
   """
   def describe_db_cluster_snapshots(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterSnapshots", input, options)
@@ -967,11 +967,11 @@ defmodule AWS.RDS do
   This API supports pagination.
 
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
-  in the *Amazon RDS User Guide.*
+  in the *Amazon RDS User Guide*.
 
   This operation can also return information for Amazon Neptune DB instances and
   Amazon DocumentDB instances.
@@ -1125,7 +1125,7 @@ defmodule AWS.RDS do
   database engine.
 
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
   """
   def describe_engine_default_cluster_parameters(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -1202,7 +1202,7 @@ defmodule AWS.RDS do
   This API supports pagination.
 
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   This action only applies to Aurora DB clusters.
   """
@@ -1329,11 +1329,11 @@ defmodule AWS.RDS do
   endpoint addresses when the failover is complete.
 
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
-  in the *Amazon RDS User Guide.*
+  in the *Amazon RDS User Guide*.
   """
   def failover_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "FailoverDBCluster", input, options)
@@ -1351,7 +1351,7 @@ defmodule AWS.RDS do
 
   For more information about failing over an Amazon Aurora global database, see
   [Managed planned failover for Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-disaster-recovery.managed-failover)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   This action applies to `GlobalCluster` (Aurora global databases) only. Use this
   action only on healthy Aurora global databases with running Aurora DB clusters
@@ -1414,26 +1414,28 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Set the capacity of an Aurora Serverless DB cluster to a specific value.
+  Set the capacity of an Aurora Serverless v1 DB cluster to a specific value.
 
-  Aurora Serverless scales seamlessly based on the workload on the DB cluster. In
-  some cases, the capacity might not scale fast enough to meet a sudden change in
-  workload, such as a large number of new transactions. Call
+  Aurora Serverless v1 scales seamlessly based on the workload on the DB cluster.
+  In some cases, the capacity might not scale fast enough to meet a sudden change
+  in workload, such as a large number of new transactions. Call
   `ModifyCurrentDBClusterCapacity` to set the capacity explicitly.
 
-  After this call sets the DB cluster capacity, Aurora Serverless can
+  After this call sets the DB cluster capacity, Aurora Serverless v1 can
   automatically scale the DB cluster based on the cooldown period for scaling up
   and the cooldown period for scaling down.
 
-  For more information about Aurora Serverless, see [Using Amazon Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html)
+  For more information about Aurora Serverless v1, see [Using Amazon Aurora Serverless
+  v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html)
   in the *Amazon Aurora User Guide*.
 
   If you call `ModifyCurrentDBClusterCapacity` with the default `TimeoutAction`,
-  connections that prevent Aurora Serverless from finding a scaling point might be
-  dropped. For more information about scaling points, see [ Autoscaling for Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling)
+  connections that prevent Aurora Serverless v1 from finding a scaling point might
+  be dropped. For more information about scaling points, see [ Autoscaling for Aurora Serverless
+  v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling)
   in the *Amazon Aurora User Guide*.
 
-  This action only applies to Aurora Serverless DB clusters.
+  This action only applies to Aurora Serverless v1 DB clusters.
   """
   def modify_current_db_cluster_capacity(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyCurrentDBClusterCapacity", input, options)
@@ -1465,11 +1467,11 @@ defmodule AWS.RDS do
   values in the request.
 
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
-  in the *Amazon RDS User Guide.*
+  in the *Amazon RDS User Guide*.
   """
   def modify_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBCluster", input, options)
@@ -1502,14 +1504,14 @@ defmodule AWS.RDS do
   `DescribeDBClusterParameters` action to verify that your DB cluster parameter
   group has been created or modified.
 
-  If the modified DB cluster parameter group is used by an Aurora Serverless
+  If the modified DB cluster parameter group is used by an Aurora Serverless v1
   cluster, Aurora applies the update immediately. The cluster restart might
   interrupt your workload. In that case, your application must reopen any
   connections and retry any transactions that were active when the parameter
   changes took effect.
 
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
@@ -1675,7 +1677,7 @@ defmodule AWS.RDS do
   You can change one or more database configuration parameters by specifying these
   parameters and the new values in the request. For more information on Amazon
   Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   This action only applies to Aurora DB clusters.
   """
@@ -1794,7 +1796,7 @@ defmodule AWS.RDS do
   Management (IAM) role from a DB cluster.
 
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
@@ -1850,7 +1852,7 @@ defmodule AWS.RDS do
   parameter to apply to.
 
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
@@ -1891,7 +1893,7 @@ defmodule AWS.RDS do
   `RestoreDBClusterFromS3` action has completed and the DB cluster is available.
 
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   This action only applies to Aurora DB clusters. The source DB engine must be
   MySQL.
@@ -1915,7 +1917,7 @@ defmodule AWS.RDS do
   available.
 
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
@@ -1941,7 +1943,7 @@ defmodule AWS.RDS do
   available.
 
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
   instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
@@ -2045,7 +2047,7 @@ defmodule AWS.RDS do
   Services console, the stop-db-cluster CLI command, or the StopDBCluster action.
 
   For more information, see [ Stopping and Starting an Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   This action only applies to Aurora DB clusters.
   """
@@ -2119,7 +2121,7 @@ defmodule AWS.RDS do
   so you can do a point-in-time restore if necessary.
 
   For more information, see [ Stopping and Starting an Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html)
-  in the *Amazon Aurora User Guide.*
+  in the *Amazon Aurora User Guide*.
 
   This action only applies to Aurora DB clusters.
   """

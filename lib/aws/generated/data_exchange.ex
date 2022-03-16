@@ -594,6 +594,29 @@ defmodule AWS.DataExchange do
   end
 
   @doc """
+  This operation revokes subscribers' access to a revision.
+  """
+  def revoke_revision(%Client{} = client, data_set_id, revision_id, input, options \\ []) do
+    url_path =
+      "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}/revoke"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   This operation invokes an API Gateway API asset.
 
   The request is proxied to the provider’s API Gateway API.

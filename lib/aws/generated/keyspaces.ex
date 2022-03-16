@@ -12,7 +12,7 @@ defmodule AWS.Keyspaces do
   in Amazon Keyspaces, without deploying any infrastructure or installing
   software.
 
-  ` In addition to supporting Cassandra Query Language (CQL) requests via
+  In addition to supporting Cassandra Query Language (CQL) requests via
   open-source Cassandra drivers, Amazon Keyspaces supports data definition
   language (DDL) operations to manage keyspaces and tables using the Amazon Web
   Services SDK and CLI. This API reference describes the supported DDL operations
@@ -22,16 +22,14 @@ defmodule AWS.Keyspaces do
   Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cassandra-apis.html)
   in the *Amazon Keyspaces Developer Guide*.
 
-  To learn how Amazon Keyspaces API actions are tracked in CloudTrail, see [Amazon Keyspaces information in
-  CloudTrail](https://docs.aws.amazon.com/keyspaces/latest/devguide/logging-using-cloudtrail.html#service-name-info-in-cloudtrail)
+  To learn how Amazon Keyspaces API actions are recorded with CloudTrail, see
+  [Amazon Keyspaces information in CloudTrail](https://docs.aws.amazon.com/keyspaces/latest/devguide/logging-using-cloudtrail.html#service-name-info-in-cloudtrail)
   in the *Amazon Keyspaces Developer Guide*.
 
   For more information about Amazon Web Services APIs, for example how to
   implement retry logic or how to sign Amazon Web Services API requests, see
   [Amazon Web Services APIs](https://docs.aws.amazon.com/general/latest/gr/aws-apis.html) in the
   *General Reference*.
-
-  `
   """
 
   alias AWS.Client
@@ -172,26 +170,25 @@ defmodule AWS.Keyspaces do
 
   You can also overwrite these settings during restore:
 
-    * Read/write capacity mode
+  • Read/write capacity mode
 
-    * Provisioned throughput capacity settings
+  • Provisioned throughput capacity settings
 
-    * Point-in-time (PITR) settings
+  • Point-in-time (PITR) settings
 
-    * Tags
+  • Tags
 
   For more information, see [PITR restore settings](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery_HowItWorks.html#howitworks_backup_settings)
   in the *Amazon Keyspaces Developer Guide*.
 
-  The following settings are not restored, and you must configure them manually
-  for the new table.
+  Note that the following settings are not restored, and you must configure them
+  manually for the new table:
 
-    * Automatic scaling policies (for tables that use provisioned
-  capacity mode)
+  • Automatic scaling policies (for tables that use provisioned capacity mode)
 
-    * Identity and Access Management (IAM) policies
+  • Identity and Access Management (IAM) policies
 
-    * Amazon CloudWatch metrics and alarms
+  • Amazon CloudWatch metrics and alarms
   """
   def restore_table(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RestoreTable", input, options)

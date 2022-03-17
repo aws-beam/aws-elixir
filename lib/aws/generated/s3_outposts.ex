@@ -26,16 +26,9 @@ defmodule AWS.S3Outposts do
   end
 
   @doc """
-  Amazon S3 on Outposts Access Points simplify managing data access at scale for
-  shared datasets in S3 on Outposts.
+  Creates an endpoint and associates it with the specified Outpost.
 
-  S3 on Outposts uses endpoints to connect to Outposts buckets so that you can
-  perform actions within your virtual private cloud (VPC). For more information,
-  see [ Accessing S3 on Outposts using VPC only access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html).
-
-  This action creates an endpoint and associates it with the specified Outposts.
-
-  It can take up to 5 minutes for this action to complete.
+  It can take up to 5 minutes for this action to finish.
 
   Related actions include:
 
@@ -62,16 +55,9 @@ defmodule AWS.S3Outposts do
   end
 
   @doc """
-  Amazon S3 on Outposts Access Points simplify managing data access at scale for
-  shared datasets in S3 on Outposts.
+  Deletes an endpoint.
 
-  S3 on Outposts uses endpoints to connect to Outposts buckets so that you can
-  perform actions within your virtual private cloud (VPC). For more information,
-  see [ Accessing S3 on Outposts using VPC only access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html).
-
-  This action deletes an endpoint.
-
-  It can take up to 5 minutes for this action to complete.
+  It can take up to 5 minutes for this action to finish.
 
   Related actions include:
 
@@ -104,14 +90,7 @@ defmodule AWS.S3Outposts do
   end
 
   @doc """
-  Amazon S3 on Outposts Access Points simplify managing data access at scale for
-  shared datasets in S3 on Outposts.
-
-  S3 on Outposts uses endpoints to connect to Outposts buckets so that you can
-  perform actions within your virtual private cloud (VPC). For more information,
-  see [ Accessing S3 on Outposts using VPC only access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html).
-
-  This action lists endpoints associated with the Outposts.
+  Lists endpoints associated with the specified Outpost.
 
   Related actions include:
 
@@ -123,6 +102,61 @@ defmodule AWS.S3Outposts do
     url_path = "/S3Outposts/ListEndpoints"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists all endpoints associated with an Outpost that has been shared by Amazon
+  Web Services Resource Access Manager (RAM).
+
+  Related actions include:
+
+    *
+  [CreateEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html)     *
+  [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html)
+  """
+  def list_shared_endpoints(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        outpost_id,
+        options \\ []
+      ) do
+    url_path = "/S3Outposts/ListSharedEndpoints"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(outpost_id) do
+        [{"outpostId", outpost_id} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do

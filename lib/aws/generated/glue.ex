@@ -168,6 +168,13 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Cancels the statement..
+  """
+  def cancel_statement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CancelStatement", input, options)
+  end
+
+  @doc """
   Validates the supplied schema.
 
   This call has no side effects, it simply validates using the supplied schema
@@ -313,6 +320,13 @@ defmodule AWS.Glue do
   """
   def create_security_configuration(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateSecurityConfiguration", input, options)
+  end
+
+  @doc """
+  Creates a new session.
+  """
+  def create_session(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateSession", input, options)
   end
 
   @doc """
@@ -516,6 +530,13 @@ defmodule AWS.Glue do
   """
   def delete_security_configuration(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteSecurityConfiguration", input, options)
+  end
+
+  @doc """
+  Deletes the session.
+  """
+  def delete_session(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSession", input, options)
   end
 
   @doc """
@@ -919,6 +940,20 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Retrieves the session.
+  """
+  def get_session(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSession", input, options)
+  end
+
+  @doc """
+  Retrieves the statement.
+  """
+  def get_statement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetStatement", input, options)
+  end
+
+  @doc """
   Retrieves the `Table` definition in a Data Catalog for a specified table.
   """
   def get_table(%Client{} = client, input, options \\ []) do
@@ -1130,6 +1165,20 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Retrieve a session..
+  """
+  def list_sessions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSessions", input, options)
+  end
+
+  @doc """
+  Lists statements for the session.
+  """
+  def list_statements(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListStatements", input, options)
+  end
+
+  @doc """
   Retrieves the names of all trigger resources in this Amazon Web Services
   account, or the resources with the specified tag.
 
@@ -1240,6 +1289,13 @@ defmodule AWS.Glue do
   """
   def resume_workflow_run(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ResumeWorkflowRun", input, options)
+  end
+
+  @doc """
+  Executes the statement.
+  """
+  def run_statement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RunStatement", input, options)
   end
 
   @doc """
@@ -1413,6 +1469,13 @@ defmodule AWS.Glue do
   """
   def stop_crawler_schedule(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopCrawlerSchedule", input, options)
+  end
+
+  @doc """
+  Stops the session.
+  """
+  def stop_session(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopSession", input, options)
   end
 
   @doc """

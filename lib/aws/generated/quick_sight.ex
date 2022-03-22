@@ -267,7 +267,7 @@ defmodule AWS.QuickSight do
   Creates an Amazon QuickSight group.
 
   The permissions resource is
-  `arn:aws:quicksight:us-east-1:*<relevant-aws-account-id>*:group/default/*<group-name>*
+  `arn:aws:quicksight:<your-region>:*<relevant-aws-account-id>*:group/default/*<group-name>*
   `.
 
   The response is a group object.
@@ -1471,6 +1471,40 @@ defmodule AWS.QuickSight do
   def describe_group(%Client{} = client, aws_account_id, group_name, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Use the `DescribeGroupMembership` operation to determine if a user is a member
+  of the specified group.
+
+  If the user exists and is a member of the specified group, an associated
+  `GroupMember` object is returned.
+  """
+  def describe_group_membership(
+        %Client{} = client,
+        aws_account_id,
+        group_name,
+        member_name,
+        namespace,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}/members/#{AWS.Util.encode_uri(member_name)}"
 
     headers = []
     query_params = []
@@ -3144,6 +3178,36 @@ defmodule AWS.QuickSight do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/folders"
     headers = []
     query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Use the `SearchGroups` operation to search groups in a specified Amazon
+  QuickSight namespace using the supplied filters.
+  """
+  def search_groups(%Client{} = client, aws_account_id, namespace, input, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups-search"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "max-results"},
+        {"NextToken", "next-token"}
+      ]
+      |> Request.build_params(input)
 
     Request.request_rest(
       client,

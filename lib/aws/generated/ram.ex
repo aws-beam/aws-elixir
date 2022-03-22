@@ -496,8 +496,8 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Lists the resources that you added to a resource shares or the resources that
-  are shared with you.
+  Lists the resources that you added to a resource share or the resources that are
+  shared with you.
   """
   def list_resources(%Client{} = client, input, options \\ []) do
     url_path = "/listresources"

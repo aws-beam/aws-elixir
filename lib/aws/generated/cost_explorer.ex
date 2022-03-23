@@ -399,6 +399,14 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+  Returns a list of resource tags associated with the resource specified by the
+  Amazon Resource Name (ARN).
+  """
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+  end
+
+  @doc """
   Modifies the feedback property of a given cost anomaly.
   """
   def provide_anomaly_feedback(%Client{} = client, input, options \\ []) do
@@ -406,9 +414,34 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+  An API operation for adding one or more tags (key-value pairs) to a resource.
+
+  You can use the `TagResource` operation with a resource that already has tags.
+  If you specify a new tag key for the resource, this tag is appended to the list
+  of tags associated with the resource. If you specify a tag key that is already
+  associated with the resource, the new tag value you specify replaces the
+  previous value for that tag.
+
+  Although the maximum number of array members is 200, user-tag maximum is 50. The
+  remaining are reserved for Amazon Web Services use.
+  """
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
+  end
+
+  @doc """
+  Removes one or more tags from a resource.
+
+  Specify only tag key(s) in your request. Do not specify the value.
+  """
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
+  end
+
+  @doc """
   Updates an existing cost anomaly monitor.
 
-  The changes made are applied going forward, and doesn'tt change anomalies
+  The changes made are applied going forward, and doesn't change anomalies
   detected in the past.
   """
   def update_anomaly_monitor(%Client{} = client, input, options \\ []) do

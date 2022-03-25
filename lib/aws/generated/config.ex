@@ -159,11 +159,11 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Deletes the specified organization config rule and all of its evaluation results
+  Deletes the specified organization Config rule and all of its evaluation results
   from all member accounts in that organization.
 
   Only a master account and a delegated administrator account can delete an
-  organization config rule. When calling this API with a delegated administrator,
+  organization Config rule. When calling this API with a delegated administrator,
   you must ensure Organizations `ListDelegatedAdministrator` permissions are
   added.
 
@@ -175,7 +175,7 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Deletes the specified organization conformance pack and all of the config rules
+  Deletes the specified organization conformance pack and all of the Config rules
   and remediation actions from all member accounts in that organization.
 
   Only a master account or a delegated administrator account can delete an
@@ -497,15 +497,15 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Provides organization config rule deployment status for an organization.
+  Provides organization Config rule deployment status for an organization.
 
-  The status is not considered successful until organization config rule is
+  The status is not considered successful until organization Config rule is
   successfully deployed in all the member accounts with an exception of excluded
   accounts.
 
   When you specify the limit and the next token, you receive a paginated response.
-  Limit and next token are not applicable if you specify organization config rule
-  names. It is only applicable, when you request all the organization config
+  Limit and next token are not applicable if you specify organization Config rule
+  names. It is only applicable, when you request all the organization Config
   rules.
   """
   def describe_organization_config_rule_statuses(%Client{} = client, input, options \\ []) do
@@ -519,11 +519,11 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Returns a list of organization config rules.
+  Returns a list of organization Config rules.
 
   When you specify the limit and the next token, you receive a paginated response.
-  Limit and next token are not applicable if you specify organization config rule
-  names. It is only applicable, when you request all the organization config
+  Limit and next token are not applicable if you specify organization Config rule
+  names. It is only applicable, when you request all the organization Config
   rules.
   """
   def describe_organization_config_rules(%Client{} = client, input, options \\ []) do
@@ -786,6 +786,14 @@ defmodule AWS.Config do
   end
 
   @doc """
+  Returns the policy definition containing the logic for your Config Custom Policy
+  rule.
+  """
+  def get_custom_rule_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCustomRulePolicy", input, options)
+  end
+
+  @doc """
   Returns the resource types, the number of each resource type, and the total
   number of resources that Config is recording in this region for your Amazon Web
   Services account.
@@ -828,7 +836,7 @@ defmodule AWS.Config do
 
   @doc """
   Returns detailed status for each member account within an organization for a
-  given organization config rule.
+  given organization Config rule.
   """
   def get_organization_config_rule_detailed_status(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -852,6 +860,14 @@ defmodule AWS.Config do
       input,
       options
     )
+  end
+
+  @doc """
+  Returns the policy definition containing the logic for your organization Config
+  Custom Policy rule.
+  """
+  def get_organization_custom_rule_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetOrganizationCustomRulePolicy", input, options)
   end
 
   @doc """
@@ -1093,12 +1109,12 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Adds or updates organization config rule for your entire organization evaluating
+  Adds or updates organization Config rule for your entire organization evaluating
   whether your Amazon Web Services resources comply with your desired
   configurations.
 
   Only a master account and a delegated administrator can create or update an
-  organization config rule. When calling this API with a delegated administrator,
+  organization Config rule. When calling this API with a delegated administrator,
   you must ensure Organizations `ListDelegatedAdministrator` permissions are
   added.
 
@@ -1123,7 +1139,7 @@ defmodule AWS.Config do
   adding an Config managed rule, specify the rule's identifier for the
   `RuleIdentifier` key.
 
-  The maximum number of organization config rules that Config supports is 150 and
+  The maximum number of organization Config rules that Config supports is 150 and
   3 delegated administrator per organization.
 
   Prerequisite: Ensure you call `EnableAllFeatures` API to enable all features in

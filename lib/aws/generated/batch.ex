@@ -506,7 +506,7 @@ defmodule AWS.Batch do
   `resourceRequirements` objects in the job definition are the exception. They
   can't be overridden this way using the `memory` and `vcpus` parameters. Rather,
   you must specify updates to job definition parameters in a
-  `ResourceRequirements` object that's included in the `containerOverrides`
+  `resourceRequirements` object that's included in the `containerOverrides`
   parameter.
 
   Job queues with a scheduling policy are limited to 500 active fair share

@@ -30,7 +30,7 @@ defmodule AWS.IoTDataPlane do
       api_version: "2015-05-28",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
-      endpoint_prefix: "data.iot",
+      endpoint_prefix: "data-ats.iot",
       global?: false,
       protocol: "rest-json",
       service_id: "IoT Data Plane",
@@ -82,7 +82,7 @@ defmodule AWS.IoTDataPlane do
   [GetRetainedMessage](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions)
   action.
 
-  For more information about messaging costs, see [IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
+  For more information about messaging costs, see [Amazon Web Services IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
   """
   def get_retained_message(%Client{} = client, topic, options \\ []) do
     url_path = "/retainedMessage/#{AWS.Util.encode_uri(topic)}"
@@ -196,7 +196,7 @@ defmodule AWS.IoTDataPlane do
   [ListRetainedMessages](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions)
   action.
 
-  For more information about messaging costs, see [IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
+  For more information about messaging costs, see [Amazon Web Services IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
   """
   def list_retained_messages(
         %Client{} = client,
@@ -245,7 +245,7 @@ defmodule AWS.IoTDataPlane do
   Protocol](http://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html) in the
   IoT Developer Guide.
 
-  For more information about messaging costs, see [IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
+  For more information about messaging costs, see [Amazon Web Services IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
   """
   def publish(%Client{} = client, topic, input, options \\ []) do
     url_path = "/topics/#{AWS.Util.encode_uri(topic)}"

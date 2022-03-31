@@ -47,6 +47,17 @@ defmodule AWS.FMS do
   end
 
   @doc """
+  Sets the Firewall Manager policy administrator as a tenant administrator of a
+  third-party firewall service.
+
+  A tenant is an instance of the third-party firewall service that's associated
+  with your Amazon Web Services customer account.
+  """
+  def associate_third_party_firewall(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateThirdPartyFirewall", input, options)
+  end
+
+  @doc """
   Permanently deletes an Firewall Manager applications list.
   """
   def delete_apps_list(%Client{} = client, input, options \\ []) do
@@ -85,6 +96,17 @@ defmodule AWS.FMS do
   """
   def disassociate_admin_account(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisassociateAdminAccount", input, options)
+  end
+
+  @doc """
+  Disassociates a Firewall Manager policy administrator from a third-party
+  firewall tenant.
+
+  When you call `DisassociateThirdPartyFirewall`, the third-party firewall vendor
+  deletes all of the firewalls that are associated with the account.
+  """
+  def disassociate_third_party_firewall(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateThirdPartyFirewall", input, options)
   end
 
   @doc """
@@ -162,6 +184,20 @@ defmodule AWS.FMS do
   end
 
   @doc """
+  The onboarding status of a Firewall Manager admin account to third-party
+  firewall vendor tenant.
+  """
+  def get_third_party_firewall_association_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "GetThirdPartyFirewallAssociationStatus",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Retrieves violations for a resource based on the specified Firewall Manager
   policy and Amazon Web Services account.
   """
@@ -216,6 +252,20 @@ defmodule AWS.FMS do
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Retrieves a list of all of the third-party firewall policies that are associated
+  with the third-party firewall administrator's account.
+  """
+  def list_third_party_firewall_firewall_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "ListThirdPartyFirewallFirewallPolicies",
+      input,
+      options
+    )
   end
 
   @doc """

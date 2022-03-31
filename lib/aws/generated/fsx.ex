@@ -221,7 +221,7 @@ defmodule AWS.FSx do
     * Creates a new, empty Amazon FSx file system with an assigned ID,
   and an initial lifecycle state of `CREATING`.
 
-    * Returns the description of the file system.
+    * Returns the description of the file system in JSON format.
 
   This operation requires a client request token in the request that Amazon FSx
   uses to ensure idempotent creation. This means that calling the operation
@@ -732,6 +732,8 @@ defmodule AWS.FSx do
     * `FsxAdminPassword`
 
     * `StorageCapacity`
+
+    * `ThroughputCapacity`
 
     * `WeeklyMaintenanceStartTime`
 

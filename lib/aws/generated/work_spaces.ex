@@ -6,7 +6,25 @@ defmodule AWS.WorkSpaces do
   Amazon WorkSpaces Service
 
   Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft
-  Windows and Amazon Linux desktops for your users.
+  Windows or Amazon Linux desktops for your users, known as *WorkSpaces*.
+
+  WorkSpaces eliminates the need to procure and deploy hardware or install complex
+  software. You can quickly add or remove users as your needs change. Users can
+  access their virtual desktops from multiple devices or web browsers.
+
+  This API Reference provides detailed information about the actions, data types,
+  parameters, and errors of the WorkSpaces service. For more information about the
+  supported Amazon Web Services Regions, endpoints, and service quotas of the
+  Amazon WorkSpaces service, see [WorkSpaces endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/wsp.html) in the *Amazon
+  Web Services General Reference*.
+
+  You can also manage your WorkSpaces resources using the WorkSpaces console,
+  Command Line Interface (CLI), and SDKs. For more information about administering
+  WorkSpaces, see the [Amazon WorkSpaces Administration Guide](https://docs.aws.amazon.com/workspaces/latest/adminguide/). For more
+  information about using the Amazon WorkSpaces client application or web browser
+  to access provisioned WorkSpaces, see the [Amazon WorkSpaces User Guide](https://docs.aws.amazon.com/workspaces/latest/userguide/). For more
+  information about using the CLI to manage your WorkSpaces resources, see the
+  [WorkSpaces section of the CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/workspaces/index.html).
   """
 
   alias AWS.Client
@@ -172,6 +190,21 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
+  Deletes customized client branding.
+
+  Client branding allows you to customize your WorkSpace's client login portal.
+  You can tailor your login portal company logo, the support email address,
+  support link, link to reset password, and a custom message for users trying to
+  sign in.
+
+  After you delete your customized client branding, your login portal reverts to
+  the default client branding.
+  """
+  def delete_client_branding(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteClientBranding", input, options)
+  end
+
+  @doc """
   Deletes a client-add-in for Amazon Connect that is configured within a
   directory.
   """
@@ -271,6 +304,21 @@ defmodule AWS.WorkSpaces do
   """
   def describe_account_modifications(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeAccountModifications", input, options)
+  end
+
+  @doc """
+  Describes the specified client branding.
+
+  Client branding allows you to customize the log in page of various device types
+  for your users. You can add your company logo, the support email address,
+  support link, link to reset password, and a custom message for users trying to
+  sign in.
+
+  Only device types that have branding information configured will be shown in the
+  response.
+  """
+  def describe_client_branding(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeClientBranding", input, options)
   end
 
   @doc """
@@ -400,6 +448,35 @@ defmodule AWS.WorkSpaces do
   """
   def disassociate_ip_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisassociateIpGroups", input, options)
+  end
+
+  @doc """
+  Imports client branding.
+
+  Client branding allows you to customize your WorkSpace's client login portal.
+  You can tailor your login portal company logo, the support email address,
+  support link, link to reset password, and a custom message for users trying to
+  sign in.
+
+  After you import client branding, the default branding experience for the
+  specified platform type is replaced with the imported experience
+
+     You must specify at least one platform type when importing client
+  branding.
+
+     You can import up to 6 MB of data with each request. If your
+  request exceeds this limit, you can import client branding for different
+  platform types using separate requests.
+
+     In each platform type, the `SupportEmail` and `SupportLink`
+  parameters are mutually exclusive. You can specify only one parameter for each
+  platform type, but not both.
+
+     Imported data can take up to a minute to appear in the WorkSpaces
+  client.
+  """
+  def import_client_branding(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ImportClientBranding", input, options)
   end
 
   @doc """

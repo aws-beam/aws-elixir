@@ -249,6 +249,30 @@ defmodule AWS.Grafana do
   end
 
   @doc """
+  The `ListTagsForResource` operation returns the tags that are associated with
+  the Amazon Managed Service for Grafana resource specified by the `resourceArn`.
+
+  Currently, the only resource that can be tagged is a workspace.
+  """
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns a list of Amazon Managed Grafana workspaces in the account, with some
   information about each workspace.
 
@@ -282,6 +306,62 @@ defmodule AWS.Grafana do
       query_params,
       headers,
       nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  The `TagResource` operation associates tags with an Amazon Managed Grafana
+  resource.
+
+  Currently, the only resource that can be tagged is workspaces.
+
+  If you specify a new tag key for the resource, this tag is appended to the list
+  of tags associated with the resource. If you specify a tag key that is already
+  associated with the resource, the new tag value that you specify replaces the
+  previous value for that tag.
+  """
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  The `UntagResource` operation removes the association of the tag with the Amazon
+  Managed Grafana resource.
+  """
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"tagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
       options,
       200
     )

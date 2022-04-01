@@ -3,16 +3,6 @@
 
 defmodule AWS.CloudControl do
   @moduledoc """
-  Use Amazon Web Services Cloud Control API to create, read, update, delete, and
-  list (CRUD-L) your cloud resources that belong to a wide range of services--both
-  Amazon Web Services and third-party.
-
-  With the Cloud Control API standardized set of application programming
-  interfaces (APIs), you can perform CRUD-L operations on any supported resources
-  in your Amazon Web Services account. Using Cloud Control API, you won't have to
-  generate code or scripts specific to each individual service responsible for
-  those resources.
-
   For more information about Amazon Web Services Cloud Control API, see the
   [Amazon Web Services Cloud Control API User Guide](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html).
   """
@@ -43,7 +33,7 @@ defmodule AWS.CloudControl do
   in the *Amazon Web Services Cloud Control API User Guide*.
 
   Only resource operations requests with a status of `PENDING` or `IN_PROGRESS`
-  can be cancelled.
+  can be canceled.
   """
   def cancel_resource_request(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CancelResourceRequest", input, options)
@@ -86,8 +76,8 @@ defmodule AWS.CloudControl do
   For details, see [Reading a resource's current state](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-read.html).
 
   You can use this action to return information about an existing resource in your
-  account and Amazon Web Services Region, whether or not those resources were
-  provisioned using Cloud Control API.
+  account and Amazon Web Services Region, whether those resources were provisioned
+  using Cloud Control API.
   """
   def get_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetResource", input, options)
@@ -110,7 +100,7 @@ defmodule AWS.CloudControl do
   requests](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-list)
   in the *Amazon Web Services Cloud Control API User Guide*.
 
-  Resource operation requests expire after seven days.
+  Resource operation requests expire after 7 days.
   """
   def list_resource_requests(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListResourceRequests", input, options)
@@ -119,12 +109,12 @@ defmodule AWS.CloudControl do
   @doc """
   Returns information about the specified resources.
 
-  For more information, see [Discovering resources](cloudcontrolapi/latest/userguide/resource-operations-list.html) in
-  the *Amazon Web Services Cloud Control API User Guide*.
+  For more information, see [Discovering resources](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-list.html)
+  in the *Amazon Web Services Cloud Control API User Guide*.
 
   You can use this action to return information about existing resources in your
-  account and Amazon Web Services Region, whether or not those resources were
-  provisioned using Cloud Control API.
+  account and Amazon Web Services Region, whether those resources were provisioned
+  using Cloud Control API.
   """
   def list_resources(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListResources", input, options)
@@ -148,7 +138,7 @@ defmodule AWS.CloudControl do
   For more information about the properties of a specific resource, refer to the
   related topic for the resource in the [Resource and property types
   reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
-  in the *Amazon Web Services CloudFormation Users Guide*.
+  in the *CloudFormation Users Guide*.
   """
   def update_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateResource", input, options)

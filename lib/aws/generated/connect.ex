@@ -3183,8 +3183,6 @@ defmodule AWS.Connect do
 
   This call does not work for the following initiation methods:
 
-    * CALLBACK
-
     * DISCONNECT
 
     * TRANSFER

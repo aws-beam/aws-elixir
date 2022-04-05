@@ -5119,6 +5119,96 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Lists the values reported for an IoT Device Defender metric (device-side metric,
+  cloud-side metric, or custom metric) by the given thing during the specified
+  time period.
+  """
+  def list_metric_values(
+        %Client{} = client,
+        dimension_name \\ nil,
+        dimension_value_operator \\ nil,
+        end_time,
+        max_results \\ nil,
+        metric_name,
+        next_token \\ nil,
+        start_time,
+        thing_name,
+        options \\ []
+      ) do
+    url_path = "/metric-values"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(thing_name) do
+        [{"thingName", thing_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(metric_name) do
+        [{"metricName", metric_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(dimension_value_operator) do
+        [{"dimensionValueOperator", dimension_value_operator} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(dimension_name) do
+        [{"dimensionName", dimension_name} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Gets a list of all mitigation actions that match the specified filter criteria.
 
   Requires permission to access the

@@ -269,16 +269,17 @@ defmodule AWS.Proton do
 
   ## You can provision environments using the following methods:
 
-    * Standard provisioning: Proton makes direct calls to provision your
-  resources.
+    * Amazon Web Services-managed provisioning: Proton makes direct
+  calls to provision your resources.
 
-    * Pull request provisioning: Proton makes pull requests on your
+    * Self-managed provisioning: Proton makes pull requests on your
   repository to provide compiled infrastructure as code (IaC) files that your IaC
   engine uses to provision resources.
 
-  For more information, see the
-  [Environments](https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html)
-  in the *Proton Administrator Guide.*
+  For more information, see
+  [Environments](https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html) and [Provisioning
+  methods](https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html)
+  in the *Proton Administrator Guide*.
   """
   def create_environment(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateEnvironment", input, options)
@@ -334,10 +335,14 @@ defmodule AWS.Proton do
   end
 
   @doc """
-  Create and register a link to a repository that can be used with pull request
-  provisioning or template sync configurations.
+  Create and register a link to a repository that can be used with self-managed
+  provisioning (infrastructure or pipelines) or for template sync configurations.
 
-  For more information, see [Template bundles](https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html)
+  When you create a repository link, Proton creates a [service-linked role](https://docs.aws.amazon.com/proton/latest/adminguide/using-service-linked-roles.html)
+  for you.
+
+  For more information, see [Self-managed provisioning](https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html#ag-works-prov-methods-self),
+  [Template bundles](https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html),
   and [Template sync configurations](https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-sync-configs.html)
   in the *Proton Administrator Guide*.
   """
@@ -362,7 +367,7 @@ defmodule AWS.Proton do
   Create a service template.
 
   The administrator creates a service template to define standardized
-  infrastructure and an optional CICD service pipeline. Developers, in turn,
+  infrastructure and an optional CI/CD service pipeline. Developers, in turn,
   select the service template from Proton. If the selected service template
   includes a service pipeline definition, they provide a link to their source code
   repository. Proton then deploys and manages the infrastructure defined by the
@@ -385,11 +390,11 @@ defmodule AWS.Proton do
   end
 
   @doc """
-  Set up a template for automated template version creation.
+  Set up a template to create new template versions automatically.
 
   When a commit is pushed to your registered
   [repository](https://docs.aws.amazon.com/proton/latest/APIReference/API_Repository.html), Proton checks for changes to your repository template bundles. If it detects a
-  template bundle change, a new minor or major version of its template is created,
+  template bundle change, a new major or minor version of its template is created,
   if the version doesn’t already exist. For more information, see [Template sync
   configurations](https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-sync-configs.html)
   in the *Proton Administrator Guide*.
@@ -539,7 +544,18 @@ defmodule AWS.Proton do
   end
 
   @doc """
-  Get the repository sync status.
+  Get the sync status of a repository used for Proton template sync.
+
+  For more information about template sync, see .
+
+  A repository sync status isn't tied to the Proton Repository resource (or any
+  other Proton resource). Therefore, tags on an Proton Repository resource have no
+  effect on this action. Specifically, you can't use these tags to control access
+  to this action using Attribute-based access control (ABAC).
+
+  For more information about ABAC, see
+  [ABAC](https://docs.aws.amazon.com/proton/latest/adminguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags)
+  in the *Proton Administrator Guide*.
   """
   def get_repository_sync_status(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetRepositorySyncStatus", input, options)
@@ -555,8 +571,8 @@ defmodule AWS.Proton do
   @doc """
   Get detail data for a service instance.
 
-  A service instance is an instantiation of service template, which is running in
-  a specific environment.
+  A service instance is an instantiation of service template and it runs in a
+  specific environment.
   """
   def get_service_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetServiceInstance", input, options)
@@ -735,14 +751,11 @@ defmodule AWS.Proton do
   end
 
   @doc """
-  Notify Proton of status changes to a provisioned resource when you use pull
-  request provisioning.
+  Notify Proton of status changes to a provisioned resource when you use
+  self-managed provisioning.
 
-  For more information, see [Template bundles](https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html).
-
-  Provisioning by pull request is currently in feature preview and is only usable
-  with Terraform based Proton Templates. To learn more about [Amazon Web Services Feature Preview terms](https://aws.amazon.com/service-terms), see section 2 on
-  Beta and Previews.
+  For more information, see [Self-managed provisioning](https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html#ag-works-prov-methods-self)
+  in the *Proton Administrator Guide*.
   """
   def notify_resource_deployment_status_change(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -758,10 +771,10 @@ defmodule AWS.Proton do
   In a management account, reject an environment account connection from another
   environment account.
 
-  After you reject an environment account connection request, you *won’t* be able
-  to accept or use the rejected environment account connection.
+  After you reject an environment account connection request, you *can't* accept
+  or use the rejected environment account connection.
 
-  You *can’t* reject an environment account connection that is connected to an
+  You *can’t* reject an environment account connection that's connected to an
   environment.
 
   For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html)
@@ -774,6 +787,9 @@ defmodule AWS.Proton do
   @doc """
   Tag a resource.
 
+  A tag is a key-value pair of metadata that you associate with an Proton
+  resource.
+
   For more information, see *Proton resources and tagging* in the [Proton Administrator
   Guide](https://docs.aws.amazon.com/proton/latest/adminguide/resources.html) or
   [Proton User Guide](https://docs.aws.amazon.com/proton/latest/userguide/resources.html).
@@ -783,7 +799,9 @@ defmodule AWS.Proton do
   end
 
   @doc """
-  Remove a tag from a resource.
+  Remove a customer tag from a resource.
+
+  A tag is a key-value pair of metadata associated with an Proton resource.
 
   For more information, see *Proton resources and tagging* in the [Proton Administrator
   Guide](https://docs.aws.amazon.com/proton/latest/adminguide/resources.html) or
@@ -807,26 +825,33 @@ defmodule AWS.Proton do
   update or include the `protonServiceRoleArn` and `provisioningRepository`
   parameter to update or connect to an environment account connection.
 
-  You can only update to a new environment account connection if it was created in
-  the same environment account that the current environment account connection was
-  created in and is associated with the current environment.
+  You can only update to a new environment account connection if that connection
+  was created in the same environment account that the current environment account
+  connection was created in. The account connection must also be associated with
+  the current environment.
 
   If the environment *isn't* associated with an environment account connection,
-  *don't* update or include the `environmentAccountConnectionId` parameter to
-  update or connect to an environment account connection.
+  *don't* update or include the `environmentAccountConnectionId` parameter. You
+  *can't* update or connect the environment to an environment account connection
+  if it *isn't* already associated with an environment connection.
 
   You can update either the `environmentAccountConnectionId` or
   `protonServiceRoleArn` parameter and value. You can’t update both.
 
-  If the environment was provisioned with pull request provisioning, include the
+  If the environment was configured for Amazon Web Services-managed provisioning,
+  omit the `provisioningRepository` parameter.
+
+  If the environment was configured for self-managed provisioning, specify the
   `provisioningRepository` parameter and omit the `protonServiceRoleArn` and
   `environmentAccountConnectionId` parameters.
 
-  If the environment wasn't provisioned with pull request provisioning, omit the
-  `provisioningRepository` parameter.
+  For more information, see
+  [Environments](https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html) and [Provisioning
+  methods](https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html)
+  in the *Proton Administrator Guide*.
 
-  There are four modes for updating an environment as described in the following.
-  The `deploymentType` field defines the mode.
+  There are four modes for updating an environment. The `deploymentType` field
+  defines the mode.
 
   ## Definitions
 
@@ -861,7 +886,7 @@ defmodule AWS.Proton do
   In this mode, the environment is deployed and updated with the published,
   recommended (latest) major and minor version of the current template, by
   default. You can also specify a different major version that's higher than the
-  major version in use and a minor version (optional).
+  major version in use and a minor version.
   """
   def update_environment(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateEnvironment", input, options)
@@ -909,8 +934,8 @@ defmodule AWS.Proton do
   @doc """
   Update a service instance.
 
-  There are four modes for updating a service instance as described in the
-  following. The `deploymentType` field defines the mode.
+  There are four modes for updating a service instance. The `deploymentType` field
+  defines the mode.
 
   ## Definitions
 
@@ -944,8 +969,8 @@ defmodule AWS.Proton do
 
   In this mode, the service instance is deployed and updated with the published,
   recommended (latest) major and minor version of the current template, by
-  default. You can also specify a different major version that is higher than the
-  major version in use and a minor version (optional).
+  default. You can also specify a different major version that's higher than the
+  major version in use and a minor version.
   """
   def update_service_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateServiceInstance", input, options)
@@ -954,8 +979,8 @@ defmodule AWS.Proton do
   @doc """
   Update the service pipeline.
 
-  There are four modes for updating a service pipeline as described in the
-  following. The `deploymentType` field defines the mode.
+  There are four modes for updating a service pipeline. The `deploymentType` field
+  defines the mode.
 
   ## Definitions
 
@@ -971,8 +996,8 @@ defmodule AWS.Proton do
   `CURRENT_VERSION`
 
   In this mode, the service pipeline is deployed and updated with the new spec
-  that you provide. Only requested parameters are updated. *Don’t* include minor
-  or major version parameters when you use this `deployment-type`.
+  that you provide. Only requested parameters are updated. *Don’t* include major
+  or minor version parameters when you use this `deployment-type`.
 
   ###
 
@@ -980,8 +1005,8 @@ defmodule AWS.Proton do
 
   In this mode, the service pipeline is deployed and updated with the published,
   recommended (latest) minor version of the current major version in use, by
-  default. You can also specify a different minor version of the current major
-  version in use.
+  default. You can specify a different minor version of the current major version
+  in use.
 
   ###
 
@@ -989,8 +1014,8 @@ defmodule AWS.Proton do
 
   In this mode, the service pipeline is deployed and updated with the published,
   recommended (latest) major and minor version of the current template by default.
-  You can also specify a different major version that is higher than the major
-  version in use and a minor version (optional).
+  You can specify a different major version that's higher than the major version
+  in use and a minor version.
   """
   def update_service_pipeline(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateServicePipeline", input, options)

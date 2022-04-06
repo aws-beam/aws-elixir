@@ -2587,7 +2587,7 @@ defmodule AWS.S3Control do
   Related actions include:
 
     *
-  [CreatJob](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html)     *
+  [CreateJob](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html)     *
   [GetJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html)
 
     *

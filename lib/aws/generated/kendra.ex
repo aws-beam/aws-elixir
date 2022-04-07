@@ -300,7 +300,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Describes an existing Amazon Kendra index
+  Describes an existing Amazon Kendra index.
   """
   def describe_index(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeIndex", input, options)
@@ -461,7 +461,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Lists the Amazon Kendra indexes that you have created.
+  Lists the Amazon Kendra indexes that you created.
   """
   def list_indices(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListIndices", input, options)

@@ -385,6 +385,35 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Creates a Lambda function URL with the specified configuration parameters.
+
+  A function URL is a dedicated HTTP(S) endpoint that you can use to invoke your
+  function.
+  """
+  def create_function_url_config(%Client{} = client, function_name, input, options \\ []) do
+    url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"Qualifier", "Qualifier"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Deletes a Lambda function
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
   """
@@ -548,6 +577,35 @@ defmodule AWS.Lambda do
   """
   def delete_function_event_invoke_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"Qualifier", "Qualifier"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a Lambda function URL.
+
+  When you delete a function URL, you can't recover it. Creating a new function
+  URL results in a different URL address.
+  """
+  def delete_function_url_config(%Client{} = client, function_name, input, options \\ []) do
+    url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"
     headers = []
 
     {query_params, input} =
@@ -850,6 +908,34 @@ defmodule AWS.Lambda do
         options \\ []
       ) do
     url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(qualifier) do
+        [{"Qualifier", qualifier} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns details about a Lambda function URL.
+  """
+  def get_function_url_config(%Client{} = client, function_name, qualifier \\ nil, options \\ []) do
+    url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"
     headers = []
     query_params = []
 
@@ -1291,6 +1377,47 @@ defmodule AWS.Lambda do
     url_path =
       "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config/list"
 
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a list of Lambda function URLs for the specified function.
+  """
+  def list_function_url_configs(
+        %Client{} = client,
+        function_name,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/urls"
     headers = []
     query_params = []
 
@@ -2208,6 +2335,32 @@ defmodule AWS.Lambda do
       client,
       metadata(),
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the configuration for a Lambda function URL.
+  """
+  def update_function_url_config(%Client{} = client, function_name, input, options \\ []) do
+    url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"Qualifier", "Qualifier"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
       url_path,
       query_params,
       headers,

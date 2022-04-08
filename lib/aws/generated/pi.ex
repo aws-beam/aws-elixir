@@ -24,10 +24,16 @@ defmodule AWS.PI do
   measured at that time point. Examples include SQL, Wait event, User, and Host.
 
     * To learn more about Performance Insights and Amazon Aurora DB
-  instances, go to the [ Amazon Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html).
+  instances, go to the * [ Amazon Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html)
+  *.
 
     * To learn more about Performance Insights and Amazon RDS DB
-  instances, go to the [ Amazon RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html).
+  instances, go to the * [ Amazon RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html)
+  *.
+
+    * To learn more about Performance Insights and Amazon DocumentDB
+  clusters, go to the * [ Amazon DocumentDB Developer Guide](https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html)
+  *.
   """
 
   alias AWS.Client
@@ -64,7 +70,7 @@ defmodule AWS.PI do
   source.
 
   For example, if you specify a SQL ID, `GetDimensionKeyDetails` retrieves the
-  full text of the dimension `db.sql.statement`cassociated with this ID. This
+  full text of the dimension `db.sql.statement` associated with this ID. This
   operation is useful because `GetResourceMetrics` and `DescribeDimensionKeys`
   don't support retrieval of large SQL statement text.
   """
@@ -83,7 +89,7 @@ defmodule AWS.PI do
   end
 
   @doc """
-  Retrieve Performance Insights metrics for a set of data sources, over a time
+  Retrieve Performance Insights metrics for a set of data sources over a time
   period.
 
   You can provide specific dimension groups and dimensions, and provide

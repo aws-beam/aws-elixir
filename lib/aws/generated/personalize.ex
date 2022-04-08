@@ -30,7 +30,7 @@ defmodule AWS.Personalize do
   Creates a batch inference job.
 
   The operation can handle up to 50 million records and the input file must be in
-  JSON format. For more information, see `recommendations-batch`.
+  JSON format. For more information, see [Creating a batch inference job](https://docs.aws.amazon.com/personalize/latest/dg/creating-batch-inference-job.html).
   """
   def create_batch_inference_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateBatchInferenceJob", input, options)
@@ -40,7 +40,7 @@ defmodule AWS.Personalize do
   Creates a batch segment job.
 
   The operation can handle up to 50 million records and the input file must be in
-  JSON format. For more information, see `recommendations-batch`.
+  JSON format. For more information, see [Getting batch recommendations and user segments](https://docs.aws.amazon.com/personalize/latest/dg/recommendations-batch.html).
   """
   def create_batch_segment_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateBatchSegmentJob", input, options)
@@ -81,20 +81,21 @@ defmodule AWS.Personalize do
 
     * DELETE PENDING > DELETE IN_PROGRESS
 
-  To get the campaign status, call `DescribeCampaign`.
-
-  Wait until the `status` of the campaign is `ACTIVE` before asking the campaign
+  To get the campaign status, call
+  [DescribeCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html).  Wait until the `status` of the campaign is `ACTIVE` before asking the campaign
   for recommendations.
 
   ## Related APIs
 
-    * `ListCampaigns`
+    *
+  [ListCampaigns](https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html)
 
-    * `DescribeCampaign`
+    *
+  [DescribeCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html)     *
+  [UpdateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateCampaign.html)
 
-    * `UpdateCampaign`
-
-    * `DeleteCampaign`
+    *
+  [DeleteCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteCampaign.html)
   """
   def create_campaign(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateCampaign", input, options)
@@ -103,7 +104,8 @@ defmodule AWS.Personalize do
   @doc """
   Creates an empty dataset and adds it to the specified dataset group.
 
-  Use `CreateDatasetImportJob` to import your training data to a dataset.
+  Use
+  [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html) to import your training data to a dataset.
 
   There are three types of datasets:
 
@@ -123,17 +125,18 @@ defmodule AWS.Personalize do
 
     * DELETE PENDING > DELETE IN_PROGRESS
 
-  To get the status of the dataset, call `DescribeDataset`.
+  To get the status of the dataset, call
+  [DescribeDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html).
 
   ## Related APIs
 
-    * `CreateDatasetGroup`
+    *
+  [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html)     *
+  [ListDatasets](https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasets.html)
 
-    * `ListDatasets`
-
-    * `DescribeDataset`
-
-    * `DeleteDataset`
+    *
+  [DescribeDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html)     *
+  [DeleteDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDataset.html)
   """
   def create_dataset(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDataset", input, options)
@@ -153,11 +156,12 @@ defmodule AWS.Personalize do
 
     * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 
-  To get the status of the export job, call `DescribeDatasetExportJob`, and
-  specify the Amazon Resource Name (ARN) of the dataset export job. The dataset
-  export is complete when the status shows as ACTIVE. If the status shows as
-  CREATE FAILED, the response includes a `failureReason` key, which describes why
-  the job failed.
+  To get the status of the export job, call
+  [DescribeDatasetExportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetExportJob.html),
+  and specify the Amazon Resource Name (ARN) of the dataset export job. The
+  dataset export is complete when the status shows as ACTIVE. If the status shows
+  as CREATE FAILED, the response includes a `failureReason` key, which describes
+  why the job failed.
   """
   def create_dataset_export_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDatasetExportJob", input, options)
@@ -188,9 +192,9 @@ defmodule AWS.Personalize do
 
     * DELETE PENDING
 
-  To get the status of the dataset group, call `DescribeDatasetGroup`. If the
-  status shows as CREATE FAILED, the response includes a `failureReason` key,
-  which describes why the creation failed.
+  To get the status of the dataset group, call
+  [DescribeDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html). If the status shows as CREATE FAILED, the response includes a `failureReason`
+  key, which describes why the creation failed.
 
   You must wait until the `status` of the dataset group is `ACTIVE` before adding
   a dataset to the group.
@@ -201,19 +205,21 @@ defmodule AWS.Personalize do
 
   ## APIs that require a dataset group ARN in the request
 
-    * `CreateDataset`
+    *
+  [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html)
 
-    * `CreateEventTracker`
-
-    * `CreateSolution`
+    *
+  [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html)     *
+  [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html)
 
   ## Related APIs
 
-    * `ListDatasetGroups`
+    *
+  [ListDatasetGroups](https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetGroups.html)     *
+  [DescribeDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html)
 
-    * `DescribeDatasetGroup`
-
-    * `DeleteDatasetGroup`
+    *
+  [DeleteDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDatasetGroup.html)
   """
   def create_dataset_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDatasetGroup", input, options)
@@ -238,19 +244,22 @@ defmodule AWS.Personalize do
 
     * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 
-  To get the status of the import job, call `DescribeDatasetImportJob`, providing
-  the Amazon Resource Name (ARN) of the dataset import job. The dataset import is
-  complete when the status shows as ACTIVE. If the status shows as CREATE FAILED,
-  the response includes a `failureReason` key, which describes why the job failed.
+  To get the status of the import job, call
+  [DescribeDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html), providing the Amazon Resource Name (ARN) of the dataset import job. The dataset
+  import is complete when the status shows as ACTIVE. If the status shows as
+  CREATE FAILED, the response includes a `failureReason` key, which describes why
+  the job failed.
 
   Importing takes time. You must wait until the status shows as ACTIVE before
   training a model using the dataset.
 
   ## Related APIs
 
-    * `ListDatasetImportJobs`
+    *
+  [ListDatasetImportJobs](https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetImportJobs.html)
 
-    * `DescribeDatasetImportJob`
+    *
+  [DescribeDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html)
   """
   def create_dataset_import_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDatasetImportJob", input, options)
@@ -277,17 +286,17 @@ defmodule AWS.Personalize do
 
     * DELETE PENDING > DELETE IN_PROGRESS
 
-  To get the status of the event tracker, call `DescribeEventTracker`.
-
-  The event tracker must be in the ACTIVE state before using the tracking ID.
+  To get the status of the event tracker, call
+  [DescribeEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html).  The event tracker must be in the ACTIVE state before using the tracking ID.
 
   ## Related APIs
 
-    * `ListEventTrackers`
+    *
+  [ListEventTrackers](https://docs.aws.amazon.com/personalize/latest/dg/API_ListEventTrackers.html)
 
-    * `DescribeEventTracker`
-
-    * `DeleteEventTracker`
+    *
+  [DescribeEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html)     *
+  [DeleteEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteEventTracker.html)
   """
   def create_event_tracker(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateEventTracker", input, options)
@@ -296,7 +305,7 @@ defmodule AWS.Personalize do
   @doc """
   Creates a recommendation filter.
 
-  For more information, see `filter`.
+  For more information, see [Filtering recommendations and user segments](https://docs.aws.amazon.com/personalize/latest/dg/filter.html).
   """
   def create_filter(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateFilter", input, options)
@@ -308,8 +317,7 @@ defmodule AWS.Personalize do
 
   You create recommenders for a Domain dataset group and specify the recommender's
   Amazon Resource Name (ARN) when you make a
-  [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
-  request.
+  [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html) request.
 
   ## Minimum recommendation requests per second
 
@@ -344,20 +352,21 @@ defmodule AWS.Personalize do
 
     * DELETE PENDING > DELETE IN_PROGRESS
 
-  To get the recommender status, call `DescribeRecommender`.
+  To get the recommender status, call
+  [DescribeRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html).
 
   Wait until the `status` of the recommender is `ACTIVE` before asking the
   recommender for recommendations.
 
   ## Related APIs
 
-    * `ListRecommenders`
+    *
+  [ListRecommenders](https://docs.aws.amazon.com/personalize/latest/dg/API_ListRecommenders.html)     *
+  [DescribeRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html)
 
-    * `DescribeRecommender`
-
-    * `UpdateRecommender`
-
-    * `DeleteRecommender`
+    *
+  [UpdateRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateRecommender.html)     *
+  [DeleteRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteRecommender.html)
   """
   def create_recommender(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateRecommender", input, options)
@@ -372,15 +381,14 @@ defmodule AWS.Personalize do
   with a dataset type and has a set of required field and keywords. If you are
   creating a schema for a dataset in a Domain dataset group, you provide the
   domain of the Domain dataset group. You specify a schema when you call
-  `CreateDataset`.
+  [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).  ## Related APIs
 
-  ## Related APIs
+    *
+  [ListSchemas](https://docs.aws.amazon.com/personalize/latest/dg/API_ListSchemas.html)
 
-    * `ListSchemas`
-
-    * `DescribeSchema`
-
-    * `DeleteSchema`
+    *
+  [DescribeSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSchema.html)     *
+  [DeleteSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSchema.html)
   """
   def create_schema(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateSchema", input, options)
@@ -390,14 +398,14 @@ defmodule AWS.Personalize do
   Creates the configuration for training a model.
 
   A trained model is known as a solution. After the configuration is created, you
-  train the model (create a solution) by calling the `CreateSolutionVersion`
-  operation. Every time you call `CreateSolutionVersion`, a new version of the
+  train the model (create a solution) by calling the
+  [CreateSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html) operation. Every time you call `CreateSolutionVersion`, a new version of the
   solution is created.
 
   After creating a solution version, you check its accuracy by calling
-  `GetSolutionMetrics`. When you are satisfied with the version, you deploy it
-  using `CreateCampaign`. The campaign provides recommendations to a client
-  through the
+  [GetSolutionMetrics](https://docs.aws.amazon.com/personalize/latest/dg/API_GetSolutionMetrics.html).
+  When you are satisfied with the version, you deploy it using
+  [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html). The campaign provides recommendations to a client through the
   [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
   API.
 
@@ -419,22 +427,26 @@ defmodule AWS.Personalize do
 
     * DELETE PENDING > DELETE IN_PROGRESS
 
-  To get the status of the solution, call `DescribeSolution`. Wait until the
-  status shows as ACTIVE before calling `CreateSolutionVersion`.
+  To get the status of the solution, call
+  [DescribeSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html). Wait until the status shows as ACTIVE before calling `CreateSolutionVersion`.
 
   ## Related APIs
 
-    * `ListSolutions`
+    *
+  [ListSolutions](https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html)
 
-    * `CreateSolutionVersion`
+    *
+  [CreateSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html)     *
+  [DescribeSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html)
 
-    * `DescribeSolution`
+    *
+  [DeleteSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html) 
 
-    * `DeleteSolution`
+    *
+  [ListSolutionVersions](https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html)
 
-    * `ListSolutionVersions`
-
-    * `DescribeSolutionVersion`
+    *
+  [DescribeSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html)
   """
   def create_solution(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateSolution", input, options)
@@ -443,9 +455,10 @@ defmodule AWS.Personalize do
   @doc """
   Trains or retrains an active solution in a Custom dataset group.
 
-  A solution is created using the `CreateSolution` operation and must be in the
-  ACTIVE state before calling `CreateSolutionVersion`. A new version of the
-  solution is created every time you call this operation.
+  A solution is created using the
+  [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html) operation and must be in the ACTIVE state before calling
+  `CreateSolutionVersion`. A new version of the solution is created every time you
+  call this operation.
 
   ## Status
 
@@ -463,25 +476,26 @@ defmodule AWS.Personalize do
 
     * CREATE STOPPED
 
-  To get the status of the version, call `DescribeSolutionVersion`. Wait until the
-  status shows as ACTIVE before calling `CreateCampaign`.
+  To get the status of the version, call
+  [DescribeSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html).
+  Wait until the status shows as ACTIVE before calling `CreateCampaign`.
 
   If the status shows as CREATE FAILED, the response includes a `failureReason`
   key, which describes why the job failed.
 
   ## Related APIs
 
-    * `ListSolutionVersions`
+    *
+  [ListSolutionVersions](https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html)     *
+  [DescribeSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html)
 
-    * `DescribeSolutionVersion`
+    *
+  [ListSolutions](https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html)     *
+  [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html)
 
-    * `ListSolutions`
-
-    * `CreateSolution`
-
-    * `DescribeSolution`
-
-    * `DeleteSolution`
+    *
+  [DescribeSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html)     *
+  [DeleteSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html)
   """
   def create_solution_version(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateSolutionVersion", input, options)
@@ -492,8 +506,8 @@ defmodule AWS.Personalize do
 
   The solution that the campaign is based on is not deleted and can be redeployed
   when needed. A deleted campaign can no longer be specified in a
-  [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
-  request. For more information on campaigns, see `CreateCampaign`.
+  [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html) request. For information on creating campaigns, see
+  [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).
   """
   def delete_campaign(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteCampaign", input, options)
@@ -504,7 +518,8 @@ defmodule AWS.Personalize do
 
   You can't delete a dataset if an associated `DatasetImportJob` or
   `SolutionVersion` is in the CREATE PENDING or IN PROGRESS state. For more
-  information on datasets, see `CreateDataset`.
+  information on datasets, see
+  [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
   def delete_dataset(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDataset", input, options)
@@ -529,7 +544,8 @@ defmodule AWS.Personalize do
   Deletes the event tracker.
 
   Does not delete the event-interactions dataset from the associated dataset
-  group. For more information on event trackers, see `CreateEventTracker`.
+  group. For more information on event trackers, see
+  [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html).
   """
   def delete_event_tracker(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteEventTracker", input, options)
@@ -557,7 +573,8 @@ defmodule AWS.Personalize do
   Deletes a schema.
 
   Before deleting a schema, you must delete all datasets referencing the schema.
-  For more information on schemas, see `CreateSchema`.
+  For more information on schemas, see
+  [CreateSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html).
   """
   def delete_schema(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteSchema", input, options)
@@ -567,10 +584,11 @@ defmodule AWS.Personalize do
   Deletes all versions of a solution and the `Solution` object itself.
 
   Before deleting a solution, you must delete all campaigns based on the solution.
-  To determine what campaigns are using the solution, call `ListCampaigns` and
-  supply the Amazon Resource Name (ARN) of the solution. You can't delete a
+  To determine what campaigns are using the solution, call
+  [ListCampaigns](https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html) and supply the Amazon Resource Name (ARN) of the solution. You can't delete a
   solution if an associated `SolutionVersion` is in the CREATE PENDING or IN
-  PROGRESS state. For more information on solutions, see `CreateSolution`.
+  PROGRESS state. For more information on solutions, see
+  [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html).
   """
   def delete_solution(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteSolution", input, options)
@@ -613,7 +631,8 @@ defmodule AWS.Personalize do
   When the `status` is `CREATE FAILED`, the response includes the `failureReason`
   key, which describes why.
 
-  For more information on campaigns, see `CreateCampaign`.
+  For more information on campaigns, see
+  [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).
   """
   def describe_campaign(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeCampaign", input, options)
@@ -622,15 +641,17 @@ defmodule AWS.Personalize do
   @doc """
   Describes the given dataset.
 
-  For more information on datasets, see `CreateDataset`.
+  For more information on datasets, see
+  [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
   def describe_dataset(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDataset", input, options)
   end
 
   @doc """
-  Describes the dataset export job created by `CreateDatasetExportJob`, including
-  the export job status.
+  Describes the dataset export job created by
+  [CreateDatasetExportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html),
+  including the export job status.
   """
   def describe_dataset_export_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDatasetExportJob", input, options)
@@ -639,15 +660,17 @@ defmodule AWS.Personalize do
   @doc """
   Describes the given dataset group.
 
-  For more information on dataset groups, see `CreateDatasetGroup`.
+  For more information on dataset groups, see
+  [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html).
   """
   def describe_dataset_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDatasetGroup", input, options)
   end
 
   @doc """
-  Describes the dataset import job created by `CreateDatasetImportJob`, including
-  the import job status.
+  Describes the dataset import job created by
+  [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html),
+  including the import job status.
   """
   def describe_dataset_import_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDatasetImportJob", input, options)
@@ -657,7 +680,8 @@ defmodule AWS.Personalize do
   Describes an event tracker.
 
   The response includes the `trackingId` and `status` of the event tracker. For
-  more information on event trackers, see `CreateEventTracker`.
+  more information on event trackers, see
+  [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html).
   """
   def describe_event_tracker(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeEventTracker", input, options)
@@ -690,10 +714,10 @@ defmodule AWS.Personalize do
   before training.
 
   Amazon Personalize provides a set of predefined recipes. You specify a recipe
-  when you create a solution with the `CreateSolution` API. `CreateSolution`
-  trains a model by using the algorithm in the specified recipe and a training
-  dataset. The solution, when deployed as a campaign, can provide recommendations
-  using the
+  when you create a solution with the
+  [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html) API. `CreateSolution` trains a model by using the algorithm in the specified
+  recipe and a training dataset. The solution, when deployed as a campaign, can
+  provide recommendations using the
   [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
   API.
   """
@@ -723,7 +747,8 @@ defmodule AWS.Personalize do
   @doc """
   Describes a schema.
 
-  For more information on schemas, see `CreateSchema`.
+  For more information on schemas, see
+  [CreateSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html).
   """
   def describe_schema(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeSchema", input, options)
@@ -732,7 +757,8 @@ defmodule AWS.Personalize do
   @doc """
   Describes a solution.
 
-  For more information on solutions, see `CreateSolution`.
+  For more information on solutions, see
+  [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html).
   """
   def describe_solution(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeSolution", input, options)
@@ -741,7 +767,8 @@ defmodule AWS.Personalize do
   @doc """
   Describes a specific version of a solution.
 
-  For more information on solutions, see `CreateSolution`.
+  For more information on solutions, see
+  [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html)
   """
   def describe_solution_version(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeSolutionVersion", input, options)
@@ -776,7 +803,7 @@ defmodule AWS.Personalize do
   When a solution is not specified, all the campaigns associated with the account
   are listed. The response provides the properties for each campaign, including
   the Amazon Resource Name (ARN). For more information on campaigns, see
-  `CreateCampaign`.
+  [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).
   """
   def list_campaigns(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListCampaigns", input, options)
@@ -788,8 +815,9 @@ defmodule AWS.Personalize do
   When a dataset is not specified, all the dataset export jobs associated with the
   account are listed. The response provides the properties for each dataset export
   job, including the Amazon Resource Name (ARN). For more information on dataset
-  export jobs, see `CreateDatasetExportJob`. For more information on datasets, see
-  `CreateDataset`.
+  export jobs, see
+  [CreateDatasetExportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html). For more information on datasets, see
+  [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
   def list_dataset_export_jobs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDatasetExportJobs", input, options)
@@ -800,7 +828,7 @@ defmodule AWS.Personalize do
 
   The response provides the properties for each dataset group, including the
   Amazon Resource Name (ARN). For more information on dataset groups, see
-  `CreateDatasetGroup`.
+  [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html).
   """
   def list_dataset_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDatasetGroups", input, options)
@@ -812,8 +840,9 @@ defmodule AWS.Personalize do
   When a dataset is not specified, all the dataset import jobs associated with the
   account are listed. The response provides the properties for each dataset import
   job, including the Amazon Resource Name (ARN). For more information on dataset
-  import jobs, see `CreateDatasetImportJob`. For more information on datasets, see
-  `CreateDataset`.
+  import jobs, see
+  [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html). For more information on datasets, see
+  [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
   def list_dataset_import_jobs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDatasetImportJobs", input, options)
@@ -823,7 +852,8 @@ defmodule AWS.Personalize do
   Returns the list of datasets contained in the given dataset group.
 
   The response provides the properties for each dataset, including the Amazon
-  Resource Name (ARN). For more information on datasets, see `CreateDataset`.
+  Resource Name (ARN). For more information on datasets, see
+  [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
   def list_datasets(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDatasets", input, options)
@@ -834,7 +864,8 @@ defmodule AWS.Personalize do
 
   The response provides the properties for each event tracker, including the
   Amazon Resource Name (ARN) and tracking ID. For more information on event
-  trackers, see `CreateEventTracker`.
+  trackers, see
+  [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html).
   """
   def list_event_trackers(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListEventTrackers", input, options)
@@ -874,7 +905,8 @@ defmodule AWS.Personalize do
   Returns the list of schemas associated with the account.
 
   The response provides the properties for each schema, including the Amazon
-  Resource Name (ARN). For more information on schemas, see `CreateSchema`.
+  Resource Name (ARN). For more information on schemas, see
+  [CreateSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html).
   """
   def list_schemas(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListSchemas", input, options)
@@ -885,8 +917,7 @@ defmodule AWS.Personalize do
 
   When a solution is not specified, all the solution versions associated with the
   account are listed. The response provides the properties for each solution
-  version, including the Amazon Resource Name (ARN). For more information on
-  solutions, see `CreateSolution`.
+  version, including the Amazon Resource Name (ARN).
   """
   def list_solution_versions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListSolutionVersions", input, options)
@@ -898,10 +929,19 @@ defmodule AWS.Personalize do
   When a dataset group is not specified, all the solutions associated with the
   account are listed. The response provides the properties for each solution,
   including the Amazon Resource Name (ARN). For more information on solutions, see
-  `CreateSolution`.
+  [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html).
   """
   def list_solutions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListSolutions", input, options)
+  end
+
+  @doc """
+  Get a list of
+  [tags](https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html)
+  attached to a resource.
+  """
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -926,16 +966,34 @@ defmodule AWS.Personalize do
   end
 
   @doc """
+  Add a list of tags to a resource.
+  """
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
+  end
+
+  @doc """
+  Remove
+  [tags](https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html)
+  that are attached to a resource.
+  """
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
+  end
+
+  @doc """
   Updates a campaign by either deploying a new solution or changing the value of
   the campaign's `minProvisionedTPS` parameter.
 
   To update a campaign, the campaign status must be ACTIVE or CREATE FAILED. Check
-  the campaign status using the `DescribeCampaign` API.
+  the campaign status using the
+  [DescribeCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html) operation.
 
   You must wait until the `status` of the updated campaign is `ACTIVE` before
   asking the campaign for recommendations.
 
-  For more information on campaigns, see `CreateCampaign`.
+  For more information on campaigns, see
+  [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).
   """
   def update_campaign(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateCampaign", input, options)

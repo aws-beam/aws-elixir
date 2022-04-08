@@ -92,6 +92,20 @@ defmodule AWS.EventBridge do
   end
 
   @doc """
+  Creates a global endpoint.
+
+  Global endpoints improve your application's availability by making it
+  regional-fault tolerant. To do this, you define a primary and secondary Region
+  with event buses in each Region. You also create a Amazon Route 53 health check
+  that will tell EventBridge to route events to the secondary Region when an
+  "unhealthy" state is encountered and events will be routed back to the primary
+  Region when the health check reports a "healthy" state.
+  """
+  def create_endpoint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateEndpoint", input, options)
+  end
+
+  @doc """
   Creates a new event bus within your account.
 
   This can be a custom event bus which you can use to receive events from your
@@ -183,6 +197,17 @@ defmodule AWS.EventBridge do
   end
 
   @doc """
+  Delete an existing global endpoint.
+
+  For more information about global endpoints, see [Making applications Regional-fault tolerant with global endpoints and event
+  replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html)
+  in the Amazon EventBridge User Guide.
+  """
+  def delete_endpoint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteEndpoint", input, options)
+  end
+
+  @doc """
   Deletes the specified custom event bus or partner event bus.
 
   All rules associated with this event bus need to be deleted. You can't delete
@@ -246,6 +271,17 @@ defmodule AWS.EventBridge do
   """
   def describe_connection(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeConnection", input, options)
+  end
+
+  @doc """
+  Get the information about an existing global endpoint.
+
+  For more information about global endpoints, see [Making applications Regional-fault tolerant with global endpoints and event
+  replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html)
+  in the Amazon EventBridge User Guide..
+  """
+  def describe_endpoint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEndpoint", input, options)
   end
 
   @doc """
@@ -364,6 +400,17 @@ defmodule AWS.EventBridge do
   end
 
   @doc """
+  List the global endpoints associated with this account.
+
+  For more information about global endpoints, see [Making applications Regional-fault tolerant with global endpoints and event
+  replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html)
+  in the Amazon EventBridge User Guide..
+  """
+  def list_endpoints(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEndpoints", input, options)
+  end
+
+  @doc """
   Lists all the event buses in your account, including the default event bus,
   custom event buses, and partner event buses.
   """
@@ -454,6 +501,8 @@ defmodule AWS.EventBridge do
 
   @doc """
   Sends custom events to Amazon EventBridge so that they can be matched to rules.
+
+  PutEvents will only process nested JSON up to 1100 levels deep.
   """
   def put_events(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutEvents", input, options)
@@ -571,57 +620,59 @@ defmodule AWS.EventBridge do
 
     * [API destination](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html)
 
-    * Amazon API Gateway REST API endpoints
-
-    * API Gateway
+    * [API Gateway](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-gateway-target.html)
 
     * Batch job queue
 
-    * CloudWatch Logs group
+    * CloudWatch group
 
     * CodeBuild project
 
     * CodePipeline
 
-    * Amazon EC2 `CreateSnapshot` API call
+    * EC2 `CreateSnapshot` API call
 
     * EC2 Image Builder
 
-    * Amazon EC2 `RebootInstances` API call
+    * EC2 `RebootInstances` API call
 
-    * Amazon EC2 `StopInstances` API call
+    * EC2 `StopInstances` API call
 
-    * Amazon EC2 `TerminateInstances` API call
+    * EC2 `TerminateInstances` API call
 
-    * Amazon ECS tasks
+    * ECS task
 
-    * Event bus in a different Amazon Web Services account or Region.
+    * [Event bus in a different account or Region](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cross-account.html)
 
-  You can use an event bus in the US East (N. Virginia) us-east-1, US West
-  (Oregon) us-west-2, or Europe (Ireland) eu-west-1 Regions as a target for a
-  rule.
+    * [Event bus in the same account and Region](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-bus-to-bus.html)
 
-    * Firehose delivery stream (Kinesis Data Firehose)
+    * Firehose delivery stream
 
-    * Inspector assessment template (Amazon Inspector)
+    * Glue workflow
 
-    * Kinesis stream (Kinesis Data Stream)
+    * [Incident Manager response plan](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-creation.html#incident-tracking-auto-eventbridge)
+
+    * Inspector assessment template
+
+    * Kinesis stream
 
     * Lambda function
 
-    * Redshift clusters (Data API statement execution)
+    * Redshift cluster
 
-    * Amazon SNS topic
+    * SageMaker Pipeline
 
-    * Amazon SQS queues (includes FIFO queues)
+    * SNS topic
 
-    * SSM Automation
+    * SQS queue
 
-    * SSM OpsItem
+    * Step Functions state machine
 
-    * SSM Run Command
+    * Systems Manager Automation
 
-    * Step Functions state machines
+    * Systems Manager OpsItem
+
+    * Systems Manager Run Command
 
   Creating rules with built-in targets is supported only in the Amazon Web
   Services Management Console. The built-in targets are `EC2 CreateSnapshot API
@@ -814,5 +865,16 @@ defmodule AWS.EventBridge do
   """
   def update_connection(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateConnection", input, options)
+  end
+
+  @doc """
+  Update an existing endpoint.
+
+  For more information about global endpoints, see [Making applications Regional-fault tolerant with global endpoints and event
+  replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html)
+  in the Amazon EventBridge User Guide..
+  """
+  def update_endpoint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateEndpoint", input, options)
   end
 end

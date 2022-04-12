@@ -67,15 +67,16 @@ defmodule AWS.AppRunner do
   @doc """
   Create an App Runner automatic scaling configuration resource.
 
-  App Runner requires this resource when you create App Runner services that
-  require non-default auto scaling settings. You can share an auto scaling
+  App Runner requires this resource when you create or update App Runner services
+  and you require non-default auto scaling settings. You can share an auto scaling
   configuration across multiple services.
 
   Create multiple revisions of a configuration by calling this action multiple
   times using the same `AutoScalingConfigurationName`. The call returns
-  incremental `AutoScalingConfigurationRevision` values. When you create a
-  service, you can set it to use the latest active revision of an auto scaling
-  configuration or a specific revision.
+  incremental `AutoScalingConfigurationRevision` values. When you create a service
+  and configure an auto scaling configuration resource, the service uses the
+  latest active revision of the auto scaling configuration by default. You can
+  optionally configure the service to use a specific revision.
 
   Configure a higher `MinSize` to increase the spread of your App Runner service
   over more Availability Zones in the Amazon Web Services Region. The tradeoff is
@@ -101,6 +102,30 @@ defmodule AWS.AppRunner do
   """
   def create_connection(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateConnection", input, options)
+  end
+
+  @doc """
+  Create an App Runner observability configuration resource.
+
+  App Runner requires this resource when you create or update App Runner services
+  and you want to enable non-default observability features. You can share an
+  observability configuration across multiple services.
+
+  Create multiple revisions of a configuration by calling this action multiple
+  times using the same `ObservabilityConfigurationName`. The call returns
+  incremental `ObservabilityConfigurationRevision` values. When you create a
+  service and configure an observability configuration resource, the service uses
+  the latest active revision of the observability configuration by default. You
+  can optionally configure the service to use a specific revision.
+
+  The observability configuration resource is designed to configure multiple
+  features (currently one feature, tracing). This action takes optional parameters
+  that describe the configuration of these features (currently one parameter,
+  `TraceConfiguration`). If you don't specify a feature parameter, App Runner
+  doesn't enable the feature.
+  """
+  def create_observability_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateObservabilityConfiguration", input, options)
   end
 
   @doc """
@@ -148,6 +173,16 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+  Delete an App Runner observability configuration resource.
+
+  You can delete a specific revision or the latest active revision. You can't
+  delete a configuration that's used by one or more App Runner services.
+  """
+  def delete_observability_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteObservabilityConfiguration", input, options)
+  end
+
+  @doc """
   Delete an App Runner service.
 
   This is an asynchronous operation. On a successful call, you can use the
@@ -184,6 +219,13 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+  Return a full description of an App Runner observability configuration resource.
+  """
+  def describe_observability_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeObservabilityConfiguration", input, options)
+  end
+
+  @doc """
   Return a full description of an App Runner service.
   """
   def describe_service(%Client{} = client, input, options \\ []) do
@@ -210,12 +252,15 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
-  Returns a list of App Runner automatic scaling configurations in your Amazon Web
-  Services account.
+  Returns a list of active App Runner automatic scaling configurations in your
+  Amazon Web Services account.
 
   You can query the revisions for a specific configuration name or the revisions
-  for all configurations in your account. You can optionally query only the latest
-  revision of each requested name.
+  for all active configurations in your account. You can optionally query only the
+  latest revision of each requested name.
+
+  To retrieve a full description of a particular configuration revision, call and
+  provide one of the ARNs returned by `ListAutoScalingConfigurations`.
   """
   def list_auto_scaling_configurations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListAutoScalingConfigurations", input, options)
@@ -227,6 +272,21 @@ defmodule AWS.AppRunner do
   """
   def list_connections(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListConnections", input, options)
+  end
+
+  @doc """
+  Returns a list of active App Runner observability configurations in your Amazon
+  Web Services account.
+
+  You can query the revisions for a specific configuration name or the revisions
+  for all active configurations in your account. You can optionally query only the
+  latest revision of each requested name.
+
+  To retrieve a full description of a particular configuration revision, call and
+  provide one of the ARNs returned by `ListObservabilityConfigurations`.
+  """
+  def list_observability_configurations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListObservabilityConfigurations", input, options)
   end
 
   @doc """

@@ -3,14 +3,13 @@
 
 defmodule AWS.IoTTwinMaker do
   @moduledoc """
-  TwinMaker is in public preview and is subject to change.
-
   IoT TwinMaker is a service that enables you to build operational digital twins
-  of physical systems. IoT TwinMaker overlays measurements and analysis from
-  real-world sensors, cameras, and enterprise applications so you can create data
-  visualizations to monitor your physical factory, building, or industrial plant.
-  You can use this real-world data to monitor operations and diagnose and repair
-  errors.
+  of physical systems.
+
+  IoT TwinMaker overlays measurements and analysis from real-world sensors,
+  cameras, and enterprise applications so you can create data visualizations to
+  monitor your physical factory, building, or industrial plant. You can use this
+  real-world data to monitor operations and diagnose and repair errors.
   """
 
   alias AWS.Client
@@ -55,8 +54,6 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Creates a component type.
-
-  TwinMaker is in public preview and is subject to change.
   """
   def create_component_type(
         %Client{} = client,

@@ -50,7 +50,14 @@ defmodule AWS.DevOpsGuru do
   If you use an Amazon SNS topic in another account, you must attach a policy to
   it that grants DevOps Guru permission to it notifications. DevOps Guru adds the
   required policy on your behalf to send notifications using Amazon SNS in your
-  account. For more information, see [Permissions for cross account Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html).
+  account. DevOps Guru only supports standard SNS topics. For more information,
+  see [Permissions for cross account Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html).
+
+  If you use an Amazon SNS topic in another account, you must attach a policy to
+  it that grants DevOps Guru permission to it notifications. DevOps Guru adds the
+  required policy on your behalf to send notifications using Amazon SNS in your
+  account. For more information, see Permissions for cross account Amazon SNS
+  topics.
 
   If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key
   Management Service customer-managed key (CMK), then you must add permissions to
@@ -66,6 +73,28 @@ defmodule AWS.DevOpsGuru do
       client,
       metadata(),
       :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the insight along with the associated anomalies, events and
+  recommendations.
+  """
+  def delete_insight(%Client{} = client, id, input, options \\ []) do
+    url_path = "/insights/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
       url_path,
       query_params,
       headers,
@@ -153,8 +182,12 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  This operation lists details about a DevOps Guru event source that is shared
-  with your account.
+  Returns the integration status of services that are integrated with DevOps Guru
+  as Consumer via EventBridge.
+
+  The one service that can be integrated with DevOps Guru is Amazon CodeGuru
+  Profiler, which can produce proactive recommendations which can be stored and
+  viewed in DevOps Guru.
   """
   def describe_event_sources_config(%Client{} = client, input, options \\ []) do
     url_path = "/event-sources"
@@ -702,7 +735,12 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Updates the event source configuration.
+  Enables or disables integration with a service that can be integrated with
+  DevOps Guru.
+
+  The one service that can be integrated with DevOps Guru is Amazon CodeGuru
+  Profiler, which can produce proactive recommendations which can be stored and
+  viewed in DevOps Guru.
   """
   def update_event_sources_config(%Client{} = client, input, options \\ []) do
     url_path = "/event-sources"

@@ -291,7 +291,7 @@ defmodule AWS.Batch do
 
   If you're using an unmanaged compute environment, you can use the
   `DescribeComputeEnvironment` operation to determine the `ecsClusterArn` that you
-  should launch your Amazon ECS container instances into.
+  launch your Amazon ECS container instances into.
   """
   def describe_compute_environments(%Client{} = client, input, options \\ []) do
     url_path = "/v1/describecomputeenvironments"

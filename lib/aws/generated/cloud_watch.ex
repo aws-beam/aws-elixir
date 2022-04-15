@@ -709,7 +709,7 @@ defmodule AWS.CloudWatch do
   By default, a metric stream always sends the `MAX`, `MIN`, `SUM`, and
   `SAMPLECOUNT` statistics for each metric that is streamed. You can use the
   `StatisticsConfigurations` parameter to have the metric stream also send
-  extended statistics in the stream. Streaming extended statistics incurs
+  additional statistics in the stream. Streaming additional statistics incurs
   additional costs. For more information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).
 
   When you use `PutMetricStream` to create a new metric stream, the stream is

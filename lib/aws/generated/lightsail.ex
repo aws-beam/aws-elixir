@@ -250,8 +250,9 @@ defmodule AWS.Lightsail do
   the HTTP or HTTPS port to use, and the health check configuration.
 
   You can deploy containers to your container service using container images from
-  a public registry like Docker Hub, or from your local machine. For more
-  information, see [Creating container images for your Amazon Lightsail container services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-images)
+  a public registry such as Amazon ECR Public, or from your local machine. For
+  more information, see [Creating container images for your Amazon Lightsail container
+  services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-images)
   in the *Amazon Lightsail Developer Guide*.
   """
   def create_container_service_deployment(%Client{} = client, input, options \\ []) do
@@ -952,8 +953,12 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about one or more Amazon Lightsail buckets.
 
+  The information returned includes the synchronization status of the Amazon
+  Simple Storage Service (Amazon S3) account-level block public access feature for
+  your Lightsail buckets.
+
   For more information about buckets, see [Buckets in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail)
-  in the *Amazon Lightsail Developer Guide*..
+  in the *Amazon Lightsail Developer Guide*.
   """
   def get_buckets(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetBuckets", input, options)
@@ -1126,7 +1131,7 @@ defmodule AWS.Lightsail do
   delivery network (CDN) distributions.
 
   A distribution bundle specifies the monthly network transfer quota and monthly
-  cost of your dsitribution.
+  cost of your distribution.
   """
   def get_distribution_bundles(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetDistributionBundles", input, options)
@@ -1816,7 +1821,7 @@ defmodule AWS.Lightsail do
   distribution.
 
   A distribution bundle specifies the monthly network transfer quota and monthly
-  cost of your dsitribution.
+  cost of your distribution.
 
   Update your distribution's bundle if your distribution is going over its monthly
   network transfer quota and is incurring an overage fee.

@@ -281,18 +281,6 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Creates a custom Availability Zone (AZ).
-
-  A custom AZ is an on-premises AZ that is integrated with a VMware vSphere
-  cluster.
-
-  For more information about RDS on VMware, see the [ RDS on VMware User Guide.](https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html)
-  """
-  def create_custom_availability_zone(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCustomAvailabilityZone", input, options)
-  end
-
-  @doc """
   Creates a custom DB engine version (CEV).
 
   A CEV is a binary volume snapshot of a database engine and specific AMI. The
@@ -595,18 +583,6 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Deletes a custom Availability Zone (AZ).
-
-  A custom AZ is an on-premises AZ that is integrated with a VMware vSphere
-  cluster.
-
-  For more information about RDS on VMware, see the [ RDS on VMware User Guide.](https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html)
-  """
-  def delete_custom_availability_zone(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCustomAvailabilityZone", input, options)
-  end
-
-  @doc """
   Deletes a custom engine version.
 
   To run this command, make sure you meet the following prerequisites:
@@ -813,14 +789,6 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Deletes the installation medium for a DB engine that requires an on-premises
-  customer provided license, such as Microsoft SQL Server.
-  """
-  def delete_installation_media(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteInstallationMedia", input, options)
-  end
-
-  @doc """
   Deletes an existing option group.
   """
   def delete_option_group(%Client{} = client, input, options \\ []) do
@@ -854,18 +822,6 @@ defmodule AWS.RDS do
   """
   def describe_certificates(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeCertificates", input, options)
-  end
-
-  @doc """
-  Returns information about custom Availability Zones (AZs).
-
-  A custom AZ is an on-premises AZ that is integrated with a VMware vSphere
-  cluster.
-
-  For more information about RDS on VMware, see the [ RDS on VMware User Guide.](https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html)
-  """
-  def describe_custom_availability_zones(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCustomAvailabilityZones", input, options)
   end
 
   @doc """
@@ -1211,14 +1167,6 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Describes the available installation media for a DB engine that requires an
-  on-premises customer provided license, such as Microsoft SQL Server.
-  """
-  def describe_installation_media(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeInstallationMedia", input, options)
-  end
-
-  @doc """
   Describes all available options.
   """
   def describe_option_group_options(%Client{} = client, input, options \\ []) do
@@ -1363,14 +1311,6 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Imports the installation media for a DB engine that requires an on-premises
-  customer provided license, such as SQL Server.
-  """
-  def import_installation_media(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ImportInstallationMedia", input, options)
-  end
-
-  @doc """
   Lists all tags on an Amazon RDS resource.
 
   For an overview on tagging an Amazon RDS resource, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html)
@@ -1382,8 +1322,8 @@ defmodule AWS.RDS do
 
   @doc """
   Override the system-default Secure Sockets Layer/Transport Layer Security
-  (SSL/TLS) certificate for Amazon RDS for new DB instances temporarily, or remove
-  the override.
+  (SSL/TLS) certificate for Amazon RDS for new DB instances, or remove the
+  override.
 
   By using this operation, you can specify an RDS-approved SSL/TLS certificate for
   new DB instances that is different from the default certificate provided by RDS.

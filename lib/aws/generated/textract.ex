@@ -47,6 +47,10 @@ defmodule AWS.Textract do
   are returned (including text that doesn't have a relationship with the value of
   `FeatureTypes`).
 
+    * Queries.A QUERIES_RESULT Block object contains the answer to the
+  query, the alias associated and an ID that connect it to the query asked. This
+  Block also contains a location and attached confidence score.
+
   Selection elements such as check boxes and option buttons (radio buttons) can be
   detected in form data and in tables. A SELECTION_ELEMENT `Block` object contains
   information about a selection element, including the selection status.
@@ -86,7 +90,8 @@ defmodule AWS.Textract do
   Analyzes identity documents for relevant information.
 
   This information is extracted and returned as `IdentityDocumentFields`, which
-  records both the normalized field and value of the extracted text.
+  records both the normalized field and value of the extracted text.Unlike other
+  Amazon Textract operations, `AnalyzeID` doesn't return any Geometry data.
   """
   def analyze_id(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AnalyzeID", input, options)
@@ -96,7 +101,7 @@ defmodule AWS.Textract do
   Detects text in the input document.
 
   Amazon Textract can detect lines of text and the words that make up a line of
-  text. The input document must be an image in JPEG or PNG format.
+  text. The input document must be an image in JPEG, PNG, PDF, or TIFF format.
   `DetectDocumentText` returns the detected text in an array of `Block` objects.
 
   Each document page has as an associated `Block` of type PAGE. Each PAGE `Block`
@@ -142,6 +147,10 @@ defmodule AWS.Textract do
   more WORD `Block` objects. All lines and words that are detected in the document
   are returned (including text that doesn't have a relationship with the value of
   the `StartDocumentAnalysis` `FeatureTypes` input parameter).
+
+    * Queries. A QUERIES_RESULT Block object contains the answer to the
+  query, the alias associated and an ID that connect it to the query asked. This
+  Block also contains a location and attached confidence score
 
   Selection elements such as check boxes and option buttons (radio buttons) can be
   detected in form data and in tables. A SELECTION_ELEMENT `Block` object contains

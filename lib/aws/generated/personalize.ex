@@ -945,6 +945,26 @@ defmodule AWS.Personalize do
   end
 
   @doc """
+  Starts a recommender that is INACTIVE.
+
+  Starting a recommender does not create any new models, but resumes billing and
+  automatic retraining for the recommender.
+  """
+  def start_recommender(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartRecommender", input, options)
+  end
+
+  @doc """
+  Stops a recommender that is ACTIVE.
+
+  Stopping a recommender halts billing and automatic retraining for the
+  recommender.
+  """
+  def stop_recommender(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopRecommender", input, options)
+  end
+
+  @doc """
   Stops creating a solution version that is in a state of CREATE_PENDING or CREATE
   IN_PROGRESS.
 
@@ -989,8 +1009,10 @@ defmodule AWS.Personalize do
   the campaign status using the
   [DescribeCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html) operation.
 
-  You must wait until the `status` of the updated campaign is `ACTIVE` before
-  asking the campaign for recommendations.
+  You can still get recommendations from a campaign while an update is in
+  progress. The campaign will use the previous solution version and campaign
+  configuration to generate recommendations until the latest campaign update
+  status is `Active`.
 
   For more information on campaigns, see
   [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).

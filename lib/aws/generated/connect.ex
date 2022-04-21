@@ -199,6 +199,33 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Associates a contact flow with a phone number claimed to your Amazon Connect
+  instance.
+  """
+  def associate_phone_number_contact_flow(
+        %Client{} = client,
+        phone_number_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}/contact-flow"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Associates a set of quick connects with a queue.
@@ -272,6 +299,27 @@ defmodule AWS.Connect do
       client,
       metadata(),
       :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Claims an available phone number to your Amazon Connect instance.
+  """
+  def claim_phone_number(%Client{} = client, input, options \\ []) do
+    url_path = "/phone-number/claim"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
       url_path,
       query_params,
       headers,
@@ -1153,6 +1201,28 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Gets details and status of a phone number that’s claimed to your Amazon Connect
+  instance
+  """
+  def describe_phone_number(%Client{} = client, phone_number_id, options \\ []) do
+    url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Describes the specified queue.
@@ -1480,6 +1550,38 @@ defmodule AWS.Connect do
       [
         {"BotName", "botName"},
         {"LexRegion", "lexRegion"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Removes the contact flow association from a phone number claimed to your Amazon
+  Connect instance, if a contact flow association exists.
+  """
+  def disassociate_phone_number_contact_flow(
+        %Client{} = client,
+        phone_number_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}/contact-flow"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"InstanceId", "instanceId"}
       ]
       |> Request.build_params(input)
 
@@ -2386,6 +2488,31 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Lists phone numbers claimed to your Amazon Connect instance.
+
+  For more information about phone numbers, see [Set Up Phone Numbers for Your Contact
+  Center](https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html)
+  in the *Amazon Connect Administrator Guide*.
+  """
+  def list_phone_numbers_v2(%Client{} = client, input, options \\ []) do
+    url_path = "/phone-number/list"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Provides information about the prompts for the specified Amazon Connect
   instance.
   """
@@ -2960,6 +3087,32 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Releases a phone number previously claimed to an Amazon Connect instance.
+  """
+  def release_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
+    url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"ClientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   When a contact is being recorded, and the recording has been suspended using
   SuspendContactRecording, this API resumes recording the call.
 
@@ -2967,6 +3120,28 @@ defmodule AWS.Connect do
   """
   def resume_contact_recording(%Client{} = client, input, options \\ []) do
     url_path = "/contact/resume-recording"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Searches for available phone numbers that you can claim to your Amazon Connect
+  instance.
+  """
+  def search_available_phone_numbers(%Client{} = client, input, options \\ []) do
+    url_path = "/phone-number/search-available"
     headers = []
     query_params = []
 
@@ -3295,7 +3470,7 @@ defmodule AWS.Connect do
   Adds the specified tags to the specified resource.
 
   The supported resource types are users, routing profiles, queues, quick
-  connects, contact flows, agent status, and hours of operation.
+  connects, contact flows, agent status, hours of operation, and phone number.
 
   For sample policies that use tags, see [Amazon Connect Identity-Based Policy Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
   in the *Amazon Connect Administrator Guide*.
@@ -3699,6 +3874,28 @@ defmodule AWS.Connect do
       client,
       metadata(),
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates your claimed phone number from its current Amazon Connect instance to
+  another Amazon Connect instance in the same Region.
+  """
+  def update_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
+    url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
       url_path,
       query_params,
       headers,

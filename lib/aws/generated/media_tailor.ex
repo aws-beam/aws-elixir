@@ -80,6 +80,35 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
+  Creates name for a specific live source in a source location.
+  """
+  def create_live_source(
+        %Client{} = client,
+        live_source_name,
+        source_location_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/liveSource/#{AWS.Util.encode_uri(live_source_name)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a new prefetch schedule for the specified playback configuration.
   """
   def create_prefetch_schedule(
@@ -209,6 +238,35 @@ defmodule AWS.MediaTailor do
   """
   def delete_channel_policy(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a specific live source in a specific source location.
+  """
+  def delete_live_source(
+        %Client{} = client,
+        live_source_name,
+        source_location_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/liveSource/#{AWS.Util.encode_uri(live_source_name)}"
+
     headers = []
     query_params = []
 
@@ -356,6 +414,34 @@ defmodule AWS.MediaTailor do
   """
   def describe_channel(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Provides details about a specific live source in a specific source location.
+  """
+  def describe_live_source(
+        %Client{} = client,
+        live_source_name,
+        source_location_name,
+        options \\ []
+      ) do
+    url_path =
+      "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/liveSource/#{AWS.Util.encode_uri(live_source_name)}"
+
     headers = []
     query_params = []
 
@@ -615,6 +701,47 @@ defmodule AWS.MediaTailor do
   """
   def list_channels(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/channels"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  lists all the live sources in a source location.
+  """
+  def list_live_sources(
+        %Client{} = client,
+        source_location_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/liveSources"
     headers = []
     query_params = []
 
@@ -960,6 +1087,35 @@ defmodule AWS.MediaTailor do
   """
   def update_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a specific live source in a specific source location.
+  """
+  def update_live_source(
+        %Client{} = client,
+        live_source_name,
+        source_location_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/liveSource/#{AWS.Util.encode_uri(live_source_name)}"
+
     headers = []
     query_params = []
 

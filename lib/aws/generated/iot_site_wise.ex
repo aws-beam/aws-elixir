@@ -129,6 +129,79 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
+  Gets aggregated values (for example, average, minimum, and maximum) for one or
+  more asset properties.
+
+  For more information, see [Querying aggregates](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates)
+  in the *IoT SiteWise User Guide*.
+  """
+  def batch_get_asset_property_aggregates(%Client{} = client, input, options \\ []) do
+    url_path = "/properties/batch/aggregates"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets the current value for one or more asset properties.
+
+  For more information, see [Querying current values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values)
+  in the *IoT SiteWise User Guide*.
+  """
+  def batch_get_asset_property_value(%Client{} = client, input, options \\ []) do
+    url_path = "/properties/batch/latest"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets the historical values for one or more asset properties.
+
+  For more information, see [Querying historical values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values)
+  in the *IoT SiteWise User Guide*.
+  """
+  def batch_get_asset_property_value_history(%Client{} = client, input, options \\ []) do
+    url_path = "/properties/batch/history"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Sends a list of asset property values to IoT SiteWise.
 
   Each value is a timestamp-quality-value (TQV) data point. For more information,

@@ -72,7 +72,7 @@ defmodule AWS.SecretsManager do
   can delete a version by removing all staging labels from it.
 
   **Required permissions: ** `secretsmanager:CancelRotateSecret`. For more
-  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def cancel_rotate_secret(%Client{} = client, input, options \\ []) do
@@ -82,11 +82,12 @@ defmodule AWS.SecretsManager do
   @doc """
   Creates a new secret.
 
-  A *secret* is a set of credentials, such as a user name and password, that you
-  store in an encrypted form in Secrets Manager. The secret also includes the
-  connection information to access a database or other service, which Secrets
-  Manager doesn't encrypt. A secret in Secrets Manager consists of both the
-  protected secret data and the important information needed to manage the secret.
+  A *secret* can be a password, a set of credentials such as a user name and
+  password, an OAuth token, or other secret information that you store in an
+  encrypted form in Secrets Manager. The secret also includes the connection
+  information to access a database or other service, which Secrets Manager doesn't
+  encrypt. A secret in Secrets Manager consists of both the protected secret data
+  and the important information needed to manage the secret.
 
   For information about creating a secret in the console, see [Create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html).
 
@@ -95,6 +96,10 @@ defmodule AWS.SecretsManager do
   you include `SecretString` or `SecretBinary` then Secrets Manager creates an
   initial secret version and automatically attaches the staging label `AWSCURRENT`
   to it.
+
+  For database credentials you want to rotate, for Secrets Manager to be able to
+  rotate the secret, you must make sure the JSON you store in the `SecretString`
+  matches the [JSON structure of a database secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_secret_json_structure.html).
 
   If you don't specify an KMS encryption key, Secrets Manager uses the Amazon Web
   Services managed key `aws/secretsmanager`. If this key doesn't already exist in
@@ -107,9 +112,13 @@ defmodule AWS.SecretsManager do
   calling the API, then you can't use `aws/secretsmanager` to encrypt the secret,
   and you must create and use a customer managed KMS key.
 
-  **Required permissions: ** `secretsmanager:CreateSecret`. For more information,
-  see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  **Required permissions: ** `secretsmanager:CreateSecret`. If you include tags in
+  the secret, you also need `secretsmanager:TagResource`. For more information,
+  see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
+
+  To encrypt the secret with a KMS key other than `aws/secretsmanager`, you need
+  `kms:GenerateDataKey` and `kms:Decrypt` permission to the key.
   """
   def create_secret(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateSecret", input, options)
@@ -121,7 +130,7 @@ defmodule AWS.SecretsManager do
   To attach a policy to a secret, use `PutResourcePolicy`.
 
   **Required permissions: ** `secretsmanager:DeleteResourcePolicy`. For more
-  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
@@ -151,7 +160,7 @@ defmodule AWS.SecretsManager do
 
   **Required permissions: ** `secretsmanager:DeleteSecret`. For more information,
   see [ IAM policy actions for Secrets
-  Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def delete_secret(%Client{} = client, input, options \\ []) do
@@ -165,7 +174,7 @@ defmodule AWS.SecretsManager do
   fields that have a value in the response.
 
   **Required permissions: ** `secretsmanager:DescribeSecret`. For more
-  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def describe_secret(%Client{} = client, input, options \\ []) do
@@ -179,7 +188,7 @@ defmodule AWS.SecretsManager do
   type that the system you are generating a password for can support.
 
   **Required permissions: ** `secretsmanager:GetRandomPassword`. For more
-  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def get_random_password(%Client{} = client, input, options \\ []) do
@@ -194,7 +203,7 @@ defmodule AWS.SecretsManager do
   [Permissions policies attached to a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-policies.html).
 
   **Required permissions: ** `secretsmanager:GetResourcePolicy`. For more
-  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def get_resource_policy(%Client{} = client, input, options \\ []) do
@@ -212,7 +221,7 @@ defmodule AWS.SecretsManager do
   **Required permissions: ** `secretsmanager:GetSecretValue`. If the secret is
   encrypted using a customer-managed key instead of the Amazon Web Services
   managed key `aws/secretsmanager`, then you also need `kms:Decrypt` permissions
-  for that key. For more information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  for that key. For more information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def get_secret_value(%Client{} = client, input, options \\ []) do
@@ -228,7 +237,7 @@ defmodule AWS.SecretsManager do
   `GetSecretValue`.
 
   **Required permissions: ** `secretsmanager:ListSecretVersionIds`. For more
-  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def list_secret_version_ids(%Client{} = client, input, options \\ []) do
@@ -250,7 +259,7 @@ defmodule AWS.SecretsManager do
   Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_search-secret.html).
 
   **Required permissions: ** `secretsmanager:ListSecrets`. For more information,
-  see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def list_secrets(%Client{} = client, input, options \\ []) do
@@ -267,7 +276,7 @@ defmodule AWS.SecretsManager do
   secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
 
   **Required permissions: ** `secretsmanager:PutResourcePolicy`. For more
-  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def put_resource_policy(%Client{} = client, input, options \\ []) do
@@ -306,7 +315,7 @@ defmodule AWS.SecretsManager do
   existing version; you can only create new ones.
 
   **Required permissions: ** `secretsmanager:PutSecretValue`. For more
-  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def put_secret_value(%Client{} = client, input, options \\ []) do
@@ -318,7 +327,7 @@ defmodule AWS.SecretsManager do
   from the Regions you specify.
 
   **Required permissions: ** `secretsmanager:RemoveRegionsFromReplication`. For
-  more information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  more information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def remove_regions_from_replication(%Client{} = client, input, options \\ []) do
@@ -331,7 +340,7 @@ defmodule AWS.SecretsManager do
   See [Multi-Region secrets](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create-manage-multi-region-secrets.html).
 
   **Required permissions: ** `secretsmanager:ReplicateSecretToRegions`. For more
-  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def replicate_secret_to_regions(%Client{} = client, input, options \\ []) do
@@ -345,7 +354,7 @@ defmodule AWS.SecretsManager do
   You can access a secret again after it has been restored.
 
   **Required permissions: ** `secretsmanager:RestoreSecret`. For more information,
-  see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def restore_secret(%Client{} = client, input, options \\ []) do
@@ -355,12 +364,20 @@ defmodule AWS.SecretsManager do
   @doc """
   Configures and starts the asynchronous process of rotating the secret.
 
+  For more information about rotation, see [Rotate secrets](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html).
+
   If you include the configuration parameters, the operation sets the values for
   the secret and then immediately starts a rotation. If you don't include the
   configuration parameters, the operation starts a rotation with the values
-  already stored in the secret. For more information about rotation, see [Rotate secrets](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html).
+  already stored in the secret.
 
-  To configure rotation, you include the ARN of an Amazon Web Services Lambda
+  For database credentials you want to rotate, for Secrets Manager to be able to
+  rotate the secret, you must make sure the secret value is in the [ JSON structure of a database
+  secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_secret_json_structure.html).
+  In particular, if you want to use the [ alternating users strategy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html#rotating-secrets-two-users),
+  your secret must contain the ARN of a superuser secret.
+
+  To configure rotation, you also need the ARN of an Amazon Web Services Lambda
   function and the schedule for the rotation. The Lambda rotation function creates
   a new version of the secret and creates or updates the credentials on the
   database or service to match. After testing the new credentials, the function
@@ -368,16 +385,18 @@ defmodule AWS.SecretsManager do
   who retrieves the secret gets the new version. For more information, see [How rotation
   works](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html).
 
+  You can create the Lambda rotation function based on the [rotation function templates](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-rotation-templates.html)
+  that Secrets Manager provides. Choose a template that matches your [Rotation strategy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html).
+
   When rotation is successful, the `AWSPENDING` staging label might be attached to
   the same version as the `AWSCURRENT` version, or it might not be attached to any
-  version.
-
-  If the `AWSPENDING` staging label is present but not attached to the same
-  version as `AWSCURRENT`, then any later invocation of `RotateSecret` assumes
-  that a previous rotation request is still in progress and returns an error.
+  version. If the `AWSPENDING` staging label is present but not attached to the
+  same version as `AWSCURRENT`, then any later invocation of `RotateSecret`
+  assumes that a previous rotation request is still in progress and returns an
+  error.
 
   **Required permissions: ** `secretsmanager:RotateSecret`. For more information,
-  see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   You also need `lambda:InvokeFunction` permissions on the rotation function. For
   more information, see [ Permissions for rotation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets-required-permissions-function.html).
@@ -394,7 +413,7 @@ defmodule AWS.SecretsManager do
   replica to a primary secret.
 
   **Required permissions: ** `secretsmanager:StopReplicationToReplica`. For more
-  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def stop_replication_to_replica(%Client{} = client, input, options \\ []) do
@@ -434,7 +453,7 @@ defmodule AWS.SecretsManager do
   and returns an Access Denied error.
 
   **Required permissions: ** `secretsmanager:TagResource`. For more information,
-  see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
@@ -453,7 +472,7 @@ defmodule AWS.SecretsManager do
   returns an Access Denied error.
 
   **Required permissions: ** `secretsmanager:UntagResource`. For more information,
-  see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
@@ -496,7 +515,7 @@ defmodule AWS.SecretsManager do
   and you must create and use a customer managed key.
 
   **Required permissions: ** `secretsmanager:UpdateSecret`. For more information,
-  see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   If you use a customer managed key, you must also have `kms:GenerateDataKey` and
   `kms:Decrypt` permissions on the key. For more information, see [ Secret encryption and
@@ -529,7 +548,7 @@ defmodule AWS.SecretsManager do
   version is considered to be 'deprecated' and can be deleted by Secrets Manager.
 
   **Required permissions: ** `secretsmanager:UpdateSecretVersionStage`. For more
-  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def update_secret_version_stage(%Client{} = client, input, options \\ []) do
@@ -555,7 +574,7 @@ defmodule AWS.SecretsManager do
 
   **Required permissions: ** `secretsmanager:ValidateResourcePolicy`. For more
   information, see [ IAM policy actions for Secrets
-  Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions)
+  Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def validate_resource_policy(%Client{} = client, input, options \\ []) do

@@ -89,6 +89,10 @@ defmodule AWS.Glue do
     Request.request_post(client, metadata(), "BatchGetCrawlers", input, options)
   end
 
+  def batch_get_custom_entity_types(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetCustomEntityTypes", input, options)
+  end
+
   @doc """
   Returns a list of resource metadata for a given list of development endpoint
   names.
@@ -218,6 +222,10 @@ defmodule AWS.Glue do
   """
   def create_crawler(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateCrawler", input, options)
+  end
+
+  def create_custom_entity_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateCustomEntityType", input, options)
   end
 
   @doc """
@@ -404,6 +412,10 @@ defmodule AWS.Glue do
   """
   def delete_crawler(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteCrawler", input, options)
+  end
+
+  def delete_custom_entity_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteCustomEntityType", input, options)
   end
 
   @doc """
@@ -680,6 +692,10 @@ defmodule AWS.Glue do
   """
   def get_crawlers(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetCrawlers", input, options)
+  end
+
+  def get_custom_entity_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCustomEntityType", input, options)
   end
 
   @doc """
@@ -1084,6 +1100,10 @@ defmodule AWS.Glue do
   """
   def list_crawlers(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListCrawlers", input, options)
+  end
+
+  def list_custom_entity_types(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListCustomEntityTypes", input, options)
   end
 
   @doc """

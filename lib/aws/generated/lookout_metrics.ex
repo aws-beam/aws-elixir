@@ -296,6 +296,27 @@ defmodule AWS.LookoutMetrics do
   end
 
   @doc """
+  Detects an Amazon S3 dataset's file format, interval, and offset.
+  """
+  def detect_metric_set_config(%Client{} = client, input, options \\ []) do
+    url_path = "/DetectMetricSetConfig"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns details about a group of anomalous metrics.
   """
   def get_anomaly_group(%Client{} = client, input, options \\ []) do

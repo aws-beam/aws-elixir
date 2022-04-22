@@ -173,8 +173,6 @@ defmodule AWS.StorageGateway do
   associated with the pool. When you use your backup application to eject the
   tape, the tape is archived directly into the S3 storage class (S3 Glacier or S3
   Glacier Deep Archive) that corresponds to the pool.
-
-  Valid Values: `GLACIER` | `DEEP_ARCHIVE`
   """
   def assign_tape_pool(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AssignTapePool", input, options)
@@ -489,8 +487,8 @@ defmodule AWS.StorageGateway do
   This API action enables you to delete a snapshot schedule for a volume. For more
   information, see [Backing up your volumes](https://docs.aws.amazon.com/storagegateway/latest/userguide/backing-up-volumes.html).
   In the `DeleteSnapshotSchedule` request, you identify the volume by providing
-  its Amazon Resource Name (ARN). This operation is only supported in stored and
-  cached volume gateway types.
+  its Amazon Resource Name (ARN). This operation is only supported for cached
+  volume gateway types.
 
   To list or delete a snapshot, you must use the Amazon EC2 API. For more
   information, go to
@@ -1016,7 +1014,9 @@ defmodule AWS.StorageGateway do
 
   @doc """
   Sends you notification through CloudWatch Events when all files written to your
-  file share have been uploaded to Amazon S3.
+  file share have been uploaded to S3.
+
+  Amazon S3.
 
   Storage Gateway can send a notification through Amazon CloudWatch Events when
   all files written to your file share up to that point in time have been uploaded
@@ -1063,9 +1063,18 @@ defmodule AWS.StorageGateway do
   information, see [Getting notified about file operations](https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification)
   in the *Storage Gateway User Guide*.
 
-  If you invoke the RefreshCache API when two requests are already being
-  processed, any new request will cause an `InvalidGatewayRequestException` error
-  because too many requests were sent to the server.
+     Wait at least 60 seconds between consecutive RefreshCache API
+  requests.
+
+     RefreshCache does not evict cache entries if invoked consecutively
+  within 60 seconds of a previous RefreshCache request.
+
+     If you invoke the RefreshCache API when two requests are already
+  being processed, any new request will cause an `InvalidGatewayRequestException`
+  error because too many requests were sent to the server.
+
+  The S3 bucket name does not need to be included when entering the list of
+  folders in the FolderList parameter.
 
   For more information, see [Getting notified about file operations](https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification)
   in the *Storage Gateway User Guide*.

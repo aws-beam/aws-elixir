@@ -10,8 +10,7 @@ defmodule AWS.RDSData do
 
   To run these statements, you work with the Data Service API.
 
-  For more information about the Data Service API, see [Using the Data API for Aurora
-  Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html)
+  For more information about the Data Service API, see [Using the Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html)
   in the *Amazon Aurora User Guide*.
   """
 
@@ -150,8 +149,8 @@ defmodule AWS.RDSData do
   `transactionID` parameter, changes that result from the call are committed
   automatically.
 
-  The response size limit is 1 MB. If the call returns more than 1 MB of response
-  data, the call is terminated.
+  If the binary response data from the database is more than 1 MB, the call is
+  terminated.
   """
   def execute_statement(%Client{} = client, input, options \\ []) do
     url_path = "/Execute"

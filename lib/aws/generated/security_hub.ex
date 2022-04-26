@@ -11,8 +11,8 @@ defmodule AWS.SecurityHub do
   from Amazon Web Services accounts, services, and integrated third-party products
   and helps you analyze security trends in your environment to identify the
   highest priority security issues. For more information about Security Hub, see
-  the *Security Hub[User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html)
-  *.
+  the [ *Security HubUser Guide*
+  ](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html).
 
   When you use operations in the Security Hub API, the requests are executed only
   in the Amazon Web Services Region that is currently active or in the specific
@@ -329,8 +329,8 @@ defmodule AWS.SecurityHub do
 
   Must be called from the aggregation Region.
 
-  For more details about cross-Region replication, see [Configuring finding aggregation](securityhub/latest/userguide/finding-aggregation.html) in the
-  *Security Hub User Guide*.
+  For more details about cross-Region replication, see [Configuring finding aggregation](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html)
+  in the *Security Hub User Guide*.
   """
   def create_finding_aggregator(%Client{} = client, input, options \\ []) do
     url_path = "/findingAggregator/create"

@@ -3159,6 +3159,27 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Searches users in an Amazon Connect instance, with optional filtering.
+  """
+  def search_users(%Client{} = client, input, options \\ []) do
+    url_path = "/search-users"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Searches for vocabularies within a specific Amazon Connect instance using
   `State`, `NameStartsWith`, and `LanguageCode`.
   """

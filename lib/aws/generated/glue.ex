@@ -89,6 +89,9 @@ defmodule AWS.Glue do
     Request.request_post(client, metadata(), "BatchGetCrawlers", input, options)
   end
 
+  @doc """
+  Retrieves the details for the custom patterns specified by a list of names.
+  """
   def batch_get_custom_entity_types(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "BatchGetCustomEntityTypes", input, options)
   end
@@ -224,6 +227,14 @@ defmodule AWS.Glue do
     Request.request_post(client, metadata(), "CreateCrawler", input, options)
   end
 
+  @doc """
+  Creates a custom pattern that is used to detect sensitive data across the
+  columns and rows of your structured data.
+
+  Each custom pattern you create specifies a regular expression and an optional
+  list of context words. If no context words are passed only a regular expression
+  is checked.
+  """
   def create_custom_entity_type(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateCustomEntityType", input, options)
   end
@@ -414,6 +425,9 @@ defmodule AWS.Glue do
     Request.request_post(client, metadata(), "DeleteCrawler", input, options)
   end
 
+  @doc """
+  Deletes a custom pattern by specifying its name.
+  """
   def delete_custom_entity_type(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteCustomEntityType", input, options)
   end
@@ -694,6 +708,9 @@ defmodule AWS.Glue do
     Request.request_post(client, metadata(), "GetCrawlers", input, options)
   end
 
+  @doc """
+  Retrieves the details of a custom pattern by specifying its name.
+  """
   def get_custom_entity_type(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetCustomEntityType", input, options)
   end
@@ -1102,6 +1119,9 @@ defmodule AWS.Glue do
     Request.request_post(client, metadata(), "ListCrawlers", input, options)
   end
 
+  @doc """
+  Lists all the custom patterns that have been created.
+  """
   def list_custom_entity_types(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListCustomEntityTypes", input, options)
   end

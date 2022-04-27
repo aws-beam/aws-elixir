@@ -15,7 +15,7 @@ defmodule AWS.Pricing do
   compare your internal workloads with Amazon Web Services.
 
   Use `GetServices` without a service code to retrieve the service codes for all
-  AWS services, then `GetServices` with a service code to retreive the attribute
+  AWS services, then `GetServices` with a service code to retrieve the attribute
   names for that service. After you have the service code and attribute names, you
   can use `GetAttributeValues` to see what values are available for an attribute.
   With the service code and an attribute name and value, you can use `GetProducts`
@@ -66,7 +66,7 @@ defmodule AWS.Pricing do
   @doc """
   Returns a list of attribute values.
 
-  Attibutes are similar to the details in a Price List API offer file. For a list
+  Attributes are similar to the details in a Price List API offer file. For a list
   of available attributes, see [Offer File Definitions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs)
   in the [Amazon Web Services Billing and Cost Management User Guide](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html).
   """

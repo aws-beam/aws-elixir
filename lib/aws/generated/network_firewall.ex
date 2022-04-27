@@ -3,37 +3,38 @@
 
 defmodule AWS.NetworkFirewall do
   @moduledoc """
-  This is the API Reference for AWS Network Firewall.
+  This is the API Reference for Network Firewall.
 
   This guide is for developers who need detailed information about the Network
   Firewall API actions, data types, and errors.
 
     * The REST API requires you to handle connection details, such as
   calculating signatures, handling request retries, and error handling. For
-  general information about using the AWS REST APIs, see [AWS APIs](https://docs.aws.amazon.com/general/latest/gr/aws-apis.html).
+  general information about using the Amazon Web Services REST APIs, see [Amazon Web Services APIs](https://docs.aws.amazon.com/general/latest/gr/aws-apis.html).
 
   To access Network Firewall using the REST API endpoint:
   `https://network-firewall.<region>.amazonaws.com `
 
-    * Alternatively, you can use one of the AWS SDKs to access an API
-  that's tailored to the programming language or platform that you're using. For
-  more information, see [AWS SDKs](http://aws.amazon.com/tools/#SDKs).     * For descriptions of Network Firewall features, including and
+    * Alternatively, you can use one of the Amazon Web Services SDKs to
+  access an API that's tailored to the programming language or platform that
+  you're using. For more information, see [Amazon Web Services SDKs](http://aws.amazon.com/tools/#SDKs).
+
+    * For descriptions of Network Firewall features, including and
   step-by-step instructions on how to use them through the Network Firewall
-  console, see the [Network Firewall Developer
-  Guide](https://docs.aws.amazon.com/network-firewall/latest/developerguide/).
+  console, see the [Network Firewall Developer Guide](https://docs.aws.amazon.com/network-firewall/latest/developerguide/).
 
   Network Firewall is a stateful, managed, network firewall and intrusion
   detection and prevention service for Amazon Virtual Private Cloud (Amazon VPC).
   With Network Firewall, you can filter traffic at the perimeter of your VPC. This
   includes filtering traffic going to and coming from an internet gateway, NAT
-  gateway, or over VPN or AWS Direct Connect. Network Firewall uses rules that are
+  gateway, or over VPN or Direct Connect. Network Firewall uses rules that are
   compatible with Suricata, a free, open source intrusion detection system (IDS)
-  engine. AWS Network Firewall supports Suricata version 5.0.2. For information
-  about Suricata, see the [Suricata website](https://suricata-ids.org/).  You can use Network Firewall to monitor and protect your VPC traffic in a number
+  engine. Network Firewall supports Suricata version 5.0.2. For information about
+  Suricata, see the [Suricata website](https://suricata-ids.org/).  You can use Network Firewall to monitor and protect your VPC traffic in a number
   of ways. The following are just a few examples:
 
-    * Allow domains or IP addresses for known AWS service endpoints,
-  such as Amazon S3, and block all other forms of traffic.
+    * Allow domains or IP addresses for known Amazon Web Services
+  service endpoints, such as Amazon S3, and block all other forms of traffic.
 
     * Use custom lists of known bad domains to limit the types of domain
   names that your applications can access.
@@ -109,7 +110,7 @@ defmodule AWS.NetworkFirewall do
   You can specify one subnet for each of the Availability Zones that the VPC
   spans.
 
-  This request creates an AWS Network Firewall firewall endpoint in each of the
+  This request creates an Network Firewall firewall endpoint in each of the
   subnets. To enable the firewall's protections, you must also modify the VPC's
   route tables for each subnet's Availability Zone, to redirect the traffic that's
   coming into and going out of the zone through the firewall endpoint.
@@ -119,13 +120,13 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
-  Creates an AWS Network Firewall `Firewall` and accompanying `FirewallStatus` for
-  a VPC.
+  Creates an Network Firewall `Firewall` and accompanying `FirewallStatus` for a
+  VPC.
 
-  The firewall defines the configuration settings for an AWS Network Firewall
+  The firewall defines the configuration settings for an Network Firewall
   firewall. The settings that you can define at creation include the firewall
   policy, the subnets in your VPC to use for the firewall endpoints, and any tags
-  that are attached to the firewall AWS resource.
+  that are attached to the firewall Amazon Web Services resource.
 
   After you create a firewall, you can provide additional settings, like the
   logging configuration.
@@ -134,8 +135,8 @@ defmodule AWS.NetworkFirewall do
   settings themselves, for example `UpdateLoggingConfiguration`,
   `AssociateSubnets`, and `UpdateFirewallDeleteProtection`.
 
-  To manage a firewall's tags, use the standard AWS resource tagging operations,
-  `ListTagsForResource`, `TagResource`, and `UntagResource`.
+  To manage a firewall's tags, use the standard Amazon Web Services resource
+  tagging operations, `ListTagsForResource`, `TagResource`, and `UntagResource`.
 
   To retrieve information about firewalls, use `ListFirewalls` and
   `DescribeFirewall`.
@@ -147,7 +148,7 @@ defmodule AWS.NetworkFirewall do
   @doc """
   Creates the firewall policy for the firewall according to the specifications.
 
-  An AWS Network Firewall firewall policy defines the behavior of a firewall, in a
+  An Network Firewall firewall policy defines the behavior of a firewall, in a
   collection of stateless and stateful rule groups and other settings. You can use
   one firewall policy for multiple firewalls.
   """
@@ -304,22 +305,21 @@ defmodule AWS.NetworkFirewall do
   Tags are key:value pairs that you can use to categorize and manage your
   resources, for purposes like billing. For example, you might set the tag key to
   "customer" and the value to the customer name or ID. You can specify one or more
-  tags to add to each AWS resource, up to 50 tags for a resource.
+  tags to add to each Amazon Web Services resource, up to 50 tags for a resource.
 
-  You can tag the AWS resources that you manage through AWS Network Firewall:
-  firewalls, firewall policies, and rule groups.
+  You can tag the Amazon Web Services resources that you manage through Network
+  Firewall: firewalls, firewall policies, and rule groups.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
-  Creates or updates an AWS Identity and Access Management policy for your rule
-  group or firewall policy.
+  Creates or updates an IAM policy for your rule group or firewall policy.
 
   Use this to share rule groups and firewall policies between accounts. This
-  operation works in conjunction with the AWS Resource Access Manager (RAM)
-  service to manage resource sharing for Network Firewall.
+  operation works in conjunction with the Amazon Web Services Resource Access
+  Manager (RAM) service to manage resource sharing for Network Firewall.
 
   Use this operation to create or update a resource policy for your rule group or
   firewall policy. In the policy, you specify the accounts that you want to share
@@ -337,7 +337,7 @@ defmodule AWS.NetworkFirewall do
   [AcceptResourceShareInvitation](https://docs.aws.amazon.com/ram/latest/APIReference/API_AcceptResourceShareInvitation.html)
   - Accepts the share invitation for a specified resource share.
 
-  For additional information about resource sharing using RAM, see [AWS Resource Access Manager User
+  For additional information about resource sharing using RAM, see [Resource Access Manager User
   Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html).
   """
   def put_resource_policy(%Client{} = client, input, options \\ []) do
@@ -350,10 +350,10 @@ defmodule AWS.NetworkFirewall do
   Tags are key:value pairs that you can use to categorize and manage your
   resources, for purposes like billing. For example, you might set the tag key to
   "customer" and the value to the customer name or ID. You can specify one or more
-  tags to add to each AWS resource, up to 50 tags for a resource.
+  tags to add to each Amazon Web Services resource, up to 50 tags for a resource.
 
-  You can tag the AWS resources that you manage through AWS Network Firewall:
-  firewalls, firewall policies, and rule groups.
+  You can tag the Amazon Web Services resources that you manage through Network
+  Firewall: firewalls, firewall policies, and rule groups.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TagResource", input, options)
@@ -365,10 +365,10 @@ defmodule AWS.NetworkFirewall do
   Tags are key:value pairs that you can use to categorize and manage your
   resources, for purposes like billing. For example, you might set the tag key to
   "customer" and the value to the customer name or ID. You can specify one or more
-  tags to add to each AWS resource, up to 50 tags for a resource.
+  tags to add to each Amazon Web Services resource, up to 50 tags for a resource.
 
-  You can manage tags for the AWS resources that you manage through AWS Network
-  Firewall: firewalls, firewall policies, and rule groups.
+  You can manage tags for the Amazon Web Services resources that you manage
+  through Network Firewall: firewalls, firewall policies, and rule groups.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagResource", input, options)
@@ -393,6 +393,19 @@ defmodule AWS.NetworkFirewall do
   """
   def update_firewall_description(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateFirewallDescription", input, options)
+  end
+
+  @doc """
+  A complex type that contains settings for encryption of your firewall resources.
+  """
+  def update_firewall_encryption_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "UpdateFirewallEncryptionConfiguration",
+      input,
+      options
+    )
   end
 
   @doc """

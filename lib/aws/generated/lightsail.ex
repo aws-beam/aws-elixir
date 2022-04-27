@@ -4,7 +4,8 @@
 defmodule AWS.Lightsail do
   @moduledoc """
   Amazon Lightsail is the easiest way to get started with Amazon Web Services
-  (AWS) for developers who need to build websites or web applications.
+  (Amazon Web Services) for developers who need to build websites or web
+  applications.
 
   It includes everything you need to launch your project quickly - instances
   (virtual private servers), container services, storage buckets, managed
@@ -18,9 +19,9 @@ defmodule AWS.Lightsail do
 
   This API Reference provides detailed information about the actions, data types,
   parameters, and errors of the Lightsail service. For more information about the
-  supported AWS Regions, endpoints, and service quotas of the Lightsail service,
-  see [Amazon Lightsail Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/lightsail.html) in the
-  *AWS General Reference*.
+  supported Amazon Web Services Regions, endpoints, and service quotas of the
+  Lightsail service, see [Amazon Lightsail Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/lightsail.html) in the
+  *Amazon Web Services General Reference*.
   """
 
   alias AWS.Client
@@ -59,10 +60,11 @@ defmodule AWS.Lightsail do
   Use the `CreateCertificate` action to create a certificate that you can attach
   to your distribution.
 
-  Only certificates created in the `us-east-1` AWS Region can be attached to
-  Lightsail distributions. Lightsail distributions are global resources that can
-  reference an origin in any AWS Region, and distribute its content globally.
-  However, all distributions are located in the `us-east-1` Region.
+  Only certificates created in the `us-east-1` Amazon Web Services Region can be
+  attached to Lightsail distributions. Lightsail distributions are global
+  resources that can reference an origin in any Amazon Web Services Region, and
+  distribute its content globally. However, all distributions are located in the
+  `us-east-1` Region.
   """
   def attach_certificate_to_distribution(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AttachCertificateToDistribution", input, options)
@@ -136,7 +138,8 @@ defmodule AWS.Lightsail do
   copies an automatic snapshot of an instance or disk as a manual snapshot.
 
   This operation can also be used to copy a manual or automatic snapshot of an
-  instance or a disk from one AWS Region to another in Amazon Lightsail.
+  instance or a disk from one Amazon Web Services Region to another in Amazon
+  Lightsail.
 
   When copying a *manual snapshot*, be sure to define the `source region`, `source
   snapshot name`, and `target snapshot name` parameters.
@@ -191,10 +194,11 @@ defmodule AWS.Lightsail do
   `UpdateContainerService` action to use the certificate and its domains with your
   container service.
 
-  Only certificates created in the `us-east-1` AWS Region can be attached to
-  Lightsail distributions. Lightsail distributions are global resources that can
-  reference an origin in any AWS Region, and distribute its content globally.
-  However, all distributions are located in the `us-east-1` Region.
+  Only certificates created in the `us-east-1` Amazon Web Services Region can be
+  attached to Lightsail distributions. Lightsail distributions are global
+  resources that can reference an origin in any Amazon Web Services Region, and
+  distribute its content globally. However, all distributions are located in the
+  `us-east-1` Region.
   """
   def create_certificate(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateCertificate", input, options)
@@ -221,9 +225,10 @@ defmodule AWS.Lightsail do
 
   A contact method is used to send you notifications about your Amazon Lightsail
   resources. You can add one email address and one mobile phone number contact
-  method in each AWS Region. However, SMS text messaging is not supported in some
-  AWS Regions, and SMS text messages cannot be sent to some countries/regions. For
-  more information, see [Notifications in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
+  method in each Amazon Web Services Region. However, SMS text messaging is not
+  supported in some Amazon Web Services Regions, and SMS text messages cannot be
+  sent to some countries/regions. For more information, see [Notifications in Amazon
+  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
   """
   def create_contact_method(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateContactMethod", input, options)
@@ -538,7 +543,7 @@ defmodule AWS.Lightsail do
   Deletes a Amazon Lightsail bucket.
 
   When you delete your bucket, the bucket name is released and can be reused for a
-  new bucket in your account or another AWS account.
+  new bucket in your account or another Amazon Web Services account.
   """
   def delete_bucket(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteBucket", input, options)
@@ -575,9 +580,10 @@ defmodule AWS.Lightsail do
 
   A contact method is used to send you notifications about your Amazon Lightsail
   resources. You can add one email address and one mobile phone number contact
-  method in each AWS Region. However, SMS text messaging is not supported in some
-  AWS Regions, and SMS text messages cannot be sent to some countries/regions. For
-  more information, see [Notifications in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
+  method in each Amazon Web Services Region. However, SMS text messaging is not
+  supported in some Amazon Web Services Regions, and SMS text messages cannot be
+  sent to some countries/regions. For more information, see [Notifications in Amazon
+  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
   """
   def delete_contact_method(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteContactMethod", input, options)
@@ -1003,9 +1009,10 @@ defmodule AWS.Lightsail do
 
   A contact method is used to send you notifications about your Amazon Lightsail
   resources. You can add one email address and one mobile phone number contact
-  method in each AWS Region. However, SMS text messaging is not supported in some
-  AWS Regions, and SMS text messages cannot be sent to some countries/regions. For
-  more information, see [Notifications in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
+  method in each Amazon Web Services Region. However, SMS text messaging is not
+  supported in some Amazon Web Services Regions, and SMS text messages cannot be
+  sent to some countries/regions. For more information, see [Notifications in Amazon
+  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
   """
   def get_contact_methods(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetContactMethods", input, options)
@@ -1307,6 +1314,18 @@ defmodule AWS.Lightsail do
   """
   def get_load_balancer_tls_certificates(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetLoadBalancerTlsCertificates", input, options)
+  end
+
+  @doc """
+  Returns a list of TLS security policies that you can apply to Lightsail load
+  balancers.
+
+  For more information about load balancer TLS security policies, see [Load balancer TLS security
+  policies](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy)
+  in the *Amazon Lightsail Developer Guide*.
+  """
+  def get_load_balancer_tls_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLoadBalancerTlsPolicies", input, options)
   end
 
   @doc """
@@ -1618,9 +1637,10 @@ defmodule AWS.Lightsail do
 
   A contact method is used to send you notifications about your Amazon Lightsail
   resources. You can add one email address and one mobile phone number contact
-  method in each AWS Region. However, SMS text messaging is not supported in some
-  AWS Regions, and SMS text messages cannot be sent to some countries/regions. For
-  more information, see [Notifications in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
+  method in each Amazon Web Services Region. However, SMS text messaging is not
+  supported in some Amazon Web Services Regions, and SMS text messages cannot be
+  sent to some countries/regions. For more information, see [Notifications in Amazon
+  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
 
   A verification request is sent to the contact method when you initially create
   it. Use this action to send another verification request if a previous
@@ -1649,7 +1669,7 @@ defmodule AWS.Lightsail do
   bucket.
 
   Lightsail buckets currently support setting access for Lightsail instances in
-  the same AWS Region.
+  the same Amazon Web Services Region.
   """
   def set_resource_access_for_bucket(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SetResourceAccessForBucket", input, options)
@@ -1767,8 +1787,8 @@ defmodule AWS.Lightsail do
   Updates an existing Amazon Lightsail bucket.
 
   Use this action to update the configuration of an existing bucket, such as
-  versioning, public accessibility, and the AWS accounts that can access the
-  bucket.
+  versioning, public accessibility, and the Amazon Web Services accounts that can
+  access the bucket.
   """
   def update_bucket(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateBucket", input, options)

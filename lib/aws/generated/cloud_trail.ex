@@ -49,14 +49,15 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
-  Adds one or more tags to a trail, up to a limit of 50.
+  Adds one or more tags to a trail or event data store, up to a limit of 50.
 
   Overwrites an existing tag's value when a new value is specified for an existing
   tag key. Tag key names must be unique for a trail; you cannot have two keys with
   the same name but different values. If you specify a key without a value, the
   tag will be created with the specified key and a value of null. You can tag a
-  trail that applies to all Amazon Web Services Regions only from the Region in
-  which the trail was created (also known as its home region).
+  trail or event data store that applies to all Amazon Web Services Regions only
+  from the Region in which the trail or event data store was created (also known
+  as its home region).
   """
   def add_tags(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AddTags", input, options)
@@ -251,7 +252,7 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
-  Lists the tags for the trail in the current region.
+  Lists the tags for the trail or event data store in the current region.
   """
   def list_tags(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTags", input, options)
@@ -372,7 +373,7 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
-  Removes the specified tags from a trail.
+  Removes the specified tags from a trail or event data store.
   """
   def remove_tags(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RemoveTags", input, options)

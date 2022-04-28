@@ -3,7 +3,131 @@
 
 defmodule AWS.Rekognition do
   @moduledoc """
-  This is the Amazon Rekognition API reference.
+  This is the API Reference for [Amazon Rekognition Image](https://docs.aws.amazon.com/rekognition/latest/dg/images.html), [Amazon Rekognition Custom
+  Labels](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/what-is.html),
+  [Amazon Rekognition Stored Video](https://docs.aws.amazon.com/rekognition/latest/dg/video.html), [Amazon Rekognition Streaming
+  Video](https://docs.aws.amazon.com/rekognition/latest/dg/streaming-video.html).
+
+  It provides descriptions of actions, data types, common parameters, and common
+  errors.
+
+  ## Amazon Rekognition Image
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+  ## Amazon Rekognition Custom Labels
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+  ## Amazon Rekognition Video Stored Video
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+  ## Amazon Rekognition Video Streaming Video
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
+
+    *
   """
 
   alias AWS.Client
@@ -203,22 +327,33 @@ defmodule AWS.Rekognition do
 
   @doc """
   Creates an Amazon Rekognition stream processor that you can use to detect and
-  recognize faces in a streaming video.
+  recognize faces or to detect labels in a streaming video.
 
   Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video
-  Streams. Amazon Rekognition Video sends analysis results to Amazon Kinesis Data
-  Streams.
+  Streams. There are two different settings for stream processors in Amazon
+  Rekognition: detecting faces and detecting labels.
 
-  You provide as input a Kinesis video stream (`Input`) and a Kinesis data stream
+    * If you are creating a stream processor for detecting faces, you
+  provide as input a Kinesis video stream (`Input`) and a Kinesis data stream
   (`Output`) stream. You also specify the face recognition criteria in `Settings`.
-  For example, the collection containing faces that you want to recognize. Use
-  `Name` to assign an identifier for the stream processor. You use `Name` to
+  For example, the collection containing faces that you want to recognize. After
+  you have finished analyzing a streaming video, use `StopStreamProcessor` to stop
+  processing.
+
+    * If you are creating a stream processor to detect labels, you
+  provide as input a Kinesis video stream (`Input`), Amazon S3 bucket information
+  (`Output`), and an Amazon SNS topic ARN (`NotificationChannel`). You can also
+  provide a KMS key ID to encrypt the data sent to your Amazon S3 bucket. You
+  specify what you want to detect in `ConnectedHomeSettings`, such as people,
+  packages and people, or pets, people, and packages. You can also specify where
+  in the frame you want Amazon Rekognition to monitor with `RegionsOfInterest`.
+  When you run the `StartStreamProcessor` operation on a label detection stream
+  processor, you input start and stop information to determine the length of the
+  processing time.
+
+  Use `Name` to assign an identifier for the stream processor. You use `Name` to
   manage the stream processor. For example, you can start processing the source
   video by calling `StartStreamProcessor` with the `Name` field.
-
-  After you have finished analyzing a streaming video, use `StopStreamProcessor`
-  to stop processing. You can delete the stream processor by calling
-  `DeleteStreamProcessor`.
 
   This operation requires permissions to perform the
   `rekognition:CreateStreamProcessor` action. If you want to tag your stream
@@ -233,7 +368,7 @@ defmodule AWS.Rekognition do
   Deletes the specified collection.
 
   Note that this operation removes all faces in the collection. For an example,
-  see `delete-collection-procedure`.
+  see [Deleting a collection](https://docs.aws.amazon.com/rekognition/latest/dg/delete-collection-procedure.html).
 
   This operation requires permissions to perform the
   `rekognition:DeleteCollection` action.
@@ -464,7 +599,7 @@ defmodule AWS.Rekognition do
   graduation, and birthday party; and concepts like landscape, evening, and
   nature.
 
-  For an example, see Analyzing Images Stored in an Amazon S3 Bucket in the Amazon
+  For an example, see Analyzing images stored in an Amazon S3 bucket in the Amazon
   Rekognition Developer Guide.
 
   `DetectLabels` does not support the detection of activities. However, activity
@@ -632,7 +767,8 @@ defmodule AWS.Rekognition do
   To be detected, text must be within +/- 90 degrees orientation of the horizontal
   axis.
 
-  For more information, see DetectText in the Amazon Rekognition Developer Guide.
+  For more information, see Detecting text in the Amazon Rekognition Developer
+  Guide.
   """
   def detect_text(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DetectText", input, options)
@@ -670,7 +806,7 @@ defmodule AWS.Rekognition do
   The additional information is returned as an array of URLs. If there is no
   additional information about the celebrity, this list is empty.
 
-  For more information, see Recognizing Celebrities in an Image in the Amazon
+  For more information, see Getting information about a celebrity in the Amazon
   Rekognition Developer Guide.
 
   This operation requires permissions to perform the
@@ -772,7 +908,7 @@ defmodule AWS.Rekognition do
   parameter with the value of `NextToken` returned from the previous call to
   `GetContentModeration`.
 
-  For more information, see Content moderation in the Amazon Rekognition Developer
+  For more information, see moderating content in the Amazon Rekognition Developer
   Guide.
   """
   def get_content_moderation(%Client{} = client, input, options \\ []) do
@@ -952,7 +1088,7 @@ defmodule AWS.Rekognition do
   `GetSegmentDetection` and populate the `NextToken` request parameter with the
   token value returned from the previous call to `GetSegmentDetection`.
 
-  For more information, see Detecting Video Segments in Stored Video in the Amazon
+  For more information, see Detecting video segments in stored video in the Amazon
   Rekognition Developer Guide.
   """
   def get_segment_detection(%Client{} = client, input, options \\ []) do
@@ -1002,7 +1138,7 @@ defmodule AWS.Rekognition do
   it performs face match and search operations using the `SearchFaces` and
   `SearchFacesByImage` operations.
 
-  For more information, see Adding Faces to a Collection in the Amazon Rekognition
+  For more information, see Adding faces to a collection in the Amazon Rekognition
   Developer Guide.
 
   To get the number of faces in a collection, call `DescribeCollection`.
@@ -1078,9 +1214,9 @@ defmodule AWS.Rekognition do
   If you request all facial attributes (by using the `detectionAttributes`
   parameter), Amazon Rekognition returns detailed facial attributes, such as
   facial landmarks (for example, location of eye and mouth) and other facial
-  attributes. If you provide the same image, specify the same collection, use the
-  same external ID, and use the same model version in the `IndexFaces` operation,
-  Amazon Rekognition doesn't save duplicate face metadata.
+  attributes. If you provide the same image, specify the same collection, and use
+  the same external ID in the `IndexFaces` operation, Amazon Rekognition doesn't
+  save duplicate face metadata.
 
   The input image is passed either as base64-encoded image bytes, or as a
   reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call
@@ -1100,7 +1236,7 @@ defmodule AWS.Rekognition do
   If the result is truncated, the response also provides a `NextToken` that you
   can use in the subsequent request to fetch the next set of collection IDs.
 
-  For an example, see Listing Collections in the Amazon Rekognition Developer
+  For an example, see Listing collections in the Amazon Rekognition Developer
   Guide.
 
   This operation requires permissions to perform the `rekognition:ListCollections`
@@ -1183,7 +1319,7 @@ defmodule AWS.Rekognition do
   @doc """
   Returns an array of celebrities recognized in the input image.
 
-  For more information, see Recognizing Celebrities in the Amazon Rekognition
+  For more information, see Recognizing celebrities in the Amazon Rekognition
   Developer Guide.
 
   `RecognizeCelebrities` returns the 64 largest faces in the image. It lists the
@@ -1208,7 +1344,7 @@ defmodule AWS.Rekognition do
   Rekognition operations, passing image bytes is not supported. The image must be
   either a PNG or JPEG formatted file.
 
-  For an example, see Recognizing Celebrities in an Image in the Amazon
+  For an example, see Recognizing celebrities in an image in the Amazon
   Rekognition Developer Guide.
 
   This operation requires permissions to perform the
@@ -1235,7 +1371,7 @@ defmodule AWS.Rekognition do
   the response also includes a `confidence` value for each face match, indicating
   the confidence that the specific face matches the input face.
 
-  For an example, see Searching for a Face Using Its Face ID in the Amazon
+  For an example, see Searching for a face using its face ID in the Amazon
   Rekognition Developer Guide.
 
   This operation requires permissions to perform the `rekognition:SearchFaces`
@@ -1310,7 +1446,7 @@ defmodule AWS.Rekognition do
   `GetCelebrityRecognition` and pass the job identifier (`JobId`) from the initial
   call to `StartCelebrityRecognition`.
 
-  For more information, see Recognizing Celebrities in the Amazon Rekognition
+  For more information, see Recognizing celebrities in the Amazon Rekognition
   Developer Guide.
   """
   def start_celebrity_recognition(%Client{} = client, input, options \\ []) do
@@ -1336,7 +1472,7 @@ defmodule AWS.Rekognition do
   `GetContentModeration` and pass the job identifier (`JobId`) from the initial
   call to `StartContentModeration`.
 
-  For more information, see Content moderation in the Amazon Rekognition Developer
+  For more information, see Moderating content in the Amazon Rekognition Developer
   Guide.
   """
   def start_content_moderation(%Client{} = client, input, options \\ []) do
@@ -1356,7 +1492,7 @@ defmodule AWS.Rekognition do
   SNS topic is `SUCCEEDED`. If so, call `GetFaceDetection` and pass the job
   identifier (`JobId`) from the initial call to `StartFaceDetection`.
 
-  For more information, see Detecting Faces in a Stored Video in the Amazon
+  For more information, see Detecting faces in a stored video in the Amazon
   Rekognition Developer Guide.
   """
   def start_face_detection(%Client{} = client, input, options \\ []) do
@@ -1375,7 +1511,7 @@ defmodule AWS.Rekognition do
   specify in `NotificationChannel`. To get the search results, first check that
   the status value published to the Amazon SNS topic is `SUCCEEDED`. If so, call
   `GetFaceSearch` and pass the job identifier (`JobId`) from the initial call to
-  `StartFaceSearch`. For more information, see `procedure-person-search-videos`.
+  `StartFaceSearch`. For more information, see [Searching stored videos for faces](https://docs.aws.amazon.com/rekognition/latest/dg/procedure-person-search-videos.html).
   """
   def start_face_search(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartFaceSearch", input, options)
@@ -1465,7 +1601,7 @@ defmodule AWS.Rekognition do
   `GetSegmentDetection` and pass the job identifier (`JobId`) from the initial
   call to `StartSegmentDetection`.
 
-  For more information, see Detecting Video Segments in Stored Video in the Amazon
+  For more information, see Detecting video segments in stored video in the Amazon
   Rekognition Developer Guide.
   """
   def start_segment_detection(%Client{} = client, input, options \\ []) do
@@ -1478,6 +1614,10 @@ defmodule AWS.Rekognition do
   You create a stream processor by calling `CreateStreamProcessor`. To tell
   `StartStreamProcessor` which stream processor to start, use the value of the
   `Name` field specified in the call to `CreateStreamProcessor`.
+
+  If you are using a label detection stream processor to detect labels, you need
+  to provide a `Start selector` and a `Stop selector` to determine the length of
+  the stream processing time.
   """
   def start_stream_processor(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartStreamProcessor", input, options)
@@ -1576,5 +1716,15 @@ defmodule AWS.Rekognition do
   """
   def update_dataset_entries(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateDatasetEntries", input, options)
+  end
+
+  @doc """
+  Allows you to update a stream processor.
+
+  You can change some settings and regions of interest and delete certain
+  parameters.
+  """
+  def update_stream_processor(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateStreamProcessor", input, options)
   end
 end

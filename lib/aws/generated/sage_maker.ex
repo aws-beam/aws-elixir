@@ -3,11 +3,11 @@
 
 defmodule AWS.SageMaker do
   @moduledoc """
-  Provides APIs for creating and managing Amazon SageMaker resources.
+  Provides APIs for creating and managing SageMaker resources.
 
   Other Resources:
 
-    * [Amazon SageMaker Developer Guide](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html#first-time-user)
+    * [SageMaker Developer Guide](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html#first-time-user)
 
     * [Amazon Augmented AI Runtime API Reference](https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html)
   """
@@ -43,7 +43,7 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Adds or overwrites one or more tags for the specified Amazon SageMaker resource.
+  Adds or overwrites one or more tags for the specified SageMaker resource.
 
   You can add tags to notebook instances, training jobs, hyperparameter tuning
   jobs, batch transform jobs, models, labeling jobs, work teams, endpoint
@@ -105,8 +105,8 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Create a machine learning algorithm that you can use in Amazon SageMaker and
-  list in the Amazon Web Services Marketplace.
+  Create a machine learning algorithm that you can use in SageMaker and list in
+  the Amazon Web Services Marketplace.
   """
   def create_algorithm(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateAlgorithm", input, options)
@@ -158,13 +158,13 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Creates a Git repository as a resource in your Amazon SageMaker account.
+  Creates a Git repository as a resource in your SageMaker account.
 
   You can associate the repository with notebook instances so that you can use Git
   source control for the notebooks you create. The Git repository is a resource in
-  your Amazon SageMaker account, so it can be associated with more than one
-  notebook instance, and it persists independently from the lifecycle of any
-  notebook instances it is associated with.
+  your SageMaker account, so it can be associated with more than one notebook
+  instance, and it persists independently from the lifecycle of any notebook
+  instances it is associated with.
 
   The repository can be hosted either in [Amazon Web Services CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html)
   or in any other Git repository.
@@ -299,12 +299,12 @@ defmodule AWS.SageMaker do
   @doc """
   Creates an endpoint using the endpoint configuration specified in the request.
 
-  Amazon SageMaker uses the endpoint to provision resources and deploy models. You
-  create the endpoint configuration with the `CreateEndpointConfig` API.
+  SageMaker uses the endpoint to provision resources and deploy models. You create
+  the endpoint configuration with the `CreateEndpointConfig` API.
 
-  Use this API to deploy models using Amazon SageMaker hosting services.
+  Use this API to deploy models using SageMaker hosting services.
 
-  For an example that calls this method when deploying a model to Amazon SageMaker
+  For an example that calls this method when deploying a model to SageMaker
   hosting services, see the [Create Endpoint example notebook.](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-fundamentals/create-endpoint/create_endpoint.ipynb)
 
   You must not delete an `EndpointConfig` that is in use by an endpoint that is
@@ -315,8 +315,8 @@ defmodule AWS.SageMaker do
   The endpoint name must be unique within an Amazon Web Services Region in your
   Amazon Web Services account.
 
-  When it receives the request, Amazon SageMaker creates the endpoint, launches
-  the resources (ML compute instances), and deploys the model(s) on them.
+  When it receives the request, SageMaker creates the endpoint, launches the
+  resources (ML compute instances), and deploys the model(s) on them.
 
   When you call `CreateEndpoint`, a load call is made to DynamoDB to verify that
   your endpoint configuration exists. When you read data from a DynamoDB table
@@ -330,15 +330,15 @@ defmodule AWS.SageMaker do
   customers call `DescribeEndpointConfig` before calling `CreateEndpoint` to
   minimize the potential impact of a DynamoDB eventually consistent read.
 
-  When Amazon SageMaker receives the request, it sets the endpoint status to
-  `Creating`. After it creates the endpoint, it sets the status to `InService`.
-  Amazon SageMaker can then process incoming requests for inferences. To check the
-  status of an endpoint, use the `DescribeEndpoint` API.
+  When SageMaker receives the request, it sets the endpoint status to `Creating`.
+  After it creates the endpoint, it sets the status to `InService`. SageMaker can
+  then process incoming requests for inferences. To check the status of an
+  endpoint, use the `DescribeEndpoint` API.
 
   If any of the models hosted at this endpoint get model data from an Amazon S3
-  location, Amazon SageMaker uses Amazon Web Services Security Token Service to
-  download model artifacts from the S3 path you provided. Amazon Web Services STS
-  is activated in your IAM user account by default. If you previously deactivated
+  location, SageMaker uses Amazon Web Services Security Token Service to download
+  model artifacts from the S3 path you provided. Amazon Web Services STS is
+  activated in your IAM user account by default. If you previously deactivated
   Amazon Web Services STS for a region, you need to reactivate Amazon Web Services
   STS for that region. For more information, see [Activating and Deactivating Amazon Web Services STS in an Amazon Web Services
   Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
@@ -371,26 +371,26 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Creates an endpoint configuration that Amazon SageMaker hosting services uses to
-  deploy models.
+  Creates an endpoint configuration that SageMaker hosting services uses to deploy
+  models.
 
   In the configuration, you identify one or more models, created using the
-  `CreateModel` API, to deploy and the resources that you want Amazon SageMaker to
+  `CreateModel` API, to deploy and the resources that you want SageMaker to
   provision. Then you call the `CreateEndpoint` API.
 
-  Use this API if you want to use Amazon SageMaker hosting services to deploy
-  models into production.
+  Use this API if you want to use SageMaker hosting services to deploy models into
+  production.
 
   In the request, you define a `ProductionVariant`, for each model that you want
   to deploy. Each `ProductionVariant` parameter also describes the resources that
-  you want Amazon SageMaker to provision. This includes the number and type of ML
-  compute instances to deploy.
+  you want SageMaker to provision. This includes the number and type of ML compute
+  instances to deploy.
 
   If you are hosting multiple models, you also assign a `VariantWeight` to specify
   how much traffic you want to allocate to each model. For example, suppose that
   you want to host two models, A and B, and you assign traffic weight 2 for model
-  A and 1 for model B. Amazon SageMaker distributes two-thirds of the traffic to
-  Model A, and one-third to model B.
+  A and 1 for model B. SageMaker distributes two-thirds of the traffic to Model A,
+  and one-third to model B.
 
   When you call `CreateEndpoint`, a load call is made to DynamoDB to verify that
   your endpoint configuration exists. When you read data from a DynamoDB table
@@ -494,8 +494,8 @@ defmodule AWS.SageMaker do
   Creates a custom SageMaker image.
 
   A SageMaker image is a set of image versions. Each image version represents a
-  container image stored in Amazon Container Registry (ECR). For more information,
-  see [Bring your own SageMaker image](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html).
+  container image stored in Amazon Elastic Container Registry (ECR). For more
+  information, see [Bring your own SageMaker image](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html).
   """
   def create_image(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateImage", input, options)
@@ -504,8 +504,8 @@ defmodule AWS.SageMaker do
   @doc """
   Creates a version of the SageMaker image specified by `ImageName`.
 
-  The version represents the Amazon Container Registry (ECR) container image
-  specified by `BaseImage`.
+  The version represents the Amazon Elastic Container Registry (ECR) container
+  image specified by `BaseImage`.
   """
   def create_image_version(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateImageVersion", input, options)
@@ -566,38 +566,35 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Creates a model in Amazon SageMaker.
+  Creates a model in SageMaker.
 
   In the request, you name the model and describe a primary container. For the
   primary container, you specify the Docker image that contains inference code,
   artifacts (from prior training), and a custom environment map that the inference
   code uses when you deploy the model for predictions.
 
-  Use this API to create a model if you want to use Amazon SageMaker hosting
-  services or run a batch transform job.
+  Use this API to create a model if you want to use SageMaker hosting services or
+  run a batch transform job.
 
   To host your model, you create an endpoint configuration with the
   `CreateEndpointConfig` API, and then create an endpoint with the
-  `CreateEndpoint` API. Amazon SageMaker then deploys all of the containers that
-  you defined for the model in the hosting environment.
+  `CreateEndpoint` API. SageMaker then deploys all of the containers that you
+  defined for the model in the hosting environment.
 
-  For an example that calls this method when deploying a model to Amazon SageMaker
+  For an example that calls this method when deploying a model to SageMaker
   hosting services, see [Deploy the Model to Amazon SageMaker Hosting Services (Amazon Web Services SDK for Python (Boto
   3)).](https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html#ex1-deploy-model-boto)
 
   To run a batch transform using your model, you start a job with the
-  `CreateTransformJob` API. Amazon SageMaker uses your model and your dataset to
-  get inferences which are then saved to a specified S3 location.
+  `CreateTransformJob` API. SageMaker uses your model and your dataset to get
+  inferences which are then saved to a specified S3 location.
 
-  In the `CreateModel` request, you must define a container with the
-  `PrimaryContainer` parameter.
-
-  In the request, you also provide an IAM role that Amazon SageMaker can assume to
-  access model artifacts and docker image for deployment on ML compute hosting
-  instances or for batch transform jobs. In addition, you also use the IAM role to
-  manage permissions the inference code needs. For example, if the inference code
-  access any other Amazon Web Services resources, you grant necessary permissions
-  via this role.
+  In the request, you also provide an IAM role that SageMaker can assume to access
+  model artifacts and docker image for deployment on ML compute hosting instances
+  or for batch transform jobs. In addition, you also use the IAM role to manage
+  permissions the inference code needs. For example, if the inference code access
+  any other Amazon Web Services resources, you grant necessary permissions via
+  this role.
   """
   def create_model(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateModel", input, options)
@@ -624,12 +621,12 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Creates a model package that you can use to create Amazon SageMaker models or
-  list on Amazon Web Services Marketplace, or a versioned model that is part of a
-  model group.
+  Creates a model package that you can use to create SageMaker models or list on
+  Amazon Web Services Marketplace, or a versioned model that is part of a model
+  group.
 
   Buyers can subscribe to model packages listed on Amazon Web Services Marketplace
-  to create models in Amazon SageMaker.
+  to create models in SageMaker.
 
   To create a model package by specifying a Docker container that contains your
   inference code and the Amazon S3 location of your model artifacts, provide
@@ -675,44 +672,43 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Creates an Amazon SageMaker notebook instance.
+  Creates an SageMaker notebook instance.
 
   A notebook instance is a machine learning (ML) compute instance running on a
   Jupyter notebook.
 
   In a `CreateNotebookInstance` request, specify the type of ML compute instance
-  that you want to run. Amazon SageMaker launches the instance, installs common
-  libraries that you can use to explore datasets for model training, and attaches
-  an ML storage volume to the notebook instance.
+  that you want to run. SageMaker launches the instance, installs common libraries
+  that you can use to explore datasets for model training, and attaches an ML
+  storage volume to the notebook instance.
 
-  Amazon SageMaker also provides a set of example notebooks. Each notebook
-  demonstrates how to use Amazon SageMaker with a specific algorithm or with a
-  machine learning framework.
+  SageMaker also provides a set of example notebooks. Each notebook demonstrates
+  how to use SageMaker with a specific algorithm or with a machine learning
+  framework.
 
-  After receiving the request, Amazon SageMaker does the following:
+  After receiving the request, SageMaker does the following:
 
-    1. Creates a network interface in the Amazon SageMaker VPC.
+    1. Creates a network interface in the SageMaker VPC.
 
-    2. (Option) If you specified `SubnetId`, Amazon SageMaker creates a
-  network interface in your own VPC, which is inferred from the subnet ID that you
-  provide in the input. When creating this network interface, Amazon SageMaker
-  attaches the security group that you specified in the request to the network
-  interface that it creates in your VPC.
+    2. (Option) If you specified `SubnetId`, SageMaker creates a network
+  interface in your own VPC, which is inferred from the subnet ID that you provide
+  in the input. When creating this network interface, SageMaker attaches the
+  security group that you specified in the request to the network interface that
+  it creates in your VPC.
 
     3. Launches an EC2 instance of the type specified in the request in
-  the Amazon SageMaker VPC. If you specified `SubnetId` of your VPC, Amazon
-  SageMaker specifies both network interfaces when launching this instance. This
-  enables inbound traffic from your own VPC to the notebook instance, assuming
-  that the security groups allow it.
+  the SageMaker VPC. If you specified `SubnetId` of your VPC, SageMaker specifies
+  both network interfaces when launching this instance. This enables inbound
+  traffic from your own VPC to the notebook instance, assuming that the security
+  groups allow it.
 
-  After creating the notebook instance, Amazon SageMaker returns its Amazon
-  Resource Name (ARN). You can't change the name of a notebook instance after you
-  create it.
+  After creating the notebook instance, SageMaker returns its Amazon Resource Name
+  (ARN). You can't change the name of a notebook instance after you create it.
 
-  After Amazon SageMaker creates the notebook instance, you can connect to the
-  Jupyter server and work in Jupyter notebooks. For example, you can write code to
-  explore a dataset that you can use for model training, train a model, host
-  models by creating Amazon SageMaker endpoints, and validate hosted models.
+  After SageMaker creates the notebook instance, you can connect to the Jupyter
+  server and work in Jupyter notebooks. For example, you can write code to explore
+  a dataset that you can use for model training, train a model, host models by
+  creating SageMaker endpoints, and validate hosted models.
 
   For more information, see [How It Works](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html).
   """
@@ -790,10 +786,9 @@ defmodule AWS.SageMaker do
   Returns a URL that you can use to connect to the Jupyter server from a notebook
   instance.
 
-  In the Amazon SageMaker console, when you choose `Open` next to a notebook
-  instance, Amazon SageMaker opens a new tab showing the Jupyter server home page
-  from the notebook instance. The console uses this API to get the URL and show
-  the page.
+  In the SageMaker console, when you choose `Open` next to a notebook instance,
+  SageMaker opens a new tab showing the Jupyter server home page from the notebook
+  instance. The console uses this API to get the URL and show the page.
 
   The IAM role or user used to call this API defines the permissions to access the
   notebook instance. Once the presigned URL is created, no additional permission
@@ -840,13 +835,13 @@ defmodule AWS.SageMaker do
   @doc """
   Starts a model training job.
 
-  After training completes, Amazon SageMaker saves the resulting model artifacts
-  to an Amazon S3 location that you specify.
+  After training completes, SageMaker saves the resulting model artifacts to an
+  Amazon S3 location that you specify.
 
-  If you choose to host your model using Amazon SageMaker hosting services, you
-  can use the resulting model artifacts as part of the model. You can also use the
-  artifacts in a machine learning service other than Amazon SageMaker, provided
-  that you know how to use them for inference.
+  If you choose to host your model using SageMaker hosting services, you can use
+  the resulting model artifacts as part of the model. You can also use the
+  artifacts in a machine learning service other than SageMaker, provided that you
+  know how to use them for inference.
 
   In the request body, you provide the following:
 
@@ -856,12 +851,12 @@ defmodule AWS.SageMaker do
     * `HyperParameters` - Specify these algorithm-specific parameters to
   enable the estimation of model parameters during training. Hyperparameters can
   be tuned to optimize this learning process. For a list of hyperparameters for
-  each training algorithm provided by Amazon SageMaker, see
+  each training algorithm provided by SageMaker, see
   [Algorithms](https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html).     * `InputDataConfig` - Describes the training dataset and the Amazon
   S3, EFS, or FSx location where it is stored.
 
     * `OutputDataConfig` - Identifies the Amazon S3 bucket where you
-  want Amazon SageMaker to save the results of model training.
+  want SageMaker to save the results of model training.
 
     * `ResourceConfig` - Identifies the resources, ML compute instances,
   and ML storage volumes to deploy for model training. In distributed training,
@@ -872,10 +867,10 @@ defmodule AWS.SageMaker do
   more information, see [Managed Spot
   Training](https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html).
 
-    * `RoleArn` - The Amazon Resource Name (ARN) that Amazon SageMaker
-  assumes to perform tasks on your behalf during model training. You must grant
-  this role the necessary permissions so that Amazon SageMaker can successfully
-  complete model training.
+    * `RoleArn` - The Amazon Resource Name (ARN) that SageMaker assumes
+  to perform tasks on your behalf during model training. You must grant this role
+  the necessary permissions so that SageMaker can successfully complete model
+  training.
 
     * `StoppingCondition` - To help cap training costs, use
   `MaxRuntimeInSeconds` to set a time limit for training. Use
@@ -888,7 +883,7 @@ defmodule AWS.SageMaker do
     * `RetryStrategy` - The number of times to retry the job when the
   job fails due to an `InternalServerError`.
 
-  For more information about Amazon SageMaker, see [How It Works](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html).
+  For more information about SageMaker, see [How It Works](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html).
   """
   def create_training_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateTrainingJob", input, options)
@@ -1110,13 +1105,19 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes an endpoint.
 
-  Amazon SageMaker frees up all of the resources that were deployed when the
-  endpoint was created.
+  SageMaker frees up all of the resources that were deployed when the endpoint was
+  created.
 
-  Amazon SageMaker retires any custom KMS key grants associated with the endpoint,
+  SageMaker retires any custom KMS key grants associated with the endpoint,
   meaning you don't need to use the
-  [RevokeGrant](http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html)
-  API call.
+  [RevokeGrant](http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html) API call.
+
+  When you delete your endpoint, SageMaker asynchronously deletes associated
+  endpoint resources such as KMS key grants. You might still see these resources
+  in your account for a few minutes after deleting your endpoint. Do not delete or
+  revoke the permissions for your `
+  [ExecutionRoleArn](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html#sagemaker-CreateModel-request-ExecutionRoleArn)
+  `, otherwise SageMaker cannot delete these resources.
   """
   def delete_endpoint(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteEndpoint", input, options)
@@ -1203,10 +1204,9 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes a model.
 
-  The `DeleteModel` API deletes only the model entry that was created in Amazon
-  SageMaker when you called the `CreateModel` API. It does not delete model
-  artifacts, inference code, or the IAM role that you specified when creating the
-  model.
+  The `DeleteModel` API deletes only the model entry that was created in SageMaker
+  when you called the `CreateModel` API. It does not delete model artifacts,
+  inference code, or the IAM role that you specified when creating the model.
   """
   def delete_model(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteModel", input, options)
@@ -1235,9 +1235,9 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes a model package.
 
-  A model package is used to create Amazon SageMaker models or list on Amazon Web
+  A model package is used to create SageMaker models or list on Amazon Web
   Services Marketplace. Buyers can subscribe to model packages listed on Amazon
-  Web Services Marketplace to create models in Amazon SageMaker.
+  Web Services Marketplace to create models in SageMaker.
   """
   def delete_model_package(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteModelPackage", input, options)
@@ -1275,12 +1275,12 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Deletes an Amazon SageMaker notebook instance.
+  Deletes an SageMaker notebook instance.
 
   Before you can delete a notebook instance, you must call the
   `StopNotebookInstance` API.
 
-  When you delete a notebook instance, you lose all of your data. Amazon SageMaker
+  When you delete a notebook instance, you lose all of your data. SageMaker
   removes the ML compute instance, and deletes the ML storage volume and the
   network interface associated with the notebook instance.
   """
@@ -1331,7 +1331,7 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Deletes the specified tags from an Amazon SageMaker resource.
+  Deletes the specified tags from an SageMaker resource.
 
   To list a resource's tags, use the `ListTags` API.
 
@@ -2227,8 +2227,8 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Returns a list of the Amazon SageMaker notebook instances in the requester's
-  account in an Amazon Web Services Region.
+  Returns a list of the SageMaker notebook instances in the requester's account in
+  an Amazon Web Services Region.
   """
   def list_notebook_instances(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListNotebookInstances", input, options)
@@ -2295,7 +2295,7 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Returns the tags for the specified Amazon SageMaker resource.
+  Returns the tags for the specified SageMaker resource.
   """
   def list_tags(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTags", input, options)
@@ -2499,9 +2499,9 @@ defmodule AWS.SageMaker do
   Launches an ML compute instance with the latest version of the libraries and
   attaches your ML storage volume.
 
-  After configuring the notebook instance, Amazon SageMaker sets the notebook
-  instance status to `InService`. A notebook instance's status must be `InService`
-  before you can connect to your Jupyter notebook.
+  After configuring the notebook instance, SageMaker sets the notebook instance
+  status to `InService`. A notebook instance's status must be `InService` before
+  you can connect to your Jupyter notebook.
   """
   def start_notebook_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartNotebookInstance", input, options)
@@ -2584,10 +2584,9 @@ defmodule AWS.SageMaker do
   @doc """
   Terminates the ML compute instance.
 
-  Before terminating the instance, Amazon SageMaker disconnects the ML storage
-  volume from it. Amazon SageMaker preserves the ML storage volume. Amazon
-  SageMaker stops charging you for the ML compute instance when you call
-  `StopNotebookInstance`.
+  Before terminating the instance, SageMaker disconnects the ML storage volume
+  from it. SageMaker preserves the ML storage volume. SageMaker stops charging you
+  for the ML compute instance when you call `StopNotebookInstance`.
 
   To access data on the ML storage volume for a notebook instance that has been
   terminated, call the `StartNotebookInstance` API. `StartNotebookInstance`
@@ -2641,13 +2640,13 @@ defmodule AWS.SageMaker do
   @doc """
   Stops a training job.
 
-  To stop a job, Amazon SageMaker sends the algorithm the `SIGTERM` signal, which
-  delays job termination for 120 seconds. Algorithms might use this 120-second
-  window to save the model artifacts, so the results of the training is not lost.
+  To stop a job, SageMaker sends the algorithm the `SIGTERM` signal, which delays
+  job termination for 120 seconds. Algorithms might use this 120-second window to
+  save the model artifacts, so the results of the training is not lost.
 
-  When it receives a `StopTrainingJob` request, Amazon SageMaker changes the
-  status of the job to `Stopping`. After Amazon SageMaker stops the job, it sets
-  the status to `Stopped`.
+  When it receives a `StopTrainingJob` request, SageMaker changes the status of
+  the job to `Stopping`. After SageMaker stops the job, it sets the status to
+  `Stopped`.
   """
   def stop_training_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopTrainingJob", input, options)
@@ -2726,9 +2725,9 @@ defmodule AWS.SageMaker do
   newly created endpoint, and then deletes resources provisioned for the endpoint
   using the previous `EndpointConfig` (there is no availability loss).
 
-  When Amazon SageMaker receives the request, it sets the endpoint status to
-  `Updating`. After updating the endpoint, it sets the status to `InService`. To
-  check the status of an endpoint, use the `DescribeEndpoint` API.
+  When SageMaker receives the request, it sets the endpoint status to `Updating`.
+  After updating the endpoint, it sets the status to `InService`. To check the
+  status of an endpoint, use the `DescribeEndpoint` API.
 
   You must not delete an `EndpointConfig` in use by an endpoint that is live or
   while the `UpdateEndpoint` or `CreateEndpoint` operations are being performed on
@@ -2746,9 +2745,9 @@ defmodule AWS.SageMaker do
   Updates variant weight of one or more variants associated with an existing
   endpoint, or capacity of one variant associated with an existing endpoint.
 
-  When it receives the request, Amazon SageMaker sets the endpoint status to
-  `Updating`. After updating the endpoint, it sets the status to `InService`. To
-  check the status of an endpoint, use the `DescribeEndpoint` API.
+  When it receives the request, SageMaker sets the endpoint status to `Updating`.
+  After updating the endpoint, it sets the status to `InService`. To check the
+  status of an endpoint, use the `DescribeEndpoint` API.
   """
   def update_endpoint_weights_and_capacities(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateEndpointWeightsAndCapacities", input, options)

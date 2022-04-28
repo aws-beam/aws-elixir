@@ -104,15 +104,15 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Provides information on a specific data ingestion job such as creation time,
-  dataset ARN, status, and so on.
+  dataset ARN, and status.
   """
   def describe_data_ingestion_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDataIngestionJob", input, options)
   end
 
   @doc """
-  Provides a JSON description of the data that is in each time series dataset,
-  including names, column names, and data types.
+  Provides a JSON description of the data in each time series dataset, including
+  names, column names, and data types.
   """
   def describe_dataset(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDataset", input, options)
@@ -173,6 +173,16 @@ defmodule AWS.LookoutEquipment do
   """
   def list_models(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListModels", input, options)
+  end
+
+  @doc """
+  Lists statistics about the data collected for each of the sensors that have been
+  successfully ingested in the particular dataset.
+
+  Can also be used to retreive Sensor Statistics for a previous ingestion job.
+  """
+  def list_sensor_statistics(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSensorStatistics", input, options)
   end
 
   @doc """

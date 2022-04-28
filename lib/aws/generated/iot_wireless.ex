@@ -294,6 +294,27 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
+  Creates a new network analyzer configuration.
+  """
+  def create_network_analyzer_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/network-analyzer-configurations"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a new service profile.
   """
   def create_service_profile(%Client{} = client, input, options \\ []) do
@@ -483,7 +504,33 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  The operation to delete queued messages.
+  Deletes a network analyzer configuration.
+  """
+  def delete_network_analyzer_configuration(
+        %Client{} = client,
+        configuration_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/network-analyzer-configurations/#{AWS.Util.encode_uri(configuration_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Remove queued messages from the downlink queue.
   """
   def delete_queued_messages(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/data"
@@ -844,6 +891,27 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
+  Get the event configuration by resource types.
+  """
+  def get_event_configuration_by_resource_types(%Client{} = client, options \\ []) do
+    url_path = "/event-configurations-resource-types"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Gets information about a FUOTA task.
   """
   def get_fuota_task(%Client{} = client, id, options \\ []) do
@@ -931,7 +999,7 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Get NetworkAnalyzer configuration.
+  Get network analyzer configuration.
   """
   def get_network_analyzer_configuration(%Client{} = client, configuration_name, options \\ []) do
     url_path = "/network-analyzer-configurations/#{AWS.Util.encode_uri(configuration_name)}"
@@ -1368,6 +1436,54 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
+  List event configurations where at least one event topic has been enabled.
+  """
+  def list_event_configurations(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        resource_type,
+        options \\ []
+      ) do
+    url_path = "/event-configurations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"resourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Lists the FUOTA tasks registered to your AWS account.
   """
   def list_fuota_tasks(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
@@ -1484,6 +1600,46 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
+  Lists the network analyzer configurations.
+  """
+  def list_network_analyzer_configurations(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/network-analyzer-configurations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Lists the partner accounts associated with your AWS account.
   """
   def list_partner_accounts(
@@ -1524,7 +1680,7 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  The operation to list queued messages.
+  List queued messages in the downlink queue.
   """
   def list_queued_messages(
         %Client{} = client,
@@ -2130,6 +2286,27 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
+  Update the event configuration by resource types.
+  """
+  def update_event_configuration_by_resource_types(%Client{} = client, input, options \\ []) do
+    url_path = "/event-configurations-resource-types"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Updates properties of a FUOTA task.
   """
   def update_fuota_task(%Client{} = client, id, input, options \\ []) do
@@ -2196,7 +2373,7 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Update NetworkAnalyzer configuration.
+  Update network analyzer configuration.
   """
   def update_network_analyzer_configuration(
         %Client{} = client,

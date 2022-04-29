@@ -3087,6 +3087,33 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Changes the current status of a user or agent in Amazon Connect.
+
+  If the agent is currently handling a contact, this sets the agent's next status.
+
+  For more information, see [Agent status](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html)
+  and [Set your next status](https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html)
+  in the *Amazon Connect Administrator Guide*.
+  """
+  def put_user_status(%Client{} = client, instance_id, user_id, input, options \\ []) do
+    url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/status"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Releases a phone number previously claimed to an Amazon Connect instance.
   """
   def release_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do

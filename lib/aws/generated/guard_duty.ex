@@ -561,6 +561,11 @@ defmodule AWS.GuardDuty do
   @doc """
   Disassociates GuardDuty member accounts (to the current GuardDuty administrator
   account) specified by the account IDs.
+
+  Member accounts added through
+  [Invitation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_invitations.html)
+  get deleted from the current GuardDuty administrator account after 30 days of
+  disassociation.
   """
   def disassociate_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/disassociate"

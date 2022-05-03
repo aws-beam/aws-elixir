@@ -224,7 +224,7 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Lists the instance types for the specified Outpost.
+  Gets the instance types for the specified Outpost.
   """
   def get_outpost_instance_types(
         %Client{} = client,
@@ -314,7 +314,60 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Use to create a list of every item in the catalog.
+  Lists the hardware assets in an Outpost.
+
+  If you are using Dedicated Hosts on Amazon Web Services Outposts, you can filter
+  your request by host ID to return a list of hardware assets that allocate
+  resources for Dedicated Hosts.
+  """
+  def list_assets(
+        %Client{} = client,
+        outpost_identifier,
+        host_id_filter \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/assets"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(host_id_filter) do
+        [{"HostIdFilter", host_id_filter} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists the items in the catalog.
 
   Add filters to your request to return a more specific list of results. Use
   filters to match an item class, storage option, or EC2 family.
@@ -384,7 +437,7 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Create a list of the Outpost orders for your Amazon Web Services account.
+  Lists the Outpost orders for your Amazon Web Services account.
 
   You can filter your request by Outpost to return a more specific list of
   results.
@@ -435,7 +488,7 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Create a list of the Outposts for your Amazon Web Services account.
+  Lists the Outposts for your Amazon Web Services account.
 
   Add filters to your request to return a more specific list of results. Use
   filters to match an Outpost lifecycle status, Availability Zone (`us-east-1a`),
@@ -506,7 +559,7 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Create a list of the Outpost sites for your Amazon Web Services account.
+  Lists the Outpost sites for your Amazon Web Services account.
 
   Add operating address filters to your request to return a more specific list of
   results. Use filters to match site city, country code, or state/region of the

@@ -83,12 +83,12 @@ defmodule AWS.Synthetics do
   @doc """
   Permanently deletes the specified canary.
 
-  When you delete a canary, resources used and created by the canary are not
-  automatically deleted. After you delete a canary that you do not intend to use
-  again, you should also delete the following:
+  If you specify `DeleteLambda` to `true`, CloudWatch Synthetics also deletes the
+  Lambda functions and layers that are used by the canary.
 
-    * The Lambda functions and layers used by this canary. These have
-  the prefix `cwsyn-*MyCanaryName* `.
+  Other esources used and created by the canary are not automatically deleted.
+  After you delete a canary that you do not intend to use again, you should also
+  delete the following:
 
     * The CloudWatch alarms created for this canary. These alarms have a
   name of `Synthetics-SharpDrop-Alarm-*MyCanaryName* `.
@@ -110,7 +110,12 @@ defmodule AWS.Synthetics do
   def delete_canary(%Client{} = client, name, input, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}"
     headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"DeleteLambda", "deleteLambda"}
+      ]
+      |> Request.build_params(input)
 
     Request.request_rest(
       client,

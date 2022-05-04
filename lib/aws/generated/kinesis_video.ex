@@ -131,6 +131,48 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
+  Gets the `ImageGenerationConfiguration` for a given Kinesis video stream.
+  """
+  def describe_image_generation_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/describeImageGenerationConfiguration"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets the `NotificationConfiguration` for a given Kinesis video stream.
+  """
+  def describe_notification_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/describeNotificationConfiguration"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns the most current information about the signaling channel.
 
   You must specify either the name or the Amazon Resource Name (ARN) of the
@@ -338,10 +380,10 @@ defmodule AWS.KinesisVideo do
   Adds one or more tags to a signaling channel.
 
   A *tag* is a key-value pair (the value is optional) that you can define and
-  assign to AWS resources. If you specify a tag that already exists, the tag value
-  is replaced with the value that you specify in the request. For more
-  information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
-  in the *AWS Billing and Cost Management User Guide*.
+  assign to Amazon Web Services resources. If you specify a tag that already
+  exists, the tag value is replaced with the value that you specify in the
+  request. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
+  in the *Billing and Cost Management and Cost Management User Guide*.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/TagResource"
@@ -365,16 +407,16 @@ defmodule AWS.KinesisVideo do
   Adds one or more tags to a stream.
 
   A *tag* is a key-value pair (the value is optional) that you can define and
-  assign to AWS resources. If you specify a tag that already exists, the tag value
-  is replaced with the value that you specify in the request. For more
-  information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
-  in the *AWS Billing and Cost Management User Guide*.
+  assign to Amazon Web Services resources. If you specify a tag that already
+  exists, the tag value is replaced with the value that you specify in the
+  request. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
+  in the *Billing and Cost Management and Cost Management User Guide*.
 
   You must provide either the `StreamName` or the `StreamARN`.
 
   This operation requires permission for the `KinesisVideo:TagStream` action.
 
-  Kinesis video streams support up to 50 tags.
+  A Kinesis video stream can support up to 50 tags.
   """
   def tag_stream(%Client{} = client, input, options \\ []) do
     url_path = "/tagStream"
@@ -471,6 +513,48 @@ defmodule AWS.KinesisVideo do
   """
   def update_data_retention(%Client{} = client, input, options \\ []) do
     url_path = "/updateDataRetention"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates the `StreamInfo` and `ImageProcessingConfiguration` fields.
+  """
+  def update_image_generation_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/updateImageGenerationConfiguration"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates the notification information for a stream.
+  """
+  def update_notification_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/updateNotificationConfiguration"
     headers = []
     query_params = []
 

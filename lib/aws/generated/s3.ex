@@ -5752,8 +5752,9 @@ defmodule AWS.S3 do
   ## Rules
 
   You specify the lifecycle configuration in your request body. The lifecycle
-  configuration is specified as XML consisting of one or more rules. Each rule
-  consists of the following:
+  configuration is specified as XML consisting of one or more rules. An Amazon S3
+  Lifecycle configuration can have up to 1,000 rules. This limit is not
+  adjustable. Each rule consists of the following:
 
     * Filter identifying a subset of objects to which the rule applies.
   The filter can be based on a key name prefix, object tags, or a combination of
@@ -7615,9 +7616,11 @@ defmodule AWS.S3 do
   Part numbers can be any number from 1 to 10,000, inclusive. A part number
   uniquely identifies a part and also defines its position within the object being
   created. If you upload a new part using the same part number that was used with
-  a previous part, the previously uploaded part is overwritten. Each part must be
-  at least 5 MB in size, except the last part. There is no size limit on the last
-  part of your multipart upload.
+  a previous part, the previously uploaded part is overwritten.
+
+  For information about maximum and minimum part sizes and other multipart upload
+  specifications, see [Multipart upload limits](https://docs.aws.amazon.com/AmazonS3/latest/userguide/qfacts.html) in
+  the *Amazon S3 User Guide*.
 
   To ensure that data is not corrupted when traversing the network, specify the
   `Content-MD5` header in the upload part request. Amazon S3 checks the part data
@@ -7765,9 +7768,9 @@ defmodule AWS.S3 do
   your request and a byte range by adding the request header
   `x-amz-copy-source-range` in your request.
 
-  The minimum allowable part size for a multipart upload is 5 MB. For more
-  information about multipart upload limits, go to [Quick Facts](https://docs.aws.amazon.com/AmazonS3/latest/dev/qfacts.html) in the
-  *Amazon S3 User Guide*.
+  For information about maximum and minimum part sizes and other multipart upload
+  specifications, see [Multipart upload limits](https://docs.aws.amazon.com/AmazonS3/latest/userguide/qfacts.html) in
+  the *Amazon S3 User Guide*.
 
   Instead of using an existing object as part data, you might use the
   [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html) action and provide data in your request.

@@ -382,6 +382,28 @@ defmodule AWS.KinesisVideoArchivedMedia do
   end
 
   @doc """
+  Retrieves a list of Images corresponding to each timestamp for a given time
+  range, sampling interval, and image format configuration.
+  """
+  def get_images(%Client{} = client, input, options \\ []) do
+    url_path = "/getImages"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Gets media for a list of fragments (specified by fragment number) from the
   archived data in an Amazon Kinesis video stream.
 

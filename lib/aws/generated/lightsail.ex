@@ -1320,8 +1320,8 @@ defmodule AWS.Lightsail do
   Returns a list of TLS security policies that you can apply to Lightsail load
   balancers.
 
-  For more information about load balancer TLS security policies, see [Load balancer TLS security
-  policies](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy)
+  For more information about load balancer TLS security policies, see [Configuring TLS security policies on your Amazon Lightsail load
+  balancers](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy)
   in the *Amazon Lightsail Developer Guide*.
   """
   def get_load_balancer_tls_policies(%Client{} = client, input, options \\ []) do

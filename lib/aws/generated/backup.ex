@@ -908,6 +908,8 @@ defmodule AWS.Backup do
         %Client{} = client,
         by_account_id \\ nil,
         by_backup_vault_name \\ nil,
+        by_complete_after \\ nil,
+        by_complete_before \\ nil,
         by_created_after \\ nil,
         by_created_before \\ nil,
         by_resource_arn \\ nil,
@@ -966,6 +968,20 @@ defmodule AWS.Backup do
     query_params =
       if !is_nil(by_created_after) do
         [{"createdAfter", by_created_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_complete_before) do
+        [{"completeBefore", by_complete_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_complete_after) do
+        [{"completeAfter", by_complete_after} | query_params]
       else
         query_params
       end
@@ -1216,6 +1232,8 @@ defmodule AWS.Backup do
   def list_copy_jobs(
         %Client{} = client,
         by_account_id \\ nil,
+        by_complete_after \\ nil,
+        by_complete_before \\ nil,
         by_created_after \\ nil,
         by_created_before \\ nil,
         by_destination_vault_arn \\ nil,
@@ -1282,6 +1300,20 @@ defmodule AWS.Backup do
     query_params =
       if !is_nil(by_created_after) do
         [{"createdAfter", by_created_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_complete_before) do
+        [{"completeBefore", by_complete_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_complete_after) do
+        [{"completeAfter", by_complete_after} | query_params]
       else
         query_params
       end
@@ -1626,6 +1658,8 @@ defmodule AWS.Backup do
   def list_restore_jobs(
         %Client{} = client,
         by_account_id \\ nil,
+        by_complete_after \\ nil,
+        by_complete_before \\ nil,
         by_created_after \\ nil,
         by_created_before \\ nil,
         by_status \\ nil,
@@ -1668,6 +1702,20 @@ defmodule AWS.Backup do
     query_params =
       if !is_nil(by_created_after) do
         [{"createdAfter", by_created_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_complete_before) do
+        [{"completeBefore", by_complete_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_complete_after) do
+        [{"completeAfter", by_complete_after} | query_params]
       else
         query_params
       end

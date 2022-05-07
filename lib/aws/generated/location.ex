@@ -122,6 +122,9 @@ defmodule AWS.Location do
 
   Geofence evaluation uses the given device position. It does not account for the
   optional `Accuracy` of a `DevicePositionUpdate`.
+
+  The `DeviceID` is used as a string to represent the device. You do not need to
+  have a `Tracker` associated with the `DeviceID`.
   """
   def batch_evaluate_geofences(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/positions"

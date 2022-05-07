@@ -117,7 +117,7 @@ defmodule AWS.Redshift do
   more consumer accounts or managing entities.
 
   To authorize a datashare for a data consumer, the producer account must have the
-  correct access privileges.
+  correct access permissions.
   """
   def authorize_data_share(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AuthorizeDataShare", input, options)
@@ -378,7 +378,8 @@ defmodule AWS.Redshift do
   end
 
   @doc """
-  From the producer account, removes authorization from the specified datashare.
+  From a datashare producer account, removes authorization from the specified
+  datashare.
   """
   def deauthorize_data_share(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeauthorizeDataShare", input, options)
@@ -1054,7 +1055,8 @@ defmodule AWS.Redshift do
   end
 
   @doc """
-  From a consumer account, remove association for the specified datashare.
+  From a datashare consumer account, remove association for the specified
+  datashare.
   """
   def disassociate_data_share_consumer(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisassociateDataShareConsumer", input, options)
@@ -1098,7 +1100,7 @@ defmodule AWS.Redshift do
   `redshift:JoinGroup` action with access to the listed `dbgroups`.
 
   In addition, if the `AutoCreate` parameter is set to `True`, then the policy
-  must include the `redshift:CreateClusterUser` privilege.
+  must include the `redshift:CreateClusterUser` permission.
 
   If the `DbName` parameter is specified, the IAM policy must allow access to the
   resource `dbname` for the specified database name.
@@ -1325,7 +1327,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
-  From the consumer account, rejects the specified datashare.
+  From a datashare consumer account, rejects the specified datashare.
   """
   def reject_data_share(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RejectDataShare", input, options)

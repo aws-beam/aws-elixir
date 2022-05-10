@@ -376,6 +376,13 @@ defmodule AWS.Evidently do
 
   @doc """
   Retrieves the results of a running or completed experiment.
+
+  No results are available until there have been 100 events for each variation and
+  at least 10 minutes have passed since the start of the experiment.
+
+  Experiment results are available up to 63 days after the start of the
+  experiment. They are not available after that because of CloudWatch data
+  retention policies.
   """
   def get_experiment_results(%Client{} = client, experiment, project, input, options \\ []) do
     url_path =

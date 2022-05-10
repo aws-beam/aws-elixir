@@ -190,7 +190,11 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
-  Adds a resource to the specified contact or escalation plan.
+  Adds a resource policy to the specified contact or escalation plan.
+
+  The resource policy is used to share the contact or escalation plan using
+  Resource Access Manager (RAM). For more information about cross-account sharing,
+  see [Setting up cross-account functionality](https://docs.aws.amazon.com/incident-manager/latest/userguide/xa.html).
   """
   def put_contact_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutContactPolicy", input, options)

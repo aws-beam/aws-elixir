@@ -12,7 +12,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   The topic for each action shows the API request parameters and the response.
   Alternatively, you can use one of the Amazon Web Services SDKs to access an API
   that is tailored to the programming language or platform that you're using. For
-  more information, see [Amazon Web Services SDKs](http://aws.amazon.com/tools/#SDKs).
+  more information, see [Amazon Web Services SDKs](https://aws.amazon.com/tools/#SDKs).
 
   To share Refactor Spaces environments with other Amazon Web Services accounts or
   with Organizations and their OUs, use Resource Access Manager's

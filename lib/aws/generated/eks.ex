@@ -579,7 +579,7 @@ defmodule AWS.EKS do
 
   @doc """
   Returns descriptive information about an update against your Amazon EKS cluster
-  or associated managed node group.
+  or associated managed node group or Amazon EKS add-on.
 
   When the status of the update is `Succeeded`, the update is complete. If an
   update fails, the status is `Failed`, and an error detail explains the reason

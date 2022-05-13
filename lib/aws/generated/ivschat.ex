@@ -23,7 +23,7 @@ defmodule AWS.Ivschat do
     * You create front-end client applications (browser and Android/iOS
   apps) using the Amazon IVS Chat Messaging API. We refer to these as *clients*.
 
-  ` ## Resources
+  ## Resources
 
   The following resource is part of Amazon IVS Chat:
 
@@ -122,8 +122,6 @@ defmodule AWS.Ivschat do
 
   All the above are HTTP operations. There is a separate *messaging* API for
   managing Chat resources; see the [ Amazon IVS Chat Messaging API Reference](https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/chat-messaging-api.html).
-
-  `
   """
 
   alias AWS.Client

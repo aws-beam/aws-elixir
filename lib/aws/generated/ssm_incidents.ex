@@ -499,6 +499,10 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Adds a resource policy to the specified response plan.
+
+  The resource policy is used to share the response plan using Resource Access
+  Manager (RAM). For more information about cross-account sharing, see [Setting up cross-account
+  functionality](https://docs.aws.amazon.com/incident-manager/latest/userguide/xa.html).
   """
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/putResourcePolicy"

@@ -971,9 +971,14 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Returns the list of bundles that are available for purchase.
+  Returns the bundles that you can apply to an Amazon Lightsail instance when you
+  create it.
 
-  A bundle describes the specs for your virtual private server (or *instance*).
+  A bundle describes the specifications of an instance, such as the monthly cost,
+  amount of memory, the number of vCPUs, amount of storage space, and monthly
+  network data transfer quota.
+
+  Bundles are referred to as *instance plans* in the Lightsail console.
   """
   def get_bundles(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetBundles", input, options)

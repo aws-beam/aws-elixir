@@ -91,6 +91,33 @@ defmodule AWS.Grafana do
   end
 
   @doc """
+  Creates an API key for the workspace.
+
+  This key can be used to authenticate requests sent to the workspace's HTTP API.
+  See [
+  https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html](
+  https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html)
+  for available APIs and example requests.
+  """
+  def create_workspace_api_key(%Client{} = client, workspace_id, input, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/apikeys"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes an Amazon Managed Grafana workspace.
   """
   def delete_workspace(%Client{} = client, workspace_id, input, options \\ []) do
@@ -108,6 +135,29 @@ defmodule AWS.Grafana do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Deletes an API key for a workspace.
+  """
+  def delete_workspace_api_key(%Client{} = client, key_name, workspace_id, input, options \\ []) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/apikeys/#{AWS.Util.encode_uri(key_name)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
     )
   end
 

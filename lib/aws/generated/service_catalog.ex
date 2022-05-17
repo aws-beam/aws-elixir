@@ -624,7 +624,11 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Lists all portfolios for which sharing was accepted by this account.
+  Lists all imported portfolios for which account-to-account shares were accepted
+  by this account.
+
+  By specifying the `PortfolioShareType`, you can list portfolios for which
+  organizational shares were accepted by this account.
   """
   def list_accepted_portfolio_shares(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListAcceptedPortfolioShares", input, options)

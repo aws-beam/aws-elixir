@@ -3,13 +3,14 @@
 
 defmodule AWS.ApplicationDiscovery do
   @moduledoc """
-  AWS Application Discovery Service
+  Amazon Web Services Application Discovery Service
 
-  AWS Application Discovery Service helps you plan application migration projects.
+  Amazon Web Services Application Discovery Service helps you plan application
+  migration projects.
 
   It automatically identifies servers, virtual machines (VMs), and network
   dependencies in your on-premises data centers. For more information, see the
-  [AWS Application Discovery Service FAQ](http://aws.amazon.com/application-discovery/faqs/). Application Discovery
+  [Amazon Web Services Application Discovery Service FAQ](http://aws.amazon.com/application-discovery/faqs/). Application Discovery
   Service offers three ways of performing discovery and collecting data about your
   on-premises servers:
 
@@ -25,8 +26,8 @@ defmodule AWS.ApplicationDiscovery do
   network dependencies, only agent-based discovery collects that information.
 
     * **Agent-based discovery** collects a richer set of data than
-  agentless discovery by using the AWS Application Discovery Agent, which you
-  install on one or more hosts in your data center.
+  agentless discovery by using the Amazon Web Services Application Discovery
+  Agent, which you install on one or more hosts in your data center.
 
       * The agent captures infrastructure and application
   information, including an inventory of running processes, system performance
@@ -35,14 +36,14 @@ defmodule AWS.ApplicationDiscovery do
       * The information collected by agents is secured at rest
   and in transit to the Application Discovery Service database in the cloud.
 
-    * **AWS Partner Network (APN) solutions** integrate with Application
-  Discovery Service, enabling you to import details of your on-premises
-  environment directly into Migration Hub without using the discovery connector or
-  discovery agent.
+    * **Amazon Web Services Partner Network (APN) solutions** integrate
+  with Application Discovery Service, enabling you to import details of your
+  on-premises environment directly into Migration Hub without using the discovery
+  connector or discovery agent.
 
-      * Third-party application discovery tools can query AWS
-  Application Discovery Service, and they can write to the Application Discovery
-  Service database using the public API.
+      * Third-party application discovery tools can query
+  Amazon Web Services Application Discovery Service, and they can write to the
+  Application Discovery Service database using the public API.
 
       * In this way, you can import data into Migration Hub
   and view it, so that you can associate applications with servers and track
@@ -61,10 +62,9 @@ defmodule AWS.ApplicationDiscovery do
   This API reference provides descriptions, syntax, and usage examples for each of
   the actions and data types for Application Discovery Service. The topic for each
   action shows the API request parameters and the response. Alternatively, you can
-  use one of the AWS SDKs to access an API that is tailored to the programming
-  language or platform that you're using. For more information, see [AWS SDKs](http://aws.amazon.com/tools/#SDKs).
-
-     Remember that you must set your Migration Hub home region before
+  use one of the Amazon Web Services SDKs to access an API that is tailored to the
+  programming language or platform that you're using. For more information, see
+  [Amazon Web Services SDKs](http://aws.amazon.com/tools/#SDKs).     Remember that you must set your Migration Hub home region before
   you call any of these APIs.
 
      You must make API calls for write actions (create, notify,
@@ -81,9 +81,11 @@ defmodule AWS.ApplicationDiscovery do
      You must call `GetHomeRegion` to obtain the latest Migration Hub
   home region.
 
-  This guide is intended for use with the [AWS Application Discovery Service User Guide](http://docs.aws.amazon.com/application-discovery/latest/userguide/).
+  This guide is intended for use with the [Amazon Web Services Application
+  Discovery Service User
+  Guide](http://docs.aws.amazon.com/application-discovery/latest/userguide/).
 
-  All data is handled according to the [AWS Privacy Policy](http://aws.amazon.com/privacy/). You can operate Application Discovery
+  All data is handled according to the [Amazon Web Services Privacy Policy](http://aws.amazon.com/privacy/). You can operate Application Discovery
   Service offline to inspect collected data before it is shared with the service.
   """
 
@@ -125,12 +127,12 @@ defmodule AWS.ApplicationDiscovery do
   Each import task has a number of records that can identify servers or
   applications.
 
-  AWS Application Discovery Service has built-in matching logic that will identify
-  when discovered servers match existing entries that you've previously
-  discovered, the information for the already-existing discovered server is
-  updated. When you delete an import task that contains records that were used to
-  match, the information in those matched records that comes from the deleted
-  records will also be deleted.
+  Amazon Web Services Application Discovery Service has built-in matching logic
+  that will identify when discovered servers match existing entries that you've
+  previously discovered, the information for the already-existing discovered
+  server is updated. When you delete an import task that contains records that
+  were used to match, the information in those matched records that comes from the
+  deleted records will also be deleted.
   """
   def batch_delete_import_data(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "BatchDeleteImportData", input, options)
@@ -148,6 +150,8 @@ defmodule AWS.ApplicationDiscovery do
 
   Tags are metadata that help you categorize IT assets. This API accepts a list of
   multiple configuration items.
+
+  Do not store sensitive information (like personal data) in tags.
   """
   def create_tags(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateTags", input, options)
@@ -199,7 +203,7 @@ defmodule AWS.ApplicationDiscovery do
 
   For a complete list of outputs for each asset type, see [Using the DescribeConfigurations
   Action](https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#DescribeConfigurations)
-  in the *AWS Application Discovery Service User Guide*.
+  in the *Amazon Web Services Application Discovery Service User Guide*.
   """
   def describe_configurations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeConfigurations", input, options)
@@ -219,7 +223,7 @@ defmodule AWS.ApplicationDiscovery do
   `DescribeExportConfigurations` is deprecated.
 
   Use
-  [DescribeImportTasks](https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html),
+  [DescribeExportTasks](https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html),
   instead.
   """
   def describe_export_configurations(%Client{} = client, input, options \\ []) do
@@ -343,8 +347,9 @@ defmodule AWS.ApplicationDiscovery do
   limited to five concurrently running exports.
 
   If you do not include an `agentIds` filter, summary data is exported that
-  includes both AWS Agentless Discovery Connector data and summary data from AWS
-  Discovery Agents. Export of summary data is limited to two exports per day.
+  includes both Amazon Web Services Agentless Discovery Connector data and summary
+  data from Amazon Web Services Discovery Agents. Export of summary data is
+  limited to two exports per day.
   """
   def start_export_task(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartExportTask", input, options)
@@ -352,9 +357,9 @@ defmodule AWS.ApplicationDiscovery do
 
   @doc """
   Starts an import task, which allows you to import details of your on-premises
-  environment directly into AWS Migration Hub without having to use the
-  Application Discovery Service (ADS) tools such as the Discovery Connector or
-  Discovery Agent.
+  environment directly into Amazon Web Services Migration Hub without having to
+  use the Application Discovery Service (ADS) tools such as the Discovery
+  Connector or Discovery Agent.
 
   This gives you the option to perform migration assessment and planning directly
   from your imported data, including the ability to group your devices as
@@ -364,21 +369,23 @@ defmodule AWS.ApplicationDiscovery do
 
     1. Download the specially formatted comma separated value (CSV)
   import template, which you can find here:
-  [https://s3-us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import_template.csv](https://s3-us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import_template.csv).     2. Fill out the template with your server and application data.
+  [https://s3.us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import_template.csv](https://s3.us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import_template.csv).     2. Fill out the template with your server and application data.
 
     3. Upload your import file to an Amazon S3 bucket, and make a note
   of it's Object URL. Your import file must be in the CSV format.
 
-    4. Use the console or the `StartImportTask` command with the AWS CLI
-  or one of the AWS SDKs to import the records from your file.
+    4. Use the console or the `StartImportTask` command with the Amazon
+  Web Services CLI or one of the Amazon Web Services SDKs to import the records
+  from your file.
 
   For more information, including step-by-step procedures, see [Migration Hub
   Import](https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-import.html)
-  in the *AWS Application Discovery Service User Guide*.
+  in the *Amazon Web Services Application Discovery Service User Guide*.
 
   There are limits to the number of import tasks you can create (and delete) in an
-  AWS account. For more information, see [AWS Application Discovery Service Limits](https://docs.aws.amazon.com/application-discovery/latest/userguide/ads_service_limits.html)
-  in the *AWS Application Discovery Service User Guide*.
+  Amazon Web Services account. For more information, see [Amazon Web Services Application Discovery Service
+  Limits](https://docs.aws.amazon.com/application-discovery/latest/userguide/ads_service_limits.html)
+  in the *Amazon Web Services Application Discovery Service User Guide*.
   """
   def start_import_task(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartImportTask", input, options)

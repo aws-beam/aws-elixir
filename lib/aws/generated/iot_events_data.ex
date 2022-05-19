@@ -56,6 +56,33 @@ defmodule AWS.IoTEventsData do
   end
 
   @doc """
+  Deletes one or more detectors that were created.
+
+  When a detector is deleted, its state will be cleared and the detector will be
+  removed from the list of detectors. The deleted detector will no longer appear
+  if referenced in the
+  [ListDetectors](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_ListDetectors.html)
+  API call.
+  """
+  def batch_delete_detector(%Client{} = client, input, options \\ []) do
+    url_path = "/detectors/delete"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Disables one or more alarms.
 
   The alarms change to the `DISABLED` state after you disable them.

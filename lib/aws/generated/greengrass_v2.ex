@@ -204,11 +204,17 @@ defmodule AWS.GreengrassV2 do
 
       * Python 3.8 – `python3.8`
 
+      * Python 3.9 – `python3.9`
+
       * Java 8 – `java8`
+
+      * Java 11 – `java11`
 
       * Node.js 10 – `nodejs10.x`
 
       * Node.js 12 – `nodejs12.x`
+
+      * Node.js 14 – `nodejs14.x`
 
   To create a component from a Lambda function, specify `lambdaFunction` when you
   call this operation.
@@ -323,6 +329,36 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
+  Deletes a deployment.
+
+  To delete an active deployment, you must first cancel it. For more information,
+  see
+  [CancelDeployment](https://docs.aws.amazon.com/iot/latest/apireference/API_CancelDeployment.html).
+
+  Deleting a deployment doesn't affect core devices that run that deployment,
+  because core devices store the deployment's configuration on the device.
+  Additionally, core devices can roll back to a previous deployment that has been
+  deleted.
+  """
+  def delete_deployment(%Client{} = client, deployment_id, input, options \\ []) do
+    url_path = "/greengrass/v2/deployments/#{AWS.Util.encode_uri(deployment_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Retrieves metadata for a version of a component.
   """
   def describe_component(%Client{} = client, arn, options \\ []) do
@@ -402,7 +438,7 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
-  Gets the pre-signed URL to download a public component artifact.
+  Gets the pre-signed URL to download a public or a Lambda component artifact.
 
   Core devices call this operation to identify the URL that they can use to
   download an artifact to install.
@@ -458,6 +494,25 @@ defmodule AWS.GreengrassV2 do
 
   @doc """
   Retrieves metadata for a Greengrass core device.
+
+  IoT Greengrass relies on individual devices to send status updates to the Amazon
+  Web Services Cloud. If the IoT Greengrass Core software isn't running on the
+  device, or if device isn't connected to the Amazon Web Services Cloud, then the
+  reported status of that device might not reflect its current status. The status
+  timestamp indicates when the device status was last updated.
+
+  Core devices send status updates at the following times:
+
+     When the IoT Greengrass Core software starts
+
+     When the core device receives a deployment from the Amazon Web
+  Services Cloud
+
+     When the status of any component on the core device becomes
+  `BROKEN`
+
+     At a [regular interval that you can configure](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss),
+  which defaults to 24 hours
   """
   def get_core_device(%Client{} = client, core_device_thing_name, options \\ []) do
     url_path = "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}"
@@ -666,6 +721,25 @@ defmodule AWS.GreengrassV2 do
 
   @doc """
   Retrieves a paginated list of Greengrass core devices.
+
+  IoT Greengrass relies on individual devices to send status updates to the Amazon
+  Web Services Cloud. If the IoT Greengrass Core software isn't running on the
+  device, or if device isn't connected to the Amazon Web Services Cloud, then the
+  reported status of that device might not reflect its current status. The status
+  timestamp indicates when the device status was last updated.
+
+  Core devices send status updates at the following times:
+
+     When the IoT Greengrass Core software starts
+
+     When the core device receives a deployment from the Amazon Web
+  Services Cloud
+
+     When the status of any component on the core device becomes
+  `BROKEN`
+
+     At a [regular interval that you can configure](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss),
+  which defaults to 24 hours
   """
   def list_core_devices(
         %Client{} = client,
@@ -822,6 +896,28 @@ defmodule AWS.GreengrassV2 do
 
   @doc """
   Retrieves a paginated list of the components that a Greengrass core device runs.
+
+  This list doesn't include components that are deployed from local deployments or
+  components that are deployed as dependencies of other components.
+
+  IoT Greengrass relies on individual devices to send status updates to the Amazon
+  Web Services Cloud. If the IoT Greengrass Core software isn't running on the
+  device, or if device isn't connected to the Amazon Web Services Cloud, then the
+  reported status of that device might not reflect its current status. The status
+  timestamp indicates when the device status was last updated.
+
+  Core devices send status updates at the following times:
+
+     When the IoT Greengrass Core software starts
+
+     When the core device receives a deployment from the Amazon Web
+  Services Cloud
+
+     When the status of any component on the core device becomes
+  `BROKEN`
+
+     At a [regular interval that you can configure](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss),
+  which defaults to 24 hours
   """
   def list_installed_components(
         %Client{} = client,

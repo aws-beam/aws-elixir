@@ -1862,8 +1862,8 @@ defmodule AWS.QuickSight do
   session lifetime that can be customized using the `
   [SessionLifetimeInMinutes](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.html#QS-GenerateEmbedUrlForAnonymousUser-request-SessionLifetimeInMinutes) ` parameter.
 
-  The resulting user session is valid for 15 minutes (default) to 10 hours
-  (maximum).
+  The resulting user session is valid for 15 minutes (minimum) to 10 hours
+  (maximum). The default session duration is 10 hours.
 
     * You are charged only when the URL is used or there is interaction
   with Amazon QuickSight.
@@ -1917,8 +1917,8 @@ defmodule AWS.QuickSight do
   session lifetime that can be customized using the `
   [SessionLifetimeInMinutes](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html#QS-GenerateEmbedUrlForRegisteredUser-request-SessionLifetimeInMinutes) ` parameter.
 
-  The resulting user session is valid for 15 minutes (default) to 10 hours
-  (maximum).
+  The resulting user session is valid for 15 minutes (minimum) to 10 hours
+  (maximum). The default session duration is 10 hours.
 
     * You are charged only when the URL is used or there is interaction
   with Amazon QuickSight.
@@ -3727,6 +3727,36 @@ defmodule AWS.QuickSight do
       client,
       metadata(),
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Use the UpdatePublicSharingSettings operation to enable or disable the public
+  sharing settings of an Amazon QuickSight dashboard.
+
+  To use this operation, enable session capacity pricing on your Amazon QuickSight
+  account.
+
+  Before you can enable public sharing on your account, you need to allow public
+  sharing permissions to an administrative user in the IAM console. For more
+  information on using IAM with Amazon QuickSight, see [Using Amazon QuickSight with
+  IAM](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html).
+  """
+  def update_public_sharing_settings(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/public-sharing-settings"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
       url_path,
       query_params,
       headers,

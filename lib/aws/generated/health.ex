@@ -60,7 +60,7 @@ defmodule AWS.Health do
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
       endpoint_prefix: "health",
-      global?: false,
+      global?: true,
       protocol: "json",
       service_id: "Health",
       signature_version: "v4",

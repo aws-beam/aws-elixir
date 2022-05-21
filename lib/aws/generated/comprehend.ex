@@ -106,7 +106,7 @@ defmodule AWS.Comprehend do
 
   @doc """
   Creates a model-specific endpoint for synchronous inference for a previously
-  trained custom model
+  trained custom model For information about endpoints, see [Managing endpoints](https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html).
   """
   def create_endpoint(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateEndpoint", input, options)
@@ -142,7 +142,8 @@ defmodule AWS.Comprehend do
   @doc """
   Deletes a model-specific endpoint for a previously-trained custom model.
 
-  All endpoints must be deleted in order for the model to be deleted.
+  All endpoints must be deleted in order for the model to be deleted. For
+  information about endpoints, see [Managing endpoints](https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html).
   """
   def delete_endpoint(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteEndpoint", input, options)
@@ -204,7 +205,8 @@ defmodule AWS.Comprehend do
   @doc """
   Gets the properties associated with a specific endpoint.
 
-  Use this operation to get the status of an endpoint.
+  Use this operation to get the status of an endpoint. For information about
+  endpoints, see [Managing endpoints](https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html).
   """
   def describe_endpoint(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeEndpoint", input, options)
@@ -390,6 +392,8 @@ defmodule AWS.Comprehend do
 
   @doc """
   Gets a list of all existing endpoints that you've created.
+
+  For information about endpoints, see [Managing endpoints](https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html).
   """
   def list_endpoints(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListEndpoints", input, options)
@@ -641,10 +645,10 @@ defmodule AWS.Comprehend do
   @doc """
   Stops a sentiment detection job in progress.
 
-  If the job state is `IN_PROGRESS` the job is marked for termination and put into
-  the `STOP_REQUESTED` state. If the job completes before it can be stopped, it is
-  put into the `COMPLETED` state; otherwise the job is be stopped and put into the
-  `STOPPED` state.
+  If the job state is `IN_PROGRESS`, the job is marked for termination and put
+  into the `STOP_REQUESTED` state. If the job completes before it can be stopped,
+  it is put into the `COMPLETED` state; otherwise the job is be stopped and put
+  into the `STOPPED` state.
 
   If the job is in the `COMPLETED` or `FAILED` state when you call the
   `StopDominantLanguageDetectionJob` operation, the operation returns a 400
@@ -660,10 +664,10 @@ defmodule AWS.Comprehend do
   @doc """
   Stops a targeted sentiment detection job in progress.
 
-  If the job state is `IN_PROGRESS` the job is marked for termination and put into
-  the `STOP_REQUESTED` state. If the job completes before it can be stopped, it is
-  put into the `COMPLETED` state; otherwise the job is be stopped and put into the
-  `STOPPED` state.
+  If the job state is `IN_PROGRESS`, the job is marked for termination and put
+  into the `STOP_REQUESTED` state. If the job completes before it can be stopped,
+  it is put into the `COMPLETED` state; otherwise the job is be stopped and put
+  into the `STOPPED` state.
 
   If the job is in the `COMPLETED` or `FAILED` state when you call the
   `StopDominantLanguageDetectionJob` operation, the operation returns a 400
@@ -722,6 +726,8 @@ defmodule AWS.Comprehend do
 
   @doc """
   Updates information about the specified endpoint.
+
+  For information about endpoints, see [Managing endpoints](https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html).
   """
   def update_endpoint(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateEndpoint", input, options)

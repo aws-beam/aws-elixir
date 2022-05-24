@@ -10,7 +10,7 @@ on:
 
 jobs:
   check:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     name: Check if changed
     strategy:
       fail-fast: false
@@ -36,15 +36,15 @@ jobs:
           echo "::set-output name=LATEST_TAG::${tag_name}"
 
   generate:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     name: Update services
     needs: check
     if: ${{ needs.check.outputs.current_tag != needs.check.outputs.latest_tag }}
 
     env:
       LATEST_AWS_SDK_GO_TAG: ${{ needs.check.outputs.latest_tag }}
-      OTP_VERSION: "24.2.1"
-      ELIXIR_VERSION: "1.13.2"
+      OTP_VERSION: "25.0"
+      ELIXIR_VERSION: "1.13.4"
 
     strategy:
       fail-fast: false

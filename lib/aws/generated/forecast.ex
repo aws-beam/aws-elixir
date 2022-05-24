@@ -45,7 +45,8 @@ defmodule AWS.Forecast do
     * `ForecastFrequency` - The granularity of your forecasts (hourly,
   daily, weekly, etc).
 
-    * `ForecastHorizon` - The number of time steps being forecasted.
+    * `ForecastHorizon` - The number of time-steps that the model
+  predicts. The forecast horizon is also called the prediction length.
 
   When creating a new predictor, do not specify a value for
   `ReferencePredictorArn`.
@@ -86,14 +87,18 @@ defmodule AWS.Forecast do
 
   After creating a dataset, you import your training data into it and add the
   dataset to a dataset group. You use the dataset group to create a predictor. For
-  more information, see `howitworks-datasets-groups`.
+  more information, see [Importing datasets](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html).
 
-  To get a list of all your datasets, use the `ListDatasets` operation.
+  To get a list of all your datasets, use the
+  [ListDatasets](https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasets.html) operation.
 
-  For example Forecast datasets, see the [Amazon Forecast Sample GitHub repository](https://github.com/aws-samples/amazon-forecast-samples).
+  For example Forecast datasets, see the [Amazon Forecast Sample GitHub
+  repository](https://github.com/aws-samples/amazon-forecast-samples).
 
   The `Status` of a dataset must be `ACTIVE` before you can import training data.
-  Use the `DescribeDataset` operation to get the status.
+  Use the
+  [DescribeDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html)
+  operation to get the status.
   """
   def create_dataset(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDataset", input, options)
@@ -103,17 +108,19 @@ defmodule AWS.Forecast do
   Creates a dataset group, which holds a collection of related datasets.
 
   You can add datasets to the dataset group when you create the dataset group, or
-  later by using the `UpdateDatasetGroup` operation.
+  later by using the
+  [UpdateDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html) operation.
 
   After creating a dataset group and adding datasets, you use the dataset group
-  when you create a predictor. For more information, see
-  `howitworks-datasets-groups`.
+  when you create a predictor. For more information, see [Dataset
+  groups](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html).
 
-  To get a list of all your datasets groups, use the `ListDatasetGroups`
-  operation.
+  To get a list of all your datasets groups, use the
+  [ListDatasetGroups](https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetGroups.html) operation.
 
   The `Status` of a dataset group must be `ACTIVE` before you can use the dataset
-  group to create a predictor. To get the status, use the `DescribeDatasetGroup`
+  group to create a predictor. To get the status, use the
+  [DescribeDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html)
   operation.
   """
   def create_dataset_group(%Client{} = client, input, options \\ []) do
@@ -127,10 +134,12 @@ defmodule AWS.Forecast do
   Service (Amazon S3) bucket and the Amazon Resource Name (ARN) of the dataset
   that you want to import the data to.
 
-  You must specify a `DataSource` object that includes an AWS Identity and Access
-  Management (IAM) role that Amazon Forecast can assume to access the data, as
-  Amazon Forecast makes a copy of your data and processes it in an internal AWS
-  system. For more information, see `aws-forecast-iam-roles`.
+  You must specify a
+  [DataSource](https://docs.aws.amazon.com/forecast/latest/dg/API_DataSource.html) object that includes an AWS Identity and Access Management (IAM) role that
+  Amazon Forecast can assume to access the data, as Amazon Forecast makes a copy
+  of your data and processes it in an internal AWS system. For more information,
+  see [Set up
+  permissions](https://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-iam-roles.html).
 
   The training data must be in CSV format. The delimiter must be a comma (,).
 
@@ -144,7 +153,9 @@ defmodule AWS.Forecast do
   model off of, and not just the new data collected since the previous import.
 
   To get a list of all your dataset import jobs, filtered by specified criteria,
-  use the `ListDatasetImportJobs` operation.
+  use the
+  [ListDatasetImportJobs](https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetImportJobs.html)
+  operation.
   """
   def create_dataset_import_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDatasetImportJob", input, options)
@@ -309,6 +320,16 @@ defmodule AWS.Forecast do
   end
 
   @doc """
+  Creates a predictor monitor resource for an existing auto predictor.
+
+  Predictor monitoring allows you to see how your predictor's performance changes
+  over time. For more information, see [Predictor Monitoring](https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring.html).
+  """
+  def create_monitor(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateMonitor", input, options)
+  end
+
+  @doc """
   This operation creates a legacy predictor that does not include all the
   predictor functionalities provided by Amazon Forecast.
 
@@ -396,26 +417,31 @@ defmodule AWS.Forecast do
   end
 
   @doc """
-  Deletes an Amazon Forecast dataset that was created using the `CreateDataset`
-  operation.
+  Deletes an Amazon Forecast dataset that was created using the
+  [CreateDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html) operation.
 
   You can only delete datasets that have a status of `ACTIVE` or `CREATE_FAILED`.
-  To get the status use the `DescribeDataset` operation.
+  To get the status use the
+  [DescribeDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html)
+  operation.
 
   Forecast does not automatically update any dataset groups that contain the
-  deleted dataset. In order to update the dataset group, use the operation,
-  omitting the deleted dataset's ARN.
+  deleted dataset. In order to update the dataset group, use the
+  [UpdateDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html)
+  operation, omitting the deleted dataset's ARN.
   """
   def delete_dataset(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDataset", input, options)
   end
 
   @doc """
-  Deletes a dataset group created using the `CreateDatasetGroup` operation.
+  Deletes a dataset group created using the
+  [CreateDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html) operation.
 
   You can only delete dataset groups that have a status of `ACTIVE`,
   `CREATE_FAILED`, or `UPDATE_FAILED`. To get the status, use the
-  `DescribeDatasetGroup` operation.
+  [DescribeDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html)
+  operation.
 
   This operation deletes only the dataset group, not the datasets in the group.
   """
@@ -424,11 +450,12 @@ defmodule AWS.Forecast do
   end
 
   @doc """
-  Deletes a dataset import job created using the `CreateDatasetImportJob`
-  operation.
+  Deletes a dataset import job created using the
+  [CreateDatasetImportJob](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html) operation.
 
   You can delete only dataset import jobs that have a status of `ACTIVE` or
-  `CREATE_FAILED`. To get the status, use the `DescribeDatasetImportJob`
+  `CREATE_FAILED`. To get the status, use the
+  [DescribeDatasetImportJob](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetImportJob.html)
   operation.
   """
   def delete_dataset_import_job(%Client{} = client, input, options \\ []) do
@@ -475,6 +502,16 @@ defmodule AWS.Forecast do
   """
   def delete_forecast_export_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteForecastExportJob", input, options)
+  end
+
+  @doc """
+  Deletes a monitor resource.
+
+  You can only delete a monitor resource with a status of `ACTIVE`,
+  `ACTIVE_STOPPED`, `CREATE_FAILED`, or `CREATE_STOPPED`.
+  """
+  def delete_monitor(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteMonitor", input, options)
   end
 
   @doc """
@@ -532,7 +569,8 @@ defmodule AWS.Forecast do
   end
 
   @doc """
-  Describes an Amazon Forecast dataset created using the `CreateDataset`
+  Describes an Amazon Forecast dataset created using the
+  [CreateDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html)
   operation.
 
   In addition to listing the parameters specified in the `CreateDataset` request,
@@ -549,7 +587,9 @@ defmodule AWS.Forecast do
   end
 
   @doc """
-  Describes a dataset group created using the `CreateDatasetGroup` operation.
+  Describes a dataset group created using the
+  [CreateDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html)
+  operation.
 
   In addition to listing the parameters provided in the `CreateDatasetGroup`
   request, this operation includes the following properties:
@@ -567,7 +607,8 @@ defmodule AWS.Forecast do
   end
 
   @doc """
-  Describes a dataset import job created using the `CreateDatasetImportJob`
+  Describes a dataset import job created using the
+  [CreateDatasetImportJob](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html)
   operation.
 
   In addition to listing the parameters provided in the `CreateDatasetImportJob`
@@ -647,6 +688,30 @@ defmodule AWS.Forecast do
   end
 
   @doc """
+  Describes a monitor resource.
+
+  In addition to listing the properties provided in the `CreateMonitor` request,
+  this operation lists the following properties:
+
+    * `Baseline`
+
+    * `CreationTime`
+
+    * `LastEvaluationTime`
+
+    * `LastEvaluationState`
+
+    * `LastModificationTime`
+
+    * `Message`
+
+    * `Status`
+  """
+  def describe_monitor(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeMonitor", input, options)
+  end
+
+  @doc """
   This operation is only valid for legacy predictors created with CreatePredictor.
 
   If you are not using a legacy predictor, use `DescribeAutoPredictor`.
@@ -721,12 +786,13 @@ defmodule AWS.Forecast do
   end
 
   @doc """
-  Returns a list of dataset groups created using the `CreateDatasetGroup`
-  operation.
+  Returns a list of dataset groups created using the
+  [CreateDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html) operation.
 
   For each dataset group, this operation returns a summary of its properties,
   including its Amazon Resource Name (ARN). You can retrieve the complete set of
-  properties by using the dataset group ARN with the `DescribeDatasetGroup`
+  properties by using the dataset group ARN with the
+  [DescribeDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html)
   operation.
   """
   def list_dataset_groups(%Client{} = client, input, options \\ []) do
@@ -734,24 +800,30 @@ defmodule AWS.Forecast do
   end
 
   @doc """
-  Returns a list of dataset import jobs created using the `CreateDatasetImportJob`
-  operation.
+  Returns a list of dataset import jobs created using the
+  [CreateDatasetImportJob](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html) operation.
 
   For each import job, this operation returns a summary of its properties,
   including its Amazon Resource Name (ARN). You can retrieve the complete set of
-  properties by using the ARN with the `DescribeDatasetImportJob` operation. You
-  can filter the list by providing an array of `Filter` objects.
+  properties by using the ARN with the
+  [DescribeDatasetImportJob](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetImportJob.html)
+  operation. You can filter the list by providing an array of
+  [Filter](https://docs.aws.amazon.com/forecast/latest/dg/API_Filter.html)
+  objects.
   """
   def list_dataset_import_jobs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDatasetImportJobs", input, options)
   end
 
   @doc """
-  Returns a list of datasets created using the `CreateDataset` operation.
+  Returns a list of datasets created using the
+  [CreateDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html) operation.
 
   For each dataset, a summary of its properties, including its Amazon Resource
   Name (ARN), is returned. To retrieve the complete set of properties, use the ARN
-  with the `DescribeDataset` operation.
+  with the
+  [DescribeDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html)
+  operation.
   """
   def list_datasets(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDatasets", input, options)
@@ -811,6 +883,30 @@ defmodule AWS.Forecast do
   end
 
   @doc """
+  Returns a list of the monitoring evaluation results and predictor events
+  collected by the monitor resource during different windows of time.
+
+  For information about monitoring see [Viewing Monitoring Results](https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring-results.html).
+  For more information about retrieving monitoring results see [Viewing Monitoring Results](https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring-results.html).
+  """
+  def list_monitor_evaluations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListMonitorEvaluations", input, options)
+  end
+
+  @doc """
+  Returns a list of monitors created with the `CreateMonitor` operation and
+  `CreateAutoPredictor` operation.
+
+  For each monitor resource, this operation returns of a summary of its
+  properties, including its Amazon Resource Name (ARN). You can retrieve a
+  complete set of properties of a monitor resource by specify the monitor's ARN in
+  the `DescribeMonitor` operation.
+  """
+  def list_monitors(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListMonitors", input, options)
+  end
+
+  @doc """
   Returns a list of predictor backtest export jobs created using the
   `CreatePredictorBacktestExportJob` operation.
 
@@ -844,6 +940,13 @@ defmodule AWS.Forecast do
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Resumes a stopped monitor resource.
+  """
+  def resume_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ResumeResource", input, options)
   end
 
   @doc """
@@ -895,8 +998,9 @@ defmodule AWS.Forecast do
   Replaces the datasets in a dataset group with the specified datasets.
 
   The `Status` of the dataset group must be `ACTIVE` before you can use the
-  dataset group to create a predictor. Use the `DescribeDatasetGroup` operation to
-  get the status.
+  dataset group to create a predictor. Use the
+  [DescribeDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html)
+  operation to get the status.
   """
   def update_dataset_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateDatasetGroup", input, options)

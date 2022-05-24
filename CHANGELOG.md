@@ -4,9 +4,17 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
 
-## [v0.10.1] - 2021-02-02
+## [v0.11.0] - 2022-05-24
 
-## Fixed
+### Changed
+
+- Update the AWS generated modules to reflect v1.44.21 of Go SDK. 
+  This may cause breaking changes.
+- Change `aws_signature` requirement to `~> 0.3` in order to support newer versions.
+
+## [v0.10.1] - 2022-02-02
+
+### Fixed
 
 - Update `AWS.Client` typespecs to accept `nil` for the `endpoint` field.
 - Isolate Hackney connection pool for requests. Now the pool is named `:aws_pool`.
@@ -472,7 +480,8 @@ is an example).
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.10.1...HEAD
+[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.11.0...HEAD
+[v0.11.0]: https://github.com/aws-beam/aws-elixir/compare/v0.10.1...v0.11.0
 [v0.10.1]: https://github.com/aws-beam/aws-elixir/compare/v0.10.0...v0.10.1
 [v0.10.0]: https://github.com/aws-beam/aws-elixir/compare/v0.9.2...v0.10.0
 [v0.9.2]: https://github.com/aws-beam/aws-elixir/compare/v0.9.1...v0.9.2

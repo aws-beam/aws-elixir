@@ -3,7 +3,6 @@ defmodule AWS.Mixfile do
 
   @version "0.10.1"
   @repo_url "https://github.com/aws-beam/aws-elixir"
-  @auto_generated_files_dir "lib/aws/generated"
 
   def project do
     [
@@ -62,7 +61,14 @@ defmodule AWS.Mixfile do
       homepage_url: @repo_url,
       formatters: ["html"],
       groups_for_modules: [
-        "Web Services": &String.starts_with?(&1.source_path, @auto_generated_files_dir)
+        "Base modules": [
+          AWS,
+          AWS.Client,
+          AWS.HTTPClient,
+          AWS.JSON,
+          AWS.ServiceMetadata,
+          AWS.XML
+        ]
       ]
     ]
   end

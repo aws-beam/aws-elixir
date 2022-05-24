@@ -3,9 +3,9 @@
 
 defmodule AWS.NetworkManager do
   @moduledoc """
-  Transit Gateway Network Manager (Network Manager) enables you to create a global
-  network, in which you can monitor your Amazon Web Services and on-premises
-  networks that are built around transit gateways.
+  Amazon Web Services enables you to centrally manage your Amazon Web Services
+  Cloud WAN core network and your Transit Gateway network across Amazon Web
+  Services accounts, Regions, and on-premises locations.
   """
 
   alias AWS.Client
@@ -85,11 +85,10 @@ defmodule AWS.NetworkManager do
   If you specify a link, it must be associated with the specified device.
 
   You can only associate customer gateways that are connected to a VPN attachment
-  on a transit gateway. The transit gateway must be registered in your global
-  network. When you register a transit gateway, customer gateways that are
-  connected to the transit gateway are automatically included in the global
-  network. To list customer gateways that are connected to a transit gateway, use
-  the
+  on a transit gateway or core network registered in your global network. When you
+  register a transit gateway or core network, customer gateways that are connected
+  to the transit gateway are automatically included in the global network. To list
+  customer gateways that are connected to a transit gateway, use the
   [DescribeVpnConnections](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html)
   EC2 API and filter by `transit-gateway-id`.
 
@@ -205,7 +204,7 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Creates a core network connect peer for a specified core network connect
+  Creates a core network Connect peer for a specified core network connect
   attachment between a core network and an appliance.
 
   The peer address and transit gateway address must be the same IP address family
@@ -364,7 +363,8 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Creates a site-to-site VPN attachment on an edge location of a core network.
+  Creates an Amazon Web Services site-to-site VPN attachment on an edge location
+  of a core network.
   """
   def create_site_to_site_vpn_attachment(%Client{} = client, input, options \\ []) do
     url_path = "/site-to-site-vpn-attachments"
@@ -560,8 +560,8 @@ defmodule AWS.NetworkManager do
   @doc """
   Deletes an existing global network.
 
-  You must first delete all global network objects (devices, links, and sites) and
-  deregister all transit gateways.
+  You must first delete all global network objects (devices, links, and sites),
+  deregister all transit gateways, and delete any core networks.
   """
   def delete_global_network(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}"
@@ -1038,9 +1038,7 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Returns information about a core network.
-
-  By default it returns the LIVE policy.
+  Returns information about the LIVE policy for a core network.
   """
   def get_core_network(%Client{} = client, core_network_id, options \\ []) do
     url_path = "/core-networks/#{AWS.Util.encode_uri(core_network_id)}"
@@ -2181,6 +2179,43 @@ defmodule AWS.NetworkManager do
     )
   end
 
+  def list_organization_service_access_status(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/organizations/service-access"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
   @doc """
   Lists the tags for a specified resource.
   """
@@ -2312,6 +2347,24 @@ defmodule AWS.NetworkManager do
     url_path =
       "/core-networks/#{AWS.Util.encode_uri(core_network_id)}/core-network-policy-versions/#{AWS.Util.encode_uri(policy_version_id)}/restore"
 
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  def start_organization_service_access_update(%Client{} = client, input, options \\ []) do
+    url_path = "/organizations/service-access"
     headers = []
     query_params = []
 

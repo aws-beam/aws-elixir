@@ -123,14 +123,14 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Prevents the user from signing in with the specified external (SAML or social)
-  identity provider.
+  identity provider (IdP).
 
   If the user that you want to deactivate is a Amazon Cognito user pools native
   username + password user, they can't use their password to sign in. If the user
-  to deactivate is a linked external identity provider (IdP) user, any link
-  between that user and an existing user is removed. When the external user signs
-  in again, and the user is no longer attached to the previously linked
-  `DestinationUser`, the user must create a new user account. See
+  to deactivate is a linked external IdP user, any link between that user and an
+  existing user is removed. When the external user signs in again, and the user is
+  no longer attached to the previously linked `DestinationUser`, the user must
+  create a new user account. See
   [AdminLinkProviderForUser](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html).
 
   This action is enabled only for admin access and requires developer credentials.
@@ -143,9 +143,9 @@ defmodule AWS.CognitoIdentityProvider do
   `ProviderAttributeValue` must be the name that is used in the user pool for the
   user.
 
-  The `ProviderAttributeName` must always be `Cognito_Subject` for social identity
-  providers. The `ProviderAttributeValue` must always be the exact subject that
-  was used when the user was originally linked as a source user.
+  The `ProviderAttributeName` must always be `Cognito_Subject` for social IdPs.
+  The `ProviderAttributeValue` must always be the exact subject that was used when
+  the user was originally linked as a source user.
 
   For de-linking a SAML identity, there are two scenarios. If the linked identity
   has not yet been used to sign in, the `ProviderAttributeName` and
@@ -237,8 +237,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Links an existing user account in a user pool (`DestinationUser`) to an identity
-  from an external identity provider (`SourceUser`) based on a specified attribute
-  name and value from the external identity provider.
+  from an external IdP (`SourceUser`) based on a specified attribute name and
+  value from the external IdP.
 
   This allows you to create a link from the existing user account to an external
   federated user identity that has not yet been used to sign in. You can then use
@@ -248,12 +248,12 @@ defmodule AWS.CognitoIdentityProvider do
   links that user to a federated user identity. When the user signs in with a
   federated user identity, they sign in as the existing user account.
 
-  The maximum number of federated identities linked to a user is 5.
+  The maximum number of federated identities linked to a user is five.
 
   Because this API allows a user with an external federated identity to sign in as
   an existing user in the user pool, it is critical that it only be used with
-  external identity providers and provider attributes that have been trusted by
-  the application owner.
+  external IdPs and provider attributes that have been trusted by the application
+  owner.
 
   This action is administrative and requires developer credentials.
   """
@@ -456,11 +456,14 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Signs out users from all devices, as an administrator.
+  Signs out a user from all devices.
 
-  It also invalidates all refresh tokens issued to a user. The user's current
-  access and Id tokens remain valid until their expiry. Access and Id tokens
-  expire one hour after they're issued.
+  You must sign `AdminUserGlobalSignOut` requests with Amazon Web Services
+  credentials. It also invalidates all refresh tokens that Amazon Cognito has
+  issued to a user. The user's current access and ID tokens remain valid until
+  they expire. By default, access and ID tokens expire one hour after they're
+  issued. A user can still use a hosted UI cookie to retrieve new tokens for the
+  duration of the cookie validity period of 1 hour.
 
   Calling this action requires developer credentials.
   """
@@ -508,8 +511,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Confirms registration of a user and handles the existing alias from a previous
-  user.
+  Confirms registration of a new user.
   """
   def confirm_sign_up(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ConfirmSignUp", input, options)
@@ -525,7 +527,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Creates an identity provider for a user pool.
+  Creates an IdP for a user pool.
   """
   def create_identity_provider(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateIdentityProvider", input, options)
@@ -597,7 +599,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Deletes an identity provider for a user pool.
+  Deletes an IdP for a user pool.
   """
   def delete_identity_provider(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteIdentityProvider", input, options)
@@ -646,7 +648,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Gets information about a specific identity provider.
+  Gets information about a specific IdP.
   """
   def describe_identity_provider(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeIdentityProvider", input, options)
@@ -758,7 +760,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Gets the specified identity provider.
+  Gets the specified IdP.
   """
   def get_identity_provider_by_identifier(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetIdentityProviderByIdentifier", input, options)
@@ -791,7 +793,10 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Gets the user attribute verification code for the specified attribute name.
+  Generates a user attribute verification code for the specified attribute name.
+
+  Sends a message to a user with a code that they must return in a
+  VerifyUserAttribute request.
 
   This action might generate an SMS text message. Starting June 1, 2021, US
   telecom carriers require you to register an origination phone number before you
@@ -823,16 +828,21 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Signs out users from all devices.
 
-  It also invalidates all refresh tokens issued to a user. The user's current
-  access and ID tokens remain valid until their expiry. Access and Id tokens
-  expire one hour after they're issued.
+  It also invalidates all refresh tokens that Amazon Cognito has issued to a user.
+  The user's current access and ID tokens remain valid until their expiry. By
+  default, access and ID tokens expire one hour after Amazon Cognito issues them.
+  A user can still use a hosted UI cookie to retrieve new tokens for the duration
+  of the cookie validity period of 1 hour.
   """
   def global_sign_out(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GlobalSignOut", input, options)
   end
 
   @doc """
-  Initiates the authentication flow.
+  Initiates sign-in for a user in the Amazon Cognito user directory.
+
+  You can't sign in a user with a federated IdP with `InitiateAuth`. For more
+  information, see [ Adding user pool sign-in through a third party](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html).
 
   This action might generate an SMS text message. Starting June 1, 2021, US
   telecom carriers require you to register an origination phone number before you
@@ -855,7 +865,8 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Lists the devices.
+  Lists the sign-in devices that Amazon Cognito has registered to the current
+  user.
   """
   def list_devices(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDevices", input, options)
@@ -871,7 +882,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Lists information about all identity providers for a user pool.
+  Lists information about all IdPs for a user pool.
   """
   def list_identity_providers(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListIdentityProviders", input, options)
@@ -1173,7 +1184,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Updates identity provider information for a user pool.
+  Updates IdP information for a user pool.
   """
   def update_identity_provider(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateIdentityProvider", input, options)
@@ -1303,6 +1314,11 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Verifies the specified user attributes in the user pool.
+
+  If your user pool requires verification before Amazon Cognito updates the
+  attribute value, VerifyUserAttribute updates the affected attribute to its
+  pending value. For more information, see [
+  UserAttributeUpdateSettingsType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserAttributeUpdateSettingsType.html).
   """
   def verify_user_attribute(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "VerifyUserAttribute", input, options)

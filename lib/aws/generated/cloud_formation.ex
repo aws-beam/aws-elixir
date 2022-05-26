@@ -221,8 +221,9 @@ defmodule AWS.CloudFormation do
   @doc """
   Deletes a stack set.
 
-  Before you can delete a stack set, all of its member stack instances must be
-  deleted. For more information about how to do this, see `DeleteStackInstances`.
+  Before you can delete a stack set, all its member stack instances must be
+  deleted. For more information about how to complete this, see
+  `DeleteStackInstances`.
   """
   def delete_stack_set(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteStackSet", input, options)
@@ -289,7 +290,7 @@ defmodule AWS.CloudFormation do
   publisher, `DescribePublisher` returns information about your own publisher
   account.
 
-  For more information on registering as a publisher, see:
+  For more information about registering as a publisher, see:
 
     *
   [RegisterPublisher](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html)     * [Publishing extensions to make them available for public
@@ -307,7 +308,7 @@ defmodule AWS.CloudFormation do
   differs, or has *drifted*, from it's expected configuration, as defined in the
   stack template and any values specified as template parameters. A stack is
   considered to have drifted if one or more of its resources have drifted. For
-  more information on stack and resource drift, see [Detecting Unregulated Configuration Changes to Stacks and
+  more information about stack and resource drift, see [Detecting Unregulated Configuration Changes to Stacks and
   Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html).
 
   Use `DetectStackDrift` to initiate a stack drift detection operation.
@@ -536,8 +537,8 @@ defmodule AWS.CloudFormation do
   about a specific stack instance, including its drift status and last drift time
   checked.
 
-  For more information on performing a drift detection operation on a stack set,
-  see [Detecting unmanaged changes in stack sets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html).
+  For more information about performing a drift detection operation on a stack
+  set, see [Detecting unmanaged changes in stack sets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html).
 
   You can only run a single drift detection operation on a given stack set at one
   time.
@@ -768,7 +769,7 @@ defmodule AWS.CloudFormation do
   extension in this region.
 
   Public extensions are available for use by all CloudFormation users. For more
-  information on publishing extensions, see [Publishing extensions to make them available for public
+  information about publishing extensions, see [Publishing extensions to make them available for public
   use](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html)
   in the *CloudFormation CLI User Guide*.
 
@@ -797,8 +798,8 @@ defmodule AWS.CloudFormation do
   Public extensions are available for use by all CloudFormation users. This
   publisher ID applies to your account in all Amazon Web Services Regions.
 
-  For information on requirements for registering as a public extension publisher,
-  see [Registering your account to publish CloudFormation extensions](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs)
+  For information about requirements for registering as a public extension
+  publisher, see [Registering your account to publish CloudFormation extensions](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs)
   in the *CloudFormation CLI User Guide*.
   """
   def register_publisher(%Client{} = client, input, options \\ []) do
@@ -818,7 +819,7 @@ defmodule AWS.CloudFormation do
 
     * Making the extension available for use in your account.
 
-  For more information on how to develop extensions and ready them for
+  For more information about how to develop extensions and ready them for
   registration, see [Creating Resource Providers](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-types.html)
   in the *CloudFormation CLI User Guide*.
 

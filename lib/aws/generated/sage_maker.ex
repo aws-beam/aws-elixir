@@ -907,9 +907,7 @@ defmodule AWS.SageMaker do
     * `ModelName` - Identifies the model to use. `ModelName` must be the
   name of an existing Amazon SageMaker model in the same Amazon Web Services
   Region and Amazon Web Services account. For information on creating a model, see
-  `CreateModel`.
-
-    * `TransformInput` - Describes the dataset to be transformed and the
+  [CreateModel](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html).     * `TransformInput` - Describes the dataset to be transformed and the
   Amazon S3 location where it is stored.
 
     * `TransformOutput` - Identifies the Amazon S3 location where you
@@ -918,7 +916,8 @@ defmodule AWS.SageMaker do
     * `TransformResources` - Identifies the ML compute instances for the
   transform job.
 
-  For more information about how batch transformation works, see [Batch Transform](https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html).
+  For more information about how batch transformation works, see [Batch
+  Transform](https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html).
   """
   def create_transform_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateTransformJob", input, options)

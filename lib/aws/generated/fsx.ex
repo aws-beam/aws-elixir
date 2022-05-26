@@ -716,6 +716,8 @@ defmodule AWS.FSx do
 
     * `DataCompressionType`
 
+    * `LustreRootSquashConfiguration`
+
     * `StorageCapacity`
 
     * `WeeklyMaintenanceStartTime`

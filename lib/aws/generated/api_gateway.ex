@@ -33,9 +33,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Create an `ApiKey` resource.
-
-  See also: [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html)
+  Create an ApiKey resource.
   """
   def create_api_key(%Client{} = client, input, options \\ []) do
     url_path = "/apikeys"
@@ -56,9 +54,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Adds a new `Authorizer` resource to an existing `RestApi` resource.
-
-  See also: [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html)
+  Adds a new Authorizer resource to an existing RestApi resource.
   """
   def create_authorizer(%Client{} = client, rest_api_id, input, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/authorizers"
@@ -79,7 +75,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Creates a new `BasePathMapping` resource.
+  Creates a new BasePathMapping resource.
   """
   def create_base_path_mapping(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}/basepathmappings"
@@ -100,8 +96,8 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Creates a `Deployment` resource, which makes a specified `RestApi` callable over
-  the internet.
+  Creates a Deployment resource, which makes a specified RestApi callable over the
+  internet.
   """
   def create_deployment(%Client{} = client, rest_api_id, input, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/deployments"
@@ -121,6 +117,9 @@ defmodule AWS.APIGateway do
     )
   end
 
+  @doc """
+  Creates a documentation part.
+  """
   def create_documentation_part(%Client{} = client, rest_api_id, input, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/parts"
     headers = []
@@ -139,6 +138,9 @@ defmodule AWS.APIGateway do
     )
   end
 
+  @doc """
+  Creates a documentation version
+  """
   def create_documentation_version(%Client{} = client, rest_api_id, input, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/versions"
     headers = []
@@ -179,7 +181,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Adds a new `Model` resource to an existing `RestApi` resource.
+  Adds a new Model resource to an existing RestApi resource.
   """
   def create_model(%Client{} = client, rest_api_id, input, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models"
@@ -200,7 +202,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Creates a `ReqeustValidator` of a given `RestApi`.
+  Creates a RequestValidator of a given RestApi.
   """
   def create_request_validator(%Client{} = client, rest_api_id, input, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/requestvalidators"
@@ -221,7 +223,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Creates a `Resource` resource.
+  Creates a Resource resource.
   """
   def create_resource(%Client{} = client, parent_id, rest_api_id, input, options \\ []) do
     url_path =
@@ -244,7 +246,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Creates a new `RestApi` resource.
+  Creates a new RestApi resource.
   """
   def create_rest_api(%Client{} = client, input, options \\ []) do
     url_path = "/restapis"
@@ -265,8 +267,8 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Creates a new `Stage` resource that references a pre-existing `Deployment` for
-  the API.
+  Creates a new Stage resource that references a pre-existing Deployment for the
+  API.
   """
   def create_stage(%Client{} = client, rest_api_id, input, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages"
@@ -355,7 +357,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Deletes the `ApiKey` resource.
+  Deletes the ApiKey resource.
   """
   def delete_api_key(%Client{} = client, api_key, input, options \\ []) do
     url_path = "/apikeys/#{AWS.Util.encode_uri(api_key)}"
@@ -376,9 +378,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Deletes an existing `Authorizer` resource.
-
-  See also: [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/delete-authorizer.html)
+  Deletes an existing Authorizer resource.
   """
   def delete_authorizer(%Client{} = client, authorizer_id, rest_api_id, input, options \\ []) do
     url_path =
@@ -401,7 +401,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Deletes the `BasePathMapping` resource.
+  Deletes the BasePathMapping resource.
   """
   def delete_base_path_mapping(%Client{} = client, base_path, domain_name, input, options \\ []) do
     url_path =
@@ -424,7 +424,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Deletes the `ClientCertificate` resource.
+  Deletes the ClientCertificate resource.
   """
   def delete_client_certificate(%Client{} = client, client_certificate_id, input, options \\ []) do
     url_path = "/clientcertificates/#{AWS.Util.encode_uri(client_certificate_id)}"
@@ -445,9 +445,9 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Deletes a `Deployment` resource.
+  Deletes a Deployment resource.
 
-  Deleting a deployment will only succeed if there are no `Stage` resources
+  Deleting a deployment will only succeed if there are no Stage resources
   associated with it.
   """
   def delete_deployment(%Client{} = client, deployment_id, rest_api_id, input, options \\ []) do
@@ -470,6 +470,9 @@ defmodule AWS.APIGateway do
     )
   end
 
+  @doc """
+  Deletes a documentation part
+  """
   def delete_documentation_part(
         %Client{} = client,
         documentation_part_id,
@@ -496,6 +499,9 @@ defmodule AWS.APIGateway do
     )
   end
 
+  @doc """
+  Deletes a documentation version.
+  """
   def delete_documentation_version(
         %Client{} = client,
         documentation_version,
@@ -523,7 +529,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Deletes the `DomainName` resource.
+  Deletes the DomainName resource.
   """
   def delete_domain_name(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}"
@@ -544,8 +550,8 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Clears any customization of a `GatewayResponse` of a specified response type on
-  the given `RestApi` and resets it with the default settings.
+  Clears any customization of a GatewayResponse of a specified response type on
+  the given RestApi and resets it with the default settings.
   """
   def delete_gateway_response(
         %Client{} = client,
@@ -635,7 +641,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Deletes an existing `Method` resource.
+  Deletes an existing Method resource.
   """
   def delete_method(
         %Client{} = client,
@@ -665,7 +671,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Deletes an existing `MethodResponse` resource.
+  Deletes an existing MethodResponse resource.
   """
   def delete_method_response(
         %Client{} = client,
@@ -719,7 +725,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Deletes a `RequestValidator` of a given `RestApi`.
+  Deletes a RequestValidator of a given RestApi.
   """
   def delete_request_validator(
         %Client{} = client,
@@ -748,7 +754,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Deletes a `Resource` resource.
+  Deletes a Resource resource.
   """
   def delete_resource(%Client{} = client, resource_id, rest_api_id, input, options \\ []) do
     url_path =
@@ -792,7 +798,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Deletes a `Stage` resource.
+  Deletes a Stage resource.
   """
   def delete_stage(%Client{} = client, rest_api_id, stage_name, input, options \\ []) do
     url_path =
@@ -860,7 +866,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Deletes an existing `VpcLink` of a specified identifier.
+  Deletes an existing VpcLink of a specified identifier.
   """
   def delete_vpc_link(%Client{} = client, vpc_link_id, input, options \\ []) do
     url_path = "/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
@@ -933,7 +939,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Generates a `ClientCertificate` resource.
+  Generates a ClientCertificate resource.
   """
   def generate_client_certificate(%Client{} = client, input, options \\ []) do
     url_path = "/clientcertificates"
@@ -954,7 +960,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Gets information about the current `Account` resource.
+  Gets information about the current Account resource.
   """
   def get_account(%Client{} = client, options \\ []) do
     url_path = "/account"
@@ -975,7 +981,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Gets information about the current `ApiKey` resource.
+  Gets information about the current ApiKey resource.
   """
   def get_api_key(%Client{} = client, api_key, include_value \\ nil, options \\ []) do
     url_path = "/apikeys/#{AWS.Util.encode_uri(api_key)}"
@@ -1003,7 +1009,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Gets information about the current `ApiKeys` resource.
+  Gets information about the current ApiKeys resource.
   """
   def get_api_keys(
         %Client{} = client,
@@ -1067,9 +1073,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Describe an existing `Authorizer` resource.
-
-  See also: [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizer.html)
+  Describe an existing Authorizer resource.
   """
   def get_authorizer(%Client{} = client, authorizer_id, rest_api_id, options \\ []) do
     url_path =
@@ -1092,9 +1096,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Describe an existing `Authorizers` resource.
-
-  See also: [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html)
+  Describe an existing Authorizers resource.
   """
   def get_authorizers(
         %Client{} = client,
@@ -1135,7 +1137,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Describe a `BasePathMapping` resource.
+  Describe a BasePathMapping resource.
   """
   def get_base_path_mapping(%Client{} = client, base_path, domain_name, options \\ []) do
     url_path =
@@ -1158,7 +1160,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Represents a collection of `BasePathMapping` resources.
+  Represents a collection of BasePathMapping resources.
   """
   def get_base_path_mappings(
         %Client{} = client,
@@ -1199,7 +1201,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Gets information about the current `ClientCertificate` resource.
+  Gets information about the current ClientCertificate resource.
   """
   def get_client_certificate(%Client{} = client, client_certificate_id, options \\ []) do
     url_path = "/clientcertificates/#{AWS.Util.encode_uri(client_certificate_id)}"
@@ -1220,7 +1222,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Gets a collection of `ClientCertificate` resources.
+  Gets a collection of ClientCertificate resources.
   """
   def get_client_certificates(%Client{} = client, limit \\ nil, position \\ nil, options \\ []) do
     url_path = "/clientcertificates"
@@ -1255,7 +1257,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Gets information about a `Deployment` resource.
+  Gets information about a Deployment resource.
   """
   def get_deployment(%Client{} = client, deployment_id, rest_api_id, embed \\ nil, options \\ []) do
     url_path =
@@ -1285,7 +1287,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Gets information about a `Deployments` collection.
+  Gets information about a Deployments collection.
   """
   def get_deployments(
         %Client{} = client,
@@ -1325,6 +1327,9 @@ defmodule AWS.APIGateway do
     )
   end
 
+  @doc """
+  Gets a documentation part.
+  """
   def get_documentation_part(
         %Client{} = client,
         documentation_part_id,
@@ -1350,6 +1355,9 @@ defmodule AWS.APIGateway do
     )
   end
 
+  @doc """
+  Gets documentation parts.
+  """
   def get_documentation_parts(
         %Client{} = client,
         rest_api_id,
@@ -1420,6 +1428,9 @@ defmodule AWS.APIGateway do
     )
   end
 
+  @doc """
+  Gets a documentation version.
+  """
   def get_documentation_version(
         %Client{} = client,
         documentation_version,
@@ -1445,6 +1456,9 @@ defmodule AWS.APIGateway do
     )
   end
 
+  @doc """
+  Gets documentation versions.
+  """
   def get_documentation_versions(
         %Client{} = client,
         rest_api_id,
@@ -1506,7 +1520,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Represents a collection of `DomainName` resources.
+  Represents a collection of DomainName resources.
   """
   def get_domain_names(%Client{} = client, limit \\ nil, position \\ nil, options \\ []) do
     url_path = "/domainnames"
@@ -1541,7 +1555,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Exports a deployed version of a `RestApi` in a specified format.
+  Exports a deployed version of a RestApi in a specified format.
   """
   def get_export(
         %Client{} = client,
@@ -1594,7 +1608,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Gets a `GatewayResponse` of a specified response type on the given `RestApi`.
+  Gets a GatewayResponse of a specified response type on the given RestApi.
   """
   def get_gateway_response(%Client{} = client, response_type, rest_api_id, options \\ []) do
     url_path =
@@ -1617,11 +1631,11 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Gets the `GatewayResponses` collection on the given `RestApi`.
+  Gets the GatewayResponses collection on the given RestApi.
 
   If an API developer has not added any definitions for gateway responses, the
-  result will be the API Gateway-generated default `GatewayResponses` collection
-  for the supported response types.
+  result will be the API Gateway-generated default GatewayResponses collection for
+  the supported response types.
   """
   def get_gateway_responses(
         %Client{} = client,
@@ -1715,7 +1729,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Describe an existing `Method` resource.
+  Describe an existing Method resource.
   """
   def get_method(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
@@ -1738,7 +1752,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Describes a `MethodResponse` resource.
+  Describes a MethodResponse resource.
   """
   def get_method_response(
         %Client{} = client,
@@ -1768,7 +1782,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Describes an existing model defined for a `RestApi` resource.
+  Describes an existing model defined for a RestApi resource.
   """
   def get_model(%Client{} = client, model_name, rest_api_id, flatten \\ nil, options \\ []) do
     url_path =
@@ -1822,7 +1836,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Describes existing `Models` defined for a `RestApi` resource.
+  Describes existing Models defined for a RestApi resource.
   """
   def get_models(%Client{} = client, rest_api_id, limit \\ nil, position \\ nil, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models"
@@ -1857,7 +1871,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Gets a `RequestValidator` of a given `RestApi`.
+  Gets a RequestValidator of a given RestApi.
   """
   def get_request_validator(%Client{} = client, request_validator_id, rest_api_id, options \\ []) do
     url_path =
@@ -1880,7 +1894,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Gets the `RequestValidators` collection of a given `RestApi`.
+  Gets the RequestValidators collection of a given RestApi.
   """
   def get_request_validators(
         %Client{} = client,
@@ -1951,7 +1965,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Lists information about a collection of `Resource` resources.
+  Lists information about a collection of Resource resources.
   """
   def get_resources(
         %Client{} = client,
@@ -2000,7 +2014,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Lists the `RestApi` resource in the collection.
+  Lists the RestApi resource in the collection.
   """
   def get_rest_api(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}"
@@ -2021,7 +2035,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Lists the `RestApis` resources for your collection.
+  Lists the RestApis resources for your collection.
   """
   def get_rest_apis(%Client{} = client, limit \\ nil, position \\ nil, options \\ []) do
     url_path = "/restapis"
@@ -2056,7 +2070,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Generates a client SDK for a `RestApi` and `Stage`.
+  Generates a client SDK for a RestApi and Stage.
   """
   def get_sdk(
         %Client{} = client,
@@ -2099,6 +2113,9 @@ defmodule AWS.APIGateway do
     )
   end
 
+  @doc """
+  Gets an SDK type.
+  """
   def get_sdk_type(%Client{} = client, id, options \\ []) do
     url_path = "/sdktypes/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -2117,6 +2134,9 @@ defmodule AWS.APIGateway do
     )
   end
 
+  @doc """
+  Gets SDK types
+  """
   def get_sdk_types(%Client{} = client, limit \\ nil, position \\ nil, options \\ []) do
     url_path = "/sdktypes"
     headers = []
@@ -2150,7 +2170,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Gets information about a `Stage` resource.
+  Gets information about a Stage resource.
   """
   def get_stage(%Client{} = client, rest_api_id, stage_name, options \\ []) do
     url_path =
@@ -2173,7 +2193,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Gets information about one or more `Stage` resources.
+  Gets information about one or more Stage resources.
   """
   def get_stages(%Client{} = client, rest_api_id, deployment_id \\ nil, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages"
@@ -2201,7 +2221,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Gets the `Tags` collection for a given resource.
+  Gets the Tags collection for a given resource.
   """
   def get_tags(%Client{} = client, resource_arn, limit \\ nil, position \\ nil, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2464,7 +2484,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Gets the `VpcLinks` collection under the caller's account in a selected region.
+  Gets the VpcLinks collection under the caller's account in a selected region.
   """
   def get_vpc_links(%Client{} = client, limit \\ nil, position \\ nil, options \\ []) do
     url_path = "/vpclinks"
@@ -2525,6 +2545,9 @@ defmodule AWS.APIGateway do
     )
   end
 
+  @doc """
+  Imports documentation parts
+  """
   def import_documentation_parts(%Client{} = client, rest_api_id, input, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/parts"
     headers = []
@@ -2578,8 +2601,8 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Creates a customization of a `GatewayResponse` of a specified response type and
-  status code on the given `RestApi`.
+  Creates a customization of a GatewayResponse of a specified response type and
+  status code on the given RestApi.
   """
   def put_gateway_response(%Client{} = client, response_type, rest_api_id, input, options \\ []) do
     url_path =
@@ -2663,7 +2686,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Add a method to an existing `Resource` resource.
+  Add a method to an existing Resource resource.
   """
   def put_method(%Client{} = client, http_method, resource_id, rest_api_id, input, options \\ []) do
     url_path =
@@ -2686,7 +2709,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Adds a `MethodResponse` to an existing `Method` resource.
+  Adds a MethodResponse to an existing Method resource.
   """
   def put_method_response(
         %Client{} = client,
@@ -2770,11 +2793,8 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Simulate the execution of an `Authorizer` in your `RestApi` with headers,
+  Simulate the execution of an Authorizer in your RestApi with headers,
   parameters, and an incoming request body.
-
-  See also: [Use Lambda Function as Authorizer](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html)
-  [Use Cognito User Pool as Authorizer](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html)
   """
   def test_invoke_authorizer(%Client{} = client, authorizer_id, rest_api_id, input, options \\ []) do
     url_path =
@@ -2797,7 +2817,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Simulate the execution of a `Method` in your `RestApi` with headers, parameters,
+  Simulate the invocation of a Method in your RestApi with headers, parameters,
   and an incoming request body.
   """
   def test_invoke_method(
@@ -2854,7 +2874,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Changes information about the current `Account` resource.
+  Changes information about the current Account resource.
   """
   def update_account(%Client{} = client, input, options \\ []) do
     url_path = "/account"
@@ -2875,7 +2895,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Changes information about an `ApiKey` resource.
+  Changes information about an ApiKey resource.
   """
   def update_api_key(%Client{} = client, api_key, input, options \\ []) do
     url_path = "/apikeys/#{AWS.Util.encode_uri(api_key)}"
@@ -2896,9 +2916,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Updates an existing `Authorizer` resource.
-
-  See also: [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html)
+  Updates an existing Authorizer resource.
   """
   def update_authorizer(%Client{} = client, authorizer_id, rest_api_id, input, options \\ []) do
     url_path =
@@ -2921,7 +2939,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Changes information about the `BasePathMapping` resource.
+  Changes information about the BasePathMapping resource.
   """
   def update_base_path_mapping(%Client{} = client, base_path, domain_name, input, options \\ []) do
     url_path =
@@ -2944,7 +2962,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Changes information about an `ClientCertificate` resource.
+  Changes information about an ClientCertificate resource.
   """
   def update_client_certificate(%Client{} = client, client_certificate_id, input, options \\ []) do
     url_path = "/clientcertificates/#{AWS.Util.encode_uri(client_certificate_id)}"
@@ -2965,7 +2983,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Changes information about a `Deployment` resource.
+  Changes information about a Deployment resource.
   """
   def update_deployment(%Client{} = client, deployment_id, rest_api_id, input, options \\ []) do
     url_path =
@@ -2987,6 +3005,9 @@ defmodule AWS.APIGateway do
     )
   end
 
+  @doc """
+  Updates a documentation part.
+  """
   def update_documentation_part(
         %Client{} = client,
         documentation_part_id,
@@ -3013,6 +3034,9 @@ defmodule AWS.APIGateway do
     )
   end
 
+  @doc """
+  Updates a documentation version.
+  """
   def update_documentation_version(
         %Client{} = client,
         documentation_version,
@@ -3040,7 +3064,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Changes information about the `DomainName` resource.
+  Changes information about the DomainName resource.
   """
   def update_domain_name(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}"
@@ -3061,7 +3085,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Updates a `GatewayResponse` of a specified response type on the given `RestApi`.
+  Updates a GatewayResponse of a specified response type on the given RestApi.
   """
   def update_gateway_response(
         %Client{} = client,
@@ -3151,7 +3175,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Updates an existing `Method` resource.
+  Updates an existing Method resource.
   """
   def update_method(
         %Client{} = client,
@@ -3181,7 +3205,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Updates an existing `MethodResponse` resource.
+  Updates an existing MethodResponse resource.
   """
   def update_method_response(
         %Client{} = client,
@@ -3235,7 +3259,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Updates a `RequestValidator` of a given `RestApi`.
+  Updates a RequestValidator of a given RestApi.
   """
   def update_request_validator(
         %Client{} = client,
@@ -3264,7 +3288,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Changes information about a `Resource` resource.
+  Changes information about a Resource resource.
   """
   def update_resource(%Client{} = client, resource_id, rest_api_id, input, options \\ []) do
     url_path =
@@ -3308,7 +3332,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Changes information about a `Stage` resource.
+  Changes information about a Stage resource.
   """
   def update_stage(%Client{} = client, rest_api_id, stage_name, input, options \\ []) do
     url_path =
@@ -3376,7 +3400,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Updates an existing `VpcLink` of a specified identifier.
+  Updates an existing VpcLink of a specified identifier.
   """
   def update_vpc_link(%Client{} = client, vpc_link_id, input, options \\ []) do
     url_path = "/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"

@@ -886,8 +886,8 @@ defmodule AWS.Forecast do
   Returns a list of the monitoring evaluation results and predictor events
   collected by the monitor resource during different windows of time.
 
-  For information about monitoring see [Viewing Monitoring Results](https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring-results.html).
-  For more information about retrieving monitoring results see [Viewing Monitoring Results](https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring-results.html).
+  For information about monitoring see `predictor-monitoring`. For more
+  information about retrieving monitoring results see [Viewing Monitoring Results](https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring-results.html).
   """
   def list_monitor_evaluations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListMonitorEvaluations", input, options)

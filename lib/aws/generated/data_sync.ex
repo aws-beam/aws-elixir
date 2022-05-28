@@ -74,7 +74,10 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates an endpoint for an Amazon EFS file system.
+  Creates an endpoint for an Amazon EFS file system that DataSync can access for a
+  transfer.
+
+  For more information, see [Creating a location for Amazon EFS](https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html).
   """
   def create_location_efs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateLocationEfs", input, options)
@@ -208,7 +211,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Returns metadata, such as the path information about an Amazon EFS location.
+  Returns metadata about your DataSync location for an Amazon EFS file system.
   """
   def describe_location_efs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeLocationEfs", input, options)

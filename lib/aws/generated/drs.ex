@@ -26,6 +26,28 @@ defmodule AWS.Drs do
   end
 
   @doc """
+  Create an extended source server in the target Account based on the source
+  server in staging account.
+  """
+  def create_extended_source_server(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateExtendedSourceServer"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a new ReplicationConfigurationTemplate.
   """
   def create_replication_configuration_template(%Client{} = client, input, options \\ []) do
@@ -415,6 +437,72 @@ defmodule AWS.Drs do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Returns a list of source servers on a staging account that are extensible, which
+  means that: a.
+
+  The source server is not already extended into this Account. b. The source
+  server on the Account we’re reading from is not an extension of another source
+  server.
+  """
+  def list_extensible_source_servers(%Client{} = client, input, options \\ []) do
+    url_path = "/ListExtensibleSourceServers"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns an array of staging accounts for existing extended source servers.
+  """
+  def list_staging_accounts(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/ListStagingAccounts"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
     )
   end
 

@@ -98,6 +98,48 @@ defmodule AWS.Route53 do
   end
 
   @doc """
+  Creates, changes, or deletes CIDR blocks within a collection.
+
+  Contains authoritative IP information mapping blocks to one or multiple
+  locations.
+
+  A change request can update multiple locations in a collection at a time, which
+  is helpful if you want to move one or more CIDR blocks from one location to
+  another in one transaction, without downtime.
+
+  ## Limits
+
+  The max number of CIDR blocks included in the request is 1000. As a result, big
+  updates require multiple API calls.
+
+  ##  PUT and DELETE_IF_EXISTS
+
+  Use `ChangeCidrCollection` to perform the following actions:
+
+    * `PUT`: Create a CIDR block within the specified collection.
+
+    * ` DELETE_IF_EXISTS`: Delete an existing CIDR block from the
+  collection.
+  """
+  def change_cidr_collection(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2013-04-01/cidrcollection/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates, changes, or deletes a resource record set, which contains authoritative
   DNS information for a specified domain name or subdomain name.
 
@@ -232,6 +274,34 @@ defmodule AWS.Route53 do
   end
 
   @doc """
+  Creates a CIDR collection in the current Amazon Web Services account.
+  """
+  def create_cidr_collection(%Client{} = client, input, options \\ []) do
+    url_path = "/2013-04-01/cidrcollection"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Location", "Location"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a new health check.
 
   For information about adding health checks to resource record sets, see
@@ -304,7 +374,7 @@ defmodule AWS.Route53 do
   Instead, you must create a new hosted zone with the same name and create new
   resource record sets.
 
-  For more information about charges for hosted zones, see [Amazon Route 53 Pricing](http://aws.amazon.com/route53/pricing/).
+  For more information about charges for hosted zones, see [Amazon Route 53 Pricing](http://aws.amazon.com/route53/pricing/).
 
   Note the following:
 
@@ -313,22 +383,22 @@ defmodule AWS.Route53 do
 
     * For public hosted zones, Route 53 automatically creates a default
   SOA record and four NS records for the zone. For more information about SOA and
-  NS records, see [NS and SOA Records that Route 53 Creates for a Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html)
+  NS records, see [NS and SOA Records that Route 53 Creates for a Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html)
   in the *Amazon Route 53 Developer Guide*.
 
   If you want to use the same name servers for multiple public hosted zones, you
   can optionally associate a reusable delegation set with the hosted zone. See the
   `DelegationSetId` element.
 
-    * If your domain is registered with a registrar other than Route 53,
+    * If your domain is registered with a registrar other than Route 53,
   you must update the name servers with your registrar to make Route 53 the DNS
-  service for the domain. For more information, see [Migrating DNS Service for an Existing Domain to Amazon Route
-  53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html)
+  service for the domain. For more information, see [Migrating DNS Service for an Existing Domain to Amazon
+  Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html)
   in the *Amazon Route 53 Developer Guide*.
 
   When you submit a `CreateHostedZone` request, the initial status of the hosted
   zone is `PENDING`. For public hosted zones, this means that the NS and SOA
-  records are not yet available on all Route 53 DNS servers. When the NS and SOA
+  records are not yet available on all Route 53 DNS servers. When the NS and SOA
   records are available, the status of the zone changes to `INSYNC`.
 
   The `CreateHostedZone` request requires the caller to have an `ec2:DescribeVpcs`
@@ -798,6 +868,29 @@ defmodule AWS.Route53 do
   end
 
   @doc """
+  Deletes a CIDR collection in the current Amazon Web Services account.
+
+  The collection must be empty before it can be deleted.
+  """
+  def delete_cidr_collection(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2013-04-01/cidrcollection/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes a health check.
 
   Amazon Route 53 does not prevent you from deleting a health check even if the
@@ -837,7 +930,7 @@ defmodule AWS.Route53 do
 
   If the hosted zone was created by another service, such as Cloud Map, see
   [Deleting Public Hosted Zones That Were Created by Another Service](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html#delete-public-hosted-zone-created-by-another-service)
-  in the *Amazon Route 53 Developer Guide* for information about how to delete it.
+  in the *Amazon Route 53 Developer Guide* for information about how to delete it.
   (The process is the same for public and private hosted zones that were created
   by another service.)
 
@@ -857,8 +950,8 @@ defmodule AWS.Route53 do
   If you want to avoid the monthly charge for the hosted zone, you can transfer
   DNS service for the domain to a free DNS service. When you transfer DNS service,
   you have to update the name servers for the domain registration. If the domain
-  is registered with Route 53, see
-  [UpdateDomainNameservers](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_UpdateDomainNameservers.html) for information about how to replace Route 53 name servers with name servers for
+  is registered with Route 53, see
+  [UpdateDomainNameservers](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_UpdateDomainNameservers.html) for information about how to replace Route 53 name servers with name servers for
   the new DNS service. If the domain is registered with another registrar, use the
   method provided by the registrar to update name servers for the domain
   registration. For more information, perform an internet search on "free DNS
@@ -868,7 +961,7 @@ defmodule AWS.Route53 do
   NS resource record sets. If the hosted zone contains other resource record sets,
   you must delete them before you can delete the hosted zone. If you try to delete
   a hosted zone that contains other resource record sets, the request fails, and
-  Route 53 returns a `HostedZoneNotEmpty` error. For information about deleting
+  Route 53 returns a `HostedZoneNotEmpty` error. For information about deleting
   records from your hosted zone, see
   [ChangeResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html).
 
@@ -1677,6 +1770,138 @@ defmodule AWS.Route53 do
     url_path = "/2013-04-01/trafficpolicyinstancecount"
     headers = []
     query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns a paginated list of location objects and their CIDR blocks.
+  """
+  def list_cidr_blocks(
+        %Client{} = client,
+        collection_id,
+        location_name \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/cidrcollection/#{AWS.Util.encode_uri(collection_id)}/cidrblocks"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nexttoken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxresults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(location_name) do
+        [{"location", location_name} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns a paginated list of CIDR collections in the Amazon Web Services account
+  (metadata only).
+  """
+  def list_cidr_collections(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/cidrcollection"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nexttoken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxresults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns a paginated list of CIDR locations for the given collection (metadata
+  only, does not include CIDR blocks).
+  """
+  def list_cidr_locations(
+        %Client{} = client,
+        collection_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/cidrcollection/#{AWS.Util.encode_uri(collection_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nexttoken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxresults", max_results} | query_params]
+      else
+        query_params
+      end
 
     Request.request_rest(
       client,

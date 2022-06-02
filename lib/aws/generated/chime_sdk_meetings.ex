@@ -54,6 +54,35 @@ defmodule AWS.ChimeSDKMeetings do
   end
 
   @doc """
+  Updates `AttendeeCapabilities` except the capabilities listed in an
+  `ExcludedAttendeeIds` table.
+  """
+  def batch_update_attendee_capabilities_except(
+        %Client{} = client,
+        meeting_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/capabilities?operation=batch-update-except"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a new attendee for an active Amazon Chime SDK meeting.
 
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
@@ -319,6 +348,35 @@ defmodule AWS.ChimeSDKMeetings do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  The capabilties that you want to update.
+  """
+  def update_attendee_capabilities(
+        %Client{} = client,
+        attendee_id,
+        meeting_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/capabilities"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
     )
   end
 end

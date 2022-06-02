@@ -84,6 +84,13 @@ defmodule AWS.BackupGateway do
   end
 
   @doc """
+  By providing the ARN (Amazon Resource Name), this API returns the gateway.
+  """
+  def get_gateway(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetGateway", input, options)
+  end
+
+  @doc """
   Connect to a hypervisor by importing its configuration.
   """
   def import_hypervisor_configuration(%Client{} = client, input, options \\ []) do
@@ -159,6 +166,18 @@ defmodule AWS.BackupGateway do
   """
   def update_gateway_information(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateGatewayInformation", input, options)
+  end
+
+  @doc """
+  Updates the gateway virtual machine (VM) software.
+
+  The request immediately triggers the software update.
+
+  When you make this request, you get a `200 OK` success response immediately.
+  However, it might take some time for the update to complete.
+  """
+  def update_gateway_software_now(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateGatewaySoftwareNow", input, options)
   end
 
   @doc """

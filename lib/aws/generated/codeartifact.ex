@@ -3,9 +3,9 @@
 
 defmodule AWS.Codeartifact do
   @moduledoc """
-  AWS CodeArtifact is a fully managed artifact repository compatible with
-  language-native package managers and build tools such as npm, Apache Maven, and
-  pip.
+  CodeArtifact is a fully managed artifact repository compatible with
+  language-native package managers and build tools such as npm, Apache Maven, pip,
+  and dotnet.
 
   You can use CodeArtifact to share packages with development teams and pull
   packages. Packages can be pulled from both public and CodeArtifact repositories.
@@ -13,7 +13,7 @@ defmodule AWS.Codeartifact do
   and another repository, which effectively merges their contents from the point
   of view of a package manager client.
 
-  ## AWS CodeArtifact Components
+  ## CodeArtifact Components
 
   Use the information in this guide to help you work with the following
   CodeArtifact components:
@@ -23,14 +23,15 @@ defmodule AWS.Codeartifact do
   each of which maps to a set of assets, or files. Repositories are polyglot, so a
   single repository can contain packages of any supported type. Each repository
   exposes endpoints for fetching and publishing packages using tools like the 
-  `npm` ** CLI, the Maven CLI (** `mvn` **), and ** `pip` **.
+  `npm` ** CLI, the Maven CLI (** `mvn` **), Python CLIs (** `pip` ** and
+  `twine`), and NuGet CLIs (`nuget` and `dotnet`).
 
     * **Domain**: Repositories are aggregated into a higher-level entity
   known as a *domain*. All package assets and metadata are stored in the domain,
   but are consumed through repositories. A given package asset, such as a Maven
   JAR file, is stored once per domain, no matter how many repositories it's
   present in. All of the assets and metadata in a domain are encrypted with the
-  same customer master key (CMK) stored in AWS Key Management Service (AWS KMS).
+  same customer master key (CMK) stored in Key Management Service (KMS).
 
   Each repository is a member of a single domain and can't be moved to a different
   domain.
@@ -46,7 +47,8 @@ defmodule AWS.Codeartifact do
     * **Package**: A *package* is a bundle of software and the metadata
   required to resolve dependencies and install the software. CodeArtifact supports
   [npm](https://docs.aws.amazon.com/codeartifact/latest/ug/using-npm.html), [PyPI](https://docs.aws.amazon.com/codeartifact/latest/ug/using-python.html),
-  and [Maven](https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven) package formats.
+  [Maven](https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven), and [NuGet](https://docs.aws.amazon.com/codeartifact/latest/ug/using-nuget) package
+  formats.
 
   In CodeArtifact, a package consists of:
 
@@ -63,8 +65,7 @@ defmodule AWS.Codeartifact do
 
     * **Package version**: A version of a package, such as `@types/node
   12.6.9`. The version number format and semantics vary for different package
-  formats. For example, npm package versions must conform to the [Semantic
-  Versioning specification](https://semver.org/). In CodeArtifact, a package
+  formats. For example, npm package versions must conform to the [Semantic Versioning specification](https://semver.org/). In CodeArtifact, a package
   version consists of the version identifier, metadata at the package version
   level, and a set of assets.
 
@@ -139,11 +140,13 @@ defmodule AWS.Codeartifact do
   a specific package format. A repository has one endpoint for each package
   format:
 
+      * `maven`
+
       * `npm`
 
-      * `pypi`
+      * `nuget`
 
-      * `maven`
+      * `pypi`
 
     * `GetRepositoryPermissionsPolicy`: Returns the resource policy that
   is set on a repository.
@@ -163,7 +166,7 @@ defmodule AWS.Codeartifact do
   specified package in a repository.
 
     * `ListRepositories`: Returns a list of repositories owned by the
-  AWS account that called this method.
+  Amazon Web Services account that called this method.
 
     * `ListRepositoriesInDomain`: Returns a list of the repositories in
   a domain.
@@ -273,8 +276,8 @@ defmodule AWS.Codeartifact do
 
   CodeArtifact *domains* make it easier to manage multiple repositories across an
   organization. You can use a domain to apply permissions across many repositories
-  owned by different AWS accounts. An asset is stored only once in a domain, even
-  if it's in multiple repositories.
+  owned by different Amazon Web Services accounts. An asset is stored only once in
+  a domain, even if it's in multiple repositories.
 
   Although you can have multiple domains, we recommend a single production domain
   that contains all published artifacts so that your development teams can find
@@ -464,8 +467,8 @@ defmodule AWS.Codeartifact do
   be immediate.
 
   Use `DeleteRepositoryPermissionsPolicy` with caution. After a policy is deleted,
-  AWS users, roles, and accounts lose permissions to perform the repository
-  actions granted by the deleted policy.
+  Amazon Web Services users, roles, and accounts lose permissions to perform the
+  repository actions granted by the deleted policy.
   """
   def delete_repository_permissions_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository/permissions/policies"
@@ -739,7 +742,7 @@ defmodule AWS.Codeartifact do
 
   This API requires the `codeartifact:GetAuthorizationToken` and
   `sts:GetServiceBearerToken` permissions. For more information about
-  authorization tokens, see [AWS CodeArtifact authentication and tokens](https://docs.aws.amazon.com/codeartifact/latest/ug/tokens-authentication.html).
+  authorization tokens, see [CodeArtifact authentication and tokens](https://docs.aws.amazon.com/codeartifact/latest/ug/tokens-authentication.html).
 
   CodeArtifact authorization tokens are valid for a period of 12 hours when
   created with the `login` command. You can call `login` periodically to refresh
@@ -789,7 +792,7 @@ defmodule AWS.Codeartifact do
   The policy is a resource-based policy, not an identity-based policy. For more
   information, see [Identity-based policies and resource-based policies
   ](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html)
-  in the *AWS Identity and Access Management User Guide*.
+  in the *IAM User Guide*.
   """
   def get_domain_permissions_policy(
         %Client{} = client,
@@ -941,10 +944,6 @@ defmodule AWS.Codeartifact do
   @doc """
   Gets the readme file or descriptive text for a package version.
 
-  For packages that do not contain a readme file, CodeArtifact extracts a
-  description from a metadata file. For example, from the `<description>` element
-  in the `pom.xml` file of a Maven package.
-
   The returned text might contain formatting. For example, it might contain
   formatting for Markdown or reStructuredText.
   """
@@ -1030,11 +1029,13 @@ defmodule AWS.Codeartifact do
 
   A repository has one endpoint for each package format:
 
+    * `maven`
+
     * `npm`
 
-    * `pypi`
+    * `nuget`
 
-    * `maven`
+    * `pypi`
   """
   def get_repository_endpoint(
         %Client{} = client,
@@ -1140,7 +1141,8 @@ defmodule AWS.Codeartifact do
   @doc """
   Returns a list of
   [DomainSummary](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html)
-  objects for all domains owned by the AWS account that makes this call.
+  objects for all domains owned by the Amazon Web Services account that makes this
+  call.
 
   Each returned `DomainSummary` object contains information about a domain.
   """
@@ -1316,7 +1318,7 @@ defmodule AWS.Codeartifact do
   objects.
 
   Each `RepositorySummary` contains information about a repository in the
-  specified AWS account and that matches the input parameters.
+  specified Amazon Web Services account and that matches the input parameters.
   """
   def list_repositories(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repositories"
@@ -1380,8 +1382,8 @@ defmodule AWS.Codeartifact do
   end
 
   @doc """
-  Gets information about AWS tags for a specified Amazon Resource Name (ARN) in
-  AWS CodeArtifact.
+  Gets information about Amazon Web Services tags for a specified Amazon Resource
+  Name (ARN) in CodeArtifact.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/tags"
@@ -1467,7 +1469,7 @@ defmodule AWS.Codeartifact do
   end
 
   @doc """
-  Adds or updates tags for a resource in AWS CodeArtifact.
+  Adds or updates tags for a resource in CodeArtifact.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/tag"
@@ -1493,7 +1495,7 @@ defmodule AWS.Codeartifact do
   end
 
   @doc """
-  Removes tags from a resource in AWS CodeArtifact.
+  Removes tags from a resource in CodeArtifact.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/untag"
@@ -1520,6 +1522,11 @@ defmodule AWS.Codeartifact do
 
   @doc """
   Updates the status of one or more versions of a package.
+
+  Using `UpdatePackageVersionsStatus`, you can update the status of package
+  versions to `Archived`, `Published`, or `Unlisted`. To set the status of a
+  package version to `Disposed`, use
+  [DisposePackageVersions](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DisposePackageVersions.html).
   """
   def update_package_versions_status(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/versions/update_status"

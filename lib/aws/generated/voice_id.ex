@@ -37,21 +37,21 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
-  Deletes the specified domain from the Amazon Connect Voice ID system.
+  Deletes the specified domain from Voice ID.
   """
   def delete_domain(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDomain", input, options)
   end
 
   @doc """
-  Deletes the specified fraudster from the Amazon Connect Voice ID system.
+  Deletes the specified fraudster from Voice ID.
   """
   def delete_fraudster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteFraudster", input, options)
   end
 
   @doc """
-  Deletes the specified speaker from the Amazon Connect Voice ID system.
+  Deletes the specified speaker from Voice ID.
   """
   def delete_speaker(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteSpeaker", input, options)
@@ -144,14 +144,14 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
-  Opts out a speaker from Voice ID system.
+  Opts out a speaker from Voice ID.
 
   A speaker can be opted out regardless of whether or not they already exist in
-  the system. If they don't yet exist, a new speaker is created in an opted out
+  Voice ID. If they don't yet exist, a new speaker is created in an opted out
   state. If they already exist, their existing status is overridden and they are
   opted out. Enrollment and evaluation authentication requests are rejected for
   opted out speakers, and opted out speakers have no voice embeddings stored in
-  the system.
+  Voice ID.
   """
   def opt_out_speaker(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "OptOutSpeaker", input, options)
@@ -172,7 +172,7 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
-  Tags an Amazon Connect Voice ID resource with the provided list of tags.
+  Tags a Voice ID resource with the provided list of tags.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TagResource", input, options)

@@ -191,6 +191,17 @@ defmodule AWS.Proton do
   end
 
   @doc """
+  Attempts to cancel a component deployment (for a component that is in the
+  `IN_PROGRESS` deployment status).
+
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
+  in the *Proton Administrator Guide*.
+  """
+  def cancel_component_deployment(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CancelComponentDeployment", input, options)
+  end
+
+  @doc """
   Attempts to cancel an environment deployment on an `UpdateEnvironment` action,
   if the deployment is `IN_PROGRESS`.
 
@@ -259,6 +270,18 @@ defmodule AWS.Proton do
   """
   def cancel_service_pipeline_deployment(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CancelServicePipelineDeployment", input, options)
+  end
+
+  @doc """
+  Create an Proton component.
+
+  A component is an infrastructure extension for a service instance.
+
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
+  in the *Proton Administrator Guide*.
+  """
+  def create_component(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateComponent", input, options)
   end
 
   @doc """
@@ -404,6 +427,16 @@ defmodule AWS.Proton do
   end
 
   @doc """
+  Delete an Proton component resource.
+
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
+  in the *Proton Administrator Guide*.
+  """
+  def delete_component(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteComponent", input, options)
+  end
+
+  @doc """
   Delete an environment.
   """
   def delete_environment(%Client{} = client, input, options \\ []) do
@@ -459,7 +492,13 @@ defmodule AWS.Proton do
   end
 
   @doc """
-  Delete a service.
+  Delete a service, with its instances and pipeline.
+
+  You can't delete a service if it has any service instances that have components
+  attached to them.
+
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
+  in the *Proton Administrator Guide*.
   """
   def delete_service(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteService", input, options)
@@ -505,14 +544,24 @@ defmodule AWS.Proton do
   end
 
   @doc """
-  Get detail data for an environment.
+  Get detailed data for a component.
+
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
+  in the *Proton Administrator Guide*.
+  """
+  def get_component(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetComponent", input, options)
+  end
+
+  @doc """
+  Get detailed data for an environment.
   """
   def get_environment(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetEnvironment", input, options)
   end
 
   @doc """
-  In an environment account, view the detail data for an environment account
+  In an environment account, get the detailed data for an environment account
   connection.
 
   For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html)
@@ -523,14 +572,14 @@ defmodule AWS.Proton do
   end
 
   @doc """
-  Get detail data for an environment template.
+  Get detailed data for an environment template.
   """
   def get_environment_template(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetEnvironmentTemplate", input, options)
   end
 
   @doc """
-  View detail data for a major or minor version of an environment template.
+  Get detailed data for a major or minor version of an environment template.
   """
   def get_environment_template_version(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetEnvironmentTemplateVersion", input, options)
@@ -562,14 +611,14 @@ defmodule AWS.Proton do
   end
 
   @doc """
-  Get detail data for a service.
+  Get detailed data for a service.
   """
   def get_service(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetService", input, options)
   end
 
   @doc """
-  Get detail data for a service instance.
+  Get detailed data for a service instance.
 
   A service instance is an instantiation of service template and it runs in a
   specific environment.
@@ -579,14 +628,14 @@ defmodule AWS.Proton do
   end
 
   @doc """
-  Get detail data for a service template.
+  Get detailed data for a service template.
   """
   def get_service_template(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetServiceTemplate", input, options)
   end
 
   @doc """
-  View detail data for a major or minor version of a service template.
+  Get detailed data for a major or minor version of a service template.
   """
   def get_service_template_version(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetServiceTemplateVersion", input, options)
@@ -604,6 +653,39 @@ defmodule AWS.Proton do
   """
   def get_template_sync_status(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetTemplateSyncStatus", input, options)
+  end
+
+  @doc """
+  Get a list of component Infrastructure as Code (IaC) outputs.
+
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
+  in the *Proton Administrator Guide*.
+  """
+  def list_component_outputs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListComponentOutputs", input, options)
+  end
+
+  @doc """
+  List provisioned resources for a component with details.
+
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
+  in the *Proton Administrator Guide*.
+  """
+  def list_component_provisioned_resources(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListComponentProvisionedResources", input, options)
+  end
+
+  @doc """
+  List components with summary data.
+
+  You can filter the result list by environment, service, or a single service
+  instance.
+
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
+  in the *Proton Administrator Guide*.
+  """
+  def list_components(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListComponents", input, options)
   end
 
   @doc """
@@ -672,7 +754,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
-  View a list service instance infrastructure as code outputs with detail data.
+  Get a list service of instance Infrastructure as Code (IaC) outputs.
   """
   def list_service_instance_outputs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListServiceInstanceOutputs", input, options)
@@ -692,14 +774,14 @@ defmodule AWS.Proton do
   end
 
   @doc """
-  List service instances with summaries of detail data.
+  List service instances with summary data.
   """
   def list_service_instances(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListServiceInstances", input, options)
   end
 
   @doc """
-  View a list service pipeline infrastructure as code outputs with detail.
+  Get a list of service pipeline Infrastructure as Code (IaC) outputs.
   """
   def list_service_pipeline_outputs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListServicePipelineOutputs", input, options)
@@ -819,6 +901,22 @@ defmodule AWS.Proton do
   end
 
   @doc """
+  Update a component.
+
+  There are a few modes for updating a component. The `deploymentType` field
+  defines the mode.
+
+  You can't update a component while its deployment status, or the deployment
+  status of a service instance attached to it, is `IN_PROGRESS`.
+
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
+  in the *Proton Administrator Guide*.
+  """
+  def update_component(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateComponent", input, options)
+  end
+
+  @doc """
   Update an environment.
 
   If the environment is associated with an environment account connection, *don't*
@@ -926,6 +1024,12 @@ defmodule AWS.Proton do
   Use the `description` parameter to modify the description.
 
   Edit the `spec` parameter to add or delete instances.
+
+  You can't delete a service instance (remove it from the spec) if it has an
+  attached component.
+
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
+  in the *Proton Administrator Guide*.
   """
   def update_service(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateService", input, options)
@@ -934,43 +1038,14 @@ defmodule AWS.Proton do
   @doc """
   Update a service instance.
 
-  There are four modes for updating a service instance. The `deploymentType` field
-  defines the mode.
+  There are a few modes for updating a service instance. The `deploymentType`
+  field defines the mode.
 
-  ## Definitions
+  You can't update a service instance while its deployment status, or the
+  deployment status of a component attached to it, is `IN_PROGRESS`.
 
-  ###
-
-  `NONE`
-
-  In this mode, a deployment *doesn't* occur. Only the requested metadata
-  parameters are updated.
-
-  ###
-
-  `CURRENT_VERSION`
-
-  In this mode, the service instance is deployed and updated with the new spec
-  that you provide. Only requested parameters are updated. *Don’t* include minor
-  or major version parameters when you use this `deployment-type`.
-
-  ###
-
-  `MINOR_VERSION`
-
-  In this mode, the service instance is deployed and updated with the published,
-  recommended (latest) minor version of the current major version in use, by
-  default. You can also specify a different minor version of the current major
-  version in use.
-
-  ###
-
-  `MAJOR_VERSION`
-
-  In this mode, the service instance is deployed and updated with the published,
-  recommended (latest) major and minor version of the current template, by
-  default. You can also specify a different major version that's higher than the
-  major version in use and a minor version.
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
+  in the *Proton Administrator Guide*.
   """
   def update_service_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateServiceInstance", input, options)

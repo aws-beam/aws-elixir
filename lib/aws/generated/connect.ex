@@ -562,6 +562,27 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Creates a new task template in the specified Amazon Connect instance.
+  """
+  def create_task_template(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates a use case for an integration association.
   """
   def create_use_case(
@@ -848,6 +869,35 @@ defmodule AWS.Connect do
       ) do
     url_path =
       "/security-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(security_profile_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes the task template.
+  """
+  def delete_task_template(
+        %Client{} = client,
+        instance_id,
+        task_template_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template/#{AWS.Util.encode_uri(task_template_id)}"
 
     headers = []
     query_params = []
@@ -1782,6 +1832,43 @@ defmodule AWS.Connect do
       query_params,
       headers,
       input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets details about a specific task template in the specified Amazon Connect
+  instance.
+  """
+  def get_task_template(
+        %Client{} = client,
+        instance_id,
+        task_template_id,
+        snapshot_version \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template/#{AWS.Util.encode_uri(task_template_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(snapshot_version) do
+        [{"snapshotVersion", snapshot_version} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
       options,
       nil
     )
@@ -2956,6 +3043,63 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Lists task templates for the specified Amazon Connect instance.
+  """
+  def list_task_templates(
+        %Client{} = client,
+        instance_id,
+        max_results \\ nil,
+        name \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name) do
+        [{"name", name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Lists the use cases for the integration association.
   """
   def list_use_cases(
@@ -3518,13 +3662,54 @@ defmodule AWS.Connect do
   Adds the specified tags to the specified resource.
 
   The supported resource types are users, routing profiles, queues, quick
-  connects, contact flows, agent status, hours of operation, and phone number.
+  connects, contact flows, agent status, hours of operation, phone number,
+  security profiles, and task templates.
 
   For sample policies that use tags, see [Amazon Connect Identity-Based Policy Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
   in the *Amazon Connect Administrator Guide*.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Transfers contacts from one agent or queue to another agent or queue at any
+  point after a contact is created.
+
+  You can transfer a contact to another queue by providing the contact flow which
+  orchestrates the contact to the destination queue. This gives you more control
+  over contact handling and helps you adhere to the service level agreement (SLA)
+  guaranteed to your customers.
+
+  Note the following requirements:
+
+    * Transfer is supported for only `TASK` contacts.
+
+    * Do not use both `QueueId` and `UserId` in the same call.
+
+    * The following contact flow types are supported: Inbound contact
+  flow, Transfer to agent flow, and Transfer to queue flow.
+
+    * The `TransferContact` API can be called only on active contacts.
+
+    * A contact cannot be transferred more than 11 times.
+  """
+  def transfer_contact(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/transfer"
     headers = []
     query_params = []
 
@@ -4286,6 +4471,39 @@ defmodule AWS.Connect do
       ) do
     url_path =
       "/security-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(security_profile_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates details about a specific task template in the specified Amazon Connect
+  instance.
+
+  This operation does not support partial updates. Instead it does a full update
+  of template content.
+  """
+  def update_task_template(
+        %Client{} = client,
+        instance_id,
+        task_template_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template/#{AWS.Util.encode_uri(task_template_id)}"
 
     headers = []
     query_params = []

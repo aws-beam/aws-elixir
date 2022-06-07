@@ -7,7 +7,7 @@ defmodule AWS.ChimeSDKMessaging do
   send and receive messages in custom messaging applications.
 
   These APIs depend on the frameworks provided by the Amazon Chime SDK Identity
-  APIs. For more information about the messaging APIs, see [Amazon Chime SDK messaging](https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging)
+  APIs. For more information about the messaging APIs, see [Amazon Chime SDK messaging](https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging.html).
   """
 
   alias AWS.Client
@@ -1671,6 +1671,41 @@ defmodule AWS.ChimeSDKMessaging do
       |> Request.build_params(input)
 
     query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Allows an `AppInstanceUser` to search the channels that they belong to.
+
+  The `AppInstanceUser` can search by membership or external ID. An
+  `AppInstanceAdmin` can search across all channels within the `AppInstance`.
+  """
+  def search_channels(%Client{} = client, input, options \\ []) do
+    url_path = "/channels?operation=search"
+
+    {headers, input} =
+      [
+        {"ChimeBearer", "x-amz-chime-bearer"}
+      ]
+      |> Request.build_params(input)
+
+    {query_params, input} =
+      [
+        {"MaxResults", "max-results"},
+        {"NextToken", "next-token"}
+      ]
+      |> Request.build_params(input)
 
     Request.request_rest(
       client,

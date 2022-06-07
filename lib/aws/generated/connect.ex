@@ -1787,6 +1787,27 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Gets the real-time active user data from the specified Amazon Connect instance.
+  """
+  def get_current_user_data(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/metrics/userdata/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Retrieves a token for federation.
 
   This API doesn't support root users. If you try to invoke GetFederationToken

@@ -19,7 +19,7 @@ defmodule AWS.MobileAnalytics do
       endpoint_prefix: "mobileanalytics",
       global?: false,
       protocol: "rest-json",
-      service_id: nil,
+      service_id: "Mobile Analytics",
       signature_version: "v4",
       signing_name: "mobileanalytics",
       target_prefix: nil

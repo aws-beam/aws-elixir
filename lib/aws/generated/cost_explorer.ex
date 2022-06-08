@@ -91,12 +91,12 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
-  Returns the name, ARN, rules, definition, and effective dates of a Cost Category
-  that's defined in the account.
+  Returns the name, Amazon Resource Name (ARN), rules, definition, and effective
+  dates of a Cost Category that's defined in the account.
 
-  You have the option to use `EffectiveOn` to return a Cost Category that is
-  active on a specific date. If there is no `EffectiveOn` specified, you’ll see a
-  Cost Category that is effective on the current date. If Cost Category is still
+  You have the option to use `EffectiveOn` to return a Cost Category that's active
+  on a specific date. If there's no `EffectiveOn` specified, you see a Cost
+  Category that's effective on the current date. If Cost Category is still
   effective, `EffectiveEnd` is omitted in the response.
   """
   def describe_cost_category_definition(%Client{} = client, input, options \\ []) do
@@ -161,8 +161,8 @@ defmodule AWS.CostExplorer do
   Compute Cloud – Compute service only.
 
   This is an opt-in only feature. You can enable this feature from the Cost
-  Explorer Settings page. For information on how to access the Settings page, see
-  [Controlling Access for Cost
+  Explorer Settings page. For information about how to access the Settings page,
+  see [Controlling Access for Cost
   Explorer](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-access.html)
   in the *Billing and Cost Management User Guide*.
   """
@@ -199,14 +199,15 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
-  Retrieves the reservation coverage for your account.
+  Retrieves the reservation coverage for your account, which you can use to see
+  how much of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon
+  Relational Database Service, or Amazon Redshift usage is covered by a
+  reservation.
 
-  This enables you to see how much of your Amazon Elastic Compute Cloud, Amazon
-  ElastiCache, Amazon Relational Database Service, or Amazon Redshift usage is
-  covered by a reservation. An organization's management account can see the
-  coverage of the associated member accounts. This supports dimensions, Cost
-  Categories, and nested expressions. For any time period, you can filter data
-  about reservation usage by the following dimensions:
+  An organization's management account can see the coverage of the associated
+  member accounts. This supports dimensions, Cost Categories, and nested
+  expressions. For any time period, you can filter data about reservation usage by
+  the following dimensions:
 
     * AZ
 
@@ -240,27 +241,27 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
-  Gets recommendations for which reservations to purchase.
+  Gets recommendations for reservation purchases.
 
-  These recommendations could help you reduce your costs. Reservations provide a
-  discounted hourly rate (up to 75%) compared to On-Demand pricing.
+  These recommendations might help you to reduce your costs. Reservations provide
+  a discounted hourly rate (up to 75%) compared to On-Demand pricing.
 
   Amazon Web Services generates your recommendations by identifying your On-Demand
   usage during a specific time period and collecting your usage into categories
   that are eligible for a reservation. After Amazon Web Services has these
   categories, it simulates every combination of reservations in each category of
-  usage to identify the best number of each type of RI to purchase to maximize
-  your estimated savings.
+  usage to identify the best number of each type of Reserved Instance (RI) to
+  purchase to maximize your estimated savings.
 
   For example, Amazon Web Services automatically aggregates your Amazon EC2 Linux,
   shared tenancy, and c4 family usage in the US West (Oregon) Region and
   recommends that you buy size-flexible regional reservations to apply to the c4
   family usage. Amazon Web Services recommends the smallest size instance in an
-  instance family. This makes it easier to purchase a size-flexible RI. Amazon Web
-  Services also shows the equal number of normalized units so that you can
-  purchase any instance size that you want. For this example, your RI
-  recommendation would be for `c4.large` because that is the smallest size
-  instance in the c4 instance family.
+  instance family. This makes it easier to purchase a size-flexible Reserved
+  Instance (RI). Amazon Web Services also shows the equal number of normalized
+  units. This way, you can purchase any instance size that you want. For this
+  example, your RI recommendation is for `c4.large` because that is the smallest
+  size instance in the c4 instance family.
   """
   def get_reservation_purchase_recommendation(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -289,8 +290,8 @@ defmodule AWS.CostExplorer do
   underutilized Amazon EC2 instances.
 
   Recommendations are generated to either downsize or terminate instances, along
-  with providing savings detail and metrics. For details on calculation and
-  function, see [Optimizing Your Cost with Rightsizing Recommendations](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-rightsizing.html)
+  with providing savings detail and metrics. For more information about
+  calculation and function, see [Optimizing Your Cost with Rightsizing Recommendations](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-rightsizing.html)
   in the *Billing and Cost Management User Guide*.
   """
   def get_rightsizing_recommendation(%Client{} = client, input, options \\ []) do
@@ -343,7 +344,7 @@ defmodule AWS.CostExplorer do
   use `GetDimensionValues` in `SAVINGS_PLANS` to determine the possible dimension
   values.
 
-  You cannot group by any dimension values for `GetSavingsPlansUtilization`.
+  You can't group by any dimension values for `GetSavingsPlansUtilization`.
   """
   def get_savings_plans_utilization(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetSavingsPlansUtilization", input, options)
@@ -384,8 +385,18 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
-  Returns the name, ARN, `NumberOfRules` and effective dates of all Cost
-  Categories defined in the account.
+  Get a list of cost allocation tags.
+
+  All inputs in the API are optional and serve as filters. By default, all cost
+  allocation tags are returned.
+  """
+  def list_cost_allocation_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListCostAllocationTags", input, options)
+  end
+
+  @doc """
+  Returns the name, Amazon Resource Name (ARN), `NumberOfRules` and effective
+  dates of all Cost Categories defined in the account.
 
   You have the option to use `EffectiveOn` to return a list of Cost Categories
   that were active on a specific date. If there is no `EffectiveOn` specified,
@@ -432,7 +443,7 @@ defmodule AWS.CostExplorer do
   @doc """
   Removes one or more tags from a resource.
 
-  Specify only tag key(s) in your request. Do not specify the value.
+  Specify only tag keys in your request. Don't specify the value.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagResource", input, options)
@@ -453,6 +464,17 @@ defmodule AWS.CostExplorer do
   """
   def update_anomaly_subscription(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateAnomalySubscription", input, options)
+  end
+
+  @doc """
+  Updates status for cost allocation tags in bulk, with maximum batch size of 20.
+
+  If the tag status that's updated is the same as the existing tag status, the
+  request doesn't fail. Instead, it doesn't have any effect on the tag status (for
+  example, activating the active tag).
+  """
+  def update_cost_allocation_tags_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateCostAllocationTagsStatus", input, options)
   end
 
   @doc """

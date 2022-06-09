@@ -238,6 +238,23 @@ defmodule AWS.Neptune do
   end
 
   @doc """
+  Creates a Neptune global database spread across multiple Amazon Regions.
+
+  The global database contains a single primary cluster with read-write
+  capability, and read-only secondary clusters that receive data from the primary
+  cluster through high-speed replication performed by the Neptune storage
+  subsystem.
+
+  You can create a global database that is initially empty, and then add a primary
+  cluster and secondary clusters to it, or you can specify an existing Neptune
+  cluster during the create operation to become the primary cluster of the global
+  database.
+  """
+  def create_global_cluster(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateGlobalCluster", input, options)
+  end
+
+  @doc """
   The DeleteDBCluster action deletes a previously provisioned DB cluster.
 
   When you delete a DB cluster, all automated backups for that DB cluster are
@@ -326,6 +343,16 @@ defmodule AWS.Neptune do
   """
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteEventSubscription", input, options)
+  end
+
+  @doc """
+  Deletes a global database.
+
+  The primary and all secondary clusters must already be detached or deleted
+  first.
+  """
+  def delete_global_cluster(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteGlobalCluster", input, options)
   end
 
   @doc """
@@ -500,6 +527,15 @@ defmodule AWS.Neptune do
   end
 
   @doc """
+  Returns information about Neptune global database clusters.
+
+  This API supports pagination.
+  """
+  def describe_global_clusters(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeGlobalClusters", input, options)
+  end
+
+  @doc """
   Returns a list of orderable DB instance options for the specified engine.
   """
   def describe_orderable_db_instance_options(%Client{} = client, input, options \\ []) do
@@ -545,6 +581,25 @@ defmodule AWS.Neptune do
   """
   def failover_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "FailoverDBCluster", input, options)
+  end
+
+  @doc """
+  Initiates the failover process for a Neptune global database.
+
+  A failover for a Neptune global database promotes one of secondary read-only DB
+  clusters to be the primary DB cluster and demotes the primary DB cluster to
+  being a secondary (read-only) DB cluster. In other words, the role of the
+  current primary DB cluster and the selected target secondary DB cluster are
+  switched. The selected secondary DB cluster assumes full read/write capabilities
+  for the Neptune global database.
+
+  This action applies **only** to Neptune global databases. This action is only
+  intended for use on healthy Neptune global databases with healthy Neptune DB
+  clusters and no region-wide outages, to test disaster recovery scenarios or to
+  reconfigure the global database topology.
+  """
+  def failover_global_cluster(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "FailoverGlobalCluster", input, options)
   end
 
   @doc """
@@ -683,6 +738,16 @@ defmodule AWS.Neptune do
   end
 
   @doc """
+  Modify a setting for an Amazon Neptune global cluster.
+
+  You can change one or more database configuration parameters by specifying these
+  parameters and their new values in the request.
+  """
+  def modify_global_cluster(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ModifyGlobalCluster", input, options)
+  end
+
+  @doc """
   Not supported.
   """
   def promote_read_replica_db_cluster(%Client{} = client, input, options \\ []) do
@@ -702,6 +767,17 @@ defmodule AWS.Neptune do
   """
   def reboot_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RebootDBInstance", input, options)
+  end
+
+  @doc """
+  Detaches a Neptune DB cluster from a Neptune global database.
+
+  A secondary cluster becomes a normal standalone cluster with read-write
+  capability instead of being read-only, and no longer receives data from a the
+  primary cluster.
+  """
+  def remove_from_global_cluster(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RemoveFromGlobalCluster", input, options)
   end
 
   @doc """

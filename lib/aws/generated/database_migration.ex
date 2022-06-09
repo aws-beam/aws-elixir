@@ -107,6 +107,13 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+  Creates a Fleet Advisor collector using the specified parameters.
+  """
+  def create_fleet_advisor_collector(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateFleetAdvisorCollector", input, options)
+  end
+
+  @doc """
   Creates the replication instance using the specified parameters.
 
   DMS requires that your account have certain roles with appropriate permissions
@@ -165,6 +172,20 @@ defmodule AWS.DatabaseMigration do
   """
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteEventSubscription", input, options)
+  end
+
+  @doc """
+  Deletes the specified Fleet Advisor collector.
+  """
+  def delete_fleet_advisor_collector(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteFleetAdvisorCollector", input, options)
+  end
+
+  @doc """
+  Deletes the specified Fleet Advisor collector databases.
+  """
+  def delete_fleet_advisor_databases(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteFleetAdvisorDatabases", input, options)
   end
 
   @doc """
@@ -324,6 +345,49 @@ defmodule AWS.DatabaseMigration do
   """
   def describe_events(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeEvents", input, options)
+  end
+
+  @doc """
+  Returns a list of the Fleet Advisor collectors in your account.
+  """
+  def describe_fleet_advisor_collectors(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeFleetAdvisorCollectors", input, options)
+  end
+
+  @doc """
+  Returns a list of Fleet Advisor databases in your account.
+  """
+  def describe_fleet_advisor_databases(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeFleetAdvisorDatabases", input, options)
+  end
+
+  @doc """
+  Provides descriptions of large-scale assessment (LSA) analyses produced by your
+  Fleet Advisor collectors.
+  """
+  def describe_fleet_advisor_lsa_analysis(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeFleetAdvisorLsaAnalysis", input, options)
+  end
+
+  @doc """
+  Provides descriptions of the schemas discovered by your Fleet Advisor
+  collectors.
+  """
+  def describe_fleet_advisor_schema_object_summary(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeFleetAdvisorSchemaObjectSummary",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Returns a list of schemas detected by Fleet Advisor Collectors in your account.
+  """
+  def describe_fleet_advisor_schemas(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeFleetAdvisorSchemas", input, options)
   end
 
   @doc """
@@ -588,6 +652,14 @@ defmodule AWS.DatabaseMigration do
   """
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RemoveTagsFromResource", input, options)
+  end
+
+  @doc """
+  Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in
+  your account.
+  """
+  def run_fleet_advisor_lsa_analysis(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RunFleetAdvisorLsaAnalysis", input, options)
   end
 
   @doc """

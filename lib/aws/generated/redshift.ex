@@ -1110,6 +1110,25 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  Returns a database user name and temporary password with temporary authorization
+  to log in to an Amazon Redshift database.
+
+  The database user is mapped 1:1 to the source Identity and Access Management
+  (IAM) identity. For more information about IAM identities, see [IAM Identities (users, user groups, and
+  roles)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html) in the Amazon
+  Web Services Identity and Access Management User Guide.
+
+  The Identity and Access Management (IAM) identity that runs this operation must
+  have an IAM policy attached that allows access to all necessary actions and
+  resources. For more information about permissions, see [Using identity-based policies (IAM
+  policies)](https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html)
+  in the Amazon Redshift Cluster Management Guide.
+  """
+  def get_cluster_credentials_with_iam(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetClusterCredentialsWithIAM", input, options)
+  end
+
+  @doc """
   Gets the configuration options for the reserved-node exchange.
 
   These options include information about the source reserved node and target

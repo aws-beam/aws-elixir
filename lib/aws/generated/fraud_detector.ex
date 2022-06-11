@@ -8,6 +8,18 @@ defmodule AWS.FraudDetector do
   This guide is for developers who need detailed information about Amazon Fraud
   Detector API actions, data types, and errors. For more information about Amazon
   Fraud Detector features, see the [Amazon Fraud Detector User Guide](https://docs.aws.amazon.com/frauddetector/latest/ug/).
+
+  We provide the Query API as well as AWS software development kits (SDK) for
+  Amazon Fraud Detector in Java and Python programming languages.
+
+  The Amazon Fraud Detector Query API provides HTTPS requests that use the HTTP
+  verb GET or POST and a Query parameter `Action`. AWS SDK provides libraries,
+  sample code, tutorials, and other resources for software developers who prefer
+  to build applications using language-specific APIs instead of submitting a
+  request over HTTP or HTTPS. These libraries provide basic functions that
+  automatically take care of tasks such as cryptographically signing your
+  requests, retrying requests, and handling error responses, so that it is easier
+  for you to get started. For more information about the AWS SDKs, see [Tools to build on AWS](https://docs.aws.amazon.com/https:/aws.amazon.com/tools/).
   """
 
   alias AWS.Client
@@ -109,7 +121,9 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
-  Deletes data that was batch imported to Amazon Fraud Detector.
+  Deletes the specified batch import job ID record.
+
+  This action does not delete the data that was batch imported.
   """
   def delete_batch_import_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteBatchImportJob", input, options)
@@ -697,9 +711,11 @@ defmodule AWS.FraudDetector do
 
   You can perform the following status updates:
 
-    1. Change the `TRAINING_COMPLETE` status to `ACTIVE`.
+    1. Change the `TRAINING_IN_PROGRESS` status to `TRAINING_CANCELLED`.
 
-    2. Change `ACTIVE` to `INACTIVE`.
+    2. Change the `TRAINING_COMPLETE` status to `ACTIVE`.
+
+    3. Change `ACTIVE` to `INACTIVE`.
   """
   def update_model_version_status(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateModelVersionStatus", input, options)

@@ -182,6 +182,35 @@ defmodule AWS.Outposts do
   end
 
   @doc """
+  Amazon Web Services uses this action to install Outpost servers.
+
+  Gets information about a specified connection.
+
+  Use CloudTrail to monitor this action or Amazon Web Services managed policy for
+  Amazon Web Services Outposts to secure it. For more information, see [ Amazon Web Services managed policies for Amazon Web Services
+  Outposts](https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html)
+  and [ Logging Amazon Web Services Outposts API calls with Amazon Web Services CloudTrail](https://docs.aws.amazon.com/outposts/latest/userguide/logging-using-cloudtrail.html)
+  in the *Amazon Web Services Outposts User Guide*.
+  """
+  def get_connection(%Client{} = client, connection_id, options \\ []) do
+    url_path = "/connections/#{AWS.Util.encode_uri(connection_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Gets an order.
   """
   def get_order(%Client{} = client, order_id, options \\ []) do
@@ -651,6 +680,35 @@ defmodule AWS.Outposts do
       query_params,
       headers,
       nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Amazon Web Services uses this action to install Outpost servers.
+
+  Starts the connection required for Outpost server installation.
+
+  Use CloudTrail to monitor this action or Amazon Web Services managed policy for
+  Amazon Web Services Outposts to secure it. For more information, see [ Amazon Web Services managed policies for Amazon Web Services
+  Outposts](https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html)
+  and [ Logging Amazon Web Services Outposts API calls with Amazon Web Services CloudTrail](https://docs.aws.amazon.com/outposts/latest/userguide/logging-using-cloudtrail.html)
+  in the *Amazon Web Services Outposts User Guide*.
+  """
+  def start_connection(%Client{} = client, input, options \\ []) do
+    url_path = "/connections"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
       options,
       nil
     )

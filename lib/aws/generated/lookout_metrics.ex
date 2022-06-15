@@ -614,6 +614,27 @@ defmodule AWS.LookoutMetrics do
   end
 
   @doc """
+  Make changes to an existing alert.
+  """
+  def update_alert(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateAlert"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Updates a detector.
 
   After activation, you can only change a detector's ingestion delay and

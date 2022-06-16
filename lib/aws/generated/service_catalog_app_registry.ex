@@ -495,6 +495,50 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
+  Lists the details of all attribute groups associated with a specific
+  application.
+
+  The results display in pages.
+  """
+  def list_attribute_groups_for_application(
+        %Client{} = client,
+        application,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/applications/#{AWS.Util.encode_uri(application)}/attribute-group-details"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Lists all of the tags on the resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do

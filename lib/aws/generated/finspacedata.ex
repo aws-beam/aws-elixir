@@ -26,6 +26,36 @@ defmodule AWS.Finspacedata do
   end
 
   @doc """
+  Adds a user account to a permission group to grant permissions for actions a
+  user can perform in FinSpace.
+  """
+  def associate_user_to_permission_group(
+        %Client{} = client,
+        permission_group_id,
+        user_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}/users/#{AWS.Util.encode_uri(user_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates a new Changeset in a FinSpace Dataset.
   """
   def create_changeset(%Client{} = client, dataset_id, input, options \\ []) do
@@ -207,6 +237,40 @@ defmodule AWS.Finspacedata do
   end
 
   @doc """
+  Removes a user account from a permission group.
+  """
+  def disassociate_user_from_permission_group(
+        %Client{} = client,
+        permission_group_id,
+        user_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}/users/#{AWS.Util.encode_uri(user_id)}"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Allows the specified user to access the FinSpace web application and API.
   """
   def enable_user(%Client{} = client, user_id, input, options \\ []) do
@@ -278,6 +342,27 @@ defmodule AWS.Finspacedata do
   """
   def get_dataset(%Client{} = client, dataset_id, options \\ []) do
     url_path = "/datasetsv2/#{AWS.Util.encode_uri(dataset_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Retrieves the details of a specific permission group.
+  """
+  def get_permission_group(%Client{} = client, permission_group_id, options \\ []) do
+    url_path = "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}"
     headers = []
     query_params = []
 
@@ -530,10 +615,93 @@ defmodule AWS.Finspacedata do
   end
 
   @doc """
+  Lists all the permission groups that are associated with a specific user
+  account.
+  """
+  def list_permission_groups_by_user(
+        %Client{} = client,
+        user_id,
+        max_results,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/user/#{AWS.Util.encode_uri(user_id)}/permission-groups"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Lists all available user accounts in FinSpace.
   """
   def list_users(%Client{} = client, max_results, next_token \\ nil, options \\ []) do
     url_path = "/user"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists details of all the users in a specific permission group.
+  """
+  def list_users_by_permission_group(
+        %Client{} = client,
+        permission_group_id,
+        max_results,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}/users"
     headers = []
     query_params = []
 

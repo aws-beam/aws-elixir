@@ -4,8 +4,8 @@
 defmodule AWS.GuardDuty do
   @moduledoc """
   Amazon GuardDuty is a continuous security monitoring service that analyzes and
-  processes the following data sources: VPC Flow Logs, Amazon Web Services
-  CloudTrail event logs, and DNS logs.
+  processes the following data sources: VPC Flow Logs, AWS CloudTrail management
+  event logs, CloudTrail S3 data event logs, EKS audit logs, and DNS logs.
 
   It uses threat intelligence feeds (such as lists of malicious IPs and domains)
   and machine learning to identify unexpected, potentially unauthorized, and
@@ -43,6 +43,28 @@ defmodule AWS.GuardDuty do
       signing_name: "guardduty",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Accepts the invitation to be a member account and get monitored by a GuardDuty
+  administrator account that sent the invitation.
+  """
+  def accept_administrator_invitation(%Client{} = client, detector_id, input, options \\ []) do
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/administrator"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -540,6 +562,33 @@ defmodule AWS.GuardDuty do
   Disassociates the current GuardDuty member account from its administrator
   account.
   """
+  def disassociate_from_administrator_account(
+        %Client{} = client,
+        detector_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/administrator/disassociate"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Disassociates the current GuardDuty member account from its administrator
+  account.
+  """
   def disassociate_from_master_account(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/master/disassociate"
     headers = []
@@ -561,11 +610,6 @@ defmodule AWS.GuardDuty do
   @doc """
   Disassociates GuardDuty member accounts (to the current GuardDuty administrator
   account) specified by the account IDs.
-
-  Member accounts added through
-  [Invitation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_invitations.html)
-  get deleted from the current GuardDuty administrator account after 30 days of
-  disassociation.
   """
   def disassociate_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/disassociate"
@@ -602,6 +646,28 @@ defmodule AWS.GuardDuty do
       query_params,
       headers,
       input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Provides the details for the GuardDuty administrator account associated with the
+  current GuardDuty member account.
+  """
+  def get_administrator_account(%Client{} = client, detector_id, options \\ []) do
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/administrator"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
       options,
       200
     )
@@ -804,6 +870,28 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
+  Provides the number of days left for each data source used in the free trial
+  period.
+  """
+  def get_remaining_free_trial_days(%Client{} = client, detector_id, input, options \\ []) do
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/freeTrial/daysRemaining"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.
   """
   def get_threat_intel_set(%Client{} = client, detector_id, threat_intel_set_id, options \\ []) do
@@ -830,10 +918,10 @@ defmodule AWS.GuardDuty do
   Lists Amazon GuardDuty usage statistics over the last 30 days for the specified
   detector ID.
 
-  For newly enabled detectors or data sources the cost returned will include only
-  the usage so far under 30 days, this may differ from the cost metrics in the
-  console, which projects usage over 30 days to provide a monthly cost estimate.
-  For more information see [Understanding How Usage Costs are Calculated](https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations).
+  For newly enabled detectors or data sources, the cost returned will include only
+  the usage so far under 30 days. This may differ from the cost metrics in the
+  console, which project usage over 30 days to provide a monthly cost estimate.
+  For more information, see [Understanding How Usage Costs are Calculated](https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations).
   """
   def get_usage_statistics(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/usage/statistics"

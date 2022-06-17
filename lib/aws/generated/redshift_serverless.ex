@@ -37,10 +37,10 @@ defmodule AWS.RedshiftServerless do
       endpoint_prefix: "redshift-serverless",
       global?: false,
       protocol: "json",
-      service_id: "Redshift Serverless",
+      service_id: "RedshiftServerless",
       signature_version: "v4",
       signing_name: "redshift-serverless",
-      target_prefix: "redshift-serverless"
+      target_prefix: "RedshiftServerless"
     }
   end
 

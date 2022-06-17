@@ -8,8 +8,8 @@ defmodule AWS.RedshiftData do
 
   You can run SQL statements, which are committed if the statement succeeds.
 
-  For more information about the Amazon Redshift Data API, see [Using the Amazon Redshift Data
-  API](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html) in the
+  For more information about the Amazon Redshift Data API and CLI usage examples,
+  see [Using the Amazon Redshift Data API](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html) in the
   *Amazon Redshift Cluster Management Guide*.
   """
 
@@ -42,13 +42,15 @@ defmodule AWS.RedshiftData do
     * Secrets Manager - when connecting to a cluster, specify the Amazon
   Resource Name (ARN) of the secret, the database name, and the cluster identifier
   that matches the cluster in the secret. When connecting to a serverless
-  endpoint, specify the Amazon Resource Name (ARN) of the secret and the database
+  workgroup, specify the Amazon Resource Name (ARN) of the secret and the database
   name.
 
     * Temporary credentials - when connecting to a cluster, specify the
   cluster identifier, the database name, and the database user name. Also,
   permission to call the `redshift:GetClusterCredentials` operation is required.
-  When connecting to a serverless endpoint, specify the database name.
+  When connecting to a serverless workgroup, specify the workgroup name and
+  database name. Also, permission to call the `redshift-serverless:GetCredentials`
+  operation is required.
   """
   def batch_execute_statement(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "BatchExecuteStatement", input, options)
@@ -84,13 +86,15 @@ defmodule AWS.RedshiftData do
     * Secrets Manager - when connecting to a cluster, specify the Amazon
   Resource Name (ARN) of the secret, the database name, and the cluster identifier
   that matches the cluster in the secret. When connecting to a serverless
-  endpoint, specify the Amazon Resource Name (ARN) of the secret and the database
+  workgroup, specify the Amazon Resource Name (ARN) of the secret and the database
   name.
 
     * Temporary credentials - when connecting to a cluster, specify the
   cluster identifier, the database name, and the database user name. Also,
   permission to call the `redshift:GetClusterCredentials` operation is required.
-  When connecting to a serverless endpoint, specify the database name.
+  When connecting to a serverless workgroup, specify the workgroup name and
+  database name. Also, permission to call the `redshift-serverless:GetCredentials`
+  operation is required.
   """
   def describe_table(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeTable", input, options)
@@ -106,13 +110,15 @@ defmodule AWS.RedshiftData do
     * Secrets Manager - when connecting to a cluster, specify the Amazon
   Resource Name (ARN) of the secret, the database name, and the cluster identifier
   that matches the cluster in the secret. When connecting to a serverless
-  endpoint, specify the Amazon Resource Name (ARN) of the secret and the database
+  workgroup, specify the Amazon Resource Name (ARN) of the secret and the database
   name.
 
     * Temporary credentials - when connecting to a cluster, specify the
   cluster identifier, the database name, and the database user name. Also,
   permission to call the `redshift:GetClusterCredentials` operation is required.
-  When connecting to a serverless endpoint, specify the database name.
+  When connecting to a serverless workgroup, specify the workgroup name and
+  database name. Also, permission to call the `redshift-serverless:GetCredentials`
+  operation is required.
   """
   def execute_statement(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ExecuteStatement", input, options)
@@ -137,13 +143,15 @@ defmodule AWS.RedshiftData do
     * Secrets Manager - when connecting to a cluster, specify the Amazon
   Resource Name (ARN) of the secret, the database name, and the cluster identifier
   that matches the cluster in the secret. When connecting to a serverless
-  endpoint, specify the Amazon Resource Name (ARN) of the secret and the database
+  workgroup, specify the Amazon Resource Name (ARN) of the secret and the database
   name.
 
     * Temporary credentials - when connecting to a cluster, specify the
   cluster identifier, the database name, and the database user name. Also,
   permission to call the `redshift:GetClusterCredentials` operation is required.
-  When connecting to a serverless endpoint, specify the database name.
+  When connecting to a serverless workgroup, specify the workgroup name and
+  database name. Also, permission to call the `redshift-serverless:GetCredentials`
+  operation is required.
   """
   def list_databases(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDatabases", input, options)
@@ -159,13 +167,15 @@ defmodule AWS.RedshiftData do
     * Secrets Manager - when connecting to a cluster, specify the Amazon
   Resource Name (ARN) of the secret, the database name, and the cluster identifier
   that matches the cluster in the secret. When connecting to a serverless
-  endpoint, specify the Amazon Resource Name (ARN) of the secret and the database
+  workgroup, specify the Amazon Resource Name (ARN) of the secret and the database
   name.
 
     * Temporary credentials - when connecting to a cluster, specify the
   cluster identifier, the database name, and the database user name. Also,
   permission to call the `redshift:GetClusterCredentials` operation is required.
-  When connecting to a serverless endpoint, specify the database name.
+  When connecting to a serverless workgroup, specify the workgroup name and
+  database name. Also, permission to call the `redshift-serverless:GetCredentials`
+  operation is required.
   """
   def list_schemas(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListSchemas", input, options)
@@ -192,13 +202,15 @@ defmodule AWS.RedshiftData do
     * Secrets Manager - when connecting to a cluster, specify the Amazon
   Resource Name (ARN) of the secret, the database name, and the cluster identifier
   that matches the cluster in the secret. When connecting to a serverless
-  endpoint, specify the Amazon Resource Name (ARN) of the secret and the database
+  workgroup, specify the Amazon Resource Name (ARN) of the secret and the database
   name.
 
     * Temporary credentials - when connecting to a cluster, specify the
   cluster identifier, the database name, and the database user name. Also,
   permission to call the `redshift:GetClusterCredentials` operation is required.
-  When connecting to a serverless endpoint, specify the database name.
+  When connecting to a serverless workgroup, specify the workgroup name and
+  database name. Also, permission to call the `redshift-serverless:GetCredentials`
+  operation is required.
   """
   def list_tables(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTables", input, options)

@@ -50,8 +50,18 @@ defmodule AWS.DynamoDB do
   This operation allows you to perform batch reads or writes on data stored in
   DynamoDB, using PartiQL.
 
+  Each read statement in a `BatchExecuteStatement` must specify an equality
+  condition on all key attributes. This enforces that each `SELECT` statement in a
+  batch returns at most a single item.
+
   The entire batch must consist of either read statements or write statements, you
   cannot mix both in one batch.
+
+  A HTTP 200 response does not mean that all statements in the
+  BatchExecuteStatement succeeded. Error details for individual statements can be
+  found under the
+  [Error](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchStatementResponse.html#DDB-Type-BatchStatementResponse-Error)
+  field of the `BatchStatementResponse` for each statement.
   """
   def batch_execute_statement(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "BatchExecuteStatement", input, options)
@@ -710,29 +720,6 @@ defmodule AWS.DynamoDB do
   attribute values. You can return the item's attribute values in the same
   operation, using the `ReturnValues` parameter.
 
-  This topic provides general information about the `PutItem` API.
-
-  For information on how to call the `PutItem` API using the Amazon Web Services
-  SDK in specific languages, see the following:
-
-     [ PutItem in the Command Line Interface](http://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/PutItem)
-
-     [ PutItem in the SDK for .NET](http://docs.aws.amazon.com/goto/DotNetSDKV3/dynamodb-2012-08-10/PutItem)
-
-     [ PutItem in the SDK for C++](http://docs.aws.amazon.com/goto/SdkForCpp/dynamodb-2012-08-10/PutItem)
-
-     [ PutItem in the SDK for Go](http://docs.aws.amazon.com/goto/SdkForGoV1/dynamodb-2012-08-10/PutItem)
-
-     [ PutItem in the SDK for Java](http://docs.aws.amazon.com/goto/SdkForJava/dynamodb-2012-08-10/PutItem)
-
-     [ PutItem in the SDK for JavaScript](http://docs.aws.amazon.com/goto/AWSJavaScriptSDK/dynamodb-2012-08-10/PutItem)
-
-     [ PutItem in the SDK for PHP V3](http://docs.aws.amazon.com/goto/SdkForPHPV3/dynamodb-2012-08-10/PutItem)
-
-     [ PutItem in the SDK for Python (Boto)](http://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/PutItem)
-
-     [ PutItem in the SDK for Ruby V2](http://docs.aws.amazon.com/goto/SdkForRubyV2/dynamodb-2012-08-10/PutItem)
-
   When you add an item, the primary key attributes are the only required
   attributes. Attribute values cannot be null.
 
@@ -1130,8 +1117,6 @@ defmodule AWS.DynamoDB do
   You can only perform one of the following operations at once:
 
     * Modify the provisioned throughput settings of the table.
-
-    * Enable or disable DynamoDB Streams on the table.
 
     * Remove a global secondary index from the table.
 

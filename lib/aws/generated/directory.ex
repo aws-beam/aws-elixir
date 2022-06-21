@@ -351,6 +351,14 @@ defmodule AWS.Directory do
   end
 
   @doc """
+  Retrieves information about the configurable settings for the specified
+  directory.
+  """
+  def describe_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeSettings", input, options)
+  end
+
+  @doc """
   Returns the shared directories in your account.
   """
   def describe_shared_directories(%Client{} = client, input, options \\ []) do
@@ -652,6 +660,13 @@ defmodule AWS.Directory do
   """
   def update_radius(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateRadius", input, options)
+  end
+
+  @doc """
+  Updates the configurable settings for the specified directory.
+  """
+  def update_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateSettings", input, options)
   end
 
   @doc """

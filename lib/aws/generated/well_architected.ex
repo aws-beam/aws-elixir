@@ -1049,6 +1049,8 @@ defmodule AWS.WellArchitected do
 
   @doc """
   List the tags for a resource.
+
+  The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.
   """
   def list_tags_for_resource(%Client{} = client, workload_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
@@ -1142,6 +1144,8 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Adds one or more tags to the specified resource.
+
+  The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.
   """
   def tag_resource(%Client{} = client, workload_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
@@ -1163,6 +1167,8 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Deletes specified tags from a resource.
+
+  The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.
 
   To specify multiple tags, use separate **tagKeys** parameters, for example:
 

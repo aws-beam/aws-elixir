@@ -8,10 +8,10 @@ defmodule AWS.ECS do
   Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast,
   container management service.
 
-  It makes it easy to run, stop, and manage Docker containers on a cluster. You
-  can host your cluster on a serverless infrastructure that's managed by Amazon
-  ECS by launching your services or tasks on Fargate. For more control, you can
-  host your tasks on a cluster of Amazon Elastic Compute Cloud (Amazon EC2)
+  It makes it easy to run, stop, and manage Docker containers. You can host your
+  cluster on a serverless infrastructure that's managed by Amazon ECS by launching
+  your services or tasks on Fargate. For more control, you can host your tasks on
+  a cluster of Amazon Elastic Compute Cloud (Amazon EC2) or External (on-premises)
   instances that you manage.
 
   Amazon ECS makes it easy to launch and stop container-based applications with
@@ -70,7 +70,7 @@ defmodule AWS.ECS do
   the Amazon ECS service-linked role for your account. This is so that it can
   manage required resources in other Amazon Web Services services on your behalf.
   However, if the IAM user that makes the call doesn't have permissions to create
-  the service-linked role, it isn't created. For more information, see [Using Service-Linked Roles for Amazon
+  the service-linked role, it isn't created. For more information, see [Using service-linked roles for Amazon
   ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html)
   in the *Amazon Elastic Container Service Developer Guide*.
   """
@@ -84,12 +84,12 @@ defmodule AWS.ECS do
 
   If the number of tasks running in a service drops below the `desiredCount`,
   Amazon ECS runs another copy of the task in the specified cluster. To update an
-  existing service, see the UpdateService action.
+  existing service, see the `UpdateService` action.
 
   In addition to maintaining the desired count of tasks in your service, you can
   optionally run your service behind one or more load balancers. The load
   balancers distribute traffic across the tasks that are associated with the
-  service. For more information, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html)
+  service. For more information, see [Service load balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
   Tasks for services that don't use a load balancer are considered healthy if
@@ -103,7 +103,7 @@ defmodule AWS.ECS do
   your desired number of tasks across your cluster. By default, the service
   scheduler spreads tasks across Availability Zones. You can use task placement
   strategies and constraints to customize task placement decisions. For more
-  information, see [Service Scheduler Concepts](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html)
+  information, see [Service scheduler concepts](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
     * `DAEMON` - The daemon scheduling strategy deploys exactly one task
@@ -112,7 +112,7 @@ defmodule AWS.ECS do
   evaluates the task placement constraints for running tasks. It also stops tasks
   that don't meet the placement constraints. When using this strategy, you don't
   need to specify a desired number of tasks, a task placement strategy, or use
-  Service Auto Scaling policies. For more information, see [Service Scheduler Concepts](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html)
+  Service Auto Scaling policies. For more information, see [Service scheduler concepts](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
   You can optionally specify a deployment configuration for your service. The
@@ -161,7 +161,7 @@ defmodule AWS.ECS do
   When creating a service that uses the `EXTERNAL` deployment controller, you can
   specify only parameters that aren't controlled at the task set level. The only
   required parameter is the service name. You control your services using the
-  `CreateTaskSet` operation. For more information, see [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+  `CreateTaskSet` operation. For more information, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
   When the service scheduler launches new tasks, it determines task placement in
@@ -193,7 +193,7 @@ defmodule AWS.ECS do
   Create a task set in the specified cluster and service.
 
   This is used when a service uses the `EXTERNAL` deployment controller type. For
-  more information, see [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+  more information, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def create_task_set(%Client{} = client, input, options \\ []) do
@@ -281,7 +281,7 @@ defmodule AWS.ECS do
   Deletes a specified task set within a service.
 
   This is used when a service uses the `EXTERNAL` deployment controller type. For
-  more information, see [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+  more information, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def delete_task_set(%Client{} = client, input, options \\ []) do
@@ -390,6 +390,8 @@ defmodule AWS.ECS do
 
   @doc """
   Describes a specified task or tasks.
+
+  Currently, stopped tasks appear in the returned results for at least one hour.
   """
   def describe_tasks(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeTasks", input, options)
@@ -407,6 +409,11 @@ defmodule AWS.ECS do
 
   @doc """
   Runs a command remotely on a container within a task.
+
+  If you use a condition key in your IAM policy to refine the conditions for the
+  policy statement, for example limit the actions to a specific cluster, you
+  recevie an `AccessDeniedException` when there is a mismatch between the
+  condition key value and the corresponding parameter value.
   """
   def execute_command(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ExecuteCommand", input, options)
@@ -847,13 +854,6 @@ defmodule AWS.ECS do
   end
 
   @doc """
-  Updating the task placement strategies and constraints on an Amazon ECS service
-  remains in preview and is a Beta Service as defined by and subject to the Beta
-  Service Participation Service Terms located at
-  [https://aws.amazon.com/service-terms](https://aws.amazon.com/service-terms) ("Beta Terms").
-
-  These Beta Terms apply to your participation in this preview.
-
   Modifies the parameters of a service.
 
   For services using the rolling update (`ECS`) you can update the desired count,
@@ -868,8 +868,7 @@ defmodule AWS.ECS do
   propagate tags can be updated using this API. If the network configuration,
   platform version, task definition, or load balancer need to be updated, create a
   new CodeDeploy deployment. For more information, see
-  [CreateDeployment](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html)
-  in the *CodeDeploy API Reference*.
+  [CreateDeployment](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html) in the *CodeDeploy API Reference*.
 
   For services using an external deployment controller, you can update only the
   desired count, task placement constraints and strategies, health check grace
@@ -955,9 +954,9 @@ defmodule AWS.ECS do
   You must have a service-linked role when you update any of the following service
   properties. If you specified a custom IAM role when you created the service,
   Amazon ECS automatically replaces the
-  [roleARN](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Service.html#ECS-Type-Service-roleArn) associated with the service with the ARN of your service-linked role. For more
-  information, see [Service-linked
-  roles](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html)
+  [roleARN](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Service.html#ECS-Type-Service-roleArn)
+  associated with the service with the ARN of your service-linked role. For more
+  information, see [Service-linked roles](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
      `loadBalancers,`

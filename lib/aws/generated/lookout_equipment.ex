@@ -152,6 +152,14 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
+  Lists all inference events that have been found for the specified inference
+  scheduler.
+  """
+  def list_inference_events(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListInferenceEvents", input, options)
+  end
+
+  @doc """
   Lists all inference executions that have been performed by the specified
   inference scheduler.
   """

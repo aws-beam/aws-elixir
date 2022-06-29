@@ -359,6 +359,42 @@ defmodule AWS.Finspacedata do
   end
 
   @doc """
+  Returns the credentials to access the external Dataview from an S3 location.
+
+  To call this API:
+
+    * You must retrieve the programmatic credentials.
+
+    * You must be a member of a FinSpace user group, where the dataset
+  that you want to access has `Read Dataset Data` permissions.
+  """
+  def get_external_data_view_access_details(
+        %Client{} = client,
+        data_view_id,
+        dataset_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/datasets/#{AWS.Util.encode_uri(dataset_id)}/dataviewsv2/#{AWS.Util.encode_uri(data_view_id)}/external-access-details"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Retrieves the details of a specific permission group.
   """
   def get_permission_group(%Client{} = client, permission_group_id, options \\ []) do

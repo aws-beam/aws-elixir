@@ -91,6 +91,16 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+  Creates an endpoint for an Amazon FSx for NetApp ONTAP file system that DataSync
+  can access for a transfer.
+
+  For more information, see [Creating a location for FSx for ONTAP](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html).
+  """
+  def create_location_fsx_ontap(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLocationFsxOntap", input, options)
+  end
+
+  @doc """
   Creates an endpoint for an Amazon FSx for OpenZFS file system.
   """
   def create_location_fsx_open_zfs(%Client{} = client, input, options \\ []) do
@@ -120,10 +130,10 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates an endpoint for a self-managed object storage bucket.
+  Creates an endpoint for an object storage system that DataSync can access for a
+  transfer.
 
-  For more information about self-managed object storage locations, see [Creating a location for object
-  storage](https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html).
+  For more information, see [Creating a location for object storage](https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html).
   """
   def create_location_object_storage(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateLocationObjectStorage", input, options)
@@ -226,6 +236,14 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+  Provides details about how an DataSync location for an Amazon FSx for NetApp
+  ONTAP file system is configured.
+  """
+  def describe_location_fsx_ontap(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLocationFsxOntap", input, options)
+  end
+
+  @doc """
   Returns metadata about an Amazon FSx for OpenZFS location, such as information
   about its path.
   """
@@ -257,10 +275,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Returns metadata about a self-managed object storage server location.
-
-  For more information about self-managed object storage locations, see [Creating a location for object
-  storage](https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html).
+  Returns metadata about your DataSync location for an object storage system.
   """
   def describe_location_object_storage(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeLocationObjectStorage", input, options)

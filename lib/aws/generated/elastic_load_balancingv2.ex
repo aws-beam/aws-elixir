@@ -396,6 +396,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @doc """
   Modifies the health checks used when evaluating the health state of the targets
   in the specified target group.
+
+  If the protocol of the target group is TCP, TLS, UDP, or TCP_UDP, you can't
+  modify the health check protocol, interval, timeout, or success codes.
   """
   def modify_target_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyTargetGroup", input, options)

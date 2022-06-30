@@ -76,21 +76,28 @@ defmodule AWS.Translate do
   end
 
   @doc """
-  Creates or updates a custom terminology, depending on whether or not one already
-  exists for the given terminology name.
+  Creates or updates a custom terminology, depending on whether one already exists
+  for the given terminology name.
 
   Importing a terminology with the same name as an existing one will merge the
-  terminologies based on the chosen merge strategy. Currently, the only supported
-  merge strategy is OVERWRITE, and so the imported terminology will overwrite an
-  existing terminology of the same name.
+  terminologies based on the chosen merge strategy. The only supported merge
+  strategy is OVERWRITE, where the imported terminology overwrites the existing
+  terminology of the same name.
 
   If you import a terminology that overwrites an existing one, the new terminology
-  take up to 10 minutes to fully propagate and be available for use in a
-  translation due to cache policies with the DataPlane service that performs the
-  translations.
+  takes up to 10 minutes to fully propagate. After that, translations have access
+  to the new terminology.
   """
   def import_terminology(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ImportTerminology", input, options)
+  end
+
+  @doc """
+  Provides a list of languages (RFC-5646 codes and names) that Amazon Translate
+  supports.
+  """
+  def list_languages(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListLanguages", input, options)
   end
 
   @doc """

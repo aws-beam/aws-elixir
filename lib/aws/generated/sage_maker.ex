@@ -1544,6 +1544,13 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Shows the metadata for a feature within a feature group.
+  """
+  def describe_feature_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeFeatureMetadata", input, options)
+  end
+
+  @doc """
   Returns information about the specified flow definition.
   """
   def describe_flow_definition(%Client{} = client, input, options \\ []) do
@@ -2758,6 +2765,20 @@ defmodule AWS.SageMaker do
   """
   def update_experiment(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateExperiment", input, options)
+  end
+
+  @doc """
+  Updates the feature group.
+  """
+  def update_feature_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateFeatureGroup", input, options)
+  end
+
+  @doc """
+  Updates the description and parameters of the feature group.
+  """
+  def update_feature_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateFeatureMetadata", input, options)
   end
 
   @doc """

@@ -643,8 +643,8 @@ defmodule AWS.AppStream do
     * Elastic fleet type
 
   You can update the `DisplayName`, `IdleDisconnectTimeoutInSeconds`,
-  `DisconnectTimeoutInSeconds`, `MaxConcurrentSessions`, and
-  `UsbDeviceFilterStrings` attributes.
+  `DisconnectTimeoutInSeconds`, `MaxConcurrentSessions`, `SessionScriptS3Location`
+  and `UsbDeviceFilterStrings` attributes.
 
   If the fleet is in the `STARTING` or `STOPPED` state, you can't update it.
   """

@@ -58,6 +58,18 @@ defmodule AWS.Athena do
   end
 
   @doc """
+  Returns the details of a single prepared statement or a list of up to 256
+  prepared statements for the array of prepared statement names that you provide.
+
+  Requires you to have access to the workgroup to which the prepared statements
+  belong. If a prepared statement cannot be retrieved for the name specified, the
+  statement is listed in `UnprocessedPreparedStatementNames`.
+  """
+  def batch_get_prepared_statement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetPreparedStatement", input, options)
+  end
+
+  @doc """
   Returns the details of a single query execution or a list of up to 50 query
   executions, which you provide as an array of query execution ID strings.
 
@@ -256,7 +268,7 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Lists the prepared statements in the specfied workgroup.
+  Lists the prepared statements in the specified workgroup.
   """
   def list_prepared_statements(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListPreparedStatements", input, options)

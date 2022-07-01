@@ -10,7 +10,7 @@ defmodule AWS.MWAA do
 
   For more information, see [What Is Amazon MWAA?](https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html).
 
-  ` ## Endpoints
+  ## Endpoints
 
     * `api.airflow.{region}.amazonaws.com` - This endpoint is used for
   environment management.
@@ -51,8 +51,6 @@ defmodule AWS.MWAA do
   For a list of regions that Amazon MWAA supports, see [Region
   availability](https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html#regions-mwaa)
   in the *Amazon MWAA User Guide*.
-
-  `
   """
 
   alias AWS.Client

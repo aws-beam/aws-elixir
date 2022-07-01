@@ -84,6 +84,14 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+  Creates an `AvailabilityConfiguration` for the given WorkMail organization and
+  domain.
+  """
+  def create_availability_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateAvailabilityConfiguration", input, options)
+  end
+
+  @doc """
   Creates a group that can be used in Amazon WorkMail by calling the
   `RegisterToWorkMail` operation.
   """
@@ -156,6 +164,14 @@ defmodule AWS.WorkMail do
   """
   def delete_alias(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteAlias", input, options)
+  end
+
+  @doc """
+  Deletes the `AvailabilityConfiguration` for the given WorkMail organization and
+  domain.
+  """
+  def delete_availability_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAvailabilityConfiguration", input, options)
   end
 
   @doc """
@@ -399,6 +415,13 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+  List all the `AvailabilityConfiguration`'s for the given WorkMail organization.
+  """
+  def list_availability_configurations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAvailabilityConfigurations", input, options)
+  end
+
+  @doc """
   Returns an overview of the members of a group.
 
   Users and groups can be members of a group.
@@ -599,11 +622,36 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+  Performs a test on an availability provider to ensure that access is allowed.
+
+  For EWS, it verifies the provided credentials can be used to successfully log
+  in. For Lambda, it verifies that the Lambda function can be invoked and that the
+  resource access policy was configured to deny anonymous access. An anonymous
+  invocation is one done without providing either a `SourceArn` or `SourceAccount`
+  header.
+
+  The request must contain either one provider definition (`EwsProvider` or
+  `LambdaProvider`) or the `DomainName` parameter. If the `DomainName` parameter
+  is provided, the configuration stored under the `DomainName` will be tested.
+  """
+  def test_availability_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TestAvailabilityConfiguration", input, options)
+  end
+
+  @doc """
   Untags the specified tags from the specified Amazon WorkMail organization
   resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates an existing `AvailabilityConfiguration` for the given WorkMail
+  organization and domain.
+  """
+  def update_availability_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateAvailabilityConfiguration", input, options)
   end
 
   @doc """

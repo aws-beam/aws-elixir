@@ -837,11 +837,19 @@ defmodule AWS.WellArchitected do
         max_results \\ nil,
         next_token \\ nil,
         shared_with_prefix \\ nil,
+        status \\ nil,
         options \\ []
       ) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/shares"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"Status", status} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(shared_with_prefix) do
@@ -1079,11 +1087,19 @@ defmodule AWS.WellArchitected do
         max_results \\ nil,
         next_token \\ nil,
         shared_with_prefix \\ nil,
+        status \\ nil,
         options \\ []
       ) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/shares"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"Status", status} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(shared_with_prefix) do
@@ -1211,6 +1227,28 @@ defmodule AWS.WellArchitected do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers/#{AWS.Util.encode_uri(question_id)}"
 
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates whether the Amazon Web Services account is opted into organization
+  sharing features.
+  """
+  def update_global_settings(%Client{} = client, input, options \\ []) do
+    url_path = "/global-settings"
     headers = []
     query_params = []
 

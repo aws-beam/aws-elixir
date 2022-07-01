@@ -91,6 +91,9 @@ defmodule AWS.Kendra do
   The documents are indexed asynchronously. You can see the progress of the batch
   using Amazon Web Services CloudWatch. Any error messages related to processing
   the batch are sent to your Amazon Web Services CloudWatch log.
+
+  For an example of ingesting inline documents using Python and Java SDKs, see
+  [Adding files directly to an index](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-binary-doc.html).
   """
   def batch_put_document(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "BatchPutDocument", input, options)
@@ -123,9 +126,14 @@ defmodule AWS.Kendra do
   data source was successfully created. Otherwise, an exception is raised.
 
   Amazon S3 and
-  [custom](https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html)
-  data sources are the only supported data sources in the Amazon Web Services
+  [custom](https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html) data sources are the only supported data sources in the Amazon Web Services
   GovCloud (US-West) region.
+
+  For an example of creating an index and data source using the Python SDK, see
+  [Getting started with Python
+  SDK](https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html). For an
+  example of creating an index and data source using the Java SDK, see [Getting started with Java
+  SDK](https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html).
   """
   def create_data_source(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDataSource", input, options)
@@ -134,8 +142,8 @@ defmodule AWS.Kendra do
   @doc """
   Creates an Amazon Kendra experience such as a search application.
 
-  For more information on creating a search application experience, see [Building a search experience with no
-  code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+  For more information on creating a search application experience, including
+  using the Python and Java SDKs, see [Building a search experience with no code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
   def create_experience(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateExperience", input, options)
@@ -145,6 +153,9 @@ defmodule AWS.Kendra do
   Creates an new set of frequently asked question (FAQ) questions and answers.
 
   Adding FAQs to an index is an asynchronous operation.
+
+  For an example of adding an FAQ to an index using Python and Java SDKs, see
+  [Using you FAQ file](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file).
   """
   def create_faq(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateFaq", input, options)
@@ -159,6 +170,11 @@ defmodule AWS.Kendra do
 
   Once the index is active you can index your documents using the
   `BatchPutDocument` API or using one of the supported data sources.
+
+  For an example of creating an index and data source using the Python SDK, see
+  [Getting started with Python SDK](https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html). For an
+  example of creating an index and data source using the Java SDK, see [Getting started with Java
+  SDK](https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html).
   """
   def create_index(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateIndex", input, options)
@@ -177,6 +193,9 @@ defmodule AWS.Kendra do
 
   `CreateQuerySuggestionsBlockList` is currently not supported in the Amazon Web
   Services GovCloud (US-West) region.
+
+  For an example of creating a block list for query suggestions using the Python
+  SDK, see [Query suggestions block list](https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#suggestions-block-list).
   """
   def create_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateQuerySuggestionsBlockList", input, options)
@@ -186,6 +205,9 @@ defmodule AWS.Kendra do
   Creates a thesaurus for an index.
 
   The thesaurus contains a list of synonyms in Solr format.
+
+  For an example of adding a thesaurus file to an index, see [Adding custom synonyms to an
+  index](https://docs.aws.amazon.com/kendra/latest/dg/index-synonyms-adding-thesaurus-file.html).
   """
   def create_thesaurus(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateThesaurus", input, options)

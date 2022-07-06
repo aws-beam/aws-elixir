@@ -143,7 +143,7 @@ defmodule AWS.RDS do
   For more information on backtracking, see [ Backtracking an Aurora DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html)
   in the *Amazon Aurora User Guide*.
 
-  This action applies only to Aurora MySQL DB clusters.
+  This action only applies to Aurora MySQL DB clusters.
   """
   def backtrack_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "BacktrackDBCluster", input, options)
@@ -174,8 +174,8 @@ defmodule AWS.RDS do
 
   You can copy an encrypted DB cluster snapshot from another Amazon Web Services
   Region. In that case, the Amazon Web Services Region where you call the
-  `CopyDBClusterSnapshot` operation is the destination Amazon Web Services Region
-  for the encrypted DB cluster snapshot to be copied to. To copy an encrypted DB
+  `CopyDBClusterSnapshot` action is the destination Amazon Web Services Region for
+  the encrypted DB cluster snapshot to be copied to. To copy an encrypted DB
   cluster snapshot from another Amazon Web Services Region, you must provide the
   following values:
 
@@ -183,13 +183,51 @@ defmodule AWS.RDS do
   Web Services KMS) key identifier for the key to use to encrypt the copy of the
   DB cluster snapshot in the destination Amazon Web Services Region.
 
+    * `PreSignedUrl` - A URL that contains a Signature Version 4 signed
+  request for the `CopyDBClusterSnapshot` action to be called in the source Amazon
+  Web Services Region where the DB cluster snapshot is copied from. The pre-signed
+  URL must be a valid request for the `CopyDBClusterSnapshot` API action that can
+  be executed in the source Amazon Web Services Region that contains the encrypted
+  DB cluster snapshot to be copied.
+
+  The pre-signed URL request must contain the following parameter values:
+
+      * `KmsKeyId` - The Amazon Web Services KMS key
+  identifier for the KMS key to use to encrypt the copy of the DB cluster snapshot
+  in the destination Amazon Web Services Region. This is the same identifier for
+  both the `CopyDBClusterSnapshot` action that is called in the destination Amazon
+  Web Services Region, and the action contained in the pre-signed URL.
+
+      * `DestinationRegion` - The name of the Amazon Web
+  Services Region that the DB cluster snapshot is to be created in.
+
+      * `SourceDBClusterSnapshotIdentifier` - The DB cluster
+  snapshot identifier for the encrypted DB cluster snapshot to be copied. This
+  identifier must be in the Amazon Resource Name (ARN) format for the source
+  Amazon Web Services Region. For example, if you are copying an encrypted DB
+  cluster snapshot from the us-west-2 Amazon Web Services Region, then your
+  `SourceDBClusterSnapshotIdentifier` looks like the following example:
+  `arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115`.
+
+  To learn how to generate a Signature Version 4 signed request, see [
+  Authenticating Requests: Using Query Parameters (Amazon Web Services Signature
+  Version
+  4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html)
+  and [ Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
+
+  If you are using an Amazon Web Services SDK tool or the CLI, you can specify
+  `SourceRegion` (or `--source-region` for the CLI) instead of specifying
+  `PreSignedUrl` manually. Specifying `SourceRegion` autogenerates a pre-signed
+  URL that is a valid request for the operation that can be executed in the source
+  Amazon Web Services Region.
+
     * `TargetDBClusterSnapshotIdentifier` - The identifier for the new
   copy of the DB cluster snapshot in the destination Amazon Web Services Region.
 
     * `SourceDBClusterSnapshotIdentifier` - The DB cluster snapshot
   identifier for the encrypted DB cluster snapshot to be copied. This identifier
   must be in the ARN format for the source Amazon Web Services Region and is the
-  same value as the `SourceDBClusterSnapshotIdentifier` in the presigned URL.
+  same value as the `SourceDBClusterSnapshotIdentifier` in the pre-signed URL.
 
   To cancel the copy operation once it is in progress, delete the target DB
   cluster snapshot identified by `TargetDBClusterSnapshotIdentifier` while that DB
@@ -223,9 +261,8 @@ defmodule AWS.RDS do
   The source DB snapshot must be in the `available` state.
 
   You can copy a snapshot from one Amazon Web Services Region to another. In that
-  case, the Amazon Web Services Region where you call the `CopyDBSnapshot`
-  operation is the destination Amazon Web Services Region for the DB snapshot
-  copy.
+  case, the Amazon Web Services Region where you call the `CopyDBSnapshot` action
+  is the destination Amazon Web Services Region for the DB snapshot copy.
 
   This command doesn't apply to RDS Custom.
 
@@ -294,7 +331,9 @@ defmodule AWS.RDS do
 
   You can use the `ReplicationSourceIdentifier` parameter to create an Amazon
   Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or
-  PostgreSQL DB instance.
+  PostgreSQL DB instance. For cross-Region replication where the DB cluster
+  identified by `ReplicationSourceIdentifier` is encrypted, also specify the
+  `PreSignedUrl` parameter.
 
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
@@ -311,7 +350,7 @@ defmodule AWS.RDS do
   Creates a new custom endpoint and associates it with an Amazon Aurora DB
   cluster.
 
-  This action applies only to Aurora DB clusters.
+  This action only applies to Aurora DB clusters.
   """
   def create_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBClusterEndpoint", input, options)
@@ -346,7 +385,7 @@ defmodule AWS.RDS do
   are critical when creating the default database for a DB cluster, such as the
   character set for the default database defined by the `character_set_database`
   parameter. You can use the *Parameter Groups* option of the [Amazon RDS console](https://console.aws.amazon.com/rds/) or the
-  `DescribeDBClusterParameters` operation to verify that your DB cluster parameter
+  `DescribeDBClusterParameters` action to verify that your DB cluster parameter
   group has been created or modified.
 
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
@@ -376,19 +415,6 @@ defmodule AWS.RDS do
 
   @doc """
   Creates a new DB instance.
-
-  The new DB instance can be an RDS DB instance, or it can be a DB instance in an
-  Aurora DB cluster. For an Aurora DB cluster, you can call this operation
-  multiple times to add more than one DB instance to the cluster.
-
-  For more information about creating an RDS DB instance, see [ Creating an Amazon RDS DB
-  instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateDBInstance.html)
-  in the *Amazon RDS User Guide*.
-
-  For more information about creating a DB instance in an Aurora DB cluster, see [
-  Creating an Amazon Aurora DB
-  cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html)
-  in the *Amazon Aurora User Guide*.
   """
   def create_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBInstance", input, options)
@@ -402,8 +428,8 @@ defmodule AWS.RDS do
   PostgreSQL, or SQL Server. For more information, see [Working with Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
   in the *Amazon RDS User Guide*.
 
-  Amazon Aurora doesn't support this operation. Call the `CreateDBInstance`
-  operation to create a DB instance for an Aurora DB cluster.
+  Amazon Aurora doesn't support this action. Call the `CreateDBInstance` action to
+  create a DB instance for an Aurora DB cluster.
 
   All read replica DB instances are created with backups disabled. All other DB
   instance attributes (including DB security groups and DB parameter groups) are
@@ -498,7 +524,7 @@ defmodule AWS.RDS do
   @doc """
   Creates an RDS event notification subscription.
 
-  This operation requires a topic Amazon Resource Name (ARN) created by either the
+  This action requires a topic Amazon Resource Name (ARN) created by either the
   RDS console, the SNS console, or the SNS API. To obtain an ARN with SNS, you
   must create a topic in Amazon SNS and subscribe to the topic. The ARN is
   displayed in the SNS console.
@@ -539,7 +565,7 @@ defmodule AWS.RDS do
   cluster during the create operation, and this cluster becomes the primary
   cluster of the global database.
 
-  This action applies only to Aurora DB clusters.
+  This action only applies to Aurora DB clusters.
   """
   def create_global_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateGlobalCluster", input, options)
@@ -1111,10 +1137,6 @@ defmodule AWS.RDS do
   security group, DB snapshot, DB cluster snapshot group, or RDS Proxy can be
   obtained by providing the name as a parameter.
 
-  For more information on working with events, see [Monitoring Amazon RDS events](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/working-with-events.html)
-  in the *Amazon RDS User Guide* and [Monitoring Amazon Aurora events](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/working-with-events.html)
-  in the *Amazon Aurora User Guide*.
-
   By default, RDS returns events that were generated in the past hour.
   """
   def describe_events(%Client{} = client, input, options \\ []) do
@@ -1246,7 +1268,7 @@ defmodule AWS.RDS do
 
   An Amazon Aurora DB cluster automatically fails over to an Aurora Replica, if
   one exists, when the primary DB instance fails. A Multi-AZ DB cluster
-  automatically fails over to a readable standby DB instance when the primary DB
+  automatically fails over to a readbable standby DB instance when the primary DB
   instance fails.
 
   To simulate a failure of a primary instance for testing, you can force a
@@ -1419,7 +1441,7 @@ defmodule AWS.RDS do
   when creating the default database for a DB cluster, such as the character set
   for the default database defined by the `character_set_database` parameter. You
   can use the *Parameter Groups* option of the [Amazon RDS console](https://console.aws.amazon.com/rds/) or the
-  `DescribeDBClusterParameters` operation to verify that your DB cluster parameter
+  `DescribeDBClusterParameters` action to verify that your DB cluster parameter
   group has been created or modified.
 
   If the modified DB cluster parameter group is used by an Aurora Serverless v1
@@ -1461,8 +1483,8 @@ defmodule AWS.RDS do
 
   To view which Amazon Web Services accounts have access to copy or restore a
   manual DB cluster snapshot, or whether a manual DB cluster snapshot is public or
-  private, use the `DescribeDBClusterSnapshotAttributes` API operation. The
-  accounts are returned as values for the `restore` attribute.
+  private, use the `DescribeDBClusterSnapshotAttributes` API action. The accounts
+  are returned as values for the `restore` attribute.
   """
   def modify_db_cluster_snapshot_attribute(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBClusterSnapshotAttribute", input, options)
@@ -1555,8 +1577,8 @@ defmodule AWS.RDS do
 
   To view which Amazon Web Services accounts have access to copy or restore a
   manual DB snapshot, or whether a manual DB snapshot public or private, use the
-  `DescribeDBSnapshotAttributes` API operation. The accounts are returned as
-  values for the `restore` attribute.
+  `DescribeDBSnapshotAttributes` API action. The accounts are returned as values
+  for the `restore` attribute.
   """
   def modify_db_snapshot_attribute(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBSnapshotAttribute", input, options)
@@ -2068,7 +2090,7 @@ defmodule AWS.RDS do
   @doc """
   Stops automated backup replication for a DB instance.
 
-  This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.
+  This command doesn't apply to RDS Custom.
 
   For more information, see [ Replicating Automated Backups to Another Amazon Web Services
   Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html)

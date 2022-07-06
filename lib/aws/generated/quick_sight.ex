@@ -63,7 +63,8 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Creates Amazon QuickSight customizations the current Amazon Web Services Region.
+  Creates Amazon QuickSight customizations for the current Amazon Web Services
+  Region.
 
   Currently, you can add a custom default theme by using the
   `CreateAccountCustomization` or `UpdateAccountCustomization` API operation. To
@@ -95,6 +96,56 @@ defmodule AWS.QuickSight do
         {"Namespace", "namespace"}
       ]
       |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates an Amazon QuickSight account, or subscribes to Amazon QuickSight Q.
+
+  The Amazon Web Services Region for the account is derived from what is
+  configured in the CLI or SDK. This operation isn't supported in the US East
+  (Ohio) Region, South America (Sao Paulo) Region, or Asia Pacific (Singapore)
+  Region.
+
+  Before you use this operation, make sure that you can connect to an existing
+  Amazon Web Services account. If you don't have an Amazon Web Services account,
+  see [Sign up for Amazon Web Services](https://docs.aws.amazon.com/quicksight/latest/user/setting-up-aws-sign-up.html)
+  in the *Amazon QuickSight User Guide*. The person who signs up for Amazon
+  QuickSight needs to have the correct Identity and Access Management (IAM)
+  permissions. For more information, see [IAM Policy Examples for Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html)
+  in the *Amazon QuickSight User Guide*.
+
+  If your IAM policy includes both the `Subscribe` and `CreateAccountSubscription`
+  actions, make sure that both actions are set to `Allow`. If either action is set
+  to `Deny`, the `Deny` action prevails and your API call fails.
+
+  You can't pass an existing IAM role to access other Amazon Web Services services
+  using this API operation. To pass your existing IAM role to Amazon QuickSight,
+  see [Passing IAM roles to Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html#security-create-iam-role)
+  in the *Amazon QuickSight User Guide*.
+
+  You can't set default resource access on the new account from the Amazon
+  QuickSight API. Instead, add default resource access from the Amazon QuickSight
+  console. For more information about setting default resource access to Amazon
+  Web Services services, see [Setting default resource access to Amazon Web Services
+  services](https://docs.aws.amazon.com/quicksight/latest/user/scoping-policies-defaults.html)
+  in the *Amazon QuickSight User Guide*.
+  """
+  def create_account_subscription(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/account/#{AWS.Util.encode_uri(aws_account_id)}"
+    headers = []
+    query_params = []
 
     Request.request_rest(
       client,
@@ -1159,6 +1210,32 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Use the DescribeAccountSubscription operation to receive a description of a
+  Amazon QuickSight account's subscription.
+
+  A successful API call returns an `AccountInfo` object that includes an account's
+  name, subscription status, authentication type, edition, and notification email
+  address.
+  """
+  def describe_account_subscription(%Client{} = client, aws_account_id, options \\ []) do
+    url_path = "/account/#{AWS.Util.encode_uri(aws_account_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Provides a summary of the metadata for an analysis.
   """
   def describe_analysis(%Client{} = client, analysis_id, aws_account_id, options \\ []) do
@@ -1860,10 +1937,8 @@ defmodule AWS.QuickSight do
 
     * The URL validity period should not be confused with the actual
   session lifetime that can be customized using the `
-  [SessionLifetimeInMinutes](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.html#QS-GenerateEmbedUrlForAnonymousUser-request-SessionLifetimeInMinutes) ` parameter.
-
-  The resulting user session is valid for 15 minutes (minimum) to 10 hours
-  (maximum). The default session duration is 10 hours.
+  [SessionLifetimeInMinutes](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.html#QS-GenerateEmbedUrlForAnonymousUser-request-SessionLifetimeInMinutes) ` parameter. The resulting user session is valid for 15 minutes (minimum) to 10
+  hours (maximum). The default session duration is 10 hours.
 
     * You are charged only when the URL is used or there is interaction
   with Amazon QuickSight.
@@ -1955,15 +2030,14 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Generates a session URL and authorization code that you can use to embed an
-  Amazon Amazon QuickSight read-only dashboard in your web server code.
+  Generates a temporary session URL and authorization code that you can use to
+  embed an Amazon QuickSight read-only dashboard in your website or application.
 
   Before you use this command, make sure that you have configured the dashboards
   and permissions.
 
   Currently, you can use `GetDashboardEmbedURL` only from the server, not from the
-  user's browser. The following rules apply to the combination of URL and
-  authorization code:
+  user's browser. The following rules apply to the generated URL:
 
     * They must be used together.
 
@@ -1971,7 +2045,9 @@ defmodule AWS.QuickSight do
 
     * They are valid for 5 minutes after you run this command.
 
-    * The resulting user session is valid for 10 hours.
+    * The resulting user session is valid for 15 minutes (default) up to
+  10 hours (maximum). You can use the optional `SessionLifetimeInMinutes`
+  parameter to customi session duration.
 
   For more information, see [Embedding Analytics Using GetDashboardEmbedUrl](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html)
   in the *Amazon QuickSight User Guide*.
@@ -3293,9 +3369,10 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Updates Amazon QuickSight customizations the current Amazon Web Services Region.
+  Updates Amazon QuickSight customizations for the current Amazon Web Services
+  Region.
 
-  Currently, the only customization you can use is a theme.
+  Currently, the only customization that you can use is a theme.
 
   You can use customizations for your Amazon Web Services account or, if you
   specify a namespace, for a Amazon QuickSight namespace instead. Customizations
@@ -3737,16 +3814,17 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Use the UpdatePublicSharingSettings operation to enable or disable the public
-  sharing settings of an Amazon QuickSight dashboard.
+  Use the `UpdatePublicSharingSettings` operation to turn on or turn off the
+  public sharing settings of an Amazon QuickSight dashboard.
 
-  To use this operation, enable session capacity pricing on your Amazon QuickSight
-  account.
+  To use this operation, turn on session capacity pricing for your Amazon
+  QuickSight account.
 
-  Before you can enable public sharing on your account, you need to allow public
-  sharing permissions to an administrative user in the IAM console. For more
-  information on using IAM with Amazon QuickSight, see [Using Amazon QuickSight with
-  IAM](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html).
+  Before you can turn on public sharing on your account, make sure to give public
+  sharing permissions to an administrative user in the Identity and Access
+  Management (IAM) console. For more information on using IAM with Amazon
+  QuickSight, see [Using Amazon QuickSight with IAM](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html)
+  in the *Amazon QuickSight User Guide*.
   """
   def update_public_sharing_settings(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/public-sharing-settings"

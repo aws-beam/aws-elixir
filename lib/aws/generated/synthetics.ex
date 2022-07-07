@@ -41,6 +41,32 @@ defmodule AWS.Synthetics do
   end
 
   @doc """
+  Associates a canary with a group.
+
+  Using groups can help you with managing and automating your canaries, and you
+  can also view aggregated run results and statistics for all canaries in a group.
+
+  You must run this operation in the Region where the canary exists.
+  """
+  def associate_resource(%Client{} = client, group_identifier, input, options \\ []) do
+    url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}/associate"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates a canary.
 
   Canaries are scripts that monitor your endpoints and APIs from the outside-in.
@@ -52,7 +78,7 @@ defmodule AWS.Synthetics do
   [UpdateCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_UpdateCanary.html) instead.
 
   To create canaries, you must have the `CloudWatchSyntheticsFullAccess` policy.
-  If you are creating a new IAM role for the canary, you also need the the
+  If you are creating a new IAM role for the canary, you also need the
   `iam:CreateRole`, `iam:CreatePolicy` and `iam:AttachRolePolicy` permissions. For
   more information, see [Necessary Roles and
   Permissions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Roles).
@@ -81,12 +107,50 @@ defmodule AWS.Synthetics do
   end
 
   @doc """
+  Creates a group which you can use to associate canaries with each other,
+  including cross-Region canaries.
+
+  Using groups can help you with managing and automating your canaries, and you
+  can also view aggregated run results and statistics for all canaries in a group.
+
+  Groups are global resources. When you create a group, it is replicated across
+  Amazon Web Services Regions, and you can view it and add canaries to it from any
+  Region. Although the group ARN format reflects the Region name where it was
+  created, a group is not constrained to any Region. This means that you can put
+  canaries from multiple Regions into the same group, and then use that group to
+  view and manage all of those canaries in a single view.
+
+  Groups are supported in all Regions except the Regions that are disabled by
+  default. For more information about these Regions, see [Enabling a Region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable).
+
+  Each group can contain as many as 10 canaries. You can have as many as 20 groups
+  in your account. Any single canary can be a member of up to 10 groups.
+  """
+  def create_group(%Client{} = client, input, options \\ []) do
+    url_path = "/group"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Permanently deletes the specified canary.
 
   If you specify `DeleteLambda` to `true`, CloudWatch Synthetics also deletes the
   Lambda functions and layers that are used by the canary.
 
-  Other esources used and created by the canary are not automatically deleted.
+  Other resources used and created by the canary are not automatically deleted.
   After you delete a canary that you do not intend to use again, you should also
   delete the following:
 
@@ -116,6 +180,34 @@ defmodule AWS.Synthetics do
         {"DeleteLambda", "deleteLambda"}
       ]
       |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes a group.
+
+  The group doesn't need to be empty to be deleted. If there are canaries in the
+  group, they are not deleted when you delete the group.
+
+  Groups are a global resource that appear in all Regions, but the request to
+  delete a group must be made from its home Region. You can find the home Region
+  of a group within its ARN.
+  """
+  def delete_group(%Client{} = client, group_identifier, input, options \\ []) do
+    url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}"
+    headers = []
+    query_params = []
 
     Request.request_rest(
       client,
@@ -218,6 +310,29 @@ defmodule AWS.Synthetics do
   end
 
   @doc """
+  Removes a canary from a group.
+
+  You must run this operation in the Region where the canary exists.
+  """
+  def disassociate_resource(%Client{} = client, group_identifier, input, options \\ []) do
+    url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}/disassociate"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Retrieves complete information about one canary.
 
   You must specify the name of the canary that you want. To get a list of canaries
@@ -264,7 +379,99 @@ defmodule AWS.Synthetics do
   end
 
   @doc """
-  Displays the tags associated with a canary.
+  Returns information about one group.
+
+  Groups are a global resource, so you can use this operation from any Region.
+  """
+  def get_group(%Client{} = client, group_identifier, options \\ []) do
+    url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns a list of the groups that the specified canary is associated with.
+
+  The canary that you specify must be in the current Region.
+  """
+  def list_associated_groups(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/resource/#{AWS.Util.encode_uri(resource_arn)}/groups"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This operation returns a list of the ARNs of the canaries that are associated
+  with the specified group.
+  """
+  def list_group_resources(%Client{} = client, group_identifier, input, options \\ []) do
+    url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}/resources"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns a list of all groups in the account, displaying their names, unique IDs,
+  and ARNs.
+
+  The groups from all Regions are returned.
+  """
+  def list_groups(%Client{} = client, input, options \\ []) do
+    url_path = "/groups"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Displays the tags associated with a canary or group.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -312,9 +519,8 @@ defmodule AWS.Synthetics do
   @doc """
   Stops the canary to prevent all future runs.
 
-  If the canary is currently running, Synthetics stops waiting for the current run
-  of the specified canary to complete. The run that is in progress completes on
-  its own, publishes metrics, and uploads artifacts, but it is not recorded in
+  If the canary is currently running,the run that is in progress completes on its
+  own, publishes metrics, and uploads artifacts, but it is not recorded in
   Synthetics as a completed run.
 
   You can use `StartCanary` to start it running again with the canary’s current
@@ -339,7 +545,7 @@ defmodule AWS.Synthetics do
   end
 
   @doc """
-  Assigns one or more tags (key-value pairs) to the specified canary.
+  Assigns one or more tags (key-value pairs) to the specified canary or group.
 
   Tags can help you organize and categorize your resources. You can also use them
   to scope user permissions, by granting a user permission to access or change
@@ -348,13 +554,13 @@ defmodule AWS.Synthetics do
   Tags don't have any semantic meaning to Amazon Web Services and are interpreted
   strictly as strings of characters.
 
-  You can use the `TagResource` action with a canary that already has tags. If you
-  specify a new tag key for the alarm, this tag is appended to the list of tags
-  associated with the alarm. If you specify a tag key that is already associated
-  with the alarm, the new tag value that you specify replaces the previous value
-  for that tag.
+  You can use the `TagResource` action with a resource that already has tags. If
+  you specify a new tag key for the resource, this tag is appended to the list of
+  tags associated with the resource. If you specify a tag key that is already
+  associated with the resource, the new tag value that you specify replaces the
+  previous value for that tag.
 
-  You can associate as many as 50 tags with a canary.
+  You can associate as many as 50 tags with a canary or group.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -375,7 +581,7 @@ defmodule AWS.Synthetics do
   end
 
   @doc """
-  Removes one or more tags from the specified canary.
+  Removes one or more tags from the specified resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -401,8 +607,7 @@ defmodule AWS.Synthetics do
   end
 
   @doc """
-  Use this operation to change the settings of a canary that has already been
-  created.
+  Updates the configuration of a canary that has already been created.
 
   You can't use this operation to update the tags of an existing canary. To change
   the tags of an existing canary, use

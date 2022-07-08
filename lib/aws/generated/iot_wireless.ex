@@ -891,7 +891,7 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Get the event configuration by resource types.
+  Get the event configuration based on resource types.
   """
   def get_event_configuration_by_resource_types(%Client{} = client, options \\ []) do
     url_path = "/event-configurations-resource-types"
@@ -1047,6 +1047,67 @@ defmodule AWS.IoTWireless do
       nil,
       options,
       nil
+    )
+  end
+
+  @doc """
+  Get the position information for a given resource.
+  """
+  def get_position(%Client{} = client, resource_identifier, resource_type, options \\ []) do
+    url_path = "/positions/#{AWS.Util.encode_uri(resource_identifier)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"resourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Get position configuration for a given resource.
+  """
+  def get_position_configuration(
+        %Client{} = client,
+        resource_identifier,
+        resource_type,
+        options \\ []
+      ) do
+    url_path = "/position-configurations/#{AWS.Util.encode_uri(resource_identifier)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"resourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
     )
   end
 
@@ -1680,6 +1741,54 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
+  List position configurations for a given resource, such as positioning solvers.
+  """
+  def list_position_configurations(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        resource_type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/position-configurations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"resourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
   List queued messages in the downlink queue.
   """
   def list_queued_messages(
@@ -1969,6 +2078,32 @@ defmodule AWS.IoTWireless do
       nil,
       options,
       nil
+    )
+  end
+
+  @doc """
+  Put position configuration for a given resource.
+  """
+  def put_position_configuration(%Client{} = client, resource_identifier, input, options \\ []) do
+    url_path = "/position-configurations/#{AWS.Util.encode_uri(resource_identifier)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"ResourceType", "resourceType"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -2286,7 +2421,7 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Update the event configuration by resource types.
+  Update the event configuration based on resource types.
   """
   def update_event_configuration_by_resource_types(%Client{} = client, input, options \\ []) do
     url_path = "/event-configurations-resource-types"
@@ -2408,6 +2543,32 @@ defmodule AWS.IoTWireless do
     {query_params, input} =
       [
         {"PartnerType", "partnerType"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Update the position information of a resource.
+  """
+  def update_position(%Client{} = client, resource_identifier, input, options \\ []) do
+    url_path = "/positions/#{AWS.Util.encode_uri(resource_identifier)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"ResourceType", "resourceType"}
       ]
       |> Request.build_params(input)
 

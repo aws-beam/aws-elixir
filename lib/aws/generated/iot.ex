@@ -6882,14 +6882,11 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Registers a CA certificate with IoT.
+  Registers a CA certificate with Amazon Web Services IoT Core.
 
-  This CA certificate can then be used to sign device certificates, which can be
-  then registered with IoT. You can register up to 10 CA certificates per Amazon
-  Web Services account that have the same subject field. This enables you to have
-  up to 10 certificate authorities sign your device certificates. If you have more
-  than one CA certificate registered, make sure you pass the CA certificate when
-  you register your device certificates with the `RegisterCertificate` action.
+  There is no limit to the number of CA certificates you can register in your
+  Amazon Web Services account. You can register up to 10 CA certificates with the
+  same `CA subject field` per Amazon Web Services account.
 
   Requires permission to access the
   [RegisterCACertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -6920,7 +6917,8 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Registers a device certificate with IoT.
+  Registers a device certificate with IoT in the same [certificate mode](https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode)
+  as the signing CA.
 
   If you have more than one CA certificate that has the same subject field, you
   must specify the CA certificate that was used to sign the device certificate

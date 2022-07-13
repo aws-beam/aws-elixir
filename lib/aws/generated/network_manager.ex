@@ -385,6 +385,48 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
+  Creates a transit gateway peering connection.
+  """
+  def create_transit_gateway_peering(%Client{} = client, input, options \\ []) do
+    url_path = "/transit-gateway-peerings"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates a transit gateway route table attachment.
+  """
+  def create_transit_gateway_route_table_attachment(%Client{} = client, input, options \\ []) do
+    url_path = "/transit-gateway-route-table-attachments"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates a VPC attachment on an edge location of a core network.
   """
   def create_vpc_attachment(%Client{} = client, input, options \\ []) do
@@ -590,6 +632,27 @@ defmodule AWS.NetworkManager do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/links/#{AWS.Util.encode_uri(link_id)}"
 
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes an existing peering connection.
+  """
+  def delete_peering(%Client{} = client, peering_id, input, options \\ []) do
+    url_path = "/peerings/#{AWS.Util.encode_uri(peering_id)}"
     headers = []
     query_params = []
 
@@ -1059,6 +1122,50 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
+  Returns information about a core network change event.
+  """
+  def get_core_network_change_events(
+        %Client{} = client,
+        core_network_id,
+        policy_version_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/core-networks/#{AWS.Util.encode_uri(core_network_id)}/core-network-change-events/#{AWS.Util.encode_uri(policy_version_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns a change set between the LIVE core network policy and a submitted
   policy.
   """
@@ -1104,7 +1211,7 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Gets details about a core network policy.
+  Returns details about a core network policy.
 
   You can get details about your current live policy or any previous policy
   version.
@@ -1901,6 +2008,27 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
+  Returns information about a transit gateway peer.
+  """
+  def get_transit_gateway_peering(%Client{} = client, peering_id, options \\ []) do
+    url_path = "/transit-gateway-peerings/#{AWS.Util.encode_uri(peering_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Gets information about the transit gateway registrations in a specified global
   network.
   """
@@ -1938,6 +2066,27 @@ defmodule AWS.NetworkManager do
       else
         query_params
       end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns information about a transit gateway route table attachment.
+  """
+  def get_transit_gateway_route_table_attachment(%Client{} = client, attachment_id, options \\ []) do
+    url_path = "/transit-gateway-route-table-attachments/#{AWS.Util.encode_uri(attachment_id)}"
+    headers = []
+    query_params = []
 
     Request.request_rest(
       client,
@@ -2179,6 +2328,10 @@ defmodule AWS.NetworkManager do
     )
   end
 
+  @doc """
+  Gets the status of the Service Linked Role (SLR) deployment for the accounts in
+  a given Amazon Web Services Organization.
+  """
   def list_organization_service_access_status(
         %Client{} = client,
         max_results \\ nil,
@@ -2199,6 +2352,78 @@ defmodule AWS.NetworkManager do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists the peerings for a core network.
+  """
+  def list_peerings(
+        %Client{} = client,
+        core_network_id \\ nil,
+        edge_location \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        peering_type \\ nil,
+        state \\ nil,
+        options \\ []
+      ) do
+    url_path = "/peerings"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(state) do
+        [{"state", state} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(peering_type) do
+        [{"peeringType", peering_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(edge_location) do
+        [{"edgeLocation", edge_location} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(core_network_id) do
+        [{"coreNetworkId", core_network_id} | query_params]
       else
         query_params
       end
@@ -2363,6 +2588,11 @@ defmodule AWS.NetworkManager do
     )
   end
 
+  @doc """
+  Enables for the Network Manager service for an Amazon Web Services Organization.
+
+  This can only be called by a management account within the organization.
+  """
   def start_organization_service_access_update(%Client{} = client, input, options \\ []) do
     url_path = "/organizations/service-access"
     headers = []

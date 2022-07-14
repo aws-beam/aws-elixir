@@ -67,11 +67,11 @@ defmodule AWS.AppConfig do
   @doc """
   Creates an application.
 
-  An application in AppConfig is a logical unit of code that provides capabilities
-  for your customers. For example, an application can be a microservice that runs
-  on Amazon EC2 instances, a mobile application installed by your users, a
-  serverless application using Amazon API Gateway and Lambda, or any system you
-  run on behalf of others.
+  In AppConfig, an application is simply an organizational construct like a
+  folder. This organizational construct has a relationship with some unit of
+  executable code. For example, you could create an application called MyMobileApp
+  to organize and manage configuration data for a mobile application installed by
+  your users.
   """
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
@@ -160,8 +160,8 @@ defmodule AWS.AppConfig do
   Creates an environment.
 
   For each application, you define one or more environments. An environment is a
-  logical deployment group of AppConfig targets, such as applications in a `Beta`
-  or `Production` environment. You can also define environments for application
+  deployment group of AppConfig targets, such as applications in a `Beta` or
+  `Production` environment. You can also define environments for application
   subcomponents such as the `Web`, `Mobile` and `Back-end` components for your
   application. You can configure Amazon CloudWatch alarms for each environment.
   The system monitors alarms during a configuration deployment. If an alarm is
@@ -169,6 +169,76 @@ defmodule AWS.AppConfig do
   """
   def create_environment(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/environments"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates an AppConfig extension.
+
+  An extension augments your ability to inject logic or behavior at different
+  points during the AppConfig workflow of creating or deploying a configuration.
+
+  You can create your own extensions or use the Amazon Web Services-authored
+  extensions provided by AppConfig. For most use-cases, to create your own
+  extension, you must create an Lambda function to perform any computation and
+  processing defined in the extension. For more information about extensions, see
+  [Working with AppConfig extensions](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  in the *AppConfig User Guide*.
+  """
+  def create_extension(%Client{} = client, input, options \\ []) do
+    url_path = "/extensions"
+
+    {headers, input} =
+      [
+        {"LatestVersionNumber", "Latest-Version-Number"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  When you create an extension or configure an Amazon Web Services-authored
+  extension, you associate the extension with an AppConfig application,
+  environment, or configuration profile.
+
+  For example, you can choose to run the `AppConfig deployment events to Amazon
+  SNS` Amazon Web Services-authored extension and receive notifications on an
+  Amazon SNS topic anytime a configuration deployment is started for a specific
+  application. Defining which extension to associate with an AppConfig resource is
+  called an *extension association*. An extension association is a specified
+  relationship between an extension and an AppConfig resource, such as an
+  application or a configuration profile. For more information about extensions
+  and associations, see [Working with AppConfig extensions](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  in the *AppConfig User Guide*.
+  """
+  def create_extension_association(%Client{} = client, input, options \\ []) do
+    url_path = "/extensionassociations"
     headers = []
     query_params = []
 
@@ -320,6 +390,63 @@ defmodule AWS.AppConfig do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}"
 
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes an AppConfig extension.
+
+  You must delete all associations to an extension before you delete the
+  extension.
+  """
+  def delete_extension(%Client{} = client, extension_identifier, input, options \\ []) do
+    url_path = "/extensions/#{AWS.Util.encode_uri(extension_identifier)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"VersionNumber", "version"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes an extension association.
+
+  This action doesn't delete extensions defined in the association.
+  """
+  def delete_extension_association(
+        %Client{} = client,
+        extension_association_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/extensionassociations/#{AWS.Util.encode_uri(extension_association_id)}"
     headers = []
     query_params = []
 
@@ -557,7 +684,7 @@ defmodule AWS.AppConfig do
   @doc """
   Retrieves information about an environment.
 
-  An environment is a logical deployment group of AppConfig applications, such as
+  An environment is a deployment group of AppConfig applications, such as
   applications in a `Production` environment or in an `EU_Region` environment.
   Each configuration deployment targets an environment. You can enable one or more
   Amazon CloudWatch alarms for an environment. If an alarm is triggered during a
@@ -567,6 +694,64 @@ defmodule AWS.AppConfig do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}"
 
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns information about an AppConfig extension.
+  """
+  def get_extension(
+        %Client{} = client,
+        extension_identifier,
+        version_number \\ nil,
+        options \\ []
+      ) do
+    url_path = "/extensions/#{AWS.Util.encode_uri(extension_identifier)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(version_number) do
+        [{"version_number", version_number} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns information about an AppConfig extension association.
+
+  For more information about extensions and associations, see [Working with AppConfig
+  extensions](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  in the *AppConfig User Guide*.
+  """
+  def get_extension_association(%Client{} = client, extension_association_id, options \\ []) do
+    url_path = "/extensionassociations/#{AWS.Util.encode_uri(extension_association_id)}"
     headers = []
     query_params = []
 
@@ -810,6 +995,126 @@ defmodule AWS.AppConfig do
     query_params =
       if !is_nil(next_token) do
         [{"next_token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all AppConfig extension associations in the account.
+
+  For more information about extensions and associations, see [Working with AppConfig
+  extensions](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  in the *AppConfig User Guide*.
+  """
+  def list_extension_associations(
+        %Client{} = client,
+        extension_identifier \\ nil,
+        extension_version_number \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        resource_identifier \\ nil,
+        options \\ []
+      ) do
+    url_path = "/extensionassociations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_identifier) do
+        [{"resource_identifier", resource_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(extension_version_number) do
+        [{"extension_version_number", extension_version_number} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(extension_identifier) do
+        [{"extension_identifier", extension_identifier} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all custom and Amazon Web Services-authored AppConfig extensions in the
+  account.
+
+  For more information about extensions, see [Working with AppConfig extensions](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  in the *AppConfig User Guide*.
+  """
+  def list_extensions(
+        %Client{} = client,
+        max_results \\ nil,
+        name \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/extensions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name) do
+        [{"name", name} | query_params]
       else
         query_params
       end
@@ -1085,6 +1390,60 @@ defmodule AWS.AppConfig do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}"
 
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an AppConfig extension.
+
+  For more information about extensions, see [Working with AppConfig extensions](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  in the *AppConfig User Guide*.
+  """
+  def update_extension(%Client{} = client, extension_identifier, input, options \\ []) do
+    url_path = "/extensions/#{AWS.Util.encode_uri(extension_identifier)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an association.
+
+  For more information about extensions and associations, see [Working with AppConfig
+  extensions](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  in the *AppConfig User Guide*.
+  """
+  def update_extension_association(
+        %Client{} = client,
+        extension_association_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/extensionassociations/#{AWS.Util.encode_uri(extension_association_id)}"
     headers = []
     query_params = []
 

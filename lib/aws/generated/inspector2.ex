@@ -307,6 +307,27 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Retrieves setting configurations for Inspector scans.
+  """
+  def get_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/configuration/get"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves information about the Amazon Inspector delegated administrator for
   your organization.
   """
@@ -620,6 +641,31 @@ defmodule AWS.Inspector2 do
       client,
       metadata(),
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates setting configurations for your Amazon Inspector account.
+
+  When you use this API as an Amazon Inspector delegated administrator this
+  updates the setting for all accounts you manage. Member accounts in an
+  organization cannot update this setting.
+  """
+  def update_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/configuration/update"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
       url_path,
       query_params,
       headers,

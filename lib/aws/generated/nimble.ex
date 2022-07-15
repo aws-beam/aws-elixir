@@ -1013,7 +1013,7 @@ defmodule AWS.Nimble do
   end
 
   @doc """
-  Lists the streaming image resources in a studio.
+  Lists the streaming sessions in a studio.
   """
   def list_streaming_sessions(
         %Client{} = client,

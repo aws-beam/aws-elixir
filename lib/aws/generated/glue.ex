@@ -175,7 +175,7 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Cancels the statement..
+  Cancels the statement.
   """
   def cancel_statement(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CancelStatement", input, options)
@@ -1229,7 +1229,7 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Retrieve a session..
+  Retrieve a list of sessions.
   """
   def list_sessions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListSessions", input, options)
@@ -1649,6 +1649,8 @@ defmodule AWS.Glue do
 
   @doc """
   Updates an existing job definition.
+
+  The previous job definition is completely overwritten by this information.
   """
   def update_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateJob", input, options)

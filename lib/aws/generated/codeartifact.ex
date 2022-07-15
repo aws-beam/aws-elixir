@@ -108,6 +108,9 @@ defmodule AWS.Codeartifact do
     * `DescribeDomain`: Returns a `DomainDescription` object that
   contains information about the requested domain.
 
+    * `DescribePackage`: Returns a
+  [PackageDescription](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDescription.html) object that contains details about a package.
+
     * `DescribePackageVersion`: Returns a
   [PackageVersionDescription](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html)
   object that contains details about a package version.
@@ -173,6 +176,10 @@ defmodule AWS.Codeartifact do
 
     * `PutDomainPermissionsPolicy`: Attaches a resource policy to a
   domain.
+
+    * `PutPackageOriginConfiguration`: Sets the package origin
+  configuration for a package, which determine how new versions of the package can
+  be added to a specific repository.
 
     * `PutRepositoryPermissionsPolicy`: Sets the resource policy on a
   repository that specifies permissions to access it.
@@ -505,6 +512,80 @@ defmodule AWS.Codeartifact do
     url_path = "/v1/domain"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(domain_owner) do
+        [{"domain-owner", domain_owner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain) do
+        [{"domain", domain} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns a
+  [PackageDescription](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDescription.html)
+  object that contains information about the requested package.
+  """
+  def describe_package(
+        %Client{} = client,
+        domain,
+        domain_owner \\ nil,
+        format,
+        namespace \\ nil,
+        package,
+        repository,
+        options \\ []
+      ) do
+    url_path = "/v1/package"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(repository) do
+        [{"repository", repository} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(package) do
+        [{"package", package} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(namespace) do
+        [{"namespace", namespace} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(format) do
+        [{"format", format} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(domain_owner) do
@@ -944,6 +1025,10 @@ defmodule AWS.Codeartifact do
   @doc """
   Gets the readme file or descriptive text for a package version.
 
+  For packages that do not contain a readme file, CodeArtifact extracts a
+  description from a metadata file. For example, from the `<description>` element
+  in the `pom.xml` file of a Maven package.
+
   The returned text might contain formatting. For example, it might contain
   formatting for Markdown or reStructuredText.
   """
@@ -1257,6 +1342,7 @@ defmodule AWS.Codeartifact do
         {"maxResults", "max-results"},
         {"namespace", "namespace"},
         {"nextToken", "next-token"},
+        {"originType", "originType"},
         {"package", "package"},
         {"repository", "repository"},
         {"sortBy", "sortBy"},
@@ -1295,7 +1381,9 @@ defmodule AWS.Codeartifact do
         {"namespace", "namespace"},
         {"nextToken", "next-token"},
         {"packagePrefix", "package-prefix"},
-        {"repository", "repository"}
+        {"publish", "publish"},
+        {"repository", "repository"},
+        {"upstream", "upstream"}
       ]
       |> Request.build_params(input)
 
@@ -1425,6 +1513,52 @@ defmodule AWS.Codeartifact do
       client,
       metadata(),
       :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Sets the package origin configuration for a package.
+
+  The package origin configuration determines how new versions of a package can be
+  added to a repository. You can allow or block direct publishing of new package
+  versions, or ingestion and retaining of new package versions from an external
+  connection or upstream source. For more information about package origin
+  controls and configuration, see [Editing package origin controls](https://docs.aws.amazon.com/codeartifact/latest/ug/package-origin-controls.html)
+  in the *CodeArtifact User Guide*.
+
+  `PutPackageOriginConfiguration` can be called on a package that doesn't yet
+  exist in the repository. When called on a package that does not exist, a package
+  is created in the repository with no versions and the requested restrictions are
+  set on the package. This can be used to preemptively block ingesting or
+  retaining any versions from external connections or upstream repositories, or to
+  block publishing any versions of the package into the repository before
+  connecting any package managers or publishers to the repository.
+  """
+  def put_package_origin_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/package"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"domain", "domain"},
+        {"domainOwner", "domain-owner"},
+        {"format", "format"},
+        {"namespace", "namespace"},
+        {"package", "package"},
+        {"repository", "repository"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
       url_path,
       query_params,
       headers,

@@ -116,6 +116,37 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+  Creates an access configuration for your documents.
+
+  This includes user and group access information for your documents. This is
+  useful for user context filtering, where search results are filtered based on
+  the user or their group access to documents.
+
+  You can use this to re-configure your existing document level access control
+  without indexing all of your documents again. For example, your index contains
+  top-secret company documents that only certain employees or users should access.
+  One of these users leaves the company or switches to a team that should be
+  blocked from access to top-secret documents. Your documents in your index still
+  give this user access to top-secret documents due to the user having access at
+  the time your documents were indexed. You can create a specific access control
+  configuration for this user with deny access. You can later update the access
+  control configuration to allow access in the case the user returns to the
+  company and re-joins the 'top-secret' team. You can re-configure access control
+  for your documents circumstances change.
+
+  To apply your access control configuration to certain documents, you call the
+  [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) API with the `AccessControlConfigurationId` included in the
+  [Document](https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html)
+  object. If you use an S3 bucket as a data source, you update the
+  `.metadata.json` with the `AccessControlConfigurationId` and synchronize your
+  data source. Amazon Kendra currently only supports access control configuration
+  for S3 data sources and documents indexed using the `BatchPutDocument` API.
+  """
+  def create_access_control_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateAccessControlConfiguration", input, options)
+  end
+
+  @doc """
   Creates a data source that you want to use with an Amazon Kendra index.
 
   You specify a name, data source connector type and description for your data
@@ -155,14 +186,14 @@ defmodule AWS.Kendra do
   Adding FAQs to an index is an asynchronous operation.
 
   For an example of adding an FAQ to an index using Python and Java SDKs, see
-  [Using you FAQ file](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file).
+  [Using your FAQ file](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file).
   """
   def create_faq(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateFaq", input, options)
   end
 
   @doc """
-  Creates a new Amazon Kendra index.
+  Creates an Amazon Kendra index.
 
   Index creation is an asynchronous API. To determine if index creation has
   completed, check the `Status` field returned from a call to `DescribeIndex`. The
@@ -211,6 +242,18 @@ defmodule AWS.Kendra do
   """
   def create_thesaurus(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateThesaurus", input, options)
+  end
+
+  @doc """
+  Deletes an access control configuration that you created for your documents in
+  an index.
+
+  This includes user and group access information for your documents. This is
+  useful for user context filtering, where search results are filtered based on
+  the user or their group access to documents.
+  """
+  def delete_access_control_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAccessControlConfiguration", input, options)
   end
 
   @doc """
@@ -297,6 +340,18 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+  Gets information about an access control configuration that you created for your
+  documents in an index.
+
+  This includes user and group access information for your documents. This is
+  useful for user context filtering, where search results are filtered based on
+  the user or their group access to documents.
+  """
+  def describe_access_control_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAccessControlConfiguration", input, options)
+  end
+
+  @doc """
   Gets information about an Amazon Kendra data source.
   """
   def describe_data_source(%Client{} = client, input, options \\ []) do
@@ -322,7 +377,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Describes an existing Amazon Kendra index.
+  Gets information about an existing Amazon Kendra index.
   """
   def describe_index(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeIndex", input, options)
@@ -345,7 +400,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Describes a block list used for query suggestions for an index.
+  Gets information about a block list used for query suggestions for an index.
 
   This is used to check the current settings that are applied to a block list.
 
@@ -357,7 +412,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Describes the settings of query suggestions for an index.
+  Gets information on the settings of query suggestions for an index.
 
   This is used to check the current settings applied to query suggestions.
 
@@ -369,7 +424,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Describes an existing Amazon Kendra thesaurus.
+  Gets information about an existing Amazon Kendra thesaurus.
   """
   def describe_thesaurus(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeThesaurus", input, options)
@@ -417,6 +472,17 @@ defmodule AWS.Kendra do
   """
   def get_snapshots(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetSnapshots", input, options)
+  end
+
+  @doc """
+  Lists one or more access control configurations for an index.
+
+  This includes user and group access information for your documents. This is
+  useful for user context filtering, where search results are filtered based on
+  the user or their group access to documents.
+  """
+  def list_access_control_configurations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAccessControlConfigurations", input, options)
   end
 
   @doc """
@@ -511,7 +577,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Lists the Amazon Kendra thesauri associated with an index.
+  Lists the thesauri for an index.
   """
   def list_thesauri(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListThesauri", input, options)
@@ -528,9 +594,9 @@ defmodule AWS.Kendra do
   the intellectual property group, can see top-secret company documents in their
   search results.
 
-  You map users to their groups when you want to filter search results for
-  different users based on their group’s access to documents. For more information
-  on filtering search results for different users, see [Filtering on user context](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html).
+  This is useful for user context filtering, where search results are filtered
+  based on the user or their group access to documents. For more information, see
+  [Filtering on user context](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html).
 
   If more than five `PUT` actions for a group are currently processing, a
   validation exception is thrown.
@@ -616,6 +682,36 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+  Updates an access control configuration for your documents in an index.
+
+  This includes user and group access information for your documents. This is
+  useful for user context filtering, where search results are filtered based on
+  the user or their group access to documents.
+
+  You can update an access control configuration you created without indexing all
+  of your documents again. For example, your index contains top-secret company
+  documents that only certain employees or users should access. You created an
+  'allow' access control configuration for one user who recently joined the
+  'top-secret' team, switching from a team with 'deny' access to top-secret
+  documents. However, the user suddenly returns to their previous team and should
+  no longer have access to top secret documents. You can update the access control
+  configuration to re-configure access control for your documents as circumstances
+  change.
+
+  You call the
+  [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) API to apply the updated access control configuration, with the
+  `AccessControlConfigurationId` included in the
+  [Document](https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html)
+  object. If you use an S3 bucket as a data source, you synchronize your data
+  source to apply the the `AccessControlConfigurationId` in the `.metadata.json`
+  file. Amazon Kendra currently only supports access control configuration for S3
+  data sources and documents indexed using the `BatchPutDocument` API.
+  """
+  def update_access_control_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateAccessControlConfiguration", input, options)
+  end
+
+  @doc """
   Updates an existing Amazon Kendra data source.
   """
   def update_data_source(%Client{} = client, input, options \\ []) do
@@ -682,7 +778,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Updates a thesaurus file associated with an index.
+  Updates a thesaurus for an index.
   """
   def update_thesaurus(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateThesaurus", input, options)

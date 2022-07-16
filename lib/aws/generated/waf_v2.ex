@@ -23,9 +23,9 @@ defmodule AWS.WAFV2 do
   WAF is a web application firewall that lets you monitor the HTTP and HTTPS
   requests that are forwarded to Amazon CloudFront, an Amazon API Gateway REST
   API, an Application Load Balancer, or an AppSync GraphQL API. WAF also lets you
-  control access to your content. Based on conditions that you specify, such as
-  the IP addresses that requests originate from or the values of query strings,
-  the Amazon API Gateway REST API, CloudFront distribution, the Application Load
+  control access to your content. Based on criteria that you specify, such as the
+  IP addresses that requests originate from or the values of query strings, the
+  Amazon API Gateway REST API, CloudFront distribution, the Application Load
   Balancer, or the AppSync GraphQL API responds to requests either with the
   requested content or with an HTTP 403 status code (Forbidden). You also can
   configure CloudFront to return a custom error page when a request is blocked.
@@ -680,7 +680,7 @@ defmodule AWS.WAFV2 do
   Updates the expiration information for your managed rule set.
 
   Use this to initiate the expiration of a managed rule group version. After you
-  initiate expiration for a version, WAF excludes it from the reponse to
+  initiate expiration for a version, WAF excludes it from the response to
   `ListAvailableManagedRuleGroupVersions` for the managed rule group.
 
   This is intended for use only by vendors of managed rule sets. Vendors are
@@ -761,7 +761,7 @@ defmodule AWS.WAFV2 do
   @doc """
   Updates the specified `WebACL`.
 
-  While updating a web ACL, WAF provides continous coverage to the resources that
+  While updating a web ACL, WAF provides continuous coverage to the resources that
   you have associated with the web ACL.
 
   When you make changes to web ACLs or web ACL components, like rules and rule

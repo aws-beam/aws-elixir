@@ -92,6 +92,10 @@ defmodule AWS.Evidently do
   collects experiment data and analyzes it by statistical methods, and provides
   clear recommendations about which variations perform better.
 
+  You can optionally specify a `segment` to have the experiment consider only
+  certain audience types in the experiment, such as using only user sessions from
+  a certain location or who use a certain internet browser.
+
   Don't use this operation to update an existing experiment. Instead, use
   [UpdateExperiment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateExperiment.html).
   """
@@ -183,6 +187,46 @@ defmodule AWS.Evidently do
   """
   def create_project(%Client{} = client, input, options \\ []) do
     url_path = "/projects"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Use this operation to define a *segment* of your audience.
+
+  A segment is a portion of your audience that share one or more characteristics.
+  Examples could be Chrome browser users, users in Europe, or Firefox browser
+  users in Europe who also fit other criteria that your application collects, such
+  as age.
+
+  Using a segment in an experiment limits that experiment to evaluate only the
+  users who match the segment criteria. Using one or more segments in a launch
+  allow you to define different traffic splits for the different audience
+  segments.
+
+  ` For more information about segment pattern syntax, see [ Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html).
+
+  The pattern that you define for a segment is matched against the value of
+  `evaluationContext`, which is passed into Evidently in the
+  [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html)
+  operation, when Evidently assigns a feature variation to a user.
+
+  `
+  """
+  def create_segment(%Client{} = client, input, options \\ []) do
+    url_path = "/segments"
     headers = []
     query_params = []
 
@@ -302,6 +346,30 @@ defmodule AWS.Evidently do
   end
 
   @doc """
+  Deletes a segment.
+
+  You can't delete a segment that is being used in a launch or experiment, even if
+  that launch or experiment is not currently running.
+  """
+  def delete_segment(%Client{} = client, segment, input, options \\ []) do
+    url_path = "/segments/#{AWS.Util.encode_uri(segment)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   This operation assigns a feature variation to one given user session.
 
   You pass in an `entityID` that represents the user. Evidently then checks the
@@ -311,7 +379,14 @@ defmodule AWS.Evidently do
   `entityID` matches an override rule, the user is served the variation specified
   by that rule.
 
-  Next, if there is a launch of the feature, the user might be assigned to a
+  ` If there is a current launch with this feature that uses segment overrides,
+  and if the user session's `evaluationContext` matches a segment rule defined in
+  a segment override, the configuration in the segment overrides is used. For more
+  information about segments, see
+  [CreateSegment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html) and [Use segments to focus your
+  audience](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html).
+
+  If there is a launch with no segment overrides, the user might be assigned to a
   variation in the launch. The chance of this depends on the percentage of users
   that are allocated to that launch. If the user is enrolled in the launch, the
   variation they are served depends on the allocation of the various feature
@@ -320,12 +395,19 @@ defmodule AWS.Evidently do
   If the user is not assigned to a launch, and there is an ongoing experiment for
   this feature, the user might be assigned to a variation in the experiment. The
   chance of this depends on the percentage of users that are allocated to that
-  experiment. If the user is enrolled in the experiment, the variation they are
-  served depends on the allocation of the various feature variations used for the
   experiment.
+
+  If the experiment uses a segment, then only user sessions with
+  `evaluationContext` values that match the segment rule are used in the
+  experiment.
+
+  If the user is enrolled in the experiment, the variation they are served depends
+  on the allocation of the various feature variations used for the experiment.
 
   If the user is not assigned to a launch or experiment, they are served the
   default variation.
+
+  `
   """
   def evaluate_feature(%Client{} = client, feature, project, input, options \\ []) do
     url_path =
@@ -465,6 +547,29 @@ defmodule AWS.Evidently do
   """
   def get_project(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns information about the specified segment.
+
+  Specify the segment you want to view by specifying its ARN.
+  """
+  def get_segment(%Client{} = client, segment, options \\ []) do
+    url_path = "/segments/#{AWS.Util.encode_uri(segment)}"
     headers = []
     query_params = []
 
@@ -627,6 +732,92 @@ defmodule AWS.Evidently do
   """
   def list_projects(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/projects"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Use this operation to find which experiments or launches are using a specified
+  segment.
+  """
+  def list_segment_references(
+        %Client{} = client,
+        segment,
+        max_results \\ nil,
+        next_token \\ nil,
+        type,
+        options \\ []
+      ) do
+    url_path = "/segments/#{AWS.Util.encode_uri(segment)}/references"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a list of audience segments that you have created in your account in
+  this Region.
+  """
+  def list_segments(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/segments"
     headers = []
     query_params = []
 
@@ -832,6 +1023,31 @@ defmodule AWS.Evidently do
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Use this operation to test a rules pattern that you plan to use to create an
+  audience segment.
+
+  For more information about segments, see
+  [CreateSegment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html).
+  """
+  def test_segment_pattern(%Client{} = client, input, options \\ []) do
+    url_path = "/test-segment-pattern"
     headers = []
     query_params = []
 

@@ -286,6 +286,22 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Creates an edge deployment plan, consisting of multiple stages.
+
+  Each stage may have a different deployment configuration and devices.
+  """
+  def create_edge_deployment_plan(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateEdgeDeploymentPlan", input, options)
+  end
+
+  @doc """
+  Creates a new stage in an existing edge deployment plan.
+  """
+  def create_edge_deployment_stage(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateEdgeDeploymentStage", input, options)
+  end
+
+  @doc """
   Starts a SageMaker Edge Manager model packaging job.
 
   Edge Manager will use the model artifacts from the Amazon Simple Storage Service
@@ -1101,6 +1117,22 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Deletes an edge deployment plan if (and only if) all the stages in the plan are
+  inactive or there are no stages in the plan.
+  """
+  def delete_edge_deployment_plan(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteEdgeDeploymentPlan", input, options)
+  end
+
+  @doc """
+  Delete a stage in an edge deployment plan if (and only if) the stage is
+  inactive.
+  """
+  def delete_edge_deployment_stage(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteEdgeDeploymentStage", input, options)
+  end
+
+  @doc """
   Deletes an endpoint.
 
   SageMaker frees up all of the resources that were deployed when the endpoint was
@@ -1502,6 +1534,13 @@ defmodule AWS.SageMaker do
   """
   def describe_domain(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDomain", input, options)
+  end
+
+  @doc """
+  Describes an edge deployment plan with deployment status per stage.
+  """
+  def describe_edge_deployment_plan(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEdgeDeploymentPlan", input, options)
   end
 
   @doc """
@@ -2037,6 +2076,13 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Lists all edge deployment plans.
+  """
+  def list_edge_deployment_plans(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEdgeDeploymentPlans", input, options)
+  end
+
+  @doc """
   Returns a list of edge packaging jobs.
   """
   def list_edge_packaging_jobs(%Client{} = client, input, options \\ []) do
@@ -2282,6 +2328,14 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Lists devices allocated to the stage, containing detailed device information and
+  deployment status.
+  """
+  def list_stage_devices(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListStageDevices", input, options)
+  end
+
+  @doc """
   Lists the Studio Lifecycle Configurations in your Amazon Web Services Account.
   """
   def list_studio_lifecycle_configs(%Client{} = client, input, options \\ []) do
@@ -2491,6 +2545,13 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Starts a stage in an edge deployment plan.
+  """
+  def start_edge_deployment_stage(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartEdgeDeploymentStage", input, options)
+  end
+
+  @doc """
   Starts a previously stopped monitoring schedule.
 
   By default, when you successfully create a new schedule, the status of a
@@ -2540,6 +2601,13 @@ defmodule AWS.SageMaker do
   """
   def stop_compilation_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopCompilationJob", input, options)
+  end
+
+  @doc """
+  Stops a stage in an edge deployment plan.
+  """
+  def stop_edge_deployment_stage(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopEdgeDeploymentStage", input, options)
   end
 
   @doc """

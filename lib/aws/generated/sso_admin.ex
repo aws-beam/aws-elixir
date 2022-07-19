@@ -2,21 +2,6 @@
 # See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.SSOAdmin do
-  @moduledoc """
-  Amazon Web Services Single Sign On (SSO) is a cloud SSO service that makes it
-  easy to centrally manage SSO access to multiple Amazon Web Services accounts and
-  business applications.
-
-  This guide provides information on SSO operations which could be used for access
-  management of Amazon Web Services accounts. For information about Amazon Web
-  Services SSO features, see the [Amazon Web Services Single Sign-On User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
-
-  Many operations in the SSO APIs rely on identifiers for users and groups, known
-  as principals. For more information about how to work with principals and
-  principal IDs in Amazon Web Services SSO, see the [Amazon Web Services SSO Identity Store API
-  Reference](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html).
-  """
-
   alias AWS.Client
   alias AWS.Request
 
@@ -37,7 +22,25 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Attaches an IAM managed policy ARN to a permission set.
+  Attaches the specified IAM customer managed policy to the specified
+  `PermissionSet`.
+  """
+  def attach_customer_managed_policy_reference_to_permission_set(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    Request.request_post(
+      client,
+      metadata(),
+      "AttachCustomerManagedPolicyReferenceToPermissionSet",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Attaches an Amazon Web Services managed IAM policy ARN to a permission set.
 
   If the permission set is already referenced by one or more account assignments,
   you will need to call ` `ProvisionPermissionSet` ` after this operation. Calling
@@ -151,6 +154,19 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
+  Deletes the permissions boundary from a specified `PermissionSet`.
+  """
+  def delete_permissions_boundary_from_permission_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DeletePermissionsBoundaryFromPermissionSet",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Describes the status of the assignment creation request.
   """
   def describe_account_assignment_creation_status(%Client{} = client, input, options \\ []) do
@@ -220,7 +236,26 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Detaches the attached IAM managed policy ARN from the specified permission set.
+  Detaches the specified IAM customer managed policy from the specified
+  `PermissionSet`.
+  """
+  def detach_customer_managed_policy_reference_from_permission_set(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DetachCustomerManagedPolicyReferenceFromPermissionSet",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Detaches the attached Amazon Web Services managed IAM policy ARN from the
+  specified permission set.
   """
   def detach_managed_policy_from_permission_set(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -237,6 +272,19 @@ defmodule AWS.SSOAdmin do
   """
   def get_inline_policy_for_permission_set(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetInlinePolicyForPermissionSet", input, options)
+  end
+
+  @doc """
+  Obtains the permissions boundary for a specified `PermissionSet`.
+  """
+  def get_permissions_boundary_for_permission_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "GetPermissionsBoundaryForPermissionSet",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -290,6 +338,23 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
+  Lists all IAM customer managed policies attached to a specified `PermissionSet`.
+  """
+  def list_customer_managed_policy_references_in_permission_set(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    Request.request_post(
+      client,
+      metadata(),
+      "ListCustomerManagedPolicyReferencesInPermissionSet",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Lists the SSO instances that the caller has access to.
   """
   def list_instances(%Client{} = client, input, options \\ []) do
@@ -297,7 +362,8 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Lists the IAM managed policy that is attached to a specified permission set.
+  Lists the Amazon Web Services managed IAM policy that is attached to a specified
+  permission set.
   """
   def list_managed_policies_in_permission_set(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListManagedPoliciesInPermissionSet", input, options)
@@ -362,6 +428,20 @@ defmodule AWS.SSOAdmin do
   """
   def put_inline_policy_to_permission_set(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutInlinePolicyToPermissionSet", input, options)
+  end
+
+  @doc """
+  Attaches an Amazon Web Services managed or customer managed IAM policy to the
+  specified `PermissionSet` as a permissions boundary.
+  """
+  def put_permissions_boundary_to_permission_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "PutPermissionsBoundaryToPermissionSet",
+      input,
+      options
+    )
   end
 
   @doc """

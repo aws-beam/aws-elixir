@@ -260,7 +260,7 @@ defmodule AWS.KMS do
   that is associated with an [CloudHSM cluster](https://docs.aws.amazon.com/cloudhsm/latest/userguide/clusters.html)
   that you own and manage.
 
-  This operation is part of the [Custom Key Store feature](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
+  This operation is part of the [custom key store feature](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
   feature in KMS, which combines the convenience and extensive integration of KMS
   with the isolation and control of a single-tenant key store.
 
@@ -380,7 +380,8 @@ defmodule AWS.KMS do
   To create a symmetric encryption KMS key, you aren't required to specify any
   parameters. The default value for `KeySpec`, `SYMMETRIC_DEFAULT`, and the
   default value for `KeyUsage`, `ENCRYPT_DECRYPT`, create a symmetric encryption
-  KMS key.
+  KMS key. For technical details, see [ SYMMETRIC_DEFAULT key spec](https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default)
+  in the *Key Management Service Developer Guide*.
 
   If you need a key for basic encryption and decryption or you are creating a KMS
   key to protect your resources in an Amazon Web Services service, create a
@@ -397,13 +398,14 @@ defmodule AWS.KMS do
   whether the KMS key will be used to encrypt and decrypt or sign and verify. You
   can't change these properties after the KMS key is created.
 
-  Asymmetric KMS keys contain an RSA key pair or an Elliptic Curve (ECC) key pair.
-  The private key in an asymmetric KMS key never leaves KMS unencrypted. However,
-  you can use the `GetPublicKey` operation to download the public key so it can be
-  used outside of KMS. KMS keys with RSA key pairs can be used to encrypt or
-  decrypt data or sign and verify messages (but not both). KMS keys with ECC key
-  pairs can be used only to sign and verify messages. For information about
-  asymmetric KMS keys, see [Asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html)
+  Asymmetric KMS keys contain an RSA key pair, Elliptic Curve (ECC) key pair, or
+  an SM2 key pair (China Regions only). The private key in an asymmetric KMS key
+  never leaves KMS unencrypted. However, you can use the `GetPublicKey` operation
+  to download the public key so it can be used outside of KMS. KMS keys with RSA
+  or SM2 key pairs can be used to encrypt or decrypt data or sign and verify
+  messages (but not both). KMS keys with ECC key pairs can be used only to sign
+  and verify messages. For information about asymmetric KMS keys, see [Asymmetric KMS
+  keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html)
   in the *Key Management Service Developer Guide*.
 
   ### HMAC KMS key
@@ -635,7 +637,7 @@ defmodule AWS.KMS do
   This operation does not delete the CloudHSM cluster that is associated with the
   custom key store, or affect any users or keys in the cluster.
 
-  The custom key store that you delete cannot contain any KMS [KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys).
+  The custom key store that you delete cannot contain any [KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys).
   Before deleting the key store, verify that you will never need to use any of the
   KMS keys in the key store for any [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations).
   Then, use `ScheduleKeyDeletion` to delete the KMS keys from the key store. When
@@ -656,7 +658,7 @@ defmodule AWS.KMS do
 
   If the operation succeeds, it returns a JSON object with no properties.
 
-  This operation is part of the [Custom Key Store feature](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
+  This operation is part of the [custom key store feature](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
   feature in KMS, which combines the convenience and extensive integration of KMS
   with the isolation and control of a single-tenant key store.
 
@@ -722,7 +724,7 @@ defmodule AWS.KMS do
   Gets information about [custom key stores](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
   in the account and Region.
 
-  This operation is part of the [Custom Key Store feature](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
+  This operation is part of the [custom key store feature](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
   feature in KMS, which combines the convenience and extensive integration of KMS
   with the isolation and control of a single-tenant key store.
 
@@ -795,7 +797,7 @@ defmodule AWS.KMS do
   this information, use `GetKeyRotationStatus`. Also, some key states prevent a
   KMS key from being automatically rotated. For details, see [How Automatic Key Rotation
   Works](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-how-it-works)
-  in *Key Management Service Developer Guide*.
+  in the *Key Management Service Developer Guide*.
 
     * Tags on the KMS key. To get this information, use
   `ListResourceTags`.
@@ -925,7 +927,7 @@ defmodule AWS.KMS do
 
   If the operation succeeds, it returns a JSON object with no properties.
 
-  This operation is part of the [Custom Key Store feature](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
+  This operation is part of the [custom key store feature](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
   feature in KMS, which combines the convenience and extensive integration of KMS
   with the isolation and control of a single-tenant key store.
 
@@ -1051,7 +1053,7 @@ defmodule AWS.KMS do
   in the *Key Management Service Developer Guide*.
 
   If you specify an asymmetric KMS key, you must also specify the encryption
-  algorithm. The algorithm must be compatible with the KMS key type.
+  algorithm. The algorithm must be compatible with the KMS key spec.
 
   When you use an asymmetric KMS key to encrypt or reencrypt data, be sure to
   record the KMS key and encryption algorithm that you choose. You will be
@@ -1090,6 +1092,8 @@ defmodule AWS.KMS do
 
       * `RSAES_OAEP_SHA_256`: 446 bytes
 
+    * `SM2PKE`: 1024 bytes (China Regions only)
+
   The KMS key that you use for this operation must be in a compatible key state.
   For details, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *Key Management Service Developer Guide*.
@@ -1125,10 +1129,15 @@ defmodule AWS.KMS do
 
   To generate a data key, specify the symmetric encryption KMS key that will be
   used to encrypt the data key. You cannot use an asymmetric KMS key to encrypt
-  data keys. To get the type of your KMS key, use the `DescribeKey` operation. You
-  must also specify the length of the data key. Use either the `KeySpec` or
+  data keys. To get the type of your KMS key, use the `DescribeKey` operation.
+
+  You must also specify the length of the data key. Use either the `KeySpec` or
   `NumberOfBytes` parameters (but not both). For 128-bit and 256-bit data keys,
   use the `KeySpec` parameter.
+
+  To generate an SM4 data key (China Regions only), specify a `KeySpec` value of
+  `AES_128` or `NumberOfBytes` value of `128`. The symmetric encryption key used
+  in China Regions to encrypt your data key is an SM4 encryption key.
 
   To get only an encrypted copy of the data key, use
   `GenerateDataKeyWithoutPlaintext`. To generate an asymmetric data key pair, use
@@ -1224,9 +1233,10 @@ defmodule AWS.KMS do
   use the `DescribeKey` operation.
 
   Use the `KeyPairSpec` parameter to choose an RSA or Elliptic Curve (ECC) data
-  key pair. KMS recommends that your use ECC key pairs for signing, and use RSA
-  key pairs for either encryption or signing, but not both. However, KMS cannot
-  enforce any restrictions on the use of data key pairs outside of KMS.
+  key pair. In China Regions, you can also choose an SM2 data key pair. KMS
+  recommends that you use ECC key pairs for signing, and use RSA and SM2 key pairs
+  for either encryption or signing, but not both. However, KMS cannot enforce any
+  restrictions on the use of data key pairs outside of KMS.
 
   If you are using the data key pair to encrypt data, or for any operation where
   you don't immediately need a private key, consider using the
@@ -1298,9 +1308,10 @@ defmodule AWS.KMS do
   use the `DescribeKey` operation.
 
   Use the `KeyPairSpec` parameter to choose an RSA or Elliptic Curve (ECC) data
-  key pair. KMS recommends that your use ECC key pairs for signing, and use RSA
-  key pairs for either encryption or signing, but not both. However, KMS cannot
-  enforce any restrictions on the use of data key pairs outside of KMS.
+  key pair. In China Regions, you can also choose an SM2 data key pair. KMS
+  recommends that you use ECC key pairs for signing, and use RSA and SM2 key pairs
+  for either encryption or signing, but not both. However, KMS cannot enforce any
+  restrictions on the use of data key pairs outside of KMS.
 
   `GenerateDataKeyPairWithoutPlaintext` returns a unique data key pair for each
   request. The bytes in the key are not related to the caller or KMS key that is
@@ -1458,6 +1469,9 @@ defmodule AWS.KMS do
   @doc """
   Returns a random byte string that is cryptographically secure.
 
+  You must use the `NumberOfBytes` parameter to specify the length of the random
+  byte string. There is no default value for string length.
+
   By default, the random byte string is generated in KMS. To generate the byte
   string in the CloudHSM cluster that is associated with a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html),
   specify the custom key store ID.
@@ -1469,6 +1483,9 @@ defmodule AWS.KMS do
 
   For more information about entropy and random number generation, see [Key Management Service Cryptographic
   Details](https://docs.aws.amazon.com/kms/latest/cryptographic-details/).
+
+  **Cross-account use**: Not applicable. `GenerateRandom` does not use any
+  account-specific resources, such as KMS keys.
 
   **Required permissions**:
   [kms:GenerateRandom](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
@@ -1616,8 +1633,12 @@ defmodule AWS.KMS do
   the identifier of an asymmetric KMS key. When you use the public key within KMS,
   you benefit from the authentication, authorization, and logging that are part of
   every KMS operation. You also reduce of risk of encrypting data that cannot be
-  decrypted. These features are not effective outside of KMS. For details, see
-  [Special Considerations for Downloading Public Keys](https://docs.aws.amazon.com/kms/latest/developerguide/download-public-key.html#download-public-key-considerations).
+  decrypted. These features are not effective outside of KMS.
+
+  To verify a signature outside of KMS with an SM2 public key (China Regions
+  only), you must specify the distinguishing ID. By default, KMS uses
+  `1234567812345678` as the distinguishing ID. For more information, see [Offline verification with SM2 key
+  pairs](https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification).
 
   To help you use the public key safely outside of KMS, `GetPublicKey` returns
   important information about the public key in the response, including:
@@ -2517,7 +2538,7 @@ defmodule AWS.KMS do
 
   If the operation succeeds, it returns a JSON object with no properties.
 
-  This operation is part of the [Custom Key Store feature](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
+  This operation is part of the [custom key store feature](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
   feature in KMS, which combines the convenience and extensive integration of KMS
   with the isolation and control of a single-tenant key store.
 
@@ -2665,11 +2686,15 @@ defmodule AWS.KMS do
   You can also verify the digital signature by using the public key of the KMS key
   outside of KMS. Use the `GetPublicKey` operation to download the public key in
   the asymmetric KMS key and then use the public key to verify the signature
-  outside of KMS. The advantage of using the `Verify` operation is that it is
-  performed within KMS. As a result, it's easy to call, the operation is performed
-  within the FIPS boundary, it is logged in CloudTrail, and you can use key policy
-  and IAM policy to determine who is authorized to use the KMS key to verify
-  signatures.
+  outside of KMS. To verify a signature outside of KMS with an SM2 public key, you
+  must specify the distinguishing ID. By default, KMS uses `1234567812345678` as
+  the distinguishing ID. For more information, see [Offline verification with SM2 key
+  pairs](https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification)
+  in *Key Management Service Developer Guide*. The advantage of using the `Verify`
+  operation is that it is performed within KMS. As a result, it's easy to call,
+  the operation is performed within the FIPS boundary, it is logged in CloudTrail,
+  and you can use key policy and IAM policy to determine who is authorized to use
+  the KMS key to verify signatures.
 
   The KMS key that you use for this operation must be in a compatible key state.
   For details, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in

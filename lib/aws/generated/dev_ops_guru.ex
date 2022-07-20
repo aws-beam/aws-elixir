@@ -493,6 +493,27 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
+  Returns the list of log groups that contain log anomalies.
+  """
+  def list_anomalous_log_groups(%Client{} = client, input, options \\ []) do
+    url_path = "/list-log-anomalies"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns a list of the events emitted by the resources that are evaluated by
   DevOps Guru.
 
@@ -524,6 +545,28 @@ defmodule AWS.DevOpsGuru do
   """
   def list_insights(%Client{} = client, input, options \\ []) do
     url_path = "/insights"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the list of all log groups that are being monitored and tagged by DevOps
+  Guru.
+  """
+  def list_monitored_resources(%Client{} = client, input, options \\ []) do
+    url_path = "/monitoredResources"
     headers = []
     query_params = []
 

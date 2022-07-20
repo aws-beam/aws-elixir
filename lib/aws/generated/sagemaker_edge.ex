@@ -26,6 +26,27 @@ defmodule AWS.SagemakerEdge do
   end
 
   @doc """
+  Use to get the active deployments from a device.
+  """
+  def get_deployments(%Client{} = client, input, options \\ []) do
+    url_path = "/GetDeployments"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Use to check if a device is registered with SageMaker Edge Manager.
   """
   def get_device_registration(%Client{} = client, input, options \\ []) do

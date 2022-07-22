@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
 
+## [v0.12.0] - 2022-07-18
+
+### Fixed
+
+- Fix the encoding of query strings for complex values.
+
+### Changed
+
+- Update the AWS generated modules to reflect v1.44.60 of Go SDK. 
+  This may cause breaking changes.
+
 ## [v0.11.0] - 2022-05-24
 
 ### Changed
@@ -480,7 +491,8 @@ is an example).
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.11.0...HEAD
+[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.12.0...HEAD
+[v0.12.0]: https://github.com/aws-beam/aws-elixir/compare/v0.11.0...v0.12.0
 [v0.11.0]: https://github.com/aws-beam/aws-elixir/compare/v0.10.1...v0.11.0
 [v0.10.1]: https://github.com/aws-beam/aws-elixir/compare/v0.10.0...v0.10.1
 [v0.10.0]: https://github.com/aws-beam/aws-elixir/compare/v0.9.2...v0.10.0

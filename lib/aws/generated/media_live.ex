@@ -1312,6 +1312,31 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Send a reboot command to the specified input device.
+
+  The device will begin rebooting within a few seconds of sending the command.
+  When the reboot is complete, the device’s connection status will change to
+  connected.
+  """
+  def reboot_input_device(%Client{} = client, input_device_id, input, options \\ []) do
+    url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/reboot"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Reject the transfer of the specified input device to your AWS account.
   """
   def reject_input_device_transfer(%Client{} = client, input_device_id, input, options \\ []) do
@@ -1337,6 +1362,42 @@ defmodule AWS.MediaLive do
   """
   def start_channel(%Client{} = client, channel_id, input, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/start"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Start a maintenance window for the specified input device.
+
+  Starting a maintenance window will give the device up to two hours to install
+  software. If the device was streaming prior to the maintenance, it will resume
+  streaming when the software is fully installed. Devices automatically install
+  updates while they are powered on and their MediaLive channels are stopped. A
+  maintenance window allows you to update a device without having to stop
+  MediaLive channels that use the device. The device must remain powered on and
+  connected to the internet for the duration of the maintenance.
+  """
+  def start_input_device_maintenance_window(
+        %Client{} = client,
+        input_device_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/startInputDeviceMaintenanceWindow"
+
     headers = []
     query_params = []
 

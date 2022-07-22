@@ -323,6 +323,40 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
+  This API operation is in preview release for IoT SiteWise and is subject to
+  change.
+
+  We recommend that you use this operation only with test data, and not in
+  production environments.
+
+  Defines a job to ingest data to IoT SiteWise from Amazon S3. For more
+  information, see [Create a bulk import job (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  You must enable IoT SiteWise to export data to Amazon S3 before you create a
+  bulk import job. For more information about how to configure storage settings,
+  see
+  [PutStorageConfiguration](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html).
+  """
+  def create_bulk_import_job(%Client{} = client, input, options \\ []) do
+    url_path = "/jobs"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Creates a dashboard in an IoT SiteWise Monitor project.
   """
   def create_dashboard(%Client{} = client, input, options \\ []) do
@@ -742,6 +776,35 @@ defmodule AWS.IoTSiteWise do
     url_path =
       "/assets/#{AWS.Util.encode_uri(asset_id)}/properties/#{AWS.Util.encode_uri(property_id)}"
 
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API operation is in preview release for IoT SiteWise and is subject to
+  change.
+
+  We recommend that you use this operation only with test data, and not in
+  production environments.
+
+  Retrieves information about a bulk import job request. For more information, see
+  [Describe a bulk import job (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html)
+  in the *Amazon Simple Storage Service User Guide*.
+  """
+  def describe_bulk_import_job(%Client{} = client, job_id, options \\ []) do
+    url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
     query_params = []
 
@@ -1775,6 +1838,62 @@ defmodule AWS.IoTSiteWise do
     query_params =
       if !is_nil(hierarchy_id) do
         [{"hierarchyId", hierarchy_id} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API operation is in preview release for IoT SiteWise and is subject to
+  change.
+
+  We recommend that you use this operation only with test data, and not in
+  production environments.
+
+  Retrieves a paginated list of bulk import job requests. For more information,
+  see [List bulk import jobs (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html)
+  in the *Amazon Simple Storage Service User Guide*.
+  """
+  def list_bulk_import_jobs(
+        %Client{} = client,
+        filter \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/jobs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(filter) do
+        [{"filter", filter} | query_params]
       else
         query_params
       end

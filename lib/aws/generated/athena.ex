@@ -218,6 +218,17 @@ defmodule AWS.Athena do
   end
 
   @doc """
+  Returns query execution runtime statistics related to a single execution of a
+  query if you have access to the workgroup in which the query ran.
+
+  The query execution runtime statistics is returned only when
+  `QueryExecutionStatus$State` is in a SUCCEEDED or FAILED state.
+  """
+  def get_query_runtime_statistics(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetQueryRuntimeStatistics", input, options)
+  end
+
+  @doc """
   Returns table metadata for the specified catalog, database, and table.
   """
   def get_table_metadata(%Client{} = client, input, options \\ []) do

@@ -5,16 +5,12 @@ defmodule AWS.AutoScaling do
   @moduledoc """
   Amazon EC2 Auto Scaling
 
-  Amazon EC2 Auto Scaling is designed to automatically launch or terminate EC2
+  Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2
   instances based on user-defined scaling policies, scheduled actions, and health
   checks.
 
-  For more information about Amazon EC2 Auto Scaling, see the [Amazon EC2 Auto Scaling User
-  Guide](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html).
-  For information about granting IAM users required permissions for calls to
-  Amazon EC2 Auto Scaling, see [Granting IAM users required permissions for Amazon EC2 Auto Scaling
-  resources](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-permissions.html)
-  in the *Amazon EC2 Auto Scaling API Reference*.
+  For more information, see the [Amazon EC2 Auto Scaling User Guide](https://docs.aws.amazon.com/autoscaling/ec2/userguide/) and the [Amazon EC2 Auto Scaling API
+  Reference](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html).
   """
 
   alias AWS.Client
@@ -76,7 +72,8 @@ defmodule AWS.AutoScaling do
   This operation is additive and does not detach existing target groups or Classic
   Load Balancers from the Auto Scaling group.
 
-  For more information, see [Elastic Load Balancing and Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html)
+  For more information, see [Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling
+  group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def attach_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
@@ -92,13 +89,14 @@ defmodule AWS.AutoScaling do
   Balancers.
 
   To describe the load balancers for an Auto Scaling group, call the
-  `DescribeLoadBalancers` API. To detach the load balancer from the Auto Scaling
+  `DescribeLoadBalancers` API. To detach a load balancer from the Auto Scaling
   group, call the `DetachLoadBalancers` API.
 
   This operation is additive and does not detach existing Classic Load Balancers
   or target groups from the Auto Scaling group.
 
-  For more information, see [Elastic Load Balancing and Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html)
+  For more information, see [Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling
+  group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def attach_load_balancers(%Client{} = client, input, options \\ []) do
@@ -177,7 +175,7 @@ defmodule AWS.AutoScaling do
 
   If you exceed your maximum limit of Auto Scaling groups, the call fails. To
   query this limit, call the `DescribeAccountLimits` API. For information about
-  updating this limit, see [Amazon EC2 Auto Scaling service quotas](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html)
+  updating this limit, see [Quotas for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
 
   For introductory exercises for creating an Auto Scaling group, see [Getting started with Amazon EC2 Auto
@@ -187,7 +185,7 @@ defmodule AWS.AutoScaling do
   groups](https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
 
-  Every Auto Scaling group has three size parameters (`DesiredCapacity`,
+  Every Auto Scaling group has three size properties (`DesiredCapacity`,
   `MaxSize`, and `MinSize`). Usually, you set these sizes based on a specific
   number of instances. However, if you configure a mixed instances policy that
   defines weights for the instance types, you must specify these sizes with the
@@ -202,7 +200,7 @@ defmodule AWS.AutoScaling do
 
   If you exceed your maximum limit of launch configurations, the call fails. To
   query this limit, call the `DescribeAccountLimits` API. For information about
-  updating this limit, see [Amazon EC2 Auto Scaling service quotas](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html)
+  updating this limit, see [Quotas for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
 
   For more information, see [Launch configurations](https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html)
@@ -218,7 +216,7 @@ defmodule AWS.AutoScaling do
   When you specify a tag with a key that already exists, the operation overwrites
   the previous tag definition, and you do not get an error message.
 
-  For more information, see [Tagging Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html)
+  For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def create_or_update_tags(%Client{} = client, input, options \\ []) do
@@ -317,8 +315,8 @@ defmodule AWS.AutoScaling do
 
   When you establish an Amazon Web Services account, the account has initial
   quotas on the maximum number of Auto Scaling groups and launch configurations
-  that you can create in a given Region. For more information, see [Amazon EC2 Auto Scaling service
-  quotas](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html)
+  that you can create in a given Region. For more information, see [Quotas for Amazon EC2 Auto
+  Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def describe_account_limits(%Client{} = client, input, options \\ []) do
@@ -442,10 +440,10 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
-  Gets information about the load balancer target groups for the specified Auto
-  Scaling group.
+  Gets information about the Elastic Load Balancing target groups for the
+  specified Auto Scaling group.
 
-  To determine the availability of registered instances, use the `State` element
+  To determine the attachment status of the target group, use the `State` element
   in the response. When you attach a target group to an Auto Scaling group, the
   initial `State` value is `Adding`. The state transitions to `Added` after all
   Auto Scaling instances are registered with the target group. If Elastic Load
@@ -463,8 +461,9 @@ defmodule AWS.AutoScaling do
 
   For help with failed health checks, see [Troubleshooting Amazon EC2 Auto Scaling: Health
   checks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html)
-  in the *Amazon EC2 Auto Scaling User Guide*. For more information, see [Elastic Load Balancing and Amazon EC2 Auto
-  Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html)
+  in the *Amazon EC2 Auto Scaling User Guide*. For more information, see [Use Elastic Load Balancing to distribute traffic across the instances in your Auto
+  Scaling
+  group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def describe_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
@@ -475,10 +474,10 @@ defmodule AWS.AutoScaling do
   Gets information about the load balancers for the specified Auto Scaling group.
 
   This operation describes only Classic Load Balancers. If you have Application
-  Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the
+  Load Balancers, Network Load Balancers, or Gateway Load Balancer, use the
   `DescribeLoadBalancerTargetGroups` API instead.
 
-  To determine the availability of registered instances, use the `State` element
+  To determine the attachment status of the load balancer, use the `State` element
   in the response. When you attach a load balancer to an Auto Scaling group, the
   initial `State` value is `Adding`. The state transitions to `Added` after all
   Auto Scaling instances are registered with the load balancer. If Elastic Load
@@ -496,8 +495,9 @@ defmodule AWS.AutoScaling do
 
   For help with failed health checks, see [Troubleshooting Amazon EC2 Auto Scaling: Health
   checks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html)
-  in the *Amazon EC2 Auto Scaling User Guide*. For more information, see [Elastic Load Balancing and Amazon EC2 Auto
-  Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html)
+  in the *Amazon EC2 Auto Scaling User Guide*. For more information, see [Use Elastic Load Balancing to distribute traffic across the instances in your Auto
+  Scaling
+  group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def describe_load_balancers(%Client{} = client, input, options \\ []) do
@@ -506,9 +506,6 @@ defmodule AWS.AutoScaling do
 
   @doc """
   Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.
-
-  The `GroupStandbyInstances` metric is not returned by default. You must
-  explicitly request this metric when calling the `EnableMetricsCollection` API.
   """
   def describe_metric_collection_types(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeMetricCollectionTypes", input, options)
@@ -579,7 +576,7 @@ defmodule AWS.AutoScaling do
   particular tag only if it matches all the filters. If there's no match, no
   special message is returned.
 
-  For more information, see [Tagging Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html)
+  For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def describe_tags(%Client{} = client, input, options \\ []) do
@@ -589,8 +586,7 @@ defmodule AWS.AutoScaling do
   @doc """
   Describes the termination policies supported by Amazon EC2 Auto Scaling.
 
-  For more information, see [Controlling which Auto Scaling instances terminate during scale
-  in](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html)
+  For more information, see [Work with Amazon EC2 Auto Scaling termination policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def describe_termination_policy_types(%Client{} = client, input, options \\ []) do
@@ -630,6 +626,11 @@ defmodule AWS.AutoScaling do
 
   @doc """
   Detaches one or more target groups from the specified Auto Scaling group.
+
+  When you detach a target group, it enters the `Removing` state while
+  deregistering the instances in the group. When all instances are deregistered,
+  then you can no longer describe the target group using the
+  `DescribeLoadBalancerTargetGroups` API call. The instances remain running.
   """
   def detach_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DetachLoadBalancerTargetGroups", input, options)
@@ -640,7 +641,7 @@ defmodule AWS.AutoScaling do
   group.
 
   This operation detaches only Classic Load Balancers. If you have Application
-  Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the
+  Load Balancers, Network Load Balancers, or Gateway Load Balancer, use the
   `DetachLoadBalancerTargetGroups` API instead.
 
   When you detach a load balancer, it enters the `Removing` state while
@@ -653,17 +654,19 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
-  Disables group metrics for the specified Auto Scaling group.
+  Disables group metrics collection for the specified Auto Scaling group.
   """
   def disable_metrics_collection(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisableMetricsCollection", input, options)
   end
 
   @doc """
-  Enables group metrics for the specified Auto Scaling group.
+  Enables group metrics collection for the specified Auto Scaling group.
 
-  For more information, see [Monitoring CloudWatch metrics for your Auto Scaling groups and
-  instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html)
+  You can use these metrics to track changes in an Auto Scaling group and to set
+  alarms on threshold values. You can view group metrics using the Amazon EC2 Auto
+  Scaling console or the CloudWatch console. For more information, see [Monitor CloudWatch metrics for your Auto Scaling groups and
+  instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def enable_metrics_collection(%Client{} = client, input, options \\ []) do
@@ -828,6 +831,9 @@ defmodule AWS.AutoScaling do
   You can view the scheduled actions for an Auto Scaling group using the
   `DescribeScheduledActions` API call. If you are no longer using a scheduled
   action, you can delete it by calling the `DeleteScheduledAction` API.
+
+  If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns
+  an error message.
   """
   def put_scheduled_update_group_action(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutScheduledUpdateGroupAction", input, options)
@@ -1019,8 +1025,8 @@ defmodule AWS.AutoScaling do
 
   Updates the configuration for the specified Auto Scaling group.
 
-  To update an Auto Scaling group, specify the name of the group and the parameter
-  that you want to change. Any parameters that you don't specify are not changed
+  To update an Auto Scaling group, specify the name of the group and the property
+  that you want to change. Any properties that you don't specify are not changed
   by this update request. The new settings take effect on any scaling activities
   after this call returns.
 
@@ -1054,7 +1060,7 @@ defmodule AWS.AutoScaling do
   size of the group, this sets the group's `DesiredCapacity` to the new `MaxSize`
   value.
 
-  To see which parameters have been set, call the `DescribeAutoScalingGroups` API.
+  To see which properties have been set, call the `DescribeAutoScalingGroups` API.
   To view the scaling policies for an Auto Scaling group, call the
   `DescribePolicies` API. If the group has scaling policies, you can update them
   by calling the `PutScalingPolicy` API.

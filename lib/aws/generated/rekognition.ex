@@ -1580,6 +1580,9 @@ defmodule AWS.Rekognition do
   You are charged for the amount of time that the model is running. To stop a
   running model, call `StopProjectVersion`.
 
+  For more information, see *Running a trained Amazon Rekognition Custom Labels
+  model* in the Amazon Rekognition Custom Labels Guide.
+
   This operation requires permissions to perform the
   `rekognition:StartProjectVersion` action.
   """

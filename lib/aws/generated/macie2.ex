@@ -798,6 +798,71 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
+  Retrieves the status and configuration settings for retrieving (revealing)
+  occurrences of sensitive data reported by findings.
+  """
+  def get_reveal_configuration(%Client{} = client, options \\ []) do
+    url_path = "/reveal-configuration"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves (reveals) occurrences of sensitive data reported by a finding.
+  """
+  def get_sensitive_data_occurrences(%Client{} = client, finding_id, options \\ []) do
+    url_path = "/findings/#{AWS.Util.encode_uri(finding_id)}/reveal"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Checks whether occurrences of sensitive data can be retrieved (revealed) for a
+  finding.
+  """
+  def get_sensitive_data_occurrences_availability(%Client{} = client, finding_id, options \\ []) do
+    url_path = "/findings/#{AWS.Util.encode_uri(finding_id)}/reveal/availability"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves (queries) quotas and aggregated usage data for one or more accounts.
   """
   def get_usage_statistics(%Client{} = client, input, options \\ []) do
@@ -1354,6 +1419,28 @@ defmodule AWS.Macie2 do
       client,
       metadata(),
       :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the status and configuration settings for retrieving (revealing)
+  occurrences of sensitive data reported by findings.
+  """
+  def update_reveal_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/reveal-configuration"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
       url_path,
       query_params,
       headers,

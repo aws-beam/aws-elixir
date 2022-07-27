@@ -22,10 +22,13 @@ defmodule AWS.Detective do
   Detective is also integrated with Organizations. The organization management
   account designates the Detective administrator account for the organization.
   That account becomes the administrator account for the organization behavior
-  graph. The Detective administrator account can enable any organization account
-  as a member account in the organization behavior graph. The organization
-  accounts do not receive invitations. The Detective administrator account can
-  also invite other accounts to the organization behavior graph.
+  graph. The Detective administrator account is also the delegated administrator
+  account for Detective in Organizations.
+
+  The Detective administrator account can enable any organization account as a
+  member account in the organization behavior graph. The organization accounts do
+  not receive invitations. The Detective administrator account can also invite
+  other accounts to the organization behavior graph.
 
   Every behavior graph is specific to a Region. You can only use the API to manage
   behavior graphs that belong to the Region that is associated with the currently
@@ -113,6 +116,48 @@ defmodule AWS.Detective do
       client,
       metadata(),
       :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets data source package information for the behavior graph.
+  """
+  def batch_get_graph_member_datasources(%Client{} = client, input, options \\ []) do
+    url_path = "/graph/datasources/get"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets information on the data source package history for an account.
+  """
+  def batch_get_membership_datasources(%Client{} = client, input, options \\ []) do
+    url_path = "/membership/datasources/get"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
       url_path,
       query_params,
       headers,
@@ -308,14 +353,19 @@ defmodule AWS.Detective do
   end
 
   @doc """
-  Removes the Detective administrator account for the organization in the current
-  Region.
+  Removes the Detective administrator account in the current Region.
 
-  Deletes the behavior graph for that account.
+  Deletes the organization behavior graph.
 
-  Can only be called by the organization management account. Before you can select
-  a different Detective administrator account, you must remove the Detective
-  administrator account in all Regions.
+  Can only be called by the organization management account.
+
+  Removing the Detective administrator account does not affect the delegated
+  administrator account for Detective in Organizations.
+
+  To remove the delegated administrator account in Organizations, use the
+  Organizations API. Removing the delegated administrator account also removes the
+  Detective administrator account in all Regions, except for Regions where the
+  Detective administrator account is the organization management account.
   """
   def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/orgs/disableAdminAccount"
@@ -373,9 +423,16 @@ defmodule AWS.Detective do
 
   Can only be called by the organization management account.
 
-  The Detective administrator account for an organization must be the same in all
-  Regions. If you already designated a Detective administrator account in another
-  Region, then you must designate the same account.
+  If the organization has a delegated administrator account in Organizations, then
+  the Detective administrator account must be either the delegated administrator
+  account or the organization management account.
+
+  If the organization does not have a delegated administrator account in
+  Organizations, then you can choose any account in the organization. If you
+  choose an account other than the organization management account, Detective
+  calls Organizations to make that account the delegated administrator account for
+  Detective. The organization management account cannot be the delegated
+  administrator account.
   """
   def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/orgs/enableAdminAccount"
@@ -401,6 +458,27 @@ defmodule AWS.Detective do
   """
   def get_members(%Client{} = client, input, options \\ []) do
     url_path = "/graph/members/get"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists data source packages in the behavior graph.
+  """
+  def list_datasource_packages(%Client{} = client, input, options \\ []) do
+    url_path = "/graph/datasources/list"
     headers = []
     query_params = []
 
@@ -649,6 +727,27 @@ defmodule AWS.Detective do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Starts a data source packages for the behavior graph.
+  """
+  def update_datasource_packages(%Client{} = client, input, options \\ []) do
+    url_path = "/graph/datasources/update"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
     )
   end
 

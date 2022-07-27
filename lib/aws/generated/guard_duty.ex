@@ -486,6 +486,27 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
+  Returns a list of malware scans.
+  """
+  def describe_malware_scans(%Client{} = client, detector_id, input, options \\ []) do
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scans"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns information about the account selected as the delegated administrator
   for GuardDuty.
   """
@@ -788,6 +809,27 @@ defmodule AWS.GuardDuty do
     url_path =
       "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset/#{AWS.Util.encode_uri(ip_set_id)}"
 
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the details of the malware scan settings.
+  """
+  def get_malware_scan_settings(%Client{} = client, detector_id, options \\ []) do
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scan-settings"
     headers = []
     query_params = []
 
@@ -1531,6 +1573,27 @@ defmodule AWS.GuardDuty do
     url_path =
       "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset/#{AWS.Util.encode_uri(ip_set_id)}"
 
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the malware scan settings.
+  """
+  def update_malware_scan_settings(%Client{} = client, detector_id, input, options \\ []) do
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scan-settings"
     headers = []
     query_params = []
 

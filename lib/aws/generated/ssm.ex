@@ -3,27 +3,19 @@
 
 defmodule AWS.SSM do
   @moduledoc """
-  Amazon Web Services Systems Manager is a collection of capabilities that helps
-  you automate management tasks such as collecting system inventory, applying
-  operating system (OS) patches, automating the creation of Amazon Machine Images
-  (AMIs), and configuring operating systems (OSs) and applications at scale.
+  Amazon Web Services Systems Manager is a collection of capabilities to help you
+  manage your applications and infrastructure running in the Amazon Web Services
+  Cloud;.
 
-  Systems Manager lets you remotely and securely manage the configuration of your
-  managed nodes. A *managed node* is any Amazon Elastic Compute Cloud (Amazon EC2)
-  instance, edge device, or on-premises server or virtual machine (VM) that has
-  been configured for Systems Manager.
-
-  With support for IoT Greengrass core devices, the phrase *managed instance* has
-  been changed to *managed node* in most of the Systems Manager documentation. The
-  Systems Manager console, API calls, error messages, and SSM documents still use
-  the term *instance*.
+  Systems Manager simplifies application and resource management, shortens the
+  time to detect and resolve operational problems, and helps you manage your
+  Amazon Web Services resources securely at scale.
 
   This reference is intended to be used with the [Amazon Web Services Systems Manager User
   Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/).
 
-  To get started, verify prerequisites and configure managed nodes. For more
-  information, see [Setting up Amazon Web Services Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html)
-  in the *Amazon Web Services Systems Manager User Guide*.
+  To get started, verify prerequisites. For more information, see [Setting up Amazon Web Services Systems
+  Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html).
 
   ## Related resources
 
@@ -63,7 +55,7 @@ defmodule AWS.SSM do
   @doc """
   Adds or overwrites one or more tags for the specified resource.
 
-  Tags are metadata that you can assign to your automations, documents, managed
+  *Tags* are metadata that you can assign to your automations, documents, managed
   nodes, maintenance windows, Parameter Store parameters, and patch baselines.
   Tags enable you to categorize your resources in different ways, for example, by
   purpose, owner, or environment. Each tag consists of a key and an optional
@@ -1361,7 +1353,7 @@ defmodule AWS.SSM do
     * Status: The status of the compliance item. For example, `approved`
   for patches, or `Failed` for associations.
 
-    * Severity: A patch severity. For example, `critical`.
+    * Severity: A patch severity. For example, `Critical`.
 
     * DocumentName: An SSM document name. For example,
   `AWS-RunPatchBaseline`.

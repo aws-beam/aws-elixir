@@ -4803,8 +4803,8 @@ defmodule AWS.Chime do
   Adds a streaming configuration for the specified Amazon Chime Voice Connector.
 
   The streaming configuration specifies whether media streaming is enabled for
-  sending to Indonesians. It also sets the retention period, in hours, for the
-  Amazon Kinesis data.
+  sending to Kinesis. It also sets the retention period, in hours, for the Amazon
+  Kinesis data.
   """
   def put_voice_connector_streaming_configuration(
         %Client{} = client,
@@ -5897,6 +5897,32 @@ defmodule AWS.Chime do
       client,
       metadata(),
       :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Validates an address to be used for 911 calls made with Amazon Chime Voice
+  Connectors.
+
+  You can use validated addresses in a Presence Information Data Format Location
+  Object file that you include in SIP requests. That helps ensure that addresses
+  are routed to the appropriate Public Safety Answering Point.
+  """
+  def validate_e911_address(%Client{} = client, input, options \\ []) do
+    url_path = "/emergency-calling/address"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
       url_path,
       query_params,
       headers,

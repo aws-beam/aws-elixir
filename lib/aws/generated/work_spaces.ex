@@ -181,6 +181,13 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
+  Creates a new WorkSpace image from an existing WorkSpace.
+  """
+  def create_workspace_image(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateWorkspaceImage", input, options)
+  end
+
+  @doc """
   Creates one or more WorkSpaces.
 
   This operation is asynchronous and returns before the WorkSpaces are created.

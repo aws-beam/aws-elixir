@@ -616,8 +616,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
-  Lists tags for an Amazon FSx file systems and backups in the case of Amazon FSx
-  for Windows File Server.
+  Lists tags for Amazon FSx resources.
 
   When retrieving all tags, you can optionally specify the `MaxResults` parameter
   to limit the number of tags in a response. If more tags remain, Amazon FSx

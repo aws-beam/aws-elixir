@@ -40,8 +40,7 @@ defmodule AWS.Shield do
   You can associate up to 10 Amazon S3 buckets with your subscription.
 
   To use the services of the SRT and make an `AssociateDRTLogBucket` request, you
-  must be subscribed to the [Business Support plan](https://docs.aws.amazon.com/premiumsupport/business-support/) or the
-  [Enterprise Support plan](https://docs.aws.amazon.com/premiumsupport/enterprise-support/).
+  must be subscribed to the [Business Support plan](http://aws.amazon.com/premiumsupport/business-support/) or the [Enterprise Support plan](http://aws.amazon.com/premiumsupport/enterprise-support/).
   """
   def associate_drt_log_bucket(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AssociateDRTLogBucket", input, options)
@@ -77,8 +76,7 @@ defmodule AWS.Shield do
   service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html).
 
   To use the services of the SRT and make an `AssociateDRTRole` request, you must
-  be subscribed to the [Business Support plan](https://docs.aws.amazon.com/premiumsupport/business-support/) or the
-  [Enterprise Support plan](https://docs.aws.amazon.com/premiumsupport/enterprise-support/).
+  be subscribed to the [Business Support plan](http://aws.amazon.com/premiumsupport/business-support/) or the [Enterprise Support plan](http://aws.amazon.com/premiumsupport/enterprise-support/).
   """
   def associate_drt_role(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AssociateDRTRole", input, options)
@@ -131,9 +129,11 @@ defmodule AWS.Shield do
   @doc """
   Enables Shield Advanced for a specific Amazon Web Services resource.
 
-  The resource can be an Amazon CloudFront distribution, Elastic Load Balancing
-  load balancer, Global Accelerator accelerator, Elastic IP Address, or an Amazon
-  Route 53 hosted zone.
+  The resource can be an Amazon CloudFront distribution, Amazon Route 53 hosted
+  zone, Global Accelerator standard accelerator, Elastic IP Address, Application
+  Load Balancer, or a Classic Load Balancer. You can protect Amazon EC2 instances
+  and Network Load Balancers by association with protected Amazon EC2 Elastic IP
+  addresses.
 
   You can add protection to only a single resource with each `CreateProtection`
   request. You can add protection to multiple resources at once through the Shield
@@ -160,7 +160,11 @@ defmodule AWS.Shield do
   @doc """
   Activates Shield Advanced for an account.
 
-  When you initally create a subscription, your subscription is set to be
+  For accounts that are members of an Organizations organization, Shield Advanced
+  subscriptions are billed against the organization's payer account, regardless of
+  whether the payer account itself is subscribed.
+
+  When you initially create a subscription, your subscription is set to be
   automatically renewed at the end of the existing subscription period. You can
   change this by submitting an `UpdateSubscription` request.
   """
@@ -259,7 +263,7 @@ defmodule AWS.Shield do
 
   @doc """
   Disable the Shield Advanced automatic application layer DDoS mitigation feature
-  for the resource.
+  for the protected resource.
 
   This stops Shield Advanced from creating, verifying, and applying WAF rules for
   attacks that it detects for the resource.
@@ -317,9 +321,10 @@ defmodule AWS.Shield do
 
   @doc """
   Enable the Shield Advanced automatic application layer DDoS mitigation for the
-  resource.
+  protected resource.
 
-  This feature is available for Amazon CloudFront distributions only.
+  This feature is available for Amazon CloudFront distributions and Application
+  Load Balancers only.
 
   This causes Shield Advanced to create, verify, and apply WAF rules for DDoS
   attacks that it detects for the resource. Shield Advanced applies the rules in a
@@ -336,10 +341,9 @@ defmodule AWS.Shield do
   associate the web ACL through the Shield Advanced console at
   [https://console.aws.amazon.com/wafv2/shieldv2#/](https://console.aws.amazon.com/wafv2/shieldv2#/). For more information, see [Getting Started with Shield
   Advanced](https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html).
-
-  You can also do this through the WAF console or the WAF API, but you must manage
-  Shield Advanced automatic mitigation through Shield Advanced. For information
-  about WAF, see [WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
+  You can also associate the web ACL to the resource through the WAF console or
+  the WAF API, but you must manage Shield Advanced automatic mitigation through
+  Shield Advanced. For information about WAF, see [WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
   def enable_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -376,14 +380,20 @@ defmodule AWS.Shield do
   end
 
   @doc """
-  Retrieves the `ProtectionGroup` objects for the account.
+  Retrieves `ProtectionGroup` objects for the account.
+
+  You can retrieve all protection groups or you can provide filtering criteria and
+  retrieve just the subset of protection groups that match the criteria.
   """
   def list_protection_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListProtectionGroups", input, options)
   end
 
   @doc """
-  Lists all `Protection` objects for the account.
+  Retrieves `Protection` objects for the account.
+
+  You can retrieve all protections or you can provide filtering criteria and
+  retrieve just the subset of protections that match the criteria.
   """
   def list_protections(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListProtections", input, options)
@@ -458,6 +468,10 @@ defmodule AWS.Shield do
 
   Only enter values for parameters you want to change. Empty parameters are not
   updated.
+
+  For accounts that are members of an Organizations organization, Shield Advanced
+  subscriptions are billed against the organization's payer account, regardless of
+  whether the payer account itself is subscribed.
   """
   def update_subscription(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateSubscription", input, options)

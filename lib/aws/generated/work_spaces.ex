@@ -551,6 +551,15 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
+  Modifies multiple properties related to SAML 2.0 authentication, including the
+  enablement status, user access URL, and relay state parameter name that are used
+  for configuring federation with an SAML 2.0 identity provider.
+  """
+  def modify_saml_properties(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ModifySamlProperties", input, options)
+  end
+
+  @doc """
   Modifies the self-service WorkSpace management capabilities for your users.
 
   For more information, see [Enable Self-Service WorkSpace Management Capabilities for Your

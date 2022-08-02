@@ -951,8 +951,11 @@ defmodule AWS.Config do
   combinations in a conformance pack compared to the number of total possible
   rule-resource combinations in the conformance pack. This metric provides you
   with a high-level view of the compliance state of your conformance packs, and
-  can be used to identify, investigate, and understand compliance deviations in
+  can be used to identify, investigate, and understand the level of compliance in
   your conformance packs.
+
+  Conformance packs with no evaluation results will have a compliance score of
+  `INSUFFICIENT_DATA`.
   """
   def list_conformance_pack_compliance_scores(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -1012,23 +1015,33 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Adds or updates an Config rule for evaluating whether your Amazon Web Services
-  resources comply with your desired configurations.
+  Adds or updates an Config rule to evaluate if your Amazon Web Services resources
+  comply with your desired configurations.
 
-  You can use this action for Config custom rules and Config managed rules. A
-  Config custom rule is a rule that you develop and maintain. An Config managed
-  rule is a customizable, predefined rule that Config provides.
+  For information on how many Config rules you can have per account, see [
+  ## Service Limits
+  ](https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html) in
+  the *Config Developer Guide*.
 
-  If you are adding a new Config custom rule, you must first create the Lambda
-  function that the rule invokes to evaluate your resources. When you use the
-  `PutConfigRule` action to add the rule to Config, you must specify the Amazon
-  Resource Name (ARN) that Lambda assigns to the function. Specify the ARN for the
-  `SourceIdentifier` key. This key is part of the `Source` object, which is part
-  of the `ConfigRule` object.
+  There are two types of rules: Config Custom Rules and Config Managed Rules. You
+  can use `PutConfigRule` to create both Config custom rules and Config managed
+  rules.
 
-  If you are adding an Config managed rule, specify the rule's identifier for the
-  `SourceIdentifier` key. To reference Config managed rule identifiers, see [About Config managed
-  rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
+  Custom rules are rules that you can create using either Guard or Lambda
+  functions. Guard ([Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard)) is a
+  policy-as-code language that allows you to write policies that are enforced by
+  Config Custom Policy rules. Lambda uses custom code that you upload to evaluate
+  a custom rule. If you are adding a new Custom Lambda rule, you first need to
+  create an Lambda function that the rule invokes to evaluate your resources. When
+  you use `PutConfigRule` to add a Custom Lambda rule to Config, you must specify
+  the Amazon Resource Name (ARN) that Lambda assigns to the function. You specify
+  the ARN in the `SourceIdentifier` key. This key is part of the `Source` object,
+  which is part of the `ConfigRule` object.
+
+  Managed rules are predefined, customizable rules created by Config. For a list
+  of managed rules, see [List of Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html).
+  If you are adding an Config managed rule, you must specify the rule's identifier
+  for the `SourceIdentifier` key.
 
   For any new rule that you add, specify the `ConfigRuleName` in the `ConfigRule`
   object. Do not specify the `ConfigRuleArn` or the `ConfigRuleId`. These values
@@ -1037,11 +1050,6 @@ defmodule AWS.Config do
   If you are updating a rule that you added previously, you can specify the rule
   by `ConfigRuleName`, `ConfigRuleId`, or `ConfigRuleArn` in the `ConfigRule` data
   type that you use in this request.
-
-  For information on how many Config rules you can have per account, see [
-  ## Service Limits
-  ](https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html) in
-  the Config Developer Guide.
 
   For more information about developing and using Config rules, see [Evaluating Amazon Web Services resource Configurations with
   Config](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html)
@@ -1073,7 +1081,7 @@ defmodule AWS.Config do
   delegated administrator.
 
   To register a delegated administrator, see [Register a Delegated Administrator](https://docs.aws.amazon.com/config/latest/developerguide/set-up-aggregator-cli.html#register-a-delegated-administrator-cli)
-  in the Config developer guide.
+  in the *Config developer guide*.
   """
   def put_configuration_aggregator(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutConfigurationAggregator", input, options)
@@ -1107,8 +1115,8 @@ defmodule AWS.Config do
   ](https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html) in
   the Config Developer Guide.
 
-  This API creates a service linked role `AWSServiceRoleForConfigConforms` in your
-  account. The service linked role is created only when the role does not exist in
+  This API creates a service-linked role `AWSServiceRoleForConfigConforms` in your
+  account. The service-linked role is created only when the role does not exist in
   your account.
 
   You must specify either the `TemplateS3Uri` or the `TemplateBody` parameter, but
@@ -1160,14 +1168,13 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Adds or updates organization Config rule for your entire organization evaluating
-  whether your Amazon Web Services resources comply with your desired
-  configurations.
+  Adds or updates an Config rule for your entire organization to evaluate if your
+  Amazon Web Services resources comply with your desired configurations.
 
   For information on how many organization Config rules you can have per account,
   see [ ## Service Limits
   ](https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html) in
-  the Config Developer Guide.
+  the *Config Developer Guide*.
 
   Only a master account and a delegated administrator can create or update an
   organization Config rule. When calling this API with a delegated administrator,
@@ -1175,9 +1182,9 @@ defmodule AWS.Config do
   added. An organization can have up to 3 delegated administrators.
 
   This API enables organization service access through the
-  `EnableAWSServiceAccess` action and creates a service linked role
+  `EnableAWSServiceAccess` action and creates a service-linked role
   `AWSServiceRoleForConfigMultiAccountSetup` in the master or delegated
-  administrator account of your organization. The service linked role is created
+  administrator account of your organization. The service-linked role is created
   only when the role does not exist in the caller account. Config verifies the
   existence of role with `GetRole` action.
 
@@ -1185,21 +1192,32 @@ defmodule AWS.Config do
   by calling Amazon Web Services Organization `register-delegated-administrator`
   for `config-multiaccountsetup.amazonaws.com`.
 
-  You can use this action to create both Config custom rules and Config managed
-  rules. If you are adding a new Config custom rule, you must first create Lambda
-  function in the master account or a delegated administrator that the rule
-  invokes to evaluate your resources. You also need to create an IAM role in the
-  managed-account that can be assumed by the Lambda function. When you use the
-  `PutOrganizationConfigRule` action to add the rule to Config, you must specify
-  the Amazon Resource Name (ARN) that Lambda assigns to the function. If you are
-  adding an Config managed rule, specify the rule's identifier for the
-  `RuleIdentifier` key.
+  There are two types of rules: Config Custom Rules and Config Managed Rules. You
+  can use `PutOrganizationConfigRule` to create both Config custom rules and
+  Config managed rules.
+
+  Custom rules are rules that you can create using either Guard or Lambda
+  functions. Guard ([Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard)) is a
+  policy-as-code language that allows you to write policies that are enforced by
+  Config Custom Policy rules. Lambda uses custom code that you upload to evaluate
+  a custom rule. If you are adding a new Custom Lambda rule, you first need to
+  create an Lambda function in the master account or a delegated administrator
+  that the rule invokes to evaluate your resources. You also need to create an IAM
+  role in the managed account that can be assumed by the Lambda function. When you
+  use `PutOrganizationConfigRule` to add a Custom Lambda rule to Config, you must
+  specify the Amazon Resource Name (ARN) that Lambda assigns to the function.
+
+  Managed rules are predefined, customizable rules created by Config. For a list
+  of managed rules, see [List of Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html).
+  If you are adding an Config managed rule, you must specify the rule's identifier
+  for the `RuleIdentifier` key.
 
   Prerequisite: Ensure you call `EnableAllFeatures` API to enable all features in
   an organization.
 
-  Specify either `OrganizationCustomRuleMetadata` or
-  `OrganizationManagedRuleMetadata`.
+  Make sure to specify one of either `OrganizationCustomPolicyRuleMetadata` for
+  Custom Policy rules, `OrganizationCustomRuleMetadata` for Custom Lambda rules,
+  or `OrganizationManagedRuleMetadata` for managed rules.
   """
   def put_organization_config_rule(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutOrganizationConfigRule", input, options)
@@ -1221,9 +1239,9 @@ defmodule AWS.Config do
 
   This API enables organization service access for
   `config-multiaccountsetup.amazonaws.com` through the `EnableAWSServiceAccess`
-  action and creates a service linked role
+  action and creates a service-linked role
   `AWSServiceRoleForConfigMultiAccountSetup` in the master or delegated
-  administrator account of your organization. The service linked role is created
+  administrator account of your organization. The service-linked role is created
   only when the role does not exist in the caller account. To use this API with
   delegated administrator, register a delegated administrator by calling Amazon
   Web Services Organization `register-delegate-admin` for
@@ -1365,7 +1383,7 @@ defmodule AWS.Config do
 
   For more information about query components, see the [ ## Query Components
   ](https://docs.aws.amazon.com/config/latest/developerguide/query-components.html)
-  section in the Config Developer Guide.
+  section in the *Config Developer Guide*.
   """
   def select_resource_config(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SelectResourceConfig", input, options)

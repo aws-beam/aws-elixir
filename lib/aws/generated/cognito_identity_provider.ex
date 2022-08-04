@@ -472,8 +472,8 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Begins setup of time-based one-time password multi-factor authentication (TOTP
-  MFA) for a user, with a unique private key that Amazon Cognito generates and
+  Begins setup of time-based one-time password (TOTP) multi-factor authentication
+  (MFA) for a user, with a unique private key that Amazon Cognito generates and
   returns in the API response.
 
   You can authorize an `AssociateSoftwareToken` request with either the user's

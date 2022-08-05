@@ -1049,7 +1049,7 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a fleet provisioning template.
+  Creates a provisioning template.
 
   Requires permission to access the
   [CreateProvisioningTemplate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -1074,7 +1074,7 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a new version of a fleet provisioning template.
+  Creates a new version of a provisioning template.
 
   Requires permission to access the
   [CreateProvisioningTemplateVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -1912,7 +1912,7 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes a fleet provisioning template.
+  Deletes a provisioning template.
 
   Requires permission to access the
   [DeleteProvisioningTemplate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -1937,7 +1937,7 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes a fleet provisioning template version.
+  Deletes a provisioning template version.
 
   Requires permission to access the
   [DeleteProvisioningTemplateVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -2905,7 +2905,7 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Returns information about a fleet provisioning template.
+  Returns information about a provisioning template.
 
   Requires permission to access the
   [DescribeProvisioningTemplate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -2930,7 +2930,7 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Returns information about a fleet provisioning template version.
+  Returns information about a provisioning template version.
 
   Requires permission to access the
   [DescribeProvisioningTemplateVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -3192,7 +3192,8 @@ defmodule AWS.IoT do
   @doc """
   Removes the specified policy from the specified certificate.
 
-  This action is deprecated. Please use `DetachPolicy` instead.
+  **Note:** This action is deprecated and works as expected for backward
+  compatibility, but we won't add enhancements. Use `DetachPolicy` instead.
 
   Requires permission to access the
   [DetachPrincipalPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -4317,11 +4318,19 @@ defmodule AWS.IoT do
         ascending_order \\ nil,
         marker \\ nil,
         page_size \\ nil,
+        template_name \\ nil,
         options \\ []
       ) do
     url_path = "/cacertificates"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(template_name) do
+        [{"templateName", template_name} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(page_size) do
@@ -5420,7 +5429,9 @@ defmodule AWS.IoT do
   @doc """
   Lists the principals associated with the specified policy.
 
-  **Note:** This action is deprecated. Please use `ListTargetsForPolicy` instead.
+  **Note:** This action is deprecated and works as expected for backward
+  compatibility, but we won't add enhancements. Use `ListTargetsForPolicy`
+  instead.
 
   Requires permission to access the
   [ListPolicyPrincipals](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -5510,7 +5521,9 @@ defmodule AWS.IoT do
 
   If you use an Cognito identity, the ID must be in [AmazonCognito Identity format](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax).
 
-  **Note:** This action is deprecated. Please use `ListAttachedPolicies` instead.
+  **Note:** This action is deprecated and works as expected for backward
+  compatibility, but we won't add enhancements. Use `ListAttachedPolicies`
+  instead.
 
   Requires permission to access the
   [ListPrincipalPolicies](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -5627,7 +5640,7 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  A list of fleet provisioning template versions.
+  A list of provisioning template versions.
 
   Requires permission to access the
   [ListProvisioningTemplateVersions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -5672,7 +5685,7 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the fleet provisioning templates in your Amazon Web Services account.
+  Lists the provisioning templates in your Amazon Web Services account.
 
   Requires permission to access the
   [ListProvisioningTemplates](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -7986,7 +7999,7 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates a fleet provisioning template.
+  Updates a provisioning template.
 
   Requires permission to access the
   [UpdateProvisioningTemplate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)

@@ -331,6 +331,34 @@ defmodule AWS.ChimeSDKMeetings do
   end
 
   @doc """
+  Returns a list of the tags available for the specified resource.
+  """
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_arn) do
+        [{"arn", resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Starts transcription for the specified `meetingId`.
   """
   def start_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
@@ -369,6 +397,72 @@ defmodule AWS.ChimeSDKMeetings do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  The resource that supports tags.
+  """
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/tags?operation=tag-resource"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Removes the specified tags from the specified resources.
+
+  When you specify a tag key, the action removes both that key and its associated
+  value. The operation succeeds even if you attempt to remove tags from a resource
+  that were already removed. Note the following:
+
+    * To remove tags from a resource, you need the necessary permissions
+  for the service that the resource belongs to as well as permissions for removing
+  tags. For more information, see the documentation for the service whose resource
+  you want to untag.
+
+    * You can only tag resources that are located in the specified AWS
+  Region for the calling AWS account.
+
+  ## Minimum permissions
+
+  In addition to the `tag:UntagResources` permission required by this operation,
+  you must also have the remove tags permission defined by the service that
+  created the resource. For example, to remove the tags from an Amazon EC2
+  instance using the `UntagResources` operation, you must have both of the
+  following permissions:
+
+  `tag:UntagResource`
+
+  `ChimeSDKMeetings:DeleteTags`
+  """
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/tags?operation=untag-resource"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
     )
   end
 

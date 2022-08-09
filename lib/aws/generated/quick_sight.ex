@@ -315,7 +315,10 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Creates an Amazon QuickSight group.
+  Use the `CreateGroup` operation to create a group in Amazon QuickSight.
+
+  You can create up to 10,000 groups in a namespace. If you want to create more
+  than 10,000 groups in a namespace, contact AWS Support.
 
   The permissions resource is
   `arn:aws:quicksight:<your-region>:*<relevant-aws-account-id>*:group/default/*<group-name>*
@@ -2030,8 +2033,9 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Generates a temporary session URL and authorization code that you can use to
-  embed an Amazon QuickSight read-only dashboard in your website or application.
+  Generates a temporary session URL and authorization code(bearer token) that you
+  can use to embed an Amazon QuickSight read-only dashboard in your website or
+  application.
 
   Before you use this command, make sure that you have configured the dashboards
   and permissions.
@@ -2045,9 +2049,12 @@ defmodule AWS.QuickSight do
 
     * They are valid for 5 minutes after you run this command.
 
+    * You are charged only when the URL is used or there is interaction
+  with Amazon QuickSight.
+
     * The resulting user session is valid for 15 minutes (default) up to
   10 hours (maximum). You can use the optional `SessionLifetimeInMinutes`
-  parameter to customi session duration.
+  parameter to customize session duration.
 
   For more information, see [Embedding Analytics Using GetDashboardEmbedUrl](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html)
   in the *Amazon QuickSight User Guide*.
@@ -2735,6 +2742,8 @@ defmodule AWS.QuickSight do
 
   @doc """
   Lists the namespaces for the specified Amazon Web Services account.
+
+  This operation doesn't list deleted namespaces.
   """
   def list_namespaces(
         %Client{} = client,

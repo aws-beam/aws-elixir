@@ -22,8 +22,7 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Attaches the specified IAM customer managed policy to the specified
-  `PermissionSet`.
+  Attaches the specified customer managed policy to the specified `PermissionSet`.
   """
   def attach_customer_managed_policy_reference_to_permission_set(
         %Client{} = client,
@@ -40,7 +39,7 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Attaches an Amazon Web Services managed IAM policy ARN to a permission set.
+  Attaches an Amazon Web Services managed policy ARN to a permission set.
 
   If the permission set is already referenced by one or more account assignments,
   you will need to call ` `ProvisionPermissionSet` ` after this operation. Calling
@@ -60,10 +59,10 @@ defmodule AWS.SSOAdmin do
 
   As part of a successful `CreateAccountAssignment` call, the specified permission
   set will automatically be provisioned to the account in the form of an IAM
-  policy. That policy is attached to the SSO-created IAM role. If the permission
-  set is subsequently updated, the corresponding IAM policies attached to roles in
-  your accounts will not be updated automatically. In this case, you must call `
-  `ProvisionPermissionSet` ` to make these updates.
+  policy. That policy is attached to the IAM role created in Amazon Web Services
+  SSO. If the permission set is subsequently updated, the corresponding IAM
+  policies attached to roles in your accounts will not be updated automatically.
+  In this case, you must call ` `ProvisionPermissionSet` ` to make these updates.
   """
   def create_account_assignment(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateAccountAssignment", input, options)
@@ -92,7 +91,7 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Creates a permission set within a specified SSO instance.
+  Creates a permission set within a specified Amazon Web Services SSO instance.
 
   To grant users and groups access to Amazon Web Services account resources, use `
   `CreateAccountAssignment` `.
@@ -236,7 +235,7 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Detaches the specified IAM customer managed policy from the specified
+  Detaches the specified customer managed policy from the specified
   `PermissionSet`.
   """
   def detach_customer_managed_policy_reference_from_permission_set(
@@ -254,8 +253,8 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Detaches the attached Amazon Web Services managed IAM policy ARN from the
-  specified permission set.
+  Detaches the attached Amazon Web Services managed policy ARN from the specified
+  permission set.
   """
   def detach_managed_policy_from_permission_set(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -289,7 +288,7 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Lists the status of the Amazon Web Services account assignment creation requests
-  for a specified SSO instance.
+  for a specified Amazon Web Services SSO instance.
   """
   def list_account_assignment_creation_status(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -303,7 +302,7 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Lists the status of the Amazon Web Services account assignment deletion requests
-  for a specified SSO instance.
+  for a specified Amazon Web Services SSO instance.
   """
   def list_account_assignment_deletion_status(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -338,7 +337,7 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Lists all IAM customer managed policies attached to a specified `PermissionSet`.
+  Lists all customer managed policies attached to a specified `PermissionSet`.
   """
   def list_customer_managed_policy_references_in_permission_set(
         %Client{} = client,
@@ -355,14 +354,14 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Lists the SSO instances that the caller has access to.
+  Lists the Amazon Web Services SSO instances that the caller has access to.
   """
   def list_instances(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListInstances", input, options)
   end
 
   @doc """
-  Lists the Amazon Web Services managed IAM policy that is attached to a specified
+  Lists the Amazon Web Services managed policy that is attached to a specified
   permission set.
   """
   def list_managed_policies_in_permission_set(%Client{} = client, input, options \\ []) do
@@ -370,8 +369,8 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Lists the status of the permission set provisioning requests for a specified SSO
-  instance.
+  Lists the status of the permission set provisioning requests for a specified
+  Amazon Web Services SSO instance.
   """
   def list_permission_set_provisioning_status(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -384,7 +383,7 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Lists the `PermissionSet`s in an SSO instance.
+  Lists the `PermissionSet`s in an Amazon Web Services SSO instance.
   """
   def list_permission_sets(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListPermissionSets", input, options)
@@ -420,7 +419,7 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Attaches an IAM inline policy to a permission set.
+  Attaches an inline policy to a permission set.
 
   If the permission set is already referenced by one or more account assignments,
   you will need to call ` `ProvisionPermissionSet` ` after this action to apply
@@ -431,7 +430,7 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Attaches an Amazon Web Services managed or customer managed IAM policy to the
+  Attaches an Amazon Web Services managed or customer managed policy to the
   specified `PermissionSet` as a permissions boundary.
   """
   def put_permissions_boundary_to_permission_set(%Client{} = client, input, options \\ []) do

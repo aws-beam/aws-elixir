@@ -71,6 +71,10 @@ defmodule AWS.CloudWatch do
 
   @doc """
   Deletes the specified anomaly detection model from your account.
+
+  For more information about how to delete an anomaly detection model, see
+  [Deleting an anomaly detection model](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.html#Delete_Anomaly_Detection_Model)
+  in the *CloudWatch User Guide*.
   """
   def delete_anomaly_detector(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteAnomalyDetector", input, options)
@@ -642,16 +646,16 @@ defmodule AWS.CloudWatch do
   with one `PutMetricData` request, and supports retrieving percentile statistics
   on this data.
 
-  Each `PutMetricData` request is limited to 40 KB in size for HTTP POST requests.
+  Each `PutMetricData` request is limited to 1 MB in size for HTTP POST requests.
   You can send a payload compressed by gzip. Each request is also limited to no
-  more than 20 different metrics.
+  more than 1000 different metrics.
 
   Although the `Value` parameter accepts numbers of type `Double`, CloudWatch
   rejects values that are either too small or too large. Values must be in the
   range of -2^360 to 2^360. In addition, special values (for example, NaN,
   +Infinity, -Infinity) are not supported.
 
-  You can use up to 10 dimensions per metric to further clarify what data the
+  You can use up to 30 dimensions per metric to further clarify what data the
   metric collects. Each dimension consists of a Name and Value pair. For more
   information about specifying dimensions, see [Publishing
   Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html)

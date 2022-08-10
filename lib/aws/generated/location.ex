@@ -3,8 +3,8 @@
 
 defmodule AWS.Location do
   @moduledoc """
-  Suite of geospatial services including Maps, Places, Routes, Tracking, and
-  Geofencing
+  "Suite of geospatial services including Maps, Places, Routes, Tracking, and
+  Geofencing"
   """
 
   alias AWS.Client
@@ -255,6 +255,9 @@ defmodule AWS.Location do
   using TravelMode sets the transportation mode used to calculate the routes. This
   also lets you specify additional route preferences in `CarModeOptions` if
   traveling by `Car`, or `TruckModeOptions` if traveling by `Truck`.
+
+  If you specify `walking` for the travel mode and your data provider is Esri, the
+  start and destination must be within 40km.
   """
   def calculate_route(%Client{} = client, calculator_name, input, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}/calculate/route"

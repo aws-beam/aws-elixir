@@ -343,7 +343,11 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
-    query_params = []
+    {query_params, input} =
+      [
+        {"SubChannelId", "sub-channel-id"}
+      ]
+      |> Request.build_params(input)
 
     Request.request_rest(
       client,
@@ -435,7 +439,11 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
-    query_params = []
+    {query_params, input} =
+      [
+        {"SubChannelId", "sub-channel-id"}
+      ]
+      |> Request.build_params(input)
 
     Request.request_rest(
       client,
@@ -471,7 +479,11 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
-    query_params = []
+    {query_params, input} =
+      [
+        {"SubChannelId", "sub-channel-id"}
+      ]
+      |> Request.build_params(input)
 
     Request.request_rest(
       client,
@@ -632,6 +644,7 @@ defmodule AWS.ChimeSDKMessaging do
         %Client{} = client,
         channel_arn,
         member_arn,
+        sub_channel_id \\ nil,
         chime_bearer,
         options \\ []
       ) do
@@ -648,6 +661,13 @@ defmodule AWS.ChimeSDKMessaging do
       end
 
     query_params = []
+
+    query_params =
+      if !is_nil(sub_channel_id) do
+        [{"sub-channel-id", sub_channel_id} | query_params]
+      else
+        query_params
+      end
 
     Request.request_rest(
       client,
@@ -894,6 +914,7 @@ defmodule AWS.ChimeSDKMessaging do
         %Client{} = client,
         channel_arn,
         message_id,
+        sub_channel_id \\ nil,
         chime_bearer,
         options \\ []
       ) do
@@ -910,6 +931,13 @@ defmodule AWS.ChimeSDKMessaging do
       end
 
     query_params = []
+
+    query_params =
+      if !is_nil(sub_channel_id) do
+        [{"sub-channel-id", sub_channel_id} | query_params]
+      else
+        query_params
+      end
 
     Request.request_rest(
       client,
@@ -965,6 +993,7 @@ defmodule AWS.ChimeSDKMessaging do
         %Client{} = client,
         channel_arn,
         message_id,
+        sub_channel_id \\ nil,
         chime_bearer,
         options \\ []
       ) do
@@ -981,6 +1010,13 @@ defmodule AWS.ChimeSDKMessaging do
       end
 
     query_params = []
+
+    query_params =
+      if !is_nil(sub_channel_id) do
+        [{"sub-channel-id", sub_channel_id} | query_params]
+      else
+        query_params
+      end
 
     Request.request_rest(
       client,
@@ -1137,6 +1173,7 @@ defmodule AWS.ChimeSDKMessaging do
         channel_arn,
         max_results \\ nil,
         next_token \\ nil,
+        sub_channel_id \\ nil,
         type \\ nil,
         chime_bearer,
         options \\ []
@@ -1156,6 +1193,13 @@ defmodule AWS.ChimeSDKMessaging do
     query_params =
       if !is_nil(type) do
         [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sub_channel_id) do
+        [{"sub-channel-id", sub_channel_id} | query_params]
       else
         query_params
       end
@@ -1273,6 +1317,7 @@ defmodule AWS.ChimeSDKMessaging do
         not_after \\ nil,
         not_before \\ nil,
         sort_order \\ nil,
+        sub_channel_id \\ nil,
         chime_bearer,
         options \\ []
       ) do
@@ -1287,6 +1332,13 @@ defmodule AWS.ChimeSDKMessaging do
       end
 
     query_params = []
+
+    query_params =
+      if !is_nil(sub_channel_id) do
+        [{"sub-channel-id", sub_channel_id} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(sort_order) do
@@ -1564,6 +1616,59 @@ defmodule AWS.ChimeSDKMessaging do
     query_params =
       if !is_nil(app_instance_user_arn) do
         [{"app-instance-user-arn", app_instance_user_arn} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all the SubChannels in an elastic channel when given a channel ID.
+
+  Available only to the app instance admins and channel moderators of elastic
+  channels.
+  """
+  def list_sub_channels(
+        %Client{} = client,
+        channel_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        chime_bearer,
+        options \\ []
+      ) do
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/subchannels"
+    headers = []
+
+    headers =
+      if !is_nil(chime_bearer) do
+        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end

@@ -47,6 +47,27 @@ defmodule AWS.Amp do
   end
 
   @doc """
+  Create logging configuration.
+  """
+  def create_logging_configuration(%Client{} = client, workspace_id, input, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Create a rule group namespace.
   """
   def create_rule_groups_namespace(%Client{} = client, workspace_id, input, options \\ []) do
@@ -93,6 +114,32 @@ defmodule AWS.Amp do
   """
   def delete_alert_manager_definition(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Delete logging configuration.
+  """
+  def delete_logging_configuration(%Client{} = client, workspace_id, input, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
     headers = []
 
     {query_params, input} =
@@ -173,6 +220,27 @@ defmodule AWS.Amp do
   """
   def describe_alert_manager_definition(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Describes logging configuration.
+  """
+  def describe_logging_configuration(%Client{} = client, workspace_id, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
     headers = []
     query_params = []
 
@@ -439,6 +507,27 @@ defmodule AWS.Amp do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Update logging configuration.
+  """
+  def update_logging_configuration(%Client{} = client, workspace_id, input, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
     )
   end
 

@@ -15,7 +15,7 @@ defmodule AWS.SSO do
   backward compatibility purposes. For more information, see [Amazon Web Services SSO
   rename](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed).
 
-  This API reference guide describes the Amazon Web Services SSO Portal operations
+  This reference guide describes the Amazon Web Services SSO Portal operations
   that you can call programatically and includes detailed information on data
   types and errors.
 

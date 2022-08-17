@@ -5,11 +5,11 @@ defmodule AWS.ServiceCatalog do
   @moduledoc """
   AWS Service Catalog
 
-  [AWS Service Catalog](https://aws.amazon.com/servicecatalog/) enables organizations to create and manage catalogs of IT services that are approved for
-  AWS.
+  [Service Catalog](https://aws.amazon.com/servicecatalog/) enables organizations to create and manage catalogs of IT services that are approved for Amazon Web
+  Services.
 
   To get the most out of this documentation, you should be familiar with the
-  terminology discussed in [AWS Service Catalog
+  terminology discussed in [Service Catalog
   Concepts](http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html).
   """
 
@@ -126,7 +126,9 @@ defmodule AWS.ServiceCatalog do
   product.
 
   You can copy a product to the same account or another account. You can copy a
-  product to the same region or another region.
+  product to the same Region or another Region. If you copy a product to another
+  account, you must first share the product in a portfolio using
+  `CreatePortfolioShare`.
 
   This operation is performed asynchronously. To track the progress of the
   operation, use `DescribeCopyProductStatus`.
@@ -198,8 +200,8 @@ defmodule AWS.ServiceCatalog do
   product) or modified (when updating a provisioned product) when the plan is
   executed.
 
-  You can create one plan per provisioned product. To create a plan for an
-  existing provisioned product, the product status must be AVAILBLE or TAINTED.
+  You can create one plan for each provisioned product. To create a plan for an
+  existing provisioned product, the product status must be AVAILABLE or TAINTED.
 
   To view the resource changes in the change set, use
   `DescribeProvisionedProductPlan`. To create or modify the provisioned product,
@@ -475,18 +477,25 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Disable portfolio sharing through AWS Organizations feature.
+  Disable portfolio sharing through the Organizations service.
 
-  This feature will not delete your current shares but it will prevent you from
-  creating new shares throughout your organization. Current shares will not be in
-  sync with your organization structure if it changes after calling this API. This
-  API can only be called by the management account in the organization.
+  This command will not delete your current shares, but prevents you from creating
+  new shares throughout your organization. Current shares are not kept in sync
+  with your organization structure if the structure changes after calling this
+  API. Only the management account in the organization can call this API.
 
-  This API can't be invoked if there are active delegated administrators in the
+  You cannot call this API if there are active delegated administrators in the
   organization.
 
   Note that a delegated administrator is not authorized to invoke
   `DisableAWSOrganizationsAccess`.
+
+  If you share an Service Catalog portfolio in an organization within
+  Organizations, and then disable Organizations access for Service Catalog, the
+  portfolio access permissions will not sync with the latest changes to the
+  organization structure. Specifically, accounts that you removed from the
+  organization after disabling Service Catalog access will retain access to the
+  previously shared portfolio.
   """
   def disable_aws_organizations_access(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisableAWSOrganizationsAccess", input, options)
@@ -541,18 +550,28 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Enable portfolio sharing feature through AWS Organizations.
+  Enable portfolio sharing feature through Organizations.
 
   This API will allow Service Catalog to receive updates on your organization in
   order to sync your shares with the current structure. This API can only be
   called by the management account in the organization.
 
-  By calling this API Service Catalog will make a call to
-  organizations:EnableAWSServiceAccess on your behalf so that your shares can be
-  in sync with any changes in your AWS Organizations structure.
+  When you call this API, Service Catalog calls
+  `organizations:EnableAWSServiceAccess` on your behalf so that your shares stay
+  in sync with any changes in your Organizations structure.
 
   Note that a delegated administrator is not authorized to invoke
   `EnableAWSOrganizationsAccess`.
+
+  If you have previously disabled Organizations access for Service Catalog, and
+  then enable access again, the portfolio access permissions might not sync with
+  the latest changes to the organization structure. Specifically, accounts that
+  you removed from the organization after disabling Service Catalog access, and
+  before you enabled access again, can retain access to the previously shared
+  portfolio. As a result, an account that has been removed from the organization
+  might still be able to create or manage Amazon Web Services resources when it is
+  no longer authorized to do so. Amazon Web Services is working to resolve this
+  issue.
   """
   def enable_aws_organizations_access(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "EnableAWSOrganizationsAccess", input, options)
@@ -580,7 +599,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Get the Access Status for AWS Organization portfolio share feature.
+  Get the Access Status for Organizations portfolio share feature.
 
   This API can only be called by the management account in the organization or by
   a delegated admin.
@@ -599,11 +618,12 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Requests the import of a resource as a Service Catalog provisioned product that
-  is associated to a Service Catalog product and provisioning artifact.
+  Requests the import of a resource as a Amazon Web Services Service Catalog
+  provisioned product that is associated to a Amazon Web Services Service Catalog
+  product and provisioning artifact.
 
-  Once imported, all supported Service Catalog governance actions are supported on
-  the provisioned product.
+  Once imported, all supported Amazon Web Services Service Catalog governance
+  actions are supported on the provisioned product.
 
   Resource import only supports CloudFormation stack ARNs. CloudFormation
   StackSets and non-root nested stacks are not supported.
@@ -613,7 +633,8 @@ defmodule AWS.ServiceCatalog do
   `IMPORT_COMPLETE`, `IMPORT_ROLLBACK_COMPLETE`.
 
   Import of the resource requires that the CloudFormation stack template matches
-  the associated Service Catalog product provisioning artifact.
+  the associated Amazon Web Services Service Catalog product provisioning
+  artifact.
 
   The user or role that performs this operation must have the
   `cloudformation:GetTemplate` and `cloudformation:DescribeStacks` IAM policy
@@ -773,8 +794,8 @@ defmodule AWS.ServiceCatalog do
   Returns summary information about stack instances that are associated with the
   specified `CFN_STACKSET` type provisioned product.
 
-  You can filter for stack instances that are associated with a specific AWS
-  account name or region.
+  You can filter for stack instances that are associated with a specific Amazon
+  Web Services account name or Region.
   """
   def list_stack_instances_for_provisioned_product(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -843,6 +864,13 @@ defmodule AWS.ServiceCatalog do
   @doc """
   Gets information about the provisioned products that meet the specified
   criteria.
+
+  To ensure a complete list of provisioned products and remove duplicate products,
+  use `sort-by createdTime`.
+
+  Here is a CLI example: ` `
+
+  `aws servicecatalog search-provisioned-products --sort-by createdTime `
   """
   def search_provisioned_products(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SearchProvisionedProducts", input, options)

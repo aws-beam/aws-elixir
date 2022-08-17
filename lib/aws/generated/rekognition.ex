@@ -51,15 +51,19 @@ defmodule AWS.Rekognition do
   ## Amazon Rekognition Custom Labels
 
     *
-  [CreateDataset](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateDataset.html)
+  [CopyProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CopyProjectVersion.html)
 
     *
-  [CreateProject](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProject.html)     *
-  [CreateProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProjectVersion.html)
+  [CreateDataset](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateDataset.html)     *
+  [CreateProject](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProject.html)
 
     *
-  [DeleteDataset](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteDataset.html)     *
-  [DeleteProject](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProject.html)
+  [CreateProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProjectVersion.html)     *
+  [DeleteDataset](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteDataset.html)
+
+    *
+  [DeleteProject](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProject.html)     *
+  [DeleteProjectPolicy](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProjectPolicy.html)
 
     *
   [DeleteProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProjectVersion.html)     *
@@ -76,6 +80,10 @@ defmodule AWS.Rekognition do
     *
   [ListDatasetEntries](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListDatasetEntries.html)     *
   [ListDatasetLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListDatasetLabels.html)
+
+    *
+  [ListProjectPolicies](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListProjectPolicies.html)     *
+  [PutProjectPolicy](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_PutProjectPolicy.html)
 
     *
   [StartProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartProjectVersion.html)     *
@@ -134,7 +142,8 @@ defmodule AWS.Rekognition do
   [StartStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartStreamProcessor.html)
 
     *
-  [StopStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopStreamProcessor.html)
+  [StopStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopStreamProcessor.html)     *
+  [UpdateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UpdateStreamProcessor.html)
   """
 
   alias AWS.Client
@@ -217,6 +226,37 @@ defmodule AWS.Rekognition do
   """
   def compare_faces(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CompareFaces", input, options)
+  end
+
+  @doc """
+  Copies a version of an Amazon Rekognition Custom Labels model from a source
+  project to a destination project.
+
+  The source and destination projects can be in different AWS accounts but must be
+  in the same AWS Region. You can't copy a model to another AWS service.
+
+  To copy a model version to a different AWS account, you need to create a
+  resource-based policy known as a *project policy*. You attach the project policy
+  to the source project by calling `PutProjectPolicy`. The project policy gives
+  permission to copy the model version from a trusting AWS account to a trusted
+  account.
+
+  For more information creating and attaching a project policy, see Attaching a
+  project policy (SDK) in the *Amazon Rekognition Custom Labels Developer Guide*.
+
+  If you are copying a model version to a project in the same AWS account, you
+  don't need to create a project policy.
+
+  To copy a model, the destination project, source project, and source model
+  version must already exist.
+
+  Copying a model version takes a while to complete. To get the current status,
+  call `DescribeProjectVersions` and check the value of `Status` in the
+  `ProjectVersionDescription` object. The copy operation has finished when the
+  value of `Status` is `COPYING_COMPLETED`.
+  """
+  def copy_project_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CopyProjectVersion", input, options)
   end
 
   @doc """
@@ -424,13 +464,25 @@ defmodule AWS.Rekognition do
 
   `DeleteProject` is an asynchronous operation. To check if the project is
   deleted, call `DescribeProjects`. The project is deleted when the project no
-  longer appears in the response.
+  longer appears in the response. Be aware that deleting a given project will also
+  delete any `ProjectPolicies` associated with that project.
 
   This operation requires permissions to perform the `rekognition:DeleteProject`
   action.
   """
   def delete_project(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteProject", input, options)
+  end
+
+  @doc """
+  Deletes an existing project policy.
+
+  To get a list of project policies attached to a project, call
+  `ListProjectPolicies`. To attach a project policy to a project, call
+  `PutProjectPolicy`.
+  """
+  def delete_project_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteProjectPolicy", input, options)
   end
 
   @doc """
@@ -1305,6 +1357,16 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+  Gets a list of the project policies attached to a project.
+
+  To attach a project policy to a project, call `PutProjectPolicy`. To remove a
+  project policy from a project, call `DeleteProjectPolicy`.
+  """
+  def list_project_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListProjectPolicies", input, options)
+  end
+
+  @doc """
   Gets a list of stream processors that you have created with
   `CreateStreamProcessor`.
   """
@@ -1321,6 +1383,32 @@ defmodule AWS.Rekognition do
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Attaches a project policy to a Amazon Rekognition Custom Labels project in a
+  trusting AWS account.
+
+  A project policy specifies that a trusted AWS account can copy a model version
+  from a trusting AWS account to a project in the trusted AWS account. To copy a
+  model version you use the `CopyProjectVersion` operation.
+
+  For more information about the format of a project policy document, see
+  Attaching a project policy (SDK) in the *Amazon Rekognition Custom Labels
+  Developer Guide*.
+
+  The response from `PutProjectPolicy` is a revision ID for the project policy.
+  You can attach multiple project policies to a project. You can also update an
+  existing project policy by specifying the policy revision ID of the existing
+  policy.
+
+  To remove a project policy from a project, call `DeleteProjectPolicy`. To get a
+  list of project policies attached to a project, call `ListProjectPolicies`.
+
+  You copy a model version by calling `CopyProjectVersion`.
+  """
+  def put_project_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutProjectPolicy", input, options)
   end
 
   @doc """

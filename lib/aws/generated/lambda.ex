@@ -238,7 +238,7 @@ defmodule AWS.Lambda do
   @doc """
   Creates a mapping between an event source and an Lambda function.
 
-  Lambda reads items from the event source and triggers the function.
+  Lambda reads items from the event source and invokes the function.
 
   For details about how to configure different event sources, see the following
   topics.
@@ -255,7 +255,7 @@ defmodule AWS.Lambda do
 
     * [ Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
 
-  The following error handling options are only available for stream sources
+  The following error handling options are available only for stream sources
   (DynamoDB and Kinesis):
 
     * `BisectBatchOnFunctionError` - If the function returns an error,
@@ -1141,8 +1141,9 @@ defmodule AWS.Lambda do
   with timeout or keep-alive settings.
 
   This operation requires permission for the
-  [lambda:InvokeFunction](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html)
-  action.
+  [lambda:InvokeFunction](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html) action. For details on how to set up permissions for cross-account invocations,
+  see [Granting function access to other
+  accounts](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke).
   """
   def invoke(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/invocations"
@@ -1305,7 +1306,7 @@ defmodule AWS.Lambda do
   @doc """
   Lists event source mappings.
 
-  Specify an `EventSourceArn` to only show event source mappings for a single
+  Specify an `EventSourceArn` to show only event source mappings for a single
   event source.
   """
   def list_event_source_mappings(
@@ -2181,7 +2182,7 @@ defmodule AWS.Lambda do
 
     * [ Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
 
-  The following error handling options are only available for stream sources
+  The following error handling options are available only for stream sources
   (DynamoDB and Kinesis):
 
     * `BisectBatchOnFunctionError` - If the function returns an error,

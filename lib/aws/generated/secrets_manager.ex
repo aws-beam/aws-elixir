@@ -231,10 +231,13 @@ defmodule AWS.SecretsManager do
   Caching secrets improves speed and reduces your costs. For more information, see
   [Cache secrets for your applications](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html).
 
-  **Required permissions: ** `secretsmanager:GetSecretValue`. If the secret is
+  To retrieve the previous version of a secret, use `VersionStage` and specify
+  AWSPREVIOUS. To revert to the previous version of a secret, call
+  [UpdateSecretVersionStage](https://docs.aws.amazon.com/cli/latest/reference/secretsmanager/update-secret-version-stage.html).  **Required permissions: ** `secretsmanager:GetSecretValue`. If the secret is
   encrypted using a customer-managed key instead of the Amazon Web Services
   managed key `aws/secretsmanager`, then you also need `kms:Decrypt` permissions
-  for that key. For more information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
+  for that key. For more information, see [ IAM policy actions for Secrets
+  Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def get_secret_value(%Client{} = client, input, options \\ []) do
@@ -519,17 +522,6 @@ defmodule AWS.SecretsManager do
   version's `VersionId`, the operation results in an error. You can't modify an
   existing version, you can only create a new version. To remove a version, remove
   all staging labels from it. See `UpdateSecretVersionStage`.
-
-  If you don't specify an KMS encryption key, Secrets Manager uses the Amazon Web
-  Services managed key `aws/secretsmanager`. If this key doesn't already exist in
-  your account, then Secrets Manager creates it for you automatically. All users
-  and roles in the Amazon Web Services account automatically have access to use
-  `aws/secretsmanager`. Creating `aws/secretsmanager` can result in a one-time
-  significant delay in returning the result.
-
-  If the secret is in a different Amazon Web Services account from the credentials
-  calling the API, then you can't use `aws/secretsmanager` to encrypt the secret,
-  and you must create and use a customer managed key.
 
   **Required permissions: ** `secretsmanager:UpdateSecret`. For more information,
   see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)

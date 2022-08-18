@@ -132,6 +132,14 @@ defmodule AWS.RDS do
   another.
 
   For an overview of CIDR ranges, go to the [Wikipedia Tutorial](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+
+  EC2-Classic was retired on August 15, 2022. If you haven't migrated from
+  EC2-Classic to a VPC, we recommend that you migrate as soon as possible. For
+  more information, see [Migrate from EC2-Classic to a VPC](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html) in
+  the *Amazon EC2 User Guide*, the blog [EC2-Classic Networking is Retiring – Here’s How to
+  Prepare](http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/),
+  and [Moving a DB instance not in a VPC into a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Non-VPC2VPC.html)
+  in the *Amazon RDS User Guide*.
   """
   def authorize_db_security_group_ingress(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AuthorizeDBSecurityGroupIngress", input, options)
@@ -470,6 +478,14 @@ defmodule AWS.RDS do
 
   A DB security group controls access to EC2-Classic DB instances that are not in
   a VPC.
+
+  EC2-Classic was retired on August 15, 2022. If you haven't migrated from
+  EC2-Classic to a VPC, we recommend that you migrate as soon as possible. For
+  more information, see [Migrate from EC2-Classic to a VPC](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html) in
+  the *Amazon EC2 User Guide*, the blog [EC2-Classic Networking is Retiring – Here’s How to
+  Prepare](http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/),
+  and [Moving a DB instance not in a VPC into a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Non-VPC2VPC.html)
+  in the *Amazon RDS User Guide*.
   """
   def create_db_security_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBSecurityGroup", input, options)
@@ -518,8 +534,15 @@ defmodule AWS.RDS do
   `SourceIds`, you are notified of events generated from all RDS sources belonging
   to your customer account.
 
-  RDS event notification is only available for unencrypted SNS topics. If you
-  specify an encrypted SNS topic, event notifications aren't sent for the topic.
+  For more information about subscribing to an event for RDS DB engines, see [
+  Subscribing to Amazon RDS event
+  notification](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Subscribing.html)
+  in the *Amazon RDS User Guide*.
+
+  For more information about subscribing to an event for Aurora DB engines, see [
+  Subscribing to Amazon RDS event
+  notification](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Subscribing.html)
+  in the *Amazon Aurora User Guide*.
   """
   def create_event_subscription(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateEventSubscription", input, options)
@@ -718,6 +741,14 @@ defmodule AWS.RDS do
   Deletes a DB security group.
 
   The specified DB security group must not be associated with any DB instances.
+
+  EC2-Classic was retired on August 15, 2022. If you haven't migrated from
+  EC2-Classic to a VPC, we recommend that you migrate as soon as possible. For
+  more information, see [Migrate from EC2-Classic to a VPC](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html) in
+  the *Amazon EC2 User Guide*, the blog [EC2-Classic Networking is Retiring – Here’s How to
+  Prepare](http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/),
+  and [Moving a DB instance not in a VPC into a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Non-VPC2VPC.html)
+  in the *Amazon RDS User Guide*.
   """
   def delete_db_security_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBSecurityGroup", input, options)
@@ -1005,6 +1036,14 @@ defmodule AWS.RDS do
 
   If a `DBSecurityGroupName` is specified, the list will contain only the
   descriptions of the specified DB security group.
+
+  EC2-Classic was retired on August 15, 2022. If you haven't migrated from
+  EC2-Classic to a VPC, we recommend that you migrate as soon as possible. For
+  more information, see [Migrate from EC2-Classic to a VPC](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html) in
+  the *Amazon EC2 User Guide*, the blog [EC2-Classic Networking is Retiring – Here’s How to
+  Prepare](http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/),
+  and [Moving a DB instance not in a VPC into a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Non-VPC2VPC.html)
+  in the *Amazon RDS User Guide*.
   """
   def describe_db_security_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBSecurityGroups", input, options)
@@ -1964,6 +2003,14 @@ defmodule AWS.RDS do
   Required parameters for this API are one of CIDRIP, EC2SecurityGroupId for VPC,
   or (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
   EC2SecurityGroupId).
+
+  EC2-Classic was retired on August 15, 2022. If you haven't migrated from
+  EC2-Classic to a VPC, we recommend that you migrate as soon as possible. For
+  more information, see [Migrate from EC2-Classic to a VPC](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html) in
+  the *Amazon EC2 User Guide*, the blog [EC2-Classic Networking is Retiring – Here’s How to
+  Prepare](http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/),
+  and [Moving a DB instance not in a VPC into a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Non-VPC2VPC.html)
+  in the *Amazon RDS User Guide*.
   """
   def revoke_db_security_group_ingress(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RevokeDBSecurityGroupIngress", input, options)

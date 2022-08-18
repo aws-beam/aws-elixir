@@ -45,4 +45,27 @@ defmodule AWS.XMLTest do
 
     assert ^expected = AWS.XML.decode!(input)
   end
+
+  test "encode_to_iodata!/2 test all possible types" do
+    input = %{
+      {"TagWithAttrs", %{xmlns: "some-ns"}} => %{
+        "TagWithOutAttrs" => %{
+          "TestTypes" => [
+            %{"BoolVal" => true},
+            %{"IntVal" => 1},
+            %{"FloatVal" => 1.0},
+            %{"BinValue" => "hello"}
+          ]
+        }
+      }
+    }
+
+    expected =
+      """
+      <TagWithAttrs xmlns="some-ns"><TagWithOutAttrs><TestTypes><BoolVal>true</BoolVal></TestTypes><TestTypes><IntVal>1</IntVal></TestTypes><TestTypes><FloatVal>1.0</FloatVal></TestTypes><TestTypes><BinValue>hello</BinValue></TestTypes></TagWithOutAttrs></TagWithAttrs>
+      """
+      |> String.trim()
+
+    assert expected == AWS.XML.encode_to_iodata!(input)
+  end
 end

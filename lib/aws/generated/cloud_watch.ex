@@ -431,6 +431,14 @@ defmodule AWS.CloudWatch do
   end
 
   @doc """
+  Returns a list that contains the number of managed Contributor Insights rules in
+  your account.
+  """
+  def list_managed_insight_rules(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListManagedInsightRules", input, options)
+  end
+
+  @doc """
   Returns a list of metric streams in this account.
   """
   def list_metric_streams(%Client{} = client, input, options \\ []) do
@@ -578,6 +586,22 @@ defmodule AWS.CloudWatch do
   """
   def put_insight_rule(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutInsightRule", input, options)
+  end
+
+  @doc """
+  Creates a managed Contributor Insights rule for a specified Amazon Web Services
+  resource.
+
+  When you enable a managed rule, you create a Contributor Insights rule that
+  collects data from Amazon Web Services services. You cannot edit these rules
+  with `PutInsightRule`. The rules can be enabled, disabled, and deleted using
+  `EnableInsightRules`, `DisableInsightRules`, and `DeleteInsightRules`. If a
+  previously created managed rule is currently disabled, a subsequent call to this
+  API will re-enable it. Use `ListManagedInsightRules` to describe all available
+  rules.
+  """
+  def put_managed_insight_rules(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutManagedInsightRules", input, options)
   end
 
   @doc """

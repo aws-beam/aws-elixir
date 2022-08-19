@@ -455,6 +455,13 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+  Represents the properties of the import.
+  """
+  def describe_import(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeImport", input, options)
+  end
+
+  @doc """
   Returns information about the status of Kinesis streaming.
   """
   def describe_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
@@ -647,6 +654,13 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+  Imports table data from an S3 bucket.
+  """
+  def import_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ImportTable", input, options)
+  end
+
+  @doc """
   List backups associated with an Amazon Web Services account.
 
   To list backups for a given table, specify `TableName`. `ListBackups` returns a
@@ -685,6 +699,13 @@ defmodule AWS.DynamoDB do
   """
   def list_global_tables(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListGlobalTables", input, options)
+  end
+
+  @doc """
+  Lists completed imports within the past 90 days.
+  """
+  def list_imports(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListImports", input, options)
   end
 
   @doc """

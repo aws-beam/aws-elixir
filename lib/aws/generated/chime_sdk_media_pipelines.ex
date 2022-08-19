@@ -4,10 +4,10 @@
 defmodule AWS.ChimeSDKMediaPipelines do
   @moduledoc """
   The Amazon Chime SDK media pipeline APIs in this section allow software
-  developers to create Amazon Chime SDK media pipelines and capture audio, video,
-  events, and data messages from Amazon Chime SDK meetings.
+  developers to create Amazon Chime SDK media pipelines that capture, concatenate,
+  or stream your Amazon Chime SDK meetings.
 
-  For more information about media pipleines, see [Amzon Chime SDK media pipelines](https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Media_Pipelines.html).
+  For more information about media pipleines, see [Amazon Chime SDK media pipelines](http://amazonaws.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Media_Pipelines.html).
   """
 
   alias AWS.Client
@@ -30,7 +30,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   end
 
   @doc """
-  Creates a media capture pipeline.
+  Creates a media pipeline.
   """
   def create_media_capture_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/sdk-media-capture-pipelines"
@@ -51,7 +51,49 @@ defmodule AWS.ChimeSDKMediaPipelines do
   end
 
   @doc """
-  Deletes the media capture pipeline.
+  Creates a media concatenation pipeline.
+  """
+  def create_media_concatenation_pipeline(%Client{} = client, input, options \\ []) do
+    url_path = "/sdk-media-concatenation-pipelines"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a streaming media pipeline in an Amazon Chime SDK meeting.
+  """
+  def create_media_live_connector_pipeline(%Client{} = client, input, options \\ []) do
+    url_path = "/sdk-media-live-connector-pipelines"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Deletes the media pipeline.
   """
   def delete_media_capture_pipeline(%Client{} = client, media_pipeline_id, input, options \\ []) do
     url_path = "/sdk-media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
@@ -72,7 +114,28 @@ defmodule AWS.ChimeSDKMediaPipelines do
   end
 
   @doc """
-  Gets an existing media capture pipeline.
+  Deletes the media pipeline.
+  """
+  def delete_media_pipeline(%Client{} = client, media_pipeline_id, input, options \\ []) do
+    url_path = "/sdk-media-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Gets an existing media pipeline.
   """
   def get_media_capture_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
     url_path = "/sdk-media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
@@ -93,7 +156,28 @@ defmodule AWS.ChimeSDKMediaPipelines do
   end
 
   @doc """
-  Returns a list of media capture pipelines.
+  Gets an existing media pipeline.
+  """
+  def get_media_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
+    url_path = "/sdk-media-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a list of media pipelines.
   """
   def list_media_capture_pipelines(
         %Client{} = client,
@@ -133,7 +217,47 @@ defmodule AWS.ChimeSDKMediaPipelines do
   end
 
   @doc """
-  Lists the tags applied to an Amazon Chime SDK media capture pipeline.
+  Returns a list of media pipelines.
+  """
+  def list_media_pipelines(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/sdk-media-pipelines"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the tags available for a media pipeline.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
@@ -161,8 +285,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
   end
 
   @doc """
-  Applies the specified tags to the specified Amazon Chime SDK media capture
-  pipeline.
+  The ARN of the media pipeline that you want to tag.
+
+  Consists of he pipeline's endpoint region, resource ID, and pipeline ID.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=tag-resource"
@@ -183,8 +308,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   end
 
   @doc """
-  Removes the specified tags from the specified Amazon Chime SDK media capture
-  pipeline.
+  Removes any tags from a media pipeline.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=untag-resource"

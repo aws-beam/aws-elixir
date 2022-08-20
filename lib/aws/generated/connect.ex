@@ -19,7 +19,7 @@ defmodule AWS.Connect do
   You can connect programmatically to an Amazon Web Services service by using an
   endpoint. For a list of Amazon Connect endpoints, see [Amazon Connect Endpoints](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
 
-  Working with contact flows? Check out the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
+  Working with flows? Check out the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
   """
 
   alias AWS.Client
@@ -199,8 +199,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Associates a contact flow with a phone number claimed to your Amazon Connect
-  instance.
+  Associates a flow with a phone number claimed to your Amazon Connect instance.
   """
   def associate_phone_number_contact_flow(
         %Client{} = client,
@@ -353,9 +352,9 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates a contact flow for the specified Amazon Connect instance.
+  Creates a flow for the specified Amazon Connect instance.
 
-  You can also create and update contact flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
+  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
   """
   def create_contact_flow(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/contact-flows/#{AWS.Util.encode_uri(instance_id)}"
@@ -376,7 +375,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates a contact flow module for the specified Amazon Connect instance.
+  Creates a flow module for the specified Amazon Connect instance.
   """
   def create_contact_flow_module(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}"
@@ -683,7 +682,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Deletes a contact flow for the specified Amazon Connect instance.
+  Deletes a flow for the specified Amazon Connect instance.
   """
   def delete_contact_flow(%Client{} = client, contact_flow_id, instance_id, input, options \\ []) do
     url_path =
@@ -706,7 +705,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Deletes the specified contact flow module.
+  Deletes the specified flow module.
   """
   def delete_contact_flow_module(
         %Client{} = client,
@@ -1076,9 +1075,9 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Describes the specified contact flow.
+  Describes the specified flow.
 
-  You can also create and update contact flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
+  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
   """
   def describe_contact_flow(%Client{} = client, contact_flow_id, instance_id, options \\ []) do
     url_path =
@@ -1101,7 +1100,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Describes the specified contact flow module.
+  Describes the specified flow module.
   """
   def describe_contact_flow_module(
         %Client{} = client,
@@ -1561,7 +1560,7 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Remove the Lambda function from the dropdown options available in the relevant
-  contact flow blocks.
+  flow blocks.
   """
   def disassociate_lambda_function(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lambda-function"
@@ -1617,8 +1616,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Removes the contact flow association from a phone number claimed to your Amazon
-  Connect instance, if a contact flow association exists.
+  Removes the flow association from a phone number claimed to your Amazon Connect
+  instance, if a flow association exists.
   """
   def disassociate_phone_number_contact_flow(
         %Client{} = client,
@@ -2042,8 +2041,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Provides information about the contact flow modules for the specified Amazon
-  Connect instance.
+  Provides information about the flow modules for the specified Amazon Connect
+  instance.
   """
   def list_contact_flow_modules(
         %Client{} = client,
@@ -2092,12 +2091,12 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Provides information about the contact flows for the specified Amazon Connect
-  instance.
+  Provides information about the flows for the specified Amazon Connect instance.
 
-  You can also create and update contact flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
+  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
 
-  For more information about contact flows, see [Contact Flows](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html)
+  For more information about flows, see
+  [Flows](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html)
   in the *Amazon Connect Administrator Guide*.
   """
   def list_contact_flows(
@@ -2449,7 +2448,7 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Returns a paginated list of all Lambda functions that display in the dropdown
-  options in the relevant contact flow blocks.
+  options in the relevant flow blocks.
   """
   def list_lambda_functions(
         %Client{} = client,
@@ -3351,6 +3350,30 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Searches security profiles in an Amazon Connect instance, with optional
+  filtering.
+  """
+  def search_security_profiles(%Client{} = client, input, options \\ []) do
+    url_path = "/search-security-profiles"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Searches users in an Amazon Connect instance, with optional filtering.
   """
   def search_users(%Client{} = client, input, options \\ []) do
@@ -3394,7 +3417,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Initiates a contact flow to start a new chat for the customer.
+  Initiates a flow to start a new chat for the customer.
 
   Response of this API provides a token required to obtain credentials from the
   [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html) API in the Amazon Connect Participant Service.
@@ -3504,15 +3527,14 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Places an outbound call to a contact, and then initiates the contact flow.
+  Places an outbound call to a contact, and then initiates the flow.
 
-  It performs the actions in the contact flow that's specified (in
-  `ContactFlowId`).
+  It performs the actions in the flow that's specified (in `ContactFlowId`).
 
   Agents do not initiate the outbound API, which means that they do not dial the
-  contact. If the contact flow places an outbound call to a contact, and then puts
-  the contact in queue, the call is then routed to the agent, like any other
-  inbound case.
+  contact. If the flow places an outbound call to a contact, and then puts the
+  contact in queue, the call is then routed to the agent, like any other inbound
+  case.
 
   There is a 60-second dialing timeout for this operation. If the call is not
   connected after 60 seconds, it fails.
@@ -3523,9 +3545,8 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator Guide*.
 
   Campaign calls are not allowed by default. Before you can make a call with
-  `TrafficType` = `CAMPAIGN`, you must submit a service quota increase request.
-  For more information, see [Amazon Connect Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
-  in the *Amazon Connect Administrator Guide*.
+  `TrafficType` = `CAMPAIGN`, you must submit a service quota increase request to
+  the quota [Amazon Connect campaigns](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas).
   """
   def start_outbound_voice_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/outbound-voice"
@@ -3546,7 +3567,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Initiates a contact flow to start a new task.
+  Initiates a flow to start a new task.
   """
   def start_task_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/task"
@@ -3682,9 +3703,10 @@ defmodule AWS.Connect do
   @doc """
   Adds the specified tags to the specified resource.
 
-  The supported resource types are users, routing profiles, queues, quick
-  connects, contact flows, agent status, hours of operation, phone number,
-  security profiles, and task templates.
+  Some of the supported resource types are agents, routing profiles, queues, quick
+  connects, contact flows, agent statuses, hours of operation, phone numbers,
+  security profiles, and task templates. For a complete list, see [Tagging resources in Amazon
+  Connect](https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html).
 
   For sample policies that use tags, see [Amazon Connect Identity-Based Policy Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
   in the *Amazon Connect Administrator Guide*.
@@ -3711,7 +3733,7 @@ defmodule AWS.Connect do
   Transfers contacts from one agent or queue to another agent or queue at any
   point after a contact is created.
 
-  You can transfer a contact to another queue by providing the contact flow which
+  You can transfer a contact to another queue by providing the flow which
   orchestrates the contact to the destination queue. This gives you more control
   over contact handling and helps you adhere to the service level agreement (SLA)
   guaranteed to your customers.
@@ -3722,8 +3744,8 @@ defmodule AWS.Connect do
 
     * Do not use both `QueueId` and `UserId` in the same call.
 
-    * The following contact flow types are supported: Inbound contact
-  flow, Transfer to agent flow, and Transfer to queue flow.
+    * The following flow types are supported: Inbound flow, Transfer to
+  agent flow, and Transfer to queue flow.
 
     * The `TransferContact` API can be called only on active contacts.
 
@@ -3839,17 +3861,9 @@ defmodule AWS.Connect do
   callers.
 
   Contact attributes are available in Amazon Connect for 24 months, and are then
-  deleted. For information about CTR retention and the maximum size of the CTR
-  attributes section, see [Feature specifications](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits)
+  deleted. For information about contact record retention and the maximum size of
+  the contact record attributes section, see [Feature specifications](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits)
   in the *Amazon Connect Administrator Guide*.
-
-  **Important:** You cannot use the operation to update attributes for contacts
-  that occurred prior to the release of the API, which was September 12, 2018. You
-  can update attributes only for contacts that started after the release of the
-  API. If you attempt to update attributes for a contact that occurred prior to
-  the release of the API, a 400 error is returned. This applies also to queued
-  callbacks that were initiated prior to the release of the API but are still
-  active in your instance.
   """
   def update_contact_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/contact/attributes"
@@ -3870,9 +3884,9 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Updates the specified contact flow.
+  Updates the specified flow.
 
-  You can also create and update contact flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
+  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
   """
   def update_contact_flow_content(
         %Client{} = client,
@@ -3901,7 +3915,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Updates metadata about specified contact flow.
+  Updates metadata about specified flow.
   """
   def update_contact_flow_metadata(
         %Client{} = client,
@@ -3930,7 +3944,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Updates specified contact flow module for the specified Amazon Connect instance.
+  Updates specified flow module for the specified Amazon Connect instance.
   """
   def update_contact_flow_module_content(
         %Client{} = client,
@@ -3959,7 +3973,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Updates metadata about specified contact flow module.
+  Updates metadata about specified flow module.
   """
   def update_contact_flow_module_metadata(
         %Client{} = client,
@@ -3988,9 +4002,9 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  The name of the contact flow.
+  The name of the flow.
 
-  You can also create and update contact flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
+  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
   """
   def update_contact_flow_name(
         %Client{} = client,

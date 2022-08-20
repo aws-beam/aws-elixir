@@ -31,6 +31,26 @@ defmodule AWS.Ivschat do
   clients connect to and exchange chat messages. See the Room endpoints for more
   information.
 
+  ## Tagging
+
+  A *tag* is a metadata label that you assign to an AWS resource. A tag comprises
+  a *key* and a *value*, both set by you. For example, you might set a tag as
+  `topic:nature` to label a particular video category. See [Tagging AWS
+  Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) for
+  more information, including restrictions that apply to tags and "Tag naming
+  limits and requirements"; Amazon IVS Chat has no service-specific constraints
+  beyond what is documented there.
+
+  Tags can help you identify and organize your AWS resources. For example, you can
+  use the same tag for different resources to indicate that they are related. You
+  can also use tags to manage access (see [Access Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html)).
+
+  The Amazon IVS Chat API has these tag-related endpoints: `TagResource`,
+  `UntagResource`, and `ListTagsForResource`. The following resource supports
+  tagging: Room.
+
+  At most 50 tags can be applied to a resource.
+
   ## API Access Security
 
   Your Amazon IVS Chat applications (service applications and clients) must be
@@ -62,8 +82,7 @@ defmodule AWS.Ivschat do
 
   For more information:
 
-    * Authentication and generating signatures — See [Authenticating
-  Requests (Amazon Web Services Signature Version
+    * Authentication and generating signatures — See [Authenticating Requests (Amazon Web Services Signature Version
   4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html)
   in the *Amazon Web Services General Reference*.
 

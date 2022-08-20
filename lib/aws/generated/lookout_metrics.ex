@@ -338,6 +338,27 @@ defmodule AWS.LookoutMetrics do
   end
 
   @doc """
+  Returns details about the requested data quality metrics.
+  """
+  def get_data_quality_metrics(%Client{} = client, input, options \\ []) do
+    url_path = "/GetDataQualityMetrics"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Get feedback for an anomaly group.
   """
   def get_feedback(%Client{} = client, input, options \\ []) do

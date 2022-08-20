@@ -147,7 +147,8 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Creates a data source that you want to use with an Amazon Kendra index.
+  Creates a data source connector that you want to use with an Amazon Kendra
+  index.
 
   You specify a name, data source connector type and description for your data
   source. You also specify configuration information for the data source
@@ -257,7 +258,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Deletes an Amazon Kendra data source.
+  Deletes an Amazon Kendra data source connector.
 
   An exception is not thrown if the data source is already being deleted. While
   the data source is being deleted, the `Status` field returned by a call to the
@@ -352,7 +353,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Gets information about an Amazon Kendra data source.
+  Gets information about an Amazon Kendra data source connector.
   """
   def describe_data_source(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDataSource", input, options)
@@ -486,14 +487,14 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Gets statistics about synchronizing Amazon Kendra with a data source.
+  Gets statistics about synchronizing a data source connector.
   """
   def list_data_source_sync_jobs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDataSourceSyncJobs", input, options)
   end
 
   @doc """
-  Lists the data sources that you have created.
+  Lists the data source connectors that you have created.
   """
   def list_data_sources(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDataSources", input, options)
@@ -636,7 +637,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Starts a synchronization job for a data source.
+  Starts a synchronization job for a data source connector.
 
   If a synchronization job is already in progress, Amazon Kendra returns a
   `ResourceInUseException` exception.
@@ -712,7 +713,7 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Updates an existing Amazon Kendra data source.
+  Updates an existing Amazon Kendra data source connector.
   """
   def update_data_source(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateDataSource", input, options)

@@ -1556,6 +1556,37 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
+  Stop an already running Bot Recommendation request.
+  """
+  def stop_bot_recommendation(
+        %Client{} = client,
+        bot_id,
+        bot_recommendation_id,
+        bot_version,
+        locale_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/botrecommendations/#{AWS.Util.encode_uri(bot_recommendation_id)}/stopbotrecommendation"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Adds the specified tags to the specified resource.
 
   If a tag key already exists, the existing value is replaced with the new value.

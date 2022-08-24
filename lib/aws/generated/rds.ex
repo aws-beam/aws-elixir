@@ -2149,4 +2149,14 @@ defmodule AWS.RDS do
       options
     )
   end
+
+  @doc """
+  Switches over an Oracle standby database in an Oracle Data Guard environment,
+  making it the new primary database.
+
+  Issue this command in the AWS Region that hosts the current standby database.
+  """
+  def switchover_read_replica(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SwitchoverReadReplica", input, options)
+  end
 end

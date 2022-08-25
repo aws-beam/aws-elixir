@@ -1490,12 +1490,13 @@ defmodule AWS.IAM do
   Although each user is limited to a small number of keys, you can still paginate
   the results using the `MaxItems` and `Marker` parameters.
 
-  If the `UserName` field is not specified, the user name is determined implicitly
-  based on the Amazon Web Services access key ID used to sign the request. This
-  operation works for access keys under the Amazon Web Services account.
-  Consequently, you can use this operation to manage Amazon Web Services account
-  root user credentials even if the Amazon Web Services account has no associated
-  users.
+  If the `UserName` is not specified, the user name is determined implicitly based
+  on the Amazon Web Services access key ID used to sign the request. If a
+  temporary access key is used, then `UserName` is required. If a long-term key is
+  assigned to the user, then `UserName` is not required. This operation works for
+  access keys under the Amazon Web Services account. Consequently, you can use
+  this operation to manage Amazon Web Services account root user credentials even
+  if the Amazon Web Services account has no associated users.
 
   To ensure the security of your Amazon Web Services account, the secret access
   key is accessible only during key and user creation.
@@ -2707,11 +2708,12 @@ defmodule AWS.IAM do
   workflow.
 
   If the `UserName` is not specified, the user name is determined implicitly based
-  on the Amazon Web Services access key ID used to sign the request. This
-  operation works for access keys under the Amazon Web Services account.
-  Consequently, you can use this operation to manage Amazon Web Services account
-  root user credentials even if the Amazon Web Services account has no associated
-  users.
+  on the Amazon Web Services access key ID used to sign the request. If a
+  temporary access key is used, then `UserName` is required. If a long-term key is
+  assigned to the user, then `UserName` is not required. This operation works for
+  access keys under the Amazon Web Services account. Consequently, you can use
+  this operation to manage Amazon Web Services account root user credentials even
+  if the Amazon Web Services account has no associated users.
 
   For information about rotating keys, see [Managing keys and certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)
   in the *IAM User Guide*.

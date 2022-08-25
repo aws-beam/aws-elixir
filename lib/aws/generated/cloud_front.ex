@@ -396,7 +396,7 @@ defmodule AWS.CloudFront do
   """
   def create_monitoring_subscription(%Client{} = client, distribution_id, input, options \\ []) do
     url_path =
-      "/2020-05-31/distributions/#{AWS.Util.encode_uri(distribution_id)}/monitoring-subscription"
+      "/2020-05-31/distributions/#{AWS.Util.encode_uri(distribution_id)}/monitoring-subscription/"
 
     headers = []
     query_params = []
@@ -411,6 +411,46 @@ defmodule AWS.CloudFront do
       input,
       options,
       nil
+    )
+  end
+
+  @doc """
+  Creates a new origin access control in CloudFront.
+
+  After you create an origin access control, you can add it to an origin in a
+  CloudFront distribution so that CloudFront sends authenticated (signed) requests
+  to the origin.
+
+  For an Amazon S3 origin, this makes it possible to block public access to the
+  Amazon S3 bucket so that viewers (users) can access the content in the bucket
+  only through CloudFront.
+
+  For more information about using a CloudFront origin access control, see
+  [Restricting access to an Amazon S3 origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html)
+  in the *Amazon CloudFront Developer Guide*.
+  """
+  def create_origin_access_control(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/origin-access-control"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
     )
   end
 
@@ -842,7 +882,7 @@ defmodule AWS.CloudFront do
   """
   def delete_monitoring_subscription(%Client{} = client, distribution_id, input, options \\ []) do
     url_path =
-      "/2020-05-31/distributions/#{AWS.Util.encode_uri(distribution_id)}/monitoring-subscription"
+      "/2020-05-31/distributions/#{AWS.Util.encode_uri(distribution_id)}/monitoring-subscription/"
 
     headers = []
     query_params = []
@@ -857,6 +897,37 @@ defmodule AWS.CloudFront do
       input,
       options,
       nil
+    )
+  end
+
+  @doc """
+  Deletes a CloudFront origin access control.
+
+  You cannot delete an origin access control if it's in use. First, update all
+  distributions to remove the origin access control from all origins, then delete
+  the origin access control.
+  """
+  def delete_origin_access_control(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/origin-access-control/#{AWS.Util.encode_uri(id)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
     )
   end
 
@@ -1530,10 +1601,66 @@ defmodule AWS.CloudFront do
   """
   def get_monitoring_subscription(%Client{} = client, distribution_id, options \\ []) do
     url_path =
-      "/2020-05-31/distributions/#{AWS.Util.encode_uri(distribution_id)}/monitoring-subscription"
+      "/2020-05-31/distributions/#{AWS.Util.encode_uri(distribution_id)}/monitoring-subscription/"
 
     headers = []
     query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets a CloudFront origin access control.
+  """
+  def get_origin_access_control(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/origin-access-control/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets a CloudFront origin access control.
+  """
+  def get_origin_access_control_config(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/origin-access-control/#{AWS.Util.encode_uri(id)}/config"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     Request.request_rest(
       client,
@@ -2537,6 +2664,53 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Gets the list of CloudFront origin access controls in this Amazon Web Services
+  account.
+
+  You can optionally specify the maximum number of items to receive in the
+  response. If the total number of items in the list exceeds the maximum that you
+  specify, or the default maximum, the response is paginated. To get the next page
+  of items, send another request that specifies the `NextMarker` value from the
+  current response as the `Marker` value in the next request.
+  """
+  def list_origin_access_controls(
+        %Client{} = client,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/origin-access-control"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Gets a list of origin request policies.
 
   You can optionally apply a filter to return only the managed policies created by
@@ -3235,6 +3409,40 @@ defmodule AWS.CloudFront do
   """
   def update_key_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/key-group/#{AWS.Util.encode_uri(id)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates a CloudFront origin access control.
+  """
+  def update_origin_access_control(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/origin-access-control/#{AWS.Util.encode_uri(id)}/config"
 
     {headers, input} =
       [

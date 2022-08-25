@@ -107,13 +107,20 @@ defmodule AWS.Ivs do
     * Managing Amazon IVS permissions — See [Identity and Access Management](https://docs.aws.amazon.com/ivs/latest/userguide/security-iam.html)
   on the Security page of the *Amazon IVS User Guide*.
 
+  ## Amazon Resource Names (ARNs)
+
+  ARNs uniquely identify AWS resources. An ARN is required when you need to
+  specify a resource unambiguously across all of AWS, such as in IAM policies and
+  API calls. For more information, see [Amazon Resource Names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
+  in the *AWS General Reference*.
+
   ## Channel Endpoints
 
     * `CreateChannel` — Creates a new channel and an associated stream
   key to start streaming.
 
     * `GetChannel` — Gets the channel configuration for the specified
-  channel ARN (Amazon Resource Name).
+  channel ARN.
 
     * `BatchGetChannel` — Performs `GetChannel` on multiple ARNs
   simultaneously.

@@ -1119,9 +1119,8 @@ defmodule AWS.Config do
   account. The service-linked role is created only when the role does not exist in
   your account.
 
-  You must specify either the `TemplateS3Uri` or the `TemplateBody` parameter, but
-  not both. If you provide both Config uses the `TemplateS3Uri` parameter and
-  ignores the `TemplateBody` parameter.
+  You must specify one and only one of the`TemplateS3Uri`, `TemplateBody` or
+  `TemplateSSMDocumentDetails` parameters.
   """
   def put_conformance_pack(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutConformancePack", input, options)

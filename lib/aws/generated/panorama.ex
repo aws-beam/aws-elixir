@@ -591,10 +591,33 @@ defmodule AWS.Panorama do
   @doc """
   Returns a list of devices.
   """
-  def list_devices(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_devices(
+        %Client{} = client,
+        device_aggregated_status_filter \\ nil,
+        max_results \\ nil,
+        name_filter \\ nil,
+        next_token \\ nil,
+        sort_by \\ nil,
+        sort_order \\ nil,
+        options \\ []
+      ) do
     url_path = "/devices"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"SortOrder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_by) do
+        [{"SortBy", sort_by} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do
@@ -604,8 +627,22 @@ defmodule AWS.Panorama do
       end
 
     query_params =
+      if !is_nil(name_filter) do
+        [{"NameFilter", name_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(max_results) do
         [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(device_aggregated_status_filter) do
+        [{"DeviceAggregatedStatusFilter", device_aggregated_status_filter} | query_params]
       else
         query_params
       end

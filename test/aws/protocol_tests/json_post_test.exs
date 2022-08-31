@@ -12,7 +12,7 @@ defmodule AWS.ProtocolTests.JSONPostTest do
       proto: "http"
     }
 
-    service_metadata = %AWS.ServiceMetadata{
+    service_metadata = %{
       abbreviation: "Foo",
       api_version: "2017-08-22",
       content_type: "application/x-amz-json-1.1",

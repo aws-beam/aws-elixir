@@ -33,7 +33,7 @@ defmodule AWS.AppRunner do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2020-05-15",
       content_type: "application/x-amz-json-1.0",

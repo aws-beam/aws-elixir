@@ -13,7 +13,7 @@ defmodule AWS.ComprehendMedical do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "ComprehendMedical",
       api_version: "2018-10-30",
       content_type: "application/x-amz-json-1.1",

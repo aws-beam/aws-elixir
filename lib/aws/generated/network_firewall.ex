@@ -77,7 +77,7 @@ defmodule AWS.NetworkFirewall do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "Network Firewall",
       api_version: "2020-11-12",
       content_type: "application/x-amz-json-1.0",

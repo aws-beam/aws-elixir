@@ -66,7 +66,7 @@ defmodule AWS.CodeStar do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "CodeStar",
       api_version: "2017-04-19",
       content_type: "application/x-amz-json-1.1",

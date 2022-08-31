@@ -26,7 +26,7 @@ defmodule AWS.SWF do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "Amazon SWF",
       api_version: "2012-01-25",
       content_type: "application/x-amz-json-1.0",

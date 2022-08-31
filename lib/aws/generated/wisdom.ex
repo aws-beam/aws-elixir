@@ -16,7 +16,7 @@ defmodule AWS.Wisdom do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2020-10-19",
       content_type: "application/x-amz-json-1.1",

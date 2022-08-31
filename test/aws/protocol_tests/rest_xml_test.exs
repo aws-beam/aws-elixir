@@ -12,7 +12,7 @@ defmodule AWS.ProtocolTests.RestXMLTest do
       proto: "http"
     }
 
-    service_metadata = %AWS.ServiceMetadata{
+    service_metadata = %{
       abbreviation: "Foo",
       api_version: "2014-01-01",
       content_type: "application/xml",

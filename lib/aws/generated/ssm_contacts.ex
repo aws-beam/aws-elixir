@@ -20,7 +20,7 @@ defmodule AWS.SSMContacts do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "SSM Contacts",
       api_version: "2021-05-03",
       content_type: "application/x-amz-json-1.1",

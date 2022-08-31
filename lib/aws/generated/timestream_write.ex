@@ -26,7 +26,7 @@ defmodule AWS.TimestreamWrite do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "Timestream Write",
       api_version: "2018-11-01",
       content_type: "application/x-amz-json-1.0",

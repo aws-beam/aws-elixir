@@ -11,7 +11,7 @@ defmodule AWS.FSx do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2018-03-01",
       content_type: "application/x-amz-json-1.1",

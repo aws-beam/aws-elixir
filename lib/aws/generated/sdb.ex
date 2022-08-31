@@ -26,7 +26,7 @@ defmodule AWS.Sdb do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2009-04-15",
       content_type: "application/x-www-form-urlencoded",

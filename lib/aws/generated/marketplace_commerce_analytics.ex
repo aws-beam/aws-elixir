@@ -10,7 +10,7 @@ defmodule AWS.MarketplaceCommerceAnalytics do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2015-07-01",
       content_type: "application/x-amz-json-1.1",

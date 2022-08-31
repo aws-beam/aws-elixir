@@ -11,7 +11,7 @@ defmodule AWS.Route53 do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2013-04-01",
       content_type: "text/xml",

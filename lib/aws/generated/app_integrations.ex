@@ -16,7 +16,7 @@ defmodule AWS.AppIntegrations do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2020-07-29",
       content_type: "application/x-amz-json-1.1",

@@ -36,7 +36,7 @@ defmodule AWS.Keyspaces do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2022-02-10",
       content_type: "application/x-amz-json-1.0",

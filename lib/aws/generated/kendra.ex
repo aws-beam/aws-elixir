@@ -10,7 +10,7 @@ defmodule AWS.Kendra do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "kendra",
       api_version: "2019-02-03",
       content_type: "application/x-amz-json-1.1",

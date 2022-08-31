@@ -150,7 +150,7 @@ defmodule AWS.Rekognition do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2016-06-27",
       content_type: "application/x-amz-json-1.1",

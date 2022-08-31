@@ -12,7 +12,7 @@ defmodule AWS.LookoutEquipment do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "LookoutEquipment",
       api_version: "2020-12-15",
       content_type: "application/x-amz-json-1.0",

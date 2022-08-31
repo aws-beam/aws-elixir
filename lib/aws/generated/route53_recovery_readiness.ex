@@ -10,7 +10,7 @@ defmodule AWS.Route53RecoveryReadiness do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2019-12-02",
       content_type: "application/x-amz-json-1.1",

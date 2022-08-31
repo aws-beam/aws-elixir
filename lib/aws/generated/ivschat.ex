@@ -154,7 +154,7 @@ defmodule AWS.Ivschat do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2020-07-14",
       content_type: "application/x-amz-json-1.1",

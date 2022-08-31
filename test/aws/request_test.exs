@@ -23,7 +23,7 @@ defmodule AWS.RequestTest do
         Client.create("access-key-id", "secret-access-key", "us-east1")
         |> Map.put(:http_client, {TestClient, []})
 
-      metadata = %AWS.ServiceMetadata{
+      metadata = %{
         api_version: "2014-06-05",
         content_type: "application/x-amz-json-1.1",
         endpoint_prefix: "mobileanalytics",

@@ -22,7 +22,7 @@ defmodule AWS.Transfer do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "AWS Transfer",
       api_version: "2018-11-05",
       content_type: "application/x-amz-json-1.1",

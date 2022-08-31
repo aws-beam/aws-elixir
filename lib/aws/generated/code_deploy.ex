@@ -81,7 +81,7 @@ defmodule AWS.CodeDeploy do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "CodeDeploy",
       api_version: "2014-10-06",
       content_type: "application/x-amz-json-1.1",

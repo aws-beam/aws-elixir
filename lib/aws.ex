@@ -45,24 +45,4 @@ defmodule AWS do
   and a custom module for XML that is written on top of xmlerl.
   For more details, check `AWS.Client` documentation.
   """
-
-  defmodule ServiceMetadata do
-    @moduledoc """
-    It is a struct containing AWS service metadata.
-
-    Each service module has a `metadata` function that returns its metadata.
-    """
-
-    defstruct abbreviation: nil,
-              api_version: nil,
-              content_type: nil,
-              credential_scope: nil,
-              endpoint_prefix: nil,
-              global?: nil,
-              protocol: nil,
-              service_id: nil,
-              signature_version: nil,
-              signing_name: nil,
-              target_prefix: nil
-  end
 end

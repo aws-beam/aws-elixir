@@ -21,7 +21,7 @@ defmodule AWS.KinesisAnalytics do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "Kinesis Analytics",
       api_version: "2015-08-14",
       content_type: "application/x-amz-json-1.1",

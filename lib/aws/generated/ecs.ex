@@ -29,7 +29,7 @@ defmodule AWS.ECS do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "Amazon ECS",
       api_version: "2014-11-13",
       content_type: "application/x-amz-json-1.1",

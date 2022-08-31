@@ -31,7 +31,7 @@ defmodule AWS.CloudFormation do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2010-05-15",
       content_type: "application/x-www-form-urlencoded",

@@ -18,7 +18,7 @@ defmodule AWS.SESv2 do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2019-09-27",
       content_type: "application/x-amz-json-1.1",

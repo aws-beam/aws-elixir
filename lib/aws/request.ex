@@ -2,7 +2,6 @@ defmodule AWS.Request do
   @moduledoc false
 
   alias AWS.Client
-  alias AWS.ServiceMetadata
   alias AWS.Signature
 
   @valid_protocols ~w(query json rest-json rest-xml)
@@ -10,7 +9,7 @@ defmodule AWS.Request do
   @doc """
   Request an AWS Service using a POST request with a protocol.
   """
-  def request_post(%Client{} = client, %ServiceMetadata{} = metadata, action, input, options) do
+  def request_post(%Client{} = client, %{} = metadata, action, input, options) do
     client = prepare_client(client, metadata)
 
     host = build_host(client, metadata)
@@ -57,7 +56,7 @@ defmodule AWS.Request do
 
   def request_rest(
         %Client{} = client,
-        %ServiceMetadata{} = metadata,
+        %{} = metadata,
         http_method,
         path,
         query,
@@ -162,7 +161,7 @@ defmodule AWS.Request do
     end
   end
 
-  defp build_host(%Client{} = client, %ServiceMetadata{} = metadata, headers \\ []) do
+  defp build_host(%Client{} = client, %{} = metadata, headers \\ []) do
     build_options = %{
       region: client.region,
       endpoint: client.endpoint,

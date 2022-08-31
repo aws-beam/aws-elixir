@@ -17,7 +17,7 @@ defmodule AWS.DataSync do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "DataSync",
       api_version: "2018-11-09",
       content_type: "application/x-amz-json-1.1",

@@ -33,7 +33,7 @@ defmodule AWS.SSOAdmin do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "SSO Admin",
       api_version: "2020-07-20",
       content_type: "application/x-amz-json-1.1",

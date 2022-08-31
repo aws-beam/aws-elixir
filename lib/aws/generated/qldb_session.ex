@@ -24,7 +24,7 @@ defmodule AWS.QLDBSession do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "QLDB Session",
       api_version: "2019-07-11",
       content_type: "application/x-amz-json-1.0",

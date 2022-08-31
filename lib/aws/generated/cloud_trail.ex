@@ -33,7 +33,7 @@ defmodule AWS.CloudTrail do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "CloudTrail",
       api_version: "2013-11-01",
       content_type: "application/x-amz-json-1.1",

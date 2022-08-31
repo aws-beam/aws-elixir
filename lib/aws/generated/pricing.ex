@@ -35,7 +35,7 @@ defmodule AWS.Pricing do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "AWS Pricing",
       api_version: "2017-10-15",
       content_type: "application/x-amz-json-1.1",

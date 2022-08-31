@@ -28,7 +28,7 @@ defmodule AWS.SNS do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "Amazon SNS",
       api_version: "2010-03-31",
       content_type: "application/x-www-form-urlencoded",

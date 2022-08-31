@@ -22,7 +22,7 @@ defmodule AWS.ElastiCache do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2015-02-02",
       content_type: "application/x-www-form-urlencoded",

@@ -53,7 +53,7 @@ defmodule AWS.RDS do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "Amazon RDS",
       api_version: "2014-10-31",
       content_type: "application/x-www-form-urlencoded",

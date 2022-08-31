@@ -20,7 +20,7 @@ defmodule AWS.ECRPUBLIC do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "Amazon ECR Public",
       api_version: "2020-10-30",
       content_type: "application/x-amz-json-1.1",

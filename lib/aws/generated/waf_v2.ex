@@ -70,7 +70,7 @@ defmodule AWS.WAFV2 do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "WAFV2",
       api_version: "2019-07-29",
       content_type: "application/x-amz-json-1.1",

@@ -17,7 +17,7 @@ defmodule AWS.Shield do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "AWS Shield",
       api_version: "2016-06-02",
       content_type: "application/x-amz-json-1.1",

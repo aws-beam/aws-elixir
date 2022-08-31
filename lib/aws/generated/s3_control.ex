@@ -11,7 +11,7 @@ defmodule AWS.S3Control do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2018-08-20",
       content_type: "text/xml",

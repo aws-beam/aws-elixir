@@ -39,7 +39,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "Elastic Load Balancing v2",
       api_version: "2015-12-01",
       content_type: "application/x-www-form-urlencoded",

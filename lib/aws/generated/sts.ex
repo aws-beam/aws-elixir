@@ -17,7 +17,7 @@ defmodule AWS.STS do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "AWS STS",
       api_version: "2011-06-15",
       content_type: "application/x-www-form-urlencoded",

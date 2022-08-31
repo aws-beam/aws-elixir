@@ -16,7 +16,7 @@ defmodule AWS.CloudFront do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2020-05-31",
       content_type: "text/xml",

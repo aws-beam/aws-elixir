@@ -18,7 +18,7 @@ defmodule AWS.CloudHSM do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "CloudHSM",
       api_version: "2014-05-30",
       content_type: "application/x-amz-json-1.1",

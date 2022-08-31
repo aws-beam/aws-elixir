@@ -26,7 +26,7 @@ defmodule AWS.Directory do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "Directory Service",
       api_version: "2015-04-16",
       content_type: "application/x-amz-json-1.1",

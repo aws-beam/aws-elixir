@@ -46,7 +46,7 @@ defmodule AWS.SQS do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "Amazon SQS",
       api_version: "2012-11-05",
       content_type: "application/x-www-form-urlencoded",

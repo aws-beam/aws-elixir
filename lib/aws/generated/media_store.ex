@@ -13,7 +13,7 @@ defmodule AWS.MediaStore do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "MediaStore",
       api_version: "2017-09-01",
       content_type: "application/x-amz-json-1.1",

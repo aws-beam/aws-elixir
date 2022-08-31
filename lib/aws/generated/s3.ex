@@ -6,7 +6,7 @@ defmodule AWS.S3 do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2006-03-01",
       content_type: "text/xml",

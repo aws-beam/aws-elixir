@@ -26,7 +26,7 @@ defmodule AWS.CloudWatch do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "CloudWatch",
       api_version: "2010-08-01",
       content_type: "application/x-www-form-urlencoded",

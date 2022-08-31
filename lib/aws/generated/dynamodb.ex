@@ -31,7 +31,7 @@ defmodule AWS.DynamoDB do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "DynamoDB",
       api_version: "2012-08-10",
       content_type: "application/x-amz-json-1.0",

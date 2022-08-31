@@ -28,7 +28,7 @@ defmodule AWS.CognitoIdentity do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2014-06-30",
       content_type: "application/x-amz-json-1.1",

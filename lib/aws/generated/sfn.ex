@@ -28,7 +28,7 @@ defmodule AWS.SFN do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "AWS SFN",
       api_version: "2016-11-23",
       content_type: "application/x-amz-json-1.0",

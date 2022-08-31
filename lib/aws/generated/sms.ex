@@ -24,7 +24,7 @@ defmodule AWS.SMS do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "SMS",
       api_version: "2016-10-24",
       content_type: "application/x-amz-json-1.1",

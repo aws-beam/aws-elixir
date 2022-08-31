@@ -21,7 +21,7 @@ defmodule AWS.Identitystore do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "IdentityStore",
       api_version: "2020-06-15",
       content_type: "application/x-amz-json-1.1",

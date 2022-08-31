@@ -10,7 +10,7 @@ defmodule AWS.DocDB do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "Amazon DocDB",
       api_version: "2014-10-31",
       content_type: "application/x-www-form-urlencoded",

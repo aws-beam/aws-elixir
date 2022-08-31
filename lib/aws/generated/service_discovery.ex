@@ -19,7 +19,7 @@ defmodule AWS.ServiceDiscovery do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "ServiceDiscovery",
       api_version: "2017-03-14",
       content_type: "application/x-amz-json-1.1",

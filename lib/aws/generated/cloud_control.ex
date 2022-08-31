@@ -11,7 +11,7 @@ defmodule AWS.CloudControl do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "CloudControlApi",
       api_version: "2021-09-30",
       content_type: "application/x-amz-json-1.0",

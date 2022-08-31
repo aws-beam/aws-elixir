@@ -73,7 +73,7 @@ defmodule AWS.Support do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2013-04-15",
       content_type: "application/x-amz-json-1.1",

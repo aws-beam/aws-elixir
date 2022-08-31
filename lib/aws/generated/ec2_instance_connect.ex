@@ -12,7 +12,7 @@ defmodule AWS.EC2InstanceConnect do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "EC2 Instance Connect",
       api_version: "2018-04-02",
       content_type: "application/x-amz-json-1.1",

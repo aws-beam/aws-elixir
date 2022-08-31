@@ -286,7 +286,7 @@ defmodule AWS.CodeCommit do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "CodeCommit",
       api_version: "2015-04-13",
       content_type: "application/x-amz-json-1.1",

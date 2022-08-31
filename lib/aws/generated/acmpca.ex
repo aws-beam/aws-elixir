@@ -32,7 +32,7 @@ defmodule AWS.ACMPCA do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "ACM-PCA",
       api_version: "2017-08-22",
       content_type: "application/x-amz-json-1.1",

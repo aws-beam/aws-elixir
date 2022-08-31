@@ -39,7 +39,7 @@ defmodule AWS.Glacier do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2012-06-01",
       content_type: "application/x-amz-json-1.1",

@@ -10,7 +10,7 @@ defmodule AWS.MTurk do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "Amazon MTurk",
       api_version: "2017-01-17",
       content_type: "application/x-amz-json-1.1",

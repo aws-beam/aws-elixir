@@ -19,7 +19,7 @@ defmodule AWS.Snowball do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "Amazon Snowball",
       api_version: "2016-06-30",
       content_type: "application/x-amz-json-1.1",

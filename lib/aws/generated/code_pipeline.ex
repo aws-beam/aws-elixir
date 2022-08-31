@@ -147,7 +147,7 @@ defmodule AWS.CodePipeline do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "CodePipeline",
       api_version: "2015-07-09",
       content_type: "application/x-amz-json-1.1",

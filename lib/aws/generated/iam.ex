@@ -18,7 +18,7 @@ defmodule AWS.IAM do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "IAM",
       api_version: "2010-05-08",
       content_type: "application/x-www-form-urlencoded",

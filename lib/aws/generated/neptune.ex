@@ -32,7 +32,7 @@ defmodule AWS.Neptune do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "Amazon Neptune",
       api_version: "2014-10-31",
       content_type: "application/x-www-form-urlencoded",

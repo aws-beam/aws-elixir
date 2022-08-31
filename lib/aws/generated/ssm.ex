@@ -37,7 +37,7 @@ defmodule AWS.SSM do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "Amazon SSM",
       api_version: "2014-11-06",
       content_type: "application/x-amz-json-1.1",

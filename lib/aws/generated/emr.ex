@@ -15,7 +15,7 @@ defmodule AWS.EMR do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "Amazon EMR",
       api_version: "2009-03-31",
       content_type: "application/x-amz-json-1.1",

@@ -18,7 +18,7 @@ defmodule AWS.ImportExport do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2010-06-01",
       content_type: "application/x-www-form-urlencoded",

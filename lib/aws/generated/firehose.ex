@@ -14,7 +14,7 @@ defmodule AWS.Firehose do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "Firehose",
       api_version: "2015-08-04",
       content_type: "application/x-amz-json-1.1",

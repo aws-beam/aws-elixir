@@ -31,7 +31,7 @@ defmodule AWS.DataPipeline do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2012-10-29",
       content_type: "application/x-amz-json-1.1",

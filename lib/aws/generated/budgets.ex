@@ -54,7 +54,7 @@ defmodule AWS.Budgets do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "AWSBudgets",
       api_version: "2016-10-20",
       content_type: "application/x-amz-json-1.1",

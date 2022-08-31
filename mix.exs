@@ -66,7 +66,6 @@ defmodule AWS.Mixfile do
           AWS.Client,
           AWS.HTTPClient,
           AWS.JSON,
-          AWS.ServiceMetadata,
           AWS.XML
         ]
       ]

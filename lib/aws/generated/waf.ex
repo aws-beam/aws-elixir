@@ -28,7 +28,7 @@ defmodule AWS.WAF do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "WAF",
       api_version: "2015-08-24",
       content_type: "application/x-amz-json-1.1",

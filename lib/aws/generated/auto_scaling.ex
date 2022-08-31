@@ -17,7 +17,7 @@ defmodule AWS.AutoScaling do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: nil,
       api_version: "2011-01-01",
       content_type: "application/x-www-form-urlencoded",

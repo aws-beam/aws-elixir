@@ -54,7 +54,7 @@ defmodule AWS.Health do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "AWSHealth",
       api_version: "2016-08-04",
       content_type: "application/x-amz-json-1.1",

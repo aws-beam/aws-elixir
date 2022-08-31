@@ -15,7 +15,7 @@ defmodule AWS.ACM do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "ACM",
       api_version: "2015-12-08",
       content_type: "application/x-amz-json-1.1",

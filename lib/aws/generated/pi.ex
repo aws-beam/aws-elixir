@@ -40,7 +40,7 @@ defmodule AWS.PI do
   alias AWS.Request
 
   def metadata do
-    %AWS.ServiceMetadata{
+    %{
       abbreviation: "AWS PI",
       api_version: "2018-02-27",
       content_type: "application/x-amz-json-1.1",

@@ -3,35 +3,30 @@
 
 defmodule AWS.SSOAdmin do
   @moduledoc """
-  Amazon Web Services Single Sign On helps you securely create, or connect, your
-  workforce identities and manage their access centrally across Amazon Web
-  Services accounts and applications.
+  AWS IAM Identity Center (successor to AWS Single Sign-On) helps you securely
+  create, or connect, your workforce identities and manage their access centrally
+  across AWS accounts and applications.
 
-  Amazon Web Services SSO is the recommended approach for workforce authentication
-  and authorization in Amazon Web Services, for organizations of any size and
-  type.
+  IAM Identity Center is the recommended approach for workforce authentication and
+  authorization in AWS, for organizations of any size and type.
 
-  Although Amazon Web Services Single Sign-On was renamed, the `sso` and
-  `identitystore` API namespaces will continue to retain their original name for
-  backward compatibility purposes. For more information, see [Amazon Web Services SSO
-  rename](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed).
+  Although AWS Single Sign-On was renamed, the `sso` and `identitystore` API
+  namespaces will continue to retain their original name for backward
+  compatibility purposes. For more information, see [IAM Identity Center rename](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed).
 
   This reference guide provides information on single sign-on operations which
-  could be used for access management of Amazon Web Services accounts. For
-  information about Amazon Web Services SSO features, see the [Amazon Web Services SSO User
-  Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
+  could be used for access management of AWS accounts. For information about IAM
+  Identity Center features, see the [IAM Identity Center User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
 
-  Many operations in the Amazon Web Services SSO APIs rely on identifiers for
-  users and groups, known as principals. For more information about how to work
-  with principals and principal IDs in Amazon Web Services SSO, see the [Identity Store API
-  Reference](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html).
+  Many operations in the IAM Identity Center APIs rely on identifiers for users
+  and groups, known as principals. For more information about how to work with
+  principals and principal IDs in IAM Identity Center, see the [Identity Store API Reference](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html).
 
-  Amazon Web Services provides SDKs that consist of libraries and sample code for
-  various programming languages and platforms (Java, Ruby, .Net, iOS, Android, and
-  more). The SDKs provide a convenient way to create programmatic access to Amazon
-  Web Services SSO and other Amazon Web Services services. For more information
-  about the Amazon Web Services SDKs, including how to download and install them,
-  see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
+  AWS provides SDKs that consist of libraries and sample code for various
+  programming languages and platforms (Java, Ruby, .Net, iOS, Android, and more).
+  The SDKs provide a convenient way to create programmatic access to IAM Identity
+  Center and other AWS services. For more information about the AWS SDKs,
+  including how to download and install them, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
   """
 
   alias AWS.Client
@@ -71,7 +66,7 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Attaches an Amazon Web Services managed policy ARN to a permission set.
+  Attaches an AWS managed policy ARN to a permission set.
 
   If the permission set is already referenced by one or more account assignments,
   you will need to call ` `ProvisionPermissionSet` ` after this operation. Calling
@@ -83,18 +78,18 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Assigns access to a principal for a specified Amazon Web Services account using
-  a specified permission set.
+  Assigns access to a principal for a specified AWS account using a specified
+  permission set.
 
-  The term *principal* here refers to a user or group that is defined in Amazon
-  Web Services SSO.
+  The term *principal* here refers to a user or group that is defined in IAM
+  Identity Center.
 
   As part of a successful `CreateAccountAssignment` call, the specified permission
   set will automatically be provisioned to the account in the form of an IAM
-  policy. That policy is attached to the IAM role created in Amazon Web Services
-  SSO. If the permission set is subsequently updated, the corresponding IAM
-  policies attached to roles in your accounts will not be updated automatically.
-  In this case, you must call ` `ProvisionPermissionSet` ` to make these updates.
+  policy. That policy is attached to the IAM role created in IAM Identity Center.
+  If the permission set is subsequently updated, the corresponding IAM policies
+  attached to roles in your accounts will not be updated automatically. In this
+  case, you must call ` `ProvisionPermissionSet` ` to make these updates.
 
   After a successful response, call `DescribeAccountAssignmentCreationStatus` to
   describe the status of an assignment creation request.
@@ -104,12 +99,12 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Enables the attributes-based access control (ABAC) feature for the specified
-  Amazon Web Services SSO instance.
+  Enables the attributes-based access control (ABAC) feature for the specified IAM
+  Identity Center instance.
 
   You can also specify new attributes to add to your ABAC configuration during the
-  enabling process. For more information about ABAC, see [Attribute-Based Access Control](/singlesignon/latest/userguide/abac.html) in the *Amazon Web Services
-  SSO User Guide*.
+  enabling process. For more information about ABAC, see [Attribute-Based Access Control](/singlesignon/latest/userguide/abac.html) in the *IAM Identity Center
+  User Guide*.
 
   After a successful response, call
   `DescribeInstanceAccessControlAttributeConfiguration` to validate that
@@ -130,9 +125,9 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Creates a permission set within a specified Amazon Web Services SSO instance.
+  Creates a permission set within a specified IAM Identity Center instance.
 
-  To grant users and groups access to Amazon Web Services account resources, use `
+  To grant users and groups access to AWS account resources, use `
   `CreateAccountAssignment` `.
   """
   def create_permission_set(%Client{} = client, input, options \\ []) do
@@ -140,8 +135,8 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Deletes a principal's access from a specified Amazon Web Services account using
-  a specified permission set.
+  Deletes a principal's access from a specified AWS account using a specified
+  permission set.
 
   After a successful response, call `DescribeAccountAssignmentCreationStatus` to
   describe the status of an assignment deletion request.
@@ -165,13 +160,13 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Disables the attributes-based access control (ABAC) feature for the specified
-  Amazon Web Services SSO instance and deletes all of the attribute mappings that
-  have been configured.
+  IAM Identity Center instance and deletes all of the attribute mappings that have
+  been configured.
 
   Once deleted, any attributes that are received from an identity source and any
   custom attributes you have previously configured will not be passed. For more
-  information about ABAC, see [Attribute-Based Access Control](/singlesignon/latest/userguide/abac.html) in the *Amazon Web Services
-  SSO User Guide*.
+  information about ABAC, see [Attribute-Based Access Control](/singlesignon/latest/userguide/abac.html) in the *IAM Identity Center
+  User Guide*.
   """
   def delete_instance_access_control_attribute_configuration(
         %Client{} = client,
@@ -234,13 +229,13 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Returns the list of Amazon Web Services SSO identity store attributes that have
-  been configured to work with attributes-based access control (ABAC) for the
-  specified Amazon Web Services SSO instance.
+  Returns the list of IAM Identity Center identity store attributes that have been
+  configured to work with attributes-based access control (ABAC) for the specified
+  IAM Identity Center instance.
 
   This will not return attributes configured and sent by an external identity
-  provider. For more information about ABAC, see [Attribute-Based Access Control](/singlesignon/latest/userguide/abac.html) in the *Amazon Web Services
-  SSO User Guide*.
+  provider. For more information about ABAC, see [Attribute-Based Access Control](/singlesignon/latest/userguide/abac.html) in the *IAM Identity Center
+  User Guide*.
   """
   def describe_instance_access_control_attribute_configuration(
         %Client{} = client,
@@ -295,8 +290,7 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Detaches the attached Amazon Web Services managed policy ARN from the specified
-  permission set.
+  Detaches the attached AWS managed policy ARN from the specified permission set.
   """
   def detach_managed_policy_from_permission_set(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -329,8 +323,8 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Lists the status of the Amazon Web Services account assignment creation requests
-  for a specified Amazon Web Services SSO instance.
+  Lists the status of the AWS account assignment creation requests for a specified
+  IAM Identity Center instance.
   """
   def list_account_assignment_creation_status(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -343,8 +337,8 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Lists the status of the Amazon Web Services account assignment deletion requests
-  for a specified Amazon Web Services SSO instance.
+  Lists the status of the AWS account assignment deletion requests for a specified
+  IAM Identity Center instance.
   """
   def list_account_assignment_deletion_status(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -357,16 +351,15 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Lists the assignee of the specified Amazon Web Services account with the
-  specified permission set.
+  Lists the assignee of the specified AWS account with the specified permission
+  set.
   """
   def list_account_assignments(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListAccountAssignments", input, options)
   end
 
   @doc """
-  Lists all the Amazon Web Services accounts where the specified permission set is
-  provisioned.
+  Lists all the AWS accounts where the specified permission set is provisioned.
   """
   def list_accounts_for_provisioned_permission_set(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -396,23 +389,22 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Lists the Amazon Web Services SSO instances that the caller has access to.
+  Lists the IAM Identity Center instances that the caller has access to.
   """
   def list_instances(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListInstances", input, options)
   end
 
   @doc """
-  Lists the Amazon Web Services managed policy that is attached to a specified
-  permission set.
+  Lists the AWS managed policy that is attached to a specified permission set.
   """
   def list_managed_policies_in_permission_set(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListManagedPoliciesInPermissionSet", input, options)
   end
 
   @doc """
-  Lists the status of the permission set provisioning requests for a specified
-  Amazon Web Services SSO instance.
+  Lists the status of the permission set provisioning requests for a specified IAM
+  Identity Center instance.
   """
   def list_permission_set_provisioning_status(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -425,15 +417,14 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Lists the `PermissionSet`s in an Amazon Web Services SSO instance.
+  Lists the `PermissionSet`s in an IAM Identity Center instance.
   """
   def list_permission_sets(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListPermissionSets", input, options)
   end
 
   @doc """
-  Lists all the permission sets that are provisioned to a specified Amazon Web
-  Services account.
+  Lists all the permission sets that are provisioned to a specified AWS account.
   """
   def list_permission_sets_provisioned_to_account(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -472,8 +463,8 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Attaches an Amazon Web Services managed or customer managed policy to the
-  specified `PermissionSet` as a permissions boundary.
+  Attaches an AWS managed or customer managed policy to the specified
+  `PermissionSet` as a permissions boundary.
   """
   def put_permissions_boundary_to_permission_set(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -500,17 +491,16 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Updates the Amazon Web Services SSO identity store attributes that you can use
-  with the Amazon Web Services SSO instance for attributes-based access control
-  (ABAC).
+  Updates the IAM Identity Center identity store attributes that you can use with
+  the IAM Identity Center instance for attributes-based access control (ABAC).
 
   When using an external identity provider as an identity source, you can pass
   attributes through the SAML assertion as an alternative to configuring
-  attributes from the Amazon Web Services SSO identity store. If a SAML assertion
-  passes any of these attributes, Amazon Web Services SSO replaces the attribute
-  value with the value from the Amazon Web Services SSO identity store. For more
-  information about ABAC, see [Attribute-Based Access Control](/singlesignon/latest/userguide/abac.html) in the *Amazon Web Services
-  SSO User Guide*.
+  attributes from the IAM Identity Center identity store. If a SAML assertion
+  passes any of these attributes, IAM Identity Center replaces the attribute value
+  with the value from the IAM Identity Center identity store. For more information
+  about ABAC, see [Attribute-Based Access Control](/singlesignon/latest/userguide/abac.html) in the *IAM Identity Center
+  User Guide*.
   """
   def update_instance_access_control_attribute_configuration(
         %Client{} = client,

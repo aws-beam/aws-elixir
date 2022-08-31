@@ -78,6 +78,27 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
+  Creates and defines the settings for an allow list.
+  """
+  def create_allow_list(%Client{} = client, input, options \\ []) do
+    url_path = "/allow-lists"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates and defines the settings for a classification job.
   """
   def create_classification_job(%Client{} = client, input, options \\ []) do
@@ -217,6 +238,32 @@ defmodule AWS.Macie2 do
       client,
       metadata(),
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes an allow list.
+  """
+  def delete_allow_list(%Client{} = client, id, input, options \\ []) do
+    url_path = "/allow-lists/#{AWS.Util.encode_uri(id)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"ignoreJobChecks", "ignoreJobChecks"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
       url_path,
       query_params,
       headers,
@@ -560,6 +607,27 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
+  Retrieves the settings and status of an allow list.
+  """
+  def get_allow_list(%Client{} = client, id, options \\ []) do
+    url_path = "/allow-lists/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves (queries) aggregated statistical data about S3 buckets that Amazon
   Macie monitors and analyzes.
   """
@@ -798,8 +866,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves the status and configuration settings for retrieving (revealing)
-  occurrences of sensitive data reported by findings.
+  Retrieves the status and configuration settings for retrieving occurrences of
+  sensitive data reported by findings.
   """
   def get_reveal_configuration(%Client{} = client, options \\ []) do
     url_path = "/reveal-configuration"
@@ -820,7 +888,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves (reveals) occurrences of sensitive data reported by a finding.
+  Retrieves occurrences of sensitive data reported by a finding.
   """
   def get_sensitive_data_occurrences(%Client{} = client, finding_id, options \\ []) do
     url_path = "/findings/#{AWS.Util.encode_uri(finding_id)}/reveal"
@@ -841,8 +909,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Checks whether occurrences of sensitive data can be retrieved (revealed) for a
-  finding.
+  Checks whether occurrences of sensitive data can be retrieved for a finding.
   """
   def get_sensitive_data_occurrences_availability(%Client{} = client, finding_id, options \\ []) do
     url_path = "/findings/#{AWS.Util.encode_uri(finding_id)}/reveal/availability"
@@ -894,6 +961,41 @@ defmodule AWS.Macie2 do
     query_params =
       if !is_nil(time_range) do
         [{"timeRange", time_range} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves a subset of information about all the allow lists for an account.
+  """
+  def list_allow_lists(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/allow-lists"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -1164,8 +1266,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves the tags (keys and values) that are associated with a classification
-  job, custom data identifier, findings filter, or member account.
+  Retrieves the tags (keys and values) that are associated with an Amazon Macie
+  resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1251,8 +1353,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Adds or updates one or more tags (keys and values) that are associated with a
-  classification job, custom data identifier, findings filter, or member account.
+  Adds or updates one or more tags (keys and values) that are associated with an
+  Amazon Macie resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1294,8 +1396,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Removes one or more tags (keys and values) from a classification job, custom
-  data identifier, findings filter, or member account.
+  Removes one or more tags (keys and values) from an Amazon Macie resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1317,6 +1418,27 @@ defmodule AWS.Macie2 do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Updates the settings for an allow list.
+  """
+  def update_allow_list(%Client{} = client, id, input, options \\ []) do
+    url_path = "/allow-lists/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -1429,8 +1551,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Updates the status and configuration settings for retrieving (revealing)
-  occurrences of sensitive data reported by findings.
+  Updates the status and configuration settings for retrieving occurrences of
+  sensitive data reported by findings.
   """
   def update_reveal_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/reveal-configuration"

@@ -53,6 +53,20 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
+  Creates a label for an event.
+  """
+  def create_label(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLabel", input, options)
+  end
+
+  @doc """
+  Creates a group of labels.
+  """
+  def create_label_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLabelGroup", input, options)
+  end
+
+  @doc """
   Creates an ML model for data inference.
 
   A machine-learning (ML) model is a mathematical model that finds patterns in
@@ -93,6 +107,20 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
+  Deletes a label.
+  """
+  def delete_label(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLabel", input, options)
+  end
+
+  @doc """
+  Deletes a group of labels.
+  """
+  def delete_label_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLabelGroup", input, options)
+  end
+
+  @doc """
   Deletes an ML model currently available for Amazon Lookout for Equipment.
 
   This will prevent it from being used with an inference scheduler, even one that
@@ -124,6 +152,20 @@ defmodule AWS.LookoutEquipment do
   """
   def describe_inference_scheduler(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeInferenceScheduler", input, options)
+  end
+
+  @doc """
+  Returns the name of the label.
+  """
+  def describe_label(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLabel", input, options)
+  end
+
+  @doc """
+  Returns information about the label group.
+  """
+  def describe_label_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLabelGroup", input, options)
   end
 
   @doc """
@@ -173,6 +215,20 @@ defmodule AWS.LookoutEquipment do
   """
   def list_inference_schedulers(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListInferenceSchedulers", input, options)
+  end
+
+  @doc """
+  Returns a list of the label groups.
+  """
+  def list_label_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListLabelGroups", input, options)
+  end
+
+  @doc """
+  Provides a list of labels.
+  """
+  def list_labels(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListLabels", input, options)
   end
 
   @doc """
@@ -250,5 +306,12 @@ defmodule AWS.LookoutEquipment do
   """
   def update_inference_scheduler(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateInferenceScheduler", input, options)
+  end
+
+  @doc """
+  Updates the label group.
+  """
+  def update_label_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateLabelGroup", input, options)
   end
 end

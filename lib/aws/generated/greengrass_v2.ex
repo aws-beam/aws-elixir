@@ -408,9 +408,6 @@ defmodule AWS.GreengrassV2 do
 
   @doc """
   Gets the recipe for a version of a component.
-
-  Core devices can call this operation to identify the artifacts and requirements
-  to install a component.
   """
   def get_component(%Client{} = client, arn, recipe_output_format \\ nil, options \\ []) do
     url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}"
@@ -513,6 +510,9 @@ defmodule AWS.GreengrassV2 do
 
      At a [regular interval that you can configure](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss),
   which defaults to 24 hours
+
+     For IoT Greengrass Core v2.7.0, the core device sends status
+  updates upon local deployment and cloud deployment
   """
   def get_core_device(%Client{} = client, core_device_thing_name, options \\ []) do
     url_path = "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}"
@@ -740,6 +740,9 @@ defmodule AWS.GreengrassV2 do
 
      At a [regular interval that you can configure](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss),
   which defaults to 24 hours
+
+     For IoT Greengrass Core v2.7.0, the core device sends status
+  updates upon local deployment and cloud deployment
   """
   def list_core_devices(
         %Client{} = client,
@@ -897,8 +900,9 @@ defmodule AWS.GreengrassV2 do
   @doc """
   Retrieves a paginated list of the components that a Greengrass core device runs.
 
-  This list doesn't include components that are deployed from local deployments or
-  components that are deployed as dependencies of other components.
+  By default, this list doesn't include components that are deployed as
+  dependencies of other components. To include dependencies in the response, set
+  the `topologyFilter` parameter to `ALL`.
 
   IoT Greengrass relies on individual devices to send status updates to the Amazon
   Web Services Cloud. If the IoT Greengrass Core software isn't running on the
@@ -918,12 +922,16 @@ defmodule AWS.GreengrassV2 do
 
      At a [regular interval that you can configure](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss),
   which defaults to 24 hours
+
+     For IoT Greengrass Core v2.7.0, the core device sends status
+  updates upon local deployment and cloud deployment
   """
   def list_installed_components(
         %Client{} = client,
         core_device_thing_name,
         max_results \\ nil,
         next_token \\ nil,
+        topology_filter \\ nil,
         options \\ []
       ) do
     url_path =
@@ -931,6 +939,13 @@ defmodule AWS.GreengrassV2 do
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(topology_filter) do
+        [{"topologyFilter", topology_filter} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do

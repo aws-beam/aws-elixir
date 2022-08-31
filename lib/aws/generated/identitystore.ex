@@ -3,15 +3,15 @@
 
 defmodule AWS.Identitystore do
   @moduledoc """
-  The Identity Store service used by Amazon Web Services Single Sign On provides a
-  single place to retrieve all of your identities (users and groups).
+  The Identity Store service used by AWS IAM Identity Center (successor to AWS
+  Single Sign-On) provides a single place to retrieve all of your identities
+  (users and groups).
 
-  For more information, see the [Amazon Web Services SSO User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
+  For more information, see the [IAM Identity Center User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
 
-  Although Amazon Web Services Single Sign-On was renamed, the `sso` and
-  `identitystore` API namespaces will continue to retain their original name for
-  backward compatibility purposes. For more information, see [Amazon Web Services SSO
-  rename](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed).
+  Although AWS Single Sign-On was renamed, the `sso` and `identitystore` API
+  namespaces will continue to retain their original name for backward
+  compatibility purposes. For more information, see [IAM Identity Center rename](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed).
 
   This reference guide describes the identity store operations that you can call
   programatically and includes detailed information on data types and errors.

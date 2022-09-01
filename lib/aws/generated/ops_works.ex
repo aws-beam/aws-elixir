@@ -117,7 +117,9 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def assign_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssignInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssignInstance", input, options)
   end
 
   @doc """
@@ -133,7 +135,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def assign_volume(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssignVolume", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssignVolume", input, options)
   end
 
   @doc """
@@ -148,7 +152,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def associate_elastic_ip(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateElasticIp", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateElasticIp", input, options)
   end
 
   @doc """
@@ -167,7 +173,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def attach_elastic_load_balancer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AttachElasticLoadBalancer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AttachElasticLoadBalancer", input, options)
   end
 
   @doc """
@@ -181,7 +189,9 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def clone_stack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CloneStack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CloneStack", input, options)
   end
 
   @doc """
@@ -194,7 +204,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def create_app(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateApp", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateApp", input, options)
   end
 
   @doc """
@@ -208,7 +220,9 @@ defmodule AWS.OpsWorks do
   grants permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def create_deployment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDeployment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDeployment", input, options)
   end
 
   @doc """
@@ -221,7 +235,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def create_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateInstance", input, options)
   end
 
   @doc """
@@ -241,7 +257,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def create_layer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateLayer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLayer", input, options)
   end
 
   @doc """
@@ -254,7 +272,9 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def create_stack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateStack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateStack", input, options)
   end
 
   @doc """
@@ -265,7 +285,9 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def create_user_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateUserProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateUserProfile", input, options)
   end
 
   @doc """
@@ -276,7 +298,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def delete_app(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteApp", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteApp", input, options)
   end
 
   @doc """
@@ -292,7 +316,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def delete_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteInstance", input, options)
   end
 
   @doc """
@@ -306,7 +332,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def delete_layer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteLayer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLayer", input, options)
   end
 
   @doc """
@@ -320,7 +348,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def delete_stack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteStack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteStack", input, options)
   end
 
   @doc """
@@ -331,7 +361,9 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def delete_user_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteUserProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteUserProfile", input, options)
   end
 
   @doc """
@@ -345,7 +377,9 @@ defmodule AWS.OpsWorks do
   [https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def deregister_ecs_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterEcsCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterEcsCluster", input, options)
   end
 
   @doc """
@@ -359,7 +393,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def deregister_elastic_ip(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterElasticIp", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterElasticIp", input, options)
   end
 
   @doc """
@@ -374,7 +410,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def deregister_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterInstance", input, options)
   end
 
   @doc """
@@ -385,7 +423,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def deregister_rds_db_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterRdsDbInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterRdsDbInstance", input, options)
   end
 
   @doc """
@@ -399,7 +439,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def deregister_volume(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterVolume", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterVolume", input, options)
   end
 
   @doc """
@@ -410,7 +452,9 @@ defmodule AWS.OpsWorks do
   configuration manager.
   """
   def describe_agent_versions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAgentVersions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAgentVersions", input, options)
   end
 
   @doc """
@@ -424,7 +468,9 @@ defmodule AWS.OpsWorks do
   [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_apps(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeApps", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeApps", input, options)
   end
 
   @doc """
@@ -438,7 +484,9 @@ defmodule AWS.OpsWorks do
   [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_commands(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCommands", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCommands", input, options)
   end
 
   @doc """
@@ -452,7 +500,9 @@ defmodule AWS.OpsWorks do
   [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_deployments(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDeployments", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDeployments", input, options)
   end
 
   @doc """
@@ -471,7 +521,9 @@ defmodule AWS.OpsWorks do
   This call accepts only one resource-identifying parameter.
   """
   def describe_ecs_clusters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEcsClusters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEcsClusters", input, options)
   end
 
   @doc """
@@ -485,7 +537,9 @@ defmodule AWS.OpsWorks do
   [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_elastic_ips(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeElasticIps", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeElasticIps", input, options)
   end
 
   @doc """
@@ -499,7 +553,9 @@ defmodule AWS.OpsWorks do
   [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_elastic_load_balancers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeElasticLoadBalancers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeElasticLoadBalancers", input, options)
   end
 
   @doc """
@@ -513,7 +569,9 @@ defmodule AWS.OpsWorks do
   [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_instances(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeInstances", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInstances", input, options)
   end
 
   @doc """
@@ -527,7 +585,9 @@ defmodule AWS.OpsWorks do
   [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_layers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeLayers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeLayers", input, options)
   end
 
   @doc """
@@ -541,7 +601,9 @@ defmodule AWS.OpsWorks do
   [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_load_based_auto_scaling(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeLoadBasedAutoScaling", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeLoadBasedAutoScaling", input, options)
   end
 
   @doc """
@@ -552,14 +614,18 @@ defmodule AWS.OpsWorks do
   permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_my_user_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeMyUserProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMyUserProfile", input, options)
   end
 
   @doc """
   Describes the operating systems that are supported by AWS OpsWorks Stacks.
   """
   def describe_operating_systems(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeOperatingSystems", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeOperatingSystems", input, options)
   end
 
   @doc """
@@ -570,7 +636,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_permissions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePermissions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePermissions", input, options)
   end
 
   @doc """
@@ -584,7 +652,9 @@ defmodule AWS.OpsWorks do
   [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_raid_arrays(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRaidArrays", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRaidArrays", input, options)
   end
 
   @doc """
@@ -598,7 +668,9 @@ defmodule AWS.OpsWorks do
   This call accepts only one resource-identifying parameter.
   """
   def describe_rds_db_instances(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRdsDbInstances", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRdsDbInstances", input, options)
   end
 
   @doc """
@@ -612,7 +684,9 @@ defmodule AWS.OpsWorks do
   This call accepts only one resource-identifying parameter.
   """
   def describe_service_errors(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeServiceErrors", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeServiceErrors", input, options)
   end
 
   @doc """
@@ -624,13 +698,9 @@ defmodule AWS.OpsWorks do
   [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_stack_provisioning_parameters(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeStackProvisioningParameters",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStackProvisioningParameters", input, options)
   end
 
   @doc """
@@ -643,7 +713,9 @@ defmodule AWS.OpsWorks do
   [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_stack_summary(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStackSummary", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStackSummary", input, options)
   end
 
   @doc """
@@ -655,7 +727,9 @@ defmodule AWS.OpsWorks do
   [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_stacks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStacks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStacks", input, options)
   end
 
   @doc """
@@ -669,7 +743,9 @@ defmodule AWS.OpsWorks do
   [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_time_based_auto_scaling(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTimeBasedAutoScaling", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTimeBasedAutoScaling", input, options)
   end
 
   @doc """
@@ -680,7 +756,9 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_user_profiles(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeUserProfiles", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeUserProfiles", input, options)
   end
 
   @doc """
@@ -694,7 +772,9 @@ defmodule AWS.OpsWorks do
   [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_volumes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeVolumes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeVolumes", input, options)
   end
 
   @doc """
@@ -705,7 +785,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def detach_elastic_load_balancer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DetachElasticLoadBalancer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetachElasticLoadBalancer", input, options)
   end
 
   @doc """
@@ -719,7 +801,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def disassociate_elastic_ip(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateElasticIp", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateElasticIp", input, options)
   end
 
   @doc """
@@ -731,7 +815,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def get_hostname_suggestion(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetHostnameSuggestion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetHostnameSuggestion", input, options)
   end
 
   @doc """
@@ -740,14 +826,18 @@ defmodule AWS.OpsWorks do
   Grants RDP access to a Windows instance for a specified time period.
   """
   def grant_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GrantAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GrantAccess", input, options)
   end
 
   @doc """
   Returns a list of tags that are applied to the specified stack or layer.
   """
   def list_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTags", input, options)
   end
 
   @doc """
@@ -760,7 +850,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def reboot_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RebootInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RebootInstance", input, options)
   end
 
   @doc """
@@ -774,7 +866,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [ Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def register_ecs_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterEcsCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterEcsCluster", input, options)
   end
 
   @doc """
@@ -789,7 +883,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def register_elastic_ip(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterElasticIp", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterElasticIp", input, options)
   end
 
   @doc """
@@ -814,7 +910,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def register_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterInstance", input, options)
   end
 
   @doc """
@@ -825,7 +923,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def register_rds_db_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterRdsDbInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterRdsDbInstance", input, options)
   end
 
   @doc """
@@ -840,7 +940,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def register_volume(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterVolume", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterVolume", input, options)
   end
 
   @doc """
@@ -858,7 +960,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def set_load_based_auto_scaling(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetLoadBasedAutoScaling", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetLoadBasedAutoScaling", input, options)
   end
 
   @doc """
@@ -871,7 +975,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def set_permission(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetPermission", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetPermission", input, options)
   end
 
   @doc """
@@ -884,7 +990,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def set_time_based_auto_scaling(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetTimeBasedAutoScaling", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetTimeBasedAutoScaling", input, options)
   end
 
   @doc """
@@ -897,7 +1005,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def start_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartInstance", input, options)
   end
 
   @doc """
@@ -908,7 +1018,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def start_stack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartStack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartStack", input, options)
   end
 
   @doc """
@@ -924,7 +1036,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def stop_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopInstance", input, options)
   end
 
   @doc """
@@ -935,7 +1049,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def stop_stack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopStack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopStack", input, options)
   end
 
   @doc """
@@ -946,7 +1062,9 @@ defmodule AWS.OpsWorks do
   the AWS OpsWorks User Guide.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -961,7 +1079,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def unassign_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UnassignInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UnassignInstance", input, options)
   end
 
   @doc """
@@ -975,14 +1095,18 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def unassign_volume(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UnassignVolume", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UnassignVolume", input, options)
   end
 
   @doc """
   Removes tags from a specified stack or layer.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -993,7 +1117,9 @@ defmodule AWS.OpsWorks do
   grants permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def update_app(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateApp", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateApp", input, options)
   end
 
   @doc """
@@ -1006,7 +1132,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def update_elastic_ip(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateElasticIp", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateElasticIp", input, options)
   end
 
   @doc """
@@ -1017,7 +1145,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def update_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateInstance", input, options)
   end
 
   @doc """
@@ -1028,7 +1158,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def update_layer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateLayer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLayer", input, options)
   end
 
   @doc """
@@ -1039,7 +1171,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def update_my_user_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateMyUserProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateMyUserProfile", input, options)
   end
 
   @doc """
@@ -1050,7 +1184,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def update_rds_db_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateRdsDbInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateRdsDbInstance", input, options)
   end
 
   @doc """
@@ -1061,7 +1197,9 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def update_stack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateStack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateStack", input, options)
   end
 
   @doc """
@@ -1072,7 +1210,9 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def update_user_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateUserProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateUserProfile", input, options)
   end
 
   @doc """
@@ -1085,6 +1225,8 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def update_volume(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateVolume", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateVolume", input, options)
   end
 end

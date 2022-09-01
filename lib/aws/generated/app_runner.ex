@@ -61,7 +61,9 @@ defmodule AWS.AppRunner do
   validity in a certificate stored in [AWS Certificate Manager (ACM)](https://docs.aws.amazon.com/acm/latest/userguide).
   """
   def associate_custom_domain(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateCustomDomain", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateCustomDomain", input, options)
   end
 
   @doc """
@@ -86,7 +88,9 @@ defmodule AWS.AppRunner do
   responsiveness during peak demand.
   """
   def create_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAutoScalingConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAutoScalingConfiguration", input, options)
   end
 
   @doc """
@@ -101,7 +105,9 @@ defmodule AWS.AppRunner do
   use the connection.
   """
   def create_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateConnection", input, options)
   end
 
   @doc """
@@ -125,7 +131,9 @@ defmodule AWS.AppRunner do
   doesn't enable the feature.
   """
   def create_observability_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateObservabilityConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateObservabilityConfiguration", input, options)
   end
 
   @doc """
@@ -139,7 +147,9 @@ defmodule AWS.AppRunner do
   call to track the operation's progress.
   """
   def create_service(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateService", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateService", input, options)
   end
 
   @doc """
@@ -149,7 +159,9 @@ defmodule AWS.AppRunner do
   service to a custom Amazon Virtual Private Cloud (Amazon VPC).
   """
   def create_vpc_connector(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateVpcConnector", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateVpcConnector", input, options)
   end
 
   @doc """
@@ -159,7 +171,9 @@ defmodule AWS.AppRunner do
   delete a configuration that's used by one or more App Runner services.
   """
   def delete_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAutoScalingConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAutoScalingConfiguration", input, options)
   end
 
   @doc """
@@ -169,7 +183,9 @@ defmodule AWS.AppRunner do
   this connection. If there are any, the `DeleteConnection` action fails.
   """
   def delete_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteConnection", input, options)
   end
 
   @doc """
@@ -179,7 +195,9 @@ defmodule AWS.AppRunner do
   delete a configuration that's used by one or more App Runner services.
   """
   def delete_observability_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteObservabilityConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteObservabilityConfiguration", input, options)
   end
 
   @doc """
@@ -190,7 +208,9 @@ defmodule AWS.AppRunner do
   progress.
   """
   def delete_service(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteService", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteService", input, options)
   end
 
   @doc """
@@ -199,7 +219,9 @@ defmodule AWS.AppRunner do
   You can't delete a connector that's used by one or more App Runner services.
   """
   def delete_vpc_connector(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteVpcConnector", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteVpcConnector", input, options)
   end
 
   @doc """
@@ -207,7 +229,9 @@ defmodule AWS.AppRunner do
   resource.
   """
   def describe_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAutoScalingConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAutoScalingConfiguration", input, options)
   end
 
   @doc """
@@ -215,28 +239,36 @@ defmodule AWS.AppRunner do
   Runner service.
   """
   def describe_custom_domains(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCustomDomains", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCustomDomains", input, options)
   end
 
   @doc """
   Return a full description of an App Runner observability configuration resource.
   """
   def describe_observability_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeObservabilityConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeObservabilityConfiguration", input, options)
   end
 
   @doc """
   Return a full description of an App Runner service.
   """
   def describe_service(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeService", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeService", input, options)
   end
 
   @doc """
   Return a description of an App Runner VPC connector resource.
   """
   def describe_vpc_connector(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeVpcConnector", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeVpcConnector", input, options)
   end
 
   @doc """
@@ -248,7 +280,9 @@ defmodule AWS.AppRunner do
   for 30 days after a domain is disassociated from your service.
   """
   def disassociate_custom_domain(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateCustomDomain", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateCustomDomain", input, options)
   end
 
   @doc """
@@ -263,7 +297,9 @@ defmodule AWS.AppRunner do
   provide one of the ARNs returned by `ListAutoScalingConfigurations`.
   """
   def list_auto_scaling_configurations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAutoScalingConfigurations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAutoScalingConfigurations", input, options)
   end
 
   @doc """
@@ -271,7 +307,9 @@ defmodule AWS.AppRunner do
   Web Services account.
   """
   def list_connections(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListConnections", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListConnections", input, options)
   end
 
   @doc """
@@ -286,7 +324,9 @@ defmodule AWS.AppRunner do
   provide one of the ARNs returned by `ListObservabilityConfigurations`.
   """
   def list_observability_configurations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListObservabilityConfigurations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListObservabilityConfigurations", input, options)
   end
 
   @doc """
@@ -297,7 +337,9 @@ defmodule AWS.AppRunner do
   operation.
   """
   def list_operations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListOperations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListOperations", input, options)
   end
 
   @doc """
@@ -305,7 +347,9 @@ defmodule AWS.AppRunner do
   account.
   """
   def list_services(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListServices", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListServices", input, options)
   end
 
   @doc """
@@ -314,14 +358,18 @@ defmodule AWS.AppRunner do
   The response contains a list of tag key-value pairs.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Returns a list of App Runner VPC connectors in your Amazon Web Services account.
   """
   def list_vpc_connectors(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListVpcConnectors", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListVpcConnectors", input, options)
   end
 
   @doc """
@@ -335,7 +383,9 @@ defmodule AWS.AppRunner do
   progress.
   """
   def pause_service(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PauseService", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PauseService", input, options)
   end
 
   @doc """
@@ -348,7 +398,9 @@ defmodule AWS.AppRunner do
   progress.
   """
   def resume_service(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ResumeService", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ResumeService", input, options)
   end
 
   @doc """
@@ -365,7 +417,9 @@ defmodule AWS.AppRunner do
   progress.
   """
   def start_deployment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartDeployment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartDeployment", input, options)
   end
 
   @doc """
@@ -374,14 +428,18 @@ defmodule AWS.AppRunner do
   A tag is a key-value pair.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Remove tags from an App Runner resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -401,6 +459,8 @@ defmodule AWS.AppRunner do
   progress.
   """
   def update_service(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateService", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateService", input, options)
   end
 end

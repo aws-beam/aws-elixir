@@ -95,7 +95,9 @@ defmodule AWS.ApplicationAutoScaling do
   in the *Application Auto Scaling User Guide*.
   """
   def delete_scaling_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteScalingPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteScalingPolicy", input, options)
   end
 
   @doc """
@@ -106,7 +108,9 @@ defmodule AWS.ApplicationAutoScaling do
   in the *Application Auto Scaling User Guide*.
   """
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteScheduledAction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteScheduledAction", input, options)
   end
 
   @doc """
@@ -120,7 +124,9 @@ defmodule AWS.ApplicationAutoScaling do
   actions that are associated with it.
   """
   def deregister_scalable_target(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterScalableTarget", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterScalableTarget", input, options)
   end
 
   @doc """
@@ -129,7 +135,9 @@ defmodule AWS.ApplicationAutoScaling do
   You can filter the results using `ResourceIds` and `ScalableDimension`.
   """
   def describe_scalable_targets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeScalableTargets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeScalableTargets", input, options)
   end
 
   @doc """
@@ -139,7 +147,9 @@ defmodule AWS.ApplicationAutoScaling do
   You can filter the results using `ResourceId` and `ScalableDimension`.
   """
   def describe_scaling_activities(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeScalingActivities", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeScalingActivities", input, options)
   end
 
   @doc """
@@ -154,7 +164,9 @@ defmodule AWS.ApplicationAutoScaling do
   in the *Application Auto Scaling User Guide*.
   """
   def describe_scaling_policies(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeScalingPolicies", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeScalingPolicies", input, options)
   end
 
   @doc """
@@ -169,7 +181,9 @@ defmodule AWS.ApplicationAutoScaling do
   in the *Application Auto Scaling User Guide*.
   """
   def describe_scheduled_actions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeScheduledActions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeScheduledActions", input, options)
   end
 
   @doc """
@@ -209,7 +223,9 @@ defmodule AWS.ApplicationAutoScaling do
   scalable target are deleted.
   """
   def put_scaling_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutScalingPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutScalingPolicy", input, options)
   end
 
   @doc """
@@ -236,7 +252,9 @@ defmodule AWS.ApplicationAutoScaling do
   scalable target are deleted.
   """
   def put_scheduled_action(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutScheduledAction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutScheduledAction", input, options)
   end
 
   @doc """
@@ -272,6 +290,8 @@ defmodule AWS.ApplicationAutoScaling do
   request parameters.
   """
   def register_scalable_target(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterScalableTarget", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterScalableTarget", input, options)
   end
 end

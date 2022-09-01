@@ -45,6 +45,8 @@ defmodule AWS.MarketplaceEntitlement do
   The results can be filtered based on customer identifier or product dimensions.
   """
   def get_entitlements(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetEntitlements", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEntitlements", input, options)
   end
 end

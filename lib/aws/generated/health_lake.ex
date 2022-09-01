@@ -31,14 +31,18 @@ defmodule AWS.HealthLake do
   Creates a Data Store that can ingest and export FHIR formatted data.
   """
   def create_fhir_datastore(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateFHIRDatastore", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFHIRDatastore", input, options)
   end
 
   @doc """
   Deletes a Data Store.
   """
   def delete_fhir_datastore(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteFHIRDatastore", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFHIRDatastore", input, options)
   end
 
   @doc """
@@ -47,7 +51,9 @@ defmodule AWS.HealthLake do
   Store type version, and Data Store endpoint.
   """
   def describe_fhir_datastore(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFHIRDatastore", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFHIRDatastore", input, options)
   end
 
   @doc """
@@ -55,7 +61,9 @@ defmodule AWS.HealthLake do
   the status of the job.
   """
   def describe_fhir_export_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFHIRExportJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFHIRExportJob", input, options)
   end
 
   @doc """
@@ -63,7 +71,9 @@ defmodule AWS.HealthLake do
   the status of the job.
   """
   def describe_fhir_import_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFHIRImportJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFHIRImportJob", input, options)
   end
 
   @doc """
@@ -71,55 +81,71 @@ defmodule AWS.HealthLake do
   Store status.
   """
   def list_fhir_datastores(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFHIRDatastores", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFHIRDatastores", input, options)
   end
 
   @doc """
   Lists all FHIR export jobs associated with an account and their statuses.
   """
   def list_fhir_export_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFHIRExportJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFHIRExportJobs", input, options)
   end
 
   @doc """
   Lists all FHIR import jobs associated with an account and their statuses.
   """
   def list_fhir_import_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFHIRImportJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFHIRImportJobs", input, options)
   end
 
   @doc """
   Returns a list of all existing tags associated with a Data Store.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Begins a FHIR export job.
   """
   def start_fhir_export_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartFHIRExportJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartFHIRExportJob", input, options)
   end
 
   @doc """
   Begins a FHIR Import job.
   """
   def start_fhir_import_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartFHIRImportJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartFHIRImportJob", input, options)
   end
 
   @doc """
   Adds a user specifed key and value tag to a Data Store.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes tags from a Data Store.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 end

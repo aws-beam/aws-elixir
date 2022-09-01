@@ -104,7 +104,9 @@ defmodule AWS.Support do
   changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
   """
   def add_attachments_to_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddAttachmentsToSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddAttachmentsToSet", input, options)
   end
 
   @doc """
@@ -124,7 +126,9 @@ defmodule AWS.Support do
   changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
   """
   def add_communication_to_case(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddCommunicationToCase", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddCommunicationToCase", input, options)
   end
 
   @doc """
@@ -159,7 +163,9 @@ defmodule AWS.Support do
   changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
   """
   def create_case(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCase", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCase", input, options)
   end
 
   @doc """
@@ -180,7 +186,9 @@ defmodule AWS.Support do
   changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
   """
   def describe_attachment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAttachment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAttachment", input, options)
   end
 
   @doc """
@@ -211,7 +219,9 @@ defmodule AWS.Support do
   Support](http://aws.amazon.com/premiumsupport/).
   """
   def describe_cases(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCases", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCases", input, options)
   end
 
   @doc """
@@ -237,7 +247,9 @@ defmodule AWS.Support do
   changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
   """
   def describe_communications(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCommunications", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCommunications", input, options)
   end
 
   @doc """
@@ -264,7 +276,9 @@ defmodule AWS.Support do
   Support](http://aws.amazon.com/premiumsupport/).
   """
   def describe_services(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeServices", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeServices", input, options)
   end
 
   @doc """
@@ -282,7 +296,9 @@ defmodule AWS.Support do
   changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
   """
   def describe_severity_levels(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSeverityLevels", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSeverityLevels", input, options)
   end
 
   @doc """
@@ -306,9 +322,11 @@ defmodule AWS.Support do
   changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
   """
   def describe_trusted_advisor_check_refresh_statuses(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "DescribeTrustedAdvisorCheckRefreshStatuses",
       input,
       options
@@ -349,7 +367,9 @@ defmodule AWS.Support do
   changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
   """
   def describe_trusted_advisor_check_result(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTrustedAdvisorCheckResult", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTrustedAdvisorCheckResult", input, options)
   end
 
   @doc """
@@ -370,13 +390,9 @@ defmodule AWS.Support do
   changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
   """
   def describe_trusted_advisor_check_summaries(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeTrustedAdvisorCheckSummaries",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTrustedAdvisorCheckSummaries", input, options)
   end
 
   @doc """
@@ -401,7 +417,9 @@ defmodule AWS.Support do
   identify a check.
   """
   def describe_trusted_advisor_checks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTrustedAdvisorChecks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTrustedAdvisorChecks", input, options)
   end
 
   @doc """
@@ -425,7 +443,9 @@ defmodule AWS.Support do
   changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
   """
   def refresh_trusted_advisor_check(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RefreshTrustedAdvisorCheck", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RefreshTrustedAdvisorCheck", input, options)
   end
 
   @doc """
@@ -443,6 +463,8 @@ defmodule AWS.Support do
   changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
   """
   def resolve_case(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ResolveCase", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ResolveCase", input, options)
   end
 end

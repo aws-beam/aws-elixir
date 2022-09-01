@@ -46,7 +46,9 @@ defmodule AWS.Directory do
   account.
   """
   def accept_shared_directory(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AcceptSharedDirectory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AcceptSharedDirectory", input, options)
   end
 
   @doc """
@@ -64,14 +66,18 @@ defmodule AWS.Directory do
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
   def add_ip_routes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddIpRoutes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddIpRoutes", input, options)
   end
 
   @doc """
   Adds two domain controllers in the specified Region for the specified directory.
   """
   def add_region(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddRegion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddRegion", input, options)
   end
 
   @doc """
@@ -81,7 +87,9 @@ defmodule AWS.Directory do
   optional value. Tag keys must be unique to each resource.
   """
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddTagsToResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
 
   @doc """
@@ -92,7 +100,9 @@ defmodule AWS.Directory do
   the following states; `Initializing`, `CreatingSnapshot`, and `UpdatingSchema`.
   """
   def cancel_schema_extension(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelSchemaExtension", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelSchemaExtension", input, options)
   end
 
   @doc """
@@ -104,7 +114,9 @@ defmodule AWS.Directory do
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
   def connect_directory(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ConnectDirectory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ConnectDirectory", input, options)
   end
 
   @doc """
@@ -117,14 +129,18 @@ defmodule AWS.Directory do
   operation should only be used when absolutely necessary.
   """
   def create_alias(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAlias", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAlias", input, options)
   end
 
   @doc """
   Creates an Active Directory computer object in the specified directory.
   """
   def create_computer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateComputer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateComputer", input, options)
   end
 
   @doc """
@@ -135,7 +151,9 @@ defmodule AWS.Directory do
   another domain. The conditional forwarder points to the trusted domain.
   """
   def create_conditional_forwarder(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateConditionalForwarder", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateConditionalForwarder", input, options)
   end
 
   @doc """
@@ -150,7 +168,9 @@ defmodule AWS.Directory do
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
   def create_directory(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDirectory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDirectory", input, options)
   end
 
   @doc """
@@ -159,7 +179,9 @@ defmodule AWS.Directory do
   Services account.
   """
   def create_log_subscription(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateLogSubscription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLogSubscription", input, options)
   end
 
   @doc """
@@ -174,7 +196,9 @@ defmodule AWS.Directory do
   [Directory Service API Permissions: Actions, Resources, and Conditions Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
   def create_microsoft_ad(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateMicrosoftAD", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateMicrosoftAD", input, options)
   end
 
   @doc """
@@ -184,7 +208,9 @@ defmodule AWS.Directory do
   You cannot take snapshots of AD Connector directories.
   """
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
 
   @doc """
@@ -201,7 +227,9 @@ defmodule AWS.Directory do
   You can create either a forest trust or an external trust.
   """
   def create_trust(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateTrust", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTrust", input, options)
   end
 
   @doc """
@@ -209,7 +237,9 @@ defmodule AWS.Directory do
   Services directory.
   """
   def delete_conditional_forwarder(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteConditionalForwarder", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteConditionalForwarder", input, options)
   end
 
   @doc """
@@ -221,21 +251,27 @@ defmodule AWS.Directory do
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
   def delete_directory(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDirectory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDirectory", input, options)
   end
 
   @doc """
   Deletes the specified log subscription.
   """
   def delete_log_subscription(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteLogSubscription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLogSubscription", input, options)
   end
 
   @doc """
   Deletes a directory snapshot.
   """
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
 
   @doc """
@@ -243,7 +279,9 @@ defmodule AWS.Directory do
   directory and an external domain.
   """
   def delete_trust(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteTrust", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTrust", input, options)
   end
 
   @doc """
@@ -251,7 +289,9 @@ defmodule AWS.Directory do
   client certificate authentication.
   """
   def deregister_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterCertificate", input, options)
   end
 
   @doc """
@@ -259,7 +299,9 @@ defmodule AWS.Directory do
   topic.
   """
   def deregister_event_topic(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterEventTopic", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterEventTopic", input, options)
   end
 
   @doc """
@@ -267,7 +309,9 @@ defmodule AWS.Directory do
   certificate authentication.
   """
   def describe_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCertificate", input, options)
   end
 
   @doc """
@@ -279,13 +323,9 @@ defmodule AWS.Directory do
   `SmartCard` is supported.
   """
   def describe_client_authentication_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeClientAuthenticationSettings",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeClientAuthenticationSettings", input, options)
   end
 
   @doc """
@@ -295,7 +335,9 @@ defmodule AWS.Directory do
   describes all conditional forwarders for the specified directory ID.
   """
   def describe_conditional_forwarders(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeConditionalForwarders", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConditionalForwarders", input, options)
   end
 
   @doc """
@@ -314,14 +356,18 @@ defmodule AWS.Directory do
   parameter.
   """
   def describe_directories(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDirectories", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDirectories", input, options)
   end
 
   @doc """
   Provides information about any domain controllers in your directory.
   """
   def describe_domain_controllers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDomainControllers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDomainControllers", input, options)
   end
 
   @doc """
@@ -332,14 +378,18 @@ defmodule AWS.Directory do
   request describes all of the associations in the account.
   """
   def describe_event_topics(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEventTopics", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEventTopics", input, options)
   end
 
   @doc """
   Describes the status of LDAP security for the specified directory.
   """
   def describe_ldaps_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeLDAPSSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeLDAPSSettings", input, options)
   end
 
   @doc """
@@ -347,7 +397,9 @@ defmodule AWS.Directory do
   replication.
   """
   def describe_regions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRegions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRegions", input, options)
   end
 
   @doc """
@@ -355,14 +407,18 @@ defmodule AWS.Directory do
   directory.
   """
   def describe_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSettings", input, options)
   end
 
   @doc """
   Returns the shared directories in your account.
   """
   def describe_shared_directories(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSharedDirectories", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSharedDirectories", input, options)
   end
 
   @doc """
@@ -377,7 +433,9 @@ defmodule AWS.Directory do
   parameter.
   """
   def describe_snapshots(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSnapshots", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSnapshots", input, options)
   end
 
   @doc """
@@ -387,21 +445,27 @@ defmodule AWS.Directory do
   request describes all the trust relationships belonging to the account.
   """
   def describe_trusts(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTrusts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTrusts", input, options)
   end
 
   @doc """
   Disables alternative client authentication methods for the specified directory.
   """
   def disable_client_authentication(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisableClientAuthentication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableClientAuthentication", input, options)
   end
 
   @doc """
   Deactivates LDAP secure calls for the specified directory.
   """
   def disable_ldaps(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisableLDAPS", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableLDAPS", input, options)
   end
 
   @doc """
@@ -409,28 +473,36 @@ defmodule AWS.Directory do
   In User Service (RADIUS) server for an AD Connector or Microsoft AD directory.
   """
   def disable_radius(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisableRadius", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableRadius", input, options)
   end
 
   @doc """
   Disables single-sign on for a directory.
   """
   def disable_sso(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisableSso", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableSso", input, options)
   end
 
   @doc """
   Enables alternative client authentication methods for the specified directory.
   """
   def enable_client_authentication(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnableClientAuthentication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableClientAuthentication", input, options)
   end
 
   @doc """
   Activates the switch for the specific directory to always use LDAP secure calls.
   """
   def enable_ldaps(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnableLDAPS", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableLDAPS", input, options)
   end
 
   @doc """
@@ -438,7 +510,9 @@ defmodule AWS.Directory do
   User Service (RADIUS) server for an AD Connector or Microsoft AD directory.
   """
   def enable_radius(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnableRadius", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableRadius", input, options)
   end
 
   @doc """
@@ -449,21 +523,27 @@ defmodule AWS.Directory do
   enter their credentials separately.
   """
   def enable_sso(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnableSso", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableSso", input, options)
   end
 
   @doc """
   Obtains directory limit information for the current Region.
   """
   def get_directory_limits(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDirectoryLimits", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDirectoryLimits", input, options)
   end
 
   @doc """
   Obtains the manual snapshot limits for a directory.
   """
   def get_snapshot_limits(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetSnapshotLimits", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSnapshotLimits", input, options)
   end
 
   @doc """
@@ -471,42 +551,54 @@ defmodule AWS.Directory do
   LDAP or client certificate authentication.
   """
   def list_certificates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListCertificates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCertificates", input, options)
   end
 
   @doc """
   Lists the address blocks that you have added to a directory.
   """
   def list_ip_routes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListIpRoutes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListIpRoutes", input, options)
   end
 
   @doc """
   Lists the active log subscriptions for the Amazon Web Services account.
   """
   def list_log_subscriptions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListLogSubscriptions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLogSubscriptions", input, options)
   end
 
   @doc """
   Lists all schema extensions applied to a Microsoft AD Directory.
   """
   def list_schema_extensions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListSchemaExtensions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSchemaExtensions", input, options)
   end
 
   @doc """
   Lists all tags on a directory.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Registers a certificate for a secure LDAP or client certificate authentication.
   """
   def register_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterCertificate", input, options)
   end
 
   @doc """
@@ -519,7 +611,9 @@ defmodule AWS.Directory do
   directory returns to an Active status.
   """
   def register_event_topic(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterEventTopic", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterEventTopic", input, options)
   end
 
   @doc """
@@ -527,14 +621,18 @@ defmodule AWS.Directory do
   account.
   """
   def reject_shared_directory(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RejectSharedDirectory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RejectSharedDirectory", input, options)
   end
 
   @doc """
   Removes IP address blocks from a directory.
   """
   def remove_ip_routes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveIpRoutes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveIpRoutes", input, options)
   end
 
   @doc """
@@ -545,14 +643,18 @@ defmodule AWS.Directory do
   `DeleteDirectory` API.
   """
   def remove_region(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveRegion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveRegion", input, options)
   end
 
   @doc """
   Removes tags from a directory.
   """
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveTagsFromResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
 
   @doc """
@@ -574,7 +676,9 @@ defmodule AWS.Directory do
   in the *Directory Service Administration Guide*.
   """
   def reset_user_password(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ResetUserPassword", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ResetUserPassword", input, options)
   end
 
   @doc """
@@ -590,7 +694,9 @@ defmodule AWS.Directory do
   is complete.
   """
   def restore_from_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RestoreFromSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RestoreFromSnapshot", input, options)
   end
 
   @doc """
@@ -616,21 +722,27 @@ defmodule AWS.Directory do
   a directory sharing request to the directory consumer.
   """
   def share_directory(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ShareDirectory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ShareDirectory", input, options)
   end
 
   @doc """
   Applies a schema extension to a Microsoft AD directory.
   """
   def start_schema_extension(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartSchemaExtension", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartSchemaExtension", input, options)
   end
 
   @doc """
   Stops the directory sharing between the directory owner and consumer accounts.
   """
   def unshare_directory(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UnshareDirectory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UnshareDirectory", input, options)
   end
 
   @doc """
@@ -638,7 +750,9 @@ defmodule AWS.Directory do
   Services directory.
   """
   def update_conditional_forwarder(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateConditionalForwarder", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateConditionalForwarder", input, options)
   end
 
   @doc """
@@ -651,7 +765,9 @@ defmodule AWS.Directory do
   make another update request.
   """
   def update_number_of_domain_controllers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateNumberOfDomainControllers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateNumberOfDomainControllers", input, options)
   end
 
   @doc """
@@ -659,14 +775,18 @@ defmodule AWS.Directory do
   information for an AD Connector or Microsoft AD directory.
   """
   def update_radius(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateRadius", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateRadius", input, options)
   end
 
   @doc """
   Updates the configurable settings for the specified directory.
   """
   def update_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSettings", input, options)
   end
 
   @doc """
@@ -674,7 +794,9 @@ defmodule AWS.Directory do
   directory and an self-managed Active Directory.
   """
   def update_trust(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateTrust", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateTrust", input, options)
   end
 
   @doc """
@@ -685,6 +807,8 @@ defmodule AWS.Directory do
   directory and an external domain.
   """
   def verify_trust(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "VerifyTrust", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "VerifyTrust", input, options)
   end
 end

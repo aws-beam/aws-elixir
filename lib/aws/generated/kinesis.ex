@@ -39,7 +39,9 @@ defmodule AWS.Kinesis do
   `AddTagsToStream` has a limit of five transactions per second per account.
   """
   def add_tags_to_stream(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddTagsToStream", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddTagsToStream", input, options)
   end
 
   @doc """
@@ -87,7 +89,9 @@ defmodule AWS.Kinesis do
   `CreateStream` has a limit of five transactions per second per account.
   """
   def create_stream(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateStream", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateStream", input, options)
   end
 
   @doc """
@@ -101,7 +105,9 @@ defmodule AWS.Kinesis do
   that is older than 24 hours is inaccessible.
   """
   def decrease_stream_retention_period(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DecreaseStreamRetentionPeriod", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DecreaseStreamRetentionPeriod", input, options)
   end
 
   @doc """
@@ -128,7 +134,9 @@ defmodule AWS.Kinesis do
   `DeleteStream` has a limit of five transactions per second per account.
   """
   def delete_stream(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteStream", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteStream", input, options)
   end
 
   @doc """
@@ -145,7 +153,9 @@ defmodule AWS.Kinesis do
   This operation has a limit of five transactions per second per stream.
   """
   def deregister_stream_consumer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterStreamConsumer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterStreamConsumer", input, options)
   end
 
   @doc """
@@ -157,7 +167,9 @@ defmodule AWS.Kinesis do
   This operation has a limit of one transaction per second per account.
   """
   def describe_limits(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeLimits", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeLimits", input, options)
   end
 
   @doc """
@@ -187,7 +199,9 @@ defmodule AWS.Kinesis do
   This operation has a limit of 10 transactions per second per account.
   """
   def describe_stream(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStream", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStream", input, options)
   end
 
   @doc """
@@ -204,7 +218,9 @@ defmodule AWS.Kinesis do
   This operation has a limit of 20 transactions per second per stream.
   """
   def describe_stream_consumer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStreamConsumer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStreamConsumer", input, options)
   end
 
   @doc """
@@ -218,21 +234,27 @@ defmodule AWS.Kinesis do
   `DescribeStreamSummary` has a limit of 20 transactions per second per account.
   """
   def describe_stream_summary(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStreamSummary", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStreamSummary", input, options)
   end
 
   @doc """
   Disables enhanced monitoring.
   """
   def disable_enhanced_monitoring(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisableEnhancedMonitoring", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableEnhancedMonitoring", input, options)
   end
 
   @doc """
   Enables enhanced Kinesis data stream monitoring for shard-level metrics.
   """
   def enable_enhanced_monitoring(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnableEnhancedMonitoring", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableEnhancedMonitoring", input, options)
   end
 
   @doc """
@@ -297,7 +319,9 @@ defmodule AWS.Kinesis do
   This operation has a limit of five transactions per second per shard.
   """
   def get_records(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRecords", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRecords", input, options)
   end
 
   @doc """
@@ -343,7 +367,9 @@ defmodule AWS.Kinesis do
   open shard.
   """
   def get_shard_iterator(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetShardIterator", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetShardIterator", input, options)
   end
 
   @doc """
@@ -361,7 +387,9 @@ defmodule AWS.Kinesis do
   applications.
   """
   def increase_stream_retention_period(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "IncreaseStreamRetentionPeriod", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "IncreaseStreamRetentionPeriod", input, options)
   end
 
   @doc """
@@ -379,7 +407,9 @@ defmodule AWS.Kinesis do
   IAM](https://docs.aws.amazon.com/streams/latest/dev/controlling-access.html).
   """
   def list_shards(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListShards", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListShards", input, options)
   end
 
   @doc """
@@ -389,7 +419,9 @@ defmodule AWS.Kinesis do
   This operation has a limit of 5 transactions per second per stream.
   """
   def list_stream_consumers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListStreamConsumers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStreamConsumers", input, options)
   end
 
   @doc """
@@ -411,7 +443,9 @@ defmodule AWS.Kinesis do
   `ListStreams` has a limit of five transactions per second per account.
   """
   def list_streams(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListStreams", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStreams", input, options)
   end
 
   @doc """
@@ -420,7 +454,9 @@ defmodule AWS.Kinesis do
   This operation has a limit of five transactions per second per account.
   """
   def list_tags_for_stream(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForStream", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForStream", input, options)
   end
 
   @doc """
@@ -464,7 +500,9 @@ defmodule AWS.Kinesis do
   `MergeShards` has a limit of five transactions per second per account.
   """
   def merge_shards(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "MergeShards", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "MergeShards", input, options)
   end
 
   @doc """
@@ -514,7 +552,9 @@ defmodule AWS.Kinesis do
   `DecreaseStreamRetentionPeriod` to modify this retention period.
   """
   def put_record(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutRecord", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutRecord", input, options)
   end
 
   @doc """
@@ -586,7 +626,9 @@ defmodule AWS.Kinesis do
   `DecreaseStreamRetentionPeriod` to modify this retention period.
   """
   def put_records(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutRecords", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutRecords", input, options)
   end
 
   @doc """
@@ -610,7 +652,9 @@ defmodule AWS.Kinesis do
   `LimitExceededException`.
   """
   def register_stream_consumer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterStreamConsumer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterStreamConsumer", input, options)
   end
 
   @doc """
@@ -624,7 +668,9 @@ defmodule AWS.Kinesis do
   `RemoveTagsFromStream` has a limit of five transactions per second per account.
   """
   def remove_tags_from_stream(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveTagsFromStream", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveTagsFromStream", input, options)
   end
 
   @doc """
@@ -679,7 +725,9 @@ defmodule AWS.Kinesis do
   `SplitShard` has a limit of five transactions per second per account.
   """
   def split_shard(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SplitShard", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SplitShard", input, options)
   end
 
   @doc """
@@ -703,7 +751,9 @@ defmodule AWS.Kinesis do
   response from `PutRecord` or `PutRecords`.
   """
   def start_stream_encryption(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartStreamEncryption", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartStreamEncryption", input, options)
   end
 
   @doc """
@@ -727,7 +777,9 @@ defmodule AWS.Kinesis do
   inspecting the API response from `PutRecord` or `PutRecords`.
   """
   def stop_stream_encryption(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopStreamEncryption", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopStreamEncryption", input, options)
   end
 
   @doc """
@@ -761,7 +813,9 @@ defmodule AWS.Kinesis do
   API](/streams/latest/dev/building-enhanced-consumers-api.html).
   """
   def subscribe_to_shard(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SubscribeToShard", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SubscribeToShard", input, options)
   end
 
   @doc """
@@ -807,7 +861,9 @@ defmodule AWS.Kinesis do
   use the [limits form](https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase&limitType=service-code-kinesis).
   """
   def update_shard_count(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateShardCount", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateShardCount", input, options)
   end
 
   @doc """
@@ -817,6 +873,8 @@ defmodule AWS.Kinesis do
   capacity mode and a **provisioned** capacity mode for your data stream.
   """
   def update_stream_mode(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateStreamMode", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateStreamMode", input, options)
   end
 end

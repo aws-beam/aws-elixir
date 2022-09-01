@@ -50,7 +50,9 @@ defmodule AWS.ECR do
   `docker` CLI to pull, tag, and push images.
   """
   def batch_check_layer_availability(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchCheckLayerAvailability", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchCheckLayerAvailability", input, options)
   end
 
   @doc """
@@ -66,7 +68,9 @@ defmodule AWS.ECR do
   image's digest in your request.
   """
   def batch_delete_image(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchDeleteImage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchDeleteImage", input, options)
   end
 
   @doc """
@@ -78,20 +82,18 @@ defmodule AWS.ECR do
   image manifest.
   """
   def batch_get_image(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchGetImage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetImage", input, options)
   end
 
   @doc """
   Gets the scanning configuration for one or more repositories.
   """
   def batch_get_repository_scanning_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "BatchGetRepositoryScanningConfiguration",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetRepositoryScanningConfiguration", input, options)
   end
 
   @doc """
@@ -109,7 +111,9 @@ defmodule AWS.ECR do
   `docker` CLI to pull, tag, and push images.
   """
   def complete_layer_upload(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CompleteLayerUpload", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CompleteLayerUpload", input, options)
   end
 
   @doc """
@@ -119,7 +123,9 @@ defmodule AWS.ECR do
   registry in your Amazon ECR private registry.
   """
   def create_pull_through_cache_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreatePullThroughCacheRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePullThroughCacheRule", input, options)
   end
 
   @doc """
@@ -129,28 +135,36 @@ defmodule AWS.ECR do
   in the *Amazon Elastic Container Registry User Guide*.
   """
   def create_repository(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateRepository", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRepository", input, options)
   end
 
   @doc """
   Deletes the lifecycle policy associated with the specified repository.
   """
   def delete_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteLifecyclePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLifecyclePolicy", input, options)
   end
 
   @doc """
   Deletes a pull through cache rule.
   """
   def delete_pull_through_cache_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeletePullThroughCacheRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePullThroughCacheRule", input, options)
   end
 
   @doc """
   Deletes the registry permissions policy.
   """
   def delete_registry_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteRegistryPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRegistryPolicy", input, options)
   end
 
   @doc """
@@ -160,28 +174,36 @@ defmodule AWS.ECR do
   repository or use the `force` option to delete the repository.
   """
   def delete_repository(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteRepository", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRepository", input, options)
   end
 
   @doc """
   Deletes the repository policy associated with the specified repository.
   """
   def delete_repository_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteRepositoryPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRepositoryPolicy", input, options)
   end
 
   @doc """
   Returns the replication status for a specified image.
   """
   def describe_image_replication_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeImageReplicationStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeImageReplicationStatus", input, options)
   end
 
   @doc """
   Returns the scan findings for the specified image.
   """
   def describe_image_scan_findings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeImageScanFindings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeImageScanFindings", input, options)
   end
 
   @doc """
@@ -193,14 +215,18 @@ defmodule AWS.ECR do
   than the image sizes returned by `DescribeImages`.
   """
   def describe_images(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeImages", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeImages", input, options)
   end
 
   @doc """
   Returns the pull through cache rules for a registry.
   """
   def describe_pull_through_cache_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePullThroughCacheRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePullThroughCacheRules", input, options)
   end
 
   @doc """
@@ -210,14 +236,18 @@ defmodule AWS.ECR do
   the `PutReplicationConfiguration` API action.
   """
   def describe_registry(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRegistry", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRegistry", input, options)
   end
 
   @doc """
   Describes image repositories in a registry.
   """
   def describe_repositories(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRepositories", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRepositories", input, options)
   end
 
   @doc """
@@ -234,7 +264,9 @@ defmodule AWS.ECR do
   in the *Amazon Elastic Container Registry User Guide*.
   """
   def get_authorization_token(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAuthorizationToken", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAuthorizationToken", input, options)
   end
 
   @doc """
@@ -250,14 +282,18 @@ defmodule AWS.ECR do
   `docker` CLI to pull, tag, and push images.
   """
   def get_download_url_for_layer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDownloadUrlForLayer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDownloadUrlForLayer", input, options)
   end
 
   @doc """
   Retrieves the lifecycle policy for the specified repository.
   """
   def get_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetLifecyclePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetLifecyclePolicy", input, options)
   end
 
   @doc """
@@ -265,28 +301,36 @@ defmodule AWS.ECR do
   repository.
   """
   def get_lifecycle_policy_preview(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetLifecyclePolicyPreview", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetLifecyclePolicyPreview", input, options)
   end
 
   @doc """
   Retrieves the permissions policy for a registry.
   """
   def get_registry_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRegistryPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRegistryPolicy", input, options)
   end
 
   @doc """
   Retrieves the scanning configuration for a registry.
   """
   def get_registry_scanning_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRegistryScanningConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRegistryScanningConfiguration", input, options)
   end
 
   @doc """
   Retrieves the repository policy for the specified repository.
   """
   def get_repository_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRepositoryPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRepositoryPolicy", input, options)
   end
 
   @doc """
@@ -301,7 +345,9 @@ defmodule AWS.ECR do
   `docker` CLI to pull, tag, and push images.
   """
   def initiate_layer_upload(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "InitiateLayerUpload", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "InitiateLayerUpload", input, options)
   end
 
   @doc """
@@ -315,14 +361,18 @@ defmodule AWS.ECR do
   your repository.
   """
   def list_images(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListImages", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListImages", input, options)
   end
 
   @doc """
   List the tags for an Amazon ECR resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -337,7 +387,9 @@ defmodule AWS.ECR do
   `docker` CLI to pull, tag, and push images.
   """
   def put_image(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutImage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutImage", input, options)
   end
 
   @doc """
@@ -349,7 +401,9 @@ defmodule AWS.ECR do
   Updates the image scanning configuration for the specified repository.
   """
   def put_image_scanning_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutImageScanningConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutImageScanningConfiguration", input, options)
   end
 
   @doc """
@@ -359,7 +413,9 @@ defmodule AWS.ECR do
   in the *Amazon Elastic Container Registry User Guide*.
   """
   def put_image_tag_mutability(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutImageTagMutability", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutImageTagMutability", input, options)
   end
 
   @doc """
@@ -368,7 +424,9 @@ defmodule AWS.ECR do
   For more information, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
   """
   def put_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutLifecyclePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutLifecyclePolicy", input, options)
   end
 
   @doc """
@@ -380,14 +438,18 @@ defmodule AWS.ECR do
   in the *Amazon Elastic Container Registry User Guide*.
   """
   def put_registry_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutRegistryPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutRegistryPolicy", input, options)
   end
 
   @doc """
   Creates or updates the scanning configuration for your private registry.
   """
   def put_registry_scanning_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutRegistryScanningConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutRegistryScanningConfiguration", input, options)
   end
 
   @doc """
@@ -405,7 +467,9 @@ defmodule AWS.ECR do
   a registry permissions policy. For more information, see `PutRegistryPolicy`.
   """
   def put_replication_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutReplicationConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutReplicationConfiguration", input, options)
   end
 
   @doc """
@@ -416,7 +480,9 @@ defmodule AWS.ECR do
   in the *Amazon Elastic Container Registry User Guide*.
   """
   def set_repository_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetRepositoryPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetRepositoryPolicy", input, options)
   end
 
   @doc """
@@ -428,7 +494,9 @@ defmodule AWS.ECR do
   in the *Amazon Elastic Container Registry User Guide*.
   """
   def start_image_scan(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartImageScan", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartImageScan", input, options)
   end
 
   @doc """
@@ -438,7 +506,9 @@ defmodule AWS.ECR do
   the repository.
   """
   def start_lifecycle_policy_preview(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartLifecyclePolicyPreview", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartLifecyclePolicyPreview", input, options)
   end
 
   @doc """
@@ -448,14 +518,18 @@ defmodule AWS.ECR do
   request parameters.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Deletes specified tags from a resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -470,6 +544,8 @@ defmodule AWS.ECR do
   `docker` CLI to pull, tag, and push images.
   """
   def upload_layer_part(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UploadLayerPart", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UploadLayerPart", input, options)
   end
 end

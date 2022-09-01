@@ -6,9 +6,11 @@ defmodule AWS.RDSData do
   Amazon RDS Data Service
 
   Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora
-  Serverless DB cluster.
+  Serverless v1 DB cluster.
 
   To run these statements, you work with the Data Service API.
+
+  The Data Service API isn't supported on Amazon Aurora Serverless v2 DB clusters.
 
   For more information about the Data Service API, see [Using the Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html)
   in the *Amazon Aurora User Guide*.
@@ -61,9 +63,11 @@ defmodule AWS.RDSData do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -77,8 +81,8 @@ defmodule AWS.RDSData do
   @doc """
   Starts a SQL transaction.
 
-  ` A transaction can run for a maximum of 24 hours. A transaction is terminated
-  and rolled back automatically after 24 hours.
+  A transaction can run for a maximum of 24 hours. A transaction is terminated and
+  rolled back automatically after 24 hours.
 
   A transaction times out if no calls use its transaction ID in three minutes. If
   a transaction times out before it's committed, it's rolled back automatically.
@@ -86,17 +90,17 @@ defmodule AWS.RDSData do
   DDL statements inside a transaction cause an implicit commit. We recommend that
   you run each DDL statement in a separate `ExecuteStatement` call with
   `continueAfterTimeout` enabled.
-
-  `
   """
   def begin_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/BeginTransaction"
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -116,9 +120,11 @@ defmodule AWS.RDSData do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -140,9 +146,11 @@ defmodule AWS.RDSData do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -168,9 +176,11 @@ defmodule AWS.RDSData do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -191,9 +201,11 @@ defmodule AWS.RDSData do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,

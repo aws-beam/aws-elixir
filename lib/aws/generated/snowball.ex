@@ -41,7 +41,9 @@ defmodule AWS.Snowball do
   You'll have at least an hour after creating a cluster job to cancel it.
   """
   def cancel_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelCluster", input, options)
   end
 
   @doc """
@@ -52,7 +54,9 @@ defmodule AWS.Snowball do
   a job's `JobState` as part of the response element data returned.
   """
   def cancel_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelJob", input, options)
   end
 
   @doc """
@@ -63,7 +67,9 @@ defmodule AWS.Snowball do
   address is invalid or unsupported, then an exception is thrown.
   """
   def create_address(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAddress", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAddress", input, options)
   end
 
   @doc """
@@ -74,7 +80,9 @@ defmodule AWS.Snowball do
   five node jobs have been created.
   """
   def create_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCluster", input, options)
   end
 
   @doc """
@@ -153,7 +161,9 @@ defmodule AWS.Snowball do
   Services Region.
   """
   def create_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateJob", input, options)
   end
 
   @doc """
@@ -164,7 +174,9 @@ defmodule AWS.Snowball do
   pricing.
   """
   def create_long_term_pricing(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateLongTermPricing", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLongTermPricing", input, options)
   end
 
   @doc """
@@ -172,7 +184,9 @@ defmodule AWS.Snowball do
   Web Services.
   """
   def create_return_shipping_label(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateReturnShippingLabel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateReturnShippingLabel", input, options)
   end
 
   @doc """
@@ -180,7 +194,9 @@ defmodule AWS.Snowball do
   of an `Address` object.
   """
   def describe_address(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAddress", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAddress", input, options)
   end
 
   @doc """
@@ -190,7 +206,9 @@ defmodule AWS.Snowball do
   all addresses associated with this account in all US regions.
   """
   def describe_addresses(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAddresses", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAddresses", input, options)
   end
 
   @doc """
@@ -198,7 +216,9 @@ defmodule AWS.Snowball do
   cluster status, and other important metadata.
   """
   def describe_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCluster", input, options)
   end
 
   @doc """
@@ -206,7 +226,9 @@ defmodule AWS.Snowball do
   status, and other important metadata.
   """
   def describe_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeJob", input, options)
   end
 
   @doc """
@@ -214,7 +236,9 @@ defmodule AWS.Snowball do
   Amazon Web Services.
   """
   def describe_return_shipping_label(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeReturnShippingLabel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReturnShippingLabel", input, options)
   end
 
   @doc """
@@ -239,7 +263,9 @@ defmodule AWS.Snowball do
   expire 360 days after the job is created.
   """
   def get_job_manifest(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetJobManifest", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetJobManifest", input, options)
   end
 
   @doc """
@@ -259,7 +285,9 @@ defmodule AWS.Snowball do
   associated with that job.
   """
   def get_job_unlock_code(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetJobUnlockCode", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetJobUnlockCode", input, options)
   end
 
   @doc """
@@ -271,7 +299,9 @@ defmodule AWS.Snowball do
   Services Support.
   """
   def get_snowball_usage(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetSnowballUsage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSnowballUsage", input, options)
   end
 
   @doc """
@@ -279,7 +309,9 @@ defmodule AWS.Snowball do
   specified `JobId`.
   """
   def get_software_updates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetSoftwareUpdates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSoftwareUpdates", input, options)
   end
 
   @doc """
@@ -289,7 +321,9 @@ defmodule AWS.Snowball do
   job's state, a job's ID, and other information.
   """
   def list_cluster_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListClusterJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListClusterJobs", input, options)
   end
 
   @doc """
@@ -299,7 +333,9 @@ defmodule AWS.Snowball do
   other important status information.
   """
   def list_clusters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListClusters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListClusters", input, options)
   end
 
   @doc """
@@ -312,7 +348,9 @@ defmodule AWS.Snowball do
   available on the Amazon Web Services Marketplace.
   """
   def list_compatible_images(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListCompatibleImages", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCompatibleImages", input, options)
   end
 
   @doc """
@@ -324,14 +362,18 @@ defmodule AWS.Snowball do
   jobs associated with this account in all US regions.
   """
   def list_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListJobs", input, options)
   end
 
   @doc """
   Lists all long-term pricing types.
   """
   def list_long_term_pricing(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListLongTermPricing", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLongTermPricing", input, options)
   end
 
   @doc """
@@ -342,7 +384,9 @@ defmodule AWS.Snowball do
   cluster being created, this action is no longer available.
   """
   def update_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCluster", input, options)
   end
 
   @doc """
@@ -353,20 +397,26 @@ defmodule AWS.Snowball do
   job being created, this action is no longer available.
   """
   def update_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateJob", input, options)
   end
 
   @doc """
   Updates the state when a shipment state changes to a different state.
   """
   def update_job_shipment_state(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateJobShipmentState", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateJobShipmentState", input, options)
   end
 
   @doc """
   Updates the long-term pricing type.
   """
   def update_long_term_pricing(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateLongTermPricing", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLongTermPricing", input, options)
   end
 end

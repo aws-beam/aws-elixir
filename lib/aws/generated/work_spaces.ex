@@ -57,14 +57,18 @@ defmodule AWS.WorkSpaces do
   to make sure that the current state of the connection alias is `CREATED`.
   """
   def associate_connection_alias(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateConnectionAlias", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateConnectionAlias", input, options)
   end
 
   @doc """
   Associates the specified IP access control group with the specified directory.
   """
   def associate_ip_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateIpGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateIpGroups", input, options)
   end
 
   @doc """
@@ -74,7 +78,9 @@ defmodule AWS.WorkSpaces do
   address ranges specified in the rules.
   """
   def authorize_ip_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AuthorizeIpRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AuthorizeIpRules", input, options)
   end
 
   @doc """
@@ -96,7 +102,9 @@ defmodule AWS.WorkSpaces do
   API operations.
   """
   def copy_workspace_image(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CopyWorkspaceImage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CopyWorkspaceImage", input, options)
   end
 
   @doc """
@@ -108,7 +116,9 @@ defmodule AWS.WorkSpaces do
   Connect.
   """
   def create_connect_client_add_in(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateConnectClientAddIn", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateConnectClientAddIn", input, options)
   end
 
   @doc """
@@ -117,7 +127,9 @@ defmodule AWS.WorkSpaces do
   For more information, see [ Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
   """
   def create_connection_alias(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateConnectionAlias", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateConnectionAlias", input, options)
   end
 
   @doc """
@@ -136,14 +148,18 @@ defmodule AWS.WorkSpaces do
   control group for your directory.
   """
   def create_ip_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateIpGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateIpGroup", input, options)
   end
 
   @doc """
   Creates the specified tags for the specified WorkSpaces resource.
   """
   def create_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTags", input, options)
   end
 
   @doc """
@@ -167,7 +183,9 @@ defmodule AWS.WorkSpaces do
   bundle.
   """
   def create_updated_workspace_image(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateUpdatedWorkspaceImage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateUpdatedWorkspaceImage", input, options)
   end
 
   @doc """
@@ -177,14 +195,18 @@ defmodule AWS.WorkSpaces do
   Bundle](https://docs.aws.amazon.com/workspaces/latest/adminguide/create-custom-bundle.html).
   """
   def create_workspace_bundle(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateWorkspaceBundle", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateWorkspaceBundle", input, options)
   end
 
   @doc """
   Creates a new WorkSpace image from an existing WorkSpace.
   """
   def create_workspace_image(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateWorkspaceImage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateWorkspaceImage", input, options)
   end
 
   @doc """
@@ -193,7 +215,9 @@ defmodule AWS.WorkSpaces do
   This operation is asynchronous and returns before the WorkSpaces are created.
   """
   def create_workspaces(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateWorkspaces", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateWorkspaces", input, options)
   end
 
   @doc """
@@ -208,7 +232,9 @@ defmodule AWS.WorkSpaces do
   the default client branding.
   """
   def delete_client_branding(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteClientBranding", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteClientBranding", input, options)
   end
 
   @doc """
@@ -216,7 +242,9 @@ defmodule AWS.WorkSpaces do
   directory.
   """
   def delete_connect_client_add_in(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteConnectClientAddIn", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteConnectClientAddIn", input, options)
   end
 
   @doc """
@@ -236,7 +264,9 @@ defmodule AWS.WorkSpaces do
   with any accounts or associated with any directories.
   """
   def delete_connection_alias(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteConnectionAlias", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteConnectionAlias", input, options)
   end
 
   @doc """
@@ -246,14 +276,18 @@ defmodule AWS.WorkSpaces do
   directory.
   """
   def delete_ip_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteIpGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteIpGroup", input, options)
   end
 
   @doc """
   Deletes the specified tags from the specified WorkSpaces resource.
   """
   def delete_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTags", input, options)
   end
 
   @doc """
@@ -263,7 +297,9 @@ defmodule AWS.WorkSpaces do
   Image](https://docs.aws.amazon.com/workspaces/latest/adminguide/delete_bundle.html).
   """
   def delete_workspace_bundle(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteWorkspaceBundle", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteWorkspaceBundle", input, options)
   end
 
   @doc """
@@ -273,7 +309,9 @@ defmodule AWS.WorkSpaces do
   the image and unshare the image if it is shared with other accounts.
   """
   def delete_workspace_image(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteWorkspaceImage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteWorkspaceImage", input, options)
   end
 
   @doc """
@@ -294,7 +332,9 @@ defmodule AWS.WorkSpaces do
   new one when you want to start using WorkSpaces again.
   """
   def deregister_workspace_directory(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterWorkspaceDirectory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterWorkspaceDirectory", input, options)
   end
 
   @doc """
@@ -302,7 +342,9 @@ defmodule AWS.WorkSpaces do
   (BYOL) for the specified account.
   """
   def describe_account(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAccount", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAccount", input, options)
   end
 
   @doc """
@@ -310,7 +352,9 @@ defmodule AWS.WorkSpaces do
   Own License (BYOL) for the specified account.
   """
   def describe_account_modifications(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAccountModifications", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAccountModifications", input, options)
   end
 
   @doc """
@@ -325,21 +369,27 @@ defmodule AWS.WorkSpaces do
   response.
   """
   def describe_client_branding(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeClientBranding", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeClientBranding", input, options)
   end
 
   @doc """
   Retrieves a list that describes one or more specified Amazon WorkSpaces clients.
   """
   def describe_client_properties(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeClientProperties", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeClientProperties", input, options)
   end
 
   @doc """
   Retrieves a list of Amazon Connect client add-ins that have been created.
   """
   def describe_connect_client_add_ins(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeConnectClientAddIns", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConnectClientAddIns", input, options)
   end
 
   @doc """
@@ -349,7 +399,9 @@ defmodule AWS.WorkSpaces do
   For more information, see [ Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
   """
   def describe_connection_alias_permissions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeConnectionAliasPermissions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConnectionAliasPermissions", input, options)
   end
 
   @doc """
@@ -359,21 +411,27 @@ defmodule AWS.WorkSpaces do
   For more information, see [ Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
   """
   def describe_connection_aliases(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeConnectionAliases", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConnectionAliases", input, options)
   end
 
   @doc """
   Describes one or more of your IP access control groups.
   """
   def describe_ip_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeIpGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeIpGroups", input, options)
   end
 
   @doc """
   Describes the specified tags for the specified WorkSpaces resource.
   """
   def describe_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTags", input, options)
   end
 
   @doc """
@@ -382,14 +440,18 @@ defmodule AWS.WorkSpaces do
   You can filter the results using either bundle ID or owner, but not both.
   """
   def describe_workspace_bundles(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeWorkspaceBundles", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeWorkspaceBundles", input, options)
   end
 
   @doc """
   Describes the available directories that are registered with Amazon WorkSpaces.
   """
   def describe_workspace_directories(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeWorkspaceDirectories", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeWorkspaceDirectories", input, options)
   end
 
   @doc """
@@ -397,7 +459,9 @@ defmodule AWS.WorkSpaces do
   Web Services accounts for an image.
   """
   def describe_workspace_image_permissions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeWorkspaceImagePermissions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeWorkspaceImagePermissions", input, options)
   end
 
   @doc """
@@ -407,14 +471,18 @@ defmodule AWS.WorkSpaces do
   Otherwise, all images in the account are described.
   """
   def describe_workspace_images(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeWorkspaceImages", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeWorkspaceImages", input, options)
   end
 
   @doc """
   Describes the snapshots for the specified WorkSpace.
   """
   def describe_workspace_snapshots(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeWorkspaceSnapshots", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeWorkspaceSnapshots", input, options)
   end
 
   @doc """
@@ -424,14 +492,18 @@ defmodule AWS.WorkSpaces do
   or owner, but you can specify only one filter at a time.
   """
   def describe_workspaces(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeWorkspaces", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeWorkspaces", input, options)
   end
 
   @doc """
   Describes the connection status of the specified WorkSpaces.
   """
   def describe_workspaces_connection_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeWorkspacesConnectionStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeWorkspacesConnectionStatus", input, options)
   end
 
   @doc """
@@ -446,7 +518,9 @@ defmodule AWS.WorkSpaces do
   to make sure that the current state of the connection alias is `CREATED`.
   """
   def disassociate_connection_alias(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateConnectionAlias", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateConnectionAlias", input, options)
   end
 
   @doc """
@@ -454,7 +528,9 @@ defmodule AWS.WorkSpaces do
   directory.
   """
   def disassociate_ip_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateIpGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateIpGroups", input, options)
   end
 
   @doc """
@@ -483,7 +559,9 @@ defmodule AWS.WorkSpaces do
   client.
   """
   def import_client_branding(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ImportClientBranding", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportClientBranding", input, options)
   end
 
   @doc """
@@ -495,7 +573,9 @@ defmodule AWS.WorkSpaces do
   creating BYOL images, see [ Bring Your Own Windows Desktop Licenses](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
   """
   def import_workspace_image(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ImportWorkspaceImage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportWorkspaceImage", input, options)
   end
 
   @doc """
@@ -513,7 +593,9 @@ defmodule AWS.WorkSpaces do
   the WorkSpace.
   """
   def list_available_management_cidr_ranges(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAvailableManagementCidrRanges", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAvailableManagementCidrRanges", input, options)
   end
 
   @doc """
@@ -532,7 +614,9 @@ defmodule AWS.WorkSpaces do
   and best practices, see [Migrate a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/migrate-workspaces.html).
   """
   def migrate_workspace(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "MigrateWorkspace", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "MigrateWorkspace", input, options)
   end
 
   @doc """
@@ -540,14 +624,18 @@ defmodule AWS.WorkSpaces do
   account.
   """
   def modify_account(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyAccount", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyAccount", input, options)
   end
 
   @doc """
   Modifies the properties of the specified Amazon WorkSpaces clients.
   """
   def modify_client_properties(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyClientProperties", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyClientProperties", input, options)
   end
 
   @doc """
@@ -556,7 +644,9 @@ defmodule AWS.WorkSpaces do
   for configuring federation with an SAML 2.0 identity provider.
   """
   def modify_saml_properties(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifySamlProperties", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifySamlProperties", input, options)
   end
 
   @doc """
@@ -566,7 +656,9 @@ defmodule AWS.WorkSpaces do
   Users](https://docs.aws.amazon.com/workspaces/latest/adminguide/enable-user-self-service-workspace-management.html).
   """
   def modify_selfservice_permissions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifySelfservicePermissions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifySelfservicePermissions", input, options)
   end
 
   @doc """
@@ -576,14 +668,18 @@ defmodule AWS.WorkSpaces do
   For more information, see [ Control Device Access](https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html#control-device-access).
   """
   def modify_workspace_access_properties(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyWorkspaceAccessProperties", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyWorkspaceAccessProperties", input, options)
   end
 
   @doc """
   Modify the default properties used to create WorkSpaces.
   """
   def modify_workspace_creation_properties(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyWorkspaceCreationProperties", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyWorkspaceCreationProperties", input, options)
   end
 
   @doc """
@@ -593,7 +689,9 @@ defmodule AWS.WorkSpaces do
   volumes, see [ Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html).
   """
   def modify_workspace_properties(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyWorkspaceProperties", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyWorkspaceProperties", input, options)
   end
 
   @doc """
@@ -605,7 +703,9 @@ defmodule AWS.WorkSpaces do
   not stopped. Users cannot log into a WorkSpace in the `ADMIN_MAINTENANCE` state.
   """
   def modify_workspace_state(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyWorkspaceState", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyWorkspaceState", input, options)
   end
 
   @doc """
@@ -616,7 +716,9 @@ defmodule AWS.WorkSpaces do
   This operation is asynchronous and returns before the WorkSpaces have rebooted.
   """
   def reboot_workspaces(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RebootWorkspaces", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RebootWorkspaces", input, options)
   end
 
   @doc """
@@ -632,7 +734,9 @@ defmodule AWS.WorkSpaces do
   completely rebuilt.
   """
   def rebuild_workspaces(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RebuildWorkspaces", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RebuildWorkspaces", input, options)
   end
 
   @doc """
@@ -644,7 +748,9 @@ defmodule AWS.WorkSpaces do
   directory. For more information, see [ Creating the workspaces_DefaultRole Role](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role).
   """
   def register_workspace_directory(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterWorkspaceDirectory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterWorkspaceDirectory", input, options)
   end
 
   @doc """
@@ -660,14 +766,18 @@ defmodule AWS.WorkSpaces do
   restored.
   """
   def restore_workspace(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RestoreWorkspace", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RestoreWorkspace", input, options)
   end
 
   @doc """
   Removes one or more rules from the specified IP access control group.
   """
   def revoke_ip_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RevokeIpRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RevokeIpRules", input, options)
   end
 
   @doc """
@@ -677,7 +787,9 @@ defmodule AWS.WorkSpaces do
   state of `STOPPED`.
   """
   def start_workspaces(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartWorkspaces", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartWorkspaces", input, options)
   end
 
   @doc """
@@ -687,7 +799,9 @@ defmodule AWS.WorkSpaces do
   state of `AVAILABLE`, `IMPAIRED`, `UNHEALTHY`, or `ERROR`.
   """
   def stop_workspaces(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopWorkspaces", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopWorkspaces", input, options)
   end
 
   @doc """
@@ -719,7 +833,9 @@ defmodule AWS.WorkSpaces do
   new one when you want to start using WorkSpaces again.
   """
   def terminate_workspaces(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TerminateWorkspaces", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TerminateWorkspaces", input, options)
   end
 
   @doc """
@@ -729,7 +845,9 @@ defmodule AWS.WorkSpaces do
   add-in.
   """
   def update_connect_client_add_in(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateConnectClientAddIn", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateConnectClientAddIn", input, options)
   end
 
   @doc """
@@ -752,7 +870,9 @@ defmodule AWS.WorkSpaces do
   is no longer shared with any accounts or associated with any directories.
   """
   def update_connection_alias_permission(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateConnectionAliasPermission", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateConnectionAliasPermission", input, options)
   end
 
   @doc """
@@ -760,7 +880,9 @@ defmodule AWS.WorkSpaces do
   specified rules.
   """
   def update_rules_of_ip_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateRulesOfIpGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateRulesOfIpGroup", input, options)
   end
 
   @doc """
@@ -775,7 +897,9 @@ defmodule AWS.WorkSpaces do
   them.
   """
   def update_workspace_bundle(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateWorkspaceBundle", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateWorkspaceBundle", input, options)
   end
 
   @doc """
@@ -805,6 +929,8 @@ defmodule AWS.WorkSpaces do
   contact Amazon Web Services Support.
   """
   def update_workspace_image_permission(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateWorkspaceImagePermission", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateWorkspaceImagePermission", input, options)
   end
 end

@@ -119,7 +119,9 @@ defmodule AWS.Organizations do
   APIs for only 30 days. After that, it's deleted.
   """
   def accept_handshake(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AcceptHandshake", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AcceptHandshake", input, options)
   end
 
   @doc """
@@ -140,7 +142,9 @@ defmodule AWS.Organizations do
   This operation can be called only from the organization's management account.
   """
   def attach_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AttachPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AttachPolicy", input, options)
   end
 
   @doc """
@@ -157,7 +161,9 @@ defmodule AWS.Organizations do
   APIs for only 30 days. After that, it's deleted.
   """
   def cancel_handshake(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelHandshake", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelHandshake", input, options)
   end
 
   @doc """
@@ -200,7 +206,9 @@ defmodule AWS.Organizations do
   in the *Organizations User Guide.*
   """
   def close_account(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CloseAccount", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CloseAccount", input, options)
   end
 
   @doc """
@@ -277,7 +285,9 @@ defmodule AWS.Organizations do
   Tools](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html).
   """
   def create_account(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAccount", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAccount", input, options)
   end
 
   @doc """
@@ -399,7 +409,9 @@ defmodule AWS.Organizations do
   Tools](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html).
   """
   def create_gov_cloud_account(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateGovCloudAccount", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateGovCloudAccount", input, options)
   end
 
   @doc """
@@ -421,7 +433,9 @@ defmodule AWS.Organizations do
   by default, and you can't use organization policies
   """
   def create_organization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateOrganization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateOrganization", input, options)
   end
 
   @doc """
@@ -441,7 +455,9 @@ defmodule AWS.Organizations do
   This operation can be called only from the organization's management account.
   """
   def create_organizational_unit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateOrganizationalUnit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateOrganizationalUnit", input, options)
   end
 
   @doc """
@@ -456,7 +472,9 @@ defmodule AWS.Organizations do
   This operation can be called only from the organization's management account.
   """
   def create_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreatePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePolicy", input, options)
   end
 
   @doc """
@@ -474,7 +492,9 @@ defmodule AWS.Organizations do
   APIs for only 30 days. After that, it's deleted.
   """
   def decline_handshake(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeclineHandshake", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeclineHandshake", input, options)
   end
 
   @doc """
@@ -484,7 +504,9 @@ defmodule AWS.Organizations do
   account. The organization must be empty of member accounts.
   """
   def delete_organization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteOrganization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteOrganization", input, options)
   end
 
   @doc """
@@ -496,7 +518,9 @@ defmodule AWS.Organizations do
   This operation can be called only from the organization's management account.
   """
   def delete_organizational_unit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteOrganizationalUnit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteOrganizationalUnit", input, options)
   end
 
   @doc """
@@ -508,7 +532,9 @@ defmodule AWS.Organizations do
   This operation can be called only from the organization's management account.
   """
   def delete_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeletePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePolicy", input, options)
   end
 
   @doc """
@@ -529,7 +555,9 @@ defmodule AWS.Organizations do
   This operation can be called only from the organization's management account.
   """
   def deregister_delegated_administrator(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterDelegatedAdministrator", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterDelegatedAdministrator", input, options)
   end
 
   @doc """
@@ -540,7 +568,9 @@ defmodule AWS.Organizations do
   service.
   """
   def describe_account(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAccount", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAccount", input, options)
   end
 
   @doc """
@@ -551,7 +581,9 @@ defmodule AWS.Organizations do
   service.
   """
   def describe_create_account_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCreateAccountStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCreateAccountStatus", input, options)
   end
 
   @doc """
@@ -573,7 +605,9 @@ defmodule AWS.Organizations do
   service.
   """
   def describe_effective_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEffectivePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEffectivePolicy", input, options)
   end
 
   @doc """
@@ -589,7 +623,9 @@ defmodule AWS.Organizations do
   This operation can be called from any account in the organization.
   """
   def describe_handshake(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeHandshake", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeHandshake", input, options)
   end
 
   @doc """
@@ -602,7 +638,9 @@ defmodule AWS.Organizations do
   the status of policy types for a specified root.
   """
   def describe_organization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeOrganization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeOrganization", input, options)
   end
 
   @doc """
@@ -613,7 +651,9 @@ defmodule AWS.Organizations do
   service.
   """
   def describe_organizational_unit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeOrganizationalUnit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeOrganizationalUnit", input, options)
   end
 
   @doc """
@@ -624,7 +664,9 @@ defmodule AWS.Organizations do
   service.
   """
   def describe_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePolicy", input, options)
   end
 
   @doc """
@@ -646,7 +688,9 @@ defmodule AWS.Organizations do
   This operation can be called only from the organization's management account.
   """
   def detach_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DetachPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetachPolicy", input, options)
   end
 
   @doc """
@@ -709,7 +753,9 @@ defmodule AWS.Organizations do
   This operation can be called only from the organization's management account.
   """
   def disable_aws_service_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisableAWSServiceAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableAWSServiceAccess", input, options)
   end
 
   @doc """
@@ -734,7 +780,9 @@ defmodule AWS.Organizations do
   `DescribeOrganization`.
   """
   def disable_policy_type(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisablePolicyType", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisablePolicyType", input, options)
   end
 
   @doc """
@@ -771,7 +819,9 @@ defmodule AWS.Organizations do
   This operation can be called only from the organization's management account.
   """
   def enable_all_features(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnableAllFeatures", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableAllFeatures", input, options)
   end
 
   @doc """
@@ -799,7 +849,9 @@ defmodule AWS.Organizations do
   only if the organization has [enabled all features](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html).
   """
   def enable_aws_service_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnableAWSServiceAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableAWSServiceAccess", input, options)
   end
 
   @doc """
@@ -820,7 +872,9 @@ defmodule AWS.Organizations do
   organization, use `DescribeOrganization`.
   """
   def enable_policy_type(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnablePolicyType", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnablePolicyType", input, options)
   end
 
   @doc """
@@ -850,7 +904,9 @@ defmodule AWS.Organizations do
   This operation can be called only from the organization's management account.
   """
   def invite_account_to_organization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "InviteAccountToOrganization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "InviteAccountToOrganization", input, options)
   end
 
   @doc """
@@ -907,7 +963,9 @@ defmodule AWS.Organizations do
   period is required, then try again in a few days.
   """
   def leave_organization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "LeaveOrganization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "LeaveOrganization", input, options)
   end
 
   @doc """
@@ -926,7 +984,9 @@ defmodule AWS.Organizations do
   service.
   """
   def list_accounts(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAccounts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAccounts", input, options)
   end
 
   @doc """
@@ -948,7 +1008,9 @@ defmodule AWS.Organizations do
   service.
   """
   def list_accounts_for_parent(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAccountsForParent", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAccountsForParent", input, options)
   end
 
   @doc """
@@ -968,13 +1030,9 @@ defmodule AWS.Organizations do
   service.
   """
   def list_aws_service_access_for_organization(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ListAWSServiceAccessForOrganization",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAWSServiceAccessForOrganization", input, options)
   end
 
   @doc """
@@ -994,7 +1052,9 @@ defmodule AWS.Organizations do
   service.
   """
   def list_children(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListChildren", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListChildren", input, options)
   end
 
   @doc """
@@ -1011,7 +1071,9 @@ defmodule AWS.Organizations do
   service.
   """
   def list_create_account_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListCreateAccountStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCreateAccountStatus", input, options)
   end
 
   @doc """
@@ -1023,7 +1085,9 @@ defmodule AWS.Organizations do
   service.
   """
   def list_delegated_administrators(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDelegatedAdministrators", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDelegatedAdministrators", input, options)
   end
 
   @doc """
@@ -1035,7 +1099,9 @@ defmodule AWS.Organizations do
   service.
   """
   def list_delegated_services_for_account(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDelegatedServicesForAccount", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDelegatedServicesForAccount", input, options)
   end
 
   @doc """
@@ -1054,7 +1120,9 @@ defmodule AWS.Organizations do
   This operation can be called from any account in the organization.
   """
   def list_handshakes_for_account(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListHandshakesForAccount", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListHandshakesForAccount", input, options)
   end
 
   @doc """
@@ -1078,7 +1146,9 @@ defmodule AWS.Organizations do
   service.
   """
   def list_handshakes_for_organization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListHandshakesForOrganization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListHandshakesForOrganization", input, options)
   end
 
   @doc """
@@ -1094,7 +1164,9 @@ defmodule AWS.Organizations do
   service.
   """
   def list_organizational_units_for_parent(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListOrganizationalUnitsForParent", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListOrganizationalUnitsForParent", input, options)
   end
 
   @doc """
@@ -1116,7 +1188,9 @@ defmodule AWS.Organizations do
   In the current release, a child can have only a single parent.
   """
   def list_parents(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListParents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListParents", input, options)
   end
 
   @doc """
@@ -1132,7 +1206,9 @@ defmodule AWS.Organizations do
   service.
   """
   def list_policies(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPolicies", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPolicies", input, options)
   end
 
   @doc """
@@ -1151,7 +1227,9 @@ defmodule AWS.Organizations do
   service.
   """
   def list_policies_for_target(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPoliciesForTarget", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPoliciesForTarget", input, options)
   end
 
   @doc """
@@ -1173,7 +1251,9 @@ defmodule AWS.Organizations do
   in an organization, use `DescribeOrganization`.
   """
   def list_roots(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListRoots", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRoots", input, options)
   end
 
   @doc """
@@ -1194,7 +1274,9 @@ defmodule AWS.Organizations do
   service.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -1211,7 +1293,9 @@ defmodule AWS.Organizations do
   service.
   """
   def list_targets_for_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTargetsForPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTargetsForPolicy", input, options)
   end
 
   @doc """
@@ -1221,7 +1305,9 @@ defmodule AWS.Organizations do
   This operation can be called only from the organization's management account.
   """
   def move_account(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "MoveAccount", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "MoveAccount", input, options)
   end
 
   @doc """
@@ -1241,7 +1327,9 @@ defmodule AWS.Organizations do
   This operation can be called only from the organization's management account.
   """
   def register_delegated_administrator(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterDelegatedAdministrator", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterDelegatedAdministrator", input, options)
   end
 
   @doc """
@@ -1281,7 +1369,9 @@ defmodule AWS.Organizations do
   Services accounts outside of an organization do not support tags.
   """
   def remove_account_from_organization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveAccountFromOrganization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveAccountFromOrganization", input, options)
   end
 
   @doc """
@@ -1300,7 +1390,9 @@ defmodule AWS.Organizations do
   This operation can be called only from the organization's management account.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -1319,7 +1411,9 @@ defmodule AWS.Organizations do
   This operation can be called only from the organization's management account.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -1331,7 +1425,9 @@ defmodule AWS.Organizations do
   This operation can be called only from the organization's management account.
   """
   def update_organizational_unit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateOrganizationalUnit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateOrganizationalUnit", input, options)
   end
 
   @doc """
@@ -1343,6 +1439,8 @@ defmodule AWS.Organizations do
   This operation can be called only from the organization's management account.
   """
   def update_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdatePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePolicy", input, options)
   end
 end

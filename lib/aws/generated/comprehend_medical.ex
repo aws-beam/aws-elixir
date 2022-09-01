@@ -34,7 +34,9 @@ defmodule AWS.ComprehendMedical do
   Use this operation to get the status of a detection job.
   """
   def describe_entities_detection_v2_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEntitiesDetectionV2Job", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEntitiesDetectionV2Job", input, options)
   end
 
   @doc """
@@ -43,7 +45,9 @@ defmodule AWS.ComprehendMedical do
   Use this operation to get the status of an inference job.
   """
   def describe_icd10_cm_inference_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeICD10CMInferenceJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeICD10CMInferenceJob", input, options)
   end
 
   @doc """
@@ -53,7 +57,9 @@ defmodule AWS.ComprehendMedical do
   Use this operation to get the status of a detection job.
   """
   def describe_phi_detection_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePHIDetectionJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePHIDetectionJob", input, options)
   end
 
   @doc """
@@ -62,7 +68,9 @@ defmodule AWS.ComprehendMedical do
   Use this operation to get the status of an inference job.
   """
   def describe_rx_norm_inference_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRxNormInferenceJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRxNormInferenceJob", input, options)
   end
 
   @doc """
@@ -71,7 +79,9 @@ defmodule AWS.ComprehendMedical do
   Use this operation to get the status of an inference job.
   """
   def describe_s_n_o_m_e_d_c_t_inference_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSNOMEDCTInferenceJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSNOMEDCTInferenceJob", input, options)
   end
 
   @doc """
@@ -84,7 +94,9 @@ defmodule AWS.ComprehendMedical do
   confidence score on that information .
   """
   def detect_entities(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DetectEntities", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetectEntities", input, options)
   end
 
   @doc """
@@ -104,7 +116,9 @@ defmodule AWS.ComprehendMedical do
   as attributes instead of types.
   """
   def detect_entities_v2(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DetectEntitiesV2", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetectEntitiesV2", input, options)
   end
 
   @doc """
@@ -114,7 +128,9 @@ defmodule AWS.ComprehendMedical do
   Amazon Comprehend Medical only detects entities in English language texts.
   """
   def detect_phi(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DetectPHI", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetectPHI", input, options)
   end
 
   @doc """
@@ -126,7 +142,9 @@ defmodule AWS.ComprehendMedical do
   texts.
   """
   def infer_icd10_cm(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "InferICD10CM", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "InferICD10CM", input, options)
   end
 
   @doc """
@@ -138,7 +156,9 @@ defmodule AWS.ComprehendMedical do
   texts.
   """
   def infer_rx_norm(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "InferRxNorm", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "InferRxNorm", input, options)
   end
 
   @doc """
@@ -147,21 +167,27 @@ defmodule AWS.ComprehendMedical do
   ontology
   """
   def infer_s_n_o_m_e_d_c_t(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "InferSNOMEDCT", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "InferSNOMEDCT", input, options)
   end
 
   @doc """
   Gets a list of medical entity detection jobs that you have submitted.
   """
   def list_entities_detection_v2_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEntitiesDetectionV2Jobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEntitiesDetectionV2Jobs", input, options)
   end
 
   @doc """
   Gets a list of InferICD10CM jobs that you have submitted.
   """
   def list_icd10_cm_inference_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListICD10CMInferenceJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListICD10CMInferenceJobs", input, options)
   end
 
   @doc """
@@ -169,21 +195,27 @@ defmodule AWS.ComprehendMedical do
   submitted.
   """
   def list_phi_detection_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPHIDetectionJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPHIDetectionJobs", input, options)
   end
 
   @doc """
   Gets a list of InferRxNorm jobs that you have submitted.
   """
   def list_rx_norm_inference_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListRxNormInferenceJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRxNormInferenceJobs", input, options)
   end
 
   @doc """
   Gets a list of InferSNOMEDCT jobs a user has submitted.
   """
   def list_s_n_o_m_e_d_c_t_inference_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListSNOMEDCTInferenceJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSNOMEDCTInferenceJobs", input, options)
   end
 
   @doc """
@@ -193,7 +225,9 @@ defmodule AWS.ComprehendMedical do
   Use the `DescribeEntitiesDetectionV2Job` operation to track the status of a job.
   """
   def start_entities_detection_v2_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartEntitiesDetectionV2Job", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartEntitiesDetectionV2Job", input, options)
   end
 
   @doc """
@@ -203,7 +237,9 @@ defmodule AWS.ComprehendMedical do
   Use the `DescribeICD10CMInferenceJob` operation to track the status of a job.
   """
   def start_icd10_cm_inference_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartICD10CMInferenceJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartICD10CMInferenceJob", input, options)
   end
 
   @doc """
@@ -212,7 +248,9 @@ defmodule AWS.ComprehendMedical do
   Use the `DescribePHIDetectionJob` operation to track the status of a job.
   """
   def start_phi_detection_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartPHIDetectionJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartPHIDetectionJob", input, options)
   end
 
   @doc """
@@ -222,7 +260,9 @@ defmodule AWS.ComprehendMedical do
   Use the `DescribeRxNormInferenceJob` operation to track the status of a job.
   """
   def start_rx_norm_inference_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartRxNormInferenceJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartRxNormInferenceJob", input, options)
   end
 
   @doc """
@@ -232,41 +272,53 @@ defmodule AWS.ComprehendMedical do
   Use the DescribeSNOMEDCTInferenceJob operation to track the status of a job.
   """
   def start_s_n_o_m_e_d_c_t_inference_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartSNOMEDCTInferenceJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartSNOMEDCTInferenceJob", input, options)
   end
 
   @doc """
   Stops a medical entities detection job in progress.
   """
   def stop_entities_detection_v2_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopEntitiesDetectionV2Job", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopEntitiesDetectionV2Job", input, options)
   end
 
   @doc """
   Stops an InferICD10CM inference job in progress.
   """
   def stop_icd10_cm_inference_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopICD10CMInferenceJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopICD10CMInferenceJob", input, options)
   end
 
   @doc """
   Stops a protected health information (PHI) detection job in progress.
   """
   def stop_phi_detection_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopPHIDetectionJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopPHIDetectionJob", input, options)
   end
 
   @doc """
   Stops an InferRxNorm inference job in progress.
   """
   def stop_rx_norm_inference_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopRxNormInferenceJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopRxNormInferenceJob", input, options)
   end
 
   @doc """
   Stops an InferSNOMEDCT inference job in progress.
   """
   def stop_s_n_o_m_e_d_c_t_inference_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopSNOMEDCTInferenceJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopSNOMEDCTInferenceJob", input, options)
   end
 end

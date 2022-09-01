@@ -105,7 +105,9 @@ defmodule AWS.GlobalAccelerator do
   operation.
   """
   def add_custom_routing_endpoints(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddCustomRoutingEndpoints", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddCustomRoutingEndpoints", input, options)
   end
 
   @doc """
@@ -122,7 +124,9 @@ defmodule AWS.GlobalAccelerator do
   in the *Global Accelerator Developer Guide*.
   """
   def advertise_byoip_cidr(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AdvertiseByoipCidr", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AdvertiseByoipCidr", input, options)
   end
 
   @doc """
@@ -138,7 +142,9 @@ defmodule AWS.GlobalAccelerator do
   the status of your accelerator: the status changes from IN_PROGRESS to DEPLOYED.
   """
   def allow_custom_routing_traffic(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AllowCustomRoutingTraffic", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AllowCustomRoutingTraffic", input, options)
   end
 
   @doc """
@@ -154,7 +160,9 @@ defmodule AWS.GlobalAccelerator do
   specify `--region us-west-2` on AWS CLI commands.
   """
   def create_accelerator(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAccelerator", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAccelerator", input, options)
   end
 
   @doc """
@@ -176,7 +184,9 @@ defmodule AWS.GlobalAccelerator do
   specify `--region us-west-2` on AWS CLI commands.
   """
   def create_custom_routing_accelerator(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCustomRoutingAccelerator", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCustomRoutingAccelerator", input, options)
   end
 
   @doc """
@@ -187,7 +197,9 @@ defmodule AWS.GlobalAccelerator do
   Region.
   """
   def create_custom_routing_endpoint_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCustomRoutingEndpointGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCustomRoutingEndpointGroup", input, options)
   end
 
   @doc """
@@ -198,7 +210,9 @@ defmodule AWS.GlobalAccelerator do
   specify.
   """
   def create_custom_routing_listener(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCustomRoutingListener", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCustomRoutingListener", input, options)
   end
 
   @doc """
@@ -208,7 +222,9 @@ defmodule AWS.GlobalAccelerator do
   Region. A resource must be valid and active when you add it as an endpoint.
   """
   def create_endpoint_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateEndpointGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEndpointGroup", input, options)
   end
 
   @doc """
@@ -218,7 +234,9 @@ defmodule AWS.GlobalAccelerator do
   list of port ranges that you specify.
   """
   def create_listener(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateListener", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateListener", input, options)
   end
 
   @doc """
@@ -243,7 +261,9 @@ defmodule AWS.GlobalAccelerator do
   in the *Global Accelerator Developer Guide*.
   """
   def delete_accelerator(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAccelerator", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAccelerator", input, options)
   end
 
   @doc """
@@ -267,35 +287,45 @@ defmodule AWS.GlobalAccelerator do
   in the *Global Accelerator Developer Guide*.
   """
   def delete_custom_routing_accelerator(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCustomRoutingAccelerator", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCustomRoutingAccelerator", input, options)
   end
 
   @doc """
   Delete an endpoint group from a listener for a custom routing accelerator.
   """
   def delete_custom_routing_endpoint_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCustomRoutingEndpointGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCustomRoutingEndpointGroup", input, options)
   end
 
   @doc """
   Delete a listener for a custom routing accelerator.
   """
   def delete_custom_routing_listener(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCustomRoutingListener", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCustomRoutingListener", input, options)
   end
 
   @doc """
   Delete an endpoint group from a listener.
   """
   def delete_endpoint_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEndpointGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEndpointGroup", input, options)
   end
 
   @doc """
   Delete a listener from an accelerator.
   """
   def delete_listener(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteListener", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteListener", input, options)
   end
 
   @doc """
@@ -311,7 +341,9 @@ defmodule AWS.GlobalAccelerator do
   the status of your accelerator: the status changes from IN_PROGRESS to DEPLOYED.
   """
   def deny_custom_routing_traffic(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DenyCustomRoutingTraffic", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DenyCustomRoutingTraffic", input, options)
   end
 
   @doc """
@@ -328,37 +360,47 @@ defmodule AWS.GlobalAccelerator do
   in the *Global Accelerator Developer Guide*.
   """
   def deprovision_byoip_cidr(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeprovisionByoipCidr", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeprovisionByoipCidr", input, options)
   end
 
   @doc """
   Describe an accelerator.
   """
   def describe_accelerator(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAccelerator", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAccelerator", input, options)
   end
 
   @doc """
   Describe the attributes of an accelerator.
   """
   def describe_accelerator_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAcceleratorAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAcceleratorAttributes", input, options)
   end
 
   @doc """
   Describe a custom routing accelerator.
   """
   def describe_custom_routing_accelerator(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCustomRoutingAccelerator", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCustomRoutingAccelerator", input, options)
   end
 
   @doc """
   Describe the attributes of a custom routing accelerator.
   """
   def describe_custom_routing_accelerator_attributes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "DescribeCustomRoutingAcceleratorAttributes",
       input,
       options
@@ -369,35 +411,45 @@ defmodule AWS.GlobalAccelerator do
   Describe an endpoint group for a custom routing accelerator.
   """
   def describe_custom_routing_endpoint_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCustomRoutingEndpointGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCustomRoutingEndpointGroup", input, options)
   end
 
   @doc """
   The description of a listener for a custom routing accelerator.
   """
   def describe_custom_routing_listener(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCustomRoutingListener", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCustomRoutingListener", input, options)
   end
 
   @doc """
   Describe an endpoint group.
   """
   def describe_endpoint_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEndpointGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEndpointGroup", input, options)
   end
 
   @doc """
   Describe a listener.
   """
   def describe_listener(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeListener", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeListener", input, options)
   end
 
   @doc """
   List the accelerators for an Amazon Web Services account.
   """
   def list_accelerators(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAccelerators", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAccelerators", input, options)
   end
 
   @doc """
@@ -406,14 +458,18 @@ defmodule AWS.GlobalAccelerator do
   including the current state and a history of state changes.
   """
   def list_byoip_cidrs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListByoipCidrs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListByoipCidrs", input, options)
   end
 
   @doc """
   List the custom routing accelerators for an Amazon Web Services account.
   """
   def list_custom_routing_accelerators(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListCustomRoutingAccelerators", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCustomRoutingAccelerators", input, options)
   end
 
   @doc """
@@ -421,14 +477,18 @@ defmodule AWS.GlobalAccelerator do
   routing accelerator.
   """
   def list_custom_routing_endpoint_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListCustomRoutingEndpointGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCustomRoutingEndpointGroups", input, options)
   end
 
   @doc """
   List the listeners for a custom routing accelerator.
   """
   def list_custom_routing_listeners(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListCustomRoutingListeners", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCustomRoutingListeners", input, options)
   end
 
   @doc """
@@ -451,7 +511,9 @@ defmodule AWS.GlobalAccelerator do
   IP addresses and ports are allowed or denied traffic.
   """
   def list_custom_routing_port_mappings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListCustomRoutingPortMappings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCustomRoutingPortMappings", input, options)
   end
 
   @doc """
@@ -464,9 +526,11 @@ defmodule AWS.GlobalAccelerator do
   for a specific destination instance.
   """
   def list_custom_routing_port_mappings_by_destination(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "ListCustomRoutingPortMappingsByDestination",
       input,
       options
@@ -477,14 +541,18 @@ defmodule AWS.GlobalAccelerator do
   List the endpoint groups that are associated with a listener.
   """
   def list_endpoint_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEndpointGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEndpointGroups", input, options)
   end
 
   @doc """
   List the listeners for an accelerator.
   """
   def list_listeners(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListListeners", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListListeners", input, options)
   end
 
   @doc """
@@ -494,7 +562,9 @@ defmodule AWS.GlobalAccelerator do
   in the *Global Accelerator Developer Guide*.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -509,14 +579,18 @@ defmodule AWS.GlobalAccelerator do
   in the *Global Accelerator Developer Guide*.
   """
   def provision_byoip_cidr(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ProvisionByoipCidr", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ProvisionByoipCidr", input, options)
   end
 
   @doc """
   Remove endpoints from a custom routing accelerator.
   """
   def remove_custom_routing_endpoints(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveCustomRoutingEndpoints", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveCustomRoutingEndpoints", input, options)
   end
 
   @doc """
@@ -526,7 +600,9 @@ defmodule AWS.GlobalAccelerator do
   in the *Global Accelerator Developer Guide*.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -540,7 +616,9 @@ defmodule AWS.GlobalAccelerator do
   in the *Global Accelerator Developer Guide*.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -552,41 +630,45 @@ defmodule AWS.GlobalAccelerator do
   specify `--region us-west-2` on AWS CLI commands.
   """
   def update_accelerator(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateAccelerator", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAccelerator", input, options)
   end
 
   @doc """
   Update the attributes for an accelerator.
   """
   def update_accelerator_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateAcceleratorAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAcceleratorAttributes", input, options)
   end
 
   @doc """
   Update a custom routing accelerator.
   """
   def update_custom_routing_accelerator(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateCustomRoutingAccelerator", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCustomRoutingAccelerator", input, options)
   end
 
   @doc """
   Update the attributes for a custom routing accelerator.
   """
   def update_custom_routing_accelerator_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "UpdateCustomRoutingAcceleratorAttributes",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCustomRoutingAcceleratorAttributes", input, options)
   end
 
   @doc """
   Update a listener for a custom routing accelerator.
   """
   def update_custom_routing_listener(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateCustomRoutingListener", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCustomRoutingListener", input, options)
   end
 
   @doc """
@@ -595,14 +677,18 @@ defmodule AWS.GlobalAccelerator do
   A resource must be valid and active when you add it as an endpoint.
   """
   def update_endpoint_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateEndpointGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateEndpointGroup", input, options)
   end
 
   @doc """
   Update a listener.
   """
   def update_listener(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateListener", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateListener", input, options)
   end
 
   @doc """
@@ -618,6 +704,8 @@ defmodule AWS.GlobalAccelerator do
   in the *Global Accelerator Developer Guide*.
   """
   def withdraw_byoip_cidr(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "WithdrawByoipCidr", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "WithdrawByoipCidr", input, options)
   end
 end

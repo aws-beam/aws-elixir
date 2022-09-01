@@ -66,7 +66,9 @@ defmodule AWS.CloudWatch do
   cycle in the evaluation path.
   """
   def delete_alarms(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAlarms", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAlarms", input, options)
   end
 
   @doc """
@@ -77,7 +79,9 @@ defmodule AWS.CloudWatch do
   in the *CloudWatch User Guide*.
   """
   def delete_anomaly_detector(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAnomalyDetector", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAnomalyDetector", input, options)
   end
 
   @doc """
@@ -87,7 +91,9 @@ defmodule AWS.CloudWatch do
   call, no dashboards are deleted.
   """
   def delete_dashboards(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDashboards", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDashboards", input, options)
   end
 
   @doc """
@@ -97,14 +103,18 @@ defmodule AWS.CloudWatch do
   historical data from the first time the rule was created might not be available.
   """
   def delete_insight_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteInsightRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteInsightRules", input, options)
   end
 
   @doc """
   Permanently deletes the metric stream that you specify.
   """
   def delete_metric_stream(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteMetricStream", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteMetricStream", input, options)
   end
 
   @doc """
@@ -122,7 +132,9 @@ defmodule AWS.CloudWatch do
   `cloudwatch:DescribeAlarmHistory` permission has a narrower scope.
   """
   def describe_alarm_history(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAlarmHistory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAlarmHistory", input, options)
   end
 
   @doc """
@@ -137,7 +149,9 @@ defmodule AWS.CloudWatch do
   `cloudwatch:DescribeAlarms` permission has a narrower scope.
   """
   def describe_alarms(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAlarms", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAlarms", input, options)
   end
 
   @doc """
@@ -150,7 +164,9 @@ defmodule AWS.CloudWatch do
   specified metric, or composite alarms that use the specified metric.
   """
   def describe_alarms_for_metric(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAlarmsForMetric", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAlarmsForMetric", input, options)
   end
 
   @doc """
@@ -163,7 +179,9 @@ defmodule AWS.CloudWatch do
   This will return all metric math anomaly detectors in your account.
   """
   def describe_anomaly_detectors(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAnomalyDetectors", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAnomalyDetectors", input, options)
   end
 
   @doc """
@@ -173,7 +191,9 @@ defmodule AWS.CloudWatch do
   Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html).
   """
   def describe_insight_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeInsightRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInsightRules", input, options)
   end
 
   @doc """
@@ -183,7 +203,9 @@ defmodule AWS.CloudWatch do
   alarm state changes.
   """
   def disable_alarm_actions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisableAlarmActions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableAlarmActions", input, options)
   end
 
   @doc """
@@ -192,14 +214,18 @@ defmodule AWS.CloudWatch do
   When rules are disabled, they do not analyze log groups and do not incur costs.
   """
   def disable_insight_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisableInsightRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableInsightRules", input, options)
   end
 
   @doc """
   Enables the actions for the specified alarms.
   """
   def enable_alarm_actions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnableAlarmActions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableAlarmActions", input, options)
   end
 
   @doc """
@@ -208,7 +234,9 @@ defmodule AWS.CloudWatch do
   When rules are enabled, they immediately begin analyzing log data.
   """
   def enable_insight_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnableInsightRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableInsightRules", input, options)
   end
 
   @doc """
@@ -219,7 +247,9 @@ defmodule AWS.CloudWatch do
   call `PutDashboard` to create the copy.
   """
   def get_dashboard(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDashboard", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDashboard", input, options)
   end
 
   @doc """
@@ -258,7 +288,9 @@ defmodule AWS.CloudWatch do
   time period represented by that data point.
   """
   def get_insight_rule_report(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetInsightRuleReport", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetInsightRuleReport", input, options)
   end
 
   @doc """
@@ -325,7 +357,9 @@ defmodule AWS.CloudWatch do
   input for a metric math expression that expects an array of time series.
   """
   def get_metric_data(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetMetricData", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMetricData", input, options)
   end
 
   @doc """
@@ -383,14 +417,18 @@ defmodule AWS.CloudWatch do
   in the *Amazon CloudWatch User Guide*.
   """
   def get_metric_statistics(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetMetricStatistics", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMetricStatistics", input, options)
   end
 
   @doc """
   Returns information about the metric stream that you specify.
   """
   def get_metric_stream(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetMetricStream", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMetricStream", input, options)
   end
 
   @doc """
@@ -412,7 +450,9 @@ defmodule AWS.CloudWatch do
     * Up to 100 KB uncompressed payload.
   """
   def get_metric_widget_image(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetMetricWidgetImage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMetricWidgetImage", input, options)
   end
 
   @doc """
@@ -427,7 +467,9 @@ defmodule AWS.CloudWatch do
   received for `NextToken` in the first call, to receive the next 1000 results.
   """
   def list_dashboards(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDashboards", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDashboards", input, options)
   end
 
   @doc """
@@ -435,14 +477,18 @@ defmodule AWS.CloudWatch do
   your account.
   """
   def list_managed_insight_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListManagedInsightRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListManagedInsightRules", input, options)
   end
 
   @doc """
   Returns a list of metric streams in this account.
   """
   def list_metric_streams(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListMetricStreams", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMetricStreams", input, options)
   end
 
   @doc """
@@ -467,7 +513,9 @@ defmodule AWS.CloudWatch do
   [GetMetricStatistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html).
   """
   def list_metrics(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListMetrics", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMetrics", input, options)
   end
 
   @doc """
@@ -476,7 +524,9 @@ defmodule AWS.CloudWatch do
   Currently, alarms and Contributor Insights rules support tagging.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -488,7 +538,9 @@ defmodule AWS.CloudWatch do
   For more information, see [CloudWatch Anomaly Detection](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html).
   """
   def put_anomaly_detector(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutAnomalyDetector", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutAnomalyDetector", input, options)
   end
 
   @doc """
@@ -545,7 +597,9 @@ defmodule AWS.CloudWatch do
   composite alarm that has Systems Manager OpsItem actions.
   """
   def put_composite_alarm(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutCompositeAlarm", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutCompositeAlarm", input, options)
   end
 
   @doc """
@@ -571,7 +625,9 @@ defmodule AWS.CloudWatch do
   CloudFormation template used to create the dashboard.
   """
   def put_dashboard(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutDashboard", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutDashboard", input, options)
   end
 
   @doc """
@@ -585,7 +641,9 @@ defmodule AWS.CloudWatch do
   historical data from the first time the rule was created might not be available.
   """
   def put_insight_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutInsightRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutInsightRule", input, options)
   end
 
   @doc """
@@ -601,7 +659,9 @@ defmodule AWS.CloudWatch do
   rules.
   """
   def put_managed_insight_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutManagedInsightRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutManagedInsightRules", input, options)
   end
 
   @doc """
@@ -653,7 +713,9 @@ defmodule AWS.CloudWatch do
   console](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html#enable-cross-account-cross-Region).
   """
   def put_metric_alarm(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutMetricAlarm", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutMetricAlarm", input, options)
   end
 
   @doc """
@@ -709,7 +771,9 @@ defmodule AWS.CloudWatch do
   multiplied by `SampleCount`.
   """
   def put_metric_data(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutMetricData", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutMetricData", input, options)
   end
 
   @doc """
@@ -745,7 +809,9 @@ defmodule AWS.CloudWatch do
   state of the stream is not changed.
   """
   def put_metric_stream(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutMetricStream", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutMetricStream", input, options)
   end
 
   @doc """
@@ -772,21 +838,27 @@ defmodule AWS.CloudWatch do
   enable the policy to take the correct action.
   """
   def set_alarm_state(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetAlarmState", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetAlarmState", input, options)
   end
 
   @doc """
   Starts the streaming of metrics for one or more of your metric streams.
   """
   def start_metric_streams(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartMetricStreams", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartMetricStreams", input, options)
   end
 
   @doc """
   Stops the streaming of metrics for one or more of your metric streams.
   """
   def stop_metric_streams(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopMetricStreams", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopMetricStreams", input, options)
   end
 
   @doc """
@@ -811,13 +883,17 @@ defmodule AWS.CloudWatch do
   You can associate as many as 50 tags with a CloudWatch resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes one or more tags from the specified resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 end

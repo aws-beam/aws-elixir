@@ -32,7 +32,9 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   from the us-east-1 Region.
   """
   def describe_report_creation(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeReportCreation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReportCreation", input, options)
   end
 
   @doc """
@@ -53,7 +55,9 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   there are no more results waiting to be returned.
   """
   def get_compliance_summary(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetComplianceSummary", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetComplianceSummary", input, options)
   end
 
   @doc """
@@ -79,7 +83,9 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   there are no more results waiting to be returned.
   """
   def get_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetResources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResources", input, options)
   end
 
   @doc """
@@ -94,7 +100,9 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   there are no more results waiting to be returned.
   """
   def get_tag_keys(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetTagKeys", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTagKeys", input, options)
   end
 
   @doc """
@@ -109,7 +117,9 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   there are no more results waiting to be returned.
   """
   def get_tag_values(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetTagValues", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTagValues", input, options)
   end
 
   @doc """
@@ -127,7 +137,9 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   from the us-east-1 Region.
   """
   def start_report_creation(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartReportCreation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartReportCreation", input, options)
   end
 
   @doc """
@@ -170,7 +182,9 @@ defmodule AWS.ResourceGroupsTaggingAPI do
     * `ec2:CreateTags`
   """
   def tag_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResources", input, options)
   end
 
   @doc """
@@ -201,6 +215,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
     * `ec2:DeleteTags`
   """
   def untag_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResources", input, options)
   end
 end

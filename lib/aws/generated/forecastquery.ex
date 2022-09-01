@@ -44,13 +44,17 @@ defmodule AWS.Forecastquery do
   dataset that was used to create the predictor.
   """
   def query_forecast(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "QueryForecast", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "QueryForecast", input, options)
   end
 
   @doc """
   Retrieves a what-if forecast.
   """
   def query_what_if_forecast(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "QueryWhatIfForecast", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "QueryWhatIfForecast", input, options)
   end
 end

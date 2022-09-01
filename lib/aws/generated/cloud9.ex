@@ -73,14 +73,18 @@ defmodule AWS.Cloud9 do
   environment.
   """
   def create_environment_ec2(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateEnvironmentEC2", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEnvironmentEC2", input, options)
   end
 
   @doc """
   Adds an environment member to an Cloud9 development environment.
   """
   def create_environment_membership(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateEnvironmentMembership", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEnvironmentMembership", input, options)
   end
 
   @doc """
@@ -90,14 +94,18 @@ defmodule AWS.Cloud9 do
   instance.
   """
   def delete_environment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEnvironment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEnvironment", input, options)
   end
 
   @doc """
   Deletes an environment member from an Cloud9 development environment.
   """
   def delete_environment_membership(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEnvironmentMembership", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEnvironmentMembership", input, options)
   end
 
   @doc """
@@ -105,35 +113,45 @@ defmodule AWS.Cloud9 do
   environment.
   """
   def describe_environment_memberships(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEnvironmentMemberships", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEnvironmentMemberships", input, options)
   end
 
   @doc """
   Gets status information for an Cloud9 development environment.
   """
   def describe_environment_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEnvironmentStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEnvironmentStatus", input, options)
   end
 
   @doc """
   Gets information about Cloud9 development environments.
   """
   def describe_environments(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEnvironments", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEnvironments", input, options)
   end
 
   @doc """
   Gets a list of Cloud9 development environment identifiers.
   """
   def list_environments(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEnvironments", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEnvironments", input, options)
   end
 
   @doc """
   Gets a list of the tags associated with an Cloud9 development environment.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -143,21 +161,27 @@ defmodule AWS.Cloud9 do
   automatically propagated to underlying resources.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes tags from an Cloud9 development environment.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
   Changes the settings of an existing Cloud9 development environment.
   """
   def update_environment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateEnvironment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateEnvironment", input, options)
   end
 
   @doc """
@@ -165,6 +189,8 @@ defmodule AWS.Cloud9 do
   environment.
   """
   def update_environment_membership(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateEnvironmentMembership", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateEnvironmentMembership", input, options)
   end
 end

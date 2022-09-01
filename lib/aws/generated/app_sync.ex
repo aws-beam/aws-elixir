@@ -34,9 +34,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -55,9 +57,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -76,9 +80,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -97,9 +103,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -118,9 +126,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -142,9 +152,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -163,9 +175,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -189,9 +203,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -210,9 +226,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -231,9 +249,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -252,9 +272,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -273,9 +295,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -294,9 +318,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -317,9 +343,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -338,9 +366,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -361,9 +391,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -382,9 +414,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -403,9 +437,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -433,9 +469,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -454,9 +492,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -475,17 +515,9 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -496,17 +528,9 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -517,17 +541,9 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -538,17 +554,9 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -561,17 +569,9 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -582,17 +582,9 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -623,17 +615,9 @@ defmodule AWS.AppSync do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -646,17 +630,9 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -667,17 +643,9 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -695,17 +663,9 @@ defmodule AWS.AppSync do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -741,17 +701,9 @@ defmodule AWS.AppSync do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -782,17 +734,9 @@ defmodule AWS.AppSync do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -817,17 +761,9 @@ defmodule AWS.AppSync do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -858,17 +794,9 @@ defmodule AWS.AppSync do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -893,17 +821,9 @@ defmodule AWS.AppSync do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -937,17 +857,9 @@ defmodule AWS.AppSync do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -981,17 +893,9 @@ defmodule AWS.AppSync do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1002,17 +906,9 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1051,17 +947,9 @@ defmodule AWS.AppSync do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1074,9 +962,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1095,9 +985,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1121,9 +1013,11 @@ defmodule AWS.AppSync do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1142,9 +1036,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1165,9 +1061,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1186,9 +1084,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1207,9 +1107,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1230,9 +1132,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1251,9 +1155,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1274,9 +1180,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1295,9 +1203,11 @@ defmodule AWS.AppSync do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,

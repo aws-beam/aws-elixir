@@ -75,9 +75,11 @@ defmodule AWS.S3 do
         [{"x-amz-request-charged", "RequestCharged"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -206,9 +208,11 @@ defmodule AWS.S3 do
         ]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -454,17 +458,9 @@ defmodule AWS.S3 do
         ]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -616,17 +612,9 @@ defmodule AWS.S3 do
         [{"Location", "Location"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -890,9 +878,11 @@ defmodule AWS.S3 do
         ]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -926,9 +916,11 @@ defmodule AWS.S3 do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -976,9 +968,11 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1016,9 +1010,11 @@ defmodule AWS.S3 do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1061,9 +1057,11 @@ defmodule AWS.S3 do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1118,9 +1116,11 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1167,9 +1167,11 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1215,9 +1217,11 @@ defmodule AWS.S3 do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1268,9 +1272,11 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1307,9 +1313,11 @@ defmodule AWS.S3 do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1357,9 +1365,11 @@ defmodule AWS.S3 do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1404,9 +1414,11 @@ defmodule AWS.S3 do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1441,9 +1453,11 @@ defmodule AWS.S3 do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1488,9 +1502,11 @@ defmodule AWS.S3 do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1562,9 +1578,11 @@ defmodule AWS.S3 do
         ]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1615,9 +1633,11 @@ defmodule AWS.S3 do
         [{"x-amz-version-id", "VersionId"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1696,9 +1716,11 @@ defmodule AWS.S3 do
         [{"x-amz-request-charged", "RequestCharged"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1739,9 +1761,11 @@ defmodule AWS.S3 do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1802,17 +1826,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1848,17 +1864,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1911,17 +1919,9 @@ defmodule AWS.S3 do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1953,17 +1953,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2005,17 +1997,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2059,17 +2043,9 @@ defmodule AWS.S3 do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2119,17 +2095,9 @@ defmodule AWS.S3 do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2186,17 +2154,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2256,17 +2216,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2300,17 +2252,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2338,17 +2282,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2402,17 +2338,9 @@ defmodule AWS.S3 do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2437,17 +2365,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2488,17 +2408,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2534,17 +2446,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2584,17 +2488,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2637,17 +2533,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2696,17 +2584,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2738,17 +2618,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2784,17 +2656,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2833,17 +2697,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2877,17 +2733,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -3238,17 +3086,9 @@ defmodule AWS.S3 do
         true
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -3326,17 +3166,9 @@ defmodule AWS.S3 do
         [{"x-amz-request-charged", "RequestCharged"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -3528,17 +3360,9 @@ defmodule AWS.S3 do
         ]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -3590,17 +3414,9 @@ defmodule AWS.S3 do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -3633,17 +3449,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -3695,17 +3503,9 @@ defmodule AWS.S3 do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -3777,17 +3577,9 @@ defmodule AWS.S3 do
         [{"x-amz-version-id", "VersionId"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -3850,17 +3642,9 @@ defmodule AWS.S3 do
         true
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -3909,17 +3693,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -3959,9 +3735,11 @@ defmodule AWS.S3 do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :head,
       url_path,
       query_params,
@@ -4118,9 +3896,11 @@ defmodule AWS.S3 do
         ]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :head,
       url_path,
       query_params,
@@ -4188,17 +3968,9 @@ defmodule AWS.S3 do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -4247,17 +4019,9 @@ defmodule AWS.S3 do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -4316,17 +4080,9 @@ defmodule AWS.S3 do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -4388,17 +4144,9 @@ defmodule AWS.S3 do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -4411,17 +4159,9 @@ defmodule AWS.S3 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -4530,17 +4270,9 @@ defmodule AWS.S3 do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -4635,17 +4367,9 @@ defmodule AWS.S3 do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -4739,17 +4463,9 @@ defmodule AWS.S3 do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -4868,17 +4584,9 @@ defmodule AWS.S3 do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -5004,17 +4712,9 @@ defmodule AWS.S3 do
         ]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -5066,17 +4766,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -5248,17 +4940,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -5334,17 +5018,9 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -5405,17 +5081,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -5463,17 +5131,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -5549,17 +5209,9 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -5641,17 +5293,9 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -5721,17 +5365,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -5816,17 +5452,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -5908,17 +5536,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -5972,17 +5592,9 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -6003,17 +5615,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -6085,17 +5689,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -6125,17 +5721,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -6177,17 +5765,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -6267,17 +5847,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -6307,17 +5879,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -6385,17 +5949,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -6451,17 +6007,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -6546,17 +6094,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -6725,17 +6265,9 @@ defmodule AWS.S3 do
         true
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -6919,17 +6451,9 @@ defmodule AWS.S3 do
         [{"x-amz-request-charged", "RequestCharged"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -6965,17 +6489,9 @@ defmodule AWS.S3 do
         [{"x-amz-request-charged", "RequestCharged"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -7015,17 +6531,9 @@ defmodule AWS.S3 do
         [{"x-amz-request-charged", "RequestCharged"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -7065,17 +6573,9 @@ defmodule AWS.S3 do
         [{"x-amz-request-charged", "RequestCharged"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -7150,17 +6650,9 @@ defmodule AWS.S3 do
         [{"x-amz-version-id", "VersionId"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -7204,17 +6696,9 @@ defmodule AWS.S3 do
 
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -7461,9 +6945,11 @@ defmodule AWS.S3 do
         ]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -7586,9 +7072,11 @@ defmodule AWS.S3 do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -7748,17 +7236,9 @@ defmodule AWS.S3 do
         true
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -7919,17 +7399,9 @@ defmodule AWS.S3 do
         ]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -8038,9 +7510,11 @@ defmodule AWS.S3 do
         true
       )
 
+    meta = metadata() |> Map.put_new(:host_prefix, "{RequestRoute}.")
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,

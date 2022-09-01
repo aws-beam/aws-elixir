@@ -96,7 +96,9 @@ defmodule AWS.SQS do
   in the *Amazon SQS Developer Guide*.
   """
   def add_permission(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddPermission", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddPermission", input, options)
   end
 
   @doc """
@@ -154,7 +156,9 @@ defmodule AWS.SQS do
   received.
   """
   def change_message_visibility(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ChangeMessageVisibility", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ChangeMessageVisibility", input, options)
   end
 
   @doc """
@@ -178,7 +182,9 @@ defmodule AWS.SQS do
   `&AttributeName.2=second`
   """
   def change_message_visibility_batch(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ChangeMessageVisibilityBatch", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ChangeMessageVisibilityBatch", input, options)
   end
 
   @doc """
@@ -232,7 +238,9 @@ defmodule AWS.SQS do
   in the *Amazon SQS Developer Guide*.
   """
   def create_queue(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateQueue", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateQueue", input, options)
   end
 
   @doc """
@@ -259,7 +267,9 @@ defmodule AWS.SQS do
   idempotent, so that receiving a message more than once does not cause issues.
   """
   def delete_message(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteMessage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteMessage", input, options)
   end
 
   @doc """
@@ -281,7 +291,9 @@ defmodule AWS.SQS do
   `&AttributeName.2=second`
   """
   def delete_message_batch(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteMessageBatch", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteMessageBatch", input, options)
   end
 
   @doc """
@@ -304,7 +316,9 @@ defmodule AWS.SQS do
   in the *Amazon SQS Developer Guide*.
   """
   def delete_queue(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteQueue", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteQueue", input, options)
   end
 
   @doc """
@@ -315,7 +329,9 @@ defmodule AWS.SQS do
   you can check whether `QueueName` ends with the `.fifo` suffix.
   """
   def get_queue_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetQueueAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetQueueAttributes", input, options)
   end
 
   @doc """
@@ -329,7 +345,9 @@ defmodule AWS.SQS do
   in the *Amazon SQS Developer Guide*.
   """
   def get_queue_url(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetQueueUrl", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetQueueUrl", input, options)
   end
 
   @doc """
@@ -349,7 +367,9 @@ defmodule AWS.SQS do
   in the *Amazon SQS Developer Guide*.
   """
   def list_dead_letter_source_queues(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDeadLetterSourceQueues", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDeadLetterSourceQueues", input, options)
   end
 
   @doc """
@@ -363,7 +383,9 @@ defmodule AWS.SQS do
   in the *Amazon SQS Developer Guide*.
   """
   def list_queue_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListQueueTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListQueueTags", input, options)
   end
 
   @doc """
@@ -385,7 +407,9 @@ defmodule AWS.SQS do
   in the *Amazon SQS Developer Guide*.
   """
   def list_queues(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListQueues", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListQueues", input, options)
   end
 
   @doc """
@@ -404,7 +428,9 @@ defmodule AWS.SQS do
   the queue is being purged.
   """
   def purge_queue(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PurgeQueue", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PurgeQueue", input, options)
   end
 
   @doc """
@@ -456,7 +482,9 @@ defmodule AWS.SQS do
   attributes gracefully.
   """
   def receive_message(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ReceiveMessage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ReceiveMessage", input, options)
   end
 
   @doc """
@@ -474,7 +502,9 @@ defmodule AWS.SQS do
   actions in your IAM policy.
   """
   def remove_permission(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemovePermission", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemovePermission", input, options)
   end
 
   @doc """
@@ -490,7 +520,9 @@ defmodule AWS.SQS do
   see the [W3C specification for characters](http://www.w3.org/TR/REC-xml/#charsets).
   """
   def send_message(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SendMessage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendMessage", input, options)
   end
 
   @doc """
@@ -529,7 +561,9 @@ defmodule AWS.SQS do
   `&AttributeName.2=second`
   """
   def send_message_batch(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SendMessageBatch", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendMessageBatch", input, options)
   end
 
   @doc """
@@ -552,7 +586,9 @@ defmodule AWS.SQS do
   actions in your IAM policy.
   """
   def set_queue_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetQueueAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetQueueAttributes", input, options)
   end
 
   @doc """
@@ -581,7 +617,9 @@ defmodule AWS.SQS do
   in the *Amazon SQS Developer Guide*.
   """
   def tag_queue(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagQueue", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagQueue", input, options)
   end
 
   @doc """
@@ -595,6 +633,8 @@ defmodule AWS.SQS do
   in the *Amazon SQS Developer Guide*.
   """
   def untag_queue(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagQueue", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagQueue", input, options)
   end
 end

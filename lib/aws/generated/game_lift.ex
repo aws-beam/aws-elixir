@@ -109,7 +109,9 @@ defmodule AWS.GameLift do
   `StartMatchBackfill` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def accept_match(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AcceptMatch", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AcceptMatch", input, options)
   end
 
   @doc """
@@ -160,7 +162,9 @@ defmodule AWS.GameLift do
   task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def claim_game_server(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ClaimGameServer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ClaimGameServer", input, options)
   end
 
   @doc """
@@ -188,7 +192,9 @@ defmodule AWS.GameLift do
   | `ResolveAlias` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_alias(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAlias", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAlias", input, options)
   end
 
   @doc """
@@ -237,7 +243,9 @@ defmodule AWS.GameLift do
   [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_build(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateBuild", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateBuild", input, options)
   end
 
   @doc """
@@ -295,7 +303,9 @@ defmodule AWS.GameLift do
   | `DeleteFleet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_fleet(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateFleet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFleet", input, options)
   end
 
   @doc """
@@ -336,7 +346,9 @@ defmodule AWS.GameLift do
   task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_fleet_locations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateFleetLocations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFleetLocations", input, options)
   end
 
   @doc """
@@ -388,7 +400,9 @@ defmodule AWS.GameLift do
   `SuspendGameServerGroup` | `DescribeGameServerInstances` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def create_game_server_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateGameServerGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateGameServerGroup", input, options)
   end
 
   @doc """
@@ -439,7 +453,9 @@ defmodule AWS.GameLift do
   `StopGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_game_session(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateGameSession", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateGameSession", input, options)
   end
 
   @doc """
@@ -492,7 +508,9 @@ defmodule AWS.GameLift do
   | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_game_session_queue(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateGameSessionQueue", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateGameSessionQueue", input, options)
   end
 
   @doc """
@@ -534,7 +552,9 @@ defmodule AWS.GameLift do
   `ValidateMatchmakingRuleSet` | `DeleteMatchmakingRuleSet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_matchmaking_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateMatchmakingConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateMatchmakingConfiguration", input, options)
   end
 
   @doc """
@@ -569,7 +589,9 @@ defmodule AWS.GameLift do
   `ValidateMatchmakingRuleSet` | `DeleteMatchmakingRuleSet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateMatchmakingRuleSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateMatchmakingRuleSet", input, options)
   end
 
   @doc """
@@ -598,7 +620,9 @@ defmodule AWS.GameLift do
   `StartGameSessionPlacement` | `DescribeGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_player_session(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreatePlayerSession", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePlayerSession", input, options)
   end
 
   @doc """
@@ -627,7 +651,9 @@ defmodule AWS.GameLift do
   `StartGameSessionPlacement` | `DescribeGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_player_sessions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreatePlayerSessions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePlayerSessions", input, options)
   end
 
   @doc """
@@ -668,7 +694,9 @@ defmodule AWS.GameLift do
   `DeleteScript` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_script(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateScript", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateScript", input, options)
   end
 
   @doc """
@@ -710,7 +738,9 @@ defmodule AWS.GameLift do
   `DescribeVpcPeeringConnections` | `DeleteVpcPeeringConnection` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_vpc_peering_authorization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateVpcPeeringAuthorization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateVpcPeeringAuthorization", input, options)
   end
 
   @doc """
@@ -747,7 +777,9 @@ defmodule AWS.GameLift do
   `DescribeVpcPeeringConnections` | `DeleteVpcPeeringConnection` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_vpc_peering_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateVpcPeeringConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateVpcPeeringConnection", input, options)
   end
 
   @doc """
@@ -763,7 +795,9 @@ defmodule AWS.GameLift do
   | `ResolveAlias` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_alias(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAlias", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAlias", input, options)
   end
 
   @doc """
@@ -785,7 +819,9 @@ defmodule AWS.GameLift do
   [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_build(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteBuild", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteBuild", input, options)
   end
 
   @doc """
@@ -815,7 +851,9 @@ defmodule AWS.GameLift do
   `DeleteFleetLocations` | `DeleteScalingPolicy` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_fleet(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteFleet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFleet", input, options)
   end
 
   @doc """
@@ -844,7 +882,9 @@ defmodule AWS.GameLift do
   task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_fleet_locations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteFleetLocations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFleetLocations", input, options)
   end
 
   @doc """
@@ -888,7 +928,9 @@ defmodule AWS.GameLift do
   `SuspendGameServerGroup` | `DescribeGameServerInstances` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def delete_game_server_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteGameServerGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteGameServerGroup", input, options)
   end
 
   @doc """
@@ -913,7 +955,9 @@ defmodule AWS.GameLift do
   | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_game_session_queue(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteGameSessionQueue", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteGameSessionQueue", input, options)
   end
 
   @doc """
@@ -930,7 +974,9 @@ defmodule AWS.GameLift do
   `ValidateMatchmakingRuleSet` | `DeleteMatchmakingRuleSet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_matchmaking_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteMatchmakingConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteMatchmakingConfiguration", input, options)
   end
 
   @doc """
@@ -951,7 +997,9 @@ defmodule AWS.GameLift do
   `ValidateMatchmakingRuleSet` | `DeleteMatchmakingRuleSet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteMatchmakingRuleSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteMatchmakingRuleSet", input, options)
   end
 
   @doc """
@@ -971,7 +1019,9 @@ defmodule AWS.GameLift do
   `StopFleetActions` | `StartFleetActions` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_scaling_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteScalingPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteScalingPolicy", input, options)
   end
 
   @doc """
@@ -996,7 +1046,9 @@ defmodule AWS.GameLift do
   `DeleteScript` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_script(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteScript", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteScript", input, options)
   end
 
   @doc """
@@ -1012,7 +1064,9 @@ defmodule AWS.GameLift do
   `DescribeVpcPeeringConnections` | `DeleteVpcPeeringConnection` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_vpc_peering_authorization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteVpcPeeringAuthorization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteVpcPeeringAuthorization", input, options)
   end
 
   @doc """
@@ -1035,7 +1089,9 @@ defmodule AWS.GameLift do
   `DescribeVpcPeeringConnections` | `DeleteVpcPeeringConnection` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_vpc_peering_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteVpcPeeringConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteVpcPeeringConnection", input, options)
   end
 
   @doc """
@@ -1062,7 +1118,9 @@ defmodule AWS.GameLift do
   task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def deregister_game_server(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterGameServer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterGameServer", input, options)
   end
 
   @doc """
@@ -1080,7 +1138,9 @@ defmodule AWS.GameLift do
   | `ResolveAlias` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_alias(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAlias", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAlias", input, options)
   end
 
   @doc """
@@ -1099,7 +1159,9 @@ defmodule AWS.GameLift do
   [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_build(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeBuild", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBuild", input, options)
   end
 
   @doc """
@@ -1162,7 +1224,9 @@ defmodule AWS.GameLift do
   | `DeleteFleet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_ec2_instance_limits(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEC2InstanceLimits", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEC2InstanceLimits", input, options)
   end
 
   @doc """
@@ -1200,7 +1264,9 @@ defmodule AWS.GameLift do
   `DescribeScalingPolicies` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_fleet_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFleetAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFleetAttributes", input, options)
   end
 
   @doc """
@@ -1247,7 +1313,9 @@ defmodule AWS.GameLift do
   `DescribeScalingPolicies` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_fleet_capacity(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFleetCapacity", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFleetCapacity", input, options)
   end
 
   @doc """
@@ -1276,7 +1344,9 @@ defmodule AWS.GameLift do
   `DescribeScalingPolicies` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_fleet_events(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFleetEvents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFleetEvents", input, options)
   end
 
   @doc """
@@ -1313,7 +1383,9 @@ defmodule AWS.GameLift do
   task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_fleet_location_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFleetLocationAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFleetLocationAttributes", input, options)
   end
 
   @doc """
@@ -1344,7 +1416,9 @@ defmodule AWS.GameLift do
   task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_fleet_location_capacity(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFleetLocationCapacity", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFleetLocationCapacity", input, options)
   end
 
   @doc """
@@ -1375,7 +1449,9 @@ defmodule AWS.GameLift do
   task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_fleet_location_utilization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFleetLocationUtilization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFleetLocationUtilization", input, options)
   end
 
   @doc """
@@ -1412,7 +1488,9 @@ defmodule AWS.GameLift do
   `DescribeScalingPolicies` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_fleet_port_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFleetPortSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFleetPortSettings", input, options)
   end
 
   @doc """
@@ -1457,7 +1535,9 @@ defmodule AWS.GameLift do
   `DescribeScalingPolicies` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_fleet_utilization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFleetUtilization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFleetUtilization", input, options)
   end
 
   @doc """
@@ -1483,7 +1563,9 @@ defmodule AWS.GameLift do
   task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def describe_game_server(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeGameServer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeGameServer", input, options)
   end
 
   @doc """
@@ -1511,7 +1593,9 @@ defmodule AWS.GameLift do
   `SuspendGameServerGroup` | `DescribeGameServerInstances` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def describe_game_server_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeGameServerGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeGameServerGroup", input, options)
   end
 
   @doc """
@@ -1548,7 +1632,9 @@ defmodule AWS.GameLift do
   `SuspendGameServerGroup` | `DescribeGameServerInstances` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def describe_game_server_instances(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeGameServerInstances", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeGameServerInstances", input, options)
   end
 
   @doc """
@@ -1594,7 +1680,9 @@ defmodule AWS.GameLift do
   `StopGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_game_session_details(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeGameSessionDetails", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeGameSessionDetails", input, options)
   end
 
   @doc """
@@ -1620,7 +1708,9 @@ defmodule AWS.GameLift do
   `StopGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_game_session_placement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeGameSessionPlacement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeGameSessionPlacement", input, options)
   end
 
   @doc """
@@ -1645,7 +1735,9 @@ defmodule AWS.GameLift do
   | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_game_session_queues(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeGameSessionQueues", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeGameSessionQueues", input, options)
   end
 
   @doc """
@@ -1706,7 +1798,9 @@ defmodule AWS.GameLift do
   `StopGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_game_sessions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeGameSessions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeGameSessions", input, options)
   end
 
   @doc """
@@ -1741,7 +1835,9 @@ defmodule AWS.GameLift do
   task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_instances(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeInstances", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInstances", input, options)
   end
 
   @doc """
@@ -1774,7 +1870,9 @@ defmodule AWS.GameLift do
   `StartMatchBackfill` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_matchmaking(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeMatchmaking", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMatchmaking", input, options)
   end
 
   @doc """
@@ -1802,7 +1900,9 @@ defmodule AWS.GameLift do
   `ValidateMatchmakingRuleSet` | `DeleteMatchmakingRuleSet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_matchmaking_configurations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeMatchmakingConfigurations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMatchmakingConfigurations", input, options)
   end
 
   @doc """
@@ -1825,7 +1925,9 @@ defmodule AWS.GameLift do
   `ValidateMatchmakingRuleSet` | `DeleteMatchmakingRuleSet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_matchmaking_rule_sets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeMatchmakingRuleSets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMatchmakingRuleSets", input, options)
   end
 
   @doc """
@@ -1857,7 +1959,9 @@ defmodule AWS.GameLift do
   `StartGameSessionPlacement` | `DescribeGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_player_sessions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePlayerSessions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePlayerSessions", input, options)
   end
 
   @doc """
@@ -1887,7 +1991,9 @@ defmodule AWS.GameLift do
   `DescribeScalingPolicies` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_runtime_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRuntimeConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRuntimeConfiguration", input, options)
   end
 
   @doc """
@@ -1910,7 +2016,9 @@ defmodule AWS.GameLift do
   `StopFleetActions` | `StartFleetActions` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_scaling_policies(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeScalingPolicies", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeScalingPolicies", input, options)
   end
 
   @doc """
@@ -1929,7 +2037,9 @@ defmodule AWS.GameLift do
   `DeleteScript` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_script(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeScript", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeScript", input, options)
   end
 
   @doc """
@@ -1946,7 +2056,9 @@ defmodule AWS.GameLift do
   `DescribeVpcPeeringConnections` | `DeleteVpcPeeringConnection` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_vpc_peering_authorizations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeVpcPeeringAuthorizations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeVpcPeeringAuthorizations", input, options)
   end
 
   @doc """
@@ -1969,7 +2081,9 @@ defmodule AWS.GameLift do
   `DescribeVpcPeeringConnections` | `DeleteVpcPeeringConnection` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_vpc_peering_connections(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeVpcPeeringConnections", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeVpcPeeringConnections", input, options)
   end
 
   @doc """
@@ -1989,7 +2103,9 @@ defmodule AWS.GameLift do
   `StopGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def get_game_session_log_url(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetGameSessionLogUrl", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetGameSessionLogUrl", input, options)
   end
 
   @doc """
@@ -2024,7 +2140,9 @@ defmodule AWS.GameLift do
   task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def get_instance_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetInstanceAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetInstanceAccess", input, options)
   end
 
   @doc """
@@ -2041,7 +2159,9 @@ defmodule AWS.GameLift do
   | `ResolveAlias` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def list_aliases(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAliases", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAliases", input, options)
   end
 
   @doc """
@@ -2064,7 +2184,9 @@ defmodule AWS.GameLift do
   [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def list_builds(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListBuilds", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListBuilds", input, options)
   end
 
   @doc """
@@ -2109,7 +2231,9 @@ defmodule AWS.GameLift do
   | `DeleteFleet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def list_fleets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFleets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFleets", input, options)
   end
 
   @doc """
@@ -2133,7 +2257,9 @@ defmodule AWS.GameLift do
   `SuspendGameServerGroup` | `DescribeGameServerInstances` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def list_game_server_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListGameServerGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListGameServerGroups", input, options)
   end
 
   @doc """
@@ -2157,7 +2283,9 @@ defmodule AWS.GameLift do
   task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def list_game_servers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListGameServers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListGameServers", input, options)
   end
 
   @doc """
@@ -2174,7 +2302,9 @@ defmodule AWS.GameLift do
   `DeleteScript` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def list_scripts(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListScripts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListScripts", input, options)
   end
 
   @doc """
@@ -2212,7 +2342,9 @@ defmodule AWS.GameLift do
   `TagResource` | `UntagResource` | `ListTagsForResource` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -2296,7 +2428,9 @@ defmodule AWS.GameLift do
   task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def put_scaling_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutScalingPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutScalingPolicy", input, options)
   end
 
   @doc """
@@ -2333,7 +2467,9 @@ defmodule AWS.GameLift do
   task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def register_game_server(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterGameServer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterGameServer", input, options)
   end
 
   @doc """
@@ -2356,7 +2492,9 @@ defmodule AWS.GameLift do
   [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def request_upload_credentials(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RequestUploadCredentials", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RequestUploadCredentials", input, options)
   end
 
   @doc """
@@ -2368,7 +2506,9 @@ defmodule AWS.GameLift do
   | `ResolveAlias` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def resolve_alias(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ResolveAlias", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ResolveAlias", input, options)
   end
 
   @doc """
@@ -2398,7 +2538,9 @@ defmodule AWS.GameLift do
   `SuspendGameServerGroup` | `DescribeGameServerInstances` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def resume_game_server_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ResumeGameServerGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ResumeGameServerGroup", input, options)
   end
 
   @doc """
@@ -2481,7 +2623,9 @@ defmodule AWS.GameLift do
   `StopGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def search_game_sessions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SearchGameSessions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SearchGameSessions", input, options)
   end
 
   @doc """
@@ -2518,7 +2662,9 @@ defmodule AWS.GameLift do
   | `DeleteFleet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def start_fleet_actions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartFleetActions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartFleetActions", input, options)
   end
 
   @doc """
@@ -2575,7 +2721,9 @@ defmodule AWS.GameLift do
   `StopGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def start_game_session_placement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartGameSessionPlacement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartGameSessionPlacement", input, options)
   end
 
   @doc """
@@ -2626,7 +2774,9 @@ defmodule AWS.GameLift do
   `StartMatchBackfill` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def start_match_backfill(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartMatchBackfill", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartMatchBackfill", input, options)
   end
 
   @doc """
@@ -2665,7 +2815,9 @@ defmodule AWS.GameLift do
   `StartMatchBackfill` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def start_matchmaking(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartMatchmaking", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartMatchmaking", input, options)
   end
 
   @doc """
@@ -2705,7 +2857,9 @@ defmodule AWS.GameLift do
   | `DeleteFleet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def stop_fleet_actions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopFleetActions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopFleetActions", input, options)
   end
 
   @doc """
@@ -2722,7 +2876,9 @@ defmodule AWS.GameLift do
   `StopGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def stop_game_session_placement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopGameSessionPlacement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopGameSessionPlacement", input, options)
   end
 
   @doc """
@@ -2751,7 +2907,9 @@ defmodule AWS.GameLift do
   `StartMatchBackfill` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def stop_matchmaking(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopMatchmaking", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopMatchmaking", input, options)
   end
 
   @doc """
@@ -2788,7 +2946,9 @@ defmodule AWS.GameLift do
   `SuspendGameServerGroup` | `DescribeGameServerInstances` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def suspend_game_server_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SuspendGameServerGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SuspendGameServerGroup", input, options)
   end
 
   @doc """
@@ -2830,7 +2990,9 @@ defmodule AWS.GameLift do
   `TagResource` | `UntagResource` | `ListTagsForResource` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -2871,7 +3033,9 @@ defmodule AWS.GameLift do
   `TagResource` | `UntagResource` | `ListTagsForResource` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -2887,7 +3051,9 @@ defmodule AWS.GameLift do
   | `ResolveAlias` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def update_alias(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateAlias", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAlias", input, options)
   end
 
   @doc """
@@ -2907,7 +3073,9 @@ defmodule AWS.GameLift do
   [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def update_build(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateBuild", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateBuild", input, options)
   end
 
   @doc """
@@ -2931,7 +3099,9 @@ defmodule AWS.GameLift do
   `DeleteFleetLocations` | `DeleteScalingPolicy` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def update_fleet_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateFleetAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFleetAttributes", input, options)
   end
 
   @doc """
@@ -2983,7 +3153,9 @@ defmodule AWS.GameLift do
   `DeleteFleetLocations` | `DeleteScalingPolicy` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def update_fleet_capacity(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateFleetCapacity", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFleetCapacity", input, options)
   end
 
   @doc """
@@ -3013,7 +3185,9 @@ defmodule AWS.GameLift do
   `DeleteFleetLocations` | `DeleteScalingPolicy` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def update_fleet_port_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateFleetPortSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFleetPortSettings", input, options)
   end
 
   @doc """
@@ -3057,7 +3231,9 @@ defmodule AWS.GameLift do
   task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def update_game_server(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateGameServer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateGameServer", input, options)
   end
 
   @doc """
@@ -3086,7 +3262,9 @@ defmodule AWS.GameLift do
   `SuspendGameServerGroup` | `DescribeGameServerInstances` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def update_game_server_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateGameServerGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateGameServerGroup", input, options)
   end
 
   @doc """
@@ -3105,7 +3283,9 @@ defmodule AWS.GameLift do
   `StopGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def update_game_session(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateGameSession", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateGameSession", input, options)
   end
 
   @doc """
@@ -3129,7 +3309,9 @@ defmodule AWS.GameLift do
   | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def update_game_session_queue(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateGameSessionQueue", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateGameSessionQueue", input, options)
   end
 
   @doc """
@@ -3151,7 +3333,9 @@ defmodule AWS.GameLift do
   `ValidateMatchmakingRuleSet` | `DeleteMatchmakingRuleSet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def update_matchmaking_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateMatchmakingConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateMatchmakingConfiguration", input, options)
   end
 
   @doc """
@@ -3183,7 +3367,9 @@ defmodule AWS.GameLift do
   `DeleteFleetLocations` | `DeleteScalingPolicy` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def update_runtime_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateRuntimeConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateRuntimeConfiguration", input, options)
   end
 
   @doc """
@@ -3212,7 +3398,9 @@ defmodule AWS.GameLift do
   `DeleteScript` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def update_script(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateScript", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateScript", input, options)
   end
 
   @doc """
@@ -3234,6 +3422,8 @@ defmodule AWS.GameLift do
   `ValidateMatchmakingRuleSet` | `DeleteMatchmakingRuleSet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def validate_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ValidateMatchmakingRuleSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ValidateMatchmakingRuleSet", input, options)
   end
 end

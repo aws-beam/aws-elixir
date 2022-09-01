@@ -89,7 +89,9 @@ defmodule AWS.SSM do
   in the *Amazon EC2 User Guide*.
   """
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddTagsToResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
 
   @doc """
@@ -100,7 +102,9 @@ defmodule AWS.SSM do
   Systems Manager.
   """
   def associate_ops_item_related_item(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateOpsItemRelatedItem", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateOpsItemRelatedItem", input, options)
   end
 
   @doc """
@@ -110,7 +114,9 @@ defmodule AWS.SSM do
   process stopped.
   """
   def cancel_command(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelCommand", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelCommand", input, options)
   end
 
   @doc """
@@ -120,7 +126,9 @@ defmodule AWS.SSM do
   Tasks already in progress will continue to completion.
   """
   def cancel_maintenance_window_execution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelMaintenanceWindowExecution", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelMaintenanceWindowExecution", input, options)
   end
 
   @doc """
@@ -140,7 +148,9 @@ defmodule AWS.SSM do
   called *managed nodes*.
   """
   def create_activation(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateActivation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateActivation", input, options)
   end
 
   @doc """
@@ -160,7 +170,9 @@ defmodule AWS.SSM do
   running, then the association might instruct State Manager to start the service.
   """
   def create_association(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAssociation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAssociation", input, options)
   end
 
   @doc """
@@ -175,7 +187,9 @@ defmodule AWS.SSM do
   document, the system returns the AssociationAlreadyExists exception.
   """
   def create_association_batch(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAssociationBatch", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAssociationBatch", input, options)
   end
 
   @doc """
@@ -188,7 +202,9 @@ defmodule AWS.SSM do
   in the *Amazon Web Services Systems Manager User Guide*.
   """
   def create_document(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDocument", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDocument", input, options)
   end
 
   @doc """
@@ -202,7 +218,9 @@ defmodule AWS.SSM do
   maintenance window tasks can start after 5 PM.
   """
   def create_maintenance_window(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateMaintenanceWindow", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateMaintenanceWindow", input, options)
   end
 
   @doc """
@@ -219,7 +237,9 @@ defmodule AWS.SSM do
   in the *Amazon Web Services Systems Manager User Guide*.
   """
   def create_ops_item(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateOpsItem", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateOpsItem", input, options)
   end
 
   @doc """
@@ -228,7 +248,9 @@ defmodule AWS.SSM do
   application, including the application type.
   """
   def create_ops_metadata(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateOpsMetadata", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateOpsMetadata", input, options)
   end
 
   @doc """
@@ -238,7 +260,9 @@ defmodule AWS.SSM do
   operating system type, see `PatchFilter`.
   """
   def create_patch_baseline(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreatePatchBaseline", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePatchBaseline", input, options)
   end
 
   @doc """
@@ -273,7 +297,9 @@ defmodule AWS.SSM do
   policy.
   """
   def create_resource_data_sync(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateResourceDataSync", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateResourceDataSync", input, options)
   end
 
   @doc """
@@ -285,7 +311,9 @@ defmodule AWS.SSM do
   managed nodes.
   """
   def delete_activation(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteActivation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteActivation", input, options)
   end
 
   @doc """
@@ -301,7 +329,9 @@ defmodule AWS.SSM do
   desired configuration and associate it with the node.
   """
   def delete_association(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAssociation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAssociation", input, options)
   end
 
   @doc """
@@ -312,7 +342,9 @@ defmodule AWS.SSM do
   disassociate all managed nodes that are associated with the document.
   """
   def delete_document(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDocument", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDocument", input, options)
   end
 
   @doc """
@@ -323,21 +355,27 @@ defmodule AWS.SSM do
   inventory schema.
   """
   def delete_inventory(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteInventory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteInventory", input, options)
   end
 
   @doc """
   Deletes a maintenance window.
   """
   def delete_maintenance_window(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteMaintenanceWindow", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteMaintenanceWindow", input, options)
   end
 
   @doc """
   Delete OpsMetadata related to an application.
   """
   def delete_ops_metadata(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteOpsMetadata", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteOpsMetadata", input, options)
   end
 
   @doc """
@@ -347,7 +385,9 @@ defmodule AWS.SSM do
   with the same name.
   """
   def delete_parameter(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteParameter", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteParameter", input, options)
   end
 
   @doc """
@@ -357,14 +397,18 @@ defmodule AWS.SSM do
   with the same name.
   """
   def delete_parameters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteParameters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteParameters", input, options)
   end
 
   @doc """
   Deletes a patch baseline.
   """
   def delete_patch_baseline(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeletePatchBaseline", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePatchBaseline", input, options)
   end
 
   @doc """
@@ -375,7 +419,9 @@ defmodule AWS.SSM do
   delete data.
   """
   def delete_resource_data_sync(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteResourceDataSync", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteResourceDataSync", input, options)
   end
 
   @doc """
@@ -385,46 +431,36 @@ defmodule AWS.SSM do
   Command on the server, we suggest uninstalling SSM Agent first.
   """
   def deregister_managed_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterManagedInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterManagedInstance", input, options)
   end
 
   @doc """
   Removes a patch group from a patch baseline.
   """
   def deregister_patch_baseline_for_patch_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DeregisterPatchBaselineForPatchGroup",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterPatchBaselineForPatchGroup", input, options)
   end
 
   @doc """
   Removes a target from a maintenance window.
   """
   def deregister_target_from_maintenance_window(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DeregisterTargetFromMaintenanceWindow",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterTargetFromMaintenanceWindow", input, options)
   end
 
   @doc """
   Removes a task from a maintenance window.
   """
   def deregister_task_from_maintenance_window(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DeregisterTaskFromMaintenanceWindow",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterTaskFromMaintenanceWindow", input, options)
   end
 
   @doc """
@@ -434,7 +470,9 @@ defmodule AWS.SSM do
   registered by using this activation.
   """
   def describe_activations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeActivations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeActivations", input, options)
   end
 
   @doc """
@@ -444,34 +482,36 @@ defmodule AWS.SSM do
   retrieve the association by using the association ID.
   """
   def describe_association(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAssociation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAssociation", input, options)
   end
 
   @doc """
   Views information about a specific execution of a specific association.
   """
   def describe_association_execution_targets(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeAssociationExecutionTargets",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAssociationExecutionTargets", input, options)
   end
 
   @doc """
   Views all executions for a specific association ID.
   """
   def describe_association_executions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAssociationExecutions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAssociationExecutions", input, options)
   end
 
   @doc """
   Provides details about all active and terminated Automation executions.
   """
   def describe_automation_executions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAutomationExecutions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAutomationExecutions", input, options)
   end
 
   @doc """
@@ -479,14 +519,18 @@ defmodule AWS.SSM do
   workflow.
   """
   def describe_automation_step_executions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAutomationStepExecutions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAutomationStepExecutions", input, options)
   end
 
   @doc """
   Lists all patches eligible to be included in a patch baseline.
   """
   def describe_available_patches(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAvailablePatches", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAvailablePatches", input, options)
   end
 
   @doc """
@@ -494,7 +538,9 @@ defmodule AWS.SSM do
   document).
   """
   def describe_document(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDocument", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDocument", input, options)
   end
 
   @doc """
@@ -506,20 +552,18 @@ defmodule AWS.SSM do
   ID) or publicly (*All*).
   """
   def describe_document_permission(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDocumentPermission", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDocumentPermission", input, options)
   end
 
   @doc """
   All associations for the managed node(s).
   """
   def describe_effective_instance_associations(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeEffectiveInstanceAssociations",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEffectiveInstanceAssociations", input, options)
   end
 
   @doc """
@@ -529,20 +573,18 @@ defmodule AWS.SSM do
   Applies to patch baselines for Windows only.
   """
   def describe_effective_patches_for_patch_baseline(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeEffectivePatchesForPatchBaseline",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEffectivePatchesForPatchBaseline", input, options)
   end
 
   @doc """
   The status of the associations for the managed node(s).
   """
   def describe_instance_associations_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeInstanceAssociationsStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInstanceAssociationsStatus", input, options)
   end
 
   @doc """
@@ -560,14 +602,18 @@ defmodule AWS.SSM do
   IAM role for EC2 instances.
   """
   def describe_instance_information(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeInstanceInformation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInstanceInformation", input, options)
   end
 
   @doc """
   Retrieves the high-level patch state of one or more managed nodes.
   """
   def describe_instance_patch_states(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeInstancePatchStates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInstancePatchStates", input, options)
   end
 
   @doc """
@@ -575,13 +621,9 @@ defmodule AWS.SSM do
   patch group.
   """
   def describe_instance_patch_states_for_patch_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeInstancePatchStatesForPatchGroup",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInstancePatchStatesForPatchGroup", input, options)
   end
 
   @doc """
@@ -589,14 +631,18 @@ defmodule AWS.SSM do
   state relative to the patch baseline being used for the node.
   """
   def describe_instance_patches(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeInstancePatches", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInstancePatches", input, options)
   end
 
   @doc """
   Describes a specific delete inventory operation.
   """
   def describe_inventory_deletions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeInventoryDeletions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInventoryDeletions", input, options)
   end
 
   @doc """
@@ -608,9 +654,11 @@ defmodule AWS.SSM do
         input,
         options \\ []
       ) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "DescribeMaintenanceWindowExecutionTaskInvocations",
       input,
       options
@@ -621,13 +669,9 @@ defmodule AWS.SSM do
   For a given maintenance window execution, lists the tasks that were run.
   """
   def describe_maintenance_window_execution_tasks(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeMaintenanceWindowExecutionTasks",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMaintenanceWindowExecutionTasks", input, options)
   end
 
   @doc """
@@ -638,27 +682,27 @@ defmodule AWS.SSM do
   window.
   """
   def describe_maintenance_window_executions(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeMaintenanceWindowExecutions",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMaintenanceWindowExecutions", input, options)
   end
 
   @doc """
   Retrieves information about upcoming executions of a maintenance window.
   """
   def describe_maintenance_window_schedule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeMaintenanceWindowSchedule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMaintenanceWindowSchedule", input, options)
   end
 
   @doc """
   Lists the targets registered with the maintenance window.
   """
   def describe_maintenance_window_targets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeMaintenanceWindowTargets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMaintenanceWindowTargets", input, options)
   end
 
   @doc """
@@ -670,14 +714,18 @@ defmodule AWS.SSM do
   These values don't affect the running of your task and can be ignored.
   """
   def describe_maintenance_window_tasks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeMaintenanceWindowTasks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMaintenanceWindowTasks", input, options)
   end
 
   @doc """
   Retrieves the maintenance windows in an Amazon Web Services account.
   """
   def describe_maintenance_windows(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeMaintenanceWindows", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMaintenanceWindows", input, options)
   end
 
   @doc """
@@ -685,13 +733,9 @@ defmodule AWS.SSM do
   managed node is associated with.
   """
   def describe_maintenance_windows_for_target(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeMaintenanceWindowsForTarget",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMaintenanceWindowsForTarget", input, options)
   end
 
   @doc """
@@ -709,7 +753,9 @@ defmodule AWS.SSM do
   in the *Amazon Web Services Systems Manager User Guide*.
   """
   def describe_ops_items(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeOpsItems", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeOpsItems", input, options)
   end
 
   @doc """
@@ -729,14 +775,18 @@ defmodule AWS.SSM do
   referencing.
   """
   def describe_parameters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeParameters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeParameters", input, options)
   end
 
   @doc """
   Lists the patch baselines in your Amazon Web Services account.
   """
   def describe_patch_baselines(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePatchBaselines", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePatchBaselines", input, options)
   end
 
   @doc """
@@ -744,14 +794,18 @@ defmodule AWS.SSM do
   group.
   """
   def describe_patch_group_state(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePatchGroupState", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePatchGroupState", input, options)
   end
 
   @doc """
   Lists all patch groups that have been registered with patch baselines.
   """
   def describe_patch_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePatchGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePatchGroups", input, options)
   end
 
   @doc """
@@ -809,7 +863,9 @@ defmodule AWS.SSM do
   `MSRC_SEVERITY`
   """
   def describe_patch_properties(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePatchProperties", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePatchProperties", input, options)
   end
 
   @doc """
@@ -817,7 +873,9 @@ defmodule AWS.SSM do
   terminated sessions from the past 30 days.
   """
   def describe_sessions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSessions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSessions", input, options)
   end
 
   @doc """
@@ -828,14 +886,18 @@ defmodule AWS.SSM do
   Manager.
   """
   def disassociate_ops_item_related_item(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateOpsItemRelatedItem", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateOpsItemRelatedItem", input, options)
   end
 
   @doc """
   Get detailed information about a particular Automation execution.
   """
   def get_automation_execution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAutomationExecution", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAutomationExecution", input, options)
   end
 
   @doc """
@@ -857,7 +919,9 @@ defmodule AWS.SSM do
   in the *Amazon Web Services Systems Manager User Guide*.
   """
   def get_calendar_state(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCalendarState", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCalendarState", input, options)
   end
 
   @doc """
@@ -870,7 +934,9 @@ defmodule AWS.SSM do
   nodes, use `ListCommands`.
   """
   def get_command_invocation(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCommandInvocation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCommandInvocation", input, options)
   end
 
   @doc """
@@ -878,7 +944,9 @@ defmodule AWS.SSM do
   whether it is running and ready to receive Session Manager connections.
   """
   def get_connection_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetConnectionStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetConnectionStatus", input, options)
   end
 
   @doc """
@@ -892,7 +960,9 @@ defmodule AWS.SSM do
   Windows is returned.
   """
   def get_default_patch_baseline(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDefaultPatchBaseline", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDefaultPatchBaseline", input, options)
   end
 
   @doc """
@@ -910,13 +980,9 @@ defmodule AWS.SSM do
   `AWS-RunShellScript` document or the `AWS-RunPowerShellScript` document.
   """
   def get_deployable_patch_snapshot_for_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "GetDeployablePatchSnapshotForInstance",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDeployablePatchSnapshotForInstance", input, options)
   end
 
   @doc """
@@ -924,7 +990,9 @@ defmodule AWS.SSM do
   (SSM document).
   """
   def get_document(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDocument", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDocument", input, options)
   end
 
   @doc """
@@ -933,7 +1001,9 @@ defmodule AWS.SSM do
   This includes managed node status, such as `Stopped` or `Terminated`.
   """
   def get_inventory(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetInventory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetInventory", input, options)
   end
 
   @doc """
@@ -941,21 +1011,27 @@ defmodule AWS.SSM do
   attribute names for a specific Inventory item type.
   """
   def get_inventory_schema(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetInventorySchema", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetInventorySchema", input, options)
   end
 
   @doc """
   Retrieves a maintenance window.
   """
   def get_maintenance_window(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetMaintenanceWindow", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMaintenanceWindow", input, options)
   end
 
   @doc """
   Retrieves details about a specific a maintenance window execution.
   """
   def get_maintenance_window_execution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetMaintenanceWindowExecution", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMaintenanceWindowExecution", input, options)
   end
 
   @doc """
@@ -963,16 +1039,20 @@ defmodule AWS.SSM do
   execution.
   """
   def get_maintenance_window_execution_task(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetMaintenanceWindowExecutionTask", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMaintenanceWindowExecutionTask", input, options)
   end
 
   @doc """
   Retrieves information about a specific task running on a specific target.
   """
   def get_maintenance_window_execution_task_invocation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "GetMaintenanceWindowExecutionTaskInvocation",
       input,
       options
@@ -991,7 +1071,9 @@ defmodule AWS.SSM do
   `DescribeMaintenanceWindowTasks` command.
   """
   def get_maintenance_window_task(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetMaintenanceWindowTask", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMaintenanceWindowTask", input, options)
   end
 
   @doc """
@@ -1009,14 +1091,18 @@ defmodule AWS.SSM do
   in the *Amazon Web Services Systems Manager User Guide*.
   """
   def get_ops_item(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetOpsItem", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetOpsItem", input, options)
   end
 
   @doc """
   View operational metadata related to an application in Application Manager.
   """
   def get_ops_metadata(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetOpsMetadata", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetOpsMetadata", input, options)
   end
 
   @doc """
@@ -1029,7 +1115,9 @@ defmodule AWS.SSM do
   Web Services Systems Manager Explorer.
   """
   def get_ops_summary(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetOpsSummary", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetOpsSummary", input, options)
   end
 
   @doc """
@@ -1039,7 +1127,9 @@ defmodule AWS.SSM do
   `GetParameters` operation.
   """
   def get_parameter(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetParameter", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetParameter", input, options)
   end
 
   @doc """
@@ -1051,7 +1141,9 @@ defmodule AWS.SSM do
   referencing.
   """
   def get_parameter_history(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetParameterHistory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetParameterHistory", input, options)
   end
 
   @doc """
@@ -1062,7 +1154,9 @@ defmodule AWS.SSM do
   operation instead.
   """
   def get_parameters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetParameters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetParameters", input, options)
   end
 
   @doc """
@@ -1077,21 +1171,27 @@ defmodule AWS.SSM do
   the next set of results.
   """
   def get_parameters_by_path(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetParametersByPath", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetParametersByPath", input, options)
   end
 
   @doc """
   Retrieves information about a patch baseline.
   """
   def get_patch_baseline(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetPatchBaseline", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetPatchBaseline", input, options)
   end
 
   @doc """
   Retrieves the patch baseline that should be used for the specified patch group.
   """
   def get_patch_baseline_for_patch_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetPatchBaselineForPatchGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetPatchBaselineForPatchGroup", input, options)
   end
 
   @doc """
@@ -1115,7 +1215,9 @@ defmodule AWS.SSM do
   Query the current service setting for the Amazon Web Services account.
   """
   def get_service_setting(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetServiceSetting", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetServiceSetting", input, options)
   end
 
   @doc """
@@ -1153,14 +1255,18 @@ defmodule AWS.SSM do
   InvalidLabels.
   """
   def label_parameter_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "LabelParameterVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "LabelParameterVersion", input, options)
   end
 
   @doc """
   Retrieves all versions of an association for a specific association ID.
   """
   def list_association_versions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAssociationVersions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAssociationVersions", input, options)
   end
 
   @doc """
@@ -1172,7 +1278,9 @@ defmodule AWS.SSM do
   Services Systems Manager.
   """
   def list_associations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAssociations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAssociations", input, options)
   end
 
   @doc """
@@ -1184,14 +1292,18 @@ defmodule AWS.SSM do
   node ID. `ListCommandInvocations` provide status about command execution.
   """
   def list_command_invocations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListCommandInvocations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCommandInvocations", input, options)
   end
 
   @doc """
   Lists the commands requested by users of the Amazon Web Services account.
   """
   def list_commands(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListCommands", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCommands", input, options)
   end
 
   @doc """
@@ -1202,7 +1314,9 @@ defmodule AWS.SSM do
   the criteria specified in the filter.
   """
   def list_compliance_items(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListComplianceItems", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListComplianceItems", input, options)
   end
 
   @doc """
@@ -1213,7 +1327,9 @@ defmodule AWS.SSM do
   compliance types according to the filter criteria that you specify.
   """
   def list_compliance_summaries(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListComplianceSummaries", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListComplianceSummaries", input, options)
   end
 
   @doc """
@@ -1221,14 +1337,18 @@ defmodule AWS.SSM do
   Manager.
   """
   def list_document_metadata_history(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDocumentMetadataHistory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDocumentMetadataHistory", input, options)
   end
 
   @doc """
   List all versions for a document.
   """
   def list_document_versions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDocumentVersions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDocumentVersions", input, options)
   end
 
   @doc """
@@ -1238,14 +1358,18 @@ defmodule AWS.SSM do
   You can limit the results of this request by using a filter.
   """
   def list_documents(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDocuments", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDocuments", input, options)
   end
 
   @doc """
   A list of inventory items returned by the request.
   """
   def list_inventory_entries(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListInventoryEntries", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListInventoryEntries", input, options)
   end
 
   @doc """
@@ -1256,7 +1380,9 @@ defmodule AWS.SSM do
   specifying a filter.
   """
   def list_ops_item_events(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListOpsItemEvents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListOpsItemEvents", input, options)
   end
 
   @doc """
@@ -1266,7 +1392,9 @@ defmodule AWS.SSM do
   OpsCenter is a capability of Amazon Web Services Systems Manager.
   """
   def list_ops_item_related_items(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListOpsItemRelatedItems", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListOpsItemRelatedItems", input, options)
   end
 
   @doc """
@@ -1274,7 +1402,9 @@ defmodule AWS.SSM do
   Application Manager OpsMetadata objects or blobs.
   """
   def list_ops_metadata(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListOpsMetadata", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListOpsMetadata", input, options)
   end
 
   @doc """
@@ -1285,7 +1415,9 @@ defmodule AWS.SSM do
   specify.
   """
   def list_resource_compliance_summaries(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListResourceComplianceSummaries", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResourceComplianceSummaries", input, options)
   end
 
   @doc """
@@ -1303,7 +1435,9 @@ defmodule AWS.SSM do
   call.
   """
   def list_resource_data_sync(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListResourceDataSync", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResourceDataSync", input, options)
   end
 
   @doc """
@@ -1313,7 +1447,9 @@ defmodule AWS.SSM do
   `AddTagsToResource`.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -1325,7 +1461,9 @@ defmodule AWS.SSM do
   publicly, you must specify *All* as the account ID.
   """
   def modify_document_permission(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyDocumentPermission", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyDocumentPermission", input, options)
   end
 
   @doc """
@@ -1377,7 +1515,9 @@ defmodule AWS.SSM do
   following format: yyyy-MM-dd'T'HH:mm:ss'Z'
   """
   def put_compliance_items(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutComplianceItems", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutComplianceItems", input, options)
   end
 
   @doc """
@@ -1387,14 +1527,18 @@ defmodule AWS.SSM do
   inventory item, if it does exist.
   """
   def put_inventory(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutInventory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutInventory", input, options)
   end
 
   @doc """
   Add a parameter to the system.
   """
   def put_parameter(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutParameter", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutParameter", input, options)
   end
 
   @doc """
@@ -1407,41 +1551,45 @@ defmodule AWS.SSM do
   of `pb-0574b43a65ea646ed`.
   """
   def register_default_patch_baseline(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterDefaultPatchBaseline", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterDefaultPatchBaseline", input, options)
   end
 
   @doc """
   Registers a patch baseline for a patch group.
   """
   def register_patch_baseline_for_patch_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterPatchBaselineForPatchGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterPatchBaselineForPatchGroup", input, options)
   end
 
   @doc """
   Registers a target with a maintenance window.
   """
   def register_target_with_maintenance_window(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "RegisterTargetWithMaintenanceWindow",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterTargetWithMaintenanceWindow", input, options)
   end
 
   @doc """
   Adds a new task to a maintenance window.
   """
   def register_task_with_maintenance_window(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterTaskWithMaintenanceWindow", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterTaskWithMaintenanceWindow", input, options)
   end
 
   @doc """
   Removes tag keys from the specified resource.
   """
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveTagsFromResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
 
   @doc """
@@ -1465,7 +1613,9 @@ defmodule AWS.SSM do
   the Amazon Web Services service team.
   """
   def reset_service_setting(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ResetServiceSetting", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ResetServiceSetting", input, options)
   end
 
   @doc """
@@ -1478,7 +1628,9 @@ defmodule AWS.SSM do
   during intermittent network issues. It isn't intended for any other use.
   """
   def resume_session(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ResumeSession", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ResumeSession", input, options)
   end
 
   @doc """
@@ -1486,14 +1638,18 @@ defmodule AWS.SSM do
   status of the execution.
   """
   def send_automation_signal(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SendAutomationSignal", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendAutomationSignal", input, options)
   end
 
   @doc """
   Runs commands on one or more managed nodes.
   """
   def send_command(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SendCommand", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendCommand", input, options)
   end
 
   @doc """
@@ -1502,14 +1658,18 @@ defmodule AWS.SSM do
   This operation can be helpful when troubleshooting associations.
   """
   def start_associations_once(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartAssociationsOnce", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartAssociationsOnce", input, options)
   end
 
   @doc """
   Initiates execution of an Automation runbook.
   """
   def start_automation_execution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartAutomationExecution", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartAutomationExecution", input, options)
   end
 
   @doc """
@@ -1519,7 +1679,9 @@ defmodule AWS.SSM do
   required approvals for the change request have been received.
   """
   def start_change_request_execution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartChangeRequestExecution", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartChangeRequestExecution", input, options)
   end
 
   @doc """
@@ -1539,14 +1701,18 @@ defmodule AWS.SSM do
   supported by Amazon Web Services Tools for PowerShell on Windows local machines.
   """
   def start_session(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartSession", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartSession", input, options)
   end
 
   @doc """
   Stop an Automation that is currently running.
   """
   def stop_automation_execution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopAutomationExecution", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopAutomationExecution", input, options)
   end
 
   @doc """
@@ -1556,14 +1722,18 @@ defmodule AWS.SSM do
   A terminated session can't be resumed.
   """
   def terminate_session(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TerminateSession", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TerminateSession", input, options)
   end
 
   @doc """
   Remove a label or labels from a parameter.
   """
   def unlabel_parameter_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UnlabelParameterVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UnlabelParameterVersion", input, options)
   end
 
   @doc """
@@ -1592,7 +1762,9 @@ defmodule AWS.SSM do
   the association during the next schedule run.
   """
   def update_association(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateAssociation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAssociation", input, options)
   end
 
   @doc """
@@ -1604,14 +1776,18 @@ defmodule AWS.SSM do
   is only used for associations created with the `InstanceId` legacy parameter.
   """
   def update_association_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateAssociationStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAssociationStatus", input, options)
   end
 
   @doc """
   Updates one or more values for an SSM document.
   """
   def update_document(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateDocument", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDocument", input, options)
   end
 
   @doc """
@@ -1622,7 +1798,9 @@ defmodule AWS.SSM do
   `apply-only-at-cron-interval` parameter.
   """
   def update_document_default_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateDocumentDefaultVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDocumentDefaultVersion", input, options)
   end
 
   @doc """
@@ -1630,7 +1808,9 @@ defmodule AWS.SSM do
   change template in Change Manager.
   """
   def update_document_metadata(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateDocumentMetadata", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDocumentMetadata", input, options)
   end
 
   @doc """
@@ -1646,7 +1826,9 @@ defmodule AWS.SSM do
   maintenance window tasks can start after 5 PM.
   """
   def update_maintenance_window(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateMaintenanceWindow", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateMaintenanceWindow", input, options)
   end
 
   @doc """
@@ -1671,7 +1853,9 @@ defmodule AWS.SSM do
   If a parameter is null, then the corresponding field isn't modified.
   """
   def update_maintenance_window_target(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateMaintenanceWindowTarget", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateMaintenanceWindowTarget", input, options)
   end
 
   @doc """
@@ -1715,7 +1899,9 @@ defmodule AWS.SSM do
   for `Comment` and `NotificationConfig` are removed.
   """
   def update_maintenance_window_task(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateMaintenanceWindowTask", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateMaintenanceWindowTask", input, options)
   end
 
   @doc """
@@ -1726,7 +1912,9 @@ defmodule AWS.SSM do
   process. For more information, see `CreateActivation`.
   """
   def update_managed_instance_role(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateManagedInstanceRole", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateManagedInstanceRole", input, options)
   end
 
   @doc """
@@ -1744,7 +1932,9 @@ defmodule AWS.SSM do
   in the *Amazon Web Services Systems Manager User Guide*.
   """
   def update_ops_item(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateOpsItem", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateOpsItem", input, options)
   end
 
   @doc """
@@ -1752,7 +1942,9 @@ defmodule AWS.SSM do
   OpsMetadata in Application Manager.
   """
   def update_ops_metadata(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateOpsMetadata", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateOpsMetadata", input, options)
   end
 
   @doc """
@@ -1764,7 +1956,9 @@ defmodule AWS.SSM do
   operating system type, see `PatchFilter`.
   """
   def update_patch_baseline(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdatePatchBaseline", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePatchBaseline", input, options)
   end
 
   @doc """
@@ -1781,7 +1975,9 @@ defmodule AWS.SSM do
   SyncFromSource `SyncType`.
   """
   def update_resource_data_sync(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateResourceDataSync", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateResourceDataSync", input, options)
   end
 
   @doc """
@@ -1805,6 +2001,8 @@ defmodule AWS.SSM do
   Update the service setting for the account.
   """
   def update_service_setting(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateServiceSetting", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateServiceSetting", input, options)
   end
 end

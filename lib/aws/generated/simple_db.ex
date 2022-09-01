@@ -71,7 +71,9 @@ defmodule AWS.SimpleDB do
     * 25 item limit per BatchDeleteAttributes operation
   """
   def batch_delete_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchDeleteAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchDeleteAttributes", input, options)
   end
 
   @doc """
@@ -126,7 +128,9 @@ defmodule AWS.SimpleDB do
     * 25 item limit per `BatchPutAttributes` operation
   """
   def batch_put_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchPutAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchPutAttributes", input, options)
   end
 
   @doc """
@@ -145,7 +149,9 @@ defmodule AWS.SimpleDB do
   http://aws.amazon.com/contact-us/simpledb-limit-request/](http://aws.amazon.com/contact-us/simpledb-limit-request/).
   """
   def create_domain(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDomain", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDomain", input, options)
   end
 
   @doc """
@@ -165,7 +171,9 @@ defmodule AWS.SimpleDB do
   (write) might not return updated item data.
   """
   def delete_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAttributes", input, options)
   end
 
   @doc """
@@ -178,7 +186,9 @@ defmodule AWS.SimpleDB do
   multiple times using the same domain name will not result in an error response.
   """
   def delete_domain(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDomain", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDomain", input, options)
   end
 
   @doc """
@@ -187,7 +197,9 @@ defmodule AWS.SimpleDB do
   names and values.
   """
   def domain_metadata(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DomainMetadata", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DomainMetadata", input, options)
   end
 
   @doc """
@@ -204,7 +216,9 @@ defmodule AWS.SimpleDB do
   attributes for the item are returned.
   """
   def get_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAttributes", input, options)
   end
 
   @doc """
@@ -217,7 +231,9 @@ defmodule AWS.SimpleDB do
   `MaxNumberOfDomains` more domain names with each successive operation call.
   """
   def list_domains(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDomains", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDomains", input, options)
   end
 
   @doc """
@@ -261,7 +277,9 @@ defmodule AWS.SimpleDB do
     * 10 GB of total user data storage per domain
   """
   def put_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutAttributes", input, options)
   end
 
   @doc """
@@ -280,6 +298,8 @@ defmodule AWS.SimpleDB do
   Create Amazon SimpleDB Queries in the Developer Guide.
   """
   def select(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "Select", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "Select", input, options)
   end
 end

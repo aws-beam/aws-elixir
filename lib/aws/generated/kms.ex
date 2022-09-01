@@ -131,7 +131,9 @@ defmodule AWS.KMS do
   **Related operations**: `ScheduleKeyDeletion`
   """
   def cancel_key_deletion(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelKeyDeletion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelKeyDeletion", input, options)
   end
 
   @doc """
@@ -195,7 +197,9 @@ defmodule AWS.KMS do
     * `UpdateCustomKeyStore`
   """
   def connect_custom_key_store(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ConnectCustomKeyStore", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ConnectCustomKeyStore", input, options)
   end
 
   @doc """
@@ -252,7 +256,9 @@ defmodule AWS.KMS do
     * `UpdateAlias`
   """
   def create_alias(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAlias", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAlias", input, options)
   end
 
   @doc """
@@ -299,7 +305,9 @@ defmodule AWS.KMS do
     * `UpdateCustomKeyStore`
   """
   def create_custom_key_store(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCustomKeyStore", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCustomKeyStore", input, options)
   end
 
   @doc """
@@ -356,7 +364,9 @@ defmodule AWS.KMS do
     * `RevokeGrant`
   """
   def create_grant(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateGrant", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateGrant", input, options)
   end
 
   @doc """
@@ -503,7 +513,9 @@ defmodule AWS.KMS do
     * `ScheduleKeyDeletion`
   """
   def create_key(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateKey", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateKey", input, options)
   end
 
   @doc """
@@ -584,7 +596,9 @@ defmodule AWS.KMS do
     * `ReEncrypt`
   """
   def decrypt(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "Decrypt", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "Decrypt", input, options)
   end
 
   @doc """
@@ -628,7 +642,9 @@ defmodule AWS.KMS do
     * `UpdateAlias`
   """
   def delete_alias(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAlias", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAlias", input, options)
   end
 
   @doc """
@@ -682,7 +698,9 @@ defmodule AWS.KMS do
     * `UpdateCustomKeyStore`
   """
   def delete_custom_key_store(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCustomKeyStore", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCustomKeyStore", input, options)
   end
 
   @doc """
@@ -717,7 +735,9 @@ defmodule AWS.KMS do
     * `ImportKeyMaterial`
   """
   def delete_imported_key_material(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteImportedKeyMaterial", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteImportedKeyMaterial", input, options)
   end
 
   @doc """
@@ -769,7 +789,9 @@ defmodule AWS.KMS do
     * `UpdateCustomKeyStore`
   """
   def describe_custom_key_stores(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCustomKeyStores", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCustomKeyStores", input, options)
   end
 
   @doc """
@@ -835,7 +857,9 @@ defmodule AWS.KMS do
     * `ListRetirableGrants`
   """
   def describe_key(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeKey", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeKey", input, options)
   end
 
   @doc """
@@ -861,7 +885,9 @@ defmodule AWS.KMS do
   **Related operations**: `EnableKey`
   """
   def disable_key(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisableKey", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableKey", input, options)
   end
 
   @doc """
@@ -905,7 +931,9 @@ defmodule AWS.KMS do
     * `GetKeyRotationStatus`
   """
   def disable_key_rotation(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisableKeyRotation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableKeyRotation", input, options)
   end
 
   @doc """
@@ -951,7 +979,9 @@ defmodule AWS.KMS do
     * `UpdateCustomKeyStore`
   """
   def disconnect_custom_key_store(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisconnectCustomKeyStore", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisconnectCustomKeyStore", input, options)
   end
 
   @doc """
@@ -973,7 +1003,9 @@ defmodule AWS.KMS do
   **Related operations**: `DisableKey`
   """
   def enable_key(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnableKey", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableKey", input, options)
   end
 
   @doc """
@@ -1029,7 +1061,9 @@ defmodule AWS.KMS do
     * `GetKeyRotationStatus`
   """
   def enable_key_rotation(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnableKeyRotation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableKeyRotation", input, options)
   end
 
   @doc """
@@ -1115,7 +1149,9 @@ defmodule AWS.KMS do
     * `GenerateDataKeyPair`
   """
   def encrypt(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "Encrypt", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "Encrypt", input, options)
   end
 
   @doc """
@@ -1209,7 +1245,9 @@ defmodule AWS.KMS do
     * `GenerateDataKeyWithoutPlaintext`
   """
   def generate_data_key(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GenerateDataKey", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GenerateDataKey", input, options)
   end
 
   @doc """
@@ -1285,7 +1323,9 @@ defmodule AWS.KMS do
     * `GenerateDataKeyWithoutPlaintext`
   """
   def generate_data_key_pair(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GenerateDataKeyPair", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GenerateDataKeyPair", input, options)
   end
 
   @doc """
@@ -1350,13 +1390,9 @@ defmodule AWS.KMS do
     * `GenerateDataKeyWithoutPlaintext`
   """
   def generate_data_key_pair_without_plaintext(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "GenerateDataKeyPairWithoutPlaintext",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "GenerateDataKeyPairWithoutPlaintext", input, options)
   end
 
   @doc """
@@ -1425,7 +1461,9 @@ defmodule AWS.KMS do
     * `GenerateDataKeyPairWithoutPlaintext`
   """
   def generate_data_key_without_plaintext(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GenerateDataKeyWithoutPlaintext", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GenerateDataKeyWithoutPlaintext", input, options)
   end
 
   @doc """
@@ -1463,7 +1501,9 @@ defmodule AWS.KMS do
   **Related operations**: `VerifyMac`
   """
   def generate_mac(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GenerateMac", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GenerateMac", input, options)
   end
 
   @doc """
@@ -1492,7 +1532,9 @@ defmodule AWS.KMS do
   (IAM policy)
   """
   def generate_random(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GenerateRandom", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GenerateRandom", input, options)
   end
 
   @doc """
@@ -1508,7 +1550,9 @@ defmodule AWS.KMS do
   **Related operations**: `PutKeyPolicy`
   """
   def get_key_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetKeyPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetKeyPolicy", input, options)
   end
 
   @doc """
@@ -1570,7 +1614,9 @@ defmodule AWS.KMS do
     * `EnableKeyRotation`
   """
   def get_key_rotation_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetKeyRotationStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetKeyRotationStatus", input, options)
   end
 
   @doc """
@@ -1615,7 +1661,9 @@ defmodule AWS.KMS do
     * `DeleteImportedKeyMaterial`
   """
   def get_parameters_for_import(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetParametersForImport", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetParametersForImport", input, options)
   end
 
   @doc """
@@ -1678,7 +1726,9 @@ defmodule AWS.KMS do
   **Related operations**: `CreateKey`
   """
   def get_public_key(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetPublicKey", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetPublicKey", input, options)
   end
 
   @doc """
@@ -1748,7 +1798,9 @@ defmodule AWS.KMS do
     * `GetParametersForImport`
   """
   def import_key_material(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ImportKeyMaterial", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportKeyMaterial", input, options)
   end
 
   @doc """
@@ -1790,7 +1842,9 @@ defmodule AWS.KMS do
     * `UpdateAlias`
   """
   def list_aliases(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAliases", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAliases", input, options)
   end
 
   @doc """
@@ -1828,7 +1882,9 @@ defmodule AWS.KMS do
     * `RevokeGrant`
   """
   def list_grants(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListGrants", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListGrants", input, options)
   end
 
   @doc """
@@ -1851,7 +1907,9 @@ defmodule AWS.KMS do
     * `PutKeyPolicy`
   """
   def list_key_policies(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListKeyPolicies", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListKeyPolicies", input, options)
   end
 
   @doc """
@@ -1876,7 +1934,9 @@ defmodule AWS.KMS do
     * `ListResourceTags`
   """
   def list_keys(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListKeys", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListKeys", input, options)
   end
 
   @doc """
@@ -1905,7 +1965,9 @@ defmodule AWS.KMS do
     * `UntagResource`
   """
   def list_resource_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListResourceTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResourceTags", input, options)
   end
 
   @doc """
@@ -1942,7 +2004,9 @@ defmodule AWS.KMS do
     * `RevokeGrant`
   """
   def list_retirable_grants(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListRetirableGrants", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRetirableGrants", input, options)
   end
 
   @doc """
@@ -1965,7 +2029,9 @@ defmodule AWS.KMS do
   **Related operations**: `GetKeyPolicy`
   """
   def put_key_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutKeyPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutKeyPolicy", input, options)
   end
 
   @doc """
@@ -2060,7 +2126,9 @@ defmodule AWS.KMS do
     * `GenerateDataKeyPair`
   """
   def re_encrypt(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ReEncrypt", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ReEncrypt", input, options)
   end
 
   @doc """
@@ -2149,7 +2217,9 @@ defmodule AWS.KMS do
     * `UpdatePrimaryRegion`
   """
   def replicate_key(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ReplicateKey", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ReplicateKey", input, options)
   end
 
   @doc """
@@ -2189,7 +2259,9 @@ defmodule AWS.KMS do
     * `RevokeGrant`
   """
   def retire_grant(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RetireGrant", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RetireGrant", input, options)
   end
 
   @doc """
@@ -2227,7 +2299,9 @@ defmodule AWS.KMS do
     * `RetireGrant`
   """
   def revoke_grant(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RevokeGrant", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RevokeGrant", input, options)
   end
 
   @doc """
@@ -2283,7 +2357,9 @@ defmodule AWS.KMS do
     * `DisableKey`
   """
   def schedule_key_deletion(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ScheduleKeyDeletion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ScheduleKeyDeletion", input, options)
   end
 
   @doc """
@@ -2345,7 +2421,9 @@ defmodule AWS.KMS do
   **Related operations**: `Verify`
   """
   def sign(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "Sign", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "Sign", input, options)
   end
 
   @doc """
@@ -2396,7 +2474,9 @@ defmodule AWS.KMS do
     * `UntagResource`
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -2440,7 +2520,9 @@ defmodule AWS.KMS do
     * `TagResource`
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -2501,7 +2583,9 @@ defmodule AWS.KMS do
     * `ListAliases`
   """
   def update_alias(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateAlias", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAlias", input, options)
   end
 
   @doc """
@@ -2562,7 +2646,9 @@ defmodule AWS.KMS do
     * `DisconnectCustomKeyStore`
   """
   def update_custom_key_store(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateCustomKeyStore", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCustomKeyStore", input, options)
   end
 
   @doc """
@@ -2588,7 +2674,9 @@ defmodule AWS.KMS do
     * `DescribeKey`
   """
   def update_key_description(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateKeyDescription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateKeyDescription", input, options)
   end
 
   @doc """
@@ -2662,7 +2750,9 @@ defmodule AWS.KMS do
     * `ReplicateKey`
   """
   def update_primary_region(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdatePrimaryRegion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePrimaryRegion", input, options)
   end
 
   @doc """
@@ -2711,7 +2801,9 @@ defmodule AWS.KMS do
   **Related operations**: `Sign`
   """
   def verify(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "Verify", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "Verify", input, options)
   end
 
   @doc """
@@ -2744,6 +2836,8 @@ defmodule AWS.KMS do
   **Related operations**: `GenerateMac`
   """
   def verify_mac(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "VerifyMac", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "VerifyMac", input, options)
   end
 end

@@ -62,7 +62,9 @@ defmodule AWS.CognitoIdentity do
   You must use AWS Developer credentials to call this API.
   """
   def create_identity_pool(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateIdentityPool", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateIdentityPool", input, options)
   end
 
   @doc """
@@ -73,7 +75,9 @@ defmodule AWS.CognitoIdentity do
   You must use AWS Developer credentials to call this API.
   """
   def delete_identities(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteIdentities", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteIdentities", input, options)
   end
 
   @doc """
@@ -84,7 +88,9 @@ defmodule AWS.CognitoIdentity do
   You must use AWS Developer credentials to call this API.
   """
   def delete_identity_pool(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteIdentityPool", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteIdentityPool", input, options)
   end
 
   @doc """
@@ -94,7 +100,9 @@ defmodule AWS.CognitoIdentity do
   You must use AWS Developer credentials to call this API.
   """
   def describe_identity(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeIdentity", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeIdentity", input, options)
   end
 
   @doc """
@@ -104,7 +112,9 @@ defmodule AWS.CognitoIdentity do
   You must use AWS Developer credentials to call this API.
   """
   def describe_identity_pool(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeIdentityPool", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeIdentityPool", input, options)
   end
 
   @doc """
@@ -117,7 +127,9 @@ defmodule AWS.CognitoIdentity do
   This is a public API. You do not need any credentials to call this API.
   """
   def get_credentials_for_identity(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCredentialsForIdentity", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCredentialsForIdentity", input, options)
   end
 
   @doc """
@@ -128,7 +140,9 @@ defmodule AWS.CognitoIdentity do
   This is a public API. You do not need any credentials to call this API.
   """
   def get_id(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetId", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetId", input, options)
   end
 
   @doc """
@@ -137,7 +151,9 @@ defmodule AWS.CognitoIdentity do
   You must use AWS Developer credentials to call this API.
   """
   def get_identity_pool_roles(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetIdentityPoolRoles", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetIdentityPoolRoles", input, options)
   end
 
   @doc """
@@ -151,7 +167,9 @@ defmodule AWS.CognitoIdentity do
   This is a public API. You do not need any credentials to call this API.
   """
   def get_open_id_token(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetOpenIdToken", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetOpenIdToken", input, options)
   end
 
   @doc """
@@ -174,7 +192,9 @@ defmodule AWS.CognitoIdentity do
   You must use AWS Developer credentials to call this API.
   """
   def get_open_id_token_for_developer_identity(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetOpenIdTokenForDeveloperIdentity", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetOpenIdTokenForDeveloperIdentity", input, options)
   end
 
   @doc """
@@ -182,7 +202,9 @@ defmodule AWS.CognitoIdentity do
   and user attributes.
   """
   def get_principal_tag_attribute_map(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetPrincipalTagAttributeMap", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetPrincipalTagAttributeMap", input, options)
   end
 
   @doc """
@@ -191,7 +213,9 @@ defmodule AWS.CognitoIdentity do
   You must use AWS Developer credentials to call this API.
   """
   def list_identities(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListIdentities", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListIdentities", input, options)
   end
 
   @doc """
@@ -200,7 +224,9 @@ defmodule AWS.CognitoIdentity do
   You must use AWS Developer credentials to call this API.
   """
   def list_identity_pools(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListIdentityPools", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListIdentityPools", input, options)
   end
 
   @doc """
@@ -213,7 +239,9 @@ defmodule AWS.CognitoIdentity do
   You can use this action up to 10 times per second, per account.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -238,7 +266,9 @@ defmodule AWS.CognitoIdentity do
   You must use AWS Developer credentials to call this API.
   """
   def lookup_developer_identity(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "LookupDeveloperIdentity", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "LookupDeveloperIdentity", input, options)
   end
 
   @doc """
@@ -260,7 +290,9 @@ defmodule AWS.CognitoIdentity do
   You must use AWS Developer credentials to call this API.
   """
   def merge_developer_identities(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "MergeDeveloperIdentities", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "MergeDeveloperIdentities", input, options)
   end
 
   @doc """
@@ -271,7 +303,9 @@ defmodule AWS.CognitoIdentity do
   You must use AWS Developer credentials to call this API.
   """
   def set_identity_pool_roles(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetIdentityPoolRoles", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetIdentityPoolRoles", input, options)
   end
 
   @doc """
@@ -279,7 +313,9 @@ defmodule AWS.CognitoIdentity do
   custom attribute mappings.
   """
   def set_principal_tag_attribute_map(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetPrincipalTagAttributeMap", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetPrincipalTagAttributeMap", input, options)
   end
 
   @doc """
@@ -303,7 +339,9 @@ defmodule AWS.CognitoIdentity do
   can have as many as 50 tags.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -317,7 +355,9 @@ defmodule AWS.CognitoIdentity do
   You must use AWS Developer credentials to call this API.
   """
   def unlink_developer_identity(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UnlinkDeveloperIdentity", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UnlinkDeveloperIdentity", input, options)
   end
 
   @doc """
@@ -329,7 +369,9 @@ defmodule AWS.CognitoIdentity do
   This is a public API. You do not need any credentials to call this API.
   """
   def unlink_identity(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UnlinkIdentity", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UnlinkIdentity", input, options)
   end
 
   @doc """
@@ -338,7 +380,9 @@ defmodule AWS.CognitoIdentity do
   You can use this action up to 5 times per second, per account
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -347,6 +391,8 @@ defmodule AWS.CognitoIdentity do
   You must use AWS Developer credentials to call this API.
   """
   def update_identity_pool(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateIdentityPool", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateIdentityPool", input, options)
   end
 end

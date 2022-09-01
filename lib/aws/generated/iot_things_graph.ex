@@ -14,6 +14,8 @@ defmodule AWS.IoTThingsGraph do
   abstract level.
 
   For more information about how AWS IoT Things Graph works, see the [User Guide](https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-whatis.html).
+
+  The AWS IoT Things Graph service is discontinued.
   """
 
   alias AWS.Client
@@ -42,7 +44,9 @@ defmodule AWS.IoTThingsGraph do
   thing with a new device id, its previous association will be removed.
   """
   def associate_entity_to_thing(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateEntityToThing", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateEntityToThing", input, options)
   end
 
   @doc """
@@ -55,7 +59,9 @@ defmodule AWS.IoTThingsGraph do
   request.
   """
   def create_flow_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateFlowTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFlowTemplate", input, options)
   end
 
   @doc """
@@ -80,7 +86,9 @@ defmodule AWS.IoTThingsGraph do
   the latest version will be used by default.
   """
   def create_system_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateSystemInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSystemInstance", input, options)
   end
 
   @doc """
@@ -90,7 +98,9 @@ defmodule AWS.IoTThingsGraph do
   namespace unless another namespace version is specified in the request.
   """
   def create_system_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateSystemTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSystemTemplate", input, options)
   end
 
   @doc """
@@ -101,17 +111,22 @@ defmodule AWS.IoTThingsGraph do
   (since they use a snapshot of the workflow taken at the time of deployment).
   """
   def delete_flow_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteFlowTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFlowTemplate", input, options)
   end
 
   @doc """
   Deletes the specified namespace.
 
   This action deletes all of the entities in the namespace. Delete the systems and
-  flows that use entities in the namespace before performing this action.
+  flows that use entities in the namespace before performing this action. This
+  action takes no request parameters.
   """
   def delete_namespace(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteNamespace", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteNamespace", input, options)
   end
 
   @doc """
@@ -124,7 +139,9 @@ defmodule AWS.IoTThingsGraph do
   instance.
   """
   def delete_system_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSystemInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSystemInstance", input, options)
   end
 
   @doc """
@@ -135,7 +152,9 @@ defmodule AWS.IoTThingsGraph do
   snapshot of the system that is taken when it is deployed.
   """
   def delete_system_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSystemTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSystemTemplate", input, options)
   end
 
   @doc """
@@ -157,7 +176,9 @@ defmodule AWS.IoTThingsGraph do
   device when you use this API, see [AWS IoT Things Graph and AWS IoT Greengrass](https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-greengrass.html).
   """
   def deploy_system_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeploySystemInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeploySystemInstance", input, options)
   end
 
   @doc """
@@ -167,14 +188,18 @@ defmodule AWS.IoTThingsGraph do
   but existing deployments will continue to run.
   """
   def deprecate_flow_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeprecateFlowTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeprecateFlowTemplate", input, options)
   end
 
   @doc """
   Deprecates the specified system.
   """
   def deprecate_system_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeprecateSystemTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeprecateSystemTemplate", input, options)
   end
 
   @doc """
@@ -182,7 +207,9 @@ defmodule AWS.IoTThingsGraph do
   is tracking.
   """
   def describe_namespace(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeNamespace", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeNamespace", input, options)
   end
 
   @doc """
@@ -192,7 +219,9 @@ defmodule AWS.IoTThingsGraph do
   only one entity of a particular type can be associated with a thing.
   """
   def dissociate_entity_from_thing(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DissociateEntityFromThing", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DissociateEntityFromThing", input, options)
   end
 
   @doc """
@@ -222,7 +251,9 @@ defmodule AWS.IoTThingsGraph do
   This action doesn't return definitions for systems, flows, and deployments.
   """
   def get_entities(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetEntities", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEntities", input, options)
   end
 
   @doc """
@@ -230,7 +261,9 @@ defmodule AWS.IoTThingsGraph do
   for the specified workflow.
   """
   def get_flow_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetFlowTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetFlowTemplate", input, options)
   end
 
   @doc """
@@ -241,28 +274,36 @@ defmodule AWS.IoTThingsGraph do
   action won't work for workflows that have been deleted.
   """
   def get_flow_template_revisions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetFlowTemplateRevisions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetFlowTemplateRevisions", input, options)
   end
 
   @doc """
   Gets the status of a namespace deletion task.
   """
   def get_namespace_deletion_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetNamespaceDeletionStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetNamespaceDeletionStatus", input, options)
   end
 
   @doc """
   Gets a system instance.
   """
   def get_system_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetSystemInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSystemInstance", input, options)
   end
 
   @doc """
   Gets a system.
   """
   def get_system_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetSystemTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSystemTemplate", input, options)
   end
 
   @doc """
@@ -273,14 +314,18 @@ defmodule AWS.IoTThingsGraph do
   action won't work with systems that have been deleted.
   """
   def get_system_template_revisions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetSystemTemplateRevisions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSystemTemplateRevisions", input, options)
   end
 
   @doc """
   Gets the status of the specified upload.
   """
   def get_upload_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetUploadStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetUploadStatus", input, options)
   end
 
   @doc """
@@ -288,14 +333,18 @@ defmodule AWS.IoTThingsGraph do
   execution.
   """
   def list_flow_execution_messages(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFlowExecutionMessages", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFlowExecutionMessages", input, options)
   end
 
   @doc """
   Lists all tags on an AWS IoT Things Graph resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -305,28 +354,36 @@ defmodule AWS.IoTThingsGraph do
   you're tracking.
   """
   def search_entities(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SearchEntities", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SearchEntities", input, options)
   end
 
   @doc """
   Searches for AWS IoT Things Graph workflow execution instances.
   """
   def search_flow_executions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SearchFlowExecutions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SearchFlowExecutions", input, options)
   end
 
   @doc """
   Searches for summary information about workflows.
   """
   def search_flow_templates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SearchFlowTemplates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SearchFlowTemplates", input, options)
   end
 
   @doc """
   Searches for system instances in the user's account.
   """
   def search_system_instances(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SearchSystemInstances", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SearchSystemInstances", input, options)
   end
 
   @doc """
@@ -336,7 +393,9 @@ defmodule AWS.IoTThingsGraph do
   specified workflow.
   """
   def search_system_templates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SearchSystemTemplates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SearchSystemTemplates", input, options)
   end
 
   @doc """
@@ -353,28 +412,36 @@ defmodule AWS.IoTThingsGraph do
   matching.
   """
   def search_things(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SearchThings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SearchThings", input, options)
   end
 
   @doc """
   Creates a tag for the specified resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes a system instance from its target (Cloud or Greengrass).
   """
   def undeploy_system_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UndeploySystemInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UndeploySystemInstance", input, options)
   end
 
   @doc """
   Removes a tag from the specified resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -386,7 +453,9 @@ defmodule AWS.IoTThingsGraph do
   The workflow can contain only entities in the specified namespace.
   """
   def update_flow_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateFlowTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFlowTemplate", input, options)
   end
 
   @doc """
@@ -396,7 +465,9 @@ defmodule AWS.IoTThingsGraph do
   uses the system will see the changes in the system when it is redeployed.
   """
   def update_system_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateSystemTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSystemTemplate", input, options)
   end
 
   @doc """
@@ -424,6 +495,8 @@ defmodule AWS.IoTThingsGraph do
   `Action`, `Event`, `Property`, `Mapping`, `Enum`.
   """
   def upload_entity_definitions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UploadEntityDefinitions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UploadEntityDefinitions", input, options)
   end
 end

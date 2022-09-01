@@ -49,14 +49,18 @@ defmodule AWS.MigrationHubConfig do
   This API sets up the home region for the calling account only.
   """
   def create_home_region_control(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateHomeRegionControl", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateHomeRegionControl", input, options)
   end
 
   @doc """
   This API permits filtering on the `ControlId` and `HomeRegion` fields.
   """
   def describe_home_region_controls(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeHomeRegionControls", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeHomeRegionControls", input, options)
   end
 
   @doc """
@@ -69,6 +73,8 @@ defmodule AWS.MigrationHubConfig do
   Hub home region.
   """
   def get_home_region(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetHomeRegion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetHomeRegion", input, options)
   end
 end

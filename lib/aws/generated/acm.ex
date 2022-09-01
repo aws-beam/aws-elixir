@@ -52,7 +52,9 @@ defmodule AWS.ACM do
   `ListTagsForCertificate` action.
   """
   def add_tags_to_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddTagsToCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddTagsToCertificate", input, options)
   end
 
   @doc """
@@ -68,14 +70,18 @@ defmodule AWS.ACM do
   association must first be removed.
   """
   def delete_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCertificate", input, options)
   end
 
   @doc """
   Returns detailed metadata about the specified ACM certificate.
   """
   def describe_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCertificate", input, options)
   end
 
   @doc """
@@ -91,7 +97,9 @@ defmodule AWS.ACM do
   console or CLI, see [Export a Private Certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-export-private.html).
   """
   def export_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ExportCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExportCertificate", input, options)
   end
 
   @doc """
@@ -99,7 +107,9 @@ defmodule AWS.ACM do
   account.
   """
   def get_account_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAccountConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAccountConfiguration", input, options)
   end
 
   @doc """
@@ -112,7 +122,9 @@ defmodule AWS.ACM do
   the certificates and inspect individual fields.
   """
   def get_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCertificate", input, options)
   end
 
   @doc """
@@ -179,7 +191,9 @@ defmodule AWS.ACM do
   of the imported certificate.
   """
   def import_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ImportCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportCertificate", input, options)
   end
 
   @doc """
@@ -190,7 +204,9 @@ defmodule AWS.ACM do
   returns only `RSA_2048` certificates. For more information, see `Filters`.
   """
   def list_certificates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListCertificates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCertificates", input, options)
   end
 
   @doc """
@@ -201,7 +217,9 @@ defmodule AWS.ACM do
   delete a tag, use the `RemoveTagsFromCertificate` action.
   """
   def list_tags_for_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForCertificate", input, options)
   end
 
   @doc """
@@ -214,7 +232,9 @@ defmodule AWS.ACM do
   certificate expiration.
   """
   def put_account_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutAccountConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutAccountConfiguration", input, options)
   end
 
   @doc """
@@ -230,7 +250,9 @@ defmodule AWS.ACM do
   `ListTagsForCertificate` action.
   """
   def remove_tags_from_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveTagsFromCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveTagsFromCertificate", input, options)
   end
 
   @doc """
@@ -243,7 +265,9 @@ defmodule AWS.ACM do
   in the ACM User Guide.
   """
   def renew_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RenewCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RenewCertificate", input, options)
   end
 
   @doc """
@@ -266,7 +290,9 @@ defmodule AWS.ACM do
   subject alternative name, and, if it finds one, ignores the common name (CN)
   """
   def request_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RequestCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RequestCertificate", input, options)
   end
 
   @doc """
@@ -284,7 +310,9 @@ defmodule AWS.ACM do
   see [Configure Email for your Domain](https://docs.aws.amazon.com/acm/latest/userguide/setup-email.html).
   """
   def resend_validation_email(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ResendValidationEmail", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ResendValidationEmail", input, options)
   end
 
   @doc """
@@ -295,6 +323,8 @@ defmodule AWS.ACM do
   information, see [ Opting Out of Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency).
   """
   def update_certificate_options(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateCertificateOptions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCertificateOptions", input, options)
   end
 end

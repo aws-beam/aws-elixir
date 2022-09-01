@@ -45,7 +45,9 @@ defmodule AWS.ServiceDiscovery do
   in the *Cloud Map Developer Guide*.
   """
   def create_http_namespace(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateHttpNamespace", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateHttpNamespace", input, options)
   end
 
   @doc """
@@ -61,7 +63,9 @@ defmodule AWS.ServiceDiscovery do
   in the *Cloud Map Developer Guide*.
   """
   def create_private_dns_namespace(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreatePrivateDnsNamespace", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePrivateDnsNamespace", input, options)
   end
 
   @doc """
@@ -76,7 +80,9 @@ defmodule AWS.ServiceDiscovery do
   in the *Cloud Map Developer Guide*.
   """
   def create_public_dns_namespace(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreatePublicDnsNamespace", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePublicDnsNamespace", input, options)
   end
 
   @doc """
@@ -109,7 +115,9 @@ defmodule AWS.ServiceDiscovery do
   in the *Cloud Map Developer Guide*.
   """
   def create_service(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateService", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateService", input, options)
   end
 
   @doc """
@@ -118,7 +126,9 @@ defmodule AWS.ServiceDiscovery do
   If the namespace still contains one or more services, the request fails.
   """
   def delete_namespace(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteNamespace", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteNamespace", input, options)
   end
 
   @doc """
@@ -128,7 +138,9 @@ defmodule AWS.ServiceDiscovery do
   fails.
   """
   def delete_service(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteService", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteService", input, options)
   end
 
   @doc """
@@ -136,7 +148,9 @@ defmodule AWS.ServiceDiscovery do
   created for the specified instance.
   """
   def deregister_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterInstance", input, options)
   end
 
   @doc """
@@ -147,14 +161,18 @@ defmodule AWS.ServiceDiscovery do
   instances.
   """
   def discover_instances(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DiscoverInstances", input, options)
+    meta = metadata() |> Map.put_new(:host_prefix, "data-")
+
+    Request.request_post(client, meta, "DiscoverInstances", input, options)
   end
 
   @doc """
   Gets information about a specified instance.
   """
   def get_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetInstance", input, options)
   end
 
   @doc """
@@ -165,14 +183,18 @@ defmodule AWS.ServiceDiscovery do
   status for the instance is available.
   """
   def get_instances_health_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetInstancesHealthStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetInstancesHealthStatus", input, options)
   end
 
   @doc """
   Gets information about a namespace.
   """
   def get_namespace(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetNamespace", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetNamespace", input, options)
   end
 
   @doc """
@@ -183,14 +205,18 @@ defmodule AWS.ServiceDiscovery do
   [ListOperations](https://docs.aws.amazon.com/cloud-map/latest/api/API_ListOperations.html).
   """
   def get_operation(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetOperation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetOperation", input, options)
   end
 
   @doc """
   Gets the settings for a specified service.
   """
   def get_service(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetService", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetService", input, options)
   end
 
   @doc """
@@ -198,7 +224,9 @@ defmodule AWS.ServiceDiscovery do
   specified service.
   """
   def list_instances(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListInstances", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListInstances", input, options)
   end
 
   @doc """
@@ -206,14 +234,18 @@ defmodule AWS.ServiceDiscovery do
   account.
   """
   def list_namespaces(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListNamespaces", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListNamespaces", input, options)
   end
 
   @doc """
   Lists operations that match the criteria that you specify.
   """
   def list_operations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListOperations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListOperations", input, options)
   end
 
   @doc """
@@ -221,14 +253,18 @@ defmodule AWS.ServiceDiscovery do
   more specified namespaces.
   """
   def list_services(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListServices", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListServices", input, options)
   end
 
   @doc """
   Lists tags for the specified resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -268,28 +304,36 @@ defmodule AWS.ServiceDiscovery do
   in the *Cloud Map Developer Guide*.
   """
   def register_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterInstance", input, options)
   end
 
   @doc """
   Adds one or more tags to the specified resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes one or more tags from the specified resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
   Updates an HTTP namespace.
   """
   def update_http_namespace(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateHttpNamespace", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateHttpNamespace", input, options)
   end
 
   @doc """
@@ -305,21 +349,27 @@ defmodule AWS.ServiceDiscovery do
   [HealthCheckCustomConfig](https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html).
   """
   def update_instance_custom_health_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateInstanceCustomHealthStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateInstanceCustomHealthStatus", input, options)
   end
 
   @doc """
   Updates a private DNS namespace.
   """
   def update_private_dns_namespace(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdatePrivateDnsNamespace", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePrivateDnsNamespace", input, options)
   end
 
   @doc """
   Updates a public DNS namespace.
   """
   def update_public_dns_namespace(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdatePublicDnsNamespace", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePublicDnsNamespace", input, options)
   end
 
   @doc """
@@ -346,6 +396,8 @@ defmodule AWS.ServiceDiscovery do
   specified service.
   """
   def update_service(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateService", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateService", input, options)
   end
 end

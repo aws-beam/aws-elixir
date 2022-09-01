@@ -48,7 +48,9 @@ defmodule AWS.CloudHSM do
   resource.
   """
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddTagsToResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
 
   @doc """
@@ -64,7 +66,9 @@ defmodule AWS.CloudHSM do
   is a group of partitions that spans multiple physical HSMs.
   """
   def create_hapg(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateHapg", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateHapg", input, options)
   end
 
   @doc """
@@ -88,7 +92,9 @@ defmodule AWS.CloudHSM do
   initialized when the status changes to `RUNNING`.
   """
   def create_hsm(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateHsm", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateHsm", input, options)
   end
 
   @doc """
@@ -103,7 +109,9 @@ defmodule AWS.CloudHSM do
   Creates an HSM client.
   """
   def create_luna_client(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateLunaClient", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLunaClient", input, options)
   end
 
   @doc """
@@ -118,7 +126,9 @@ defmodule AWS.CloudHSM do
   Deletes a high-availability partition group.
   """
   def delete_hapg(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteHapg", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteHapg", input, options)
   end
 
   @doc """
@@ -134,7 +144,9 @@ defmodule AWS.CloudHSM do
   material cannot be recovered.
   """
   def delete_hsm(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteHsm", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteHsm", input, options)
   end
 
   @doc """
@@ -149,7 +161,9 @@ defmodule AWS.CloudHSM do
   Deletes a client.
   """
   def delete_luna_client(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteLunaClient", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLunaClient", input, options)
   end
 
   @doc """
@@ -164,7 +178,9 @@ defmodule AWS.CloudHSM do
   Retrieves information about a high-availability partition group.
   """
   def describe_hapg(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeHapg", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeHapg", input, options)
   end
 
   @doc """
@@ -180,7 +196,9 @@ defmodule AWS.CloudHSM do
   serial number.
   """
   def describe_hsm(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeHsm", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeHsm", input, options)
   end
 
   @doc """
@@ -195,7 +213,9 @@ defmodule AWS.CloudHSM do
   Retrieves information about an HSM client.
   """
   def describe_luna_client(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeLunaClient", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeLunaClient", input, options)
   end
 
   @doc """
@@ -211,7 +231,9 @@ defmodule AWS.CloudHSM do
   partition groups the client is associated with.
   """
   def get_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetConfig", input, options)
   end
 
   @doc """
@@ -226,7 +248,9 @@ defmodule AWS.CloudHSM do
   Lists the Availability Zones that have available AWS CloudHSM capacity.
   """
   def list_available_zones(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAvailableZones", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAvailableZones", input, options)
   end
 
   @doc """
@@ -246,7 +270,9 @@ defmodule AWS.CloudHSM do
   items.
   """
   def list_hapgs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListHapgs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListHapgs", input, options)
   end
 
   @doc """
@@ -267,7 +293,9 @@ defmodule AWS.CloudHSM do
   items.
   """
   def list_hsms(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListHsms", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListHsms", input, options)
   end
 
   @doc """
@@ -287,7 +315,9 @@ defmodule AWS.CloudHSM do
   set of items.
   """
   def list_luna_clients(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListLunaClients", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLunaClients", input, options)
   end
 
   @doc """
@@ -302,7 +332,9 @@ defmodule AWS.CloudHSM do
   Returns a list of all tags for the specified AWS CloudHSM resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -317,7 +349,9 @@ defmodule AWS.CloudHSM do
   Modifies an existing high-availability partition group.
   """
   def modify_hapg(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyHapg", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyHapg", input, options)
   end
 
   @doc """
@@ -337,7 +371,9 @@ defmodule AWS.CloudHSM do
   availability, and consider executing this operation during a maintenance window.
   """
   def modify_hsm(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyHsm", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyHsm", input, options)
   end
 
   @doc """
@@ -355,7 +391,9 @@ defmodule AWS.CloudHSM do
   the client's HSMs.
   """
   def modify_luna_client(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyLunaClient", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyLunaClient", input, options)
   end
 
   @doc """
@@ -373,6 +411,8 @@ defmodule AWS.CloudHSM do
   overwrite the value for an existing tag, use `AddTagsToResource`.
   """
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveTagsFromResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
 end

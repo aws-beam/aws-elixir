@@ -45,7 +45,9 @@ defmodule AWS.CostExplorer do
   specification.
   """
   def create_anomaly_monitor(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAnomalyMonitor", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAnomalyMonitor", input, options)
   end
 
   @doc """
@@ -56,28 +58,36 @@ defmodule AWS.CostExplorer do
   for receiving notifications.
   """
   def create_anomaly_subscription(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAnomalySubscription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAnomalySubscription", input, options)
   end
 
   @doc """
   Creates a new Cost Category with the requested name and rules.
   """
   def create_cost_category_definition(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCostCategoryDefinition", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCostCategoryDefinition", input, options)
   end
 
   @doc """
   Deletes a cost anomaly monitor.
   """
   def delete_anomaly_monitor(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAnomalyMonitor", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAnomalyMonitor", input, options)
   end
 
   @doc """
   Deletes a cost anomaly subscription.
   """
   def delete_anomaly_subscription(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAnomalySubscription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAnomalySubscription", input, options)
   end
 
   @doc """
@@ -87,7 +97,9 @@ defmodule AWS.CostExplorer do
   Cost Category.
   """
   def delete_cost_category_definition(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCostCategoryDefinition", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCostCategoryDefinition", input, options)
   end
 
   @doc """
@@ -100,7 +112,9 @@ defmodule AWS.CostExplorer do
   effective, `EffectiveEnd` is omitted in the response.
   """
   def describe_cost_category_definition(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCostCategoryDefinition", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCostCategoryDefinition", input, options)
   end
 
   @doc """
@@ -108,7 +122,9 @@ defmodule AWS.CostExplorer do
   period that's specified by the `DateInterval` object.
   """
   def get_anomalies(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAnomalies", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAnomalies", input, options)
   end
 
   @doc """
@@ -118,7 +134,9 @@ defmodule AWS.CostExplorer do
   (ARNs).
   """
   def get_anomaly_monitors(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAnomalyMonitors", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAnomalyMonitors", input, options)
   end
 
   @doc """
@@ -128,7 +146,9 @@ defmodule AWS.CostExplorer do
   (ARNs).
   """
   def get_anomaly_subscriptions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAnomalySubscriptions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAnomalySubscriptions", input, options)
   end
 
   @doc """
@@ -146,7 +166,9 @@ defmodule AWS.CostExplorer do
   in the *Billing and Cost Management User Guide*.
   """
   def get_cost_and_usage(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCostAndUsage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCostAndUsage", input, options)
   end
 
   @doc """
@@ -167,7 +189,9 @@ defmodule AWS.CostExplorer do
   in the *Billing and Cost Management User Guide*.
   """
   def get_cost_and_usage_with_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCostAndUsageWithResources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCostAndUsageWithResources", input, options)
   end
 
   @doc """
@@ -177,7 +201,9 @@ defmodule AWS.CostExplorer do
   will not be returned by this API.
   """
   def get_cost_categories(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCostCategories", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCostCategories", input, options)
   end
 
   @doc """
@@ -185,7 +211,9 @@ defmodule AWS.CostExplorer do
   spend over the forecast time period that you select, based on your past costs.
   """
   def get_cost_forecast(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCostForecast", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCostForecast", input, options)
   end
 
   @doc """
@@ -195,7 +223,9 @@ defmodule AWS.CostExplorer do
   You can search the dimension values for an arbitrary string.
   """
   def get_dimension_values(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDimensionValues", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDimensionValues", input, options)
   end
 
   @doc """
@@ -237,7 +267,9 @@ defmodule AWS.CostExplorer do
   operation.
   """
   def get_reservation_coverage(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetReservationCoverage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetReservationCoverage", input, options)
   end
 
   @doc """
@@ -264,13 +296,9 @@ defmodule AWS.CostExplorer do
   size instance in the c4 instance family.
   """
   def get_reservation_purchase_recommendation(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "GetReservationPurchaseRecommendation",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetReservationPurchaseRecommendation", input, options)
   end
 
   @doc """
@@ -282,7 +310,9 @@ defmodule AWS.CostExplorer do
   `SUBSCRIPTION_ID`.
   """
   def get_reservation_utilization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetReservationUtilization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetReservationUtilization", input, options)
   end
 
   @doc """
@@ -295,7 +325,9 @@ defmodule AWS.CostExplorer do
   in the *Billing and Cost Management User Guide*.
   """
   def get_rightsizing_recommendation(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRightsizingRecommendation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRightsizingRecommendation", input, options)
   end
 
   @doc """
@@ -319,7 +351,9 @@ defmodule AWS.CostExplorer do
   operation.
   """
   def get_savings_plans_coverage(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetSavingsPlansCoverage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSavingsPlansCoverage", input, options)
   end
 
   @doc """
@@ -327,13 +361,9 @@ defmodule AWS.CostExplorer do
   Details.
   """
   def get_savings_plans_purchase_recommendation(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "GetSavingsPlansPurchaseRecommendation",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSavingsPlansPurchaseRecommendation", input, options)
   end
 
   @doc """
@@ -347,7 +377,9 @@ defmodule AWS.CostExplorer do
   You can't group by any dimension values for `GetSavingsPlansUtilization`.
   """
   def get_savings_plans_utilization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetSavingsPlansUtilization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSavingsPlansUtilization", input, options)
   end
 
   @doc """
@@ -364,7 +396,9 @@ defmodule AWS.CostExplorer do
   `GetSavingsPlanUtilizationDetails` internally groups data by `SavingsPlansArn`.
   """
   def get_savings_plans_utilization_details(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetSavingsPlansUtilizationDetails", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSavingsPlansUtilizationDetails", input, options)
   end
 
   @doc """
@@ -373,7 +407,9 @@ defmodule AWS.CostExplorer do
   You can search the tag values for an arbitrary string.
   """
   def get_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTags", input, options)
   end
 
   @doc """
@@ -381,7 +417,9 @@ defmodule AWS.CostExplorer do
   over the forecast time period that you select, based on your past usage.
   """
   def get_usage_forecast(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetUsageForecast", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetUsageForecast", input, options)
   end
 
   @doc """
@@ -391,7 +429,9 @@ defmodule AWS.CostExplorer do
   allocation tags are returned.
   """
   def list_cost_allocation_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListCostAllocationTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCostAllocationTags", input, options)
   end
 
   @doc """
@@ -406,7 +446,9 @@ defmodule AWS.CostExplorer do
   `MaxResults` range up to 100.
   """
   def list_cost_category_definitions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListCostCategoryDefinitions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCostCategoryDefinitions", input, options)
   end
 
   @doc """
@@ -414,14 +456,18 @@ defmodule AWS.CostExplorer do
   Amazon Resource Name (ARN).
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Modifies the feedback property of a given cost anomaly.
   """
   def provide_anomaly_feedback(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ProvideAnomalyFeedback", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ProvideAnomalyFeedback", input, options)
   end
 
   @doc """
@@ -437,7 +483,9 @@ defmodule AWS.CostExplorer do
   remaining are reserved for Amazon Web Services use.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -446,7 +494,9 @@ defmodule AWS.CostExplorer do
   Specify only tag keys in your request. Don't specify the value.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -456,14 +506,18 @@ defmodule AWS.CostExplorer do
   detected in the past.
   """
   def update_anomaly_monitor(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateAnomalyMonitor", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAnomalyMonitor", input, options)
   end
 
   @doc """
   Updates an existing cost anomaly monitor subscription.
   """
   def update_anomaly_subscription(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateAnomalySubscription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAnomalySubscription", input, options)
   end
 
   @doc """
@@ -474,7 +528,9 @@ defmodule AWS.CostExplorer do
   example, activating the active tag).
   """
   def update_cost_allocation_tags_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateCostAllocationTagsStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCostAllocationTagsStatus", input, options)
   end
 
   @doc """
@@ -485,6 +541,8 @@ defmodule AWS.CostExplorer do
   previous months.
   """
   def update_cost_category_definition(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateCostCategoryDefinition", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCostCategoryDefinition", input, options)
   end
 end

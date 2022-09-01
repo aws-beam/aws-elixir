@@ -54,7 +54,9 @@ defmodule AWS.Athena do
   and `ListQueryExecutionsInput` to get a list of query execution IDs.
   """
   def batch_get_named_query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchGetNamedQuery", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetNamedQuery", input, options)
   end
 
   @doc """
@@ -66,7 +68,9 @@ defmodule AWS.Athena do
   statement is listed in `UnprocessedPreparedStatementNames`.
   """
   def batch_get_prepared_statement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchGetPreparedStatement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetPreparedStatement", input, options)
   end
 
   @doc """
@@ -79,7 +83,9 @@ defmodule AWS.Athena do
   get details about named queries.
   """
   def batch_get_query_execution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchGetQueryExecution", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetQueryExecution", input, options)
   end
 
   @doc """
@@ -89,7 +95,9 @@ defmodule AWS.Athena do
   account.
   """
   def create_data_catalog(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDataCatalog", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDataCatalog", input, options)
   end
 
   @doc """
@@ -101,28 +109,36 @@ defmodule AWS.Athena do
   the *Amazon Athena User Guide*.
   """
   def create_named_query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateNamedQuery", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateNamedQuery", input, options)
   end
 
   @doc """
   Creates a prepared statement for use with SQL queries in Athena.
   """
   def create_prepared_statement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreatePreparedStatement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePreparedStatement", input, options)
   end
 
   @doc """
   Creates a workgroup with the specified name.
   """
   def create_work_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateWorkGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateWorkGroup", input, options)
   end
 
   @doc """
   Deletes a data catalog.
   """
   def delete_data_catalog(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDataCatalog", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDataCatalog", input, options)
   end
 
   @doc """
@@ -133,7 +149,9 @@ defmodule AWS.Athena do
   the *Amazon Athena User Guide*.
   """
   def delete_named_query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteNamedQuery", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteNamedQuery", input, options)
   end
 
   @doc """
@@ -141,7 +159,9 @@ defmodule AWS.Athena do
   workgroup.
   """
   def delete_prepared_statement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeletePreparedStatement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePreparedStatement", input, options)
   end
 
   @doc """
@@ -150,21 +170,27 @@ defmodule AWS.Athena do
   The primary workgroup cannot be deleted.
   """
   def delete_work_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteWorkGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteWorkGroup", input, options)
   end
 
   @doc """
   Returns the specified data catalog.
   """
   def get_data_catalog(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDataCatalog", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDataCatalog", input, options)
   end
 
   @doc """
   Returns a database object for the specified database and data catalog.
   """
   def get_database(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDatabase", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDatabase", input, options)
   end
 
   @doc """
@@ -173,7 +199,9 @@ defmodule AWS.Athena do
   Requires that you have access to the workgroup in which the query was saved.
   """
   def get_named_query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetNamedQuery", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetNamedQuery", input, options)
   end
 
   @doc """
@@ -181,7 +209,9 @@ defmodule AWS.Athena do
   workgroup.
   """
   def get_prepared_statement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetPreparedStatement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetPreparedStatement", input, options)
   end
 
   @doc """
@@ -192,7 +222,9 @@ defmodule AWS.Athena do
   a unique ID.
   """
   def get_query_execution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetQueryExecution", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetQueryExecution", input, options)
   end
 
   @doc """
@@ -214,7 +246,9 @@ defmodule AWS.Athena do
   denied.
   """
   def get_query_results(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetQueryResults", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetQueryResults", input, options)
   end
 
   @doc """
@@ -225,35 +259,45 @@ defmodule AWS.Athena do
   `QueryExecutionStatus$State` is in a SUCCEEDED or FAILED state.
   """
   def get_query_runtime_statistics(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetQueryRuntimeStatistics", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetQueryRuntimeStatistics", input, options)
   end
 
   @doc """
   Returns table metadata for the specified catalog, database, and table.
   """
   def get_table_metadata(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetTableMetadata", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTableMetadata", input, options)
   end
 
   @doc """
   Returns information about the workgroup with the specified name.
   """
   def get_work_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetWorkGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetWorkGroup", input, options)
   end
 
   @doc """
   Lists the data catalogs in the current Amazon Web Services account.
   """
   def list_data_catalogs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDataCatalogs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDataCatalogs", input, options)
   end
 
   @doc """
   Lists the databases in the specified data catalog.
   """
   def list_databases(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDatabases", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDatabases", input, options)
   end
 
   @doc """
@@ -261,7 +305,9 @@ defmodule AWS.Athena do
   the Auto option.
   """
   def list_engine_versions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEngineVersions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEngineVersions", input, options)
   end
 
   @doc """
@@ -275,14 +321,18 @@ defmodule AWS.Athena do
   the *Amazon Athena User Guide*.
   """
   def list_named_queries(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListNamedQueries", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListNamedQueries", input, options)
   end
 
   @doc """
   Lists the prepared statements in the specified workgroup.
   """
   def list_prepared_statements(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPreparedStatements", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPreparedStatements", input, options)
   end
 
   @doc """
@@ -297,28 +347,36 @@ defmodule AWS.Athena do
   the *Amazon Athena User Guide*.
   """
   def list_query_executions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListQueryExecutions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListQueryExecutions", input, options)
   end
 
   @doc """
   Lists the metadata for the tables in the specified data catalog database.
   """
   def list_table_metadata(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTableMetadata", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTableMetadata", input, options)
   end
 
   @doc """
   Lists the tags associated with an Athena workgroup or data catalog resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Lists available workgroups for the account.
   """
   def list_work_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListWorkGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListWorkGroups", input, options)
   end
 
   @doc """
@@ -331,7 +389,9 @@ defmodule AWS.Athena do
   *Amazon Athena User Guide*.
   """
   def start_query_execution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartQueryExecution", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartQueryExecution", input, options)
   end
 
   @doc """
@@ -343,7 +403,9 @@ defmodule AWS.Athena do
   the *Amazon Athena User Guide*.
   """
   def stop_query_execution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopQueryExecution", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopQueryExecution", input, options)
   end
 
   @doc """
@@ -362,21 +424,27 @@ defmodule AWS.Athena do
   specify more than one tag, separate them by commas.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes one or more tags from a data catalog or workgroup resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
   Updates the data catalog that has the specified name.
   """
   def update_data_catalog(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateDataCatalog", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDataCatalog", input, options)
   end
 
   @doc """
@@ -385,14 +453,18 @@ defmodule AWS.Athena do
   The database or workgroup cannot be updated.
   """
   def update_named_query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateNamedQuery", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateNamedQuery", input, options)
   end
 
   @doc """
   Updates a prepared statement.
   """
   def update_prepared_statement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdatePreparedStatement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePreparedStatement", input, options)
   end
 
   @doc """
@@ -401,6 +473,8 @@ defmodule AWS.Athena do
   The workgroup's name cannot be changed.
   """
   def update_work_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateWorkGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateWorkGroup", input, options)
   end
 end

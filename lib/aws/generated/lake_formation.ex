@@ -35,9 +35,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -71,9 +73,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -92,9 +96,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -113,9 +119,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -136,9 +144,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -160,9 +170,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -182,9 +194,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -203,9 +217,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -224,9 +240,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -251,9 +269,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -281,9 +301,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -305,9 +327,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -327,9 +351,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -348,9 +374,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -373,9 +401,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -395,9 +425,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -420,9 +452,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -441,9 +475,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -466,9 +502,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata() |> Map.put_new(:host_prefix, "query-")
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -487,9 +525,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata() |> Map.put_new(:host_prefix, "query-")
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -508,9 +548,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -531,9 +573,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -556,9 +600,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -582,9 +628,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -605,9 +653,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata() |> Map.put_new(:host_prefix, "data-")
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -626,9 +676,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata() |> Map.put_new(:host_prefix, "query-")
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -651,9 +703,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -672,9 +726,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -693,9 +749,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -723,9 +781,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -744,9 +804,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -766,9 +828,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -793,9 +857,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -821,9 +887,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -860,9 +928,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -884,9 +954,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -906,9 +978,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -932,9 +1006,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -958,9 +1034,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -983,9 +1061,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata() |> Map.put_new(:host_prefix, "query-")
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1006,9 +1086,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1033,9 +1115,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1055,9 +1139,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1077,9 +1163,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1098,9 +1186,11 @@ defmodule AWS.LakeFormation do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,

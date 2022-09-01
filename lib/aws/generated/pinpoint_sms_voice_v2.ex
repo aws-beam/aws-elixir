@@ -54,7 +54,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   configuration, an Error is returned.
   """
   def associate_origination_identity(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateOriginationIdentity", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateOriginationIdentity", input, options)
   end
 
   @doc """
@@ -69,7 +71,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   When you send a message, you can optionally specify a single configuration set.
   """
   def create_configuration_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateConfigurationSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateConfigurationSet", input, options)
   end
 
   @doc """
@@ -86,7 +90,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   CloudWatch or Kinesis Data Firehose destination.
   """
   def create_event_destination(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateEventDestination", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEventDestination", input, options)
   end
 
   @doc """
@@ -103,7 +109,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   in the *Amazon Pinpoint User Guide*.
   """
   def create_opt_out_list(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateOptOutList", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateOptOutList", input, options)
   end
 
   @doc """
@@ -123,7 +131,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   pools.
   """
   def create_pool(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreatePool", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePool", input, options)
   end
 
   @doc """
@@ -134,7 +144,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   specific types of events related to voice and SMS messages.
   """
   def delete_configuration_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteConfigurationSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteConfigurationSet", input, options)
   end
 
   @doc """
@@ -147,7 +159,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   applies to your entire Amazon Web Services account.
   """
   def delete_default_message_type(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDefaultMessageType", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDefaultMessageType", input, options)
   end
 
   @doc """
@@ -158,7 +172,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   or region.
   """
   def delete_default_sender_id(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDefaultSenderId", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDefaultSenderId", input, options)
   end
 
   @doc """
@@ -170,7 +186,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   or send notifications to endpoints that are subscribed to an Amazon SNS topic.
   """
   def delete_event_destination(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEventDestination", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEventDestination", input, options)
   end
 
   @doc """
@@ -185,7 +203,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   Keywords "HELP" and "STOP" can't be deleted or modified.
   """
   def delete_keyword(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteKeyword", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteKeyword", input, options)
   end
 
   @doc """
@@ -197,7 +217,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   phone number or pool, an Error is returned.
   """
   def delete_opt_out_list(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteOptOutList", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteOptOutList", input, options)
   end
 
   @doc """
@@ -210,7 +232,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   doesn't exist, an Error is returned.
   """
   def delete_opted_out_number(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteOptedOutNumber", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteOptedOutNumber", input, options)
   end
 
   @doc """
@@ -226,7 +250,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   Services account.
   """
   def delete_pool(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeletePool", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePool", input, options)
   end
 
   @doc """
@@ -240,13 +266,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   *Amazon Pinpoint Developer Guide*.
   """
   def delete_text_message_spend_limit_override(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DeleteTextMessageSpendLimitOverride",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTextMessageSpendLimitOverride", input, options)
   end
 
   @doc """
@@ -259,13 +281,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   in the *Amazon Pinpoint Developer Guide*.
   """
   def delete_voice_message_spend_limit_override(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DeleteVoiceMessageSpendLimitOverride",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteVoiceMessageSpendLimitOverride", input, options)
   end
 
   @doc """
@@ -281,7 +299,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   recipients from fraud and abuse.
   """
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAccountAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
   end
 
   @doc """
@@ -299,7 +319,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   *Amazon Pinpoint Developer Guide*.
   """
   def describe_account_limits(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAccountLimits", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAccountLimits", input, options)
   end
 
   @doc """
@@ -314,7 +336,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   If you specify a configuration set name that isn't valid, an error is returned.
   """
   def describe_configuration_sets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeConfigurationSets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConfigurationSets", input, options)
   end
 
   @doc """
@@ -330,7 +354,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   If you specify a keyword that isn't valid, an Error is returned.
   """
   def describe_keywords(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeKeywords", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeKeywords", input, options)
   end
 
   @doc """
@@ -344,7 +370,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   If you specify an opt-out list name that isn't valid, an Error is returned.
   """
   def describe_opt_out_lists(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeOptOutLists", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeOptOutLists", input, options)
   end
 
   @doc """
@@ -360,7 +388,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   If you specify an opted out number that isn't valid, an Error is returned.
   """
   def describe_opted_out_numbers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeOptedOutNumbers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeOptedOutNumbers", input, options)
   end
 
   @doc """
@@ -376,7 +406,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   If you specify a phone number ID that isn't valid, an Error is returned.
   """
   def describe_phone_numbers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePhoneNumbers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePhoneNumbers", input, options)
   end
 
   @doc """
@@ -395,7 +427,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   Services account.
   """
   def describe_pools(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePools", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePools", input, options)
   end
 
   @doc """
@@ -410,7 +444,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   f you specify a sender ID that isn't valid, an Error is returned.
   """
   def describe_sender_ids(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSenderIds", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSenderIds", input, options)
   end
 
   @doc """
@@ -424,7 +460,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   in the *Amazon Pinpoint User Guide*.
   """
   def describe_spend_limits(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSpendLimits", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSpendLimits", input, options)
   end
 
   @doc """
@@ -434,7 +472,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   is returned.
   """
   def disassociate_origination_identity(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateOriginationIdentity", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateOriginationIdentity", input, options)
   end
 
   @doc """
@@ -444,14 +484,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
   origination identities that meet the filter criteria.
   """
   def list_pool_origination_identities(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPoolOriginationIdentities", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPoolOriginationIdentities", input, options)
   end
 
   @doc """
   List all tags associated with a resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -467,7 +511,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   If you specify a keyword that isn't valid, an Error is returned.
   """
   def put_keyword(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutKeyword", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutKeyword", input, options)
   end
 
   @doc """
@@ -477,7 +523,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   doesn't exist, an Error is returned.
   """
   def put_opted_out_number(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutOptedOutNumber", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutOptedOutNumber", input, options)
   end
 
   @doc """
@@ -489,7 +537,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   with a pool, an Error is returned.
   """
   def release_phone_number(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ReleasePhoneNumber", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ReleasePhoneNumber", input, options)
   end
 
   @doc """
@@ -500,7 +550,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   in the *Amazon Pinpoint User Guide*.
   """
   def request_phone_number(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RequestPhoneNumber", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RequestPhoneNumber", input, options)
   end
 
   @doc """
@@ -513,7 +565,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   in the *Amazon Pinpoint User Guide*.
   """
   def send_text_message(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SendTextMessage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendTextMessage", input, options)
   end
 
   @doc """
@@ -523,7 +577,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   text script into a voice message.
   """
   def send_voice_message(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SendVoiceMessage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendVoiceMessage", input, options)
   end
 
   @doc """
@@ -536,7 +592,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   setting applies to your entire Amazon Web Services account.
   """
   def set_default_message_type(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetDefaultMessageType", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetDefaultMessageType", input, options)
   end
 
   @doc """
@@ -548,7 +606,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   your account.
   """
   def set_default_sender_id(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetDefaultSenderId", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetDefaultSenderId", input, options)
   end
 
   @doc """
@@ -558,7 +618,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   set by Amazon Web Services.
   """
   def set_text_message_spend_limit_override(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetTextMessageSpendLimitOverride", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetTextMessageSpendLimitOverride", input, options)
   end
 
   @doc """
@@ -568,7 +630,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   set by Amazon Web Services.
   """
   def set_voice_message_spend_limit_override(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetVoiceMessageSpendLimitOverride", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetVoiceMessageSpendLimitOverride", input, options)
   end
 
   @doc """
@@ -582,7 +646,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   in the *Amazon Pinpoint Developer Guide*.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -593,7 +659,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   in the *Amazon Pinpoint Developer Guide*.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -608,7 +676,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   SNS.
   """
   def update_event_destination(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateEventDestination", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateEventDestination", input, options)
   end
 
   @doc """
@@ -621,7 +691,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   If the origination phone number is associated with a pool, an Error is returned.
   """
   def update_phone_number(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdatePhoneNumber", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePhoneNumber", input, options)
   end
 
   @doc """
@@ -632,6 +704,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
   deletion protection, and enable or disable shared routes.
   """
   def update_pool(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdatePool", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePool", input, options)
   end
 end

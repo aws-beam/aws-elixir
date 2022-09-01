@@ -64,7 +64,9 @@ defmodule AWS.Keyspaces do
   in the *Amazon Keyspaces Developer Guide*.
   """
   def create_keyspace(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateKeyspace", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateKeyspace", input, options)
   end
 
   @doc """
@@ -81,14 +83,18 @@ defmodule AWS.Keyspaces do
   in the *Amazon Keyspaces Developer Guide*.
   """
   def create_table(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateTable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTable", input, options)
   end
 
   @doc """
   The `DeleteKeyspace` operation deletes a keyspace and all of its tables.
   """
   def delete_keyspace(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteKeyspace", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteKeyspace", input, options)
   end
 
   @doc """
@@ -103,14 +109,18 @@ defmodule AWS.Keyspaces do
   error is returned.
   """
   def delete_table(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteTable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTable", input, options)
   end
 
   @doc """
   Returns the name and the Amazon Resource Name (ARN) of the specified table.
   """
   def get_keyspace(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetKeyspace", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetKeyspace", input, options)
   end
 
   @doc """
@@ -121,21 +131,27 @@ defmodule AWS.Keyspaces do
   table and system tables are required to complete the operation.
   """
   def get_table(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetTable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTable", input, options)
   end
 
   @doc """
   Returns a list of keyspaces.
   """
   def list_keyspaces(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListKeyspaces", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListKeyspaces", input, options)
   end
 
   @doc """
   Returns a list of tables for a specified keyspace.
   """
   def list_tables(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTables", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTables", input, options)
   end
 
   @doc """
@@ -143,7 +159,9 @@ defmodule AWS.Keyspaces do
   resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -191,7 +209,9 @@ defmodule AWS.Keyspaces do
   • Amazon CloudWatch metrics and alarms
   """
   def restore_table(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RestoreTable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RestoreTable", input, options)
   end
 
   @doc """
@@ -207,14 +227,18 @@ defmodule AWS.Keyspaces do
   in the *Amazon Keyspaces Developer Guide*.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes the association of tags from a Amazon Keyspaces resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -224,6 +248,8 @@ defmodule AWS.Keyspaces do
   Note that you can only update one specific table setting per update operation.
   """
   def update_table(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateTable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateTable", input, options)
   end
 end

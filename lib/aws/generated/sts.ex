@@ -132,7 +132,9 @@ defmodule AWS.STS do
   (TOTP) that the MFA device produces.
   """
   def assume_role(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssumeRole", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssumeRole", input, options)
   end
 
   @doc """
@@ -266,7 +268,9 @@ defmodule AWS.STS do
   in the *IAM User Guide*.
   """
   def assume_role_with_saml(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssumeRoleWithSAML", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssumeRoleWithSAML", input, options)
   end
 
   @doc """
@@ -406,7 +410,9 @@ defmodule AWS.STS do
   use web identity federation to get access to content in Amazon S3.
   """
   def assume_role_with_web_identity(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssumeRoleWithWebIdentity", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssumeRoleWithWebIdentity", input, options)
   end
 
   @doc """
@@ -446,7 +452,9 @@ defmodule AWS.STS do
     * The values of condition keys in the context of the user's request.
   """
   def decode_authorization_message(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DecodeAuthorizationMessage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DecodeAuthorizationMessage", input, options)
   end
 
   @doc """
@@ -475,7 +483,9 @@ defmodule AWS.STS do
   doesn't exist.
   """
   def get_access_key_info(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAccessKeyInfo", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAccessKeyInfo", input, options)
   end
 
   @doc """
@@ -491,7 +501,9 @@ defmodule AWS.STS do
   in the *IAM User Guide*.
   """
   def get_caller_identity(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCallerIdentity", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCallerIdentity", input, options)
   end
 
   @doc """
@@ -593,7 +605,9 @@ defmodule AWS.STS do
   request takes precedence over the user tag.
   """
   def get_federation_token(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetFederationToken", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetFederationToken", input, options)
   end
 
   @doc """
@@ -657,6 +671,8 @@ defmodule AWS.STS do
   in the *IAM User Guide*.
   """
   def get_session_token(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetSessionToken", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSessionToken", input, options)
   end
 end

@@ -60,9 +60,11 @@ defmodule AWS.RUM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -83,9 +85,11 @@ defmodule AWS.RUM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -104,17 +108,9 @@ defmodule AWS.RUM do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -126,9 +122,11 @@ defmodule AWS.RUM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -153,9 +151,11 @@ defmodule AWS.RUM do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -174,17 +174,9 @@ defmodule AWS.RUM do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -201,9 +193,11 @@ defmodule AWS.RUM do
     headers = []
     query_params = []
 
+    meta = metadata() |> Map.put_new(:host_prefix, "dataplane.")
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -242,9 +236,11 @@ defmodule AWS.RUM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -268,9 +264,11 @@ defmodule AWS.RUM do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -302,9 +300,11 @@ defmodule AWS.RUM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :patch,
       url_path,
       query_params,

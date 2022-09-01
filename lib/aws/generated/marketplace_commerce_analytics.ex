@@ -40,7 +40,9 @@ defmodule AWS.MarketplaceCommerceAnalytics do
   sns:Publish, iam:GetRolePolicy.
   """
   def generate_data_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GenerateDataSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GenerateDataSet", input, options)
   end
 
   @doc """
@@ -59,6 +61,8 @@ defmodule AWS.MarketplaceCommerceAnalytics do
   iam:GetRolePolicy.
   """
   def start_support_data_export(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartSupportDataExport", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartSupportDataExport", input, options)
   end
 end

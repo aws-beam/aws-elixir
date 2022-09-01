@@ -48,13 +48,9 @@ defmodule AWS.KinesisAnalytics do
   Analytics applications, see [Working with Amazon CloudWatch Logs](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html).
   """
   def add_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "AddApplicationCloudWatchLoggingOption",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddApplicationCloudWatchLoggingOption", input, options)
   end
 
   @doc """
@@ -79,7 +75,9 @@ defmodule AWS.KinesisAnalytics do
   `kinesisanalytics:AddApplicationInput` action.
   """
   def add_application_input(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddApplicationInput", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddApplicationInput", input, options)
   end
 
   @doc """
@@ -95,9 +93,11 @@ defmodule AWS.KinesisAnalytics do
   available is [AWS Lambda](https://docs.aws.amazon.com/lambda/).
   """
   def add_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "AddApplicationInputProcessingConfiguration",
       input,
       options
@@ -136,7 +136,9 @@ defmodule AWS.KinesisAnalytics do
   `kinesisanalytics:AddApplicationOutput` action.
   """
   def add_application_output(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddApplicationOutput", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddApplicationOutput", input, options)
   end
 
   @doc """
@@ -163,7 +165,9 @@ defmodule AWS.KinesisAnalytics do
   `kinesisanalytics:AddApplicationOutput` action.
   """
   def add_application_reference_data_source(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddApplicationReferenceDataSource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddApplicationReferenceDataSource", input, options)
   end
 
   @doc """
@@ -200,7 +204,9 @@ defmodule AWS.KinesisAnalytics do
   see [Getting Started](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/getting-started.html).
   """
   def create_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateApplication", input, options)
   end
 
   @doc """
@@ -218,7 +224,9 @@ defmodule AWS.KinesisAnalytics do
   `kinesisanalytics:DeleteApplication` action.
   """
   def delete_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteApplication", input, options)
   end
 
   @doc """
@@ -233,13 +241,9 @@ defmodule AWS.KinesisAnalytics do
   [Working with Amazon CloudWatch Logs](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html).
   """
   def delete_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DeleteApplicationCloudWatchLoggingOption",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteApplicationCloudWatchLoggingOption", input, options)
   end
 
   @doc """
@@ -254,9 +258,11 @@ defmodule AWS.KinesisAnalytics do
   from an input.
   """
   def delete_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "DeleteApplicationInputProcessingConfiguration",
       input,
       options
@@ -278,7 +284,9 @@ defmodule AWS.KinesisAnalytics do
   `kinesisanalytics:DeleteApplicationOutput` action.
   """
   def delete_application_output(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteApplicationOutput", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteApplicationOutput", input, options)
   end
 
   @doc """
@@ -300,13 +308,9 @@ defmodule AWS.KinesisAnalytics do
   `kinesisanalytics.DeleteApplicationReferenceDataSource` action.
   """
   def delete_application_reference_data_source(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DeleteApplicationReferenceDataSource",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteApplicationReferenceDataSource", input, options)
   end
 
   @doc """
@@ -328,7 +332,9 @@ defmodule AWS.KinesisAnalytics do
   operations such as `Update`.
   """
   def describe_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeApplication", input, options)
   end
 
   @doc """
@@ -353,7 +359,9 @@ defmodule AWS.KinesisAnalytics do
   `kinesisanalytics:DiscoverInputSchema` action.
   """
   def discover_input_schema(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DiscoverInputSchema", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DiscoverInputSchema", input, options)
   end
 
   @doc """
@@ -377,7 +385,9 @@ defmodule AWS.KinesisAnalytics do
   `kinesisanalytics:ListApplications` action.
   """
   def list_applications(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListApplications", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListApplications", input, options)
   end
 
   @doc """
@@ -386,7 +396,9 @@ defmodule AWS.KinesisAnalytics do
   For more information, see [Using Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html).
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -415,7 +427,9 @@ defmodule AWS.KinesisAnalytics do
   `kinesisanalytics:StartApplication` action.
   """
   def start_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartApplication", input, options)
   end
 
   @doc """
@@ -436,7 +450,9 @@ defmodule AWS.KinesisAnalytics do
   `kinesisanalytics:StopApplication` action.
   """
   def stop_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopApplication", input, options)
   end
 
   @doc """
@@ -447,7 +463,9 @@ defmodule AWS.KinesisAnalytics do
   [Using Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html).
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -456,7 +474,9 @@ defmodule AWS.KinesisAnalytics do
   For more information, see [Using Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html).
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -476,6 +496,8 @@ defmodule AWS.KinesisAnalytics do
   action.
   """
   def update_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateApplication", input, options)
   end
 end

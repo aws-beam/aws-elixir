@@ -33,63 +33,81 @@ defmodule AWS.VoiceID do
   speakers, fraudsters, customer audio, and voiceprints.
   """
   def create_domain(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDomain", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDomain", input, options)
   end
 
   @doc """
   Deletes the specified domain from Voice ID.
   """
   def delete_domain(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDomain", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDomain", input, options)
   end
 
   @doc """
   Deletes the specified fraudster from Voice ID.
   """
   def delete_fraudster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteFraudster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFraudster", input, options)
   end
 
   @doc """
   Deletes the specified speaker from Voice ID.
   """
   def delete_speaker(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSpeaker", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSpeaker", input, options)
   end
 
   @doc """
   Describes the specified domain.
   """
   def describe_domain(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDomain", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDomain", input, options)
   end
 
   @doc """
   Describes the specified fraudster.
   """
   def describe_fraudster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFraudster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFraudster", input, options)
   end
 
   @doc """
   Describes the specified fraudster registration job.
   """
   def describe_fraudster_registration_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFraudsterRegistrationJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFraudsterRegistrationJob", input, options)
   end
 
   @doc """
   Describes the specified speaker.
   """
   def describe_speaker(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSpeaker", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSpeaker", input, options)
   end
 
   @doc """
   Describes the specified speaker enrollment job.
   """
   def describe_speaker_enrollment_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSpeakerEnrollmentJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSpeakerEnrollmentJob", input, options)
   end
 
   @doc """
@@ -97,14 +115,18 @@ defmodule AWS.VoiceID do
   Amazon Connect Voice ID call.
   """
   def evaluate_session(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EvaluateSession", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EvaluateSession", input, options)
   end
 
   @doc """
   Lists all the domains in the Amazon Web Services account.
   """
   def list_domains(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDomains", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDomains", input, options)
   end
 
   @doc """
@@ -115,7 +137,9 @@ defmodule AWS.VoiceID do
   the given domain.
   """
   def list_fraudster_registration_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFraudsterRegistrationJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFraudsterRegistrationJobs", input, options)
   end
 
   @doc """
@@ -126,21 +150,27 @@ defmodule AWS.VoiceID do
   enrollment job statuses.
   """
   def list_speaker_enrollment_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListSpeakerEnrollmentJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSpeakerEnrollmentJobs", input, options)
   end
 
   @doc """
   Lists all speakers in a specified domain.
   """
   def list_speakers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListSpeakers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSpeakers", input, options)
   end
 
   @doc """
   Lists all tags associated with a specified Voice ID resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -154,35 +184,45 @@ defmodule AWS.VoiceID do
   Voice ID.
   """
   def opt_out_speaker(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "OptOutSpeaker", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "OptOutSpeaker", input, options)
   end
 
   @doc """
   Starts a new batch fraudster registration job using provided details.
   """
   def start_fraudster_registration_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartFraudsterRegistrationJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartFraudsterRegistrationJob", input, options)
   end
 
   @doc """
   Starts a new batch speaker enrollment job using specified details.
   """
   def start_speaker_enrollment_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartSpeakerEnrollmentJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartSpeakerEnrollmentJob", input, options)
   end
 
   @doc """
   Tags a Voice ID resource with the provided list of tags.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes specified tags from a specified Amazon Connect Voice ID resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -193,6 +233,8 @@ defmodule AWS.VoiceID do
   domain.
   """
   def update_domain(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateDomain", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDomain", input, options)
   end
 end

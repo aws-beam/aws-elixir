@@ -42,7 +42,9 @@ defmodule AWS.DeviceFarm do
   Creates a device pool.
   """
   def create_device_pool(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDevicePool", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDevicePool", input, options)
   end
 
   @doc """
@@ -50,28 +52,36 @@ defmodule AWS.DeviceFarm do
   instances.
   """
   def create_instance_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateInstanceProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateInstanceProfile", input, options)
   end
 
   @doc """
   Creates a network profile.
   """
   def create_network_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateNetworkProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateNetworkProfile", input, options)
   end
 
   @doc """
   Creates a project.
   """
   def create_project(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateProject", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateProject", input, options)
   end
 
   @doc """
   Specifies and starts a remote access session.
   """
   def create_remote_access_session(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateRemoteAccessSession", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRemoteAccessSession", input, options)
   end
 
   @doc """
@@ -80,7 +90,9 @@ defmodule AWS.DeviceFarm do
   Projects are used to track `TestGridSession` instances.
   """
   def create_test_grid_project(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateTestGridProject", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTestGridProject", input, options)
   end
 
   @doc """
@@ -88,14 +100,18 @@ defmodule AWS.DeviceFarm do
   `RemoteWebDriver` constructor.
   """
   def create_test_grid_url(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateTestGridUrl", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTestGridUrl", input, options)
   end
 
   @doc """
   Uploads an app or test scripts.
   """
   def create_upload(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateUpload", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateUpload", input, options)
   end
 
   @doc """
@@ -103,7 +119,9 @@ defmodule AWS.DeviceFarm do
   Cloud (VPC) endpoint.
   """
   def create_vpce_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateVPCEConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateVPCEConfiguration", input, options)
   end
 
   @doc """
@@ -112,21 +130,27 @@ defmodule AWS.DeviceFarm do
   Does not allow deletion of curated pools owned by the system.
   """
   def delete_device_pool(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDevicePool", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDevicePool", input, options)
   end
 
   @doc """
   Deletes a profile that can be applied to one or more private device instances.
   """
   def delete_instance_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteInstanceProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteInstanceProfile", input, options)
   end
 
   @doc """
   Deletes a network profile.
   """
   def delete_network_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteNetworkProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteNetworkProfile", input, options)
   end
 
   @doc """
@@ -135,14 +159,18 @@ defmodule AWS.DeviceFarm do
   Deleting this resource does not stop an in-progress run.
   """
   def delete_project(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteProject", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteProject", input, options)
   end
 
   @doc """
   Deletes a completed remote access session and its results.
   """
   def delete_remote_access_session(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteRemoteAccessSession", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRemoteAccessSession", input, options)
   end
 
   @doc """
@@ -151,7 +179,9 @@ defmodule AWS.DeviceFarm do
   Deleting this resource does not stop an in-progress run.
   """
   def delete_run(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteRun", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRun", input, options)
   end
 
   @doc """
@@ -162,21 +192,27 @@ defmodule AWS.DeviceFarm do
   You cannot delete a project if it has active sessions.
   """
   def delete_test_grid_project(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteTestGridProject", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTestGridProject", input, options)
   end
 
   @doc """
   Deletes an upload given the upload ARN.
   """
   def delete_upload(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteUpload", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteUpload", input, options)
   end
 
   @doc """
   Deletes a configuration for your Amazon Virtual Private Cloud (VPC) endpoint.
   """
   def delete_vpce_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteVPCEConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteVPCEConfiguration", input, options)
   end
 
   @doc """
@@ -184,14 +220,18 @@ defmodule AWS.DeviceFarm do
   purchased by the account.
   """
   def get_account_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAccountSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAccountSettings", input, options)
   end
 
   @doc """
   Gets information about a unique device type.
   """
   def get_device(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDevice", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDevice", input, options)
   end
 
   @doc """
@@ -199,42 +239,54 @@ defmodule AWS.DeviceFarm do
   fleet.
   """
   def get_device_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDeviceInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDeviceInstance", input, options)
   end
 
   @doc """
   Gets information about a device pool.
   """
   def get_device_pool(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDevicePool", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDevicePool", input, options)
   end
 
   @doc """
   Gets information about compatibility with a device pool.
   """
   def get_device_pool_compatibility(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDevicePoolCompatibility", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDevicePoolCompatibility", input, options)
   end
 
   @doc """
   Returns information about the specified instance profile.
   """
   def get_instance_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetInstanceProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetInstanceProfile", input, options)
   end
 
   @doc """
   Gets information about a job.
   """
   def get_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetJob", input, options)
   end
 
   @doc """
   Returns information about a network profile.
   """
   def get_network_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetNetworkProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetNetworkProfile", input, options)
   end
 
   @doc """
@@ -248,49 +300,63 @@ defmodule AWS.DeviceFarm do
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
   def get_offering_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetOfferingStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetOfferingStatus", input, options)
   end
 
   @doc """
   Gets information about a project.
   """
   def get_project(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetProject", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetProject", input, options)
   end
 
   @doc """
   Returns a link to a currently running remote access session.
   """
   def get_remote_access_session(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRemoteAccessSession", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRemoteAccessSession", input, options)
   end
 
   @doc """
   Gets information about a run.
   """
   def get_run(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRun", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRun", input, options)
   end
 
   @doc """
   Gets information about a suite.
   """
   def get_suite(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetSuite", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSuite", input, options)
   end
 
   @doc """
   Gets information about a test.
   """
   def get_test(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetTest", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTest", input, options)
   end
 
   @doc """
   Retrieves information about a Selenium testing project.
   """
   def get_test_grid_project(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetTestGridProject", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTestGridProject", input, options)
   end
 
   @doc """
@@ -306,14 +372,18 @@ defmodule AWS.DeviceFarm do
   `GetTestGridSessionRequest$sessionId`).
   """
   def get_test_grid_session(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetTestGridSession", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTestGridSession", input, options)
   end
 
   @doc """
   Gets information about an upload.
   """
   def get_upload(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetUpload", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetUpload", input, options)
   end
 
   @doc """
@@ -321,7 +391,9 @@ defmodule AWS.DeviceFarm do
   Private Cloud (VPC) endpoint.
   """
   def get_vpce_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetVPCEConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetVPCEConfiguration", input, options)
   end
 
   @doc """
@@ -331,14 +403,18 @@ defmodule AWS.DeviceFarm do
   the file must be in .ipa format.
   """
   def install_to_remote_access_session(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "InstallToRemoteAccessSession", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "InstallToRemoteAccessSession", input, options)
   end
 
   @doc """
   Gets information about artifacts.
   """
   def list_artifacts(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListArtifacts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListArtifacts", input, options)
   end
 
   @doc """
@@ -346,42 +422,54 @@ defmodule AWS.DeviceFarm do
   more AWS accounts.
   """
   def list_device_instances(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDeviceInstances", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDeviceInstances", input, options)
   end
 
   @doc """
   Gets information about device pools.
   """
   def list_device_pools(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDevicePools", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDevicePools", input, options)
   end
 
   @doc """
   Gets information about unique device types.
   """
   def list_devices(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDevices", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDevices", input, options)
   end
 
   @doc """
   Returns information about all the instance profiles in an AWS account.
   """
   def list_instance_profiles(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListInstanceProfiles", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListInstanceProfiles", input, options)
   end
 
   @doc """
   Gets information about jobs for a given test run.
   """
   def list_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListJobs", input, options)
   end
 
   @doc """
   Returns the list of available network profiles.
   """
   def list_network_profiles(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListNetworkProfiles", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListNetworkProfiles", input, options)
   end
 
   @doc """
@@ -394,7 +482,9 @@ defmodule AWS.DeviceFarm do
   you must be able to invoke this operation.
   """
   def list_offering_promotions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListOfferingPromotions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListOfferingPromotions", input, options)
   end
 
   @doc """
@@ -408,7 +498,9 @@ defmodule AWS.DeviceFarm do
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
   def list_offering_transactions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListOfferingTransactions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListOfferingTransactions", input, options)
   end
 
   @doc """
@@ -422,84 +514,108 @@ defmodule AWS.DeviceFarm do
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
   def list_offerings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListOfferings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListOfferings", input, options)
   end
 
   @doc """
   Gets information about projects.
   """
   def list_projects(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListProjects", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListProjects", input, options)
   end
 
   @doc """
   Returns a list of all currently running remote access sessions.
   """
   def list_remote_access_sessions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListRemoteAccessSessions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRemoteAccessSessions", input, options)
   end
 
   @doc """
   Gets information about runs, given an AWS Device Farm project ARN.
   """
   def list_runs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListRuns", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRuns", input, options)
   end
 
   @doc """
   Gets information about samples, given an AWS Device Farm job ARN.
   """
   def list_samples(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListSamples", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSamples", input, options)
   end
 
   @doc """
   Gets information about test suites for a given job.
   """
   def list_suites(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListSuites", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSuites", input, options)
   end
 
   @doc """
   List the tags for an AWS Device Farm resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Gets a list of all Selenium testing projects in your account.
   """
   def list_test_grid_projects(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTestGridProjects", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTestGridProjects", input, options)
   end
 
   @doc """
   Returns a list of the actions taken in a `TestGridSession`.
   """
   def list_test_grid_session_actions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTestGridSessionActions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTestGridSessionActions", input, options)
   end
 
   @doc """
   Retrieves a list of artifacts created during the session.
   """
   def list_test_grid_session_artifacts(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTestGridSessionArtifacts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTestGridSessionArtifacts", input, options)
   end
 
   @doc """
   Retrieves a list of sessions for a `TestGridProject`.
   """
   def list_test_grid_sessions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTestGridSessions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTestGridSessions", input, options)
   end
 
   @doc """
   Gets information about tests in a given test suite.
   """
   def list_tests(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTests", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTests", input, options)
   end
 
   @doc """
@@ -511,14 +627,18 @@ defmodule AWS.DeviceFarm do
   returns a single entry instead of many individual entries for that exception.
   """
   def list_unique_problems(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListUniqueProblems", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListUniqueProblems", input, options)
   end
 
   @doc """
   Gets information about uploads, given an AWS Device Farm project ARN.
   """
   def list_uploads(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListUploads", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListUploads", input, options)
   end
 
   @doc """
@@ -526,7 +646,9 @@ defmodule AWS.DeviceFarm do
   configurations in the AWS account.
   """
   def list_vpce_configurations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListVPCEConfigurations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListVPCEConfigurations", input, options)
   end
 
   @doc """
@@ -539,7 +661,9 @@ defmodule AWS.DeviceFarm do
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
   def purchase_offering(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PurchaseOffering", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PurchaseOffering", input, options)
   end
 
   @doc """
@@ -551,14 +675,18 @@ defmodule AWS.DeviceFarm do
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
   def renew_offering(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RenewOffering", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RenewOffering", input, options)
   end
 
   @doc """
   Schedules a run.
   """
   def schedule_run(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ScheduleRun", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ScheduleRun", input, options)
   end
 
   @doc """
@@ -571,14 +699,18 @@ defmodule AWS.DeviceFarm do
   already completed.
   """
   def stop_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopJob", input, options)
   end
 
   @doc """
   Ends a specified remote access session.
   """
   def stop_remote_access_session(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopRemoteAccessSession", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopRemoteAccessSession", input, options)
   end
 
   @doc """
@@ -591,7 +723,9 @@ defmodule AWS.DeviceFarm do
   progress or already completed.
   """
   def stop_run(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopRun", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopRun", input, options)
   end
 
   @doc """
@@ -602,21 +736,27 @@ defmodule AWS.DeviceFarm do
   resource are also deleted.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Deletes the specified tags from a resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
   Updates information about a private device instance.
   """
   def update_device_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateDeviceInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDeviceInstance", input, options)
   end
 
   @doc """
@@ -627,42 +767,54 @@ defmodule AWS.DeviceFarm do
   not at all).
   """
   def update_device_pool(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateDevicePool", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDevicePool", input, options)
   end
 
   @doc """
   Updates information about an existing private device instance profile.
   """
   def update_instance_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateInstanceProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateInstanceProfile", input, options)
   end
 
   @doc """
   Updates the network profile.
   """
   def update_network_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateNetworkProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateNetworkProfile", input, options)
   end
 
   @doc """
   Modifies the specified project name, given the project ARN and a new name.
   """
   def update_project(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateProject", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateProject", input, options)
   end
 
   @doc """
   Change details of a project.
   """
   def update_test_grid_project(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateTestGridProject", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateTestGridProject", input, options)
   end
 
   @doc """
   Updates an uploaded test spec.
   """
   def update_upload(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateUpload", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateUpload", input, options)
   end
 
   @doc """
@@ -670,6 +822,8 @@ defmodule AWS.DeviceFarm do
   configuration.
   """
   def update_vpce_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateVPCEConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateVPCEConfiguration", input, options)
   end
 end

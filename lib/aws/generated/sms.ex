@@ -46,7 +46,9 @@ defmodule AWS.SMS do
   one or more servers.
   """
   def create_app(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateApp", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateApp", input, options)
   end
 
   @doc """
@@ -57,7 +59,9 @@ defmodule AWS.SMS do
   (AMI).
   """
   def create_replication_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateReplicationJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateReplicationJob", input, options)
   end
 
   @doc """
@@ -67,28 +71,36 @@ defmodule AWS.SMS do
   Server Migration Service replication jobs for servers in the application.
   """
   def delete_app(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteApp", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteApp", input, options)
   end
 
   @doc """
   Deletes the launch configuration for the specified application.
   """
   def delete_app_launch_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAppLaunchConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAppLaunchConfiguration", input, options)
   end
 
   @doc """
   Deletes the replication configuration for the specified application.
   """
   def delete_app_replication_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAppReplicationConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAppReplicationConfiguration", input, options)
   end
 
   @doc """
   Deletes the validation configuration for the specified application.
   """
   def delete_app_validation_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAppValidationConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAppValidationConfiguration", input, options)
   end
 
   @doc """
@@ -100,14 +112,18 @@ defmodule AWS.SMS do
   not deleted.
   """
   def delete_replication_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteReplicationJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteReplicationJob", input, options)
   end
 
   @doc """
   Deletes all servers from your server catalog.
   """
   def delete_server_catalog(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteServerCatalog", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteServerCatalog", input, options)
   end
 
   @doc """
@@ -117,7 +133,9 @@ defmodule AWS.SMS do
   replication jobs.
   """
   def disassociate_connector(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateConnector", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateConnector", input, options)
   end
 
   @doc """
@@ -125,7 +143,9 @@ defmodule AWS.SMS do
   Amazon S3 object in the customer’s Amazon S3 bucket.
   """
   def generate_change_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GenerateChangeSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GenerateChangeSet", input, options)
   end
 
   @doc """
@@ -133,14 +153,18 @@ defmodule AWS.SMS do
   and writes it to an Amazon S3 object in the customer’s Amazon S3 bucket.
   """
   def generate_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GenerateTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GenerateTemplate", input, options)
   end
 
   @doc """
   Retrieve information about the specified application.
   """
   def get_app(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetApp", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetApp", input, options)
   end
 
   @doc """
@@ -148,7 +172,9 @@ defmodule AWS.SMS do
   application.
   """
   def get_app_launch_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAppLaunchConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAppLaunchConfiguration", input, options)
   end
 
   @doc """
@@ -156,42 +182,54 @@ defmodule AWS.SMS do
   specified application.
   """
   def get_app_replication_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAppReplicationConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAppReplicationConfiguration", input, options)
   end
 
   @doc """
   Retrieves information about a configuration for validating an application.
   """
   def get_app_validation_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAppValidationConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAppValidationConfiguration", input, options)
   end
 
   @doc """
   Retrieves output from validating an application.
   """
   def get_app_validation_output(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAppValidationOutput", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAppValidationOutput", input, options)
   end
 
   @doc """
   Describes the connectors registered with the Server Migration Service.
   """
   def get_connectors(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetConnectors", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetConnectors", input, options)
   end
 
   @doc """
   Describes the specified replication job or all of your replication jobs.
   """
   def get_replication_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetReplicationJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetReplicationJobs", input, options)
   end
 
   @doc """
   Describes the replication runs for the specified replication job.
   """
   def get_replication_runs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetReplicationRuns", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetReplicationRuns", input, options)
   end
 
   @doc """
@@ -201,14 +239,18 @@ defmodule AWS.SMS do
   `ImportServerCatalog`.
   """
   def get_servers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetServers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetServers", input, options)
   end
 
   @doc """
   Allows application import from Migration Hub.
   """
   def import_app_catalog(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ImportAppCatalog", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportAppCatalog", input, options)
   end
 
   @doc """
@@ -220,21 +262,27 @@ defmodule AWS.SMS do
   the servers.
   """
   def import_server_catalog(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ImportServerCatalog", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportServerCatalog", input, options)
   end
 
   @doc """
   Launches the specified application as a stack in CloudFormation.
   """
   def launch_app(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "LaunchApp", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "LaunchApp", input, options)
   end
 
   @doc """
   Retrieves summaries for all applications.
   """
   def list_apps(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListApps", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListApps", input, options)
   end
 
   @doc """
@@ -242,28 +290,36 @@ defmodule AWS.SMS do
   validation is successful.
   """
   def notify_app_validation_output(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "NotifyAppValidationOutput", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "NotifyAppValidationOutput", input, options)
   end
 
   @doc """
   Creates or updates the launch configuration for the specified application.
   """
   def put_app_launch_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutAppLaunchConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutAppLaunchConfiguration", input, options)
   end
 
   @doc """
   Creates or updates the replication configuration for the specified application.
   """
   def put_app_replication_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutAppReplicationConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutAppReplicationConfiguration", input, options)
   end
 
   @doc """
   Creates or updates a validation configuration for the specified application.
   """
   def put_app_validation_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutAppValidationConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutAppValidationConfiguration", input, options)
   end
 
   @doc """
@@ -271,14 +327,18 @@ defmodule AWS.SMS do
   each server in the application.
   """
   def start_app_replication(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartAppReplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartAppReplication", input, options)
   end
 
   @doc """
   Starts an on-demand replication run for the specified application.
   """
   def start_on_demand_app_replication(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartOnDemandAppReplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartOnDemandAppReplication", input, options)
   end
 
   @doc """
@@ -291,7 +351,9 @@ defmodule AWS.SMS do
   request in a 24-hour period.
   """
   def start_on_demand_replication_run(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartOnDemandReplicationRun", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartOnDemandReplicationRun", input, options)
   end
 
   @doc """
@@ -299,27 +361,35 @@ defmodule AWS.SMS do
   each server in the application.
   """
   def stop_app_replication(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopAppReplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopAppReplication", input, options)
   end
 
   @doc """
   Terminates the stack for the specified application.
   """
   def terminate_app(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TerminateApp", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TerminateApp", input, options)
   end
 
   @doc """
   Updates the specified application.
   """
   def update_app(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateApp", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateApp", input, options)
   end
 
   @doc """
   Updates the specified settings for the specified replication job.
   """
   def update_replication_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateReplicationJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateReplicationJob", input, options)
   end
 end

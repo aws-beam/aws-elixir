@@ -52,9 +52,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -77,9 +79,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -103,9 +107,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -133,9 +139,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -164,9 +172,11 @@ defmodule AWS.RAM do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -186,9 +196,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -211,9 +223,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -242,9 +256,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -263,9 +279,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -285,9 +303,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -307,9 +327,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -328,9 +350,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -350,9 +374,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -375,9 +401,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -396,9 +424,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -418,9 +448,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -440,9 +472,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -461,9 +495,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -482,9 +518,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -504,9 +542,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -538,9 +578,11 @@ defmodule AWS.RAM do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -560,9 +602,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -584,9 +628,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -605,9 +651,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -626,9 +674,11 @@ defmodule AWS.RAM do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,

@@ -55,7 +55,9 @@ defmodule AWS.AutoScalingPlans do
   Creates a scaling plan.
   """
   def create_scaling_plan(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateScalingPlan", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateScalingPlan", input, options)
   end
 
   @doc """
@@ -68,21 +70,27 @@ defmodule AWS.AutoScalingPlans do
   must delete those resources separately.
   """
   def delete_scaling_plan(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteScalingPlan", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteScalingPlan", input, options)
   end
 
   @doc """
   Describes the scalable resources in the specified scaling plan.
   """
   def describe_scaling_plan_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeScalingPlanResources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeScalingPlanResources", input, options)
   end
 
   @doc """
   Describes one or more of your scaling plans.
   """
   def describe_scaling_plans(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeScalingPlans", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeScalingPlans", input, options)
   end
 
   @doc """
@@ -93,7 +101,9 @@ defmodule AWS.AutoScalingPlans do
   Data points are available for up to 56 days.
   """
   def get_scaling_plan_resource_forecast_data(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetScalingPlanResourceForecastData", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetScalingPlanResourceForecastData", input, options)
   end
 
   @doc """
@@ -103,6 +113,8 @@ defmodule AWS.AutoScalingPlans do
   updated, or deleted.
   """
   def update_scaling_plan(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateScalingPlan", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateScalingPlan", input, options)
   end
 end

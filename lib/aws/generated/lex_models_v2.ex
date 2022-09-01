@@ -34,9 +34,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -55,17 +57,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
@@ -82,17 +76,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
@@ -109,17 +95,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
@@ -137,17 +115,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
@@ -168,17 +138,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
@@ -219,17 +181,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -240,9 +194,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -271,9 +227,11 @@ defmodule AWS.LexModelsV2 do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -307,17 +265,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -333,17 +283,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -355,9 +297,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -391,9 +335,11 @@ defmodule AWS.LexModelsV2 do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -419,9 +365,11 @@ defmodule AWS.LexModelsV2 do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -445,9 +393,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -477,9 +427,11 @@ defmodule AWS.LexModelsV2 do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -507,9 +459,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -528,9 +482,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -549,9 +505,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -582,9 +540,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -610,9 +570,11 @@ defmodule AWS.LexModelsV2 do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -648,9 +610,11 @@ defmodule AWS.LexModelsV2 do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -680,9 +644,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -720,9 +686,11 @@ defmodule AWS.LexModelsV2 do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -759,9 +727,11 @@ defmodule AWS.LexModelsV2 do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -780,17 +750,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -803,17 +765,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -826,17 +780,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -860,17 +806,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -883,17 +821,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -912,17 +842,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -933,17 +855,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -954,17 +868,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -984,17 +890,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1005,17 +903,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1036,17 +926,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1066,17 +948,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1108,9 +982,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1129,9 +1005,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1152,9 +1030,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1182,9 +1062,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1211,9 +1093,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1232,9 +1116,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1259,9 +1145,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1280,9 +1168,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1303,9 +1193,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1326,9 +1218,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1349,9 +1243,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1381,9 +1277,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1404,9 +1302,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1435,9 +1335,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1458,17 +1360,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1489,9 +1383,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1520,17 +1416,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
@@ -1542,17 +1430,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
@@ -1573,17 +1453,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
@@ -1596,9 +1468,11 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1622,9 +1496,11 @@ defmodule AWS.LexModelsV2 do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1643,17 +1519,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
@@ -1666,17 +1534,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
@@ -1689,17 +1549,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
@@ -1720,17 +1572,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
@@ -1747,17 +1591,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """
@@ -1778,17 +1614,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1806,17 +1634,9 @@ defmodule AWS.LexModelsV2 do
       ]
       |> Request.build_params(input)
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1838,17 +1658,9 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1869,16 +1681,8 @@ defmodule AWS.LexModelsV2 do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 end

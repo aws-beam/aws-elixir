@@ -35,7 +35,9 @@ defmodule AWS.Inspector do
   the ARNs of the findings.
   """
   def add_attributes_to_findings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddAttributesToFindings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddAttributesToFindings", input, options)
   end
 
   @doc """
@@ -51,7 +53,9 @@ defmodule AWS.Inspector do
   information, see [ Amazon Inspector Assessment Targets](https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html).
   """
   def create_assessment_target(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAssessmentTarget", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAssessmentTarget", input, options)
   end
 
   @doc """
@@ -64,7 +68,9 @@ defmodule AWS.Inspector do
   perform security assessments.
   """
   def create_assessment_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAssessmentTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAssessmentTemplate", input, options)
   end
 
   @doc """
@@ -75,7 +81,9 @@ defmodule AWS.Inspector do
   Inspector can detect before it runs the assessment.
   """
   def create_exclusions_preview(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateExclusionsPreview", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateExclusionsPreview", input, options)
   end
 
   @doc """
@@ -87,14 +95,18 @@ defmodule AWS.Inspector do
   target. For more information, see `CreateAssessmentTarget`.
   """
   def create_resource_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateResourceGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateResourceGroup", input, options)
   end
 
   @doc """
   Deletes the assessment run that is specified by the ARN of the assessment run.
   """
   def delete_assessment_run(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAssessmentRun", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAssessmentRun", input, options)
   end
 
   @doc """
@@ -102,7 +114,9 @@ defmodule AWS.Inspector do
   target.
   """
   def delete_assessment_target(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAssessmentTarget", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAssessmentTarget", input, options)
   end
 
   @doc """
@@ -110,7 +124,9 @@ defmodule AWS.Inspector do
   template.
   """
   def delete_assessment_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAssessmentTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAssessmentTemplate", input, options)
   end
 
   @doc """
@@ -118,7 +134,9 @@ defmodule AWS.Inspector do
   runs.
   """
   def describe_assessment_runs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAssessmentRuns", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAssessmentRuns", input, options)
   end
 
   @doc """
@@ -126,7 +144,9 @@ defmodule AWS.Inspector do
   assessment targets.
   """
   def describe_assessment_targets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAssessmentTargets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAssessmentTargets", input, options)
   end
 
   @doc """
@@ -134,28 +154,36 @@ defmodule AWS.Inspector do
   assessment templates.
   """
   def describe_assessment_templates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAssessmentTemplates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAssessmentTemplates", input, options)
   end
 
   @doc """
   Describes the IAM role that enables Amazon Inspector to access your AWS account.
   """
   def describe_cross_account_access_role(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCrossAccountAccessRole", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCrossAccountAccessRole", input, options)
   end
 
   @doc """
   Describes the exclusions that are specified by the exclusions' ARNs.
   """
   def describe_exclusions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeExclusions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeExclusions", input, options)
   end
 
   @doc """
   Describes the findings that are specified by the ARNs of the findings.
   """
   def describe_findings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFindings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFindings", input, options)
   end
 
   @doc """
@@ -163,7 +191,9 @@ defmodule AWS.Inspector do
   groups.
   """
   def describe_resource_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeResourceGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeResourceGroups", input, options)
   end
 
   @doc """
@@ -171,7 +201,9 @@ defmodule AWS.Inspector do
   packages.
   """
   def describe_rules_packages(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRulesPackages", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRulesPackages", input, options)
   end
 
   @doc """
@@ -179,7 +211,9 @@ defmodule AWS.Inspector do
   of a specified assessment run.
   """
   def get_assessment_report(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAssessmentReport", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAssessmentReport", input, options)
   end
 
   @doc """
@@ -189,14 +223,18 @@ defmodule AWS.Inspector do
   You can obtain the preview token by running the CreateExclusionsPreview API.
   """
   def get_exclusions_preview(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetExclusionsPreview", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetExclusionsPreview", input, options)
   end
 
   @doc """
   Information about the data that is collected for the specified assessment run.
   """
   def get_telemetry_metadata(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetTelemetryMetadata", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTelemetryMetadata", input, options)
   end
 
   @doc """
@@ -204,7 +242,9 @@ defmodule AWS.Inspector do
   assessment runs.
   """
   def list_assessment_run_agents(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAssessmentRunAgents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAssessmentRunAgents", input, options)
   end
 
   @doc """
@@ -212,7 +252,9 @@ defmodule AWS.Inspector do
   specified by the ARNs of the assessment templates.
   """
   def list_assessment_runs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAssessmentRuns", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAssessmentRuns", input, options)
   end
 
   @doc """
@@ -221,7 +263,9 @@ defmodule AWS.Inspector do
   For more information about assessment targets, see [Amazon Inspector Assessment Targets](https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html).
   """
   def list_assessment_targets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAssessmentTargets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAssessmentTargets", input, options)
   end
 
   @doc """
@@ -229,7 +273,9 @@ defmodule AWS.Inspector do
   are specified by the ARNs of the assessment targets.
   """
   def list_assessment_templates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAssessmentTemplates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAssessmentTemplates", input, options)
   end
 
   @doc """
@@ -239,14 +285,18 @@ defmodule AWS.Inspector do
   For more information, see `SubscribeToEvent` and `UnsubscribeFromEvent`.
   """
   def list_event_subscriptions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEventSubscriptions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEventSubscriptions", input, options)
   end
 
   @doc """
   List exclusions that are generated by the assessment run.
   """
   def list_exclusions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListExclusions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListExclusions", input, options)
   end
 
   @doc """
@@ -254,21 +304,27 @@ defmodule AWS.Inspector do
   the ARNs of the assessment runs.
   """
   def list_findings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFindings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFindings", input, options)
   end
 
   @doc """
   Lists all available Amazon Inspector rules packages.
   """
   def list_rules_packages(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListRulesPackages", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRulesPackages", input, options)
   end
 
   @doc """
   Lists all tags associated with an assessment template.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -276,7 +332,9 @@ defmodule AWS.Inspector do
   specified assessment target.
   """
   def preview_agents(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PreviewAgents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PreviewAgents", input, options)
   end
 
   @doc """
@@ -284,7 +342,9 @@ defmodule AWS.Inspector do
   needed to perform security assessments.
   """
   def register_cross_account_access_role(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterCrossAccountAccessRole", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterCrossAccountAccessRole", input, options)
   end
 
   @doc """
@@ -293,7 +353,9 @@ defmodule AWS.Inspector do
   exists.
   """
   def remove_attributes_from_findings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveAttributesFromFindings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveAttributesFromFindings", input, options)
   end
 
   @doc """
@@ -301,7 +363,9 @@ defmodule AWS.Inspector do
   the ARN of the assessment template.
   """
   def set_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetTagsForResource", input, options)
   end
 
   @doc """
@@ -311,14 +375,18 @@ defmodule AWS.Inspector do
   to 500 concurrent agents per AWS account.
   """
   def start_assessment_run(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartAssessmentRun", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartAssessmentRun", input, options)
   end
 
   @doc """
   Stops the assessment run that is specified by the ARN of the assessment run.
   """
   def stop_assessment_run(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopAssessmentRun", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopAssessmentRun", input, options)
   end
 
   @doc """
@@ -326,7 +394,9 @@ defmodule AWS.Inspector do
   notifications about a specified event to a specified SNS topic.
   """
   def subscribe_to_event(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SubscribeToEvent", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SubscribeToEvent", input, options)
   end
 
   @doc """
@@ -334,7 +404,9 @@ defmodule AWS.Inspector do
   notifications about a specified event to a specified SNS topic.
   """
   def unsubscribe_from_event(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UnsubscribeFromEvent", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UnsubscribeFromEvent", input, options)
   end
 
   @doc """
@@ -345,6 +417,8 @@ defmodule AWS.Inspector do
   account and region are included in the assessment target.
   """
   def update_assessment_target(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateAssessmentTarget", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAssessmentTarget", input, options)
   end
 end

@@ -97,7 +97,9 @@ defmodule AWS.Firehose do
   in the *Amazon Kinesis Data Firehose Developer Guide*.
   """
   def create_delivery_stream(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDeliveryStream", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDeliveryStream", input, options)
   end
 
   @doc """
@@ -115,7 +117,9 @@ defmodule AWS.Firehose do
   sending records before you delete a delivery stream.
   """
   def delete_delivery_stream(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDeliveryStream", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDeliveryStream", input, options)
   end
 
   @doc """
@@ -132,7 +136,9 @@ defmodule AWS.Firehose do
   again but with `DeleteDeliveryStreamInput$AllowForceDelete` set to true.
   """
   def describe_delivery_stream(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDeliveryStream", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDeliveryStream", input, options)
   end
 
   @doc """
@@ -147,7 +153,9 @@ defmodule AWS.Firehose do
   the name of the last delivery stream returned in the last call.
   """
   def list_delivery_streams(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDeliveryStreams", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDeliveryStreams", input, options)
   end
 
   @doc """
@@ -156,7 +164,9 @@ defmodule AWS.Firehose do
   This operation has a limit of five transactions per second per account.
   """
   def list_tags_for_delivery_stream(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForDeliveryStream", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForDeliveryStream", input, options)
   end
 
   @doc """
@@ -200,7 +210,9 @@ defmodule AWS.Firehose do
   records. Instead, concatenate the raw data, then perform base64 encoding.
   """
   def put_record(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutRecord", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutRecord", input, options)
   end
 
   @doc """
@@ -266,7 +278,9 @@ defmodule AWS.Firehose do
   records. Instead, concatenate the raw data, then perform base64 encoding.
   """
   def put_record_batch(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutRecordBatch", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutRecordBatch", input, options)
   end
 
   @doc """
@@ -315,7 +329,9 @@ defmodule AWS.Firehose do
   in a 24-hour period.
   """
   def start_delivery_stream_encryption(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartDeliveryStreamEncryption", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartDeliveryStreamEncryption", input, options)
   end
 
   @doc """
@@ -345,7 +361,9 @@ defmodule AWS.Firehose do
   in a 24-hour period.
   """
   def stop_delivery_stream_encryption(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopDeliveryStreamEncryption", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopDeliveryStreamEncryption", input, options)
   end
 
   @doc """
@@ -364,7 +382,9 @@ defmodule AWS.Firehose do
   This operation has a limit of five transactions per second per account.
   """
   def tag_delivery_stream(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagDeliveryStream", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagDeliveryStream", input, options)
   end
 
   @doc """
@@ -378,7 +398,9 @@ defmodule AWS.Firehose do
   This operation has a limit of five transactions per second per account.
   """
   def untag_delivery_stream(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagDeliveryStream", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagDeliveryStream", input, options)
   end
 
   @doc """
@@ -414,6 +436,8 @@ defmodule AWS.Firehose do
   version ID to set `CurrentDeliveryStreamVersionId` in the next call.
   """
   def update_destination(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateDestination", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDestination", input, options)
   end
 end

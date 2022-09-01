@@ -225,7 +225,9 @@ defmodule AWS.Rekognition do
   action.
   """
   def compare_faces(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CompareFaces", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CompareFaces", input, options)
   end
 
   @doc """
@@ -256,7 +258,9 @@ defmodule AWS.Rekognition do
   value of `Status` is `COPYING_COMPLETED`.
   """
   def copy_project_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CopyProjectVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CopyProjectVersion", input, options)
   end
 
   @doc """
@@ -279,7 +283,9 @@ defmodule AWS.Rekognition do
   also require permission to perform the `rekognition:TagResource` operation.
   """
   def create_collection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCollection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCollection", input, options)
   end
 
   @doc """
@@ -311,7 +317,9 @@ defmodule AWS.Rekognition do
   perform the `rekognition:ListDatasetEntries` action.
   """
   def create_dataset(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDataset", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDataset", input, options)
   end
 
   @doc """
@@ -324,7 +332,9 @@ defmodule AWS.Rekognition do
   action.
   """
   def create_project(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateProject", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateProject", input, options)
   end
 
   @doc """
@@ -369,7 +379,9 @@ defmodule AWS.Rekognition do
   `rekognition:CreateProjectVersion` action.
   """
   def create_project_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateProjectVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateProjectVersion", input, options)
   end
 
   @doc """
@@ -408,7 +420,9 @@ defmodule AWS.Rekognition do
   operation.
   """
   def create_stream_processor(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateStreamProcessor", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateStreamProcessor", input, options)
   end
 
   @doc """
@@ -421,7 +435,9 @@ defmodule AWS.Rekognition do
   `rekognition:DeleteCollection` action.
   """
   def delete_collection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCollection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCollection", input, options)
   end
 
   @doc """
@@ -440,7 +456,9 @@ defmodule AWS.Rekognition do
   action.
   """
   def delete_dataset(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDataset", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDataset", input, options)
   end
 
   @doc """
@@ -453,7 +471,9 @@ defmodule AWS.Rekognition do
   action.
   """
   def delete_faces(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteFaces", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFaces", input, options)
   end
 
   @doc """
@@ -471,7 +491,9 @@ defmodule AWS.Rekognition do
   action.
   """
   def delete_project(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteProject", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteProject", input, options)
   end
 
   @doc """
@@ -482,7 +504,9 @@ defmodule AWS.Rekognition do
   `PutProjectPolicy`.
   """
   def delete_project_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteProjectPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteProjectPolicy", input, options)
   end
 
   @doc """
@@ -497,7 +521,9 @@ defmodule AWS.Rekognition do
   `rekognition:DeleteProjectVersion` action.
   """
   def delete_project_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteProjectVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteProjectVersion", input, options)
   end
 
   @doc """
@@ -508,7 +534,9 @@ defmodule AWS.Rekognition do
   processor for a few seconds after calling `DeleteStreamProcessor`.
   """
   def delete_stream_processor(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteStreamProcessor", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteStreamProcessor", input, options)
   end
 
   @doc """
@@ -522,7 +550,9 @@ defmodule AWS.Rekognition do
   Developer Guide.
   """
   def describe_collection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCollection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCollection", input, options)
   end
 
   @doc """
@@ -535,7 +565,9 @@ defmodule AWS.Rekognition do
   action.
   """
   def describe_dataset(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDataset", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDataset", input, options)
   end
 
   @doc """
@@ -550,7 +582,9 @@ defmodule AWS.Rekognition do
   `rekognition:DescribeProjectVersions` action.
   """
   def describe_project_versions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeProjectVersions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeProjectVersions", input, options)
   end
 
   @doc """
@@ -560,7 +594,9 @@ defmodule AWS.Rekognition do
   `rekognition:DescribeProjects` action.
   """
   def describe_projects(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeProjects", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeProjects", input, options)
   end
 
   @doc """
@@ -572,7 +608,9 @@ defmodule AWS.Rekognition do
   processor.
   """
   def describe_stream_processor(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStreamProcessor", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStreamProcessor", input, options)
   end
 
   @doc """
@@ -619,7 +657,9 @@ defmodule AWS.Rekognition do
   Labels Developer Guide.
   """
   def detect_custom_labels(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DetectCustomLabels", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetectCustomLabels", input, options)
   end
 
   @doc """
@@ -647,7 +687,9 @@ defmodule AWS.Rekognition do
   action.
   """
   def detect_faces(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DetectFaces", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetectFaces", input, options)
   end
 
   @doc """
@@ -723,7 +765,9 @@ defmodule AWS.Rekognition do
   action.
   """
   def detect_labels(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DetectLabels", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetectLabels", input, options)
   end
 
   @doc """
@@ -745,7 +789,9 @@ defmodule AWS.Rekognition do
   either a PNG or JPEG formatted file.
   """
   def detect_moderation_labels(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DetectModerationLabels", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetectModerationLabels", input, options)
   end
 
   @doc """
@@ -792,7 +838,9 @@ defmodule AWS.Rekognition do
   `rekognition:DetectProtectiveEquipment` action.
   """
   def detect_protective_equipment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DetectProtectiveEquipment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetectProtectiveEquipment", input, options)
   end
 
   @doc """
@@ -830,7 +878,9 @@ defmodule AWS.Rekognition do
   Guide.
   """
   def detect_text(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DetectText", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetectText", input, options)
   end
 
   @doc """
@@ -855,7 +905,9 @@ defmodule AWS.Rekognition do
   `rekognition:DistributeDatasetEntries` action.
   """
   def distribute_dataset_entries(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DistributeDatasetEntries", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DistributeDatasetEntries", input, options)
   end
 
   @doc """
@@ -872,7 +924,9 @@ defmodule AWS.Rekognition do
   `rekognition:GetCelebrityInfo` action.
   """
   def get_celebrity_info(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCelebrityInfo", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCelebrityInfo", input, options)
   end
 
   @doc """
@@ -927,7 +981,9 @@ defmodule AWS.Rekognition do
   the previous call to `GetCelebrityRecognition`.
   """
   def get_celebrity_recognition(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCelebrityRecognition", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCelebrityRecognition", input, options)
   end
 
   @doc """
@@ -971,7 +1027,9 @@ defmodule AWS.Rekognition do
   Guide.
   """
   def get_content_moderation(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetContentModeration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetContentModeration", input, options)
   end
 
   @doc """
@@ -999,7 +1057,9 @@ defmodule AWS.Rekognition do
   previous call to `GetFaceDetection`.
   """
   def get_face_detection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetFaceDetection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetFaceDetection", input, options)
   end
 
   @doc """
@@ -1038,7 +1098,9 @@ defmodule AWS.Rekognition do
   specifying `INDEX` for the `SORTBY` input parameter.
   """
   def get_face_search(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetFaceSearch", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetFaceSearch", input, options)
   end
 
   @doc """
@@ -1074,7 +1136,9 @@ defmodule AWS.Rekognition do
   previous call to `GetLabelDetection`.
   """
   def get_label_detection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetLabelDetection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetLabelDetection", input, options)
   end
 
   @doc """
@@ -1113,7 +1177,9 @@ defmodule AWS.Rekognition do
   previous call to `GetPersonTracking`.
   """
   def get_person_tracking(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetPersonTracking", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetPersonTracking", input, options)
   end
 
   @doc """
@@ -1151,7 +1217,9 @@ defmodule AWS.Rekognition do
   Rekognition Developer Guide.
   """
   def get_segment_detection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetSegmentDetection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSegmentDetection", input, options)
   end
 
   @doc """
@@ -1184,7 +1252,9 @@ defmodule AWS.Rekognition do
   the previous call to `GetTextDetection`.
   """
   def get_text_detection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetTextDetection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTextDetection", input, options)
   end
 
   @doc """
@@ -1286,7 +1356,9 @@ defmodule AWS.Rekognition do
   action.
   """
   def index_faces(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "IndexFaces", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "IndexFaces", input, options)
   end
 
   @doc """
@@ -1302,7 +1374,9 @@ defmodule AWS.Rekognition do
   action.
   """
   def list_collections(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListCollections", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCollections", input, options)
   end
 
   @doc """
@@ -1325,7 +1399,9 @@ defmodule AWS.Rekognition do
   `rekognition:ListDatasetEntries` action.
   """
   def list_dataset_entries(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDatasetEntries", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDatasetEntries", input, options)
   end
 
   @doc """
@@ -1339,7 +1415,9 @@ defmodule AWS.Rekognition do
   Rekognition Custom Labels Developer Guide*.
   """
   def list_dataset_labels(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDatasetLabels", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDatasetLabels", input, options)
   end
 
   @doc """
@@ -1353,7 +1431,9 @@ defmodule AWS.Rekognition do
   action.
   """
   def list_faces(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFaces", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFaces", input, options)
   end
 
   @doc """
@@ -1363,7 +1443,9 @@ defmodule AWS.Rekognition do
   project policy from a project, call `DeleteProjectPolicy`.
   """
   def list_project_policies(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListProjectPolicies", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListProjectPolicies", input, options)
   end
 
   @doc """
@@ -1371,7 +1453,9 @@ defmodule AWS.Rekognition do
   `CreateStreamProcessor`.
   """
   def list_stream_processors(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListStreamProcessors", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStreamProcessors", input, options)
   end
 
   @doc """
@@ -1382,7 +1466,9 @@ defmodule AWS.Rekognition do
   `rekognition:ListTagsForResource` action.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -1408,7 +1494,9 @@ defmodule AWS.Rekognition do
   You copy a model version by calling `CopyProjectVersion`.
   """
   def put_project_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutProjectPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutProjectPolicy", input, options)
   end
 
   @doc """
@@ -1446,7 +1534,9 @@ defmodule AWS.Rekognition do
   `rekognition:RecognizeCelebrities` operation.
   """
   def recognize_celebrities(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RecognizeCelebrities", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RecognizeCelebrities", input, options)
   end
 
   @doc """
@@ -1473,7 +1563,9 @@ defmodule AWS.Rekognition do
   action.
   """
   def search_faces(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SearchFaces", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SearchFaces", input, options)
   end
 
   @doc """
@@ -1524,7 +1616,9 @@ defmodule AWS.Rekognition do
   `rekognition:SearchFacesByImage` action.
   """
   def search_faces_by_image(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SearchFacesByImage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SearchFacesByImage", input, options)
   end
 
   @doc """
@@ -1545,7 +1639,9 @@ defmodule AWS.Rekognition do
   Developer Guide.
   """
   def start_celebrity_recognition(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartCelebrityRecognition", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartCelebrityRecognition", input, options)
   end
 
   @doc """
@@ -1571,7 +1667,9 @@ defmodule AWS.Rekognition do
   Guide.
   """
   def start_content_moderation(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartContentModeration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartContentModeration", input, options)
   end
 
   @doc """
@@ -1591,7 +1689,9 @@ defmodule AWS.Rekognition do
   Rekognition Developer Guide.
   """
   def start_face_detection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartFaceDetection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartFaceDetection", input, options)
   end
 
   @doc """
@@ -1609,7 +1709,9 @@ defmodule AWS.Rekognition do
   `StartFaceSearch`. For more information, see [Searching stored videos for faces](https://docs.aws.amazon.com/rekognition/latest/dg/procedure-person-search-videos.html).
   """
   def start_face_search(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartFaceSearch", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartFaceSearch", input, options)
   end
 
   @doc """
@@ -1634,7 +1736,9 @@ defmodule AWS.Rekognition do
   to `StartLabelDetection`.
   """
   def start_label_detection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartLabelDetection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartLabelDetection", input, options)
   end
 
   @doc """
@@ -1653,7 +1757,9 @@ defmodule AWS.Rekognition do
   to `StartPersonTracking`.
   """
   def start_person_tracking(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartPersonTracking", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartPersonTracking", input, options)
   end
 
   @doc """
@@ -1675,7 +1781,9 @@ defmodule AWS.Rekognition do
   `rekognition:StartProjectVersion` action.
   """
   def start_project_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartProjectVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartProjectVersion", input, options)
   end
 
   @doc """
@@ -1703,7 +1811,9 @@ defmodule AWS.Rekognition do
   Rekognition Developer Guide.
   """
   def start_segment_detection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartSegmentDetection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartSegmentDetection", input, options)
   end
 
   @doc """
@@ -1718,7 +1828,9 @@ defmodule AWS.Rekognition do
   the stream processing time.
   """
   def start_stream_processor(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartStreamProcessor", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartStreamProcessor", input, options)
   end
 
   @doc """
@@ -1737,7 +1849,9 @@ defmodule AWS.Rekognition do
   to `StartTextDetection`.
   """
   def start_text_detection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartTextDetection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartTextDetection", input, options)
   end
 
   @doc """
@@ -1747,14 +1861,18 @@ defmodule AWS.Rekognition do
   `DescribeProjectVersions`.
   """
   def stop_project_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopProjectVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopProjectVersion", input, options)
   end
 
   @doc """
   Stops a running stream processor that was created by `CreateStreamProcessor`.
   """
   def stop_stream_processor(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopStreamProcessor", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopStreamProcessor", input, options)
   end
 
   @doc """
@@ -1767,7 +1885,9 @@ defmodule AWS.Rekognition do
   action.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -1778,7 +1898,9 @@ defmodule AWS.Rekognition do
   action.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -1813,7 +1935,9 @@ defmodule AWS.Rekognition do
   `rekognition:UpdateDatasetEntries` action.
   """
   def update_dataset_entries(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateDatasetEntries", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDatasetEntries", input, options)
   end
 
   @doc """
@@ -1823,6 +1947,8 @@ defmodule AWS.Rekognition do
   parameters.
   """
   def update_stream_processor(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateStreamProcessor", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateStreamProcessor", input, options)
   end
 end

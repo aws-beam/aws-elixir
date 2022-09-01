@@ -94,7 +94,9 @@ defmodule AWS.CodeStarConnections do
   is completed from the console.
   """
   def create_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateConnection", input, options)
   end
 
   @doc """
@@ -109,14 +111,18 @@ defmodule AWS.CodeStarConnections do
   can make its status `AVAILABLE` by setting up the host in the console.
   """
   def create_host(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateHost", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateHost", input, options)
   end
 
   @doc """
   The connection to be deleted.
   """
   def delete_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteConnection", input, options)
   end
 
   @doc """
@@ -129,14 +135,18 @@ defmodule AWS.CodeStarConnections do
   VPC_CONFIG_DELETING state.
   """
   def delete_host(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteHost", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteHost", input, options)
   end
 
   @doc """
   Returns the connection ARN and details such as status, owner, and provider type.
   """
   def get_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetConnection", input, options)
   end
 
   @doc """
@@ -144,28 +154,36 @@ defmodule AWS.CodeStarConnections do
   if applicable, the VPC configuration.
   """
   def get_host(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetHost", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetHost", input, options)
   end
 
   @doc """
   Lists the connections associated with your account.
   """
   def list_connections(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListConnections", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListConnections", input, options)
   end
 
   @doc """
   Lists the hosts associated with your account.
   """
   def list_hosts(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListHosts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListHosts", input, options)
   end
 
   @doc """
   Gets the set of key-value pairs (metadata) that are used to manage the resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -174,20 +192,26 @@ defmodule AWS.CodeStarConnections do
   Tags are metadata that can be used to manage a resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes tags from an AWS resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
   Updates a specified host with the provided configurations.
   """
   def update_host(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateHost", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateHost", input, options)
   end
 end

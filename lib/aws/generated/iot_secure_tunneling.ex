@@ -41,7 +41,9 @@ defmodule AWS.IoTSecureTunneling do
   action.
   """
   def close_tunnel(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CloseTunnel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CloseTunnel", input, options)
   end
 
   @doc """
@@ -52,14 +54,18 @@ defmodule AWS.IoTSecureTunneling do
   action.
   """
   def describe_tunnel(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTunnel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTunnel", input, options)
   end
 
   @doc """
   Lists the tags for the specified resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -73,7 +79,9 @@ defmodule AWS.IoTSecureTunneling do
   action.
   """
   def list_tunnels(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTunnels", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTunnels", input, options)
   end
 
   @doc """
@@ -85,7 +93,9 @@ defmodule AWS.IoTSecureTunneling do
   action.
   """
   def open_tunnel(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "OpenTunnel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "OpenTunnel", input, options)
   end
 
   @doc """
@@ -102,20 +112,26 @@ defmodule AWS.IoTSecureTunneling do
   the remaining 8 hours.
   """
   def rotate_tunnel_access_token(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RotateTunnelAccessToken", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RotateTunnelAccessToken", input, options)
   end
 
   @doc """
   A resource tag.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes a tag from a resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 end

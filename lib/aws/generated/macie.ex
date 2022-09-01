@@ -39,7 +39,9 @@ defmodule AWS.Macie do
   Macie Classic as a member account.
   """
   def associate_member_account(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateMemberAccount", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateMemberAccount", input, options)
   end
 
   @doc """
@@ -52,14 +54,18 @@ defmodule AWS.Macie do
   resources with Macie Classic for the specified member account.
   """
   def associate_s3_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateS3Resources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateS3Resources", input, options)
   end
 
   @doc """
   (Discontinued) Removes the specified member account from Amazon Macie Classic.
   """
   def disassociate_member_account(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateMemberAccount", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateMemberAccount", input, options)
   end
 
   @doc """
@@ -72,7 +78,9 @@ defmodule AWS.Macie do
   Macie Classic for the specified member account.
   """
   def disassociate_s3_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateS3Resources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateS3Resources", input, options)
   end
 
   @doc """
@@ -80,7 +88,9 @@ defmodule AWS.Macie do
   Macie Classic administrator account.
   """
   def list_member_accounts(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListMemberAccounts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMemberAccounts", input, options)
   end
 
   @doc """
@@ -92,7 +102,9 @@ defmodule AWS.Macie do
   associated with Macie Classic for the specified member account.
   """
   def list_s3_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListS3Resources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListS3Resources", input, options)
   end
 
   @doc """
@@ -105,6 +117,8 @@ defmodule AWS.Macie do
   Macie Classic for the specified member account.
   """
   def update_s3_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateS3Resources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateS3Resources", input, options)
   end
 end

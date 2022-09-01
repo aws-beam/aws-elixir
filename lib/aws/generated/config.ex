@@ -60,7 +60,9 @@ defmodule AWS.Config do
      The API does not return tags and relationships.
   """
   def batch_get_aggregate_resource_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchGetAggregateResourceConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetAggregateResourceConfig", input, options)
   end
 
   @doc """
@@ -77,7 +79,9 @@ defmodule AWS.Config do
   response.
   """
   def batch_get_resource_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchGetResourceConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetResourceConfig", input, options)
   end
 
   @doc """
@@ -85,7 +89,9 @@ defmodule AWS.Config do
   account in a specified region.
   """
   def delete_aggregation_authorization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAggregationAuthorization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAggregationAuthorization", input, options)
   end
 
   @doc """
@@ -99,7 +105,9 @@ defmodule AWS.Config do
   You can check the state of a rule by using the `DescribeConfigRules` request.
   """
   def delete_config_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteConfigRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteConfigRule", input, options)
   end
 
   @doc """
@@ -107,7 +115,9 @@ defmodule AWS.Config do
   associated with the aggregator.
   """
   def delete_configuration_aggregator(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteConfigurationAggregator", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteConfigurationAggregator", input, options)
   end
 
   @doc """
@@ -123,7 +133,9 @@ defmodule AWS.Config do
   recorder.
   """
   def delete_configuration_recorder(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteConfigurationRecorder", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteConfigurationRecorder", input, options)
   end
 
   @doc """
@@ -134,7 +146,9 @@ defmodule AWS.Config do
   complete. You cannot update a conformance pack while it is in this state.
   """
   def delete_conformance_pack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteConformancePack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteConformancePack", input, options)
   end
 
   @doc """
@@ -144,7 +158,9 @@ defmodule AWS.Config do
   recorder by using the `StopConfigurationRecorder` action.
   """
   def delete_delivery_channel(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDeliveryChannel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDeliveryChannel", input, options)
   end
 
   @doc """
@@ -155,7 +171,9 @@ defmodule AWS.Config do
   your Amazon Web Services resources against the rule.
   """
   def delete_evaluation_results(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEvaluationResults", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEvaluationResults", input, options)
   end
 
   @doc """
@@ -171,7 +189,9 @@ defmodule AWS.Config do
   complete. You cannot update a rule while it is in this state.
   """
   def delete_organization_config_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteOrganizationConfigRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteOrganizationConfigRule", input, options)
   end
 
   @doc """
@@ -188,7 +208,9 @@ defmodule AWS.Config do
   state.
   """
   def delete_organization_conformance_pack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteOrganizationConformancePack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteOrganizationConformancePack", input, options)
   end
 
   @doc """
@@ -196,14 +218,18 @@ defmodule AWS.Config do
   specified region.
   """
   def delete_pending_aggregation_request(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeletePendingAggregationRequest", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePendingAggregationRequest", input, options)
   end
 
   @doc """
   Deletes the remediation configuration.
   """
   def delete_remediation_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteRemediationConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRemediationConfiguration", input, options)
   end
 
   @doc """
@@ -214,7 +240,9 @@ defmodule AWS.Config do
   auto-remediation until the exception is cleared.
   """
   def delete_remediation_exceptions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteRemediationExceptions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRemediationExceptions", input, options)
   end
 
   @doc """
@@ -225,14 +253,18 @@ defmodule AWS.Config do
   History.
   """
   def delete_resource_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteResourceConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteResourceConfig", input, options)
   end
 
   @doc """
   Deletes the retention configuration.
   """
   def delete_retention_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteRetentionConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRetentionConfiguration", input, options)
   end
 
   @doc """
@@ -240,7 +272,9 @@ defmodule AWS.Config do
   Amazon Web Services Region.
   """
   def delete_stored_query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteStoredQuery", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteStoredQuery", input, options)
   end
 
   @doc """
@@ -258,7 +292,9 @@ defmodule AWS.Config do
     * Notification of delivery failure, if the delivery failed.
   """
   def deliver_config_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeliverConfigSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeliverConfigSnapshot", input, options)
   end
 
   @doc """
@@ -271,13 +307,9 @@ defmodule AWS.Config do
   results are displayed on the next page.
   """
   def describe_aggregate_compliance_by_config_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeAggregateComplianceByConfigRules",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAggregateComplianceByConfigRules", input, options)
   end
 
   @doc """
@@ -292,9 +324,11 @@ defmodule AWS.Config do
   results are displayed on the next page.
   """
   def describe_aggregate_compliance_by_conformance_packs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "DescribeAggregateComplianceByConformancePacks",
       input,
       options
@@ -306,7 +340,9 @@ defmodule AWS.Config do
   regions.
   """
   def describe_aggregation_authorizations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAggregationAuthorizations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAggregationAuthorizations", input, options)
   end
 
   @doc """
@@ -336,7 +372,9 @@ defmodule AWS.Config do
   the rule's scope.
   """
   def describe_compliance_by_config_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeComplianceByConfigRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeComplianceByConfigRule", input, options)
   end
 
   @doc """
@@ -367,7 +405,9 @@ defmodule AWS.Config do
   the rule's scope.
   """
   def describe_compliance_by_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeComplianceByResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeComplianceByResource", input, options)
   end
 
   @doc """
@@ -378,14 +418,18 @@ defmodule AWS.Config do
   last failure.
   """
   def describe_config_rule_evaluation_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeConfigRuleEvaluationStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConfigRuleEvaluationStatus", input, options)
   end
 
   @doc """
   Returns details about your Config rules.
   """
   def describe_config_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeConfigRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConfigRules", input, options)
   end
 
   @doc """
@@ -396,9 +440,11 @@ defmodule AWS.Config do
   failure, the status contains the related error code or message.
   """
   def describe_configuration_aggregator_sources_status(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "DescribeConfigurationAggregatorSourcesStatus",
       input,
       options
@@ -412,7 +458,9 @@ defmodule AWS.Config do
   details for all the configuration aggregators associated with the account.
   """
   def describe_configuration_aggregators(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeConfigurationAggregators", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConfigurationAggregators", input, options)
   end
 
   @doc """
@@ -425,13 +473,9 @@ defmodule AWS.Config do
   account.
   """
   def describe_configuration_recorder_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeConfigurationRecorderStatus",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConfigurationRecorderStatus", input, options)
   end
 
   @doc """
@@ -444,7 +488,9 @@ defmodule AWS.Config do
   account.
   """
   def describe_configuration_recorders(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeConfigurationRecorders", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConfigurationRecorders", input, options)
   end
 
   @doc """
@@ -453,7 +499,9 @@ defmodule AWS.Config do
   You must provide exact rule names.
   """
   def describe_conformance_pack_compliance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeConformancePackCompliance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConformancePackCompliance", input, options)
   end
 
   @doc """
@@ -462,14 +510,18 @@ defmodule AWS.Config do
   If there are no conformance packs then you will see an empty result.
   """
   def describe_conformance_pack_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeConformancePackStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConformancePackStatus", input, options)
   end
 
   @doc """
   Returns a list of one or more conformance packs.
   """
   def describe_conformance_packs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeConformancePacks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConformancePacks", input, options)
   end
 
   @doc """
@@ -481,7 +533,9 @@ defmodule AWS.Config do
   Currently, you can specify only one delivery channel per region in your account.
   """
   def describe_delivery_channel_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDeliveryChannelStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDeliveryChannelStatus", input, options)
   end
 
   @doc """
@@ -493,7 +547,9 @@ defmodule AWS.Config do
   Currently, you can specify only one delivery channel per region in your account.
   """
   def describe_delivery_channels(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDeliveryChannels", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDeliveryChannels", input, options)
   end
 
   @doc """
@@ -509,13 +565,9 @@ defmodule AWS.Config do
   rules.
   """
   def describe_organization_config_rule_statuses(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeOrganizationConfigRuleStatuses",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeOrganizationConfigRuleStatuses", input, options)
   end
 
   @doc """
@@ -541,7 +593,9 @@ defmodule AWS.Config do
   deployed from within the account calling those APIs.
   """
   def describe_organization_config_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeOrganizationConfigRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeOrganizationConfigRules", input, options)
   end
 
   @doc """
@@ -557,9 +611,11 @@ defmodule AWS.Config do
   conformance packs.
   """
   def describe_organization_conformance_pack_statuses(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "DescribeOrganizationConformancePackStatuses",
       input,
       options
@@ -589,27 +645,27 @@ defmodule AWS.Config do
   deployed from within the account calling those APIs.
   """
   def describe_organization_conformance_packs(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeOrganizationConformancePacks",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeOrganizationConformancePacks", input, options)
   end
 
   @doc """
   Returns a list of all pending aggregation requests.
   """
   def describe_pending_aggregation_requests(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePendingAggregationRequests", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePendingAggregationRequests", input, options)
   end
 
   @doc """
   Returns the details of one or more remediation configurations.
   """
   def describe_remediation_configurations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRemediationConfigurations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRemediationConfigurations", input, options)
   end
 
   @doc """
@@ -629,7 +685,9 @@ defmodule AWS.Config do
   only applicable, when you request all resources.
   """
   def describe_remediation_exceptions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRemediationExceptions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRemediationExceptions", input, options)
   end
 
   @doc """
@@ -640,7 +698,9 @@ defmodule AWS.Config do
   When you specify the limit and the next token, you receive a paginated response.
   """
   def describe_remediation_execution_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRemediationExecutionStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRemediationExecutionStatus", input, options)
   end
 
   @doc """
@@ -653,7 +713,9 @@ defmodule AWS.Config do
   account.
   """
   def describe_retention_configurations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRetentionConfigurations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRetentionConfigurations", input, options)
   end
 
   @doc """
@@ -668,9 +730,11 @@ defmodule AWS.Config do
   results are displayed on the next page.
   """
   def get_aggregate_compliance_details_by_config_rule(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "GetAggregateComplianceDetailsByConfigRule",
       input,
       options
@@ -685,13 +749,9 @@ defmodule AWS.Config do
   results are displayed on the next page.
   """
   def get_aggregate_config_rule_compliance_summary(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "GetAggregateConfigRuleComplianceSummary",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAggregateConfigRuleComplianceSummary", input, options)
   end
 
   @doc """
@@ -705,9 +765,11 @@ defmodule AWS.Config do
   results are displayed on the next page.
   """
   def get_aggregate_conformance_pack_compliance_summary(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "GetAggregateConformancePackComplianceSummary",
       input,
       options
@@ -727,13 +789,9 @@ defmodule AWS.Config do
   aggregator.
   """
   def get_aggregate_discovered_resource_counts(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "GetAggregateDiscoveredResourceCounts",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAggregateDiscoveredResourceCounts", input, options)
   end
 
   @doc """
@@ -741,7 +799,9 @@ defmodule AWS.Config do
   specific source account and region.
   """
   def get_aggregate_resource_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAggregateResourceConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAggregateResourceConfig", input, options)
   end
 
   @doc """
@@ -752,7 +812,9 @@ defmodule AWS.Config do
   with the rule.
   """
   def get_compliance_details_by_config_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetComplianceDetailsByConfigRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetComplianceDetailsByConfigRule", input, options)
   end
 
   @doc """
@@ -762,7 +824,9 @@ defmodule AWS.Config do
   each rule was last used, and whether the resource complies with each rule.
   """
   def get_compliance_details_by_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetComplianceDetailsByResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetComplianceDetailsByResource", input, options)
   end
 
   @doc """
@@ -770,7 +834,9 @@ defmodule AWS.Config do
   maximum of 25 for each.
   """
   def get_compliance_summary_by_config_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetComplianceSummaryByConfigRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetComplianceSummaryByConfigRule", input, options)
   end
 
   @doc """
@@ -781,7 +847,9 @@ defmodule AWS.Config do
   resource type. The maximum number returned is 100.
   """
   def get_compliance_summary_by_resource_type(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetComplianceSummaryByResourceType", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetComplianceSummaryByResourceType", input, options)
   end
 
   @doc """
@@ -789,13 +857,9 @@ defmodule AWS.Config do
   resources that are monitered by conformance pack.
   """
   def get_conformance_pack_compliance_details(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "GetConformancePackComplianceDetails",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetConformancePackComplianceDetails", input, options)
   end
 
   @doc """
@@ -803,13 +867,9 @@ defmodule AWS.Config do
   compliance results of all the rules in that conformance pack.
   """
   def get_conformance_pack_compliance_summary(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "GetConformancePackComplianceSummary",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetConformancePackComplianceSummary", input, options)
   end
 
   @doc """
@@ -817,7 +877,9 @@ defmodule AWS.Config do
   rule.
   """
   def get_custom_rule_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCustomRulePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCustomRulePolicy", input, options)
   end
 
   @doc """
@@ -858,7 +920,9 @@ defmodule AWS.Config do
   a few minutes and then retry the `GetDiscoveredResourceCounts` action.
   """
   def get_discovered_resource_counts(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDiscoveredResourceCounts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDiscoveredResourceCounts", input, options)
   end
 
   @doc """
@@ -866,13 +930,9 @@ defmodule AWS.Config do
   given organization Config rule.
   """
   def get_organization_config_rule_detailed_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "GetOrganizationConfigRuleDetailedStatus",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetOrganizationConfigRuleDetailedStatus", input, options)
   end
 
   @doc """
@@ -880,9 +940,11 @@ defmodule AWS.Config do
   given organization conformance pack.
   """
   def get_organization_conformance_pack_detailed_status(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "GetOrganizationConformancePackDetailedStatus",
       input,
       options
@@ -894,7 +956,9 @@ defmodule AWS.Config do
   Custom Policy rule.
   """
   def get_organization_custom_rule_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetOrganizationCustomRulePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetOrganizationCustomRulePolicy", input, options)
   end
 
   @doc """
@@ -917,14 +981,18 @@ defmodule AWS.Config do
   such cases, you can make another call, using the `nextToken`.
   """
   def get_resource_config_history(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetResourceConfigHistory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResourceConfigHistory", input, options)
   end
 
   @doc """
   Returns the details of a specific stored query.
   """
   def get_stored_query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetStoredQuery", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetStoredQuery", input, options)
   end
 
   @doc """
@@ -941,7 +1009,9 @@ defmodule AWS.Config do
   EC2 instance identifiers of accountID 12345678910 and region us-east-1.
   """
   def list_aggregate_discovered_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAggregateDiscoveredResources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAggregateDiscoveredResources", input, options)
   end
 
   @doc """
@@ -958,13 +1028,9 @@ defmodule AWS.Config do
   `INSUFFICIENT_DATA`.
   """
   def list_conformance_pack_compliance_scores(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ListConformancePackComplianceScores",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListConformancePackComplianceScores", input, options)
   end
 
   @doc """
@@ -986,7 +1052,9 @@ defmodule AWS.Config do
   request again and specify the string for the `nextToken` parameter.
   """
   def list_discovered_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDiscoveredResources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDiscoveredResources", input, options)
   end
 
   @doc """
@@ -996,14 +1064,18 @@ defmodule AWS.Config do
   The default is 100.
   """
   def list_stored_queries(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListStoredQueries", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStoredQueries", input, options)
   end
 
   @doc """
   List the tags for Config resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -1011,7 +1083,9 @@ defmodule AWS.Config do
   account and region.
   """
   def put_aggregation_authorization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutAggregationAuthorization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutAggregationAuthorization", input, options)
   end
 
   @doc """
@@ -1056,7 +1130,9 @@ defmodule AWS.Config do
   in the *Config Developer Guide*.
   """
   def put_config_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutConfigRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutConfigRule", input, options)
   end
 
   @doc """
@@ -1084,7 +1160,9 @@ defmodule AWS.Config do
   in the *Config developer guide*.
   """
   def put_configuration_aggregator(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutConfigurationAggregator", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutConfigurationAggregator", input, options)
   end
 
   @doc """
@@ -1102,7 +1180,9 @@ defmodule AWS.Config do
   specified, the default is to record all supported resource types.
   """
   def put_configuration_recorder(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutConfigurationRecorder", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutConfigurationRecorder", input, options)
   end
 
   @doc """
@@ -1123,7 +1203,9 @@ defmodule AWS.Config do
   `TemplateSSMDocumentDetails` parameters.
   """
   def put_conformance_pack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutConformancePack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutConformancePack", input, options)
   end
 
   @doc """
@@ -1143,7 +1225,9 @@ defmodule AWS.Config do
   You can have only one delivery channel per region in your account.
   """
   def put_delivery_channel(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutDeliveryChannel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutDeliveryChannel", input, options)
   end
 
   @doc """
@@ -1153,7 +1237,9 @@ defmodule AWS.Config do
   rule.
   """
   def put_evaluations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutEvaluations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutEvaluations", input, options)
   end
 
   @doc """
@@ -1163,7 +1249,9 @@ defmodule AWS.Config do
   is provided.
   """
   def put_external_evaluation(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutExternalEvaluation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutExternalEvaluation", input, options)
   end
 
   @doc """
@@ -1219,7 +1307,9 @@ defmodule AWS.Config do
   or `OrganizationManagedRuleMetadata` for managed rules.
   """
   def put_organization_config_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutOrganizationConfigRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutOrganizationConfigRule", input, options)
   end
 
   @doc """
@@ -1258,7 +1348,9 @@ defmodule AWS.Config do
   update a conformance pack while it is in this state.
   """
   def put_organization_conformance_pack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutOrganizationConformancePack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutOrganizationConformancePack", input, options)
   end
 
   @doc """
@@ -1286,7 +1378,9 @@ defmodule AWS.Config do
   `AutomationAssumeRole` to remediate your resources.
   """
   def put_remediation_configurations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutRemediationConfigurations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutRemediationConfigurations", input, options)
   end
 
   @doc """
@@ -1301,7 +1395,9 @@ defmodule AWS.Config do
   auto-remediation until the exception is cleared.
   """
   def put_remediation_exceptions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutRemediationExceptions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutRemediationExceptions", input, options)
   end
 
   @doc """
@@ -1322,7 +1418,9 @@ defmodule AWS.Config do
   configuration item.
   """
   def put_resource_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutResourceConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutResourceConfig", input, options)
   end
 
   @doc """
@@ -1337,7 +1435,9 @@ defmodule AWS.Config do
   account.
   """
   def put_retention_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutRetentionConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutRetentionConfiguration", input, options)
   end
 
   @doc """
@@ -1348,7 +1448,9 @@ defmodule AWS.Config do
   Amazon Web Services account and a single Amazon Web Services Region.
   """
   def put_stored_query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutStoredQuery", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutStoredQuery", input, options)
   end
 
   @doc """
@@ -1372,7 +1474,9 @@ defmodule AWS.Config do
   is set to 25.
   """
   def select_aggregate_resource_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SelectAggregateResourceConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SelectAggregateResourceConfig", input, options)
   end
 
   @doc """
@@ -1385,7 +1489,9 @@ defmodule AWS.Config do
   section in the *Config Developer Guide*.
   """
   def select_resource_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SelectResourceConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SelectResourceConfig", input, options)
   end
 
   @doc """
@@ -1427,7 +1533,9 @@ defmodule AWS.Config do
   hours.
   """
   def start_config_rules_evaluation(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartConfigRulesEvaluation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartConfigRulesEvaluation", input, options)
   end
 
   @doc """
@@ -1438,7 +1546,9 @@ defmodule AWS.Config do
   configuration recorder.
   """
   def start_configuration_recorder(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartConfigurationRecorder", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartConfigurationRecorder", input, options)
   end
 
   @doc """
@@ -1453,7 +1563,9 @@ defmodule AWS.Config do
   before you can call the API again.
   """
   def start_remediation_execution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartRemediationExecution", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartRemediationExecution", input, options)
   end
 
   @doc """
@@ -1461,7 +1573,9 @@ defmodule AWS.Config do
   selected to record in your Amazon Web Services account.
   """
   def stop_configuration_recorder(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopConfigurationRecorder", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopConfigurationRecorder", input, options)
   end
 
   @doc """
@@ -1472,13 +1586,17 @@ defmodule AWS.Config do
   resource are deleted as well.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Deletes specified tags from a resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 end

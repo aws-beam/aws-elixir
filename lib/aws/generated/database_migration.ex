@@ -48,7 +48,9 @@ defmodule AWS.DatabaseMigration do
   description.
   """
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddTagsToResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
 
   @doc """
@@ -56,7 +58,9 @@ defmodule AWS.DatabaseMigration do
   replication instance).
   """
   def apply_pending_maintenance_action(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ApplyPendingMaintenanceAction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ApplyPendingMaintenanceAction", input, options)
   end
 
   @doc """
@@ -67,7 +71,9 @@ defmodule AWS.DatabaseMigration do
   currently running.
   """
   def cancel_replication_task_assessment_run(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelReplicationTaskAssessmentRun", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelReplicationTaskAssessmentRun", input, options)
   end
 
   @doc """
@@ -81,7 +87,9 @@ defmodule AWS.DatabaseMigration do
   task.
   """
   def create_endpoint(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateEndpoint", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEndpoint", input, options)
   end
 
   @doc """
@@ -103,14 +111,18 @@ defmodule AWS.DatabaseMigration do
   in the *Database Migration Service User Guide.*
   """
   def create_event_subscription(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateEventSubscription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEventSubscription", input, options)
   end
 
   @doc """
   Creates a Fleet Advisor collector using the specified parameters.
   """
   def create_fleet_advisor_collector(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateFleetAdvisorCollector", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFleetAdvisorCollector", input, options)
   end
 
   @doc """
@@ -122,7 +134,9 @@ defmodule AWS.DatabaseMigration do
   For information on the required permissions, see [IAM Permissions Needed to Use DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions).
   """
   def create_replication_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateReplicationInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateReplicationInstance", input, options)
   end
 
   @doc """
@@ -133,28 +147,36 @@ defmodule AWS.DatabaseMigration do
   `ReplicationSubnetGroupDoesNotCoverEnoughAZs` exception.
   """
   def create_replication_subnet_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateReplicationSubnetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateReplicationSubnetGroup", input, options)
   end
 
   @doc """
   Creates a replication task using the specified parameters.
   """
   def create_replication_task(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateReplicationTask", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateReplicationTask", input, options)
   end
 
   @doc """
   Deletes the specified certificate.
   """
   def delete_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCertificate", input, options)
   end
 
   @doc """
   Deletes the connection between a replication instance and an endpoint.
   """
   def delete_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteConnection", input, options)
   end
 
   @doc """
@@ -164,28 +186,36 @@ defmodule AWS.DatabaseMigration do
   endpoint.
   """
   def delete_endpoint(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEndpoint", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEndpoint", input, options)
   end
 
   @doc """
   Deletes an DMS event subscription.
   """
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEventSubscription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEventSubscription", input, options)
   end
 
   @doc """
   Deletes the specified Fleet Advisor collector.
   """
   def delete_fleet_advisor_collector(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteFleetAdvisorCollector", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFleetAdvisorCollector", input, options)
   end
 
   @doc """
   Deletes the specified Fleet Advisor collector databases.
   """
   def delete_fleet_advisor_databases(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteFleetAdvisorDatabases", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFleetAdvisorDatabases", input, options)
   end
 
   @doc """
@@ -195,21 +225,27 @@ defmodule AWS.DatabaseMigration do
   instance before you can delete it.
   """
   def delete_replication_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteReplicationInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteReplicationInstance", input, options)
   end
 
   @doc """
   Deletes a subnet group.
   """
   def delete_replication_subnet_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteReplicationSubnetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteReplicationSubnetGroup", input, options)
   end
 
   @doc """
   Deletes the specified replication task.
   """
   def delete_replication_task(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteReplicationTask", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteReplicationTask", input, options)
   end
 
   @doc """
@@ -220,7 +256,9 @@ defmodule AWS.DatabaseMigration do
   assessment run that is stored in your Amazon S3 bucket.
   """
   def delete_replication_task_assessment_run(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteReplicationTaskAssessmentRun", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteReplicationTaskAssessmentRun", input, options)
   end
 
   @doc """
@@ -236,7 +274,9 @@ defmodule AWS.DatabaseMigration do
   This command does not take any parameters.
   """
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAccountAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
   end
 
   @doc """
@@ -263,20 +303,18 @@ defmodule AWS.DatabaseMigration do
   assessments that you can specify in an assessment run for the task.
   """
   def describe_applicable_individual_assessments(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeApplicableIndividualAssessments",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeApplicableIndividualAssessments", input, options)
   end
 
   @doc """
   Provides a description of the certificate.
   """
   def describe_certificates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCertificates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCertificates", input, options)
   end
 
   @doc """
@@ -286,7 +324,9 @@ defmodule AWS.DatabaseMigration do
   Connections are created when you test an endpoint.
   """
   def describe_connections(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeConnections", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConnections", input, options)
   end
 
   @doc """
@@ -294,21 +334,27 @@ defmodule AWS.DatabaseMigration do
   create an endpoint for a specific database engine.
   """
   def describe_endpoint_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEndpointSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEndpointSettings", input, options)
   end
 
   @doc """
   Returns information about the type of endpoints available.
   """
   def describe_endpoint_types(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEndpointTypes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEndpointTypes", input, options)
   end
 
   @doc """
   Returns information about the endpoints for your account in the current region.
   """
   def describe_endpoints(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEndpoints", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEndpoints", input, options)
   end
 
   @doc """
@@ -320,7 +366,9 @@ defmodule AWS.DatabaseMigration do
   in the *Database Migration Service User Guide.*
   """
   def describe_event_categories(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEventCategories", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEventCategories", input, options)
   end
 
   @doc """
@@ -333,7 +381,9 @@ defmodule AWS.DatabaseMigration do
   subscription.
   """
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEventSubscriptions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEventSubscriptions", input, options)
   end
 
   @doc """
@@ -344,21 +394,27 @@ defmodule AWS.DatabaseMigration do
   in the *Database Migration Service User Guide.*
   """
   def describe_events(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEvents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEvents", input, options)
   end
 
   @doc """
   Returns a list of the Fleet Advisor collectors in your account.
   """
   def describe_fleet_advisor_collectors(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFleetAdvisorCollectors", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFleetAdvisorCollectors", input, options)
   end
 
   @doc """
   Returns a list of Fleet Advisor databases in your account.
   """
   def describe_fleet_advisor_databases(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFleetAdvisorDatabases", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFleetAdvisorDatabases", input, options)
   end
 
   @doc """
@@ -366,7 +422,9 @@ defmodule AWS.DatabaseMigration do
   Fleet Advisor collectors.
   """
   def describe_fleet_advisor_lsa_analysis(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFleetAdvisorLsaAnalysis", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFleetAdvisorLsaAnalysis", input, options)
   end
 
   @doc """
@@ -374,20 +432,18 @@ defmodule AWS.DatabaseMigration do
   collectors.
   """
   def describe_fleet_advisor_schema_object_summary(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeFleetAdvisorSchemaObjectSummary",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFleetAdvisorSchemaObjectSummary", input, options)
   end
 
   @doc """
   Returns a list of schemas detected by Fleet Advisor Collectors in your account.
   """
   def describe_fleet_advisor_schemas(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFleetAdvisorSchemas", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFleetAdvisorSchemas", input, options)
   end
 
   @doc """
@@ -395,40 +451,36 @@ defmodule AWS.DatabaseMigration do
   the specified region.
   """
   def describe_orderable_replication_instances(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeOrderableReplicationInstances",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeOrderableReplicationInstances", input, options)
   end
 
   @doc """
   For internal use only
   """
   def describe_pending_maintenance_actions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePendingMaintenanceActions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePendingMaintenanceActions", input, options)
   end
 
   @doc """
   Returns the status of the RefreshSchemas operation.
   """
   def describe_refresh_schemas_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRefreshSchemasStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRefreshSchemasStatus", input, options)
   end
 
   @doc """
   Returns information about the task logs for the specified task.
   """
   def describe_replication_instance_task_logs(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeReplicationInstanceTaskLogs",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReplicationInstanceTaskLogs", input, options)
   end
 
   @doc """
@@ -436,14 +488,18 @@ defmodule AWS.DatabaseMigration do
   region.
   """
   def describe_replication_instances(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeReplicationInstances", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReplicationInstances", input, options)
   end
 
   @doc """
   Returns information about the replication subnet groups.
   """
   def describe_replication_subnet_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeReplicationSubnetGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReplicationSubnetGroups", input, options)
   end
 
   @doc """
@@ -456,13 +512,9 @@ defmodule AWS.DatabaseMigration do
   in the *Database Migration Service User Guide*.
   """
   def describe_replication_task_assessment_results(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeReplicationTaskAssessmentResults",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReplicationTaskAssessmentResults", input, options)
   end
 
   @doc """
@@ -476,13 +528,9 @@ defmodule AWS.DatabaseMigration do
   information, see the `DescribeReplicationTaskIndividualAssessments` operation.
   """
   def describe_replication_task_assessment_runs(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeReplicationTaskAssessmentRuns",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReplicationTaskAssessmentRuns", input, options)
   end
 
   @doc """
@@ -492,9 +540,11 @@ defmodule AWS.DatabaseMigration do
   migration tasks, and assessment status values.
   """
   def describe_replication_task_individual_assessments(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "DescribeReplicationTaskIndividualAssessments",
       input,
       options
@@ -506,14 +556,18 @@ defmodule AWS.DatabaseMigration do
   region.
   """
   def describe_replication_tasks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeReplicationTasks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReplicationTasks", input, options)
   end
 
   @doc """
   Returns information about the schema for the specified endpoint.
   """
   def describe_schemas(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSchemas", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSchemas", input, options)
   end
 
   @doc """
@@ -525,14 +579,18 @@ defmodule AWS.DatabaseMigration do
   the time of the last update to the table.
   """
   def describe_table_statistics(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTableStatistics", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTableStatistics", input, options)
   end
 
   @doc """
   Uploads the specified certificate.
   """
   def import_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ImportCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportCertificate", input, options)
   end
 
   @doc """
@@ -544,7 +602,9 @@ defmodule AWS.DatabaseMigration do
   description.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -558,14 +618,18 @@ defmodule AWS.DatabaseMigration do
   task.
   """
   def modify_endpoint(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyEndpoint", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyEndpoint", input, options)
   end
 
   @doc """
   Modifies an existing DMS event notification subscription.
   """
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyEventSubscription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyEventSubscription", input, options)
   end
 
   @doc """
@@ -577,14 +641,18 @@ defmodule AWS.DatabaseMigration do
   Some settings are applied during the maintenance window.
   """
   def modify_replication_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyReplicationInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyReplicationInstance", input, options)
   end
 
   @doc """
   Modifies the settings for the specified replication subnet group.
   """
   def modify_replication_subnet_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyReplicationSubnetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyReplicationSubnetGroup", input, options)
   end
 
   @doc """
@@ -597,7 +665,9 @@ defmodule AWS.DatabaseMigration do
   *Database Migration Service User Guide*.
   """
   def modify_replication_task(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyReplicationTask", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyReplicationTask", input, options)
   end
 
   @doc """
@@ -608,7 +678,9 @@ defmodule AWS.DatabaseMigration do
   version as the current replication instance.
   """
   def move_replication_task(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "MoveReplicationTask", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "MoveReplicationTask", input, options)
   end
 
   @doc """
@@ -618,7 +690,9 @@ defmodule AWS.DatabaseMigration do
   available again.
   """
   def reboot_replication_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RebootReplicationInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RebootReplicationInstance", input, options)
   end
 
   @doc """
@@ -629,7 +703,9 @@ defmodule AWS.DatabaseMigration do
   operation.
   """
   def refresh_schemas(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RefreshSchemas", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RefreshSchemas", input, options)
   end
 
   @doc """
@@ -639,7 +715,9 @@ defmodule AWS.DatabaseMigration do
   the service will throw an `InvalidResourceStateFault` exception.
   """
   def reload_tables(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ReloadTables", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ReloadTables", input, options)
   end
 
   @doc """
@@ -651,7 +729,9 @@ defmodule AWS.DatabaseMigration do
   description.
   """
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveTagsFromResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
 
   @doc """
@@ -659,7 +739,9 @@ defmodule AWS.DatabaseMigration do
   your account.
   """
   def run_fleet_advisor_lsa_analysis(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RunFleetAdvisorLsaAnalysis", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RunFleetAdvisorLsaAnalysis", input, options)
   end
 
   @doc """
@@ -670,7 +752,9 @@ defmodule AWS.DatabaseMigration do
   *Database Migration Service User Guide.*
   """
   def start_replication_task(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartReplicationTask", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartReplicationTask", input, options)
   end
 
   @doc """
@@ -691,7 +775,9 @@ defmodule AWS.DatabaseMigration do
   in the *Database Migration Service User Guide*.
   """
   def start_replication_task_assessment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartReplicationTaskAssessment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartReplicationTaskAssessment", input, options)
   end
 
   @doc """
@@ -706,21 +792,27 @@ defmodule AWS.DatabaseMigration do
   complete.
   """
   def start_replication_task_assessment_run(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartReplicationTaskAssessmentRun", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartReplicationTaskAssessmentRun", input, options)
   end
 
   @doc """
   Stops the replication task.
   """
   def stop_replication_task(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopReplicationTask", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopReplicationTask", input, options)
   end
 
   @doc """
   Tests the connection between the replication instance and the endpoint.
   """
   def test_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TestConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TestConnection", input, options)
   end
 
   @doc """
@@ -741,6 +833,8 @@ defmodule AWS.DatabaseMigration do
   in the *Amazon Web Services Database Migration Service User Guide*.
   """
   def update_subscriptions_to_event_bridge(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateSubscriptionsToEventBridge", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSubscriptionsToEventBridge", input, options)
   end
 end

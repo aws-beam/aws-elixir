@@ -61,7 +61,9 @@ defmodule AWS.CloudFormation do
   in the *CloudFormation User Guide*.
   """
   def activate_type(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ActivateType", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ActivateType", input, options)
   end
 
   @doc """
@@ -72,7 +74,9 @@ defmodule AWS.CloudFormation do
   in the *CloudFormation User Guide*.
   """
   def batch_describe_type_configurations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchDescribeTypeConfigurations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchDescribeTypeConfigurations", input, options)
   end
 
   @doc """
@@ -84,7 +88,9 @@ defmodule AWS.CloudFormation do
   You can cancel only stacks that are in the `UPDATE_IN_PROGRESS` state.
   """
   def cancel_update_stack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelUpdateStack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelUpdateStack", input, options)
   end
 
   @doc """
@@ -104,7 +110,9 @@ defmodule AWS.CloudFormation do
   it, causing the update rollback to fail.
   """
   def continue_update_rollback(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ContinueUpdateRollback", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ContinueUpdateRollback", input, options)
   end
 
   @doc """
@@ -136,7 +144,9 @@ defmodule AWS.CloudFormation do
   to `True`.
   """
   def create_change_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateChangeSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateChangeSet", input, options)
   end
 
   @doc """
@@ -146,7 +156,9 @@ defmodule AWS.CloudFormation do
   the status of the stack through the `DescribeStacks`operation.
   """
   def create_stack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateStack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateStack", input, options)
   end
 
   @doc """
@@ -158,14 +170,18 @@ defmodule AWS.CloudFormation do
   must specify at least one value for `Regions`.
   """
   def create_stack_instances(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateStackInstances", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateStackInstances", input, options)
   end
 
   @doc """
   Creates a stack set.
   """
   def create_stack_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateStackSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateStackSet", input, options)
   end
 
   @doc """
@@ -179,7 +195,9 @@ defmodule AWS.CloudFormation do
   extension is released.
   """
   def deactivate_type(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeactivateType", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeactivateType", input, options)
   end
 
   @doc """
@@ -196,7 +214,9 @@ defmodule AWS.CloudFormation do
   the status of `REVIEW_IN_PROGRESS`.
   """
   def delete_change_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteChangeSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteChangeSet", input, options)
   end
 
   @doc """
@@ -207,7 +227,9 @@ defmodule AWS.CloudFormation do
   completed successfully.
   """
   def delete_stack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteStack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteStack", input, options)
   end
 
   @doc """
@@ -215,7 +237,9 @@ defmodule AWS.CloudFormation do
   Services Regions.
   """
   def delete_stack_instances(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteStackInstances", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteStackInstances", input, options)
   end
 
   @doc """
@@ -226,7 +250,9 @@ defmodule AWS.CloudFormation do
   `DeleteStackInstances`.
   """
   def delete_stack_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteStackSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteStackSet", input, options)
   end
 
   @doc """
@@ -250,7 +276,9 @@ defmodule AWS.CloudFormation do
   [DescribeType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html).
   """
   def deregister_type(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterType", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterType", input, options)
   end
 
   @doc """
@@ -261,7 +289,9 @@ defmodule AWS.CloudFormation do
   in the *CloudFormation User Guide*.
   """
   def describe_account_limits(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAccountLimits", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAccountLimits", input, options)
   end
 
   @doc """
@@ -272,7 +302,9 @@ defmodule AWS.CloudFormation do
   in the CloudFormation User Guide.
   """
   def describe_change_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeChangeSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeChangeSet", input, options)
   end
 
   @doc """
@@ -280,7 +312,9 @@ defmodule AWS.CloudFormation do
   CloudFormation makes when you run the change set.
   """
   def describe_change_set_hooks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeChangeSetHooks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeChangeSetHooks", input, options)
   end
 
   @doc """
@@ -298,7 +332,9 @@ defmodule AWS.CloudFormation do
   in the *CloudFormation CLI User Guide*
   """
   def describe_publisher(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePublisher", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePublisher", input, options)
   end
 
   @doc """
@@ -318,7 +354,9 @@ defmodule AWS.CloudFormation do
   return drift information about the stack and its resources.
   """
   def describe_stack_drift_detection_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStackDriftDetectionStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStackDriftDetectionStatus", input, options)
   end
 
   @doc """
@@ -333,7 +371,9 @@ defmodule AWS.CloudFormation do
   by specifying the unique stack identifier (stack ID).
   """
   def describe_stack_events(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStackEvents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStackEvents", input, options)
   end
 
   @doc """
@@ -344,7 +384,9 @@ defmodule AWS.CloudFormation do
   `ListStackInstances`.
   """
   def describe_stack_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStackInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStackInstance", input, options)
   end
 
   @doc """
@@ -354,7 +396,9 @@ defmodule AWS.CloudFormation do
   90 days after the stack has been deleted.
   """
   def describe_stack_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStackResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStackResource", input, options)
   end
 
   @doc """
@@ -374,7 +418,9 @@ defmodule AWS.CloudFormation do
   `DetectStackDrift` to detect drift on all supported resources for a given stack.
   """
   def describe_stack_resource_drifts(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStackResourceDrifts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStackResourceDrifts", input, options)
   end
 
   @doc """
@@ -400,21 +446,27 @@ defmodule AWS.CloudFormation do
   `PhysicalResourceId` in the same request.
   """
   def describe_stack_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStackResources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStackResources", input, options)
   end
 
   @doc """
   Returns the description of the specified stack set.
   """
   def describe_stack_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStackSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStackSet", input, options)
   end
 
   @doc """
   Returns the description of the specified stack set operation.
   """
   def describe_stack_set_operation(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStackSetOperation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStackSetOperation", input, options)
   end
 
   @doc """
@@ -424,7 +476,9 @@ defmodule AWS.CloudFormation do
   If the stack doesn't exist, an `ValidationError` is returned.
   """
   def describe_stacks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStacks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStacks", input, options)
   end
 
   @doc """
@@ -435,7 +489,9 @@ defmodule AWS.CloudFormation do
   extension version.
   """
   def describe_type(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeType", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeType", input, options)
   end
 
   @doc """
@@ -450,7 +506,9 @@ defmodule AWS.CloudFormation do
   detailed information about an extension.
   """
   def describe_type_registration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTypeRegistration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTypeRegistration", input, options)
   end
 
   @doc """
@@ -482,7 +540,9 @@ defmodule AWS.CloudFormation do
   the nested stack itself.
   """
   def detect_stack_drift(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DetectStackDrift", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetectStackDrift", input, options)
   end
 
   @doc """
@@ -505,7 +565,9 @@ defmodule AWS.CloudFormation do
   Detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html).
   """
   def detect_stack_resource_drift(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DetectStackResourceDrift", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetectStackResourceDrift", input, options)
   end
 
   @doc """
@@ -546,7 +608,9 @@ defmodule AWS.CloudFormation do
   To stop a drift detection stack set operation, use ` `StopStackSetOperation` `.
   """
   def detect_stack_set_drift(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DetectStackSetDrift", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetectStackSetDrift", input, options)
   end
 
   @doc """
@@ -556,7 +620,9 @@ defmodule AWS.CloudFormation do
   query string that describes the resources required to run the template.
   """
   def estimate_template_cost(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EstimateTemplateCost", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EstimateTemplateCost", input, options)
   end
 
   @doc """
@@ -577,7 +643,9 @@ defmodule AWS.CloudFormation do
   must have been set to `True`.
   """
   def execute_change_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ExecuteChangeSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExecuteChangeSet", input, options)
   end
 
   @doc """
@@ -586,7 +654,9 @@ defmodule AWS.CloudFormation do
   If a stack doesn't have a policy, a null value is returned.
   """
   def get_stack_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetStackPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetStackPolicy", input, options)
   end
 
   @doc """
@@ -600,7 +670,9 @@ defmodule AWS.CloudFormation do
   If the template doesn't exist, a `ValidationError` is returned.
   """
   def get_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTemplate", input, options)
   end
 
   @doc """
@@ -618,7 +690,9 @@ defmodule AWS.CloudFormation do
   `ValidationError` is returned.
   """
   def get_template_summary(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetTemplateSummary", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTemplateSummary", input, options)
   end
 
   @doc """
@@ -631,7 +705,9 @@ defmodule AWS.CloudFormation do
   `ImportStacksToStackSet` is only supported by self-managed permissions.
   """
   def import_stacks_to_stack_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ImportStacksToStackSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportStacksToStackSet", input, options)
   end
 
   @doc """
@@ -641,7 +717,9 @@ defmodule AWS.CloudFormation do
   `CREATE_IN_PROGRESS` or `CREATE_PENDING` state.
   """
   def list_change_sets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListChangeSets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListChangeSets", input, options)
   end
 
   @doc """
@@ -656,7 +734,9 @@ defmodule AWS.CloudFormation do
   For more information, see [ CloudFormation export stack output values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html).
   """
   def list_exports(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListExports", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListExports", input, options)
   end
 
   @doc """
@@ -672,7 +752,9 @@ defmodule AWS.CloudFormation do
   function.
   """
   def list_imports(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListImports", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListImports", input, options)
   end
 
   @doc """
@@ -683,7 +765,9 @@ defmodule AWS.CloudFormation do
   Web Services account name or Region, or that have a specific status.
   """
   def list_stack_instances(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListStackInstances", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStackInstances", input, options)
   end
 
   @doc """
@@ -693,21 +777,27 @@ defmodule AWS.CloudFormation do
   days after the stack has been deleted.
   """
   def list_stack_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListStackResources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStackResources", input, options)
   end
 
   @doc """
   Returns summary information about the results of a stack set operation.
   """
   def list_stack_set_operation_results(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListStackSetOperationResults", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStackSetOperationResults", input, options)
   end
 
   @doc """
   Returns summary information about operations performed on a stack set.
   """
   def list_stack_set_operations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListStackSetOperations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStackSetOperations", input, options)
   end
 
   @doc """
@@ -726,7 +816,9 @@ defmodule AWS.CloudFormation do
   account.
   """
   def list_stack_sets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListStackSets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStackSets", input, options)
   end
 
   @doc """
@@ -739,21 +831,27 @@ defmodule AWS.CloudFormation do
   deleted).
   """
   def list_stacks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListStacks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStacks", input, options)
   end
 
   @doc """
   Returns a list of registration tokens for the specified extension(s).
   """
   def list_type_registrations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTypeRegistrations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTypeRegistrations", input, options)
   end
 
   @doc """
   Returns summary information about the versions of an extension.
   """
   def list_type_versions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTypeVersions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTypeVersions", input, options)
   end
 
   @doc """
@@ -761,7 +859,9 @@ defmodule AWS.CloudFormation do
   CloudFormation.
   """
   def list_types(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTypes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTypes", input, options)
   end
 
   @doc """
@@ -778,7 +878,9 @@ defmodule AWS.CloudFormation do
   [RegisterPublisher](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html).
   """
   def publish_type(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PublishType", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PublishType", input, options)
   end
 
   @doc """
@@ -788,7 +890,9 @@ defmodule AWS.CloudFormation do
   Don't use this API in your code.
   """
   def record_handler_progress(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RecordHandlerProgress", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RecordHandlerProgress", input, options)
   end
 
   @doc """
@@ -803,7 +907,9 @@ defmodule AWS.CloudFormation do
   in the *CloudFormation CLI User Guide*.
   """
   def register_publisher(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterPublisher", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterPublisher", input, options)
   end
 
   @doc """
@@ -838,7 +944,9 @@ defmodule AWS.CloudFormation do
   in the *CloudFormation User Guide*.
   """
   def register_type(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterType", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterType", input, options)
   end
 
   @doc """
@@ -865,14 +973,18 @@ defmodule AWS.CloudFormation do
     * `IMPORT_ROLLBACK_COMPLETE`
   """
   def rollback_stack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RollbackStack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RollbackStack", input, options)
   end
 
   @doc """
   Sets a stack policy for a specified stack.
   """
   def set_stack_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetStackPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetStackPolicy", input, options)
   end
 
   @doc """
@@ -890,7 +1002,9 @@ defmodule AWS.CloudFormation do
   dynamic references, see [Using dynamic references to specify template values](https://docs.aws.amazon.com/) in the *CloudFormation User Guide*.
   """
   def set_type_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetTypeConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetTypeConfiguration", input, options)
   end
 
   @doc """
@@ -899,7 +1013,9 @@ defmodule AWS.CloudFormation do
   The default version of an extension will be used in CloudFormation operations.
   """
   def set_type_default_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetTypeDefaultVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetTypeDefaultVersion", input, options)
   end
 
   @doc """
@@ -912,7 +1028,9 @@ defmodule AWS.CloudFormation do
   send signals from anywhere other than an Amazon EC2 instance.
   """
   def signal_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SignalResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SignalResource", input, options)
   end
 
   @doc """
@@ -923,7 +1041,9 @@ defmodule AWS.CloudFormation do
   those are in-progress to complete.
   """
   def stop_stack_set_operation(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopStackSetOperation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopStackSetOperation", input, options)
   end
 
   @doc """
@@ -954,7 +1074,9 @@ defmodule AWS.CloudFormation do
   in the *CloudFormation CLI User Guide*.
   """
   def test_type(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TestType", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TestType", input, options)
   end
 
   @doc """
@@ -970,7 +1092,9 @@ defmodule AWS.CloudFormation do
   monitoring the progress of the update, see [Updating a Stack](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html).
   """
   def update_stack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateStack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateStack", input, options)
   end
 
   @doc """
@@ -997,7 +1121,9 @@ defmodule AWS.CloudFormation do
   `UpdateStackInstances`.
   """
   def update_stack_instances(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateStackInstances", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateStackInstances", input, options)
   end
 
   @doc """
@@ -1010,7 +1136,9 @@ defmodule AWS.CloudFormation do
   on the specified stack set use the updated stack set.
   """
   def update_stack_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateStackSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateStackSet", input, options)
   end
 
   @doc """
@@ -1026,7 +1154,9 @@ defmodule AWS.CloudFormation do
   the nested stack.
   """
   def update_termination_protection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateTerminationProtection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateTerminationProtection", input, options)
   end
 
   @doc """
@@ -1037,6 +1167,8 @@ defmodule AWS.CloudFormation do
   CloudFormation returns a template validation error.
   """
   def validate_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ValidateTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ValidateTemplate", input, options)
   end
 end

@@ -45,42 +45,54 @@ defmodule AWS.FraudDetector do
   Creates a batch of variables.
   """
   def batch_create_variable(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchCreateVariable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchCreateVariable", input, options)
   end
 
   @doc """
   Gets a batch of variables.
   """
   def batch_get_variable(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchGetVariable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetVariable", input, options)
   end
 
   @doc """
   Cancels an in-progress batch import job.
   """
   def cancel_batch_import_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelBatchImportJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelBatchImportJob", input, options)
   end
 
   @doc """
   Cancels the specified batch prediction job.
   """
   def cancel_batch_prediction_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelBatchPredictionJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelBatchPredictionJob", input, options)
   end
 
   @doc """
   Creates a batch import job.
   """
   def create_batch_import_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateBatchImportJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateBatchImportJob", input, options)
   end
 
   @doc """
   Creates a batch prediction job.
   """
   def create_batch_prediction_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateBatchPredictionJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateBatchPredictionJob", input, options)
   end
 
   @doc """
@@ -89,35 +101,45 @@ defmodule AWS.FraudDetector do
   The detector version starts in a `DRAFT` status.
   """
   def create_detector_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDetectorVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDetectorVersion", input, options)
   end
 
   @doc """
   Creates a model using the specified model type.
   """
   def create_model(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateModel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateModel", input, options)
   end
 
   @doc """
   Creates a version of the model using the specified model type and model id.
   """
   def create_model_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateModelVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateModelVersion", input, options)
   end
 
   @doc """
   Creates a rule for use with the specified detector.
   """
   def create_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRule", input, options)
   end
 
   @doc """
   Creates a variable.
   """
   def create_variable(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateVariable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateVariable", input, options)
   end
 
   @doc """
@@ -126,14 +148,18 @@ defmodule AWS.FraudDetector do
   This action does not delete the data that was batch imported.
   """
   def delete_batch_import_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteBatchImportJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteBatchImportJob", input, options)
   end
 
   @doc """
   Deletes a batch prediction job.
   """
   def delete_batch_prediction_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteBatchPredictionJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteBatchPredictionJob", input, options)
   end
 
   @doc """
@@ -146,7 +172,9 @@ defmodule AWS.FraudDetector do
   detector and the data is no longer stored in Amazon Fraud Detector.
   """
   def delete_detector(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDetector", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDetector", input, options)
   end
 
   @doc """
@@ -158,7 +186,9 @@ defmodule AWS.FraudDetector do
   the detector and the data is no longer stored in Amazon Fraud Detector.
   """
   def delete_detector_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDetectorVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDetectorVersion", input, options)
   end
 
   @doc """
@@ -170,7 +200,9 @@ defmodule AWS.FraudDetector do
   entity type and the data is no longer stored in Amazon Fraud Detector.
   """
   def delete_entity_type(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEntityType", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEntityType", input, options)
   end
 
   @doc """
@@ -180,7 +212,9 @@ defmodule AWS.FraudDetector do
   and the event data is no longer stored in Amazon Fraud Detector.
   """
   def delete_event(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEvent", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEvent", input, options)
   end
 
   @doc """
@@ -192,14 +226,18 @@ defmodule AWS.FraudDetector do
   event type and the data is no longer stored in Amazon Fraud Detector.
   """
   def delete_event_type(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEventType", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEventType", input, options)
   end
 
   @doc """
   Deletes all events of a particular event type.
   """
   def delete_events_by_event_type(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEventsByEventType", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEventsByEventType", input, options)
   end
 
   @doc """
@@ -210,7 +248,9 @@ defmodule AWS.FraudDetector do
   but the model remains available in SageMaker.
   """
   def delete_external_model(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteExternalModel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteExternalModel", input, options)
   end
 
   @doc """
@@ -226,7 +266,9 @@ defmodule AWS.FraudDetector do
   and the data is no longer stored in Amazon Fraud Detector.
   """
   def delete_label(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteLabel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLabel", input, options)
   end
 
   @doc """
@@ -239,7 +281,9 @@ defmodule AWS.FraudDetector do
   and the data is no longer stored in Amazon Fraud Detector.
   """
   def delete_model(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteModel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteModel", input, options)
   end
 
   @doc """
@@ -252,7 +296,9 @@ defmodule AWS.FraudDetector do
   model version and the data is no longer stored in Amazon Fraud Detector.
   """
   def delete_model_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteModelVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteModelVersion", input, options)
   end
 
   @doc """
@@ -264,7 +310,9 @@ defmodule AWS.FraudDetector do
   outcome and the data is no longer stored in Amazon Fraud Detector.
   """
   def delete_outcome(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteOutcome", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteOutcome", input, options)
   end
 
   @doc """
@@ -277,7 +325,9 @@ defmodule AWS.FraudDetector do
   the data is no longer stored in Amazon Fraud Detector.
   """
   def delete_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRule", input, options)
   end
 
   @doc """
@@ -294,14 +344,18 @@ defmodule AWS.FraudDetector do
   variable and the data is no longer stored in Amazon Fraud Detector.
   """
   def delete_variable(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteVariable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteVariable", input, options)
   end
 
   @doc """
   Gets all versions for a specified detector.
   """
   def describe_detector(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDetector", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDetector", input, options)
   end
 
   @doc """
@@ -311,7 +365,9 @@ defmodule AWS.FraudDetector do
   You can also get details for a single, specified model version.
   """
   def describe_model_versions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeModelVersions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeModelVersions", input, options)
   end
 
   @doc """
@@ -324,7 +380,9 @@ defmodule AWS.FraudDetector do
   A null pagination token fetches the records from the beginning.
   """
   def get_batch_import_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetBatchImportJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetBatchImportJobs", input, options)
   end
 
   @doc """
@@ -337,21 +395,27 @@ defmodule AWS.FraudDetector do
   pagination token fetches the records from the beginning.
   """
   def get_batch_prediction_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetBatchPredictionJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetBatchPredictionJobs", input, options)
   end
 
   @doc """
   Retrieves the status of a `DeleteEventsByEventType` action.
   """
   def get_delete_events_by_event_type_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDeleteEventsByEventTypeStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDeleteEventsByEventTypeStatus", input, options)
   end
 
   @doc """
   Gets a particular detector version.
   """
   def get_detector_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDetectorVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDetectorVersion", input, options)
   end
 
   @doc """
@@ -364,7 +428,9 @@ defmodule AWS.FraudDetector do
   pagination token fetches the records from the beginning.
   """
   def get_detectors(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDetectors", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDetectors", input, options)
   end
 
   @doc """
@@ -377,7 +443,9 @@ defmodule AWS.FraudDetector do
   null pagination token fetches the records from the beginning.
   """
   def get_entity_types(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetEntityTypes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEntityTypes", input, options)
   end
 
   @doc """
@@ -386,7 +454,9 @@ defmodule AWS.FraudDetector do
   This action does not retrieve prediction results.
   """
   def get_event(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetEvent", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEvent", input, options)
   end
 
   @doc """
@@ -395,7 +465,9 @@ defmodule AWS.FraudDetector do
   If a version ID is not provided, the detector’s (`ACTIVE`) version is used.
   """
   def get_event_prediction(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetEventPrediction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEventPrediction", input, options)
   end
 
   @doc """
@@ -404,7 +476,9 @@ defmodule AWS.FraudDetector do
   time period.
   """
   def get_event_prediction_metadata(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetEventPredictionMetadata", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEventPredictionMetadata", input, options)
   end
 
   @doc """
@@ -417,7 +491,9 @@ defmodule AWS.FraudDetector do
   null pagination token fetches the records from the beginning.
   """
   def get_event_types(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetEventTypes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEventTypes", input, options)
   end
 
   @doc """
@@ -431,7 +507,9 @@ defmodule AWS.FraudDetector do
   null pagination token fetches the records from the beginning.
   """
   def get_external_models(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetExternalModels", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetExternalModels", input, options)
   end
 
   @doc """
@@ -439,7 +517,9 @@ defmodule AWS.FraudDetector do
   content in Amazon Fraud Detector.
   """
   def get_kms_encryption_key(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetKMSEncryptionKey", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetKMSEncryptionKey", input, options)
   end
 
   @doc """
@@ -452,14 +532,18 @@ defmodule AWS.FraudDetector do
   pagination token fetches the records from the beginning.
   """
   def get_labels(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetLabels", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetLabels", input, options)
   end
 
   @doc """
   Gets the details of the specified model version.
   """
   def get_model_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetModelVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetModelVersion", input, options)
   end
 
   @doc """
@@ -477,7 +561,9 @@ defmodule AWS.FraudDetector do
   token fetches the records from the beginning.
   """
   def get_models(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetModels", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetModels", input, options)
   end
 
   @doc """
@@ -490,7 +576,9 @@ defmodule AWS.FraudDetector do
   pagination token fetches the records from the beginning.
   """
   def get_outcomes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetOutcomes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetOutcomes", input, options)
   end
 
   @doc """
@@ -507,7 +595,9 @@ defmodule AWS.FraudDetector do
   records from the beginning.
   """
   def get_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRules", input, options)
   end
 
   @doc """
@@ -520,7 +610,9 @@ defmodule AWS.FraudDetector do
   the records from the beginning.
   """
   def get_variables(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetVariables", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetVariables", input, options)
   end
 
   @doc """
@@ -540,7 +632,9 @@ defmodule AWS.FraudDetector do
   fetches the records from the beginning.
   """
   def list_event_predictions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEventPredictions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEventPredictions", input, options)
   end
 
   @doc """
@@ -551,14 +645,18 @@ defmodule AWS.FraudDetector do
   the records from the beginning.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Creates or updates a detector.
   """
   def put_detector(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutDetector", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutDetector", input, options)
   end
 
   @doc """
@@ -570,7 +668,9 @@ defmodule AWS.FraudDetector do
   merchant, or account.
   """
   def put_entity_type(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutEntityType", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutEntityType", input, options)
   end
 
   @doc """
@@ -584,7 +684,9 @@ defmodule AWS.FraudDetector do
   online payment transactions, account registrations, and authentications.
   """
   def put_event_type(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutEventType", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutEventType", input, options)
   end
 
   @doc """
@@ -594,14 +696,18 @@ defmodule AWS.FraudDetector do
   including the IAM role and/or the mapped variables.
   """
   def put_external_model(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutExternalModel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutExternalModel", input, options)
   end
 
   @doc """
   Specifies the KMS key to be used to encrypt content in Amazon Fraud Detector.
   """
   def put_kms_encryption_key(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutKMSEncryptionKey", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutKMSEncryptionKey", input, options)
   end
 
   @doc """
@@ -612,14 +718,18 @@ defmodule AWS.FraudDetector do
   Fraud Detector.
   """
   def put_label(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutLabel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutLabel", input, options)
   end
 
   @doc """
   Creates or updates an outcome.
   """
   def put_outcome(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutOutcome", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutOutcome", input, options)
   end
 
   @doc """
@@ -630,21 +740,27 @@ defmodule AWS.FraudDetector do
   can then later use to train a model.
   """
   def send_event(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SendEvent", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendEvent", input, options)
   end
 
   @doc """
   Assigns tags to a resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes tags from a resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -655,7 +771,9 @@ defmodule AWS.FraudDetector do
   update a `DRAFT` detector version.
   """
   def update_detector_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateDetectorVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDetectorVersion", input, options)
   end
 
   @doc """
@@ -665,7 +783,9 @@ defmodule AWS.FraudDetector do
   `INACTIVE`).
   """
   def update_detector_version_metadata(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateDetectorVersionMetadata", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDetectorVersionMetadata", input, options)
   end
 
   @doc """
@@ -676,21 +796,27 @@ defmodule AWS.FraudDetector do
   `INACTIVE` to `ACTIVE`.
   """
   def update_detector_version_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateDetectorVersionStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDetectorVersionStatus", input, options)
   end
 
   @doc """
   Updates the specified event with a new label.
   """
   def update_event_label(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateEventLabel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateEventLabel", input, options)
   end
 
   @doc """
   Updates model description.
   """
   def update_model(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateModel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateModel", input, options)
   end
 
   @doc """
@@ -703,7 +829,9 @@ defmodule AWS.FraudDetector do
   version 1.01, 1.02, 1.03.
   """
   def update_model_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateModelVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateModelVersion", input, options)
   end
 
   @doc """
@@ -718,7 +846,9 @@ defmodule AWS.FraudDetector do
     3. Change `ACTIVE` to `INACTIVE`.
   """
   def update_model_version_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateModelVersionStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateModelVersionStatus", input, options)
   end
 
   @doc """
@@ -727,7 +857,9 @@ defmodule AWS.FraudDetector do
   The description attribute can be updated.
   """
   def update_rule_metadata(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateRuleMetadata", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateRuleMetadata", input, options)
   end
 
   @doc """
@@ -736,13 +868,17 @@ defmodule AWS.FraudDetector do
   Updates a rule version resulting in a new rule version (version 1, 2, 3 ...).
   """
   def update_rule_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateRuleVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateRuleVersion", input, options)
   end
 
   @doc """
   Updates a variable.
   """
   def update_variable(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateVariable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateVariable", input, options)
   end
 end

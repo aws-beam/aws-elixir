@@ -98,7 +98,9 @@ defmodule AWS.MarketplaceMetering do
   in the *AWS Marketplace Seller Guide*.
   """
   def batch_meter_usage(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchMeterUsage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchMeterUsage", input, options)
   end
 
   @doc """
@@ -119,7 +121,9 @@ defmodule AWS.MarketplaceMetering do
   event.
   """
   def meter_usage(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "MeterUsage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "MeterUsage", input, options)
   end
 
   @doc """
@@ -159,7 +163,9 @@ defmodule AWS.MarketplaceMetering do
   checks at runtime.
   """
   def register_usage(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterUsage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterUsage", input, options)
   end
 
   @doc """
@@ -178,6 +184,8 @@ defmodule AWS.MarketplaceMetering do
   in the *AWS Marketplace Seller Guide*.
   """
   def resolve_customer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ResolveCustomer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ResolveCustomer", input, options)
   end
 end

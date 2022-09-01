@@ -48,7 +48,9 @@ defmodule AWS.Transfer do
   users who need this ability.
   """
   def create_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAccess", input, options)
   end
 
   @doc """
@@ -64,7 +66,9 @@ defmodule AWS.Transfer do
   identified with the `LocalProfileId`.
   """
   def create_agreement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAgreement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAgreement", input, options)
   end
 
   @doc """
@@ -75,7 +79,9 @@ defmodule AWS.Transfer do
   Services server.
   """
   def create_connector(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateConnector", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateConnector", input, options)
   end
 
   @doc """
@@ -84,7 +90,9 @@ defmodule AWS.Transfer do
   The agreement is between the partner and the AS2 process.
   """
   def create_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateProfile", input, options)
   end
 
   @doc """
@@ -96,7 +104,9 @@ defmodule AWS.Transfer do
   to the newly created server.
   """
   def create_server(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateServer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateServer", input, options)
   end
 
   @doc """
@@ -111,7 +121,9 @@ defmodule AWS.Transfer do
   tags that can be used to group and search for users.
   """
   def create_user(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateUser", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateUser", input, options)
   end
 
   @doc """
@@ -123,7 +135,9 @@ defmodule AWS.Transfer do
   and `UpdateServer` operations.
   """
   def create_workflow(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateWorkflow", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateWorkflow", input, options)
   end
 
   @doc """
@@ -131,35 +145,45 @@ defmodule AWS.Transfer do
   parameters.
   """
   def delete_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAccess", input, options)
   end
 
   @doc """
   Delete the agreement that's specified in the provided `AgreementId`.
   """
   def delete_agreement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAgreement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAgreement", input, options)
   end
 
   @doc """
   Deletes the certificate that's specified in the `CertificateId` parameter.
   """
   def delete_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCertificate", input, options)
   end
 
   @doc """
   Deletes the agreement that's specified in the provided `ConnectorId`.
   """
   def delete_connector(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteConnector", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteConnector", input, options)
   end
 
   @doc """
   Deletes the profile that's specified in the `ProfileId` parameter.
   """
   def delete_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteProfile", input, options)
   end
 
   @doc """
@@ -168,14 +192,18 @@ defmodule AWS.Transfer do
   No response returns from this operation.
   """
   def delete_server(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteServer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteServer", input, options)
   end
 
   @doc """
   Deletes a user's Secure Shell (SSH) public key.
   """
   def delete_ssh_public_key(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSshPublicKey", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSshPublicKey", input, options)
   end
 
   @doc """
@@ -187,14 +215,18 @@ defmodule AWS.Transfer do
   When you delete a user from a server, the user's information is lost.
   """
   def delete_user(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteUser", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteUser", input, options)
   end
 
   @doc """
   Deletes the specified workflow.
   """
   def delete_workflow(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteWorkflow", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteWorkflow", input, options)
   end
 
   @doc """
@@ -206,28 +238,36 @@ defmodule AWS.Transfer do
   associated with the `ServerId` value that was specified.
   """
   def describe_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAccess", input, options)
   end
 
   @doc """
   Describes the agreement that's identified by the `AgreementId`.
   """
   def describe_agreement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAgreement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAgreement", input, options)
   end
 
   @doc """
   Describes the certificate that's identified by the `CertificateId`.
   """
   def describe_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCertificate", input, options)
   end
 
   @doc """
   Describes the connector that's identified by the `ConnectorId.`
   """
   def describe_connector(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeConnector", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConnector", input, options)
   end
 
   @doc """
@@ -235,14 +275,18 @@ defmodule AWS.Transfer do
   specified workflow.
   """
   def describe_execution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeExecution", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeExecution", input, options)
   end
 
   @doc """
   Returns the details of the profile that's specified by the `ProfileId`.
   """
   def describe_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeProfile", input, options)
   end
 
   @doc """
@@ -253,7 +297,9 @@ defmodule AWS.Transfer do
   more information about security policies, see [Working with security policies](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html).
   """
   def describe_security_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSecurityPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSecurityPolicy", input, options)
   end
 
   @doc """
@@ -264,7 +310,9 @@ defmodule AWS.Transfer do
   `EndpointType` to VPC, the response will contain the `EndpointDetails`.
   """
   def describe_server(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeServer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeServer", input, options)
   end
 
   @doc """
@@ -275,14 +323,18 @@ defmodule AWS.Transfer do
   the `ServerId` value that was specified.
   """
   def describe_user(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeUser", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeUser", input, options)
   end
 
   @doc """
   Describes the specified workflow.
   """
   def describe_workflow(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeWorkflow", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeWorkflow", input, options)
   end
 
   @doc """
@@ -290,7 +342,9 @@ defmodule AWS.Transfer do
   (AS2) profiles and partner profiles.
   """
   def import_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ImportCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportCertificate", input, options)
   end
 
   @doc """
@@ -302,14 +356,18 @@ defmodule AWS.Transfer do
   the `SshPublicKeyId`.
   """
   def import_ssh_public_key(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ImportSshPublicKey", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportSshPublicKey", input, options)
   end
 
   @doc """
   Lists the details for all the accesses you have on your server.
   """
   def list_accesses(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAccesses", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAccesses", input, options)
   end
 
   @doc """
@@ -322,7 +380,9 @@ defmodule AWS.Transfer do
   where you left off.
   """
   def list_agreements(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAgreements", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAgreements", input, options)
   end
 
   @doc """
@@ -335,21 +395,27 @@ defmodule AWS.Transfer do
   certificates from where you left off.
   """
   def list_certificates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListCertificates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCertificates", input, options)
   end
 
   @doc """
   Lists the connectors for the specified Region.
   """
   def list_connectors(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListConnectors", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListConnectors", input, options)
   end
 
   @doc """
   Lists all executions for the specified workflow.
   """
   def list_executions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListExecutions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListExecutions", input, options)
   end
 
   @doc """
@@ -361,7 +427,9 @@ defmodule AWS.Transfer do
   where you left off.
   """
   def list_profiles(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListProfiles", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListProfiles", input, options)
   end
 
   @doc """
@@ -369,7 +437,9 @@ defmodule AWS.Transfer do
   protocol-enabled servers.
   """
   def list_security_policies(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListSecurityPolicies", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSecurityPolicies", input, options)
   end
 
   @doc """
@@ -377,7 +447,9 @@ defmodule AWS.Transfer do
   Amazon Web Services account.
   """
   def list_servers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListServers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListServers", input, options)
   end
 
   @doc """
@@ -387,7 +459,9 @@ defmodule AWS.Transfer do
   The resource can be a user, server, or role.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -395,14 +469,18 @@ defmodule AWS.Transfer do
   passing the `ServerId` parameter.
   """
   def list_users(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListUsers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListUsers", input, options)
   end
 
   @doc """
   Lists all of your workflows.
   """
   def list_workflows(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListWorkflows", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListWorkflows", input, options)
   end
 
   @doc """
@@ -413,7 +491,9 @@ defmodule AWS.Transfer do
   their callback as well as providing a status.
   """
   def send_workflow_step_state(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SendWorkflowStepState", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendWorkflowStepState", input, options)
   end
 
   @doc """
@@ -422,7 +502,9 @@ defmodule AWS.Transfer do
   You specify the `ConnectorId` and the file paths for where to send the files.
   """
   def start_file_transfer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartFileTransfer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartFileTransfer", input, options)
   end
 
   @doc """
@@ -439,7 +521,9 @@ defmodule AWS.Transfer do
   No response is returned from this call.
   """
   def start_server(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartServer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartServer", input, options)
   end
 
   @doc """
@@ -460,7 +544,9 @@ defmodule AWS.Transfer do
   No response is returned from this call.
   """
   def stop_server(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopServer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopServer", input, options)
   end
 
   @doc """
@@ -472,7 +558,9 @@ defmodule AWS.Transfer do
   There is no response returned from this call.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -507,7 +595,9 @@ defmodule AWS.Transfer do
   TestIdentityProvider operation: Unknown server`
   """
   def test_identity_provider(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TestIdentityProvider", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TestIdentityProvider", input, options)
   end
 
   @doc """
@@ -519,7 +609,9 @@ defmodule AWS.Transfer do
   No response is returned from this call.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -527,7 +619,9 @@ defmodule AWS.Transfer do
   `ExternalID` parameters.
   """
   def update_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAccess", input, options)
   end
 
   @doc """
@@ -537,14 +631,18 @@ defmodule AWS.Transfer do
   update, along with the new values for the parameters to update.
   """
   def update_agreement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateAgreement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAgreement", input, options)
   end
 
   @doc """
   Updates the active and inactive dates for a certificate.
   """
   def update_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCertificate", input, options)
   end
 
   @doc """
@@ -554,7 +652,9 @@ defmodule AWS.Transfer do
   the new values for the parameters to update.
   """
   def update_connector(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateConnector", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateConnector", input, options)
   end
 
   @doc """
@@ -564,7 +664,9 @@ defmodule AWS.Transfer do
   new values for the parameters to update.
   """
   def update_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateProfile", input, options)
   end
 
   @doc """
@@ -574,7 +676,9 @@ defmodule AWS.Transfer do
   The `UpdateServer` call returns the `ServerId` of the server you updated.
   """
   def update_server(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateServer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateServer", input, options)
   end
 
   @doc """
@@ -586,6 +690,8 @@ defmodule AWS.Transfer do
   The response returns the `ServerId` and the `UserName` for the updated user.
   """
   def update_user(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateUser", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateUser", input, options)
   end
 end

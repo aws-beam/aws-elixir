@@ -55,7 +55,9 @@ defmodule AWS.Redshift do
   configuration (term, payment type, or number of nodes) and no additional costs.
   """
   def accept_reserved_node_exchange(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AcceptReservedNodeExchange", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AcceptReservedNodeExchange", input, options)
   end
 
   @doc """
@@ -66,7 +68,9 @@ defmodule AWS.Redshift do
   partner website.
   """
   def add_partner(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddPartner", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddPartner", input, options)
   end
 
   @doc """
@@ -76,7 +80,9 @@ defmodule AWS.Redshift do
   If you make this association, the consumer can consume the datashare.
   """
   def associate_data_share_consumer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateDataShareConsumer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateDataShareConsumer", input, options)
   end
 
   @doc """
@@ -103,13 +109,9 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def authorize_cluster_security_group_ingress(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "AuthorizeClusterSecurityGroupIngress",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "AuthorizeClusterSecurityGroupIngress", input, options)
   end
 
   @doc """
@@ -120,14 +122,18 @@ defmodule AWS.Redshift do
   correct access permissions.
   """
   def authorize_data_share(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AuthorizeDataShare", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AuthorizeDataShare", input, options)
   end
 
   @doc """
   Grants access to a cluster.
   """
   def authorize_endpoint_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AuthorizeEndpointAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AuthorizeEndpointAccess", input, options)
   end
 
   @doc """
@@ -138,28 +144,36 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def authorize_snapshot_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AuthorizeSnapshotAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AuthorizeSnapshotAccess", input, options)
   end
 
   @doc """
   Deletes a set of cluster snapshots.
   """
   def batch_delete_cluster_snapshots(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchDeleteClusterSnapshots", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchDeleteClusterSnapshots", input, options)
   end
 
   @doc """
   Modifies the settings for a set of cluster snapshots.
   """
   def batch_modify_cluster_snapshots(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchModifyClusterSnapshots", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchModifyClusterSnapshots", input, options)
   end
 
   @doc """
   Cancels a resize operation for a cluster.
   """
   def cancel_resize(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelResize", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelResize", input, options)
   end
 
   @doc """
@@ -178,14 +192,18 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def copy_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CopyClusterSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CopyClusterSnapshot", input, options)
   end
 
   @doc """
   Creates an authentication profile with the specified parameters.
   """
   def create_authentication_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAuthenticationProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAuthenticationProfile", input, options)
   end
 
   @doc """
@@ -198,7 +216,9 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def create_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCluster", input, options)
   end
 
   @doc """
@@ -215,7 +235,9 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def create_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateClusterParameterGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateClusterParameterGroup", input, options)
   end
 
   @doc """
@@ -228,7 +250,9 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def create_cluster_security_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateClusterSecurityGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateClusterSecurityGroup", input, options)
   end
 
   @doc """
@@ -240,7 +264,9 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def create_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateClusterSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateClusterSnapshot", input, options)
   end
 
   @doc """
@@ -253,14 +279,18 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def create_cluster_subnet_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateClusterSubnetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateClusterSubnetGroup", input, options)
   end
 
   @doc """
   Creates a Redshift-managed VPC endpoint.
   """
   def create_endpoint_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateEndpointAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEndpointAccess", input, options)
   end
 
   @doc """
@@ -289,7 +319,9 @@ defmodule AWS.Redshift do
   account. You must specify a source type if you specify a source ID.
   """
   def create_event_subscription(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateEventSubscription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEventSubscription", input, options)
   end
 
   @doc """
@@ -304,7 +336,9 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def create_hsm_client_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateHsmClientCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateHsmClientCertificate", input, options)
   end
 
   @doc """
@@ -320,7 +354,9 @@ defmodule AWS.Redshift do
   in the Amazon Redshift Cluster Management Guide.
   """
   def create_hsm_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateHsmConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateHsmConfiguration", input, options)
   end
 
   @doc """
@@ -331,7 +367,9 @@ defmodule AWS.Redshift do
   operation.
   """
   def create_scheduled_action(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateScheduledAction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateScheduledAction", input, options)
   end
 
   @doc """
@@ -344,7 +382,9 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def create_snapshot_copy_grant(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateSnapshotCopyGrant", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSnapshotCopyGrant", input, options)
   end
 
   @doc """
@@ -352,7 +392,9 @@ defmodule AWS.Redshift do
   overrides the default system backup schedule.
   """
   def create_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateSnapshotSchedule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSnapshotSchedule", input, options)
   end
 
   @doc """
@@ -365,7 +407,9 @@ defmodule AWS.Redshift do
   key will be updated with the new value.
   """
   def create_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTags", input, options)
   end
 
   @doc """
@@ -374,7 +418,9 @@ defmodule AWS.Redshift do
   The usage limit is identified by the returned usage limit identifier.
   """
   def create_usage_limit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateUsageLimit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateUsageLimit", input, options)
   end
 
   @doc """
@@ -382,14 +428,18 @@ defmodule AWS.Redshift do
   datashare.
   """
   def deauthorize_data_share(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeauthorizeDataShare", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeauthorizeDataShare", input, options)
   end
 
   @doc """
   Deletes an authentication profile.
   """
   def delete_authentication_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAuthenticationProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAuthenticationProfile", input, options)
   end
 
   @doc """
@@ -413,7 +463,9 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCluster", input, options)
   end
 
   @doc """
@@ -422,7 +474,9 @@ defmodule AWS.Redshift do
   You cannot delete a parameter group if it is associated with a cluster.
   """
   def delete_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteClusterParameterGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteClusterParameterGroup", input, options)
   end
 
   @doc """
@@ -436,7 +490,9 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def delete_cluster_security_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteClusterSecurityGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteClusterSecurityGroup", input, options)
   end
 
   @doc """
@@ -452,42 +508,54 @@ defmodule AWS.Redshift do
   before you can delete the snapshot.
   """
   def delete_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteClusterSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteClusterSnapshot", input, options)
   end
 
   @doc """
   Deletes the specified cluster subnet group.
   """
   def delete_cluster_subnet_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteClusterSubnetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteClusterSubnetGroup", input, options)
   end
 
   @doc """
   Deletes a Redshift-managed VPC endpoint.
   """
   def delete_endpoint_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEndpointAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEndpointAccess", input, options)
   end
 
   @doc """
   Deletes an Amazon Redshift event notification subscription.
   """
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEventSubscription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEventSubscription", input, options)
   end
 
   @doc """
   Deletes the specified HSM client certificate.
   """
   def delete_hsm_client_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteHsmClientCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteHsmClientCertificate", input, options)
   end
 
   @doc """
   Deletes the specified Amazon Redshift HSM configuration.
   """
   def delete_hsm_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteHsmConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteHsmConfiguration", input, options)
   end
 
   @doc """
@@ -497,28 +565,36 @@ defmodule AWS.Redshift do
   partner's website.
   """
   def delete_partner(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeletePartner", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePartner", input, options)
   end
 
   @doc """
   Deletes a scheduled action.
   """
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteScheduledAction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteScheduledAction", input, options)
   end
 
   @doc """
   Deletes the specified snapshot copy grant.
   """
   def delete_snapshot_copy_grant(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSnapshotCopyGrant", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSnapshotCopyGrant", input, options)
   end
 
   @doc """
   Deletes a snapshot schedule.
   """
   def delete_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSnapshotSchedule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSnapshotSchedule", input, options)
   end
 
   @doc """
@@ -528,35 +604,45 @@ defmodule AWS.Redshift do
   or tags.
   """
   def delete_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTags", input, options)
   end
 
   @doc """
   Deletes a usage limit from a cluster.
   """
   def delete_usage_limit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteUsageLimit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteUsageLimit", input, options)
   end
 
   @doc """
   Returns a list of attributes attached to an account
   """
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAccountAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
   end
 
   @doc """
   Describes an authentication profile.
   """
   def describe_authentication_profiles(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAuthenticationProfiles", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAuthenticationProfiles", input, options)
   end
 
   @doc """
   Returns an array of `ClusterDbRevision` objects.
   """
   def describe_cluster_db_revisions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeClusterDbRevisions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeClusterDbRevisions", input, options)
   end
 
   @doc """
@@ -582,7 +668,9 @@ defmodule AWS.Redshift do
   them.
   """
   def describe_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeClusterParameterGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeClusterParameterGroups", input, options)
   end
 
   @doc """
@@ -602,7 +690,9 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def describe_cluster_parameters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeClusterParameters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeClusterParameters", input, options)
   end
 
   @doc """
@@ -626,7 +716,9 @@ defmodule AWS.Redshift do
   them.
   """
   def describe_cluster_security_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeClusterSecurityGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeClusterSecurityGroups", input, options)
   end
 
   @doc """
@@ -649,7 +741,9 @@ defmodule AWS.Redshift do
   regardless of whether they have tag keys or values associated with them.
   """
   def describe_cluster_snapshots(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeClusterSnapshots", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeClusterSnapshots", input, options)
   end
 
   @doc """
@@ -670,14 +764,18 @@ defmodule AWS.Redshift do
   them.
   """
   def describe_cluster_subnet_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeClusterSubnetGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeClusterSubnetGroups", input, options)
   end
 
   @doc """
   Returns a list of all the available maintenance tracks.
   """
   def describe_cluster_tracks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeClusterTracks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeClusterTracks", input, options)
   end
 
   @doc """
@@ -689,7 +787,9 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def describe_cluster_versions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeClusterVersions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeClusterVersions", input, options)
   end
 
   @doc """
@@ -711,7 +811,9 @@ defmodule AWS.Redshift do
   regardless of whether they have tag keys or values associated with them.
   """
   def describe_clusters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeClusters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeClusters", input, options)
   end
 
   @doc """
@@ -719,7 +821,9 @@ defmodule AWS.Redshift do
   specified account.
   """
   def describe_data_shares(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDataShares", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDataShares", input, options)
   end
 
   @doc """
@@ -727,7 +831,9 @@ defmodule AWS.Redshift do
   consumer account identifier.
   """
   def describe_data_shares_for_consumer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDataSharesForConsumer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDataSharesForConsumer", input, options)
   end
 
   @doc """
@@ -735,7 +841,9 @@ defmodule AWS.Redshift do
   producer account identifier.
   """
   def describe_data_shares_for_producer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDataSharesForProducer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDataSharesForProducer", input, options)
   end
 
   @doc """
@@ -746,21 +854,27 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def describe_default_cluster_parameters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDefaultClusterParameters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDefaultClusterParameters", input, options)
   end
 
   @doc """
   Describes a Redshift-managed VPC endpoint.
   """
   def describe_endpoint_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEndpointAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEndpointAccess", input, options)
   end
 
   @doc """
   Describes an endpoint authorization.
   """
   def describe_endpoint_authorization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEndpointAuthorization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEndpointAuthorization", input, options)
   end
 
   @doc """
@@ -771,7 +885,9 @@ defmodule AWS.Redshift do
   Notifications](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html).
   """
   def describe_event_categories(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEventCategories", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEventCategories", input, options)
   end
 
   @doc """
@@ -791,7 +907,9 @@ defmodule AWS.Redshift do
   them.
   """
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEventSubscriptions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEventSubscriptions", input, options)
   end
 
   @doc """
@@ -803,7 +921,9 @@ defmodule AWS.Redshift do
   hour of events are returned.
   """
   def describe_events(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEvents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEvents", input, options)
   end
 
   @doc """
@@ -823,7 +943,9 @@ defmodule AWS.Redshift do
   associated with them.
   """
   def describe_hsm_client_certificates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeHsmClientCertificates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeHsmClientCertificates", input, options)
   end
 
   @doc """
@@ -843,7 +965,9 @@ defmodule AWS.Redshift do
   them.
   """
   def describe_hsm_configurations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeHsmConfigurations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeHsmConfigurations", input, options)
   end
 
   @doc """
@@ -851,7 +975,9 @@ defmodule AWS.Redshift do
   logged for the specified Amazon Redshift cluster.
   """
   def describe_logging_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeLoggingStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeLoggingStatus", input, options)
   end
 
   @doc """
@@ -859,7 +985,9 @@ defmodule AWS.Redshift do
   nodes, and disk usage for the specified action type.
   """
   def describe_node_configuration_options(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeNodeConfigurationOptions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeNodeConfigurationOptions", input, options)
   end
 
   @doc """
@@ -875,14 +1003,18 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def describe_orderable_cluster_options(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeOrderableClusterOptions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeOrderableClusterOptions", input, options)
   end
 
   @doc """
   Returns information about the partner integrations defined for a cluster.
   """
   def describe_partners(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePartners", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePartners", input, options)
   end
 
   @doc """
@@ -892,7 +1024,9 @@ defmodule AWS.Redshift do
   Statuses include such values as in progress and requested.
   """
   def describe_reserved_node_exchange_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeReservedNodeExchangeStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReservedNodeExchangeStatus", input, options)
   end
 
   @doc """
@@ -909,14 +1043,18 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def describe_reserved_node_offerings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeReservedNodeOfferings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReservedNodeOfferings", input, options)
   end
 
   @doc """
   Returns the descriptions of the reserved nodes.
   """
   def describe_reserved_nodes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeReservedNodes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReservedNodes", input, options)
   end
 
   @doc """
@@ -930,14 +1068,18 @@ defmodule AWS.Redshift do
   different number or type of nodes for the cluster.
   """
   def describe_resize(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeResize", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeResize", input, options)
   end
 
   @doc """
   Describes properties of scheduled actions.
   """
   def describe_scheduled_actions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeScheduledActions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeScheduledActions", input, options)
   end
 
   @doc """
@@ -949,21 +1091,27 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def describe_snapshot_copy_grants(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSnapshotCopyGrants", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSnapshotCopyGrants", input, options)
   end
 
   @doc """
   Returns a list of snapshot schedules.
   """
   def describe_snapshot_schedules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSnapshotSchedules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSnapshotSchedules", input, options)
   end
 
   @doc """
   Returns account level backups storage size and provisional storage.
   """
   def describe_storage(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStorage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStorage", input, options)
   end
 
   @doc """
@@ -977,7 +1125,9 @@ defmodule AWS.Redshift do
   `TableRestoreRequestId`.
   """
   def describe_table_restore_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTableRestoreStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTableRestoreStatus", input, options)
   end
 
   @doc """
@@ -1008,7 +1158,9 @@ defmodule AWS.Redshift do
   regardless of whether they have tag keys or values associated with them.
   """
   def describe_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTags", input, options)
   end
 
   @doc """
@@ -1031,7 +1183,9 @@ defmodule AWS.Redshift do
   usage limit objects for the combination of cluster and feature are returned.
   """
   def describe_usage_limits(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeUsageLimits", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeUsageLimits", input, options)
   end
 
   @doc """
@@ -1039,7 +1193,9 @@ defmodule AWS.Redshift do
   specified Amazon Redshift cluster.
   """
   def disable_logging(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisableLogging", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableLogging", input, options)
   end
 
   @doc """
@@ -1051,7 +1207,9 @@ defmodule AWS.Redshift do
   that grants Amazon Redshift permission to the key in the destination region.
   """
   def disable_snapshot_copy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisableSnapshotCopy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableSnapshotCopy", input, options)
   end
 
   @doc """
@@ -1059,7 +1217,9 @@ defmodule AWS.Redshift do
   datashare.
   """
   def disassociate_data_share_consumer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateDataShareConsumer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateDataShareConsumer", input, options)
   end
 
   @doc """
@@ -1067,7 +1227,9 @@ defmodule AWS.Redshift do
   specified Amazon Redshift cluster.
   """
   def enable_logging(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnableLogging", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableLogging", input, options)
   end
 
   @doc """
@@ -1075,7 +1237,9 @@ defmodule AWS.Redshift do
   specified cluster.
   """
   def enable_snapshot_copy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnableSnapshotCopy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableSnapshotCopy", input, options)
   end
 
   @doc """
@@ -1106,7 +1270,9 @@ defmodule AWS.Redshift do
   resource `dbname` for the specified database name.
   """
   def get_cluster_credentials(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetClusterCredentials", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetClusterCredentials", input, options)
   end
 
   @doc """
@@ -1125,7 +1291,9 @@ defmodule AWS.Redshift do
   in the Amazon Redshift Cluster Management Guide.
   """
   def get_cluster_credentials_with_iam(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetClusterCredentialsWithIAM", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetClusterCredentialsWithIAM", input, options)
   end
 
   @doc """
@@ -1136,9 +1304,11 @@ defmodule AWS.Redshift do
   count, and the offering type.
   """
   def get_reserved_node_exchange_configuration_options(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "GetReservedNodeExchangeConfigurationOptions",
       input,
       options
@@ -1150,21 +1320,27 @@ defmodule AWS.Redshift do
   term, and usage price of the given DC1 reserved node.
   """
   def get_reserved_node_exchange_offerings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetReservedNodeExchangeOfferings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetReservedNodeExchangeOfferings", input, options)
   end
 
   @doc """
   Modifies whether a cluster can use AQUA (Advanced Query Accelerator).
   """
   def modify_aqua_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyAquaConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyAquaConfiguration", input, options)
   end
 
   @doc """
   Modifies an authentication profile.
   """
   def modify_authentication_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyAuthenticationProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyAuthenticationProfile", input, options)
   end
 
   @doc """
@@ -1182,7 +1358,9 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def modify_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyCluster", input, options)
   end
 
   @doc """
@@ -1191,7 +1369,9 @@ defmodule AWS.Redshift do
   The database revision is a unique revision of the database running in a cluster.
   """
   def modify_cluster_db_revision(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyClusterDbRevision", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyClusterDbRevision", input, options)
   end
 
   @doc """
@@ -1203,14 +1383,18 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def modify_cluster_iam_roles(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyClusterIamRoles", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyClusterIamRoles", input, options)
   end
 
   @doc """
   Modifies the maintenance settings of a cluster.
   """
   def modify_cluster_maintenance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyClusterMaintenance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyClusterMaintenance", input, options)
   end
 
   @doc """
@@ -1223,7 +1407,9 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def modify_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyClusterParameterGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyClusterParameterGroup", input, options)
   end
 
   @doc """
@@ -1233,14 +1419,18 @@ defmodule AWS.Redshift do
   snapshot.
   """
   def modify_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyClusterSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyClusterSnapshot", input, options)
   end
 
   @doc """
   Modifies a snapshot schedule for a cluster.
   """
   def modify_cluster_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyClusterSnapshotSchedule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyClusterSnapshotSchedule", input, options)
   end
 
   @doc """
@@ -1250,28 +1440,36 @@ defmodule AWS.Redshift do
   subnets.
   """
   def modify_cluster_subnet_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyClusterSubnetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyClusterSubnetGroup", input, options)
   end
 
   @doc """
   Modifies a Redshift-managed VPC endpoint.
   """
   def modify_endpoint_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyEndpointAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyEndpointAccess", input, options)
   end
 
   @doc """
   Modifies an existing Amazon Redshift event notification subscription.
   """
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyEventSubscription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyEventSubscription", input, options)
   end
 
   @doc """
   Modifies a scheduled action.
   """
   def modify_scheduled_action(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyScheduledAction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyScheduledAction", input, options)
   end
 
   @doc """
@@ -1287,7 +1485,9 @@ defmodule AWS.Redshift do
   period.
   """
   def modify_snapshot_copy_retention_period(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifySnapshotCopyRetentionPeriod", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifySnapshotCopyRetentionPeriod", input, options)
   end
 
   @doc """
@@ -1296,7 +1496,9 @@ defmodule AWS.Redshift do
   Any schedule associated with a cluster is modified asynchronously.
   """
   def modify_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifySnapshotSchedule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifySnapshotSchedule", input, options)
   end
 
   @doc """
@@ -1305,14 +1507,18 @@ defmodule AWS.Redshift do
   You can't modify the feature type or period of a usage limit.
   """
   def modify_usage_limit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyUsageLimit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyUsageLimit", input, options)
   end
 
   @doc """
   Pauses a cluster.
   """
   def pause_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PauseCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PauseCluster", input, options)
   end
 
   @doc """
@@ -1328,7 +1534,9 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def purchase_reserved_node_offering(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PurchaseReservedNodeOffering", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PurchaseReservedNodeOffering", input, options)
   end
 
   @doc """
@@ -1342,14 +1550,18 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def reboot_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RebootCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RebootCluster", input, options)
   end
 
   @doc """
   From a datashare consumer account, rejects the specified datashare.
   """
   def reject_data_share(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RejectDataShare", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RejectDataShare", input, options)
   end
 
   @doc """
@@ -1360,7 +1572,9 @@ defmodule AWS.Redshift do
   For parameter changes to take effect you must reboot any associated clusters.
   """
   def reset_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ResetClusterParameterGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ResetClusterParameterGroup", input, options)
   end
 
   @doc """
@@ -1397,7 +1611,9 @@ defmodule AWS.Redshift do
   cluster.
   """
   def resize_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ResizeCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ResizeCluster", input, options)
   end
 
   @doc """
@@ -1419,7 +1635,9 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def restore_from_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RestoreFromClusterSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RestoreFromClusterSnapshot", input, options)
   end
 
   @doc """
@@ -1439,14 +1657,18 @@ defmodule AWS.Redshift do
   with the table created from the snapshot.
   """
   def restore_table_from_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RestoreTableFromClusterSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RestoreTableFromClusterSnapshot", input, options)
   end
 
   @doc """
   Resumes a paused cluster.
   """
   def resume_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ResumeCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ResumeCluster", input, options)
   end
 
   @doc """
@@ -1459,14 +1681,18 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def revoke_cluster_security_group_ingress(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RevokeClusterSecurityGroupIngress", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RevokeClusterSecurityGroupIngress", input, options)
   end
 
   @doc """
   Revokes access to a cluster.
   """
   def revoke_endpoint_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RevokeEndpointAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RevokeEndpointAccess", input, options)
   end
 
   @doc """
@@ -1480,20 +1706,26 @@ defmodule AWS.Redshift do
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def revoke_snapshot_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RevokeSnapshotAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RevokeSnapshotAccess", input, options)
   end
 
   @doc """
   Rotates the encryption keys for a cluster.
   """
   def rotate_encryption_key(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RotateEncryptionKey", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RotateEncryptionKey", input, options)
   end
 
   @doc """
   Updates the status of a partner integration.
   """
   def update_partner_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdatePartnerStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePartnerStatus", input, options)
   end
 end

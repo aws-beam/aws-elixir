@@ -56,14 +56,18 @@ defmodule AWS.WorkMail do
   Adds a member (user or group) to the resource's set of delegates.
   """
   def associate_delegate_to_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateDelegateToResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateDelegateToResource", input, options)
   end
 
   @doc """
   Adds a member (user or group) to the group's set.
   """
   def associate_member_to_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateMemberToGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateMemberToGroup", input, options)
   end
 
   @doc """
@@ -73,14 +77,18 @@ defmodule AWS.WorkMail do
   it.
   """
   def cancel_mailbox_export_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelMailboxExportJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelMailboxExportJob", input, options)
   end
 
   @doc """
   Adds an alias to the set of a given member (user or group) of Amazon WorkMail.
   """
   def create_alias(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAlias", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAlias", input, options)
   end
 
   @doc """
@@ -88,7 +96,9 @@ defmodule AWS.WorkMail do
   domain.
   """
   def create_availability_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAvailabilityConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAvailabilityConfiguration", input, options)
   end
 
   @doc """
@@ -96,7 +106,9 @@ defmodule AWS.WorkMail do
   `RegisterToWorkMail` operation.
   """
   def create_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateGroup", input, options)
   end
 
   @doc """
@@ -104,7 +116,9 @@ defmodule AWS.WorkMail do
   organization.
   """
   def create_mobile_device_access_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateMobileDeviceAccessRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateMobileDeviceAccessRule", input, options)
   end
 
   @doc """
@@ -130,14 +144,18 @@ defmodule AWS.WorkMail do
   you.
   """
   def create_organization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateOrganization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateOrganization", input, options)
   end
 
   @doc """
   Creates a new Amazon WorkMail resource.
   """
   def create_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateResource", input, options)
   end
 
   @doc """
@@ -145,7 +163,9 @@ defmodule AWS.WorkMail do
   `RegisterToWorkMail` operation.
   """
   def create_user(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateUser", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateUser", input, options)
   end
 
   @doc """
@@ -156,14 +176,18 @@ defmodule AWS.WorkMail do
   body.
   """
   def delete_access_control_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAccessControlRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAccessControlRule", input, options)
   end
 
   @doc """
   Remove one or more specified aliases from a set of aliases for a given user.
   """
   def delete_alias(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAlias", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAlias", input, options)
   end
 
   @doc """
@@ -171,28 +195,36 @@ defmodule AWS.WorkMail do
   domain.
   """
   def delete_availability_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAvailabilityConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAvailabilityConfiguration", input, options)
   end
 
   @doc """
   Deletes the email monitoring configuration for a specified organization.
   """
   def delete_email_monitoring_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEmailMonitoringConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEmailMonitoringConfiguration", input, options)
   end
 
   @doc """
   Deletes a group from Amazon WorkMail.
   """
   def delete_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteGroup", input, options)
   end
 
   @doc """
   Deletes permissions granted to a member (user or group).
   """
   def delete_mailbox_permissions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteMailboxPermissions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteMailboxPermissions", input, options)
   end
 
   @doc """
@@ -204,7 +236,9 @@ defmodule AWS.WorkMail do
   body.
   """
   def delete_mobile_device_access_override(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteMobileDeviceAccessOverride", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteMobileDeviceAccessOverride", input, options)
   end
 
   @doc """
@@ -216,7 +250,9 @@ defmodule AWS.WorkMail do
   body.
   """
   def delete_mobile_device_access_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteMobileDeviceAccessRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteMobileDeviceAccessRule", input, options)
   end
 
   @doc """
@@ -228,21 +264,27 @@ defmodule AWS.WorkMail do
   in the *Amazon WorkMail Administrator Guide*.
   """
   def delete_organization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteOrganization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteOrganization", input, options)
   end
 
   @doc """
   Deletes the specified resource.
   """
   def delete_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteResource", input, options)
   end
 
   @doc """
   Deletes the specified retention policy from the specified organization.
   """
   def delete_retention_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteRetentionPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRetentionPolicy", input, options)
   end
 
   @doc """
@@ -255,7 +297,9 @@ defmodule AWS.WorkMail do
   mailboxes for 30 days before they are permanently removed.
   """
   def delete_user(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteUser", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteUser", input, options)
   end
 
   @doc """
@@ -266,7 +310,9 @@ defmodule AWS.WorkMail do
   functionality in the console is *Disable*.
   """
   def deregister_from_work_mail(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterFromWorkMail", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterFromWorkMail", input, options)
   end
 
   @doc """
@@ -277,7 +323,9 @@ defmodule AWS.WorkMail do
   remove any email address used by WorkMail entities before you remove the domain.
   """
   def deregister_mail_domain(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterMailDomain", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterMailDomain", input, options)
   end
 
   @doc """
@@ -285,34 +333,36 @@ defmodule AWS.WorkMail do
   organization.
   """
   def describe_email_monitoring_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeEmailMonitoringConfiguration",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEmailMonitoringConfiguration", input, options)
   end
 
   @doc """
   Returns the data available for the group.
   """
   def describe_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeGroup", input, options)
   end
 
   @doc """
   Lists the settings in a DMARC policy for a specified organization.
   """
   def describe_inbound_dmarc_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeInboundDmarcSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInboundDmarcSettings", input, options)
   end
 
   @doc """
   Describes the current status of a mailbox export job.
   """
   def describe_mailbox_export_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeMailboxExportJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMailboxExportJob", input, options)
   end
 
   @doc """
@@ -320,35 +370,45 @@ defmodule AWS.WorkMail do
   identifier.
   """
   def describe_organization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeOrganization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeOrganization", input, options)
   end
 
   @doc """
   Returns the data available for the resource.
   """
   def describe_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeResource", input, options)
   end
 
   @doc """
   Provides information regarding the user.
   """
   def describe_user(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeUser", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeUser", input, options)
   end
 
   @doc """
   Removes a member from the resource's set of delegates.
   """
   def disassociate_delegate_from_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateDelegateFromResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateDelegateFromResource", input, options)
   end
 
   @doc """
   Removes a member from a group.
   """
   def disassociate_member_from_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateMemberFromGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateMemberFromGroup", input, options)
   end
 
   @doc """
@@ -356,14 +416,18 @@ defmodule AWS.WorkMail do
   specified IPv4 address, access protocol action, or user ID.
   """
   def get_access_control_effect(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAccessControlEffect", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAccessControlEffect", input, options)
   end
 
   @doc """
   Gets the default retention policy details for the specified organization.
   """
   def get_default_retention_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDefaultRetentionPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDefaultRetentionPolicy", input, options)
   end
 
   @doc """
@@ -371,14 +435,18 @@ defmodule AWS.WorkMail do
   your domain with recommended security.
   """
   def get_mail_domain(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetMailDomain", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMailDomain", input, options)
   end
 
   @doc """
   Requests a user's mailbox details for a specified organization and user.
   """
   def get_mailbox_details(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetMailboxDetails", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMailboxDetails", input, options)
   end
 
   @doc """
@@ -389,7 +457,9 @@ defmodule AWS.WorkMail do
   rules for the Amazon WorkMail organization for a particular user's attributes.
   """
   def get_mobile_device_access_effect(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetMobileDeviceAccessEffect", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMobileDeviceAccessEffect", input, options)
   end
 
   @doc """
@@ -397,28 +467,36 @@ defmodule AWS.WorkMail do
   user, and device.
   """
   def get_mobile_device_access_override(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetMobileDeviceAccessOverride", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMobileDeviceAccessOverride", input, options)
   end
 
   @doc """
   Lists the access control rules for the specified organization.
   """
   def list_access_control_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAccessControlRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAccessControlRules", input, options)
   end
 
   @doc """
   Creates a paginated call to list the aliases associated with a given entity.
   """
   def list_aliases(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAliases", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAliases", input, options)
   end
 
   @doc """
   List all the `AvailabilityConfiguration`'s for the given WorkMail organization.
   """
   def list_availability_configurations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAvailabilityConfigurations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAvailabilityConfigurations", input, options)
   end
 
   @doc """
@@ -427,21 +505,27 @@ defmodule AWS.WorkMail do
   Users and groups can be members of a group.
   """
   def list_group_members(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListGroupMembers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListGroupMembers", input, options)
   end
 
   @doc """
   Returns summaries of the organization's groups.
   """
   def list_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListGroups", input, options)
   end
 
   @doc """
   Lists the mail domains in a given Amazon WorkMail organization.
   """
   def list_mail_domains(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListMailDomains", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMailDomains", input, options)
   end
 
   @doc """
@@ -449,7 +533,9 @@ defmodule AWS.WorkMail do
   last seven days.
   """
   def list_mailbox_export_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListMailboxExportJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMailboxExportJobs", input, options)
   end
 
   @doc """
@@ -457,7 +543,9 @@ defmodule AWS.WorkMail do
   mailbox.
   """
   def list_mailbox_permissions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListMailboxPermissions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMailboxPermissions", input, options)
   end
 
   @doc """
@@ -465,7 +553,9 @@ defmodule AWS.WorkMail do
   WorkMail organization, user, or device.
   """
   def list_mobile_device_access_overrides(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListMobileDeviceAccessOverrides", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMobileDeviceAccessOverrides", input, options)
   end
 
   @doc """
@@ -473,14 +563,18 @@ defmodule AWS.WorkMail do
   organization.
   """
   def list_mobile_device_access_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListMobileDeviceAccessRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMobileDeviceAccessRules", input, options)
   end
 
   @doc """
   Returns summaries of the customer's organizations.
   """
   def list_organizations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListOrganizations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListOrganizations", input, options)
   end
 
   @doc """
@@ -490,28 +584,36 @@ defmodule AWS.WorkMail do
   resource.
   """
   def list_resource_delegates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListResourceDelegates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResourceDelegates", input, options)
   end
 
   @doc """
   Returns summaries of the organization's resources.
   """
   def list_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListResources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResources", input, options)
   end
 
   @doc """
   Lists the tags applied to an Amazon WorkMail organization resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Returns summaries of the organization's users.
   """
   def list_users(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListUsers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListUsers", input, options)
   end
 
   @doc """
@@ -522,7 +624,9 @@ defmodule AWS.WorkMail do
   same name as an existing rule replaces the older rule.
   """
   def put_access_control_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutAccessControlRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutAccessControlRule", input, options)
   end
 
   @doc """
@@ -530,14 +634,18 @@ defmodule AWS.WorkMail do
   organization.
   """
   def put_email_monitoring_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutEmailMonitoringConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutEmailMonitoringConfiguration", input, options)
   end
 
   @doc """
   Enables or disables a DMARC policy for a given organization.
   """
   def put_inbound_dmarc_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutInboundDmarcSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutInboundDmarcSettings", input, options)
   end
 
   @doc """
@@ -546,7 +654,9 @@ defmodule AWS.WorkMail do
   This replaces any pre-existing permissions.
   """
   def put_mailbox_permissions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutMailboxPermissions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutMailboxPermissions", input, options)
   end
 
   @doc """
@@ -554,14 +664,18 @@ defmodule AWS.WorkMail do
   organization, user, and device.
   """
   def put_mobile_device_access_override(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutMobileDeviceAccessOverride", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutMobileDeviceAccessOverride", input, options)
   end
 
   @doc """
   Puts a retention policy to the specified organization.
   """
   def put_retention_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutRetentionPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutRetentionPolicy", input, options)
   end
 
   @doc """
@@ -573,7 +687,9 @@ defmodule AWS.WorkMail do
   for sending your users' emails.
   """
   def register_mail_domain(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterMailDomain", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterMailDomain", input, options)
   end
 
   @doc """
@@ -591,14 +707,18 @@ defmodule AWS.WorkMail do
   `DeregisterFromWorkMail`.
   """
   def register_to_work_mail(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterToWorkMail", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterToWorkMail", input, options)
   end
 
   @doc """
   Allows the administrator to reset the password for a user.
   """
   def reset_password(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ResetPassword", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ResetPassword", input, options)
   end
 
   @doc """
@@ -610,7 +730,9 @@ defmodule AWS.WorkMail do
   in the *Amazon WorkMail Administrator Guide*.
   """
   def start_mailbox_export_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartMailboxExportJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartMailboxExportJob", input, options)
   end
 
   @doc """
@@ -618,7 +740,9 @@ defmodule AWS.WorkMail do
   resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -635,7 +759,9 @@ defmodule AWS.WorkMail do
   is provided, the configuration stored under the `DomainName` will be tested.
   """
   def test_availability_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TestAvailabilityConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TestAvailabilityConfiguration", input, options)
   end
 
   @doc """
@@ -643,7 +769,9 @@ defmodule AWS.WorkMail do
   resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -651,7 +779,9 @@ defmodule AWS.WorkMail do
   organization and domain.
   """
   def update_availability_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateAvailabilityConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAvailabilityConfiguration", input, options)
   end
 
   @doc """
@@ -661,14 +791,18 @@ defmodule AWS.WorkMail do
   address when enabling a mail user. You can only have one default domain.
   """
   def update_default_mail_domain(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateDefaultMailDomain", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDefaultMailDomain", input, options)
   end
 
   @doc """
   Updates a user's current mailbox quota for a specified organization and user.
   """
   def update_mailbox_quota(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateMailboxQuota", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateMailboxQuota", input, options)
   end
 
   @doc """
@@ -676,7 +810,9 @@ defmodule AWS.WorkMail do
   organization.
   """
   def update_mobile_device_access_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateMobileDeviceAccessRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateMobileDeviceAccessRule", input, options)
   end
 
   @doc """
@@ -687,7 +823,9 @@ defmodule AWS.WorkMail do
   input is promoted as the primary.
   """
   def update_primary_email_address(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdatePrimaryEmailAddress", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePrimaryEmailAddress", input, options)
   end
 
   @doc """
@@ -698,6 +836,8 @@ defmodule AWS.WorkMail do
   another `DescribeResource` call.
   """
   def update_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateResource", input, options)
   end
 end

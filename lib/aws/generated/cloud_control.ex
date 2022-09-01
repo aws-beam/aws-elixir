@@ -36,7 +36,9 @@ defmodule AWS.CloudControl do
   can be canceled.
   """
   def cancel_resource_request(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelResourceRequest", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelResourceRequest", input, options)
   end
 
   @doc """
@@ -52,7 +54,9 @@ defmodule AWS.CloudControl do
   `CreateResource`.
   """
   def create_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateResource", input, options)
   end
 
   @doc """
@@ -67,7 +71,9 @@ defmodule AWS.CloudControl do
   using the `RequestToken` of the `ProgressEvent` returned by `DeleteResource`.
   """
   def delete_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteResource", input, options)
   end
 
   @doc """
@@ -80,7 +86,9 @@ defmodule AWS.CloudControl do
   using Cloud Control API.
   """
   def get_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResource", input, options)
   end
 
   @doc """
@@ -90,7 +98,9 @@ defmodule AWS.CloudControl do
   in the *Amazon Web Services Cloud Control API User Guide*.
   """
   def get_resource_request_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetResourceRequestStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResourceRequestStatus", input, options)
   end
 
   @doc """
@@ -103,7 +113,9 @@ defmodule AWS.CloudControl do
   Resource operation requests expire after 7 days.
   """
   def list_resource_requests(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListResourceRequests", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResourceRequests", input, options)
   end
 
   @doc """
@@ -117,7 +129,9 @@ defmodule AWS.CloudControl do
   using Cloud Control API.
   """
   def list_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListResources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResources", input, options)
   end
 
   @doc """
@@ -141,6 +155,8 @@ defmodule AWS.CloudControl do
   in the *CloudFormation Users Guide*.
   """
   def update_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateResource", input, options)
   end
 end

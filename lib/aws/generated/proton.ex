@@ -187,7 +187,9 @@ defmodule AWS.Proton do
   in the *Proton Administrator guide*.
   """
   def accept_environment_account_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AcceptEnvironmentAccountConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AcceptEnvironmentAccountConnection", input, options)
   end
 
   @doc """
@@ -198,7 +200,9 @@ defmodule AWS.Proton do
   in the *Proton Administrator Guide*.
   """
   def cancel_component_deployment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelComponentDeployment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelComponentDeployment", input, options)
   end
 
   @doc """
@@ -221,7 +225,9 @@ defmodule AWS.Proton do
   the cancellation attempt has no effect.
   """
   def cancel_environment_deployment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelEnvironmentDeployment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelEnvironmentDeployment", input, options)
   end
 
   @doc """
@@ -245,7 +251,9 @@ defmodule AWS.Proton do
   the cancellation attempt has no effect.
   """
   def cancel_service_instance_deployment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelServiceInstanceDeployment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelServiceInstanceDeployment", input, options)
   end
 
   @doc """
@@ -269,7 +277,9 @@ defmodule AWS.Proton do
   the cancellation attempt has no effect.
   """
   def cancel_service_pipeline_deployment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelServicePipelineDeployment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelServicePipelineDeployment", input, options)
   end
 
   @doc """
@@ -281,7 +291,9 @@ defmodule AWS.Proton do
   in the *Proton Administrator Guide*.
   """
   def create_component(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateComponent", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateComponent", input, options)
   end
 
   @doc """
@@ -305,7 +317,9 @@ defmodule AWS.Proton do
   in the *Proton Administrator Guide*.
   """
   def create_environment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateEnvironment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEnvironment", input, options)
   end
 
   @doc """
@@ -319,7 +333,9 @@ defmodule AWS.Proton do
   in the *Proton Administrator guide*.
   """
   def create_environment_account_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateEnvironmentAccountConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEnvironmentAccountConnection", input, options)
   end
 
   @doc """
@@ -343,7 +359,9 @@ defmodule AWS.Proton do
   in the *Proton Administrator Guide*.
   """
   def create_environment_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateEnvironmentTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEnvironmentTemplate", input, options)
   end
 
   @doc """
@@ -354,7 +372,9 @@ defmodule AWS.Proton do
   backwards compatible within its major version.
   """
   def create_environment_template_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateEnvironmentTemplateVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEnvironmentTemplateVersion", input, options)
   end
 
   @doc """
@@ -370,7 +390,9 @@ defmodule AWS.Proton do
   in the *Proton Administrator Guide*.
   """
   def create_repository(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateRepository", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRepository", input, options)
   end
 
   @doc """
@@ -383,7 +405,9 @@ defmodule AWS.Proton do
   in the *Proton User Guide*.
   """
   def create_service(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateService", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateService", input, options)
   end
 
   @doc """
@@ -398,7 +422,9 @@ defmodule AWS.Proton do
   in the *Proton Administrator Guide*.
   """
   def create_service_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateServiceTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateServiceTemplate", input, options)
   end
 
   @doc """
@@ -409,7 +435,9 @@ defmodule AWS.Proton do
   compatible within its major version.
   """
   def create_service_template_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateServiceTemplateVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateServiceTemplateVersion", input, options)
   end
 
   @doc """
@@ -423,7 +451,9 @@ defmodule AWS.Proton do
   in the *Proton Administrator Guide*.
   """
   def create_template_sync_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateTemplateSyncConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTemplateSyncConfig", input, options)
   end
 
   @doc """
@@ -433,14 +463,18 @@ defmodule AWS.Proton do
   in the *Proton Administrator Guide*.
   """
   def delete_component(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteComponent", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteComponent", input, options)
   end
 
   @doc """
   Delete an environment.
   """
   def delete_environment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEnvironment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEnvironment", input, options)
   end
 
   @doc """
@@ -456,7 +490,9 @@ defmodule AWS.Proton do
   in the *Proton Administrator guide*.
   """
   def delete_environment_account_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEnvironmentAccountConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEnvironmentAccountConnection", input, options)
   end
 
   @doc """
@@ -464,7 +500,9 @@ defmodule AWS.Proton do
   environment template.
   """
   def delete_environment_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEnvironmentTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEnvironmentTemplate", input, options)
   end
 
   @doc """
@@ -481,14 +519,18 @@ defmodule AWS.Proton do
   version of an environment template is a version that's backward compatible.
   """
   def delete_environment_template_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEnvironmentTemplateVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEnvironmentTemplateVersion", input, options)
   end
 
   @doc """
   De-register and unlink your repository.
   """
   def delete_repository(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteRepository", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRepository", input, options)
   end
 
   @doc """
@@ -501,7 +543,9 @@ defmodule AWS.Proton do
   in the *Proton Administrator Guide*.
   """
   def delete_service(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteService", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteService", input, options)
   end
 
   @doc """
@@ -509,7 +553,9 @@ defmodule AWS.Proton do
   service template.
   """
   def delete_service_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteServiceTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteServiceTemplate", input, options)
   end
 
   @doc """
@@ -526,21 +572,27 @@ defmodule AWS.Proton do
   template is a version that's backwards compatible.
   """
   def delete_service_template_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteServiceTemplateVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteServiceTemplateVersion", input, options)
   end
 
   @doc """
   Delete a template sync configuration.
   """
   def delete_template_sync_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteTemplateSyncConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTemplateSyncConfig", input, options)
   end
 
   @doc """
   Get detail data for the Proton pipeline service role.
   """
   def get_account_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAccountSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAccountSettings", input, options)
   end
 
   @doc """
@@ -550,14 +602,18 @@ defmodule AWS.Proton do
   in the *Proton Administrator Guide*.
   """
   def get_component(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetComponent", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetComponent", input, options)
   end
 
   @doc """
   Get detailed data for an environment.
   """
   def get_environment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetEnvironment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEnvironment", input, options)
   end
 
   @doc """
@@ -568,28 +624,36 @@ defmodule AWS.Proton do
   in the *Proton Administrator guide*.
   """
   def get_environment_account_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetEnvironmentAccountConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEnvironmentAccountConnection", input, options)
   end
 
   @doc """
   Get detailed data for an environment template.
   """
   def get_environment_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetEnvironmentTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEnvironmentTemplate", input, options)
   end
 
   @doc """
   Get detailed data for a major or minor version of an environment template.
   """
   def get_environment_template_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetEnvironmentTemplateVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEnvironmentTemplateVersion", input, options)
   end
 
   @doc """
   Get detail data for a repository.
   """
   def get_repository(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRepository", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRepository", input, options)
   end
 
   @doc """
@@ -607,14 +671,18 @@ defmodule AWS.Proton do
   in the *Proton Administrator Guide*.
   """
   def get_repository_sync_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRepositorySyncStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRepositorySyncStatus", input, options)
   end
 
   @doc """
   Get detailed data for a service.
   """
   def get_service(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetService", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetService", input, options)
   end
 
   @doc """
@@ -624,35 +692,45 @@ defmodule AWS.Proton do
   specific environment.
   """
   def get_service_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetServiceInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetServiceInstance", input, options)
   end
 
   @doc """
   Get detailed data for a service template.
   """
   def get_service_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetServiceTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetServiceTemplate", input, options)
   end
 
   @doc """
   Get detailed data for a major or minor version of a service template.
   """
   def get_service_template_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetServiceTemplateVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetServiceTemplateVersion", input, options)
   end
 
   @doc """
   Get detail data for a template sync configuration.
   """
   def get_template_sync_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetTemplateSyncConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTemplateSyncConfig", input, options)
   end
 
   @doc """
   Get the status of a template sync.
   """
   def get_template_sync_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetTemplateSyncStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTemplateSyncStatus", input, options)
   end
 
   @doc """
@@ -662,7 +740,9 @@ defmodule AWS.Proton do
   in the *Proton Administrator Guide*.
   """
   def list_component_outputs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListComponentOutputs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListComponentOutputs", input, options)
   end
 
   @doc """
@@ -672,7 +752,9 @@ defmodule AWS.Proton do
   in the *Proton Administrator Guide*.
   """
   def list_component_provisioned_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListComponentProvisionedResources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListComponentProvisionedResources", input, options)
   end
 
   @doc """
@@ -685,7 +767,9 @@ defmodule AWS.Proton do
   in the *Proton Administrator Guide*.
   """
   def list_components(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListComponents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListComponents", input, options)
   end
 
   @doc """
@@ -695,130 +779,144 @@ defmodule AWS.Proton do
   in the *Proton Administrator guide*.
   """
   def list_environment_account_connections(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEnvironmentAccountConnections", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEnvironmentAccountConnections", input, options)
   end
 
   @doc """
   List the infrastructure as code outputs for your environment.
   """
   def list_environment_outputs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEnvironmentOutputs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEnvironmentOutputs", input, options)
   end
 
   @doc """
   List the provisioned resources for your environment.
   """
   def list_environment_provisioned_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ListEnvironmentProvisionedResources",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEnvironmentProvisionedResources", input, options)
   end
 
   @doc """
   List major or minor versions of an environment template with detail data.
   """
   def list_environment_template_versions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEnvironmentTemplateVersions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEnvironmentTemplateVersions", input, options)
   end
 
   @doc """
   List environment templates.
   """
   def list_environment_templates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEnvironmentTemplates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEnvironmentTemplates", input, options)
   end
 
   @doc """
   List environments with detail data summaries.
   """
   def list_environments(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEnvironments", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEnvironments", input, options)
   end
 
   @doc """
   List repositories with detail data.
   """
   def list_repositories(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListRepositories", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRepositories", input, options)
   end
 
   @doc """
   List repository sync definitions with detail data.
   """
   def list_repository_sync_definitions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListRepositorySyncDefinitions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRepositorySyncDefinitions", input, options)
   end
 
   @doc """
   Get a list service of instance Infrastructure as Code (IaC) outputs.
   """
   def list_service_instance_outputs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListServiceInstanceOutputs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListServiceInstanceOutputs", input, options)
   end
 
   @doc """
   List provisioned resources for a service instance with details.
   """
   def list_service_instance_provisioned_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ListServiceInstanceProvisionedResources",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListServiceInstanceProvisionedResources", input, options)
   end
 
   @doc """
   List service instances with summary data.
   """
   def list_service_instances(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListServiceInstances", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListServiceInstances", input, options)
   end
 
   @doc """
   Get a list of service pipeline Infrastructure as Code (IaC) outputs.
   """
   def list_service_pipeline_outputs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListServicePipelineOutputs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListServicePipelineOutputs", input, options)
   end
 
   @doc """
   List provisioned resources for a service and pipeline with details.
   """
   def list_service_pipeline_provisioned_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ListServicePipelineProvisionedResources",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListServicePipelineProvisionedResources", input, options)
   end
 
   @doc """
   List major or minor versions of a service template with detail data.
   """
   def list_service_template_versions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListServiceTemplateVersions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListServiceTemplateVersions", input, options)
   end
 
   @doc """
   List service templates with detail data.
   """
   def list_service_templates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListServiceTemplates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListServiceTemplates", input, options)
   end
 
   @doc """
   List services with summaries of detail data.
   """
   def list_services(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListServices", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListServices", input, options)
   end
 
   @doc """
@@ -829,7 +927,9 @@ defmodule AWS.Proton do
   [Proton User Guide](https://docs.aws.amazon.com/proton/latest/userguide/resources.html).
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -840,13 +940,9 @@ defmodule AWS.Proton do
   in the *Proton Administrator Guide*.
   """
   def notify_resource_deployment_status_change(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "NotifyResourceDeploymentStatusChange",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "NotifyResourceDeploymentStatusChange", input, options)
   end
 
   @doc """
@@ -863,7 +959,9 @@ defmodule AWS.Proton do
   in the *Proton Administrator guide*.
   """
   def reject_environment_account_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RejectEnvironmentAccountConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RejectEnvironmentAccountConnection", input, options)
   end
 
   @doc """
@@ -877,7 +975,9 @@ defmodule AWS.Proton do
   [Proton User Guide](https://docs.aws.amazon.com/proton/latest/userguide/resources.html).
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -890,14 +990,18 @@ defmodule AWS.Proton do
   [Proton User Guide](https://docs.aws.amazon.com/proton/latest/userguide/resources.html).
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
   Update the Proton service pipeline role or repository settings.
   """
   def update_account_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateAccountSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAccountSettings", input, options)
   end
 
   @doc """
@@ -913,7 +1017,9 @@ defmodule AWS.Proton do
   in the *Proton Administrator Guide*.
   """
   def update_component(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateComponent", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateComponent", input, options)
   end
 
   @doc """
@@ -987,7 +1093,9 @@ defmodule AWS.Proton do
   major version in use and a minor version.
   """
   def update_environment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateEnvironment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateEnvironment", input, options)
   end
 
   @doc """
@@ -998,21 +1106,27 @@ defmodule AWS.Proton do
   in the *Proton Administrator guide*.
   """
   def update_environment_account_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateEnvironmentAccountConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateEnvironmentAccountConnection", input, options)
   end
 
   @doc """
   Update an environment template.
   """
   def update_environment_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateEnvironmentTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateEnvironmentTemplate", input, options)
   end
 
   @doc """
   Update a major or minor version of an environment template.
   """
   def update_environment_template_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateEnvironmentTemplateVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateEnvironmentTemplateVersion", input, options)
   end
 
   @doc """
@@ -1032,7 +1146,9 @@ defmodule AWS.Proton do
   in the *Proton Administrator Guide*.
   """
   def update_service(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateService", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateService", input, options)
   end
 
   @doc """
@@ -1048,7 +1164,9 @@ defmodule AWS.Proton do
   in the *Proton Administrator Guide*.
   """
   def update_service_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateServiceInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateServiceInstance", input, options)
   end
 
   @doc """
@@ -1093,21 +1211,27 @@ defmodule AWS.Proton do
   in use and a minor version.
   """
   def update_service_pipeline(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateServicePipeline", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateServicePipeline", input, options)
   end
 
   @doc """
   Update a service template.
   """
   def update_service_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateServiceTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateServiceTemplate", input, options)
   end
 
   @doc """
   Update a major or minor version of a service template.
   """
   def update_service_template_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateServiceTemplateVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateServiceTemplateVersion", input, options)
   end
 
   @doc """
@@ -1115,6 +1239,8 @@ defmodule AWS.Proton do
   `templateType`.
   """
   def update_template_sync_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateTemplateSyncConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateTemplateSyncConfig", input, options)
   end
 end

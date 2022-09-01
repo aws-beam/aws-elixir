@@ -38,7 +38,9 @@ defmodule AWS.DAX do
   All nodes in the cluster run the same DAX caching software.
   """
   def create_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCluster", input, options)
   end
 
   @doc """
@@ -48,14 +50,18 @@ defmodule AWS.DAX do
   nodes in a DAX cluster.
   """
   def create_parameter_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateParameterGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateParameterGroup", input, options)
   end
 
   @doc """
   Creates a new subnet group.
   """
   def create_subnet_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateSubnetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSubnetGroup", input, options)
   end
 
   @doc """
@@ -65,7 +71,9 @@ defmodule AWS.DAX do
   cluster. If you need to do this, use `DeleteCluster` instead.
   """
   def decrease_replication_factor(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DecreaseReplicationFactor", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DecreaseReplicationFactor", input, options)
   end
 
   @doc """
@@ -76,7 +84,9 @@ defmodule AWS.DAX do
   begins deleting the cluster; you cannot cancel or revert this action.
   """
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCluster", input, options)
   end
 
   @doc """
@@ -85,7 +95,9 @@ defmodule AWS.DAX do
   You cannot delete a parameter group if it is associated with any DAX clusters.
   """
   def delete_parameter_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteParameterGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteParameterGroup", input, options)
   end
 
   @doc """
@@ -94,7 +106,9 @@ defmodule AWS.DAX do
   You cannot delete a subnet group if it is associated with any DAX clusters.
   """
   def delete_subnet_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSubnetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSubnetGroup", input, options)
   end
 
   @doc """
@@ -117,14 +131,18 @@ defmodule AWS.DAX do
   information for the removed nodes is displayed.
   """
   def describe_clusters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeClusters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeClusters", input, options)
   end
 
   @doc """
   Returns the default system parameter information for the DAX caching software.
   """
   def describe_default_parameters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDefaultParameters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDefaultParameters", input, options)
   end
 
   @doc """
@@ -137,7 +155,9 @@ defmodule AWS.DAX do
   however, you can retrieve up to 14 days' worth of events if necessary.
   """
   def describe_events(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEvents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEvents", input, options)
   end
 
   @doc """
@@ -147,14 +167,18 @@ defmodule AWS.DAX do
   descriptions for that group.
   """
   def describe_parameter_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeParameterGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeParameterGroups", input, options)
   end
 
   @doc """
   Returns the detailed parameter list for a particular parameter group.
   """
   def describe_parameters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeParameters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeParameters", input, options)
   end
 
   @doc """
@@ -164,14 +188,18 @@ defmodule AWS.DAX do
   of that group.
   """
   def describe_subnet_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSubnetGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSubnetGroups", input, options)
   end
 
   @doc """
   Adds one or more nodes to a DAX cluster.
   """
   def increase_replication_factor(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "IncreaseReplicationFactor", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "IncreaseReplicationFactor", input, options)
   end
 
   @doc """
@@ -180,7 +208,9 @@ defmodule AWS.DAX do
   You can call `ListTags` up to 10 times per second, per account.
   """
   def list_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTags", input, options)
   end
 
   @doc """
@@ -193,7 +223,9 @@ defmodule AWS.DAX do
   the cache.
   """
   def reboot_node(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RebootNode", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RebootNode", input, options)
   end
 
   @doc """
@@ -202,7 +234,9 @@ defmodule AWS.DAX do
   You can call `TagResource` up to 5 times per second, per account.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -211,7 +245,9 @@ defmodule AWS.DAX do
   You can call `UntagResource` up to 5 times per second, per account.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -221,7 +257,9 @@ defmodule AWS.DAX do
   by specifying the parameters and the new values.
   """
   def update_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCluster", input, options)
   end
 
   @doc """
@@ -231,13 +269,17 @@ defmodule AWS.DAX do
   parameter name and value pairs.
   """
   def update_parameter_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateParameterGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateParameterGroup", input, options)
   end
 
   @doc """
   Modifies an existing subnet group.
   """
   def update_subnet_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateSubnetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSubnetGroup", input, options)
   end
 end

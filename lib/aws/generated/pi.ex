@@ -62,7 +62,9 @@ defmodule AWS.PI do
   as SQL statements, only the first 500 bytes are returned.
   """
   def describe_dimension_keys(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDimensionKeys", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDimensionKeys", input, options)
   end
 
   @doc """
@@ -75,7 +77,9 @@ defmodule AWS.PI do
   don't support retrieval of large SQL statement text.
   """
   def get_dimension_key_details(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDimensionKeyDetails", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDimensionKeyDetails", input, options)
   end
 
   @doc """
@@ -85,7 +89,9 @@ defmodule AWS.PI do
   specific DB instance.
   """
   def get_resource_metadata(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetResourceMetadata", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResourceMetadata", input, options)
   end
 
   @doc """
@@ -99,7 +105,9 @@ defmodule AWS.PI do
   as SQL statements, only the first 500 bytes are returned.
   """
   def get_resource_metrics(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetResourceMetrics", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResourceMetrics", input, options)
   end
 
   @doc """
@@ -107,7 +115,9 @@ defmodule AWS.PI do
   specified DB instance.
   """
   def list_available_resource_dimensions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAvailableResourceDimensions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAvailableResourceDimensions", input, options)
   end
 
   @doc """
@@ -115,6 +125,8 @@ defmodule AWS.PI do
   instance.
   """
   def list_available_resource_metrics(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAvailableResourceMetrics", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAvailableResourceMetrics", input, options)
   end
 end

@@ -46,7 +46,9 @@ defmodule AWS.BackupGateway do
   through the gateway.
   """
   def associate_gateway_to_server(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateGatewayToServer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateGatewayToServer", input, options)
   end
 
   @doc """
@@ -56,21 +58,27 @@ defmodule AWS.BackupGateway do
   `AssociateGatewayToServer` operation.
   """
   def create_gateway(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateGateway", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateGateway", input, options)
   end
 
   @doc """
   Deletes a backup gateway.
   """
   def delete_gateway(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteGateway", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteGateway", input, options)
   end
 
   @doc """
   Deletes a hypervisor.
   """
   def delete_hypervisor(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteHypervisor", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteHypervisor", input, options)
   end
 
   @doc """
@@ -80,21 +88,27 @@ defmodule AWS.BackupGateway do
   virtual machines on the server.
   """
   def disassociate_gateway_from_server(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateGatewayFromServer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateGatewayFromServer", input, options)
   end
 
   @doc """
   By providing the ARN (Amazon Resource Name), this API returns the gateway.
   """
   def get_gateway(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetGateway", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetGateway", input, options)
   end
 
   @doc """
   Connect to a hypervisor by importing its configuration.
   """
   def import_hypervisor_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ImportHypervisorConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportHypervisorConfiguration", input, options)
   end
 
   @doc """
@@ -104,14 +118,18 @@ defmodule AWS.BackupGateway do
   The returned list is ordered by gateway Amazon Resource Name (ARN).
   """
   def list_gateways(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListGateways", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListGateways", input, options)
   end
 
   @doc """
   Lists your hypervisors.
   """
   def list_hypervisors(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListHypervisors", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListHypervisors", input, options)
   end
 
   @doc """
@@ -119,28 +137,36 @@ defmodule AWS.BackupGateway do
   (ARN).
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Lists your virtual machines.
   """
   def list_virtual_machines(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListVirtualMachines", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListVirtualMachines", input, options)
   end
 
   @doc """
   Set the maintenance start time for a gateway.
   """
   def put_maintenance_start_time(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutMaintenanceStartTime", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutMaintenanceStartTime", input, options)
   end
 
   @doc """
   Tag the resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -148,14 +174,18 @@ defmodule AWS.BackupGateway do
   with the hypervisor and its resources.
   """
   def test_hypervisor_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TestHypervisorConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TestHypervisorConfiguration", input, options)
   end
 
   @doc """
   Removes tags from the resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -165,7 +195,9 @@ defmodule AWS.BackupGateway do
   gateway in your request.
   """
   def update_gateway_information(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateGatewayInformation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateGatewayInformation", input, options)
   end
 
   @doc """
@@ -177,7 +209,9 @@ defmodule AWS.BackupGateway do
   However, it might take some time for the update to complete.
   """
   def update_gateway_software_now(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateGatewaySoftwareNow", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateGatewaySoftwareNow", input, options)
   end
 
   @doc """
@@ -187,6 +221,8 @@ defmodule AWS.BackupGateway do
   hypervisor in your request.
   """
   def update_hypervisor(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateHypervisor", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateHypervisor", input, options)
   end
 end

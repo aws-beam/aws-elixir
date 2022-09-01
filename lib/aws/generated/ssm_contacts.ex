@@ -39,7 +39,9 @@ defmodule AWS.SSMContacts do
   Used to acknowledge an engagement to a contact channel during an incident.
   """
   def accept_page(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AcceptPage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AcceptPage", input, options)
   end
 
   @doc """
@@ -49,7 +51,9 @@ defmodule AWS.SSMContacts do
   activated.
   """
   def activate_contact_channel(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ActivateContactChannel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ActivateContactChannel", input, options)
   end
 
   @doc """
@@ -58,7 +62,9 @@ defmodule AWS.SSMContacts do
   in phases during an incident.
   """
   def create_contact(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateContact", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateContact", input, options)
   end
 
   @doc """
@@ -66,7 +72,9 @@ defmodule AWS.SSMContacts do
   contact.
   """
   def create_contact_channel(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateContactChannel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateContactChannel", input, options)
   end
 
   @doc """
@@ -74,7 +82,9 @@ defmodule AWS.SSMContacts do
   deactivate the channel.
   """
   def deactivate_contact_channel(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeactivateContactChannel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeactivateContactChannel", input, options)
   end
 
   @doc """
@@ -86,7 +96,9 @@ defmodule AWS.SSMContacts do
   use it again.
   """
   def delete_contact(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteContact", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteContact", input, options)
   end
 
   @doc """
@@ -98,7 +110,9 @@ defmodule AWS.SSMContacts do
   that contact during an incident.
   """
   def delete_contact_channel(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteContactChannel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteContactChannel", input, options)
   end
 
   @doc """
@@ -108,28 +122,36 @@ defmodule AWS.SSMContacts do
   Use this command to describe the engagement that occurred during an incident.
   """
   def describe_engagement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEngagement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEngagement", input, options)
   end
 
   @doc """
   Lists details of the engagement to a contact channel.
   """
   def describe_page(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePage", input, options)
   end
 
   @doc """
   Retrieves information about the specified contact or escalation plan.
   """
   def get_contact(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetContact", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetContact", input, options)
   end
 
   @doc """
   List details about a specific contact channel.
   """
   def get_contact_channel(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetContactChannel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetContactChannel", input, options)
   end
 
   @doc """
@@ -137,56 +159,72 @@ defmodule AWS.SSMContacts do
   plan.
   """
   def get_contact_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetContactPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetContactPolicy", input, options)
   end
 
   @doc """
   Lists all contact channels for the specified contact.
   """
   def list_contact_channels(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListContactChannels", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListContactChannels", input, options)
   end
 
   @doc """
   Lists all contacts and escalation plans in Incident Manager.
   """
   def list_contacts(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListContacts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListContacts", input, options)
   end
 
   @doc """
   Lists all engagements that have happened in an incident.
   """
   def list_engagements(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEngagements", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEngagements", input, options)
   end
 
   @doc """
   Lists all of the engagements to contact channels that have been acknowledged.
   """
   def list_page_receipts(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPageReceipts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPageReceipts", input, options)
   end
 
   @doc """
   Lists the engagements to a contact's contact channels.
   """
   def list_pages_by_contact(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPagesByContact", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPagesByContact", input, options)
   end
 
   @doc """
   Lists the engagements to contact channels that occurred by engaging a contact.
   """
   def list_pages_by_engagement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPagesByEngagement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPagesByEngagement", input, options)
   end
 
   @doc """
   Lists the tags of an escalation plan or contact.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -197,7 +235,9 @@ defmodule AWS.SSMContacts do
   see [Setting up cross-account functionality](https://docs.aws.amazon.com/incident-manager/latest/userguide/xa.html).
   """
   def put_contact_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutContactPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutContactPolicy", input, options)
   end
 
   @doc """
@@ -208,7 +248,9 @@ defmodule AWS.SSMContacts do
   channel until it has been activated.
   """
   def send_activation_code(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SendActivationCode", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendActivationCode", input, options)
   end
 
   @doc """
@@ -217,7 +259,9 @@ defmodule AWS.SSMContacts do
   The engagement engages each contact specified in the incident.
   """
   def start_engagement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartEngagement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartEngagement", input, options)
   end
 
   @doc """
@@ -227,7 +271,9 @@ defmodule AWS.SSMContacts do
   Further contacts aren't engaged.
   """
   def stop_engagement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopEngagement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopEngagement", input, options)
   end
 
   @doc """
@@ -237,27 +283,35 @@ defmodule AWS.SSMContacts do
   replication set.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes tags from the specified resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
   Updates the contact or escalation plan specified.
   """
   def update_contact(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateContact", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateContact", input, options)
   end
 
   @doc """
   Updates a contact's contact channel.
   """
   def update_contact_channel(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateContactChannel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateContactChannel", input, options)
   end
 end

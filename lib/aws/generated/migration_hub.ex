@@ -48,7 +48,9 @@ defmodule AWS.MigrationHub do
   AMI's, EC2 instance, or DMS endpoint, etc.
   """
   def associate_created_artifact(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateCreatedArtifact", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateCreatedArtifact", input, options)
   end
 
   @doc """
@@ -56,7 +58,9 @@ defmodule AWS.MigrationHub do
   migration task.
   """
   def associate_discovered_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateDiscoveredResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateDiscoveredResource", input, options)
   end
 
   @doc """
@@ -69,7 +73,9 @@ defmodule AWS.MigrationHub do
   it is scoped to the AWS account.
   """
   def create_progress_update_stream(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateProgressUpdateStream", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateProgressUpdateStream", input, options)
   end
 
   @doc """
@@ -99,21 +105,27 @@ defmodule AWS.MigrationHub do
   associated with the old stream).
   """
   def delete_progress_update_stream(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteProgressUpdateStream", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteProgressUpdateStream", input, options)
   end
 
   @doc """
   Gets the migration status of an application.
   """
   def describe_application_state(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeApplicationState", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeApplicationState", input, options)
   end
 
   @doc """
   Retrieves a list of all attributes associated with a specific migration task.
   """
   def describe_migration_task(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeMigrationTask", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMigrationTask", input, options)
   end
 
   @doc """
@@ -133,7 +145,9 @@ defmodule AWS.MigrationHub do
   AMI's, EC2 instance, or RDS instance, etc.
   """
   def disassociate_created_artifact(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateCreatedArtifact", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateCreatedArtifact", input, options)
   end
 
   @doc """
@@ -141,7 +155,9 @@ defmodule AWS.MigrationHub do
   migration task.
   """
   def disassociate_discovered_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateDiscoveredResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateDiscoveredResource", input, options)
   end
 
   @doc """
@@ -152,7 +168,9 @@ defmodule AWS.MigrationHub do
   migration tool must first register the migration task with Migration Hub.
   """
   def import_migration_task(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ImportMigrationTask", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportMigrationTask", input, options)
   end
 
   @doc """
@@ -162,7 +180,9 @@ defmodule AWS.MigrationHub do
   for those applications will be returned.
   """
   def list_application_states(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListApplicationStates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListApplicationStates", input, options)
   end
 
   @doc """
@@ -180,14 +200,18 @@ defmodule AWS.MigrationHub do
     * Lists created artifacts in a paginated interface.
   """
   def list_created_artifacts(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListCreatedArtifacts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCreatedArtifacts", input, options)
   end
 
   @doc """
   Lists discovered resources associated with the given `MigrationTask`.
   """
   def list_discovered_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDiscoveredResources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDiscoveredResources", input, options)
   end
 
   @doc """
@@ -204,14 +228,18 @@ defmodule AWS.MigrationHub do
     * Lists migration tasks in a paginated interface.
   """
   def list_migration_tasks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListMigrationTasks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMigrationTasks", input, options)
   end
 
   @doc """
   Lists progress update streams associated with the user account making this call.
   """
   def list_progress_update_streams(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListProgressUpdateStreams", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListProgressUpdateStreams", input, options)
   end
 
   @doc """
@@ -222,7 +250,9 @@ defmodule AWS.MigrationHub do
   `NOT_STARTED | IN_PROGRESS | COMPLETED`.
   """
   def notify_application_state(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "NotifyApplicationState", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "NotifyApplicationState", input, options)
   end
 
   @doc """
@@ -241,7 +271,9 @@ defmodule AWS.MigrationHub do
   namespace for each migration tool.
   """
   def notify_migration_task_state(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "NotifyMigrationTaskState", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "NotifyMigrationTaskState", input, options)
   end
 
   @doc """
@@ -266,6 +298,8 @@ defmodule AWS.MigrationHub do
   provided details, call `ListDiscoveredResources`.
   """
   def put_resource_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutResourceAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutResourceAttributes", input, options)
   end
 end

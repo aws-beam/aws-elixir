@@ -55,7 +55,9 @@ defmodule AWS.ElastiCache do
   in the *ElastiCache User Guide*.
   """
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddTagsToResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
 
   @doc """
@@ -68,7 +70,9 @@ defmodule AWS.ElastiCache do
   an ElastiCache cluster in another region.
   """
   def authorize_cache_security_group_ingress(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AuthorizeCacheSecurityGroupIngress", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AuthorizeCacheSecurityGroupIngress", input, options)
   end
 
   @doc """
@@ -77,7 +81,9 @@ defmodule AWS.ElastiCache do
   For more information on service updates and applying them, see [Applying Service Updates](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/applying-updates.html).
   """
   def batch_apply_update_action(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchApplyUpdateAction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchApplyUpdateAction", input, options)
   end
 
   @doc """
@@ -86,14 +92,18 @@ defmodule AWS.ElastiCache do
   For more information on service updates and stopping them, see [Stopping Service Updates](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/stopping-self-service-updates.html).
   """
   def batch_stop_update_action(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchStopUpdateAction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchStopUpdateAction", input, options)
   end
 
   @doc """
   Complete the migration of data.
   """
   def complete_migration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CompleteMigration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CompleteMigration", input, options)
   end
 
   @doc """
@@ -165,7 +175,9 @@ defmodule AWS.ElastiCache do
   in the ElastiCache User Guide.
   """
   def copy_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CopySnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CopySnapshot", input, options)
   end
 
   @doc """
@@ -177,7 +189,9 @@ defmodule AWS.ElastiCache do
   This operation is not supported for Redis (cluster mode enabled) clusters.
   """
   def create_cache_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCacheCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCacheCluster", input, options)
   end
 
   @doc """
@@ -200,7 +214,9 @@ defmodule AWS.ElastiCache do
   in the ElastiCache User Guide.
   """
   def create_cache_parameter_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCacheParameterGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCacheParameterGroup", input, options)
   end
 
   @doc """
@@ -214,7 +230,9 @@ defmodule AWS.ElastiCache do
   [CreateCacheSubnetGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html).
   """
   def create_cache_security_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCacheSecurityGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCacheSecurityGroup", input, options)
   end
 
   @doc """
@@ -224,7 +242,9 @@ defmodule AWS.ElastiCache do
   Private Cloud (Amazon VPC).
   """
   def create_cache_subnet_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCacheSubnetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCacheSubnetGroup", input, options)
   end
 
   @doc """
@@ -244,7 +264,9 @@ defmodule AWS.ElastiCache do
   cluster.
   """
   def create_global_replication_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateGlobalReplicationGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateGlobalReplicationGroup", input, options)
   end
 
   @doc """
@@ -286,7 +308,9 @@ defmodule AWS.ElastiCache do
   This operation is valid for Redis only.
   """
   def create_replication_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateReplicationGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateReplicationGroup", input, options)
   end
 
   @doc """
@@ -296,7 +320,9 @@ defmodule AWS.ElastiCache do
   This operation is valid for Redis only.
   """
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
 
   @doc """
@@ -305,7 +331,9 @@ defmodule AWS.ElastiCache do
   For more information, see [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
   """
   def create_user(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateUser", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateUser", input, options)
   end
 
   @doc """
@@ -314,16 +342,20 @@ defmodule AWS.ElastiCache do
   For more information, see [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html)
   """
   def create_user_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateUserGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateUserGroup", input, options)
   end
 
   @doc """
   Decreases the number of node groups in a Global datastore
   """
   def decrease_node_groups_in_global_replication_group(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "DecreaseNodeGroupsInGlobalReplicationGroup",
       input,
       options
@@ -338,7 +370,9 @@ defmodule AWS.ElastiCache do
   This operation is performed with no cluster down time.
   """
   def decrease_replica_count(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DecreaseReplicaCount", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DecreaseReplicaCount", input, options)
   end
 
   @doc """
@@ -366,7 +400,9 @@ defmodule AWS.ElastiCache do
     * A cluster that is not in the `available` state
   """
   def delete_cache_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCacheCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCacheCluster", input, options)
   end
 
   @doc """
@@ -376,7 +412,9 @@ defmodule AWS.ElastiCache do
   clusters. You cannot delete the default cache parameter groups in your account.
   """
   def delete_cache_parameter_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCacheParameterGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCacheParameterGroup", input, options)
   end
 
   @doc """
@@ -385,7 +423,9 @@ defmodule AWS.ElastiCache do
   You cannot delete a cache security group if it is associated with any clusters.
   """
   def delete_cache_security_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCacheSecurityGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCacheSecurityGroup", input, options)
   end
 
   @doc """
@@ -395,7 +435,9 @@ defmodule AWS.ElastiCache do
   any clusters.
   """
   def delete_cache_subnet_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCacheSubnetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCacheSubnetGroup", input, options)
   end
 
   @doc """
@@ -420,7 +462,9 @@ defmodule AWS.ElastiCache do
   this operation.
   """
   def delete_global_replication_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteGlobalReplicationGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteGlobalReplicationGroup", input, options)
   end
 
   @doc """
@@ -438,7 +482,9 @@ defmodule AWS.ElastiCache do
   This operation is valid for Redis only.
   """
   def delete_replication_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteReplicationGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteReplicationGroup", input, options)
   end
 
   @doc """
@@ -451,7 +497,9 @@ defmodule AWS.ElastiCache do
   This operation is valid for Redis only.
   """
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
 
   @doc """
@@ -461,7 +509,9 @@ defmodule AWS.ElastiCache do
   replication groups. For more information, see [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
   """
   def delete_user(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteUser", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteUser", input, options)
   end
 
   @doc """
@@ -471,7 +521,9 @@ defmodule AWS.ElastiCache do
   can be deleted. For more information, see [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
   """
   def delete_user_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteUserGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteUserGroup", input, options)
   end
 
   @doc """
@@ -499,14 +551,18 @@ defmodule AWS.ElastiCache do
   information for the removed nodes is displayed.
   """
   def describe_cache_clusters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCacheClusters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCacheClusters", input, options)
   end
 
   @doc """
   Returns a list of the available cache engines and their versions.
   """
   def describe_cache_engine_versions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCacheEngineVersions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCacheEngineVersions", input, options)
   end
 
   @doc """
@@ -516,14 +572,18 @@ defmodule AWS.ElastiCache do
   descriptions for that group.
   """
   def describe_cache_parameter_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCacheParameterGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCacheParameterGroups", input, options)
   end
 
   @doc """
   Returns the detailed parameter list for a particular cache parameter group.
   """
   def describe_cache_parameters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCacheParameters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCacheParameters", input, options)
   end
 
   @doc """
@@ -534,7 +594,9 @@ defmodule AWS.ElastiCache do
   Classic setup
   """
   def describe_cache_security_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCacheSecurityGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCacheSecurityGroups", input, options)
   end
 
   @doc """
@@ -545,7 +607,9 @@ defmodule AWS.ElastiCache do
   ElastiCache clusters now launch in VPC by default.
   """
   def describe_cache_subnet_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCacheSubnetGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCacheSubnetGroups", input, options)
   end
 
   @doc """
@@ -553,7 +617,9 @@ defmodule AWS.ElastiCache do
   cache engine.
   """
   def describe_engine_default_parameters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEngineDefaultParameters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEngineDefaultParameters", input, options)
   end
 
   @doc """
@@ -567,7 +633,9 @@ defmodule AWS.ElastiCache do
   however, you can retrieve up to 14 days' worth of events if necessary.
   """
   def describe_events(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEvents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEvents", input, options)
   end
 
   @doc """
@@ -576,7 +644,9 @@ defmodule AWS.ElastiCache do
   If no identifier is specified, returns information about all Global datastores.
   """
   def describe_global_replication_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeGlobalReplicationGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeGlobalReplicationGroups", input, options)
   end
 
   @doc """
@@ -588,7 +658,9 @@ defmodule AWS.ElastiCache do
   This operation is valid for Redis only.
   """
   def describe_replication_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeReplicationGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReplicationGroups", input, options)
   end
 
   @doc """
@@ -596,27 +668,27 @@ defmodule AWS.ElastiCache do
   specified reserved cache node.
   """
   def describe_reserved_cache_nodes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeReservedCacheNodes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReservedCacheNodes", input, options)
   end
 
   @doc """
   Lists available reserved cache node offerings.
   """
   def describe_reserved_cache_nodes_offerings(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeReservedCacheNodesOfferings",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReservedCacheNodesOfferings", input, options)
   end
 
   @doc """
   Returns details of the service updates
   """
   def describe_service_updates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeServiceUpdates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeServiceUpdates", input, options)
   end
 
   @doc """
@@ -629,28 +701,36 @@ defmodule AWS.ElastiCache do
   This operation is valid for Redis only.
   """
   def describe_snapshots(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSnapshots", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSnapshots", input, options)
   end
 
   @doc """
   Returns details of the update actions
   """
   def describe_update_actions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeUpdateActions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeUpdateActions", input, options)
   end
 
   @doc """
   Returns a list of user groups.
   """
   def describe_user_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeUserGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeUserGroups", input, options)
   end
 
   @doc """
   Returns a list of users.
   """
   def describe_users(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeUsers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeUsers", input, options)
   end
 
   @doc """
@@ -661,7 +741,9 @@ defmodule AWS.ElastiCache do
   but will remain as a standalone cluster in that Amazon region.
   """
   def disassociate_global_replication_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateGlobalReplicationGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateGlobalReplicationGroup", input, options)
   end
 
   @doc """
@@ -671,16 +753,20 @@ defmodule AWS.ElastiCache do
   become secondary.
   """
   def failover_global_replication_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "FailoverGlobalReplicationGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "FailoverGlobalReplicationGroup", input, options)
   end
 
   @doc """
   Increase the number of node groups in the Global datastore
   """
   def increase_node_groups_in_global_replication_group(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "IncreaseNodeGroupsInGlobalReplicationGroup",
       input,
       options
@@ -695,7 +781,9 @@ defmodule AWS.ElastiCache do
   This operation is performed with no cluster down time.
   """
   def increase_replica_count(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "IncreaseReplicaCount", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "IncreaseReplicaCount", input, options)
   end
 
   @doc """
@@ -707,7 +795,9 @@ defmodule AWS.ElastiCache do
   parameter must be one of the node types returned by this operation.
   """
   def list_allowed_node_type_modifications(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAllowedNodeTypeModifications", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAllowedNodeTypeModifications", input, options)
   end
 
   @doc """
@@ -723,7 +813,9 @@ defmodule AWS.ElastiCache do
   error.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -733,7 +825,9 @@ defmodule AWS.ElastiCache do
   parameters by specifying the parameters and the new values.
   """
   def modify_cache_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyCacheCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyCacheCluster", input, options)
   end
 
   @doc """
@@ -743,21 +837,27 @@ defmodule AWS.ElastiCache do
   parameter name and value pairs.
   """
   def modify_cache_parameter_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyCacheParameterGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyCacheParameterGroup", input, options)
   end
 
   @doc """
   Modifies an existing cache subnet group.
   """
   def modify_cache_subnet_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyCacheSubnetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyCacheSubnetGroup", input, options)
   end
 
   @doc """
   Modifies the settings for a Global datastore.
   """
   def modify_global_replication_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyGlobalReplicationGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyGlobalReplicationGroup", input, options)
   end
 
   @doc """
@@ -773,7 +873,9 @@ defmodule AWS.ElastiCache do
   This operation is valid for Redis only.
   """
   def modify_replication_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyReplicationGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyReplicationGroup", input, options)
   end
 
   @doc """
@@ -781,27 +883,27 @@ defmodule AWS.ElastiCache do
   shards, remove shards, or rebalance the keyspaces among existing shards.
   """
   def modify_replication_group_shard_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ModifyReplicationGroupShardConfiguration",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyReplicationGroupShardConfiguration", input, options)
   end
 
   @doc """
   Changes user password(s) and/or access string.
   """
   def modify_user(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyUser", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyUser", input, options)
   end
 
   @doc """
   Changes the list of users that belong to the user group.
   """
   def modify_user_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyUserGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyUserGroup", input, options)
   end
 
   @doc """
@@ -813,7 +915,9 @@ defmodule AWS.ElastiCache do
   for Memcached.
   """
   def purchase_reserved_cache_nodes_offering(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PurchaseReservedCacheNodesOffering", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PurchaseReservedCacheNodesOffering", input, options)
   end
 
   @doc """
@@ -821,13 +925,9 @@ defmodule AWS.ElastiCache do
   cluster.
   """
   def rebalance_slots_in_global_replication_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "RebalanceSlotsInGlobalReplicationGroup",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "RebalanceSlotsInGlobalReplicationGroup", input, options)
   end
 
   @doc """
@@ -852,7 +952,9 @@ defmodule AWS.ElastiCache do
   for an alternate process.
   """
   def reboot_cache_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RebootCacheCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RebootCacheCluster", input, options)
   end
 
   @doc """
@@ -865,7 +967,9 @@ defmodule AWS.ElastiCache do
   replication group. For more information, see [Resource-level permissions](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html).
   """
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveTagsFromResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
 
   @doc """
@@ -877,7 +981,9 @@ defmodule AWS.ElastiCache do
   `CacheParameterGroupName` parameters.
   """
   def reset_cache_parameter_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ResetCacheParameterGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ResetCacheParameterGroup", input, options)
   end
 
   @doc """
@@ -887,14 +993,18 @@ defmodule AWS.ElastiCache do
   been previously authorized.
   """
   def revoke_cache_security_group_ingress(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RevokeCacheSecurityGroupIngress", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RevokeCacheSecurityGroupIngress", input, options)
   end
 
   @doc """
   Start the migration of data.
   """
   def start_migration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartMigration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartMigration", input, options)
   end
 
   @doc """
@@ -954,6 +1064,8 @@ defmodule AWS.ElastiCache do
   in the *ElastiCache User Guide*.
   """
   def test_failover(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TestFailover", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TestFailover", input, options)
   end
 end

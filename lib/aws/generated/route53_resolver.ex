@@ -65,7 +65,9 @@ defmodule AWS.Route53Resolver do
   VPC.
   """
   def associate_firewall_rule_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateFirewallRuleGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateFirewallRuleGroup", input, options)
   end
 
   @doc """
@@ -78,7 +80,9 @@ defmodule AWS.Route53Resolver do
   [DisassociateResolverEndpointIpAddress](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverEndpointIpAddress.html).
   """
   def associate_resolver_endpoint_ip_address(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateResolverEndpointIpAddress", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateResolverEndpointIpAddress", input, options)
   end
 
   @doc """
@@ -96,7 +100,9 @@ defmodule AWS.Route53Resolver do
   [DisassociateResolverQueryLogConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverQueryLogConfig.html).
   """
   def associate_resolver_query_log_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateResolverQueryLogConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateResolverQueryLogConfig", input, options)
   end
 
   @doc """
@@ -109,7 +115,9 @@ defmodule AWS.Route53Resolver do
   [CreateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverRule.html).
   """
   def associate_resolver_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateResolverRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateResolverRule", input, options)
   end
 
   @doc """
@@ -119,7 +127,9 @@ defmodule AWS.Route53Resolver do
   `ImportFirewallDomains`, or with domain strings, using `UpdateFirewallDomains`.
   """
   def create_firewall_domain_list(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateFirewallDomainList", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFirewallDomainList", input, options)
   end
 
   @doc """
@@ -127,7 +137,9 @@ defmodule AWS.Route53Resolver do
   specified domain list.
   """
   def create_firewall_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateFirewallRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFirewallRule", input, options)
   end
 
   @doc """
@@ -137,7 +149,9 @@ defmodule AWS.Route53Resolver do
   You can add rules to the new rule group by calling `CreateFirewallRule`.
   """
   def create_firewall_rule_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateFirewallRuleGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFirewallRuleGroup", input, options)
   end
 
   @doc """
@@ -152,7 +166,9 @@ defmodule AWS.Route53Resolver do
   service for a VPC to your network.
   """
   def create_resolver_endpoint(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateResolverEndpoint", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateResolverEndpoint", input, options)
   end
 
   @doc """
@@ -173,7 +189,9 @@ defmodule AWS.Route53Resolver do
   associated with the configuration.
   """
   def create_resolver_query_log_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateResolverQueryLogConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateResolverQueryLogConfig", input, options)
   end
 
   @doc """
@@ -182,28 +200,36 @@ defmodule AWS.Route53Resolver do
   network, and the IP addresses of the DNS resolvers in your network.
   """
   def create_resolver_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateResolverRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateResolverRule", input, options)
   end
 
   @doc """
   Deletes the specified domain list.
   """
   def delete_firewall_domain_list(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteFirewallDomainList", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFirewallDomainList", input, options)
   end
 
   @doc """
   Deletes the specified firewall rule.
   """
   def delete_firewall_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteFirewallRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFirewallRule", input, options)
   end
 
   @doc """
   Deletes the specified firewall rule group.
   """
   def delete_firewall_rule_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteFirewallRuleGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFirewallRuleGroup", input, options)
   end
 
   @doc """
@@ -219,7 +245,9 @@ defmodule AWS.Route53Resolver do
   network.
   """
   def delete_resolver_endpoint(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteResolverEndpoint", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteResolverEndpoint", input, options)
   end
 
   @doc """
@@ -243,7 +271,9 @@ defmodule AWS.Route53Resolver do
   automatically disassociated from the configuration.
   """
   def delete_resolver_query_log_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteResolverQueryLogConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteResolverQueryLogConfig", input, options)
   end
 
   @doc """
@@ -254,7 +284,9 @@ defmodule AWS.Route53Resolver do
   [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html).
   """
   def delete_resolver_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteResolverRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteResolverRule", input, options)
   end
 
   @doc """
@@ -262,7 +294,9 @@ defmodule AWS.Route53Resolver do
   VPC.
   """
   def disassociate_firewall_rule_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateFirewallRuleGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateFirewallRuleGroup", input, options)
   end
 
   @doc """
@@ -275,13 +309,9 @@ defmodule AWS.Route53Resolver do
   [AssociateResolverEndpointIpAddress](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverEndpointIpAddress.html).
   """
   def disassociate_resolver_endpoint_ip_address(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DisassociateResolverEndpointIpAddress",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateResolverEndpointIpAddress", input, options)
   end
 
   @doc """
@@ -298,7 +328,9 @@ defmodule AWS.Route53Resolver do
      You can stop sharing the configuration.
   """
   def disassociate_resolver_query_log_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateResolverQueryLogConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateResolverQueryLogConfig", input, options)
   end
 
   @doc """
@@ -308,7 +340,9 @@ defmodule AWS.Route53Resolver do
   queries for the domain name that you specified in the Resolver rule.
   """
   def disassociate_resolver_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateResolverRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateResolverRule", input, options)
   end
 
   @doc """
@@ -316,21 +350,27 @@ defmodule AWS.Route53Resolver do
   for a single VPC from Amazon Virtual Private Cloud (Amazon VPC).
   """
   def get_firewall_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetFirewallConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetFirewallConfig", input, options)
   end
 
   @doc """
   Retrieves the specified firewall domain list.
   """
   def get_firewall_domain_list(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetFirewallDomainList", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetFirewallDomainList", input, options)
   end
 
   @doc """
   Retrieves the specified firewall rule group.
   """
   def get_firewall_rule_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetFirewallRuleGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetFirewallRuleGroup", input, options)
   end
 
   @doc """
@@ -341,7 +381,9 @@ defmodule AWS.Route53Resolver do
   can be associated with more than one VPC.
   """
   def get_firewall_rule_group_association(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetFirewallRuleGroupAssociation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetFirewallRuleGroupAssociation", input, options)
   end
 
   @doc """
@@ -352,7 +394,9 @@ defmodule AWS.Route53Resolver do
   (RAM).
   """
   def get_firewall_rule_group_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetFirewallRuleGroupPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetFirewallRuleGroupPolicy", input, options)
   end
 
   @doc """
@@ -360,14 +404,18 @@ defmodule AWS.Route53Resolver do
   VPC from Amazon Virtual Private Cloud.
   """
   def get_resolver_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetResolverConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResolverConfig", input, options)
   end
 
   @doc """
   Gets DNSSEC validation information for a specified resource.
   """
   def get_resolver_dnssec_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetResolverDnssecConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResolverDnssecConfig", input, options)
   end
 
   @doc """
@@ -376,7 +424,9 @@ defmodule AWS.Route53Resolver do
   endpoint.
   """
   def get_resolver_endpoint(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetResolverEndpoint", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResolverEndpoint", input, options)
   end
 
   @doc """
@@ -385,7 +435,9 @@ defmodule AWS.Route53Resolver do
   location that logs are sent to.
   """
   def get_resolver_query_log_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetResolverQueryLogConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResolverQueryLogConfig", input, options)
   end
 
   @doc """
@@ -396,13 +448,9 @@ defmodule AWS.Route53Resolver do
   queries that originate in that VPC.
   """
   def get_resolver_query_log_config_association(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "GetResolverQueryLogConfigAssociation",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResolverQueryLogConfigAssociation", input, options)
   end
 
   @doc """
@@ -413,7 +461,9 @@ defmodule AWS.Route53Resolver do
   to use.
   """
   def get_resolver_query_log_config_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetResolverQueryLogConfigPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResolverQueryLogConfigPolicy", input, options)
   end
 
   @doc """
@@ -422,7 +472,9 @@ defmodule AWS.Route53Resolver do
   that the rule is associated with.
   """
   def get_resolver_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetResolverRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResolverRule", input, options)
   end
 
   @doc """
@@ -433,7 +485,9 @@ defmodule AWS.Route53Resolver do
   [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html).
   """
   def get_resolver_rule_association(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetResolverRuleAssociation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResolverRuleAssociation", input, options)
   end
 
   @doc """
@@ -444,7 +498,9 @@ defmodule AWS.Route53Resolver do
   operations that you want to allow the account to use.
   """
   def get_resolver_rule_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetResolverRulePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResolverRulePolicy", input, options)
   end
 
   @doc """
@@ -462,7 +518,9 @@ defmodule AWS.Route53Resolver do
     * It must be from 1-255 characters in length.
   """
   def import_firewall_domains(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ImportFirewallDomains", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportFirewallDomains", input, options)
   end
 
   @doc """
@@ -474,7 +532,9 @@ defmodule AWS.Route53Resolver do
   information, see `MaxResults`.
   """
   def list_firewall_configs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFirewallConfigs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFirewallConfigs", input, options)
   end
 
   @doc """
@@ -487,7 +547,9 @@ defmodule AWS.Route53Resolver do
   domain lists. For information, see `MaxResults`.
   """
   def list_firewall_domain_lists(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFirewallDomainLists", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFirewallDomainLists", input, options)
   end
 
   @doc """
@@ -498,7 +560,9 @@ defmodule AWS.Route53Resolver do
   see `MaxResults`.
   """
   def list_firewall_domains(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFirewallDomains", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFirewallDomains", input, options)
   end
 
   @doc """
@@ -510,7 +574,9 @@ defmodule AWS.Route53Resolver do
   information, see `MaxResults`.
   """
   def list_firewall_rule_group_associations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFirewallRuleGroupAssociations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFirewallRuleGroupAssociations", input, options)
   end
 
   @doc """
@@ -521,7 +587,9 @@ defmodule AWS.Route53Resolver do
   information, see `MaxResults`.
   """
   def list_firewall_rule_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFirewallRuleGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFirewallRuleGroups", input, options)
   end
 
   @doc """
@@ -535,7 +603,9 @@ defmodule AWS.Route53Resolver do
   see `MaxResults`.
   """
   def list_firewall_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFirewallRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFirewallRules", input, options)
   end
 
   @doc """
@@ -545,7 +615,9 @@ defmodule AWS.Route53Resolver do
   your VPCs.
   """
   def list_resolver_configs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListResolverConfigs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResolverConfigs", input, options)
   end
 
   @doc """
@@ -553,14 +625,18 @@ defmodule AWS.Route53Resolver do
   current Amazon Web Services account.
   """
   def list_resolver_dnssec_configs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListResolverDnssecConfigs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResolverDnssecConfigs", input, options)
   end
 
   @doc """
   Gets the IP addresses for a specified Resolver endpoint.
   """
   def list_resolver_endpoint_ip_addresses(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListResolverEndpointIpAddresses", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResolverEndpointIpAddresses", input, options)
   end
 
   @doc """
@@ -568,7 +644,9 @@ defmodule AWS.Route53Resolver do
   Services account.
   """
   def list_resolver_endpoints(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListResolverEndpoints", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResolverEndpoints", input, options)
   end
 
   @doc """
@@ -576,13 +654,9 @@ defmodule AWS.Route53Resolver do
   configurations.
   """
   def list_resolver_query_log_config_associations(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ListResolverQueryLogConfigAssociations",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResolverQueryLogConfigAssociations", input, options)
   end
 
   @doc """
@@ -592,7 +666,9 @@ defmodule AWS.Route53Resolver do
   specifies the VPCs that you want to log queries for.
   """
   def list_resolver_query_log_configs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListResolverQueryLogConfigs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResolverQueryLogConfigs", input, options)
   end
 
   @doc """
@@ -600,7 +676,9 @@ defmodule AWS.Route53Resolver do
   the current Amazon Web Services account.
   """
   def list_resolver_rule_associations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListResolverRuleAssociations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResolverRuleAssociations", input, options)
   end
 
   @doc """
@@ -608,14 +686,18 @@ defmodule AWS.Route53Resolver do
   account.
   """
   def list_resolver_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListResolverRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResolverRules", input, options)
   end
 
   @doc """
   Lists the tags that you associated with the specified resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -626,7 +708,9 @@ defmodule AWS.Route53Resolver do
   (RAM).
   """
   def put_firewall_rule_group_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutFirewallRuleGroupPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutFirewallRuleGroupPolicy", input, options)
   end
 
   @doc """
@@ -636,7 +720,9 @@ defmodule AWS.Route53Resolver do
   configuration.
   """
   def put_resolver_query_log_config_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutResolverQueryLogConfigPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutResolverQueryLogConfigPolicy", input, options)
   end
 
   @doc """
@@ -645,21 +731,27 @@ defmodule AWS.Route53Resolver do
   that you want the account to be able to perform on the rule.
   """
   def put_resolver_rule_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutResolverRulePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutResolverRulePolicy", input, options)
   end
 
   @doc """
   Adds one or more tags to a specified resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes one or more tags from a specified resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -667,21 +759,27 @@ defmodule AWS.Route53Resolver do
   a single VPC from Amazon Virtual Private Cloud (Amazon VPC).
   """
   def update_firewall_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateFirewallConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFirewallConfig", input, options)
   end
 
   @doc """
   Updates the firewall domain list from an array of domain specifications.
   """
   def update_firewall_domains(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateFirewallDomains", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFirewallDomains", input, options)
   end
 
   @doc """
   Updates the specified firewall rule.
   """
   def update_firewall_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateFirewallRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFirewallRule", input, options)
   end
 
   @doc """
@@ -690,7 +788,9 @@ defmodule AWS.Route53Resolver do
   The association enables DNS filtering for the VPC.
   """
   def update_firewall_rule_group_association(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateFirewallRuleGroupAssociation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFirewallRuleGroupAssociation", input, options)
   end
 
   @doc """
@@ -698,7 +798,9 @@ defmodule AWS.Route53Resolver do
   VPC from Amazon Virtual Private Cloud.
   """
   def update_resolver_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateResolverConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateResolverConfig", input, options)
   end
 
   @doc """
@@ -707,14 +809,18 @@ defmodule AWS.Route53Resolver do
   If there is no existing DNSSEC validation configuration, one is created.
   """
   def update_resolver_dnssec_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateResolverDnssecConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateResolverDnssecConfig", input, options)
   end
 
   @doc """
   Updates the name of an inbound or an outbound Resolver endpoint.
   """
   def update_resolver_endpoint(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateResolverEndpoint", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateResolverEndpoint", input, options)
   end
 
   @doc """
@@ -724,6 +830,8 @@ defmodule AWS.Route53Resolver do
   don't specify a parameter, it retains its current value.
   """
   def update_resolver_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateResolverRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateResolverRule", input, options)
   end
 end

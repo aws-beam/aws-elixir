@@ -75,9 +75,11 @@ defmodule AWS.ServerlessApplicationRepository do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -104,17 +106,9 @@ defmodule AWS.ServerlessApplicationRepository do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
   end
 
   @doc """
@@ -125,9 +119,11 @@ defmodule AWS.ServerlessApplicationRepository do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -146,9 +142,11 @@ defmodule AWS.ServerlessApplicationRepository do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -167,9 +165,11 @@ defmodule AWS.ServerlessApplicationRepository do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -195,17 +195,9 @@ defmodule AWS.ServerlessApplicationRepository do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -216,17 +208,9 @@ defmodule AWS.ServerlessApplicationRepository do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -239,17 +223,9 @@ defmodule AWS.ServerlessApplicationRepository do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -288,17 +264,9 @@ defmodule AWS.ServerlessApplicationRepository do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -329,17 +297,9 @@ defmodule AWS.ServerlessApplicationRepository do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -364,17 +324,9 @@ defmodule AWS.ServerlessApplicationRepository do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -390,17 +342,9 @@ defmodule AWS.ServerlessApplicationRepository do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -413,9 +357,11 @@ defmodule AWS.ServerlessApplicationRepository do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -434,9 +380,11 @@ defmodule AWS.ServerlessApplicationRepository do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :patch,
       url_path,
       query_params,

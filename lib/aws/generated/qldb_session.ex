@@ -57,6 +57,8 @@ defmodule AWS.QLDBSession do
   shell](https://docs.aws.amazon.com/qldb/latest/developerguide/data-shell.html).
   """
   def send_command(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SendCommand", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendCommand", input, options)
   end
 end

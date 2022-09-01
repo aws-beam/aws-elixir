@@ -70,9 +70,11 @@ defmodule AWS.KinesisVideoArchivedMedia do
         [{"Content-Type", "ContentType"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -206,9 +208,11 @@ defmodule AWS.KinesisVideoArchivedMedia do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -368,9 +372,11 @@ defmodule AWS.KinesisVideoArchivedMedia do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -390,9 +396,11 @@ defmodule AWS.KinesisVideoArchivedMedia do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -442,9 +450,11 @@ defmodule AWS.KinesisVideoArchivedMedia do
         [{"Content-Type", "ContentType"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -490,9 +500,11 @@ defmodule AWS.KinesisVideoArchivedMedia do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,

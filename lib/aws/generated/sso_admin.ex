@@ -56,9 +56,11 @@ defmodule AWS.SSOAdmin do
         input,
         options \\ []
       ) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "AttachCustomerManagedPolicyReferenceToPermissionSet",
       input,
       options
@@ -74,7 +76,9 @@ defmodule AWS.SSOAdmin do
   assigned accounts.
   """
   def attach_managed_policy_to_permission_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AttachManagedPolicyToPermissionSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AttachManagedPolicyToPermissionSet", input, options)
   end
 
   @doc """
@@ -95,7 +99,9 @@ defmodule AWS.SSOAdmin do
   describe the status of an assignment creation request.
   """
   def create_account_assignment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAccountAssignment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAccountAssignment", input, options)
   end
 
   @doc """
@@ -115,9 +121,11 @@ defmodule AWS.SSOAdmin do
         input,
         options \\ []
       ) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "CreateInstanceAccessControlAttributeConfiguration",
       input,
       options
@@ -131,7 +139,9 @@ defmodule AWS.SSOAdmin do
   `CreateAccountAssignment` `.
   """
   def create_permission_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreatePermissionSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePermissionSet", input, options)
   end
 
   @doc """
@@ -142,20 +152,18 @@ defmodule AWS.SSOAdmin do
   describe the status of an assignment deletion request.
   """
   def delete_account_assignment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAccountAssignment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAccountAssignment", input, options)
   end
 
   @doc """
   Deletes the inline policy from a specified permission set.
   """
   def delete_inline_policy_from_permission_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DeleteInlinePolicyFromPermissionSet",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteInlinePolicyFromPermissionSet", input, options)
   end
 
   @doc """
@@ -173,9 +181,11 @@ defmodule AWS.SSOAdmin do
         input,
         options \\ []
       ) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "DeleteInstanceAccessControlAttributeConfiguration",
       input,
       options
@@ -186,16 +196,20 @@ defmodule AWS.SSOAdmin do
   Deletes the specified permission set.
   """
   def delete_permission_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeletePermissionSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePermissionSet", input, options)
   end
 
   @doc """
   Deletes the permissions boundary from a specified `PermissionSet`.
   """
   def delete_permissions_boundary_from_permission_set(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "DeletePermissionsBoundaryFromPermissionSet",
       input,
       options
@@ -206,26 +220,18 @@ defmodule AWS.SSOAdmin do
   Describes the status of the assignment creation request.
   """
   def describe_account_assignment_creation_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeAccountAssignmentCreationStatus",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAccountAssignmentCreationStatus", input, options)
   end
 
   @doc """
   Describes the status of the assignment deletion request.
   """
   def describe_account_assignment_deletion_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeAccountAssignmentDeletionStatus",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAccountAssignmentDeletionStatus", input, options)
   end
 
   @doc """
@@ -242,9 +248,11 @@ defmodule AWS.SSOAdmin do
         input,
         options \\ []
       ) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "DescribeInstanceAccessControlAttributeConfiguration",
       input,
       options
@@ -255,20 +263,18 @@ defmodule AWS.SSOAdmin do
   Gets the details of the permission set.
   """
   def describe_permission_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePermissionSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePermissionSet", input, options)
   end
 
   @doc """
   Describes the status for the given permission set provisioning request.
   """
   def describe_permission_set_provisioning_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribePermissionSetProvisioningStatus",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePermissionSetProvisioningStatus", input, options)
   end
 
   @doc """
@@ -280,9 +286,11 @@ defmodule AWS.SSOAdmin do
         input,
         options \\ []
       ) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "DetachCustomerManagedPolicyReferenceFromPermissionSet",
       input,
       options
@@ -293,33 +301,27 @@ defmodule AWS.SSOAdmin do
   Detaches the attached AWS managed policy ARN from the specified permission set.
   """
   def detach_managed_policy_from_permission_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DetachManagedPolicyFromPermissionSet",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetachManagedPolicyFromPermissionSet", input, options)
   end
 
   @doc """
   Obtains the inline policy assigned to the permission set.
   """
   def get_inline_policy_for_permission_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetInlinePolicyForPermissionSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetInlinePolicyForPermissionSet", input, options)
   end
 
   @doc """
   Obtains the permissions boundary for a specified `PermissionSet`.
   """
   def get_permissions_boundary_for_permission_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "GetPermissionsBoundaryForPermissionSet",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetPermissionsBoundaryForPermissionSet", input, options)
   end
 
   @doc """
@@ -327,13 +329,9 @@ defmodule AWS.SSOAdmin do
   IAM Identity Center instance.
   """
   def list_account_assignment_creation_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ListAccountAssignmentCreationStatus",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAccountAssignmentCreationStatus", input, options)
   end
 
   @doc """
@@ -341,13 +339,9 @@ defmodule AWS.SSOAdmin do
   IAM Identity Center instance.
   """
   def list_account_assignment_deletion_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ListAccountAssignmentDeletionStatus",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAccountAssignmentDeletionStatus", input, options)
   end
 
   @doc """
@@ -355,20 +349,18 @@ defmodule AWS.SSOAdmin do
   set.
   """
   def list_account_assignments(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAccountAssignments", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAccountAssignments", input, options)
   end
 
   @doc """
   Lists all the AWS accounts where the specified permission set is provisioned.
   """
   def list_accounts_for_provisioned_permission_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ListAccountsForProvisionedPermissionSet",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAccountsForProvisionedPermissionSet", input, options)
   end
 
   @doc """
@@ -379,9 +371,11 @@ defmodule AWS.SSOAdmin do
         input,
         options \\ []
       ) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "ListCustomerManagedPolicyReferencesInPermissionSet",
       input,
       options
@@ -392,14 +386,18 @@ defmodule AWS.SSOAdmin do
   Lists the IAM Identity Center instances that the caller has access to.
   """
   def list_instances(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListInstances", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListInstances", input, options)
   end
 
   @doc """
   Lists the AWS managed policy that is attached to a specified permission set.
   """
   def list_managed_policies_in_permission_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListManagedPoliciesInPermissionSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListManagedPoliciesInPermissionSet", input, options)
   end
 
   @doc """
@@ -407,40 +405,36 @@ defmodule AWS.SSOAdmin do
   Identity Center instance.
   """
   def list_permission_set_provisioning_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ListPermissionSetProvisioningStatus",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPermissionSetProvisioningStatus", input, options)
   end
 
   @doc """
   Lists the `PermissionSet`s in an IAM Identity Center instance.
   """
   def list_permission_sets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPermissionSets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPermissionSets", input, options)
   end
 
   @doc """
   Lists all the permission sets that are provisioned to a specified AWS account.
   """
   def list_permission_sets_provisioned_to_account(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ListPermissionSetsProvisionedToAccount",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPermissionSetsProvisionedToAccount", input, options)
   end
 
   @doc """
   Lists the tags that are attached to a specified resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -448,7 +442,9 @@ defmodule AWS.SSOAdmin do
   target.
   """
   def provision_permission_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ProvisionPermissionSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ProvisionPermissionSet", input, options)
   end
 
   @doc """
@@ -459,7 +455,9 @@ defmodule AWS.SSOAdmin do
   the corresponding IAM policy updates to all assigned accounts.
   """
   def put_inline_policy_to_permission_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutInlinePolicyToPermissionSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutInlinePolicyToPermissionSet", input, options)
   end
 
   @doc """
@@ -467,27 +465,27 @@ defmodule AWS.SSOAdmin do
   `PermissionSet` as a permissions boundary.
   """
   def put_permissions_boundary_to_permission_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "PutPermissionsBoundaryToPermissionSet",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutPermissionsBoundaryToPermissionSet", input, options)
   end
 
   @doc """
   Associates a set of tags with a specified resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Disassociates a set of tags from a specified resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -507,9 +505,11 @@ defmodule AWS.SSOAdmin do
         input,
         options \\ []
       ) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "UpdateInstanceAccessControlAttributeConfiguration",
       input,
       options
@@ -520,6 +520,8 @@ defmodule AWS.SSOAdmin do
   Updates an existing permission set.
   """
   def update_permission_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdatePermissionSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePermissionSet", input, options)
   end
 end

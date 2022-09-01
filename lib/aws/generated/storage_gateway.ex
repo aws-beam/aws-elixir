@@ -92,7 +92,9 @@ defmodule AWS.StorageGateway do
   You must turn on the gateway VM before you can activate your gateway.
   """
   def activate_gateway(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ActivateGateway", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ActivateGateway", input, options)
   end
 
   @doc """
@@ -105,7 +107,9 @@ defmodule AWS.StorageGateway do
   want to add cache, and one or more disk IDs that you want to configure as cache.
   """
   def add_cache(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddCache", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddCache", input, options)
   end
 
   @doc """
@@ -130,7 +134,9 @@ defmodule AWS.StorageGateway do
   volumes that are recovered to a new gateway maintain their tags.
   """
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddTagsToResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
 
   @doc """
@@ -145,7 +151,9 @@ defmodule AWS.StorageGateway do
   as upload buffer.
   """
   def add_upload_buffer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddUploadBuffer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddUploadBuffer", input, options)
   end
 
   @doc """
@@ -163,7 +171,9 @@ defmodule AWS.StorageGateway do
   as working storage.
   """
   def add_working_storage(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddWorkingStorage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddWorkingStorage", input, options)
   end
 
   @doc """
@@ -175,7 +185,9 @@ defmodule AWS.StorageGateway do
   Glacier Deep Archive) that corresponds to the pool.
   """
   def assign_tape_pool(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssignTapePool", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssignTapePool", input, options)
   end
 
   @doc """
@@ -186,7 +198,9 @@ defmodule AWS.StorageGateway do
   supports the FSx File Gateway type.
   """
   def associate_file_system(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateFileSystem", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateFileSystem", input, options)
   end
 
   @doc """
@@ -199,7 +213,9 @@ defmodule AWS.StorageGateway do
   an Amazon EC2 instance.
   """
   def attach_volume(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AttachVolume", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AttachVolume", input, options)
   end
 
   @doc """
@@ -209,7 +225,9 @@ defmodule AWS.StorageGateway do
   This operation is only supported in the tape gateway type.
   """
   def cancel_archival(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelArchival", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelArchival", input, options)
   end
 
   @doc """
@@ -220,7 +238,9 @@ defmodule AWS.StorageGateway do
   tape gateway type.
   """
   def cancel_retrieval(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelRetrieval", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelRetrieval", input, options)
   end
 
   @doc """
@@ -244,7 +264,9 @@ defmodule AWS.StorageGateway do
   equal to or larger than the size of the copied volume, in bytes.
   """
   def create_cached_iscsi_volume(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCachediSCSIVolume", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCachediSCSIVolume", input, options)
   end
 
   @doc """
@@ -266,7 +288,9 @@ defmodule AWS.StorageGateway do
   S3 File Gateways do not support creating hard or symbolic links on a file share.
   """
   def create_nfs_file_share(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateNFSFileShare", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateNFSFileShare", input, options)
   end
 
   @doc """
@@ -288,7 +312,9 @@ defmodule AWS.StorageGateway do
   File gateways don't support creating hard or symbolic links on a file share.
   """
   def create_smb_file_share(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateSMBFileShare", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSMBFileShare", input, options)
   end
 
   @doc """
@@ -321,7 +347,9 @@ defmodule AWS.StorageGateway do
   page.
   """
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
 
   @doc """
@@ -348,13 +376,9 @@ defmodule AWS.StorageGateway do
   in the *Amazon Elastic Compute Cloud API Reference*.
   """
   def create_snapshot_from_volume_recovery_point(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "CreateSnapshotFromVolumeRecoveryPoint",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSnapshotFromVolumeRecoveryPoint", input, options)
   end
 
   @doc """
@@ -374,7 +398,9 @@ defmodule AWS.StorageGateway do
   target.
   """
   def create_stored_iscsi_volume(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateStorediSCSIVolume", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateStorediSCSIVolume", input, options)
   end
 
   @doc """
@@ -384,7 +410,9 @@ defmodule AWS.StorageGateway do
   archived in the custom pool.
   """
   def create_tape_pool(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateTapePool", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTapePool", input, options)
   end
 
   @doc """
@@ -399,7 +427,9 @@ defmodule AWS.StorageGateway do
   tape. Use the `AddCache` operation to add cache storage to a gateway.
   """
   def create_tape_with_barcode(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateTapeWithBarcode", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTapeWithBarcode", input, options)
   end
 
   @doc """
@@ -412,7 +442,9 @@ defmodule AWS.StorageGateway do
   tapes. Use the `AddCache` operation to add cache storage to a gateway.
   """
   def create_tapes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateTapes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTapes", input, options)
   end
 
   @doc """
@@ -422,7 +454,9 @@ defmodule AWS.StorageGateway do
   Amazon Resource Name (ARN) of the gateway in your request to remove the policy.
   """
   def delete_automatic_tape_creation_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAutomaticTapeCreationPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAutomaticTapeCreationPolicy", input, options)
   end
 
   @doc """
@@ -435,7 +469,9 @@ defmodule AWS.StorageGateway do
   stored volume, cached volume, and tape gateway types.
   """
   def delete_bandwidth_rate_limit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteBandwidthRateLimit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteBandwidthRateLimit", input, options)
   end
 
   @doc """
@@ -445,7 +481,9 @@ defmodule AWS.StorageGateway do
   This operation is supported in volume and tape gateway types.
   """
   def delete_chap_credentials(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteChapCredentials", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteChapCredentials", input, options)
   end
 
   @doc """
@@ -454,7 +492,9 @@ defmodule AWS.StorageGateway do
   This operation is only supported for S3 File Gateways.
   """
   def delete_file_share(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteFileShare", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFileShare", input, options)
   end
 
   @doc """
@@ -477,7 +517,9 @@ defmodule AWS.StorageGateway do
   For more information, see the [Storage Gateway detail page](http://aws.amazon.com/storagegateway).
   """
   def delete_gateway(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteGateway", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteGateway", input, options)
   end
 
   @doc """
@@ -496,7 +538,9 @@ defmodule AWS.StorageGateway do
   in the *Amazon Elastic Compute Cloud API Reference*.
   """
   def delete_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSnapshotSchedule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSnapshotSchedule", input, options)
   end
 
   @doc """
@@ -505,7 +549,9 @@ defmodule AWS.StorageGateway do
   This operation is only supported in the tape gateway type.
   """
   def delete_tape(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteTape", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTape", input, options)
   end
 
   @doc """
@@ -514,7 +560,9 @@ defmodule AWS.StorageGateway do
   This operation is only supported in the tape gateway type.
   """
   def delete_tape_archive(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteTapeArchive", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTapeArchive", input, options)
   end
 
   @doc """
@@ -525,7 +573,9 @@ defmodule AWS.StorageGateway do
   pool.
   """
   def delete_tape_pool(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteTapePool", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTapePool", input, options)
   end
 
   @doc """
@@ -549,7 +599,9 @@ defmodule AWS.StorageGateway do
   volume you want to delete.
   """
   def delete_volume(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteVolume", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteVolume", input, options)
   end
 
   @doc """
@@ -560,7 +612,9 @@ defmodule AWS.StorageGateway do
   null.
   """
   def describe_availability_monitor_test(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAvailabilityMonitorTest", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAvailabilityMonitorTest", input, options)
   end
 
   @doc """
@@ -577,7 +631,9 @@ defmodule AWS.StorageGateway do
   Amazon Resource Name (ARN) of the gateway in your request.
   """
   def describe_bandwidth_rate_limit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeBandwidthRateLimit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBandwidthRateLimit", input, options)
   end
 
   @doc """
@@ -603,7 +659,9 @@ defmodule AWS.StorageGateway do
   the Amazon Resource Name (ARN) of the gateway in your request.
   """
   def describe_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeBandwidthRateLimitSchedule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBandwidthRateLimitSchedule", input, options)
   end
 
   @doc """
@@ -616,7 +674,9 @@ defmodule AWS.StorageGateway do
   amount of cache allocated and used.
   """
   def describe_cache(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCache", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCache", input, options)
   end
 
   @doc """
@@ -629,7 +689,9 @@ defmodule AWS.StorageGateway do
   Resource Name (ARN).
   """
   def describe_cached_iscsi_volumes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCachediSCSIVolumes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCachediSCSIVolumes", input, options)
   end
 
   @doc """
@@ -640,7 +702,9 @@ defmodule AWS.StorageGateway do
   This operation is supported in the volume and tape gateway types.
   """
   def describe_chap_credentials(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeChapCredentials", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeChapCredentials", input, options)
   end
 
   @doc """
@@ -649,7 +713,9 @@ defmodule AWS.StorageGateway do
   This operation is only supported for FSx File Gateways.
   """
   def describe_file_system_associations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFileSystemAssociations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFileSystemAssociations", input, options)
   end
 
   @doc """
@@ -660,7 +726,9 @@ defmodule AWS.StorageGateway do
   gateway in your request.
   """
   def describe_gateway_information(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeGatewayInformation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeGatewayInformation", input, options)
   end
 
   @doc """
@@ -670,7 +738,9 @@ defmodule AWS.StorageGateway do
   Note that values are in terms of the gateway's time zone.
   """
   def describe_maintenance_start_time(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeMaintenanceStartTime", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMaintenanceStartTime", input, options)
   end
 
   @doc """
@@ -680,7 +750,9 @@ defmodule AWS.StorageGateway do
   This operation is only supported for S3 File Gateways.
   """
   def describe_nfs_file_shares(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeNFSFileShares", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeNFSFileShares", input, options)
   end
 
   @doc """
@@ -690,7 +762,9 @@ defmodule AWS.StorageGateway do
   This operation is only supported for S3 File Gateways.
   """
   def describe_smb_file_shares(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSMBFileShares", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSMBFileShares", input, options)
   end
 
   @doc """
@@ -700,7 +774,9 @@ defmodule AWS.StorageGateway do
   This operation is only supported for file gateways.
   """
   def describe_smb_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSMBSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSMBSettings", input, options)
   end
 
   @doc """
@@ -711,7 +787,9 @@ defmodule AWS.StorageGateway do
   cached volume and stored volume types.
   """
   def describe_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSnapshotSchedule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSnapshotSchedule", input, options)
   end
 
   @doc """
@@ -722,7 +800,9 @@ defmodule AWS.StorageGateway do
   operation is only supported in stored volume gateway type.
   """
   def describe_stored_iscsi_volumes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStorediSCSIVolumes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStorediSCSIVolumes", input, options)
   end
 
   @doc """
@@ -735,7 +815,9 @@ defmodule AWS.StorageGateway do
   of all virtual tapes found in the VTS associated with your account.
   """
   def describe_tape_archives(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTapeArchives", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTapeArchives", input, options)
   end
 
   @doc """
@@ -748,7 +830,9 @@ defmodule AWS.StorageGateway do
   supported in the tape gateway type.
   """
   def describe_tape_recovery_points(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTapeRecoveryPoints", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTapeRecoveryPoints", input, options)
   end
 
   @doc """
@@ -760,7 +844,9 @@ defmodule AWS.StorageGateway do
   tape gateway type.
   """
   def describe_tapes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTapes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTapes", input, options)
   end
 
   @doc """
@@ -773,7 +859,9 @@ defmodule AWS.StorageGateway do
   it includes the amount of upload buffer space allocated and used.
   """
   def describe_upload_buffer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeUploadBuffer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeUploadBuffer", input, options)
   end
 
   @doc """
@@ -785,7 +873,9 @@ defmodule AWS.StorageGateway do
   This operation is only supported in the tape gateway type.
   """
   def describe_vtl_devices(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeVTLDevices", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeVTLDevices", input, options)
   end
 
   @doc """
@@ -802,7 +892,9 @@ defmodule AWS.StorageGateway do
   includes the amount of working storage allocated and used.
   """
   def describe_working_storage(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeWorkingStorage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeWorkingStorage", input, options)
   end
 
   @doc """
@@ -816,7 +908,9 @@ defmodule AWS.StorageGateway do
   type.
   """
   def detach_volume(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DetachVolume", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetachVolume", input, options)
   end
 
   @doc """
@@ -831,7 +925,9 @@ defmodule AWS.StorageGateway do
   After a gateway is disabled, it cannot be enabled.
   """
   def disable_gateway(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisableGateway", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableGateway", input, options)
   end
 
   @doc """
@@ -842,7 +938,9 @@ defmodule AWS.StorageGateway do
   type.
   """
   def disassociate_file_system(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateFileSystem", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateFileSystem", input, options)
   end
 
   @doc """
@@ -852,7 +950,9 @@ defmodule AWS.StorageGateway do
   protocol.
   """
   def join_domain(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "JoinDomain", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "JoinDomain", input, options)
   end
 
   @doc """
@@ -864,7 +964,9 @@ defmodule AWS.StorageGateway do
   This operation is only supported for tape gateways.
   """
   def list_automatic_tape_creation_policies(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAutomaticTapeCreationPolicies", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAutomaticTapeCreationPolicies", input, options)
   end
 
   @doc """
@@ -874,7 +976,9 @@ defmodule AWS.StorageGateway do
   This operation is only supported for S3 File Gateways.
   """
   def list_file_shares(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFileShares", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFileShares", input, options)
   end
 
   @doc """
@@ -884,7 +988,9 @@ defmodule AWS.StorageGateway do
   only supported for FSx File Gateways.
   """
   def list_file_system_associations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFileSystemAssociations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFileSystemAssociations", input, options)
   end
 
   @doc """
@@ -902,7 +1008,9 @@ defmodule AWS.StorageGateway do
   that you can specify in your next request to fetch the next page of gateways.
   """
   def list_gateways(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListGateways", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListGateways", input, options)
   end
 
   @doc """
@@ -919,7 +1027,9 @@ defmodule AWS.StorageGateway do
   metadata or the disk content is corrupted).
   """
   def list_local_disks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListLocalDisks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLocalDisks", input, options)
   end
 
   @doc """
@@ -928,7 +1038,9 @@ defmodule AWS.StorageGateway do
   This operation is supported in storage gateways of all types.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -945,7 +1057,9 @@ defmodule AWS.StorageGateway do
   retrieve the next set of tape pools.
   """
   def list_tape_pools(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTapePools", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTapePools", input, options)
   end
 
   @doc """
@@ -964,7 +1078,9 @@ defmodule AWS.StorageGateway do
   is only supported in the tape gateway type.
   """
   def list_tapes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTapes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTapes", input, options)
   end
 
   @doc """
@@ -975,7 +1091,9 @@ defmodule AWS.StorageGateway do
   types.
   """
   def list_volume_initiators(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListVolumeInitiators", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListVolumeInitiators", input, options)
   end
 
   @doc """
@@ -990,7 +1108,9 @@ defmodule AWS.StorageGateway do
   `CreateSnapshotFromVolumeRecoveryPoint` operation.
   """
   def list_volume_recovery_points(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListVolumeRecoveryPoints", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListVolumeRecoveryPoints", input, options)
   end
 
   @doc """
@@ -1009,7 +1129,9 @@ defmodule AWS.StorageGateway do
   gateway types.
   """
   def list_volumes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListVolumes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListVolumes", input, options)
   end
 
   @doc """
@@ -1031,7 +1153,9 @@ defmodule AWS.StorageGateway do
   in the *Storage Gateway User Guide*.
   """
   def notify_when_uploaded(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "NotifyWhenUploaded", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "NotifyWhenUploaded", input, options)
   end
 
   @doc """
@@ -1080,7 +1204,9 @@ defmodule AWS.StorageGateway do
   in the *Storage Gateway User Guide*.
   """
   def refresh_cache(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RefreshCache", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RefreshCache", input, options)
   end
 
   @doc """
@@ -1089,7 +1215,9 @@ defmodule AWS.StorageGateway do
   This operation is supported in storage gateways of all types.
   """
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveTagsFromResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
 
   @doc """
@@ -1109,7 +1237,9 @@ defmodule AWS.StorageGateway do
   one new cache disk for your gateway to function properly.
   """
   def reset_cache(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ResetCache", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ResetCache", input, options)
   end
 
   @doc """
@@ -1126,7 +1256,9 @@ defmodule AWS.StorageGateway do
   to another gateway. This operation is only supported in the tape gateway type.
   """
   def retrieve_tape_archive(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RetrieveTapeArchive", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RetrieveTapeArchive", input, options)
   end
 
   @doc """
@@ -1143,7 +1275,9 @@ defmodule AWS.StorageGateway do
   charge for retrieving recovery points.
   """
   def retrieve_tape_recovery_point(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RetrieveTapeRecoveryPoint", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RetrieveTapeRecoveryPoint", input, options)
   end
 
   @doc """
@@ -1154,7 +1288,9 @@ defmodule AWS.StorageGateway do
   don't need to know the default password to set a new password.
   """
   def set_local_console_password(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetLocalConsolePassword", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetLocalConsolePassword", input, options)
   end
 
   @doc """
@@ -1165,7 +1301,9 @@ defmodule AWS.StorageGateway do
   Gateways
   """
   def set_smb_guest_password(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetSMBGuestPassword", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetSMBGuestPassword", input, options)
   end
 
   @doc """
@@ -1194,7 +1332,9 @@ defmodule AWS.StorageGateway do
   `DeleteGateway`) to no longer pay software charges associated with the gateway.
   """
   def shutdown_gateway(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ShutdownGateway", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ShutdownGateway", input, options)
   end
 
   @doc """
@@ -1208,7 +1348,9 @@ defmodule AWS.StorageGateway do
   Starting this test will cause your gateway to go offline for a brief period.
   """
   def start_availability_monitor_test(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartAvailabilityMonitorTest", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartAvailabilityMonitorTest", input, options)
   end
 
   @doc """
@@ -1227,7 +1369,9 @@ defmodule AWS.StorageGateway do
   gateway in your request.
   """
   def start_gateway(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartGateway", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartGateway", input, options)
   end
 
   @doc """
@@ -1241,7 +1385,9 @@ defmodule AWS.StorageGateway do
   A gateway can have only one automatic tape creation policy.
   """
   def update_automatic_tape_creation_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateAutomaticTapeCreationPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAutomaticTapeCreationPolicy", input, options)
   end
 
   @doc """
@@ -1261,7 +1407,9 @@ defmodule AWS.StorageGateway do
   gateway in your request.
   """
   def update_bandwidth_rate_limit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateBandwidthRateLimit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateBandwidthRateLimit", input, options)
   end
 
   @doc """
@@ -1273,7 +1421,9 @@ defmodule AWS.StorageGateway do
   and S3 file gateways. FSx file gateways do not support bandwidth rate limits.
   """
   def update_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateBandwidthRateLimitSchedule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateBandwidthRateLimitSchedule", input, options)
   end
 
   @doc """
@@ -1288,7 +1438,9 @@ defmodule AWS.StorageGateway do
   closed and initiators must reconnect with the new credentials.
   """
   def update_chap_credentials(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateChapCredentials", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateChapCredentials", input, options)
   end
 
   @doc """
@@ -1297,7 +1449,9 @@ defmodule AWS.StorageGateway do
   This operation is only supported in the FSx File Gateways.
   """
   def update_file_system_association(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateFileSystemAssociation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFileSystemAssociation", input, options)
   end
 
   @doc """
@@ -1311,7 +1465,9 @@ defmodule AWS.StorageGateway do
   gateway has no effect on the gateway's ARN.
   """
   def update_gateway_information(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateGatewayInformation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateGatewayInformation", input, options)
   end
 
   @doc """
@@ -1332,7 +1488,9 @@ defmodule AWS.StorageGateway do
   respectively.
   """
   def update_gateway_software_now(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateGatewaySoftwareNow", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateGatewaySoftwareNow", input, options)
   end
 
   @doc """
@@ -1342,7 +1500,9 @@ defmodule AWS.StorageGateway do
   The maintenance time is the time in your gateway's time zone.
   """
   def update_maintenance_start_time(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateMaintenanceStartTime", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateMaintenanceStartTime", input, options)
   end
 
   @doc """
@@ -1366,7 +1526,9 @@ defmodule AWS.StorageGateway do
     * Write status of your file share
   """
   def update_nfs_file_share(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateNFSFileShare", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateNFSFileShare", input, options)
   end
 
   @doc """
@@ -1389,7 +1551,9 @@ defmodule AWS.StorageGateway do
   File gateways don't support creating hard or symbolic links on a file share.
   """
   def update_smb_file_share(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateSMBFileShare", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSMBFileShare", input, options)
   end
 
   @doc """
@@ -1399,7 +1563,9 @@ defmodule AWS.StorageGateway do
   The operation is only supported for S3 File Gateways.
   """
   def update_smb_file_share_visibility(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateSMBFileShareVisibility", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSMBFileShareVisibility", input, options)
   end
 
   @doc """
@@ -1407,7 +1573,9 @@ defmodule AWS.StorageGateway do
   permissions for SMB file shares on the gateway.
   """
   def update_smb_local_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateSMBLocalGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSMBLocalGroups", input, options)
   end
 
   @doc """
@@ -1420,7 +1588,9 @@ defmodule AWS.StorageGateway do
   A higher security level can affect performance of the gateway.
   """
   def update_smb_security_strategy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateSMBSecurityStrategy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSMBSecurityStrategy", input, options)
   end
 
   @doc """
@@ -1438,7 +1608,9 @@ defmodule AWS.StorageGateway do
   snapshot to begin on a day and the frequency (in hours) of snapshots.
   """
   def update_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateSnapshotSchedule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSnapshotSchedule", input, options)
   end
 
   @doc """
@@ -1450,6 +1622,8 @@ defmodule AWS.StorageGateway do
   gateway type.
   """
   def update_vtl_device_type(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateVTLDeviceType", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateVTLDeviceType", input, options)
   end
 end

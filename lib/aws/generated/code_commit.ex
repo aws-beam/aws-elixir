@@ -313,9 +313,11 @@ defmodule AWS.CodeCommit do
   is created for all pull requests in that repository.
   """
   def associate_approval_rule_template_with_repository(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "AssociateApprovalRuleTemplateWithRepository",
       input,
       options
@@ -331,9 +333,11 @@ defmodule AWS.CodeCommit do
         input,
         options \\ []
       ) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "BatchAssociateApprovalRuleTemplateWithRepositories",
       input,
       options
@@ -345,7 +349,9 @@ defmodule AWS.CodeCommit do
   two commit specifiers using the squash or three-way merge strategy.
   """
   def batch_describe_merge_conflicts(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchDescribeMergeConflicts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchDescribeMergeConflicts", input, options)
   end
 
   @doc """
@@ -357,9 +363,11 @@ defmodule AWS.CodeCommit do
         input,
         options \\ []
       ) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "BatchDisassociateApprovalRuleTemplateFromRepositories",
       input,
       options
@@ -370,7 +378,9 @@ defmodule AWS.CodeCommit do
   Returns information about the contents of one or more commits in a repository.
   """
   def batch_get_commits(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchGetCommits", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetCommits", input, options)
   end
 
   @doc """
@@ -383,7 +393,9 @@ defmodule AWS.CodeCommit do
   this API to display the repository description on a webpage.
   """
   def batch_get_repositories(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchGetRepositories", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetRepositories", input, options)
   end
 
   @doc """
@@ -396,7 +408,9 @@ defmodule AWS.CodeCommit do
   `AssociateApprovalRuleTemplateWithRepository`.
   """
   def create_approval_rule_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateApprovalRuleTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateApprovalRuleTemplate", input, options)
   end
 
   @doc """
@@ -406,35 +420,45 @@ defmodule AWS.CodeCommit do
   To do this, call the update default branch operation.
   """
   def create_branch(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateBranch", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateBranch", input, options)
   end
 
   @doc """
   Creates a commit for a repository on the tip of a specified branch.
   """
   def create_commit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCommit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCommit", input, options)
   end
 
   @doc """
   Creates a pull request in the specified repository.
   """
   def create_pull_request(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreatePullRequest", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePullRequest", input, options)
   end
 
   @doc """
   Creates an approval rule for a pull request.
   """
   def create_pull_request_approval_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreatePullRequestApprovalRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePullRequestApprovalRule", input, options)
   end
 
   @doc """
   Creates a new, empty repository.
   """
   def create_repository(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateRepository", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRepository", input, options)
   end
 
   @doc """
@@ -450,7 +474,9 @@ defmodule AWS.CodeCommit do
   specify its commit ID or otherwise reference it.
   """
   def create_unreferenced_merge_commit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateUnreferencedMergeCommit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateUnreferencedMergeCommit", input, options)
   end
 
   @doc """
@@ -460,7 +486,9 @@ defmodule AWS.CodeCommit do
   created with the template.
   """
   def delete_approval_rule_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteApprovalRuleTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteApprovalRuleTemplate", input, options)
   end
 
   @doc """
@@ -468,7 +496,9 @@ defmodule AWS.CodeCommit do
   the repository.
   """
   def delete_branch(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteBranch", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteBranch", input, options)
   end
 
   @doc """
@@ -476,7 +506,9 @@ defmodule AWS.CodeCommit do
   repository.
   """
   def delete_comment_content(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCommentContent", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCommentContent", input, options)
   end
 
   @doc """
@@ -486,7 +518,9 @@ defmodule AWS.CodeCommit do
   exists in the commits earlier to the commit that contains the deletion.
   """
   def delete_file(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteFile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFile", input, options)
   end
 
   @doc """
@@ -499,7 +533,9 @@ defmodule AWS.CodeCommit do
   merged or closed pull request.
   """
   def delete_pull_request_approval_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeletePullRequestApprovalRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePullRequestApprovalRule", input, options)
   end
 
   @doc """
@@ -511,7 +547,9 @@ defmodule AWS.CodeCommit do
   repository is deleted, all future push calls to the deleted repository fail.
   """
   def delete_repository(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteRepository", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRepository", input, options)
   end
 
   @doc """
@@ -522,14 +560,18 @@ defmodule AWS.CodeCommit do
   an exception is thrown.
   """
   def describe_merge_conflicts(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeMergeConflicts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMergeConflicts", input, options)
   end
 
   @doc """
   Returns information about one or more pull request events.
   """
   def describe_pull_request_events(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePullRequestEvents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePullRequestEvents", input, options)
   end
 
   @doc """
@@ -545,9 +587,11 @@ defmodule AWS.CodeCommit do
         input,
         options \\ []
       ) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "DisassociateApprovalRuleTemplateFromRepository",
       input,
       options
@@ -559,21 +603,27 @@ defmodule AWS.CodeCommit do
   associated approval rules.
   """
   def evaluate_pull_request_approval_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EvaluatePullRequestApprovalRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EvaluatePullRequestApprovalRules", input, options)
   end
 
   @doc """
   Returns information about a specified approval rule template.
   """
   def get_approval_rule_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetApprovalRuleTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetApprovalRuleTemplate", input, options)
   end
 
   @doc """
   Returns the base-64 encoded content of an individual blob in a repository.
   """
   def get_blob(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetBlob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetBlob", input, options)
   end
 
   @doc """
@@ -581,7 +631,9 @@ defmodule AWS.CodeCommit do
   commit ID.
   """
   def get_branch(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetBranch", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetBranch", input, options)
   end
 
   @doc """
@@ -593,7 +645,9 @@ defmodule AWS.CodeCommit do
   use GetCommentReactions.
   """
   def get_comment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetComment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetComment", input, options)
   end
 
   @doc """
@@ -602,7 +656,9 @@ defmodule AWS.CodeCommit do
   Reactions from users who have been deleted will not be included in the count.
   """
   def get_comment_reactions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCommentReactions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCommentReactions", input, options)
   end
 
   @doc """
@@ -613,7 +669,9 @@ defmodule AWS.CodeCommit do
   use GetCommentReactions.
   """
   def get_comments_for_compared_commit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCommentsForComparedCommit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCommentsForComparedCommit", input, options)
   end
 
   @doc """
@@ -624,7 +682,9 @@ defmodule AWS.CodeCommit do
   use GetCommentReactions.
   """
   def get_comments_for_pull_request(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCommentsForPullRequest", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCommentsForPullRequest", input, options)
   end
 
   @doc """
@@ -632,7 +692,9 @@ defmodule AWS.CodeCommit do
   information.
   """
   def get_commit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCommit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCommit", input, options)
   end
 
   @doc """
@@ -642,28 +704,36 @@ defmodule AWS.CodeCommit do
   Results can be limited to a specified path.
   """
   def get_differences(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDifferences", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDifferences", input, options)
   end
 
   @doc """
   Returns the base-64 encoded contents of a specified file and its metadata.
   """
   def get_file(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetFile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetFile", input, options)
   end
 
   @doc """
   Returns the contents of a specified folder in a repository.
   """
   def get_folder(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetFolder", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetFolder", input, options)
   end
 
   @doc """
   Returns information about a specified merge commit.
   """
   def get_merge_commit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetMergeCommit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMergeCommit", input, options)
   end
 
   @doc """
@@ -671,7 +741,9 @@ defmodule AWS.CodeCommit do
   IDs for a pull request in a repository.
   """
   def get_merge_conflicts(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetMergeConflicts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMergeConflicts", input, options)
   end
 
   @doc """
@@ -682,14 +754,18 @@ defmodule AWS.CodeCommit do
   DescribeMergeConflicts.
   """
   def get_merge_options(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetMergeOptions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMergeOptions", input, options)
   end
 
   @doc """
   Gets information about a pull request in a specified repository.
   """
   def get_pull_request(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetPullRequest", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetPullRequest", input, options)
   end
 
   @doc """
@@ -699,7 +775,9 @@ defmodule AWS.CodeCommit do
   applied to them.
   """
   def get_pull_request_approval_states(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetPullRequestApprovalStates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetPullRequestApprovalStates", input, options)
   end
 
   @doc """
@@ -709,7 +787,9 @@ defmodule AWS.CodeCommit do
   request.
   """
   def get_pull_request_override_state(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetPullRequestOverrideState", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetPullRequestOverrideState", input, options)
   end
 
   @doc """
@@ -722,14 +802,18 @@ defmodule AWS.CodeCommit do
   this API to display the repository description on a webpage.
   """
   def get_repository(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRepository", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRepository", input, options)
   end
 
   @doc """
   Gets information about triggers configured for a repository.
   """
   def get_repository_triggers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRepositoryTriggers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRepositoryTriggers", input, options)
   end
 
   @doc """
@@ -740,7 +824,9 @@ defmodule AWS.CodeCommit do
   used.
   """
   def list_approval_rule_templates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListApprovalRuleTemplates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListApprovalRuleTemplates", input, options)
   end
 
   @doc """
@@ -752,9 +838,11 @@ defmodule AWS.CodeCommit do
         input,
         options \\ []
       ) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "ListAssociatedApprovalRuleTemplatesForRepository",
       input,
       options
@@ -765,7 +853,9 @@ defmodule AWS.CodeCommit do
   Gets information about one or more branches in a repository.
   """
   def list_branches(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListBranches", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListBranches", input, options)
   end
 
   @doc """
@@ -775,27 +865,27 @@ defmodule AWS.CodeCommit do
   ARN.
   """
   def list_pull_requests(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPullRequests", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPullRequests", input, options)
   end
 
   @doc """
   Gets information about one or more repositories.
   """
   def list_repositories(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListRepositories", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRepositories", input, options)
   end
 
   @doc """
   Lists all repositories associated with the specified approval rule template.
   """
   def list_repositories_for_approval_rule_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ListRepositoriesForApprovalRuleTemplate",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRepositoriesForApprovalRuleTemplate", input, options)
   end
 
   @doc """
@@ -806,28 +896,36 @@ defmodule AWS.CodeCommit do
   in the* AWS CodeCommit User Guide*.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Merges two branches using the fast-forward merge strategy.
   """
   def merge_branches_by_fast_forward(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "MergeBranchesByFastForward", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "MergeBranchesByFastForward", input, options)
   end
 
   @doc """
   Merges two branches using the squash merge strategy.
   """
   def merge_branches_by_squash(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "MergeBranchesBySquash", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "MergeBranchesBySquash", input, options)
   end
 
   @doc """
   Merges two specified branches using the three-way merge strategy.
   """
   def merge_branches_by_three_way(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "MergeBranchesByThreeWay", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "MergeBranchesByThreeWay", input, options)
   end
 
   @doc """
@@ -838,7 +936,9 @@ defmodule AWS.CodeCommit do
   If the merge is successful, it closes the pull request.
   """
   def merge_pull_request_by_fast_forward(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "MergePullRequestByFastForward", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "MergePullRequestByFastForward", input, options)
   end
 
   @doc """
@@ -849,7 +949,9 @@ defmodule AWS.CodeCommit do
   If the merge is successful, it closes the pull request.
   """
   def merge_pull_request_by_squash(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "MergePullRequestBySquash", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "MergePullRequestBySquash", input, options)
   end
 
   @doc """
@@ -860,7 +962,9 @@ defmodule AWS.CodeCommit do
   If the merge is successful, it closes the pull request.
   """
   def merge_pull_request_by_three_way(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "MergePullRequestByThreeWay", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "MergePullRequestByThreeWay", input, options)
   end
 
   @doc """
@@ -868,21 +972,27 @@ defmodule AWS.CodeCommit do
   request.
   """
   def override_pull_request_approval_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "OverridePullRequestApprovalRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "OverridePullRequestApprovalRules", input, options)
   end
 
   @doc """
   Posts a comment on the comparison between two commits.
   """
   def post_comment_for_compared_commit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PostCommentForComparedCommit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PostCommentForComparedCommit", input, options)
   end
 
   @doc """
   Posts a comment on a pull request.
   """
   def post_comment_for_pull_request(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PostCommentForPullRequest", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PostCommentForPullRequest", input, options)
   end
 
   @doc """
@@ -890,7 +1000,9 @@ defmodule AWS.CodeCommit do
   or a pull request.
   """
   def post_comment_reply(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PostCommentReply", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PostCommentReply", input, options)
   end
 
   @doc """
@@ -901,7 +1013,9 @@ defmodule AWS.CodeCommit do
   delete a reaction for another user.
   """
   def put_comment_reaction(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutCommentReaction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutCommentReaction", input, options)
   end
 
   @doc """
@@ -909,7 +1023,9 @@ defmodule AWS.CodeCommit do
   generates a commit for the addition in the specified branch.
   """
   def put_file(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutFile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutFile", input, options)
   end
 
   @doc """
@@ -918,7 +1034,9 @@ defmodule AWS.CodeCommit do
   Used to create or delete triggers.
   """
   def put_repository_triggers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutRepositoryTriggers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutRepositoryTriggers", input, options)
   end
 
   @doc """
@@ -928,7 +1046,9 @@ defmodule AWS.CodeCommit do
   in the *AWS CodeCommit User Guide*.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -939,7 +1059,9 @@ defmodule AWS.CodeCommit do
   commit. If no data is available, sample data is generated.
   """
   def test_repository_triggers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TestRepositoryTriggers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TestRepositoryTriggers", input, options)
   end
 
   @doc """
@@ -949,7 +1071,9 @@ defmodule AWS.CodeCommit do
   in the *AWS CodeCommit User Guide*.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -959,34 +1083,36 @@ defmodule AWS.CodeCommit do
   rule, and whether an approval pool is defined.
   """
   def update_approval_rule_template_content(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateApprovalRuleTemplateContent", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateApprovalRuleTemplateContent", input, options)
   end
 
   @doc """
   Updates the description for a specified approval rule template.
   """
   def update_approval_rule_template_description(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "UpdateApprovalRuleTemplateDescription",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateApprovalRuleTemplateDescription", input, options)
   end
 
   @doc """
   Updates the name of a specified approval rule template.
   """
   def update_approval_rule_template_name(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateApprovalRuleTemplateName", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateApprovalRuleTemplateName", input, options)
   end
 
   @doc """
   Replaces the contents of a comment.
   """
   def update_comment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateComment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateComment", input, options)
   end
 
   @doc """
@@ -997,7 +1123,9 @@ defmodule AWS.CodeCommit do
   branch did not change.
   """
   def update_default_branch(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateDefaultBranch", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDefaultBranch", input, options)
   end
 
   @doc """
@@ -1008,13 +1136,9 @@ defmodule AWS.CodeCommit do
   pool for approvers.
   """
   def update_pull_request_approval_rule_content(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "UpdatePullRequestApprovalRuleContent",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePullRequestApprovalRuleContent", input, options)
   end
 
   @doc """
@@ -1023,28 +1147,36 @@ defmodule AWS.CodeCommit do
   The user is derived from the signed-in account when the request is made.
   """
   def update_pull_request_approval_state(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdatePullRequestApprovalState", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePullRequestApprovalState", input, options)
   end
 
   @doc """
   Replaces the contents of the description of a pull request.
   """
   def update_pull_request_description(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdatePullRequestDescription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePullRequestDescription", input, options)
   end
 
   @doc """
   Updates the status of a pull request.
   """
   def update_pull_request_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdatePullRequestStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePullRequestStatus", input, options)
   end
 
   @doc """
   Replaces the title of a pull request.
   """
   def update_pull_request_title(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdatePullRequestTitle", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePullRequestTitle", input, options)
   end
 
   @doc """
@@ -1057,7 +1189,9 @@ defmodule AWS.CodeCommit do
   this API to display the repository description on a webpage.
   """
   def update_repository_description(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateRepositoryDescription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateRepositoryDescription", input, options)
   end
 
   @doc """
@@ -1071,6 +1205,8 @@ defmodule AWS.CodeCommit do
   the AWS CodeCommit User Guide.
   """
   def update_repository_name(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateRepositoryName", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateRepositoryName", input, options)
   end
 end

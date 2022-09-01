@@ -58,14 +58,18 @@ defmodule AWS.DataPipeline do
   activate it.
   """
   def activate_pipeline(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ActivatePipeline", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ActivatePipeline", input, options)
   end
 
   @doc """
   Adds or modifies tags for the specified pipeline.
   """
   def add_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddTags", input, options)
   end
 
   @doc """
@@ -74,7 +78,9 @@ defmodule AWS.DataPipeline do
   Use `PutPipelineDefinition` to populate the pipeline.
   """
   def create_pipeline(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreatePipeline", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePipeline", input, options)
   end
 
   @doc """
@@ -88,7 +94,9 @@ defmodule AWS.DataPipeline do
   the date and time to resume the pipeline.
   """
   def deactivate_pipeline(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeactivatePipeline", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeactivatePipeline", input, options)
   end
 
   @doc """
@@ -103,7 +111,9 @@ defmodule AWS.DataPipeline do
   that are paused by `SetStatus` can be resumed.
   """
   def delete_pipeline(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeletePipeline", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePipeline", input, options)
   end
 
   @doc """
@@ -113,7 +123,9 @@ defmodule AWS.DataPipeline do
   the object.
   """
   def describe_objects(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeObjects", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeObjects", input, options)
   end
 
   @doc """
@@ -130,7 +142,9 @@ defmodule AWS.DataPipeline do
   call `GetPipelineDefinition`.
   """
   def describe_pipelines(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePipelines", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePipelines", input, options)
   end
 
   @doc """
@@ -140,7 +154,9 @@ defmodule AWS.DataPipeline do
   For example, a task runner can evaluate SQL queries stored in Amazon S3.
   """
   def evaluate_expression(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EvaluateExpression", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EvaluateExpression", input, options)
   end
 
   @doc """
@@ -150,7 +166,9 @@ defmodule AWS.DataPipeline do
   you provided using `PutPipelineDefinition`.
   """
   def get_pipeline_definition(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetPipelineDefinition", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetPipelineDefinition", input, options)
   end
 
   @doc """
@@ -158,7 +176,9 @@ defmodule AWS.DataPipeline do
   to access.
   """
   def list_pipelines(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPipelines", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPipelines", input, options)
   end
 
   @doc """
@@ -179,7 +199,9 @@ defmodule AWS.DataPipeline do
   it receives a response, and this can take up to 90 seconds.
   """
   def poll_for_task(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PollForTask", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PollForTask", input, options)
   end
 
   @doc """
@@ -201,7 +223,9 @@ defmodule AWS.DataPipeline do
   returned by the `GetPipelineDefinition` action.
   """
   def put_pipeline_definition(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutPipelineDefinition", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutPipelineDefinition", input, options)
   end
 
   @doc """
@@ -209,14 +233,18 @@ defmodule AWS.DataPipeline do
   set of conditions.
   """
   def query_objects(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "QueryObjects", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "QueryObjects", input, options)
   end
 
   @doc """
   Removes existing tags from the specified pipeline.
   """
   def remove_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveTags", input, options)
   end
 
   @doc """
@@ -235,7 +263,9 @@ defmodule AWS.DataPipeline do
   `ReportTaskProgress` every 60 seconds.
   """
   def report_task_progress(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ReportTaskProgress", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ReportTaskProgress", input, options)
   end
 
   @doc """
@@ -247,7 +277,9 @@ defmodule AWS.DataPipeline do
   application has failed and restart a new instance.
   """
   def report_task_runner_heartbeat(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ReportTaskRunnerHeartbeat", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ReportTaskRunnerHeartbeat", input, options)
   end
 
   @doc """
@@ -260,7 +292,9 @@ defmodule AWS.DataPipeline do
   attempting to do so returns `InvalidRequestException`.
   """
   def set_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetStatus", input, options)
   end
 
   @doc """
@@ -272,7 +306,9 @@ defmodule AWS.DataPipeline do
   the web service during a call to `ReportTaskProgress`.
   """
   def set_task_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetTaskStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetTaskStatus", input, options)
   end
 
   @doc """
@@ -280,6 +316,8 @@ defmodule AWS.DataPipeline do
   can be run without error.
   """
   def validate_pipeline_definition(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ValidatePipelineDefinition", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ValidatePipelineDefinition", input, options)
   end
 end

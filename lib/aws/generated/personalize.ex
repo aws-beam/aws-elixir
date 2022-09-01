@@ -33,7 +33,9 @@ defmodule AWS.Personalize do
   JSON format. For more information, see [Creating a batch inference job](https://docs.aws.amazon.com/personalize/latest/dg/creating-batch-inference-job.html).
   """
   def create_batch_inference_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateBatchInferenceJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateBatchInferenceJob", input, options)
   end
 
   @doc """
@@ -43,7 +45,9 @@ defmodule AWS.Personalize do
   JSON format. For more information, see [Getting batch recommendations and user segments](https://docs.aws.amazon.com/personalize/latest/dg/recommendations-batch.html).
   """
   def create_batch_segment_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateBatchSegmentJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateBatchSegmentJob", input, options)
   end
 
   @doc """
@@ -98,7 +102,9 @@ defmodule AWS.Personalize do
   [DeleteCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteCampaign.html)
   """
   def create_campaign(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCampaign", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCampaign", input, options)
   end
 
   @doc """
@@ -139,7 +145,9 @@ defmodule AWS.Personalize do
   [DeleteDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDataset.html)
   """
   def create_dataset(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDataset", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDataset", input, options)
   end
 
   @doc """
@@ -164,7 +172,9 @@ defmodule AWS.Personalize do
   why the job failed.
   """
   def create_dataset_export_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDatasetExportJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDatasetExportJob", input, options)
   end
 
   @doc """
@@ -222,7 +232,9 @@ defmodule AWS.Personalize do
   [DeleteDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDatasetGroup.html)
   """
   def create_dataset_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDatasetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDatasetGroup", input, options)
   end
 
   @doc """
@@ -263,7 +275,9 @@ defmodule AWS.Personalize do
   [DescribeDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html)
   """
   def create_dataset_import_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDatasetImportJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDatasetImportJob", input, options)
   end
 
   @doc """
@@ -300,7 +314,9 @@ defmodule AWS.Personalize do
   [DeleteEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteEventTracker.html)
   """
   def create_event_tracker(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateEventTracker", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEventTracker", input, options)
   end
 
   @doc """
@@ -309,7 +325,9 @@ defmodule AWS.Personalize do
   For more information, see [Filtering recommendations and user segments](https://docs.aws.amazon.com/personalize/latest/dg/filter.html).
   """
   def create_filter(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateFilter", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFilter", input, options)
   end
 
   @doc """
@@ -373,7 +391,9 @@ defmodule AWS.Personalize do
   [DeleteRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteRecommender.html)
   """
   def create_recommender(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateRecommender", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRecommender", input, options)
   end
 
   @doc """
@@ -395,7 +415,9 @@ defmodule AWS.Personalize do
   [DeleteSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSchema.html)
   """
   def create_schema(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateSchema", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSchema", input, options)
   end
 
   @doc """
@@ -453,7 +475,9 @@ defmodule AWS.Personalize do
   [DescribeSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html)
   """
   def create_solution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateSolution", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSolution", input, options)
   end
 
   @doc """
@@ -502,7 +526,9 @@ defmodule AWS.Personalize do
   [DeleteSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html)
   """
   def create_solution_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateSolutionVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSolutionVersion", input, options)
   end
 
   @doc """
@@ -514,7 +540,9 @@ defmodule AWS.Personalize do
   [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).
   """
   def delete_campaign(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCampaign", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCampaign", input, options)
   end
 
   @doc """
@@ -526,7 +554,9 @@ defmodule AWS.Personalize do
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
   def delete_dataset(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDataset", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDataset", input, options)
   end
 
   @doc """
@@ -541,7 +571,9 @@ defmodule AWS.Personalize do
     * All datasets in the dataset group.
   """
   def delete_dataset_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDatasetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDatasetGroup", input, options)
   end
 
   @doc """
@@ -552,14 +584,18 @@ defmodule AWS.Personalize do
   [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html).
   """
   def delete_event_tracker(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEventTracker", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEventTracker", input, options)
   end
 
   @doc """
   Deletes a filter.
   """
   def delete_filter(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteFilter", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFilter", input, options)
   end
 
   @doc """
@@ -570,7 +606,9 @@ defmodule AWS.Personalize do
   request.
   """
   def delete_recommender(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteRecommender", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRecommender", input, options)
   end
 
   @doc """
@@ -581,7 +619,9 @@ defmodule AWS.Personalize do
   [CreateSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html).
   """
   def delete_schema(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSchema", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSchema", input, options)
   end
 
   @doc """
@@ -595,14 +635,18 @@ defmodule AWS.Personalize do
   [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html).
   """
   def delete_solution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSolution", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSolution", input, options)
   end
 
   @doc """
   Describes the given algorithm.
   """
   def describe_algorithm(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAlgorithm", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAlgorithm", input, options)
   end
 
   @doc """
@@ -611,7 +655,9 @@ defmodule AWS.Personalize do
   version used to generate the recommendations.
   """
   def describe_batch_inference_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeBatchInferenceJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBatchInferenceJob", input, options)
   end
 
   @doc """
@@ -620,7 +666,9 @@ defmodule AWS.Personalize do
   version used to generate segments.
   """
   def describe_batch_segment_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeBatchSegmentJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBatchSegmentJob", input, options)
   end
 
   @doc """
@@ -639,7 +687,9 @@ defmodule AWS.Personalize do
   [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).
   """
   def describe_campaign(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCampaign", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCampaign", input, options)
   end
 
   @doc """
@@ -649,7 +699,9 @@ defmodule AWS.Personalize do
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
   def describe_dataset(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDataset", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDataset", input, options)
   end
 
   @doc """
@@ -658,7 +710,9 @@ defmodule AWS.Personalize do
   including the export job status.
   """
   def describe_dataset_export_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDatasetExportJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDatasetExportJob", input, options)
   end
 
   @doc """
@@ -668,7 +722,9 @@ defmodule AWS.Personalize do
   [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html).
   """
   def describe_dataset_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDatasetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDatasetGroup", input, options)
   end
 
   @doc """
@@ -677,7 +733,9 @@ defmodule AWS.Personalize do
   including the import job status.
   """
   def describe_dataset_import_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDatasetImportJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDatasetImportJob", input, options)
   end
 
   @doc """
@@ -688,21 +746,27 @@ defmodule AWS.Personalize do
   [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html).
   """
   def describe_event_tracker(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEventTracker", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEventTracker", input, options)
   end
 
   @doc """
   Describes the given feature transformation.
   """
   def describe_feature_transformation(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFeatureTransformation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFeatureTransformation", input, options)
   end
 
   @doc """
   Describes a filter's properties.
   """
   def describe_filter(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFilter", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFilter", input, options)
   end
 
   @doc """
@@ -726,7 +790,9 @@ defmodule AWS.Personalize do
   API.
   """
   def describe_recipe(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRecipe", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRecipe", input, options)
   end
 
   @doc """
@@ -750,7 +816,9 @@ defmodule AWS.Personalize do
   [CreateRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateRecommender.html).
   """
   def describe_recommender(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRecommender", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRecommender", input, options)
   end
 
   @doc """
@@ -760,7 +828,9 @@ defmodule AWS.Personalize do
   [CreateSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html).
   """
   def describe_schema(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSchema", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSchema", input, options)
   end
 
   @doc """
@@ -770,7 +840,9 @@ defmodule AWS.Personalize do
   [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html).
   """
   def describe_solution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSolution", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSolution", input, options)
   end
 
   @doc """
@@ -780,14 +852,18 @@ defmodule AWS.Personalize do
   [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html)
   """
   def describe_solution_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSolutionVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSolutionVersion", input, options)
   end
 
   @doc """
   Gets the metrics for the specified solution version.
   """
   def get_solution_metrics(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetSolutionMetrics", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSolutionMetrics", input, options)
   end
 
   @doc """
@@ -795,7 +871,9 @@ defmodule AWS.Personalize do
   solution version.
   """
   def list_batch_inference_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListBatchInferenceJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListBatchInferenceJobs", input, options)
   end
 
   @doc """
@@ -803,7 +881,9 @@ defmodule AWS.Personalize do
   version that you specify.
   """
   def list_batch_segment_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListBatchSegmentJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListBatchSegmentJobs", input, options)
   end
 
   @doc """
@@ -815,7 +895,9 @@ defmodule AWS.Personalize do
   [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).
   """
   def list_campaigns(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListCampaigns", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCampaigns", input, options)
   end
 
   @doc """
@@ -829,7 +911,9 @@ defmodule AWS.Personalize do
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
   def list_dataset_export_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDatasetExportJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDatasetExportJobs", input, options)
   end
 
   @doc """
@@ -840,7 +924,9 @@ defmodule AWS.Personalize do
   [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html).
   """
   def list_dataset_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDatasetGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDatasetGroups", input, options)
   end
 
   @doc """
@@ -854,7 +940,9 @@ defmodule AWS.Personalize do
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
   def list_dataset_import_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDatasetImportJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDatasetImportJobs", input, options)
   end
 
   @doc """
@@ -865,7 +953,9 @@ defmodule AWS.Personalize do
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
   def list_datasets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDatasets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDatasets", input, options)
   end
 
   @doc """
@@ -877,14 +967,18 @@ defmodule AWS.Personalize do
   [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html).
   """
   def list_event_trackers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEventTrackers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEventTrackers", input, options)
   end
 
   @doc """
   Lists all filters that belong to a given dataset group.
   """
   def list_filters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFilters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFilters", input, options)
   end
 
   @doc """
@@ -894,7 +988,9 @@ defmodule AWS.Personalize do
   Amazon Resource Name (ARN).
   """
   def list_recipes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListRecipes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRecipes", input, options)
   end
 
   @doc """
@@ -907,7 +1003,9 @@ defmodule AWS.Personalize do
   [CreateRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateRecommender.html).
   """
   def list_recommenders(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListRecommenders", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRecommenders", input, options)
   end
 
   @doc """
@@ -918,7 +1016,9 @@ defmodule AWS.Personalize do
   [CreateSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html).
   """
   def list_schemas(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListSchemas", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSchemas", input, options)
   end
 
   @doc """
@@ -929,7 +1029,9 @@ defmodule AWS.Personalize do
   version, including the Amazon Resource Name (ARN).
   """
   def list_solution_versions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListSolutionVersions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSolutionVersions", input, options)
   end
 
   @doc """
@@ -941,7 +1043,9 @@ defmodule AWS.Personalize do
   [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html).
   """
   def list_solutions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListSolutions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSolutions", input, options)
   end
 
   @doc """
@@ -950,7 +1054,9 @@ defmodule AWS.Personalize do
   attached to a resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -960,7 +1066,9 @@ defmodule AWS.Personalize do
   automatic retraining for the recommender.
   """
   def start_recommender(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartRecommender", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartRecommender", input, options)
   end
 
   @doc """
@@ -970,7 +1078,9 @@ defmodule AWS.Personalize do
   recommender.
   """
   def stop_recommender(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopRecommender", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopRecommender", input, options)
   end
 
   @doc """
@@ -991,14 +1101,18 @@ defmodule AWS.Personalize do
   stopped.
   """
   def stop_solution_version_creation(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopSolutionVersionCreation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopSolutionVersionCreation", input, options)
   end
 
   @doc """
   Add a list of tags to a resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -1007,7 +1121,9 @@ defmodule AWS.Personalize do
   that are attached to a resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -1027,13 +1143,17 @@ defmodule AWS.Personalize do
   [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).
   """
   def update_campaign(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateCampaign", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCampaign", input, options)
   end
 
   @doc """
   Updates the recommender to modify the recommender configuration.
   """
   def update_recommender(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateRecommender", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateRecommender", input, options)
   end
 end

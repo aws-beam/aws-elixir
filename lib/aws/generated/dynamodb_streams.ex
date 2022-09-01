@@ -46,7 +46,9 @@ defmodule AWS.DynamoDBStreams do
   present, then that shard is closed and can no longer receive more data.
   """
   def describe_stream(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStream", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStream", input, options)
   end
 
   @doc """
@@ -63,7 +65,9 @@ defmodule AWS.DynamoDBStreams do
   whichever comes first.
   """
   def get_records(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRecords", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRecords", input, options)
   end
 
   @doc """
@@ -76,7 +80,9 @@ defmodule AWS.DynamoDBStreams do
   A shard iterator expires 15 minutes after it is returned to the requester.
   """
   def get_shard_iterator(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetShardIterator", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetShardIterator", input, options)
   end
 
   @doc """
@@ -89,6 +95,8 @@ defmodule AWS.DynamoDBStreams do
   You can call `ListStreams` at a maximum rate of 5 times per second.
   """
   def list_streams(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListStreams", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStreams", input, options)
   end
 end

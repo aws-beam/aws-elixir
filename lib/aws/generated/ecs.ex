@@ -56,7 +56,9 @@ defmodule AWS.ECS do
   that Fargate supports.
   """
   def create_capacity_provider(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCapacityProvider", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCapacityProvider", input, options)
   end
 
   @doc """
@@ -75,7 +77,9 @@ defmodule AWS.ECS do
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def create_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCluster", input, options)
   end
 
   @doc """
@@ -186,7 +190,9 @@ defmodule AWS.ECS do
   container instances with the fewest number of running tasks for this service.
   """
   def create_service(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateService", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateService", input, options)
   end
 
   @doc """
@@ -197,7 +203,9 @@ defmodule AWS.ECS do
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def create_task_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateTaskSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTaskSet", input, options)
   end
 
   @doc """
@@ -205,14 +213,18 @@ defmodule AWS.ECS do
   for an account.
   """
   def delete_account_setting(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAccountSetting", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAccountSetting", input, options)
   end
 
   @doc """
   Deletes one or more custom attributes from an Amazon ECS resource.
   """
   def delete_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAttributes", input, options)
   end
 
   @doc """
@@ -233,7 +245,9 @@ defmodule AWS.ECS do
   cluster, you can either use `PutClusterCapacityProviders` or delete the cluster.
   """
   def delete_capacity_provider(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCapacityProvider", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCapacityProvider", input, options)
   end
 
   @doc """
@@ -249,7 +263,9 @@ defmodule AWS.ECS do
   `ListContainerInstances` and deregister them with `DeregisterContainerInstance`.
   """
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCluster", input, options)
   end
 
   @doc """
@@ -274,7 +290,9 @@ defmodule AWS.ECS do
   in either `ACTIVE` or `DRAINING` status, you receive an error.
   """
   def delete_service(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteService", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteService", input, options)
   end
 
   @doc """
@@ -285,7 +303,9 @@ defmodule AWS.ECS do
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def delete_task_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteTaskSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTaskSet", input, options)
   end
 
   @doc """
@@ -308,7 +328,9 @@ defmodule AWS.ECS do
   terminated).
   """
   def deregister_container_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterContainerInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterContainerInstance", input, options)
   end
 
   @doc """
@@ -330,21 +352,27 @@ defmodule AWS.ECS do
   the lifecycle of any associated tasks and services.
   """
   def deregister_task_definition(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterTaskDefinition", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterTaskDefinition", input, options)
   end
 
   @doc """
   Describes one or more of your capacity providers.
   """
   def describe_capacity_providers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCapacityProviders", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCapacityProviders", input, options)
   end
 
   @doc """
   Describes one or more of your clusters.
   """
   def describe_clusters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeClusters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeClusters", input, options)
   end
 
   @doc """
@@ -353,14 +381,18 @@ defmodule AWS.ECS do
   Returns metadata about each container instance requested.
   """
   def describe_container_instances(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeContainerInstances", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeContainerInstances", input, options)
   end
 
   @doc """
   Describes the specified services running in your cluster.
   """
   def describe_services(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeServices", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeServices", input, options)
   end
 
   @doc """
@@ -374,7 +406,9 @@ defmodule AWS.ECS do
   service references them.
   """
   def describe_task_definition(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTaskDefinition", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTaskDefinition", input, options)
   end
 
   @doc """
@@ -385,7 +419,9 @@ defmodule AWS.ECS do
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def describe_task_sets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTaskSets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTaskSets", input, options)
   end
 
   @doc """
@@ -394,7 +430,9 @@ defmodule AWS.ECS do
   Currently, stopped tasks appear in the returned results for at least one hour.
   """
   def describe_tasks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTasks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTasks", input, options)
   end
 
   @doc """
@@ -404,7 +442,9 @@ defmodule AWS.ECS do
   Returns an endpoint for the Amazon ECS agent to poll for updates.
   """
   def discover_poll_endpoint(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DiscoverPollEndpoint", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DiscoverPollEndpoint", input, options)
   end
 
   @doc """
@@ -416,14 +456,18 @@ defmodule AWS.ECS do
   condition key value and the corresponding parameter value.
   """
   def execute_command(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ExecuteCommand", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExecuteCommand", input, options)
   end
 
   @doc """
   Lists the account settings for a specified principal.
   """
   def list_account_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAccountSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAccountSettings", input, options)
   end
 
   @doc """
@@ -438,14 +482,18 @@ defmodule AWS.ECS do
   Linux AMI (`ecs.os-type=linux`).
   """
   def list_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAttributes", input, options)
   end
 
   @doc """
   Returns a list of existing clusters.
   """
   def list_clusters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListClusters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListClusters", input, options)
   end
 
   @doc """
@@ -457,7 +505,9 @@ defmodule AWS.ECS do
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def list_container_instances(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListContainerInstances", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListContainerInstances", input, options)
   end
 
   @doc """
@@ -466,14 +516,18 @@ defmodule AWS.ECS do
   You can filter the results by cluster, launch type, and scheduling strategy.
   """
   def list_services(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListServices", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListServices", input, options)
   end
 
   @doc """
   List the tags for an Amazon ECS resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -487,7 +541,9 @@ defmodule AWS.ECS do
   filter the results with the `familyPrefix` parameter.
   """
   def list_task_definition_families(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTaskDefinitionFamilies", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTaskDefinitionFamilies", input, options)
   end
 
   @doc """
@@ -497,7 +553,9 @@ defmodule AWS.ECS do
   by status with the `status` parameter.
   """
   def list_task_definitions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTaskDefinitions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTaskDefinitions", input, options)
   end
 
   @doc """
@@ -511,7 +569,9 @@ defmodule AWS.ECS do
   tasks appear in the returned results for at least one hour.
   """
   def list_tasks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTasks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTasks", input, options)
   end
 
   @doc """
@@ -548,7 +608,9 @@ defmodule AWS.ECS do
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def put_account_setting(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutAccountSetting", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutAccountSetting", input, options)
   end
 
   @doc """
@@ -558,7 +620,9 @@ defmodule AWS.ECS do
   Account settings are set on a per-Region basis.
   """
   def put_account_setting_default(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutAccountSettingDefault", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutAccountSettingDefault", input, options)
   end
 
   @doc """
@@ -571,7 +635,9 @@ defmodule AWS.ECS do
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def put_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutAttributes", input, options)
   end
 
   @doc """
@@ -594,7 +660,9 @@ defmodule AWS.ECS do
   bypass defining a default strategy.
   """
   def put_cluster_capacity_providers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutClusterCapacityProviders", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutClusterCapacityProviders", input, options)
   end
 
   @doc """
@@ -605,7 +673,9 @@ defmodule AWS.ECS do
   available to place containers on.
   """
   def register_container_instance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterContainerInstance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterContainerInstance", input, options)
   end
 
   @doc """
@@ -634,7 +704,9 @@ defmodule AWS.ECS do
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def register_task_definition(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterTaskDefinition", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterTaskDefinition", input, options)
   end
 
   @doc """
@@ -669,7 +741,9 @@ defmodule AWS.ECS do
   up to about five minutes of wait time.
   """
   def run_task(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RunTask", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RunTask", input, options)
   end
 
   @doc """
@@ -681,7 +755,9 @@ defmodule AWS.ECS do
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def start_task(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartTask", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartTask", input, options)
   end
 
   @doc """
@@ -702,7 +778,9 @@ defmodule AWS.ECS do
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def stop_task(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopTask", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopTask", input, options)
   end
 
   @doc """
@@ -712,7 +790,9 @@ defmodule AWS.ECS do
   Sent to acknowledge that an attachment changed states.
   """
   def submit_attachment_state_changes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SubmitAttachmentStateChanges", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SubmitAttachmentStateChanges", input, options)
   end
 
   @doc """
@@ -722,7 +802,9 @@ defmodule AWS.ECS do
   Sent to acknowledge that a container changed states.
   """
   def submit_container_state_change(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SubmitContainerStateChange", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SubmitContainerStateChange", input, options)
   end
 
   @doc """
@@ -732,7 +814,9 @@ defmodule AWS.ECS do
   Sent to acknowledge that a task changed states.
   """
   def submit_task_state_change(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SubmitTaskStateChange", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SubmitTaskStateChange", input, options)
   end
 
   @doc """
@@ -743,35 +827,45 @@ defmodule AWS.ECS do
   that resource are deleted as well.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Deletes specified tags from a resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
   Modifies the parameters for a capacity provider.
   """
   def update_capacity_provider(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateCapacityProvider", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCapacityProvider", input, options)
   end
 
   @doc """
   Updates the cluster.
   """
   def update_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCluster", input, options)
   end
 
   @doc """
   Modifies the settings to use for a cluster.
   """
   def update_cluster_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateClusterSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateClusterSettings", input, options)
   end
 
   @doc """
@@ -795,7 +889,9 @@ defmodule AWS.ECS do
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def update_container_agent(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateContainerAgent", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateContainerAgent", input, options)
   end
 
   @doc """
@@ -850,7 +946,9 @@ defmodule AWS.ECS do
   begin scheduling tasks on the instance again.
   """
   def update_container_instances_state(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateContainerInstancesState", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateContainerInstancesState", input, options)
   end
 
   @doc """
@@ -964,7 +1062,9 @@ defmodule AWS.ECS do
      `serviceRegistries`
   """
   def update_service(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateService", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateService", input, options)
   end
 
   @doc """
@@ -976,7 +1076,9 @@ defmodule AWS.ECS do
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def update_service_primary_task_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateServicePrimaryTaskSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateServicePrimaryTaskSet", input, options)
   end
 
   @doc """
@@ -987,6 +1089,8 @@ defmodule AWS.ECS do
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def update_task_set(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateTaskSet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateTaskSet", input, options)
   end
 end

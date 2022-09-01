@@ -60,7 +60,9 @@ defmodule AWS.Transcribe do
     * Call Analytics, see [Analyzing call center audio with Call Analytics](https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html)
   """
   def create_call_analytics_category(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCallAnalyticsCategory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCallAnalyticsCategory", input, options)
   end
 
   @doc """
@@ -81,7 +83,9 @@ defmodule AWS.Transcribe do
   For more information, see [Custom language models](https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html).
   """
   def create_language_model(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateLanguageModel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLanguageModel", input, options)
   end
 
   @doc """
@@ -101,7 +105,9 @@ defmodule AWS.Transcribe do
   For more information, see [Creating a custom vocabulary](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary-create.html).
   """
   def create_medical_vocabulary(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateMedicalVocabulary", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateMedicalVocabulary", input, options)
   end
 
   @doc """
@@ -120,7 +126,9 @@ defmodule AWS.Transcribe do
   For more information, see [Creating a custom vocabulary](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary-create.html).
   """
   def create_vocabulary(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateVocabulary", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateVocabulary", input, options)
   end
 
   @doc """
@@ -138,7 +146,9 @@ defmodule AWS.Transcribe do
   For more information, see [Using vocabulary filtering with unwanted words](https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-filtering.html).
   """
   def create_vocabulary_filter(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateVocabularyFilter", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateVocabularyFilter", input, options)
   end
 
   @doc """
@@ -148,7 +158,9 @@ defmodule AWS.Transcribe do
   `CategoryName`. Category names are case sensitive.
   """
   def delete_call_analytics_category(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCallAnalyticsCategory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCallAnalyticsCategory", input, options)
   end
 
   @doc """
@@ -158,7 +170,9 @@ defmodule AWS.Transcribe do
   `CallAnalyticsJobName`. Job names are case sensitive.
   """
   def delete_call_analytics_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCallAnalyticsJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCallAnalyticsJob", input, options)
   end
 
   @doc """
@@ -168,7 +182,9 @@ defmodule AWS.Transcribe do
   using `ModelName`. Language model names are case sensitive.
   """
   def delete_language_model(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteLanguageModel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLanguageModel", input, options)
   end
 
   @doc """
@@ -178,7 +194,9 @@ defmodule AWS.Transcribe do
   `MedicalTranscriptionJobName`. Job names are case sensitive.
   """
   def delete_medical_transcription_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteMedicalTranscriptionJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteMedicalTranscriptionJob", input, options)
   end
 
   @doc """
@@ -188,7 +206,9 @@ defmodule AWS.Transcribe do
   using `VocabularyName`. Vocabulary names are case sensitive.
   """
   def delete_medical_vocabulary(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteMedicalVocabulary", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteMedicalVocabulary", input, options)
   end
 
   @doc """
@@ -198,7 +218,9 @@ defmodule AWS.Transcribe do
   `TranscriptionJobName`. Job names are case sensitive.
   """
   def delete_transcription_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteTranscriptionJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTranscriptionJob", input, options)
   end
 
   @doc """
@@ -208,7 +230,9 @@ defmodule AWS.Transcribe do
   using `VocabularyName`. Vocabulary names are case sensitive.
   """
   def delete_vocabulary(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteVocabulary", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteVocabulary", input, options)
   end
 
   @doc """
@@ -218,7 +242,9 @@ defmodule AWS.Transcribe do
   delete using `VocabularyFilterName`. Vocabulary filter names are case sensitive.
   """
   def delete_vocabulary_filter(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteVocabularyFilter", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteVocabularyFilter", input, options)
   end
 
   @doc """
@@ -236,7 +262,9 @@ defmodule AWS.Transcribe do
   To get a list of your custom language models, use the operation.
   """
   def describe_language_model(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeLanguageModel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeLanguageModel", input, options)
   end
 
   @doc """
@@ -245,7 +273,9 @@ defmodule AWS.Transcribe do
   To get a list of your Call Analytics categories, use the operation.
   """
   def get_call_analytics_category(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCallAnalyticsCategory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCallAnalyticsCategory", input, options)
   end
 
   @doc """
@@ -265,7 +295,9 @@ defmodule AWS.Transcribe do
   To get a list of your Call Analytics jobs, use the operation.
   """
   def get_call_analytics_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCallAnalyticsJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCallAnalyticsJob", input, options)
   end
 
   @doc """
@@ -280,7 +312,9 @@ defmodule AWS.Transcribe do
   To get a list of your medical transcription jobs, use the operation.
   """
   def get_medical_transcription_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetMedicalTranscriptionJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMedicalTranscriptionJob", input, options)
   end
 
   @doc """
@@ -294,7 +328,9 @@ defmodule AWS.Transcribe do
   To get a list of your custom medical vocabularies, use the operation.
   """
   def get_medical_vocabulary(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetMedicalVocabulary", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMedicalVocabulary", input, options)
   end
 
   @doc """
@@ -312,7 +348,9 @@ defmodule AWS.Transcribe do
   To get a list of your transcription jobs, use the operation.
   """
   def get_transcription_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetTranscriptionJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTranscriptionJob", input, options)
   end
 
   @doc """
@@ -326,7 +364,9 @@ defmodule AWS.Transcribe do
   To get a list of your custom vocabularies, use the operation.
   """
   def get_vocabulary(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetVocabulary", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetVocabulary", input, options)
   end
 
   @doc """
@@ -340,7 +380,9 @@ defmodule AWS.Transcribe do
   To get a list of your custom vocabulary filters, use the operation.
   """
   def get_vocabulary_filter(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetVocabularyFilter", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetVocabularyFilter", input, options)
   end
 
   @doc """
@@ -351,7 +393,9 @@ defmodule AWS.Transcribe do
   operation.
   """
   def list_call_analytics_categories(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListCallAnalyticsCategories", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCallAnalyticsCategories", input, options)
   end
 
   @doc """
@@ -363,7 +407,9 @@ defmodule AWS.Transcribe do
   operation.
   """
   def list_call_analytics_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListCallAnalyticsJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCallAnalyticsJobs", input, options)
   end
 
   @doc """
@@ -375,7 +421,9 @@ defmodule AWS.Transcribe do
   operation.
   """
   def list_language_models(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListLanguageModels", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLanguageModels", input, options)
   end
 
   @doc """
@@ -387,7 +435,9 @@ defmodule AWS.Transcribe do
   operation.
   """
   def list_medical_transcription_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListMedicalTranscriptionJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMedicalTranscriptionJobs", input, options)
   end
 
   @doc """
@@ -400,7 +450,9 @@ defmodule AWS.Transcribe do
   operation.
   """
   def list_medical_vocabularies(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListMedicalVocabularies", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMedicalVocabularies", input, options)
   end
 
   @doc """
@@ -410,7 +462,9 @@ defmodule AWS.Transcribe do
   To learn more about using tags with Amazon Transcribe, refer to [Tagging resources](https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html).
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -422,7 +476,9 @@ defmodule AWS.Transcribe do
   operation.
   """
   def list_transcription_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTranscriptionJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTranscriptionJobs", input, options)
   end
 
   @doc """
@@ -434,7 +490,9 @@ defmodule AWS.Transcribe do
   operation.
   """
   def list_vocabularies(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListVocabularies", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListVocabularies", input, options)
   end
 
   @doc """
@@ -446,7 +504,9 @@ defmodule AWS.Transcribe do
   operation.
   """
   def list_vocabulary_filters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListVocabularyFilters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListVocabularyFilters", input, options)
   end
 
   @doc """
@@ -492,7 +552,9 @@ defmodule AWS.Transcribe do
   field of your response.
   """
   def start_call_analytics_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartCallAnalyticsJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartCallAnalyticsJob", input, options)
   end
 
   @doc """
@@ -533,7 +595,9 @@ defmodule AWS.Transcribe do
   dictation.
   """
   def start_medical_transcription_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartMedicalTranscriptionJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartMedicalTranscriptionJob", input, options)
   end
 
   @doc """
@@ -566,7 +630,9 @@ defmodule AWS.Transcribe do
   identify the languages for you.
   """
   def start_transcription_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartTranscriptionJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartTranscriptionJob", input, options)
   end
 
   @doc """
@@ -576,7 +642,9 @@ defmodule AWS.Transcribe do
   To learn more about using tags with Amazon Transcribe, refer to [Tagging resources](https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html).
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -586,7 +654,9 @@ defmodule AWS.Transcribe do
   `ResourceArn` and `TagKeys`.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -599,7 +669,9 @@ defmodule AWS.Transcribe do
   To create a new category, see .
   """
   def update_call_analytics_category(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateCallAnalyticsCategory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCallAnalyticsCategory", input, options)
   end
 
   @doc """
@@ -609,7 +681,9 @@ defmodule AWS.Transcribe do
   cannot append new terms onto an existing vocabulary.
   """
   def update_medical_vocabulary(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateMedicalVocabulary", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateMedicalVocabulary", input, options)
   end
 
   @doc """
@@ -619,7 +693,9 @@ defmodule AWS.Transcribe do
   cannot append new terms onto an existing vocabulary.
   """
   def update_vocabulary(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateVocabulary", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateVocabulary", input, options)
   end
 
   @doc """
@@ -629,6 +705,8 @@ defmodule AWS.Transcribe do
   terms onto an existing vocabulary filter.
   """
   def update_vocabulary_filter(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateVocabularyFilter", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateVocabularyFilter", input, options)
   end
 end

@@ -78,7 +78,9 @@ defmodule AWS.SecretsManager do
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def cancel_rotate_secret(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelRotateSecret", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelRotateSecret", input, options)
   end
 
   @doc """
@@ -123,7 +125,9 @@ defmodule AWS.SecretsManager do
   `kms:GenerateDataKey` and `kms:Decrypt` permission to the key.
   """
   def create_secret(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateSecret", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSecret", input, options)
   end
 
   @doc """
@@ -136,7 +140,9 @@ defmodule AWS.SecretsManager do
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteResourcePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
 
   @doc """
@@ -177,7 +183,9 @@ defmodule AWS.SecretsManager do
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def delete_secret(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSecret", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSecret", input, options)
   end
 
   @doc """
@@ -191,7 +199,9 @@ defmodule AWS.SecretsManager do
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def describe_secret(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSecret", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSecret", input, options)
   end
 
   @doc """
@@ -205,7 +215,9 @@ defmodule AWS.SecretsManager do
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def get_random_password(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRandomPassword", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRandomPassword", input, options)
   end
 
   @doc """
@@ -220,7 +232,9 @@ defmodule AWS.SecretsManager do
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetResourcePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
 
   @doc """
@@ -241,7 +255,9 @@ defmodule AWS.SecretsManager do
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def get_secret_value(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetSecretValue", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSecretValue", input, options)
   end
 
   @doc """
@@ -257,7 +273,9 @@ defmodule AWS.SecretsManager do
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def list_secret_version_ids(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListSecretVersionIds", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSecretVersionIds", input, options)
   end
 
   @doc """
@@ -283,7 +301,9 @@ defmodule AWS.SecretsManager do
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def list_secrets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListSecrets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSecrets", input, options)
   end
 
   @doc """
@@ -300,7 +320,9 @@ defmodule AWS.SecretsManager do
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutResourcePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
 
   @doc """
@@ -339,7 +361,9 @@ defmodule AWS.SecretsManager do
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def put_secret_value(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutSecretValue", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutSecretValue", input, options)
   end
 
   @doc """
@@ -351,7 +375,9 @@ defmodule AWS.SecretsManager do
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def remove_regions_from_replication(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveRegionsFromReplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveRegionsFromReplication", input, options)
   end
 
   @doc """
@@ -364,7 +390,9 @@ defmodule AWS.SecretsManager do
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def replicate_secret_to_regions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ReplicateSecretToRegions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ReplicateSecretToRegions", input, options)
   end
 
   @doc """
@@ -378,7 +406,9 @@ defmodule AWS.SecretsManager do
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def restore_secret(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RestoreSecret", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RestoreSecret", input, options)
   end
 
   @doc """
@@ -422,7 +452,9 @@ defmodule AWS.SecretsManager do
   more information, see [ Permissions for rotation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets-required-permissions-function.html).
   """
   def rotate_secret(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RotateSecret", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RotateSecret", input, options)
   end
 
   @doc """
@@ -437,7 +469,9 @@ defmodule AWS.SecretsManager do
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def stop_replication_to_replica(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopReplicationToReplica", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopReplicationToReplica", input, options)
   end
 
   @doc """
@@ -477,7 +511,9 @@ defmodule AWS.SecretsManager do
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -496,7 +532,9 @@ defmodule AWS.SecretsManager do
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -531,7 +569,9 @@ defmodule AWS.SecretsManager do
   decryption](https://docs.aws.amazon.com/secretsmanager/latest/userguide/security-encryption.html).
   """
   def update_secret(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateSecret", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSecret", input, options)
   end
 
   @doc """
@@ -561,7 +601,9 @@ defmodule AWS.SecretsManager do
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def update_secret_version_stage(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateSecretVersionStage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSecretVersionStage", input, options)
   end
 
   @doc """
@@ -587,6 +629,8 @@ defmodule AWS.SecretsManager do
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def validate_resource_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ValidateResourcePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ValidateResourcePolicy", input, options)
   end
 end

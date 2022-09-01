@@ -60,7 +60,9 @@ defmodule AWS.Pricing do
   `operation`, `locationType`, and `instanceCapacity10xlarge`.
   """
   def describe_services(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeServices", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeServices", input, options)
   end
 
   @doc """
@@ -71,13 +73,17 @@ defmodule AWS.Pricing do
   in the [Billing and Cost Management User Guide](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html).
   """
   def get_attribute_values(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAttributeValues", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAttributeValues", input, options)
   end
 
   @doc """
   Returns a list of all products that match the filter criteria.
   """
   def get_products(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetProducts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetProducts", input, options)
   end
 end

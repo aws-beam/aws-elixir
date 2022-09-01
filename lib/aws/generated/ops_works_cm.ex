@@ -119,7 +119,9 @@ defmodule AWS.OpsWorksCM do
   the user data of a server's instance.
   """
   def associate_node(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateNode", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateNode", input, options)
   end
 
   @doc """
@@ -140,7 +142,9 @@ defmodule AWS.OpsWorksCM do
   `ValidationException` is thrown when parameters of the request are not valid.
   """
   def create_backup(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateBackup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateBackup", input, options)
   end
 
   @doc """
@@ -179,7 +183,9 @@ defmodule AWS.OpsWorksCM do
   `CustomCertificate`, and `CustomPrivateKey`.
   """
   def create_server(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateServer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateServer", input, options)
   end
 
   @doc """
@@ -194,7 +200,9 @@ defmodule AWS.OpsWorksCM do
   valid.
   """
   def delete_backup(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteBackup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteBackup", input, options)
   end
 
   @doc """
@@ -213,7 +221,9 @@ defmodule AWS.OpsWorksCM do
   valid.
   """
   def delete_server(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteServer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteServer", input, options)
   end
 
   @doc """
@@ -222,7 +232,9 @@ defmodule AWS.OpsWorksCM do
   This operation is synchronous.
   """
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAccountAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
   end
 
   @doc """
@@ -237,7 +249,9 @@ defmodule AWS.OpsWorksCM do
   `ValidationException` is raised when parameters of the request are not valid.
   """
   def describe_backups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeBackups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBackups", input, options)
   end
 
   @doc """
@@ -251,7 +265,9 @@ defmodule AWS.OpsWorksCM do
   `ValidationException` is raised when parameters of the request are not valid.
   """
   def describe_events(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEvents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEvents", input, options)
   end
 
   @doc """
@@ -263,7 +279,9 @@ defmodule AWS.OpsWorksCM do
   are not valid.
   """
   def describe_node_association_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeNodeAssociationStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeNodeAssociationStatus", input, options)
   end
 
   @doc """
@@ -279,7 +297,9 @@ defmodule AWS.OpsWorksCM do
   `ValidationException` is raised when parameters of the request are not valid.
   """
   def describe_servers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeServers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeServers", input, options)
   end
 
   @doc """
@@ -296,7 +316,9 @@ defmodule AWS.OpsWorksCM do
   parameters of the request are not valid.
   """
   def disassociate_node(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateNode", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateNode", input, options)
   end
 
   @doc """
@@ -313,7 +335,9 @@ defmodule AWS.OpsWorksCM do
   states: CREATING, TERMINATED, FAILED or DELETING.
   """
   def export_server_engine_attribute(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ExportServerEngineAttribute", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExportServerEngineAttribute", input, options)
   end
 
   @doc """
@@ -321,7 +345,9 @@ defmodule AWS.OpsWorksCM do
   Automate or AWS OpsWorks for Puppet Enterprise servers or backups.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -346,7 +372,9 @@ defmodule AWS.OpsWorksCM do
   `ValidationException` is raised when parameters of the request are not valid.
   """
   def restore_server(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RestoreServer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RestoreServer", input, options)
   end
 
   @doc """
@@ -362,7 +390,9 @@ defmodule AWS.OpsWorksCM do
   parameters of the request are not valid.
   """
   def start_maintenance(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartMaintenance", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartMaintenance", input, options)
   end
 
   @doc """
@@ -370,14 +400,18 @@ defmodule AWS.OpsWorksCM do
   Enterprise server, or to server backups.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes specified tags from an AWS OpsWorks-CM server or backup.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -386,7 +420,9 @@ defmodule AWS.OpsWorksCM do
   This operation is synchronous.
   """
   def update_server(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateServer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateServer", input, options)
   end
 
   @doc """
@@ -405,6 +441,8 @@ defmodule AWS.OpsWorksCM do
   `ValidationException` is raised when parameters of the request are not valid.
   """
   def update_server_engine_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateServerEngineAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateServerEngineAttributes", input, options)
   end
 end

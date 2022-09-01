@@ -35,21 +35,27 @@ defmodule AWS.Translate do
   word choice in your translation output.
   """
   def create_parallel_data(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateParallelData", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateParallelData", input, options)
   end
 
   @doc """
   Deletes a parallel data resource in Amazon Translate.
   """
   def delete_parallel_data(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteParallelData", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteParallelData", input, options)
   end
 
   @doc """
   A synchronous action that deletes a custom terminology.
   """
   def delete_terminology(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteTerminology", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTerminology", input, options)
   end
 
   @doc """
@@ -58,21 +64,27 @@ defmodule AWS.Translate do
   buckets, and so on.
   """
   def describe_text_translation_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTextTranslationJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTextTranslationJob", input, options)
   end
 
   @doc """
   Provides information about a parallel data resource.
   """
   def get_parallel_data(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetParallelData", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetParallelData", input, options)
   end
 
   @doc """
   Retrieves a custom terminology.
   """
   def get_terminology(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetTerminology", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTerminology", input, options)
   end
 
   @doc """
@@ -89,7 +101,9 @@ defmodule AWS.Translate do
   to the new terminology.
   """
   def import_terminology(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ImportTerminology", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportTerminology", input, options)
   end
 
   @doc """
@@ -97,28 +111,36 @@ defmodule AWS.Translate do
   supports.
   """
   def list_languages(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListLanguages", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLanguages", input, options)
   end
 
   @doc """
   Provides a list of your parallel data resources in Amazon Translate.
   """
   def list_parallel_data(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListParallelData", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListParallelData", input, options)
   end
 
   @doc """
   Provides a list of custom terminologies associated with your account.
   """
   def list_terminologies(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTerminologies", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTerminologies", input, options)
   end
 
   @doc """
   Gets a list of the batch translation jobs that you have submitted.
   """
   def list_text_translation_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTextTranslationJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTextTranslationJobs", input, options)
   end
 
   @doc """
@@ -135,7 +157,9 @@ defmodule AWS.Translate do
   at once.
   """
   def start_text_translation_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartTextTranslationJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartTextTranslationJob", input, options)
   end
 
   @doc """
@@ -152,7 +176,9 @@ defmodule AWS.Translate do
   batch translation job's `JobId`.
   """
   def stop_text_translation_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopTextTranslationJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopTextTranslationJob", input, options)
   end
 
   @doc """
@@ -161,7 +187,9 @@ defmodule AWS.Translate do
   For a list of available languages and language codes, see `what-is-languages`.
   """
   def translate_text(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TranslateText", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TranslateText", input, options)
   end
 
   @doc """
@@ -169,6 +197,8 @@ defmodule AWS.Translate do
   file from Amazon S3.
   """
   def update_parallel_data(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateParallelData", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateParallelData", input, options)
   end
 end

@@ -37,9 +37,11 @@ defmodule AWS.MediaStoreData do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -71,9 +73,11 @@ defmodule AWS.MediaStoreData do
         ]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :head,
       url_path,
       query_params,
@@ -124,17 +128,9 @@ defmodule AWS.MediaStoreData do
         true
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -173,17 +169,9 @@ defmodule AWS.MediaStoreData do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -213,16 +201,8 @@ defmodule AWS.MediaStoreData do
         true
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 end

@@ -51,21 +51,27 @@ defmodule AWS.AppStream do
   This is only supported for Elastic fleets.
   """
   def associate_application_fleet(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateApplicationFleet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateApplicationFleet", input, options)
   end
 
   @doc """
   Associates an application to entitle.
   """
   def associate_application_to_entitlement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateApplicationToEntitlement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateApplicationToEntitlement", input, options)
   end
 
   @doc """
   Associates the specified fleet with the specified stack.
   """
   def associate_fleet(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateFleet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateFleet", input, options)
   end
 
   @doc """
@@ -75,14 +81,18 @@ defmodule AWS.AppStream do
   an Active Directory domain.
   """
   def batch_associate_user_stack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchAssociateUserStack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchAssociateUserStack", input, options)
   end
 
   @doc """
   Disassociates the specified users from the specified stacks.
   """
   def batch_disassociate_user_stack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchDisassociateUserStack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchDisassociateUserStack", input, options)
   end
 
   @doc """
@@ -92,7 +102,9 @@ defmodule AWS.AppStream do
   Note that any tags you added to the image will not be copied.
   """
   def copy_image(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CopyImage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CopyImage", input, options)
   end
 
   @doc """
@@ -107,7 +119,9 @@ defmodule AWS.AppStream do
   This is only supported for Elastic fleets.
   """
   def create_app_block(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAppBlock", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAppBlock", input, options)
   end
 
   @doc """
@@ -123,7 +137,9 @@ defmodule AWS.AppStream do
   This is only supported for Elastic fleets.
   """
   def create_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateApplication", input, options)
   end
 
   @doc """
@@ -133,7 +149,9 @@ defmodule AWS.AppStream do
   image builders to Microsoft Active Directory domains.
   """
   def create_directory_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDirectoryConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDirectoryConfig", input, options)
   end
 
   @doc """
@@ -147,7 +165,9 @@ defmodule AWS.AppStream do
   Dynamic Application Framework.
   """
   def create_entitlement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateEntitlement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEntitlement", input, options)
   end
 
   @doc """
@@ -157,7 +177,9 @@ defmodule AWS.AppStream do
   Always-On or On-Demand.
   """
   def create_fleet(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateFleet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFleet", input, options)
   end
 
   @doc """
@@ -169,14 +191,18 @@ defmodule AWS.AppStream do
   `RUNNING`.
   """
   def create_image_builder(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateImageBuilder", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateImageBuilder", input, options)
   end
 
   @doc """
   Creates a URL to start an image builder streaming session.
   """
   def create_image_builder_streaming_url(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateImageBuilderStreamingURL", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateImageBuilderStreamingURL", input, options)
   end
 
   @doc """
@@ -186,7 +212,9 @@ defmodule AWS.AppStream do
   configurations.
   """
   def create_stack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateStack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateStack", input, options)
   end
 
   @doc """
@@ -196,7 +224,9 @@ defmodule AWS.AppStream do
   A streaming URL enables application streaming to be tested without user setup.
   """
   def create_streaming_url(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateStreamingURL", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateStreamingURL", input, options)
   end
 
   @doc """
@@ -208,7 +238,9 @@ defmodule AWS.AppStream do
   in the *Amazon AppStream 2.0 Administration Guide*.
   """
   def create_updated_image(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateUpdatedImage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateUpdatedImage", input, options)
   end
 
   @doc """
@@ -217,28 +249,36 @@ defmodule AWS.AppStream do
   Usage reports are generated daily.
   """
   def create_usage_report_subscription(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateUsageReportSubscription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateUsageReportSubscription", input, options)
   end
 
   @doc """
   Creates a new user in the user pool.
   """
   def create_user(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateUser", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateUser", input, options)
   end
 
   @doc """
   Deletes an app block.
   """
   def delete_app_block(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAppBlock", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAppBlock", input, options)
   end
 
   @doc """
   Deletes an application.
   """
   def delete_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteApplication", input, options)
   end
 
   @doc """
@@ -248,21 +288,27 @@ defmodule AWS.AppStream do
   Active Directory domain.
   """
   def delete_directory_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDirectoryConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDirectoryConfig", input, options)
   end
 
   @doc """
   Deletes the specified entitlement.
   """
   def delete_entitlement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEntitlement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEntitlement", input, options)
   end
 
   @doc """
   Deletes the specified fleet.
   """
   def delete_fleet(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteFleet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFleet", input, options)
   end
 
   @doc """
@@ -272,14 +318,18 @@ defmodule AWS.AppStream do
   cannot provision new capacity using the image.
   """
   def delete_image(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteImage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteImage", input, options)
   end
 
   @doc """
   Deletes the specified image builder and releases the capacity.
   """
   def delete_image_builder(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteImageBuilder", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteImageBuilder", input, options)
   end
 
   @doc """
@@ -289,7 +339,9 @@ defmodule AWS.AppStream do
   granted these permissions can no longer use the image.
   """
   def delete_image_permissions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteImagePermissions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteImagePermissions", input, options)
   end
 
   @doc """
@@ -300,28 +352,36 @@ defmodule AWS.AppStream do
   application streaming sessions for the stack are released.
   """
   def delete_stack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteStack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteStack", input, options)
   end
 
   @doc """
   Disables usage report generation.
   """
   def delete_usage_report_subscription(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteUsageReportSubscription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteUsageReportSubscription", input, options)
   end
 
   @doc """
   Deletes a user from the user pool.
   """
   def delete_user(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteUser", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteUser", input, options)
   end
 
   @doc """
   Retrieves a list that describes one or more app blocks.
   """
   def describe_app_blocks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAppBlocks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAppBlocks", input, options)
   end
 
   @doc """
@@ -330,20 +390,18 @@ defmodule AWS.AppStream do
   Either ApplicationArn or FleetName must be specified.
   """
   def describe_application_fleet_associations(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeApplicationFleetAssociations",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeApplicationFleetAssociations", input, options)
   end
 
   @doc """
   Retrieves a list that describes one or more applications.
   """
   def describe_applications(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeApplications", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeApplications", input, options)
   end
 
   @doc """
@@ -358,14 +416,18 @@ defmodule AWS.AppStream do
   password is not returned in the actual response.
   """
   def describe_directory_configs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDirectoryConfigs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDirectoryConfigs", input, options)
   end
 
   @doc """
   Retrieves a list that describes one of more entitlements.
   """
   def describe_entitlements(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEntitlements", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEntitlements", input, options)
   end
 
   @doc """
@@ -375,7 +437,9 @@ defmodule AWS.AppStream do
   Otherwise, all fleets in the account are described.
   """
   def describe_fleets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFleets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFleets", input, options)
   end
 
   @doc """
@@ -385,7 +449,9 @@ defmodule AWS.AppStream do
   Otherwise, all image builders in the account are described.
   """
   def describe_image_builders(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeImageBuilders", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeImageBuilders", input, options)
   end
 
   @doc """
@@ -393,7 +459,9 @@ defmodule AWS.AppStream do
   private image that you own.
   """
   def describe_image_permissions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeImagePermissions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeImagePermissions", input, options)
   end
 
   @doc """
@@ -403,7 +471,9 @@ defmodule AWS.AppStream do
   Otherwise, all images in the account are described.
   """
   def describe_images(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeImages", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeImages", input, options)
   end
 
   @doc """
@@ -415,7 +485,9 @@ defmodule AWS.AppStream do
   is to authenticate users using a streaming URL.
   """
   def describe_sessions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSessions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSessions", input, options)
   end
 
   @doc """
@@ -425,14 +497,18 @@ defmodule AWS.AppStream do
   Otherwise, all stacks in the account are described.
   """
   def describe_stacks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStacks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStacks", input, options)
   end
 
   @doc """
   Retrieves a list that describes one or more usage report subscriptions.
   """
   def describe_usage_report_subscriptions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeUsageReportSubscriptions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeUsageReportSubscriptions", input, options)
   end
 
   @doc """
@@ -446,14 +522,18 @@ defmodule AWS.AppStream do
   stack) and the authentication type for the user
   """
   def describe_user_stack_associations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeUserStackAssociations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeUserStackAssociations", input, options)
   end
 
   @doc """
   Retrieves a list that describes one or more specified users in the user pool.
   """
   def describe_users(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeUsers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeUsers", input, options)
   end
 
   @doc """
@@ -463,34 +543,36 @@ defmodule AWS.AppStream do
   not delete the user.
   """
   def disable_user(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisableUser", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableUser", input, options)
   end
 
   @doc """
   Disassociates the specified application from the fleet.
   """
   def disassociate_application_fleet(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateApplicationFleet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateApplicationFleet", input, options)
   end
 
   @doc """
   Deletes the specified application from the specified entitlement.
   """
   def disassociate_application_from_entitlement(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DisassociateApplicationFromEntitlement",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateApplicationFromEntitlement", input, options)
   end
 
   @doc """
   Disassociates the specified fleet from the specified stack.
   """
   def disassociate_fleet(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateFleet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateFleet", input, options)
   end
 
   @doc """
@@ -500,35 +582,45 @@ defmodule AWS.AppStream do
   from the stacks to which they are assigned.
   """
   def enable_user(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnableUser", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableUser", input, options)
   end
 
   @doc """
   Immediately stops the specified streaming session.
   """
   def expire_session(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ExpireSession", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExpireSession", input, options)
   end
 
   @doc """
   Retrieves the name of the fleet that is associated with the specified stack.
   """
   def list_associated_fleets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAssociatedFleets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAssociatedFleets", input, options)
   end
 
   @doc """
   Retrieves the name of the stack with which the specified fleet is associated.
   """
   def list_associated_stacks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAssociatedStacks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAssociatedStacks", input, options)
   end
 
   @doc """
   Retrieves a list of entitled applications.
   """
   def list_entitled_applications(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEntitledApplications", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEntitledApplications", input, options)
   end
 
   @doc """
@@ -540,35 +632,45 @@ defmodule AWS.AppStream do
   in the *Amazon AppStream 2.0 Administration Guide*.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Starts the specified fleet.
   """
   def start_fleet(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartFleet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartFleet", input, options)
   end
 
   @doc """
   Starts the specified image builder.
   """
   def start_image_builder(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartImageBuilder", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartImageBuilder", input, options)
   end
 
   @doc """
   Stops the specified fleet.
   """
   def stop_fleet(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopFleet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopFleet", input, options)
   end
 
   @doc """
   Stops the specified image builder.
   """
   def stop_image_builder(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopImageBuilder", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopImageBuilder", input, options)
   end
 
   @doc """
@@ -586,7 +688,9 @@ defmodule AWS.AppStream do
   in the *Amazon AppStream 2.0 Administration Guide*.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -599,14 +703,18 @@ defmodule AWS.AppStream do
   in the *Amazon AppStream 2.0 Administration Guide*.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
   Updates the specified application.
   """
   def update_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateApplication", input, options)
   end
 
   @doc """
@@ -616,14 +724,18 @@ defmodule AWS.AppStream do
   image builders to Microsoft Active Directory domains.
   """
   def update_directory_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateDirectoryConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDirectoryConfig", input, options)
   end
 
   @doc """
   Updates the specified entitlement.
   """
   def update_entitlement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateEntitlement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateEntitlement", input, options)
   end
 
   @doc """
@@ -649,20 +761,26 @@ defmodule AWS.AppStream do
   If the fleet is in the `STARTING` or `STOPPED` state, you can't update it.
   """
   def update_fleet(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateFleet", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFleet", input, options)
   end
 
   @doc """
   Adds or updates permissions for the specified private image.
   """
   def update_image_permissions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateImagePermissions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateImagePermissions", input, options)
   end
 
   @doc """
   Updates the specified fields for the specified stack.
   """
   def update_stack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateStack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateStack", input, options)
   end
 end

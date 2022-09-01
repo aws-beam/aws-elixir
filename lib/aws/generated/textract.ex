@@ -66,7 +66,9 @@ defmodule AWS.Textract do
   For more information, see [Document Text Analysis](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html).
   """
   def analyze_document(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AnalyzeDocument", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AnalyzeDocument", input, options)
   end
 
   @doc """
@@ -83,7 +85,9 @@ defmodule AWS.Textract do
   header information or the vendors name.
   """
   def analyze_expense(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AnalyzeExpense", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AnalyzeExpense", input, options)
   end
 
   @doc """
@@ -94,7 +98,9 @@ defmodule AWS.Textract do
   Amazon Textract operations, `AnalyzeID` doesn't return any Geometry data.
   """
   def analyze_id(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AnalyzeID", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AnalyzeID", input, options)
   end
 
   @doc """
@@ -115,7 +121,9 @@ defmodule AWS.Textract do
   For more information, see [Document Text Detection](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html).
   """
   def detect_document_text(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DetectDocumentText", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetectDocumentText", input, options)
   end
 
   @doc """
@@ -166,7 +174,9 @@ defmodule AWS.Textract do
   For more information, see [Document Text Analysis](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html).
   """
   def get_document_analysis(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDocumentAnalysis", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDocumentAnalysis", input, options)
   end
 
   @doc """
@@ -202,7 +212,9 @@ defmodule AWS.Textract do
   For more information, see [Document Text Detection](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html).
   """
   def get_document_text_detection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetDocumentTextDetection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDocumentTextDetection", input, options)
   end
 
   @doc """
@@ -232,7 +244,9 @@ defmodule AWS.Textract do
   For more information, see [Analyzing Invoices and Receipts](https://docs.aws.amazon.com/textract/latest/dg/invoices-receipts.html).
   """
   def get_expense_analysis(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetExpenseAnalysis", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetExpenseAnalysis", input, options)
   end
 
   @doc """
@@ -254,7 +268,9 @@ defmodule AWS.Textract do
   For more information, see [Document Text Analysis](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html).
   """
   def start_document_analysis(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartDocumentAnalysis", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartDocumentAnalysis", input, options)
   end
 
   @doc """
@@ -279,7 +295,9 @@ defmodule AWS.Textract do
   For more information, see [Document Text Detection](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html).
   """
   def start_document_text_detection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartDocumentTextDetection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartDocumentTextDetection", input, options)
   end
 
   @doc """
@@ -304,6 +322,8 @@ defmodule AWS.Textract do
   For more information, see [Analyzing Invoices and Receipts](https://docs.aws.amazon.com/textract/latest/dg/invoice-receipts.html).
   """
   def start_expense_analysis(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartExpenseAnalysis", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartExpenseAnalysis", input, options)
   end
 end

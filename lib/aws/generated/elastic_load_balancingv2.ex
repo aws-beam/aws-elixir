@@ -66,7 +66,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   in the *Network Load Balancers Guide*.
   """
   def add_listener_certificates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddListenerCertificates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddListenerCertificates", input, options)
   end
 
   @doc """
@@ -79,7 +81,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   tag with the same key, `AddTags` updates its value.
   """
   def add_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddTags", input, options)
   end
 
   @doc """
@@ -99,7 +103,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   succeeds.
   """
   def create_listener(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateListener", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateListener", input, options)
   end
 
   @doc """
@@ -119,7 +125,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   succeeds.
   """
   def create_load_balancer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateLoadBalancer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLoadBalancer", input, options)
   end
 
   @doc """
@@ -135,7 +143,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   in the *Application Load Balancers Guide*.
   """
   def create_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRule", input, options)
   end
 
   @doc """
@@ -154,7 +164,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   succeeds.
   """
   def create_target_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateTargetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTargetGroup", input, options)
   end
 
   @doc """
@@ -164,7 +176,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   which it is attached.
   """
   def delete_listener(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteListener", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteListener", input, options)
   end
 
   @doc """
@@ -182,7 +196,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   them.
   """
   def delete_load_balancer(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteLoadBalancer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLoadBalancer", input, options)
   end
 
   @doc """
@@ -191,7 +207,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   You can't delete the default rule.
   """
   def delete_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRule", input, options)
   end
 
   @doc """
@@ -203,7 +221,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   to run until you stop or terminate them.
   """
   def delete_target_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteTargetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTargetGroup", input, options)
   end
 
   @doc """
@@ -213,7 +233,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   balancer.
   """
   def deregister_targets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeregisterTargets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterTargets", input, options)
   end
 
   @doc """
@@ -229,7 +251,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
     * [Quotas for your Gateway Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/quotas-limits.html)
   """
   def describe_account_limits(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAccountLimits", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAccountLimits", input, options)
   end
 
   @doc """
@@ -245,7 +269,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   in the *Network Load Balancers Guide*.
   """
   def describe_listener_certificates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeListenerCertificates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeListenerCertificates", input, options)
   end
 
   @doc """
@@ -255,7 +281,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   You must specify either a load balancer or one or more listeners.
   """
   def describe_listeners(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeListeners", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeListeners", input, options)
   end
 
   @doc """
@@ -274,14 +302,18 @@ defmodule AWS.ElasticLoadBalancingv2 do
   in the *Gateway Load Balancers Guide*
   """
   def describe_load_balancer_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeLoadBalancerAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeLoadBalancerAttributes", input, options)
   end
 
   @doc """
   Describes the specified load balancers or all of your load balancers.
   """
   def describe_load_balancers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeLoadBalancers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeLoadBalancers", input, options)
   end
 
   @doc """
@@ -290,7 +322,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   You must specify either a listener or one or more rules.
   """
   def describe_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRules", input, options)
   end
 
   @doc """
@@ -301,7 +335,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   in the *Network Load Balancers Guide*.
   """
   def describe_ssl_policies(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSSLPolicies", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSSLPolicies", input, options)
   end
 
   @doc """
@@ -311,7 +347,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   Load Balancers, Gateway Load Balancers, target groups, listeners, or rules.
   """
   def describe_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTags", input, options)
   end
 
   @doc """
@@ -329,7 +367,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   in the *Gateway Load Balancers Guide*
   """
   def describe_target_group_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTargetGroupAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTargetGroupAttributes", input, options)
   end
 
   @doc """
@@ -340,14 +380,18 @@ defmodule AWS.ElasticLoadBalancingv2 do
   of one or more target groups, or the ARNs of one or more target groups.
   """
   def describe_target_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTargetGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTargetGroups", input, options)
   end
 
   @doc """
   Describes the health of the specified targets or all of your targets.
   """
   def describe_target_health(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTargetHealth", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTargetHealth", input, options)
   end
 
   @doc """
@@ -365,7 +409,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   list with the current actions plus the new action.
   """
   def modify_listener(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyListener", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyListener", input, options)
   end
 
   @doc """
@@ -377,7 +423,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   values.
   """
   def modify_load_balancer_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyLoadBalancerAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyLoadBalancerAttributes", input, options)
   end
 
   @doc """
@@ -390,7 +438,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   list with the current actions plus the new action.
   """
   def modify_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyRule", input, options)
   end
 
   @doc """
@@ -401,14 +451,18 @@ defmodule AWS.ElasticLoadBalancingv2 do
   modify the health check protocol, interval, timeout, or success codes.
   """
   def modify_target_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyTargetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyTargetGroup", input, options)
   end
 
   @doc """
   Modifies the specified attributes of the specified target group.
   """
   def modify_target_group_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyTargetGroupAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyTargetGroupAttributes", input, options)
   end
 
   @doc """
@@ -428,7 +482,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   IP address.
   """
   def register_targets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RegisterTargets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterTargets", input, options)
   end
 
   @doc """
@@ -436,7 +492,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   HTTPS or TLS listener.
   """
   def remove_listener_certificates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveListenerCertificates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveListenerCertificates", input, options)
   end
 
   @doc """
@@ -446,7 +504,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   Balancers, Gateway Load Balancers, target groups, listeners, or rules.
   """
   def remove_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveTags", input, options)
   end
 
   @doc """
@@ -454,7 +514,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   Load Balancer or Network Load Balancer.
   """
   def set_ip_address_type(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetIpAddressType", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetIpAddressType", input, options)
   end
 
   @doc """
@@ -464,7 +526,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   order. Any existing rules that you do not specify retain their current priority.
   """
   def set_rule_priorities(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetRulePriorities", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetRulePriorities", input, options)
   end
 
   @doc """
@@ -478,7 +542,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   Balancer.
   """
   def set_security_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetSecurityGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetSecurityGroups", input, options)
   end
 
   @doc """
@@ -492,6 +558,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
   any additional subnets.
   """
   def set_subnets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetSubnets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetSubnets", input, options)
   end
 end

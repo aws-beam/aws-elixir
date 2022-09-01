@@ -64,7 +64,9 @@ defmodule AWS.DynamoDB do
   field of the `BatchStatementResponse` for each statement.
   """
   def batch_execute_statement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchExecuteStatement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchExecuteStatement", input, options)
   end
 
   @doc """
@@ -124,7 +126,9 @@ defmodule AWS.DynamoDB do
   in the *Amazon DynamoDB Developer Guide*.
   """
   def batch_get_item(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchGetItem", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetItem", input, options)
   end
 
   @doc """
@@ -208,7 +212,9 @@ defmodule AWS.DynamoDB do
     * The total request size exceeds 16 MB.
   """
   def batch_write_item(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchWriteItem", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchWriteItem", input, options)
   end
 
   @doc """
@@ -244,7 +250,9 @@ defmodule AWS.DynamoDB do
     * Provisioned read and write capacity
   """
   def create_backup(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateBackup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateBackup", input, options)
   end
 
   @doc """
@@ -297,7 +305,9 @@ defmodule AWS.DynamoDB do
   across your global table.
   """
   def create_global_table(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateGlobalTable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateGlobalTable", input, options)
   end
 
   @doc """
@@ -320,7 +330,9 @@ defmodule AWS.DynamoDB do
   You can use the `DescribeTable` action to check the table status.
   """
   def create_table(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateTable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTable", input, options)
   end
 
   @doc """
@@ -329,7 +341,9 @@ defmodule AWS.DynamoDB do
   You can call `DeleteBackup` at a maximum rate of 10 times per second.
   """
   def delete_backup(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteBackup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteBackup", input, options)
   end
 
   @doc """
@@ -350,7 +364,9 @@ defmodule AWS.DynamoDB do
   the item is not deleted.
   """
   def delete_item(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteItem", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteItem", input, options)
   end
 
   @doc """
@@ -376,7 +392,9 @@ defmodule AWS.DynamoDB do
   Use the `DescribeTable` action to check the status of the table.
   """
   def delete_table(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteTable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTable", input, options)
   end
 
   @doc """
@@ -385,7 +403,9 @@ defmodule AWS.DynamoDB do
   You can call `DescribeBackup` at a maximum rate of 10 times per second.
   """
   def describe_backup(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeBackup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBackup", input, options)
   end
 
   @doc """
@@ -406,7 +426,9 @@ defmodule AWS.DynamoDB do
   second.
   """
   def describe_continuous_backups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeContinuousBackups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeContinuousBackups", input, options)
   end
 
   @doc """
@@ -414,21 +436,27 @@ defmodule AWS.DynamoDB do
   secondary index.
   """
   def describe_contributor_insights(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeContributorInsights", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeContributorInsights", input, options)
   end
 
   @doc """
   Returns the regional endpoint information.
   """
   def describe_endpoints(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEndpoints", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEndpoints", input, options)
   end
 
   @doc """
   Describes an existing table export.
   """
   def describe_export(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeExport", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeExport", input, options)
   end
 
   @doc """
@@ -441,7 +469,9 @@ defmodule AWS.DynamoDB do
   instead.
   """
   def describe_global_table(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeGlobalTable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeGlobalTable", input, options)
   end
 
   @doc """
@@ -451,27 +481,27 @@ defmodule AWS.DynamoDB do
   of global tables.
   """
   def describe_global_table_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeGlobalTableSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeGlobalTableSettings", input, options)
   end
 
   @doc """
   Represents the properties of the import.
   """
   def describe_import(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeImport", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeImport", input, options)
   end
 
   @doc """
   Returns information about the status of Kinesis streaming.
   """
   def describe_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeKinesisStreamingDestination",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeKinesisStreamingDestination", input, options)
   end
 
   @doc """
@@ -538,7 +568,9 @@ defmodule AWS.DynamoDB do
   The `DescribeLimits` Request element has no content.
   """
   def describe_limits(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeLimits", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeLimits", input, options)
   end
 
   @doc """
@@ -552,7 +584,9 @@ defmodule AWS.DynamoDB do
   try the `DescribeTable` request again.
   """
   def describe_table(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTable", input, options)
   end
 
   @doc """
@@ -562,14 +596,18 @@ defmodule AWS.DynamoDB do
   of global tables.
   """
   def describe_table_replica_auto_scaling(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTableReplicaAutoScaling", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTableReplicaAutoScaling", input, options)
   end
 
   @doc """
   Gives a description of the Time to Live (TTL) status on the specified table.
   """
   def describe_time_to_live(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTimeToLive", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTimeToLive", input, options)
   end
 
   @doc """
@@ -578,7 +616,9 @@ defmodule AWS.DynamoDB do
   This is done without deleting either of the resources.
   """
   def disable_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisableKinesisStreamingDestination", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableKinesisStreamingDestination", input, options)
   end
 
   @doc """
@@ -590,7 +630,9 @@ defmodule AWS.DynamoDB do
   stream is ACTIVE.
   """
   def enable_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnableKinesisStreamingDestination", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableKinesisStreamingDestination", input, options)
   end
 
   @doc """
@@ -609,7 +651,9 @@ defmodule AWS.DynamoDB do
   is present in the response, you need to paginate the result set.
   """
   def execute_statement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ExecuteStatement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExecuteStatement", input, options)
   end
 
   @doc """
@@ -624,7 +668,9 @@ defmodule AWS.DynamoDB do
   API.
   """
   def execute_transaction(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ExecuteTransaction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExecuteTransaction", input, options)
   end
 
   @doc """
@@ -634,7 +680,9 @@ defmodule AWS.DynamoDB do
   any time within the point in time recovery window.
   """
   def export_table_to_point_in_time(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ExportTableToPointInTime", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExportTableToPointInTime", input, options)
   end
 
   @doc """
@@ -650,14 +698,18 @@ defmodule AWS.DynamoDB do
   read, it always returns the last updated value.
   """
   def get_item(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetItem", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetItem", input, options)
   end
 
   @doc """
   Imports table data from an S3 bucket.
   """
   def import_table(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ImportTable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportTable", input, options)
   end
 
   @doc """
@@ -673,7 +725,9 @@ defmodule AWS.DynamoDB do
   You can call `ListBackups` a maximum of five times per second.
   """
   def list_backups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListBackups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListBackups", input, options)
   end
 
   @doc """
@@ -681,14 +735,18 @@ defmodule AWS.DynamoDB do
   secondary indexes.
   """
   def list_contributor_insights(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListContributorInsights", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListContributorInsights", input, options)
   end
 
   @doc """
   Lists completed exports within the past 90 days.
   """
   def list_exports(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListExports", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListExports", input, options)
   end
 
   @doc """
@@ -698,14 +756,18 @@ defmodule AWS.DynamoDB do
   of global tables.
   """
   def list_global_tables(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListGlobalTables", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListGlobalTables", input, options)
   end
 
   @doc """
   Lists completed imports within the past 90 days.
   """
   def list_imports(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListImports", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListImports", input, options)
   end
 
   @doc """
@@ -716,7 +778,9 @@ defmodule AWS.DynamoDB do
   100 table names.
   """
   def list_tables(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTables", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTables", input, options)
   end
 
   @doc """
@@ -728,7 +792,9 @@ defmodule AWS.DynamoDB do
   in the *Amazon DynamoDB Developer Guide*.
   """
   def list_tags_of_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsOfResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsOfResource", input, options)
   end
 
   @doc """
@@ -761,7 +827,9 @@ defmodule AWS.DynamoDB do
   in the *Amazon DynamoDB Developer Guide*.
   """
   def put_item(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutItem", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutItem", input, options)
   end
 
   @doc """
@@ -819,7 +887,9 @@ defmodule AWS.DynamoDB do
   specify `ConsistentRead` when querying a global secondary index.
   """
   def query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "Query", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "Query", input, options)
   end
 
   @doc """
@@ -845,7 +915,9 @@ defmodule AWS.DynamoDB do
     * Time to Live (TTL) settings
   """
   def restore_table_from_backup(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RestoreTableFromBackup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RestoreTableFromBackup", input, options)
   end
 
   @doc """
@@ -891,7 +963,9 @@ defmodule AWS.DynamoDB do
     * Point in time recovery settings
   """
   def restore_table_to_point_in_time(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RestoreTableToPointInTime", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RestoreTableToPointInTime", input, options)
   end
 
   @doc """
@@ -927,7 +1001,9 @@ defmodule AWS.DynamoDB do
   parameter to `true`.
   """
   def scan(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "Scan", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "Scan", input, options)
   end
 
   @doc """
@@ -941,7 +1017,9 @@ defmodule AWS.DynamoDB do
   in the *Amazon DynamoDB Developer Guide*.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -970,7 +1048,9 @@ defmodule AWS.DynamoDB do
   MB.
   """
   def transact_get_items(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TransactGetItems", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TransactGetItems", input, options)
   end
 
   @doc """
@@ -1032,7 +1112,9 @@ defmodule AWS.DynamoDB do
     * There is a user error, such as an invalid data format.
   """
   def transact_write_items(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TransactWriteItems", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TransactWriteItems", input, options)
   end
 
   @doc """
@@ -1044,7 +1126,9 @@ defmodule AWS.DynamoDB do
   in the *Amazon DynamoDB Developer Guide*.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -1064,7 +1148,9 @@ defmodule AWS.DynamoDB do
   can restore your table to any point in time during the last 35 days.
   """
   def update_continuous_backups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateContinuousBackups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateContinuousBackups", input, options)
   end
 
   @doc """
@@ -1078,7 +1164,9 @@ defmodule AWS.DynamoDB do
   enable CloudWatch Contributor Insights for DynamoDB for this table.
   """
   def update_contributor_insights(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateContributorInsights", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateContributorInsights", input, options)
   end
 
   @doc """
@@ -1105,14 +1193,18 @@ defmodule AWS.DynamoDB do
   maximum write capacity units.
   """
   def update_global_table(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateGlobalTable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateGlobalTable", input, options)
   end
 
   @doc """
   Updates settings for a global table.
   """
   def update_global_table_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateGlobalTableSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateGlobalTableSettings", input, options)
   end
 
   @doc """
@@ -1128,7 +1220,9 @@ defmodule AWS.DynamoDB do
   operation using the `ReturnValues` parameter.
   """
   def update_item(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateItem", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateItem", input, options)
   end
 
   @doc """
@@ -1150,7 +1244,9 @@ defmodule AWS.DynamoDB do
   state, the `UpdateTable` operation is complete.
   """
   def update_table(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateTable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateTable", input, options)
   end
 
   @doc """
@@ -1160,7 +1256,9 @@ defmodule AWS.DynamoDB do
   of global tables.
   """
   def update_table_replica_auto_scaling(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateTableReplicaAutoScaling", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateTableReplicaAutoScaling", input, options)
   end
 
   @doc """
@@ -1195,6 +1293,8 @@ defmodule AWS.DynamoDB do
   in the Amazon DynamoDB Developer Guide.
   """
   def update_time_to_live(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateTimeToLive", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateTimeToLive", input, options)
   end
 end

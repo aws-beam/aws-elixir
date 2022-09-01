@@ -43,7 +43,9 @@ defmodule AWS.FMS do
   Manager administrator account.
   """
   def associate_admin_account(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateAdminAccount", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateAdminAccount", input, options)
   end
 
   @doc """
@@ -54,14 +56,18 @@ defmodule AWS.FMS do
   with your Amazon Web Services customer account.
   """
   def associate_third_party_firewall(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateThirdPartyFirewall", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateThirdPartyFirewall", input, options)
   end
 
   @doc """
   Permanently deletes an Firewall Manager applications list.
   """
   def delete_apps_list(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAppsList", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAppsList", input, options)
   end
 
   @doc """
@@ -70,21 +76,27 @@ defmodule AWS.FMS do
   logs.
   """
   def delete_notification_channel(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteNotificationChannel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteNotificationChannel", input, options)
   end
 
   @doc """
   Permanently deletes an Firewall Manager policy.
   """
   def delete_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeletePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePolicy", input, options)
   end
 
   @doc """
   Permanently deletes an Firewall Manager protocols list.
   """
   def delete_protocols_list(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteProtocolsList", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteProtocolsList", input, options)
   end
 
   @doc """
@@ -95,7 +107,9 @@ defmodule AWS.FMS do
   `AssociateAdminAccount` request.
   """
   def disassociate_admin_account(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateAdminAccount", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateAdminAccount", input, options)
   end
 
   @doc """
@@ -106,7 +120,9 @@ defmodule AWS.FMS do
   deletes all of the firewalls that are associated with the account.
   """
   def disassociate_third_party_firewall(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateThirdPartyFirewall", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateThirdPartyFirewall", input, options)
   end
 
   @doc """
@@ -114,14 +130,18 @@ defmodule AWS.FMS do
   the Firewall Manager administrator.
   """
   def get_admin_account(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAdminAccount", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAdminAccount", input, options)
   end
 
   @doc """
   Returns information about the specified Firewall Manager applications list.
   """
   def get_apps_list(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAppsList", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAppsList", input, options)
   end
 
   @doc """
@@ -148,7 +168,9 @@ defmodule AWS.FMS do
   VPC.
   """
   def get_compliance_detail(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetComplianceDetail", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetComplianceDetail", input, options)
   end
 
   @doc """
@@ -156,14 +178,18 @@ defmodule AWS.FMS do
   used to record Firewall Manager SNS logs.
   """
   def get_notification_channel(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetNotificationChannel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetNotificationChannel", input, options)
   end
 
   @doc """
   Returns information about the specified Firewall Manager policy.
   """
   def get_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetPolicy", input, options)
   end
 
   @doc """
@@ -173,14 +199,18 @@ defmodule AWS.FMS do
   Other policy types are currently unsupported.
   """
   def get_protection_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetProtectionStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetProtectionStatus", input, options)
   end
 
   @doc """
   Returns information about the specified Firewall Manager protocols list.
   """
   def get_protocols_list(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetProtocolsList", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetProtocolsList", input, options)
   end
 
   @doc """
@@ -188,13 +218,9 @@ defmodule AWS.FMS do
   firewall vendor tenant.
   """
   def get_third_party_firewall_association_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "GetThirdPartyFirewallAssociationStatus",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetThirdPartyFirewallAssociationStatus", input, options)
   end
 
   @doc """
@@ -202,14 +228,18 @@ defmodule AWS.FMS do
   policy and Amazon Web Services account.
   """
   def get_violation_details(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetViolationDetails", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetViolationDetails", input, options)
   end
 
   @doc """
   Returns an array of `AppsListDataSummary` objects.
   """
   def list_apps_lists(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAppsLists", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAppsLists", input, options)
   end
 
   @doc """
@@ -219,7 +249,9 @@ defmodule AWS.FMS do
   protected by the specified policy.
   """
   def list_compliance_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListComplianceStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListComplianceStatus", input, options)
   end
 
   @doc """
@@ -230,28 +262,36 @@ defmodule AWS.FMS do
   Firewall Manager administrator.
   """
   def list_member_accounts(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListMemberAccounts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMemberAccounts", input, options)
   end
 
   @doc """
   Returns an array of `PolicySummary` objects.
   """
   def list_policies(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPolicies", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPolicies", input, options)
   end
 
   @doc """
   Returns an array of `ProtocolsListDataSummary` objects.
   """
   def list_protocols_lists(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListProtocolsLists", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListProtocolsLists", input, options)
   end
 
   @doc """
   Retrieves the list of tags for the specified Amazon Web Services resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -259,20 +299,18 @@ defmodule AWS.FMS do
   with the third-party firewall administrator's account.
   """
   def list_third_party_firewall_firewall_policies(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ListThirdPartyFirewallFirewallPolicies",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListThirdPartyFirewallFirewallPolicies", input, options)
   end
 
   @doc """
   Creates an Firewall Manager applications list.
   """
   def put_apps_list(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutAppsList", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutAppsList", input, options)
   end
 
   @doc """
@@ -285,7 +323,9 @@ defmodule AWS.FMS do
   in the *Firewall Manager Developer Guide*.
   """
   def put_notification_channel(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutNotificationChannel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutNotificationChannel", input, options)
   end
 
   @doc """
@@ -319,27 +359,35 @@ defmodule AWS.FMS do
   [CreateSubscription](https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_CreateSubscription.html).
   """
   def put_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutPolicy", input, options)
   end
 
   @doc """
   Creates an Firewall Manager protocols list.
   """
   def put_protocols_list(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutProtocolsList", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutProtocolsList", input, options)
   end
 
   @doc """
   Adds one or more tags to an Amazon Web Services resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes one or more tags from an Amazon Web Services resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 end

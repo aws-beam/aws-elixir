@@ -43,7 +43,9 @@ defmodule AWS.Shield do
   must be subscribed to the [Business Support plan](http://aws.amazon.com/premiumsupport/business-support/) or the [Enterprise Support plan](http://aws.amazon.com/premiumsupport/enterprise-support/).
   """
   def associate_drt_log_bucket(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateDRTLogBucket", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateDRTLogBucket", input, options)
   end
 
   @doc """
@@ -79,7 +81,9 @@ defmodule AWS.Shield do
   be subscribed to the [Business Support plan](http://aws.amazon.com/premiumsupport/business-support/) or the [Enterprise Support plan](http://aws.amazon.com/premiumsupport/enterprise-support/).
   """
   def associate_drt_role(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateDRTRole", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateDRTRole", input, options)
   end
 
   @doc """
@@ -94,7 +98,9 @@ defmodule AWS.Shield do
   in the *WAF Developer Guide*.
   """
   def associate_health_check(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateHealthCheck", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateHealthCheck", input, options)
   end
 
   @doc """
@@ -117,13 +123,9 @@ defmodule AWS.Shield do
   to this call.
   """
   def associate_proactive_engagement_details(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "AssociateProactiveEngagementDetails",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateProactiveEngagementDetails", input, options)
   end
 
   @doc """
@@ -143,7 +145,9 @@ defmodule AWS.Shield do
   and [Adding Shield Advanced protection to Amazon Web Services resources](https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html).
   """
   def create_protection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateProtection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateProtection", input, options)
   end
 
   @doc """
@@ -154,7 +158,9 @@ defmodule AWS.Shield do
   positives.
   """
   def create_protection_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateProtectionGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateProtectionGroup", input, options)
   end
 
   @doc """
@@ -169,21 +175,27 @@ defmodule AWS.Shield do
   change this by submitting an `UpdateSubscription` request.
   """
   def create_subscription(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateSubscription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSubscription", input, options)
   end
 
   @doc """
   Deletes an Shield Advanced `Protection`.
   """
   def delete_protection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteProtection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteProtection", input, options)
   end
 
   @doc """
   Removes the specified protection group.
   """
   def delete_protection_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteProtectionGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteProtectionGroup", input, options)
   end
 
   @doc """
@@ -193,14 +205,18 @@ defmodule AWS.Shield do
   subscription prior to the completion of that commitment.
   """
   def delete_subscription(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSubscription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSubscription", input, options)
   end
 
   @doc """
   Describes the details of a DDoS attack.
   """
   def describe_attack(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAttack", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAttack", input, options)
   end
 
   @doc """
@@ -219,7 +235,9 @@ defmodule AWS.Shield do
   The time range indicates the period covered by the attack statistics data items.
   """
   def describe_attack_statistics(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAttackStatistics", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAttackStatistics", input, options)
   end
 
   @doc """
@@ -228,7 +246,9 @@ defmodule AWS.Shield do
   with attack mitigation.
   """
   def describe_drt_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDRTAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDRTAccess", input, options)
   end
 
   @doc """
@@ -237,28 +257,36 @@ defmodule AWS.Shield do
   to the SRT and to initiate proactive customer support.
   """
   def describe_emergency_contact_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEmergencyContactSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEmergencyContactSettings", input, options)
   end
 
   @doc """
   Lists the details of a `Protection` object.
   """
   def describe_protection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeProtection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeProtection", input, options)
   end
 
   @doc """
   Returns the specification for the specified protection group.
   """
   def describe_protection_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeProtectionGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeProtectionGroup", input, options)
   end
 
   @doc """
   Provides details about the Shield Advanced subscription for an account.
   """
   def describe_subscription(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSubscription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSubscription", input, options)
   end
 
   @doc """
@@ -269,13 +297,9 @@ defmodule AWS.Shield do
   attacks that it detects for the resource.
   """
   def disable_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DisableApplicationLayerAutomaticResponse",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableApplicationLayerAutomaticResponse", input, options)
   end
 
   @doc """
@@ -283,7 +307,9 @@ defmodule AWS.Shield do
   about escalations to the SRT and to initiate proactive customer support.
   """
   def disable_proactive_engagement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisableProactiveEngagement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableProactiveEngagement", input, options)
   end
 
   @doc """
@@ -291,7 +317,9 @@ defmodule AWS.Shield do
   bucket containing the logs that you shared previously.
   """
   def disassociate_drt_log_bucket(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateDRTLogBucket", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateDRTLogBucket", input, options)
   end
 
   @doc """
@@ -299,7 +327,9 @@ defmodule AWS.Shield do
   account.
   """
   def disassociate_drt_role(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateDRTRole", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateDRTRole", input, options)
   end
 
   @doc """
@@ -316,7 +346,9 @@ defmodule AWS.Shield do
   in the *WAF Developer Guide*.
   """
   def disassociate_health_check(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateHealthCheck", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateHealthCheck", input, options)
   end
 
   @doc """
@@ -346,13 +378,9 @@ defmodule AWS.Shield do
   Shield Advanced. For information about WAF, see [WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
   def enable_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "EnableApplicationLayerAutomaticResponse",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableApplicationLayerAutomaticResponse", input, options)
   end
 
   @doc """
@@ -361,14 +389,18 @@ defmodule AWS.Shield do
   support.
   """
   def enable_proactive_engagement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnableProactiveEngagement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableProactiveEngagement", input, options)
   end
 
   @doc """
   Returns the `SubscriptionState`, either `Active` or `Inactive`.
   """
   def get_subscription_state(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetSubscriptionState", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSubscriptionState", input, options)
   end
 
   @doc """
@@ -376,7 +408,9 @@ defmodule AWS.Shield do
   period.
   """
   def list_attacks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAttacks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAttacks", input, options)
   end
 
   @doc """
@@ -386,7 +420,9 @@ defmodule AWS.Shield do
   retrieve just the subset of protection groups that match the criteria.
   """
   def list_protection_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListProtectionGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListProtectionGroups", input, options)
   end
 
   @doc """
@@ -396,14 +432,18 @@ defmodule AWS.Shield do
   retrieve just the subset of protections that match the criteria.
   """
   def list_protections(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListProtections", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListProtections", input, options)
   end
 
   @doc """
   Retrieves the resources that are included in the protection group.
   """
   def list_resources_in_protection_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListResourcesInProtectionGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResourcesInProtectionGroup", input, options)
   end
 
   @doc """
@@ -411,21 +451,27 @@ defmodule AWS.Shield do
   Name (ARN) in Shield.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Adds or updates tags for a resource in Shield.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes tags from a resource in Shield.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -433,13 +479,9 @@ defmodule AWS.Shield do
   configuration for the specified resource.
   """
   def update_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "UpdateApplicationLayerAutomaticResponse",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateApplicationLayerAutomaticResponse", input, options)
   end
 
   @doc """
@@ -449,7 +491,9 @@ defmodule AWS.Shield do
   customer support.
   """
   def update_emergency_contact_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateEmergencyContactSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateEmergencyContactSettings", input, options)
   end
 
   @doc """
@@ -460,7 +504,9 @@ defmodule AWS.Shield do
   reduces false positives.
   """
   def update_protection_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateProtectionGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateProtectionGroup", input, options)
   end
 
   @doc """
@@ -474,6 +520,8 @@ defmodule AWS.Shield do
   whether the payer account itself is subscribed.
   """
   def update_subscription(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateSubscription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSubscription", input, options)
   end
 end

@@ -45,21 +45,27 @@ defmodule AWS.ApplicationInsights do
   Adds an application that is created from a resource group.
   """
   def create_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateApplication", input, options)
   end
 
   @doc """
   Creates a custom component by grouping similar standalone instances to monitor.
   """
   def create_component(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateComponent", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateComponent", input, options)
   end
 
   @doc """
   Adds an log pattern to a `LogPatternSet`.
   """
   def create_log_pattern(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateLogPattern", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLogPattern", input, options)
   end
 
   @doc """
@@ -68,7 +74,9 @@ defmodule AWS.ApplicationInsights do
   Does not delete the application.
   """
   def delete_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteApplication", input, options)
   end
 
   @doc """
@@ -78,21 +86,27 @@ defmodule AWS.ApplicationInsights do
   the component are removed and the instances revert to their standalone status.
   """
   def delete_component(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteComponent", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteComponent", input, options)
   end
 
   @doc """
   Removes the specified log pattern from a `LogPatternSet`.
   """
   def delete_log_pattern(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteLogPattern", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLogPattern", input, options)
   end
 
   @doc """
   Describes the application.
   """
   def describe_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeApplication", input, options)
   end
 
   @doc """
@@ -100,23 +114,29 @@ defmodule AWS.ApplicationInsights do
   component.
   """
   def describe_component(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeComponent", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeComponent", input, options)
   end
 
   @doc """
   Describes the monitoring configuration of the component.
   """
   def describe_component_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeComponentConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeComponentConfiguration", input, options)
   end
 
   @doc """
   Describes the recommended monitoring configuration of the component.
   """
   def describe_component_configuration_recommendation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "DescribeComponentConfigurationRecommendation",
       input,
       options
@@ -127,42 +147,54 @@ defmodule AWS.ApplicationInsights do
   Describe a specific log pattern from a `LogPatternSet`.
   """
   def describe_log_pattern(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeLogPattern", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeLogPattern", input, options)
   end
 
   @doc """
   Describes an anomaly or error with the application.
   """
   def describe_observation(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeObservation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeObservation", input, options)
   end
 
   @doc """
   Describes an application problem.
   """
   def describe_problem(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeProblem", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeProblem", input, options)
   end
 
   @doc """
   Describes the anomalies or errors associated with the problem.
   """
   def describe_problem_observations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeProblemObservations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeProblemObservations", input, options)
   end
 
   @doc """
   Lists the IDs of the applications that you are monitoring.
   """
   def list_applications(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListApplications", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListApplications", input, options)
   end
 
   @doc """
   Lists the auto-grouped, standalone, and custom components of the application.
   """
   def list_components(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListComponents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListComponents", input, options)
   end
 
   @doc """
@@ -180,28 +212,36 @@ defmodule AWS.ApplicationInsights do
   quotas.
   """
   def list_configuration_history(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListConfigurationHistory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListConfigurationHistory", input, options)
   end
 
   @doc """
   Lists the log pattern sets in the specific application.
   """
   def list_log_pattern_sets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListLogPatternSets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLogPatternSets", input, options)
   end
 
   @doc """
   Lists the log patterns in the specific log `LogPatternSet`.
   """
   def list_log_patterns(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListLogPatterns", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLogPatterns", input, options)
   end
 
   @doc """
   Lists the problems with your application.
   """
   def list_problems(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListProblems", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListProblems", input, options)
   end
 
   @doc """
@@ -214,7 +254,9 @@ defmodule AWS.ApplicationInsights do
   tag values. A tag value acts as a descriptor within a tag key.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -229,21 +271,27 @@ defmodule AWS.ApplicationInsights do
   specific tag values. A tag value acts as a descriptor within a tag key.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Remove one or more tags (keys and values) from a specified application.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
   Updates the application.
   """
   def update_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateApplication", input, options)
   end
 
   @doc """
@@ -251,7 +299,9 @@ defmodule AWS.ApplicationInsights do
   component.
   """
   def update_component(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateComponent", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateComponent", input, options)
   end
 
   @doc """
@@ -262,13 +312,17 @@ defmodule AWS.ApplicationInsights do
   `DescribeComponentConfigurationRecommendation`.
   """
   def update_component_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateComponentConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateComponentConfiguration", input, options)
   end
 
   @doc """
   Adds a log pattern to a `LogPatternSet`.
   """
   def update_log_pattern(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateLogPattern", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLogPattern", input, options)
   end
 end

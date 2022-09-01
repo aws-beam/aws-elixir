@@ -36,21 +36,27 @@ defmodule AWS.ServiceCatalog do
   Accepts an offer to share the specified portfolio.
   """
   def accept_portfolio_share(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AcceptPortfolioShare", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AcceptPortfolioShare", input, options)
   end
 
   @doc """
   Associates the specified budget with the specified resource.
   """
   def associate_budget_with_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateBudgetWithResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateBudgetWithResource", input, options)
   end
 
   @doc """
   Associates the specified principal ARN with the specified portfolio.
   """
   def associate_principal_with_portfolio(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociatePrincipalWithPortfolio", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociatePrincipalWithPortfolio", input, options)
   end
 
   @doc """
@@ -59,7 +65,9 @@ defmodule AWS.ServiceCatalog do
   A delegated admin is authorized to invoke this command.
   """
   def associate_product_with_portfolio(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateProductWithPortfolio", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateProductWithPortfolio", input, options)
   end
 
   @doc """
@@ -70,9 +78,11 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "AssociateServiceActionWithProvisioningArtifact",
       input,
       options
@@ -83,7 +93,9 @@ defmodule AWS.ServiceCatalog do
   Associate the specified TagOption with the specified portfolio or product.
   """
   def associate_tag_option_with_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateTagOptionWithResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateTagOptionWithResource", input, options)
   end
 
   @doc """
@@ -94,9 +106,11 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "BatchAssociateServiceActionWithProvisioningArtifact",
       input,
       options
@@ -112,9 +126,11 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "BatchDisassociateServiceActionFromProvisioningArtifact",
       input,
       options
@@ -134,7 +150,9 @@ defmodule AWS.ServiceCatalog do
   operation, use `DescribeCopyProductStatus`.
   """
   def copy_product(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CopyProduct", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CopyProduct", input, options)
   end
 
   @doc """
@@ -143,7 +161,9 @@ defmodule AWS.ServiceCatalog do
   A delegated admin is authorized to invoke this command.
   """
   def create_constraint(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateConstraint", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateConstraint", input, options)
   end
 
   @doc """
@@ -152,7 +172,9 @@ defmodule AWS.ServiceCatalog do
   A delegated admin is authorized to invoke this command.
   """
   def create_portfolio(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreatePortfolio", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePortfolio", input, options)
   end
 
   @doc """
@@ -176,7 +198,9 @@ defmodule AWS.ServiceCatalog do
   an existing share, you must use the ` UpdatePortfolioShare` API instead.
   """
   def create_portfolio_share(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreatePortfolioShare", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePortfolioShare", input, options)
   end
 
   @doc """
@@ -190,7 +214,9 @@ defmodule AWS.ServiceCatalog do
   information data section.
   """
   def create_product(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateProduct", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateProduct", input, options)
   end
 
   @doc """
@@ -208,7 +234,9 @@ defmodule AWS.ServiceCatalog do
   use `ExecuteProvisionedProductPlan`.
   """
   def create_provisioned_product_plan(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateProvisionedProductPlan", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateProvisionedProductPlan", input, options)
   end
 
   @doc """
@@ -224,21 +252,27 @@ defmodule AWS.ServiceCatalog do
   information data section.
   """
   def create_provisioning_artifact(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateProvisioningArtifact", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateProvisioningArtifact", input, options)
   end
 
   @doc """
   Creates a self-service action.
   """
   def create_service_action(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateServiceAction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateServiceAction", input, options)
   end
 
   @doc """
   Creates a TagOption.
   """
   def create_tag_option(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateTagOption", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTagOption", input, options)
   end
 
   @doc """
@@ -247,7 +281,9 @@ defmodule AWS.ServiceCatalog do
   A delegated admin is authorized to invoke this command.
   """
   def delete_constraint(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteConstraint", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteConstraint", input, options)
   end
 
   @doc """
@@ -259,7 +295,9 @@ defmodule AWS.ServiceCatalog do
   A delegated admin is authorized to invoke this command.
   """
   def delete_portfolio(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeletePortfolio", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePortfolio", input, options)
   end
 
   @doc """
@@ -273,7 +311,9 @@ defmodule AWS.ServiceCatalog do
   that account are removed.
   """
   def delete_portfolio_share(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeletePortfolioShare", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePortfolioShare", input, options)
   end
 
   @doc """
@@ -285,14 +325,18 @@ defmodule AWS.ServiceCatalog do
   A delegated admin is authorized to invoke this command.
   """
   def delete_product(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteProduct", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteProduct", input, options)
   end
 
   @doc """
   Deletes the specified plan.
   """
   def delete_provisioned_product_plan(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteProvisionedProductPlan", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteProvisionedProductPlan", input, options)
   end
 
   @doc """
@@ -304,14 +348,18 @@ defmodule AWS.ServiceCatalog do
   because a product must have at least one provisioning artifact.
   """
   def delete_provisioning_artifact(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteProvisioningArtifact", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteProvisioningArtifact", input, options)
   end
 
   @doc """
   Deletes a self-service action.
   """
   def delete_service_action(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteServiceAction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteServiceAction", input, options)
   end
 
   @doc """
@@ -320,21 +368,27 @@ defmodule AWS.ServiceCatalog do
   You cannot delete a TagOption if it is associated with a product or portfolio.
   """
   def delete_tag_option(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteTagOption", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTagOption", input, options)
   end
 
   @doc """
   Gets information about the specified constraint.
   """
   def describe_constraint(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeConstraint", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConstraint", input, options)
   end
 
   @doc """
   Gets the status of the specified copy product operation.
   """
   def describe_copy_product_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCopyProductStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCopyProductStatus", input, options)
   end
 
   @doc """
@@ -343,7 +397,9 @@ defmodule AWS.ServiceCatalog do
   A delegated admin is authorized to invoke this command.
   """
   def describe_portfolio(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePortfolio", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePortfolio", input, options)
   end
 
   @doc """
@@ -353,7 +409,9 @@ defmodule AWS.ServiceCatalog do
   a delegated admin.
   """
   def describe_portfolio_share_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePortfolioShareStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePortfolioShareStatus", input, options)
   end
 
   @doc """
@@ -367,14 +425,18 @@ defmodule AWS.ServiceCatalog do
   The `PortfolioId` and `Type` parameters are both required.
   """
   def describe_portfolio_shares(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePortfolioShares", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePortfolioShares", input, options)
   end
 
   @doc """
   Gets information about the specified product.
   """
   def describe_product(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeProduct", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeProduct", input, options)
   end
 
   @doc """
@@ -383,28 +445,36 @@ defmodule AWS.ServiceCatalog do
   This operation is run with administrator access.
   """
   def describe_product_as_admin(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeProductAsAdmin", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeProductAsAdmin", input, options)
   end
 
   @doc """
   Gets information about the specified product.
   """
   def describe_product_view(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeProductView", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeProductView", input, options)
   end
 
   @doc """
   Gets information about the specified provisioned product.
   """
   def describe_provisioned_product(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeProvisionedProduct", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeProvisionedProduct", input, options)
   end
 
   @doc """
   Gets information about the resource changes for the specified plan.
   """
   def describe_provisioned_product_plan(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeProvisionedProductPlan", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeProvisionedProductPlan", input, options)
   end
 
   @doc """
@@ -412,7 +482,9 @@ defmodule AWS.ServiceCatalog do
   version) for the specified product.
   """
   def describe_provisioning_artifact(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeProvisioningArtifact", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeProvisioningArtifact", input, options)
   end
 
   @doc """
@@ -428,7 +500,9 @@ defmodule AWS.ServiceCatalog do
   `sc-tagoption-conflict-portfolioId-productId`.
   """
   def describe_provisioning_parameters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeProvisioningParameters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeProvisioningParameters", input, options)
   end
 
   @doc """
@@ -445,14 +519,18 @@ defmodule AWS.ServiceCatalog do
   product's history from when he was the owner.
   """
   def describe_record(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRecord", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRecord", input, options)
   end
 
   @doc """
   Describes a self-service action.
   """
   def describe_service_action(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeServiceAction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeServiceAction", input, options)
   end
 
   @doc """
@@ -460,20 +538,18 @@ defmodule AWS.ServiceCatalog do
   provisioned product and returns a map of the results to the user.
   """
   def describe_service_action_execution_parameters(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeServiceActionExecutionParameters",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeServiceActionExecutionParameters", input, options)
   end
 
   @doc """
   Gets information about the specified TagOption.
   """
   def describe_tag_option(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTagOption", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTagOption", input, options)
   end
 
   @doc """
@@ -498,21 +574,27 @@ defmodule AWS.ServiceCatalog do
   previously shared portfolio.
   """
   def disable_aws_organizations_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisableAWSOrganizationsAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableAWSOrganizationsAccess", input, options)
   end
 
   @doc """
   Disassociates the specified budget from the specified resource.
   """
   def disassociate_budget_from_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateBudgetFromResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateBudgetFromResource", input, options)
   end
 
   @doc """
   Disassociates a previously associated principal ARN from a specified portfolio.
   """
   def disassociate_principal_from_portfolio(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociatePrincipalFromPortfolio", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociatePrincipalFromPortfolio", input, options)
   end
 
   @doc """
@@ -521,7 +603,9 @@ defmodule AWS.ServiceCatalog do
   A delegated admin is authorized to invoke this command.
   """
   def disassociate_product_from_portfolio(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateProductFromPortfolio", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateProductFromPortfolio", input, options)
   end
 
   @doc """
@@ -533,9 +617,11 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "DisassociateServiceActionFromProvisioningArtifact",
       input,
       options
@@ -546,7 +632,9 @@ defmodule AWS.ServiceCatalog do
   Disassociates the specified TagOption from the specified resource.
   """
   def disassociate_tag_option_from_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateTagOptionFromResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateTagOptionFromResource", input, options)
   end
 
   @doc """
@@ -574,7 +662,9 @@ defmodule AWS.ServiceCatalog do
   issue.
   """
   def enable_aws_organizations_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnableAWSOrganizationsAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableAWSOrganizationsAccess", input, options)
   end
 
   @doc """
@@ -582,20 +672,18 @@ defmodule AWS.ServiceCatalog do
   plan.
   """
   def execute_provisioned_product_plan(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ExecuteProvisionedProductPlan", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExecuteProvisionedProductPlan", input, options)
   end
 
   @doc """
   Executes a self-service action against a provisioned product.
   """
   def execute_provisioned_product_service_action(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ExecuteProvisionedProductServiceAction",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExecuteProvisionedProductServiceAction", input, options)
   end
 
   @doc """
@@ -605,7 +693,9 @@ defmodule AWS.ServiceCatalog do
   a delegated admin.
   """
   def get_aws_organizations_access_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAWSOrganizationsAccessStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAWSOrganizationsAccessStatus", input, options)
   end
 
   @doc """
@@ -614,7 +704,9 @@ defmodule AWS.ServiceCatalog do
   pairs of those outputs.
   """
   def get_provisioned_product_outputs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetProvisionedProductOutputs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetProvisionedProductOutputs", input, options)
   end
 
   @doc """
@@ -641,7 +733,9 @@ defmodule AWS.ServiceCatalog do
   permissions.
   """
   def import_as_provisioned_product(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ImportAsProvisionedProduct", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportAsProvisionedProduct", input, options)
   end
 
   @doc """
@@ -652,21 +746,27 @@ defmodule AWS.ServiceCatalog do
   organizational shares were accepted by this account.
   """
   def list_accepted_portfolio_shares(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAcceptedPortfolioShares", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAcceptedPortfolioShares", input, options)
   end
 
   @doc """
   Lists all the budgets associated to the specified resource.
   """
   def list_budgets_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListBudgetsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListBudgetsForResource", input, options)
   end
 
   @doc """
   Lists the constraints for the specified portfolio and product.
   """
   def list_constraints_for_portfolio(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListConstraintsForPortfolio", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListConstraintsForPortfolio", input, options)
   end
 
   @doc """
@@ -677,7 +777,9 @@ defmodule AWS.ServiceCatalog do
   product.
   """
   def list_launch_paths(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListLaunchPaths", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLaunchPaths", input, options)
   end
 
   @doc """
@@ -690,7 +792,9 @@ defmodule AWS.ServiceCatalog do
   operation.
   """
   def list_organization_portfolio_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListOrganizationPortfolioAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListOrganizationPortfolioAccess", input, options)
   end
 
   @doc """
@@ -701,28 +805,36 @@ defmodule AWS.ServiceCatalog do
   perform this operation.
   """
   def list_portfolio_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPortfolioAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPortfolioAccess", input, options)
   end
 
   @doc """
   Lists all portfolios in the catalog.
   """
   def list_portfolios(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPortfolios", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPortfolios", input, options)
   end
 
   @doc """
   Lists all portfolios that the specified product is associated with.
   """
   def list_portfolios_for_product(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPortfoliosForProduct", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPortfoliosForProduct", input, options)
   end
 
   @doc """
   Lists all principal ARNs associated with the specified portfolio.
   """
   def list_principals_for_portfolio(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPrincipalsForPortfolio", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPrincipalsForPortfolio", input, options)
   end
 
   @doc """
@@ -730,7 +842,9 @@ defmodule AWS.ServiceCatalog do
   user has access.
   """
   def list_provisioned_product_plans(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListProvisionedProductPlans", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListProvisionedProductPlans", input, options)
   end
 
   @doc """
@@ -738,7 +852,9 @@ defmodule AWS.ServiceCatalog do
   product.
   """
   def list_provisioning_artifacts(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListProvisioningArtifacts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListProvisioningArtifacts", input, options)
   end
 
   @doc """
@@ -746,9 +862,11 @@ defmodule AWS.ServiceCatalog do
   self-service action.
   """
   def list_provisioning_artifacts_for_service_action(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "ListProvisioningArtifactsForServiceAction",
       input,
       options
@@ -759,21 +877,27 @@ defmodule AWS.ServiceCatalog do
   Lists the specified requests or all performed requests.
   """
   def list_record_history(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListRecordHistory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRecordHistory", input, options)
   end
 
   @doc """
   Lists the resources associated with the specified TagOption.
   """
   def list_resources_for_tag_option(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListResourcesForTagOption", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResourcesForTagOption", input, options)
   end
 
   @doc """
   Lists all self-service actions.
   """
   def list_service_actions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListServiceActions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListServiceActions", input, options)
   end
 
   @doc """
@@ -781,9 +905,11 @@ defmodule AWS.ServiceCatalog do
   Product ID and Provisioning Artifact ID.
   """
   def list_service_actions_for_provisioning_artifact(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "ListServiceActionsForProvisioningArtifact",
       input,
       options
@@ -798,20 +924,18 @@ defmodule AWS.ServiceCatalog do
   Web Services account name or Region.
   """
   def list_stack_instances_for_provisioned_product(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ListStackInstancesForProvisionedProduct",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStackInstancesForProvisionedProduct", input, options)
   end
 
   @doc """
   Lists the specified TagOptions or all TagOptions.
   """
   def list_tag_options(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagOptions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagOptions", input, options)
   end
 
   @doc """
@@ -828,14 +952,18 @@ defmodule AWS.ServiceCatalog do
   Tags[*N*]:*Value*".
   """
   def provision_product(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ProvisionProduct", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ProvisionProduct", input, options)
   end
 
   @doc """
   Rejects an offer to share the specified portfolio.
   """
   def reject_portfolio_share(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RejectPortfolioShare", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RejectPortfolioShare", input, options)
   end
 
   @doc """
@@ -844,21 +972,27 @@ defmodule AWS.ServiceCatalog do
   To use additional filtering, see `SearchProvisionedProducts`.
   """
   def scan_provisioned_products(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ScanProvisionedProducts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ScanProvisionedProducts", input, options)
   end
 
   @doc """
   Gets information about the products to which the caller has access.
   """
   def search_products(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SearchProducts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SearchProducts", input, options)
   end
 
   @doc """
   Gets information about the products for the specified portfolio or all products.
   """
   def search_products_as_admin(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SearchProductsAsAdmin", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SearchProductsAsAdmin", input, options)
   end
 
   @doc """
@@ -873,7 +1007,9 @@ defmodule AWS.ServiceCatalog do
   `aws servicecatalog search-provisioned-products --sort-by createdTime `
   """
   def search_provisioned_products(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SearchProvisionedProducts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SearchProvisionedProducts", input, options)
   end
 
   @doc """
@@ -885,14 +1021,18 @@ defmodule AWS.ServiceCatalog do
   You can check the status of this request using `DescribeRecord`.
   """
   def terminate_provisioned_product(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TerminateProvisionedProduct", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TerminateProvisionedProduct", input, options)
   end
 
   @doc """
   Updates the specified constraint.
   """
   def update_constraint(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateConstraint", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateConstraint", input, options)
   end
 
   @doc """
@@ -901,7 +1041,9 @@ defmodule AWS.ServiceCatalog do
   You cannot update a product that was shared with you.
   """
   def update_portfolio(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdatePortfolio", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePortfolio", input, options)
   end
 
   @doc """
@@ -925,14 +1067,18 @@ defmodule AWS.ServiceCatalog do
   `DeletePortfolioShare` API for that action.
   """
   def update_portfolio_share(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdatePortfolioShare", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePortfolioShare", input, options)
   end
 
   @doc """
   Updates the specified product.
   """
   def update_product(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateProduct", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateProduct", input, options)
   end
 
   @doc """
@@ -946,14 +1092,18 @@ defmodule AWS.ServiceCatalog do
   You can check the status of this request using `DescribeRecord`.
   """
   def update_provisioned_product(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateProvisionedProduct", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateProvisionedProduct", input, options)
   end
 
   @doc """
   Requests updates to the properties of the specified provisioned product.
   """
   def update_provisioned_product_properties(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateProvisionedProductProperties", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateProvisionedProductProperties", input, options)
   end
 
   @doc """
@@ -964,20 +1114,26 @@ defmodule AWS.ServiceCatalog do
   you.
   """
   def update_provisioning_artifact(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateProvisioningArtifact", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateProvisioningArtifact", input, options)
   end
 
   @doc """
   Updates a self-service action.
   """
   def update_service_action(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateServiceAction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateServiceAction", input, options)
   end
 
   @doc """
   Updates the specified TagOption.
   """
   def update_tag_option(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateTagOption", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateTagOption", input, options)
   end
 end

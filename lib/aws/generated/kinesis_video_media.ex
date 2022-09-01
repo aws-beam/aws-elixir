@@ -76,9 +76,11 @@ defmodule AWS.KinesisVideoMedia do
         [{"Content-Type", "ContentType"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,

@@ -101,7 +101,9 @@ defmodule AWS.NetworkFirewall do
   policy for multiple firewalls.
   """
   def associate_firewall_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateFirewallPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateFirewallPolicy", input, options)
   end
 
   @doc """
@@ -116,7 +118,9 @@ defmodule AWS.NetworkFirewall do
   coming into and going out of the zone through the firewall endpoint.
   """
   def associate_subnets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateSubnets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateSubnets", input, options)
   end
 
   @doc """
@@ -142,7 +146,9 @@ defmodule AWS.NetworkFirewall do
   `DescribeFirewall`.
   """
   def create_firewall(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateFirewall", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFirewall", input, options)
   end
 
   @doc """
@@ -153,7 +159,9 @@ defmodule AWS.NetworkFirewall do
   one firewall policy for multiple firewalls.
   """
   def create_firewall_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateFirewallPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFirewallPolicy", input, options)
   end
 
   @doc """
@@ -164,7 +172,9 @@ defmodule AWS.NetworkFirewall do
   `RuleGroup` or `Rules`.
   """
   def create_rule_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateRuleGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRuleGroup", input, options)
   end
 
   @doc """
@@ -185,63 +195,81 @@ defmodule AWS.NetworkFirewall do
   `DeleteFirewall`.
   """
   def delete_firewall(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteFirewall", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFirewall", input, options)
   end
 
   @doc """
   Deletes the specified `FirewallPolicy`.
   """
   def delete_firewall_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteFirewallPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFirewallPolicy", input, options)
   end
 
   @doc """
   Deletes a resource policy that you created in a `PutResourcePolicy` request.
   """
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteResourcePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
 
   @doc """
   Deletes the specified `RuleGroup`.
   """
   def delete_rule_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteRuleGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRuleGroup", input, options)
   end
 
   @doc """
   Returns the data objects for the specified firewall.
   """
   def describe_firewall(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFirewall", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFirewall", input, options)
   end
 
   @doc """
   Returns the data objects for the specified firewall policy.
   """
   def describe_firewall_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFirewallPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFirewallPolicy", input, options)
   end
 
   @doc """
   Returns the logging configuration for the specified firewall.
   """
   def describe_logging_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeLoggingConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeLoggingConfiguration", input, options)
   end
 
   @doc """
   Retrieves a resource policy that you created in a `PutResourcePolicy` request.
   """
   def describe_resource_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeResourcePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeResourcePolicy", input, options)
   end
 
   @doc """
   Returns the data objects for the specified rule group.
   """
   def describe_rule_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRuleGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRuleGroup", input, options)
   end
 
   @doc """
@@ -253,7 +281,9 @@ defmodule AWS.NetworkFirewall do
   `DescribeRuleGroup`.
   """
   def describe_rule_group_metadata(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRuleGroupMetadata", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRuleGroupMetadata", input, options)
   end
 
   @doc """
@@ -263,7 +293,9 @@ defmodule AWS.NetworkFirewall do
   filtering protections that the endpoints were providing.
   """
   def disassociate_subnets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateSubnets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateSubnets", input, options)
   end
 
   @doc """
@@ -273,7 +305,9 @@ defmodule AWS.NetworkFirewall do
   single call might not return the full list.
   """
   def list_firewall_policies(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFirewallPolicies", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFirewallPolicies", input, options)
   end
 
   @doc """
@@ -286,7 +320,9 @@ defmodule AWS.NetworkFirewall do
   call might not return the full list.
   """
   def list_firewalls(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFirewalls", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFirewalls", input, options)
   end
 
   @doc """
@@ -296,7 +332,9 @@ defmodule AWS.NetworkFirewall do
   single call might not return the full list.
   """
   def list_rule_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListRuleGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRuleGroups", input, options)
   end
 
   @doc """
@@ -311,7 +349,9 @@ defmodule AWS.NetworkFirewall do
   Firewall: firewalls, firewall policies, and rule groups.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -341,7 +381,9 @@ defmodule AWS.NetworkFirewall do
   Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html).
   """
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutResourcePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
 
   @doc """
@@ -356,7 +398,9 @@ defmodule AWS.NetworkFirewall do
   Firewall: firewalls, firewall policies, and rule groups.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -371,7 +415,9 @@ defmodule AWS.NetworkFirewall do
   through Network Firewall: firewalls, firewall policies, and rule groups.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -382,7 +428,9 @@ defmodule AWS.NetworkFirewall do
   setting helps protect against accidentally deleting a firewall that's in use.
   """
   def update_firewall_delete_protection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateFirewallDeleteProtection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFirewallDeleteProtection", input, options)
   end
 
   @doc """
@@ -392,27 +440,27 @@ defmodule AWS.NetworkFirewall do
   it.
   """
   def update_firewall_description(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateFirewallDescription", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFirewallDescription", input, options)
   end
 
   @doc """
   A complex type that contains settings for encryption of your firewall resources.
   """
   def update_firewall_encryption_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "UpdateFirewallEncryptionConfiguration",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFirewallEncryptionConfiguration", input, options)
   end
 
   @doc """
   Updates the properties of the specified firewall policy.
   """
   def update_firewall_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateFirewallPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFirewallPolicy", input, options)
   end
 
   @doc """
@@ -423,13 +471,9 @@ defmodule AWS.NetworkFirewall do
   setting helps protect against accidentally changing a firewall that's in use.
   """
   def update_firewall_policy_change_protection(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "UpdateFirewallPolicyChangeProtection",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFirewallPolicyChangeProtection", input, options)
   end
 
   @doc """
@@ -459,7 +503,9 @@ defmodule AWS.NetworkFirewall do
   this update operation.
   """
   def update_logging_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateLoggingConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLoggingConfiguration", input, options)
   end
 
   @doc """
@@ -473,10 +519,14 @@ defmodule AWS.NetworkFirewall do
   object to this call.
   """
   def update_rule_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateRuleGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateRuleGroup", input, options)
   end
 
   def update_subnet_change_protection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateSubnetChangeProtection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSubnetChangeProtection", input, options)
   end
 end

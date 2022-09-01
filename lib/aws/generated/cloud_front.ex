@@ -59,17 +59,9 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -107,9 +99,11 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}, {"Location", "Location"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -141,9 +135,11 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}, {"Location", "Location"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -183,9 +179,11 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}, {"Location", "Location"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -211,9 +209,11 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}, {"Location", "Location"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -239,9 +239,11 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}, {"Location", "Location"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -267,9 +269,11 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}, {"Location", "Location"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -307,9 +311,11 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}, {"Location", "Location"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -335,9 +341,11 @@ defmodule AWS.CloudFront do
         [{"Location", "Location"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -373,9 +381,11 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}, {"Location", "Location"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -401,9 +411,11 @@ defmodule AWS.CloudFront do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -441,9 +453,11 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}, {"Location", "Location"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -493,9 +507,11 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}, {"Location", "Location"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -522,9 +538,11 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}, {"Location", "Location"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -550,9 +568,11 @@ defmodule AWS.CloudFront do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -588,9 +608,11 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}, {"Location", "Location"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -620,9 +642,11 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}, {"Location", "Location"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -652,9 +676,11 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}, {"Location", "Location"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -686,9 +712,11 @@ defmodule AWS.CloudFront do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -713,9 +741,11 @@ defmodule AWS.CloudFront do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -740,9 +770,11 @@ defmodule AWS.CloudFront do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -767,9 +799,11 @@ defmodule AWS.CloudFront do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -794,9 +828,11 @@ defmodule AWS.CloudFront do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -828,9 +864,11 @@ defmodule AWS.CloudFront do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -863,9 +901,11 @@ defmodule AWS.CloudFront do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -887,9 +927,11 @@ defmodule AWS.CloudFront do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -918,9 +960,11 @@ defmodule AWS.CloudFront do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -953,9 +997,11 @@ defmodule AWS.CloudFront do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -980,9 +1026,11 @@ defmodule AWS.CloudFront do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1011,9 +1059,11 @@ defmodule AWS.CloudFront do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1046,9 +1096,11 @@ defmodule AWS.CloudFront do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1112,9 +1164,11 @@ defmodule AWS.CloudFront do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :delete,
       url_path,
       query_params,
@@ -1153,17 +1207,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1191,17 +1237,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1225,17 +1263,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1253,17 +1283,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1281,17 +1303,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1309,17 +1323,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1337,17 +1343,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1365,17 +1363,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1393,17 +1383,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1421,17 +1403,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1449,17 +1423,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1490,17 +1456,9 @@ defmodule AWS.CloudFront do
         [{"Content-Type", "ContentType"}, {"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1513,17 +1471,9 @@ defmodule AWS.CloudFront do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1548,17 +1498,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1582,17 +1524,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1606,21 +1540,13 @@ defmodule AWS.CloudFront do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
-  Gets a CloudFront origin access control.
+  Gets a CloudFront origin access control, including its unique identifier.
   """
   def get_origin_access_control(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-access-control/#{AWS.Util.encode_uri(id)}"
@@ -1634,21 +1560,13 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
-  Gets a CloudFront origin access control.
+  Gets a CloudFront origin access control configuration.
   """
   def get_origin_access_control_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-access-control/#{AWS.Util.encode_uri(id)}/config"
@@ -1662,17 +1580,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1700,17 +1610,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1734,17 +1636,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1762,17 +1656,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1790,17 +1676,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1816,9 +1694,11 @@ defmodule AWS.CloudFront do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -1851,17 +1731,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1885,17 +1757,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1914,17 +1778,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1942,17 +1798,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2000,17 +1848,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2040,17 +1880,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2124,17 +1956,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2159,17 +1983,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2207,17 +2023,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2255,17 +2063,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2305,17 +2105,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2338,9 +2130,11 @@ defmodule AWS.CloudFront do
     headers = []
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -2388,17 +2182,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2429,17 +2215,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2470,17 +2248,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2511,17 +2281,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2568,17 +2330,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2609,17 +2363,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2650,17 +2396,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2697,17 +2435,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2755,17 +2485,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2790,17 +2512,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2836,17 +2550,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2894,17 +2600,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2934,17 +2632,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2962,17 +2652,9 @@ defmodule AWS.CloudFront do
         query_params
       end
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -3000,9 +2682,11 @@ defmodule AWS.CloudFront do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -3026,9 +2710,11 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -3065,9 +2751,11 @@ defmodule AWS.CloudFront do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -3091,9 +2779,11 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -3137,17 +2827,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -3171,17 +2853,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -3269,17 +2943,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -3303,17 +2969,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -3337,17 +2995,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -3378,17 +3028,9 @@ defmodule AWS.CloudFront do
         [{"ETtag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -3425,17 +3067,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -3459,17 +3093,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -3507,17 +3133,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -3543,17 +3161,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -3580,17 +3190,9 @@ defmodule AWS.CloudFront do
     headers = []
     query_params = []
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -3628,17 +3230,9 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -3662,16 +3256,8 @@ defmodule AWS.CloudFront do
         [{"ETag", "ETag"}]
       )
 
-    Request.request_rest(
-      client,
-      metadata(),
-      :put,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      nil
-    )
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 end

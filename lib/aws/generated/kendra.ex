@@ -34,7 +34,9 @@ defmodule AWS.Kendra do
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
   def associate_entities_to_experience(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateEntitiesToExperience", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateEntitiesToExperience", input, options)
   end
 
   @doc """
@@ -46,7 +48,9 @@ defmodule AWS.Kendra do
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
   def associate_personas_to_entities(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociatePersonasToEntities", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociatePersonasToEntities", input, options)
   end
 
   @doc """
@@ -59,7 +63,9 @@ defmodule AWS.Kendra do
   the processing of the batch are sent to you CloudWatch log.
   """
   def batch_delete_document(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchDeleteDocument", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchDeleteDocument", input, options)
   end
 
   @doc """
@@ -77,7 +83,9 @@ defmodule AWS.Kendra do
   `NOT_FOUND` as the status.
   """
   def batch_get_document_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchGetDocumentStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetDocumentStatus", input, options)
   end
 
   @doc """
@@ -96,7 +104,9 @@ defmodule AWS.Kendra do
   [Adding files directly to an index](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-binary-doc.html).
   """
   def batch_put_document(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchPutDocument", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchPutDocument", input, options)
   end
 
   @doc """
@@ -112,7 +122,9 @@ defmodule AWS.Kendra do
   GovCloud (US-West) region.
   """
   def clear_query_suggestions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ClearQuerySuggestions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ClearQuerySuggestions", input, options)
   end
 
   @doc """
@@ -143,7 +155,9 @@ defmodule AWS.Kendra do
   for S3 data sources and documents indexed using the `BatchPutDocument` API.
   """
   def create_access_control_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateAccessControlConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAccessControlConfiguration", input, options)
   end
 
   @doc """
@@ -168,7 +182,9 @@ defmodule AWS.Kendra do
   SDK](https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html).
   """
   def create_data_source(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDataSource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDataSource", input, options)
   end
 
   @doc """
@@ -178,7 +194,9 @@ defmodule AWS.Kendra do
   using the Python and Java SDKs, see [Building a search experience with no code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
   def create_experience(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateExperience", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateExperience", input, options)
   end
 
   @doc """
@@ -190,7 +208,9 @@ defmodule AWS.Kendra do
   [Using your FAQ file](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file).
   """
   def create_faq(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateFaq", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFaq", input, options)
   end
 
   @doc """
@@ -209,7 +229,9 @@ defmodule AWS.Kendra do
   SDK](https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html).
   """
   def create_index(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateIndex", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateIndex", input, options)
   end
 
   @doc """
@@ -230,7 +252,9 @@ defmodule AWS.Kendra do
   SDK, see [Query suggestions block list](https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#suggestions-block-list).
   """
   def create_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateQuerySuggestionsBlockList", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateQuerySuggestionsBlockList", input, options)
   end
 
   @doc """
@@ -242,7 +266,9 @@ defmodule AWS.Kendra do
   index](https://docs.aws.amazon.com/kendra/latest/dg/index-synonyms-adding-thesaurus-file.html).
   """
   def create_thesaurus(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateThesaurus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateThesaurus", input, options)
   end
 
   @doc """
@@ -254,7 +280,9 @@ defmodule AWS.Kendra do
   the user or their group access to documents.
   """
   def delete_access_control_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAccessControlConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAccessControlConfiguration", input, options)
   end
 
   @doc """
@@ -266,7 +294,9 @@ defmodule AWS.Kendra do
   [Deleting Data Sources](https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html).
   """
   def delete_data_source(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDataSource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDataSource", input, options)
   end
 
   @doc """
@@ -276,14 +306,18 @@ defmodule AWS.Kendra do
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
   def delete_experience(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteExperience", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteExperience", input, options)
   end
 
   @doc """
   Removes an FAQ from an index.
   """
   def delete_faq(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteFaq", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFaq", input, options)
   end
 
   @doc """
@@ -294,7 +328,9 @@ defmodule AWS.Kendra do
   `DescribeIndex` API is set to `DELETING`.
   """
   def delete_index(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteIndex", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteIndex", input, options)
   end
 
   @doc """
@@ -316,7 +352,9 @@ defmodule AWS.Kendra do
   GovCloud (US-West) region.
   """
   def delete_principal_mapping(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeletePrincipalMapping", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePrincipalMapping", input, options)
   end
 
   @doc """
@@ -330,14 +368,18 @@ defmodule AWS.Kendra do
   Services GovCloud (US-West) region.
   """
   def delete_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteQuerySuggestionsBlockList", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteQuerySuggestionsBlockList", input, options)
   end
 
   @doc """
   Deletes an existing Amazon Kendra thesaurus.
   """
   def delete_thesaurus(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteThesaurus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteThesaurus", input, options)
   end
 
   @doc """
@@ -349,14 +391,18 @@ defmodule AWS.Kendra do
   the user or their group access to documents.
   """
   def describe_access_control_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAccessControlConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAccessControlConfiguration", input, options)
   end
 
   @doc """
   Gets information about an Amazon Kendra data source connector.
   """
   def describe_data_source(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDataSource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDataSource", input, options)
   end
 
   @doc """
@@ -367,21 +413,27 @@ defmodule AWS.Kendra do
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
   def describe_experience(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeExperience", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeExperience", input, options)
   end
 
   @doc """
   Gets information about an FAQ list.
   """
   def describe_faq(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFaq", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFaq", input, options)
   end
 
   @doc """
   Gets information about an existing Amazon Kendra index.
   """
   def describe_index(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeIndex", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeIndex", input, options)
   end
 
   @doc """
@@ -397,7 +449,9 @@ defmodule AWS.Kendra do
   GovCloud (US-West) region.
   """
   def describe_principal_mapping(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePrincipalMapping", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePrincipalMapping", input, options)
   end
 
   @doc """
@@ -409,7 +463,9 @@ defmodule AWS.Kendra do
   Services GovCloud (US-West) region.
   """
   def describe_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeQuerySuggestionsBlockList", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeQuerySuggestionsBlockList", input, options)
   end
 
   @doc """
@@ -421,14 +477,18 @@ defmodule AWS.Kendra do
   Services GovCloud (US-West) region.
   """
   def describe_query_suggestions_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeQuerySuggestionsConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeQuerySuggestionsConfig", input, options)
   end
 
   @doc """
   Gets information about an existing Amazon Kendra thesaurus.
   """
   def describe_thesaurus(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeThesaurus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeThesaurus", input, options)
   end
 
   @doc """
@@ -440,7 +500,9 @@ defmodule AWS.Kendra do
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
   def disassociate_entities_from_experience(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateEntitiesFromExperience", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateEntitiesFromExperience", input, options)
   end
 
   @doc """
@@ -452,7 +514,9 @@ defmodule AWS.Kendra do
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
   def disassociate_personas_from_entities(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociatePersonasFromEntities", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociatePersonasFromEntities", input, options)
   end
 
   @doc """
@@ -462,7 +526,9 @@ defmodule AWS.Kendra do
   GovCloud (US-West) region.
   """
   def get_query_suggestions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetQuerySuggestions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetQuerySuggestions", input, options)
   end
 
   @doc """
@@ -472,7 +538,9 @@ defmodule AWS.Kendra do
   application and how effective the application is.
   """
   def get_snapshots(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetSnapshots", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSnapshots", input, options)
   end
 
   @doc """
@@ -483,21 +551,27 @@ defmodule AWS.Kendra do
   the user or their group access to documents.
   """
   def list_access_control_configurations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAccessControlConfigurations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAccessControlConfigurations", input, options)
   end
 
   @doc """
   Gets statistics about synchronizing a data source connector.
   """
   def list_data_source_sync_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDataSourceSyncJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDataSourceSyncJobs", input, options)
   end
 
   @doc """
   Lists the data source connectors that you have created.
   """
   def list_data_sources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDataSources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDataSources", input, options)
   end
 
   @doc """
@@ -505,7 +579,9 @@ defmodule AWS.Kendra do
   experience.
   """
   def list_entity_personas(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEntityPersonas", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEntityPersonas", input, options)
   end
 
   @doc """
@@ -517,7 +593,9 @@ defmodule AWS.Kendra do
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
   def list_experience_entities(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListExperienceEntities", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListExperienceEntities", input, options)
   end
 
   @doc """
@@ -528,14 +606,18 @@ defmodule AWS.Kendra do
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
   def list_experiences(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListExperiences", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListExperiences", input, options)
   end
 
   @doc """
   Gets a list of FAQ lists associated with an index.
   """
   def list_faqs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListFaqs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFaqs", input, options)
   end
 
   @doc """
@@ -546,14 +628,18 @@ defmodule AWS.Kendra do
   Services GovCloud (US-West) region.
   """
   def list_groups_older_than_ordering_id(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListGroupsOlderThanOrderingId", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListGroupsOlderThanOrderingId", input, options)
   end
 
   @doc """
   Lists the Amazon Kendra indexes that you created.
   """
   def list_indices(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListIndices", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListIndices", input, options)
   end
 
   @doc """
@@ -565,7 +651,9 @@ defmodule AWS.Kendra do
   Services GovCloud (US-West) region.
   """
   def list_query_suggestions_block_lists(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListQuerySuggestionsBlockLists", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListQuerySuggestionsBlockLists", input, options)
   end
 
   @doc """
@@ -574,14 +662,18 @@ defmodule AWS.Kendra do
   Indexes, FAQs, and data sources can have tags associated with them.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Lists the thesauri for an index.
   """
   def list_thesauri(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListThesauri", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListThesauri", input, options)
   end
 
   @doc """
@@ -606,7 +698,9 @@ defmodule AWS.Kendra do
   GovCloud (US-West) region.
   """
   def put_principal_mapping(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutPrincipalMapping", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutPrincipalMapping", input, options)
   end
 
   @doc """
@@ -633,7 +727,9 @@ defmodule AWS.Kendra do
   Each query returns the 100 most relevant results.
   """
   def query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "Query", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "Query", input, options)
   end
 
   @doc """
@@ -643,7 +739,9 @@ defmodule AWS.Kendra do
   `ResourceInUseException` exception.
   """
   def start_data_source_sync_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartDataSourceSyncJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartDataSourceSyncJob", input, options)
   end
 
   @doc """
@@ -652,7 +750,9 @@ defmodule AWS.Kendra do
   You can't stop a scheduled synchronization job.
   """
   def stop_data_source_sync_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopDataSourceSyncJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopDataSourceSyncJob", input, options)
   end
 
   @doc """
@@ -663,7 +763,9 @@ defmodule AWS.Kendra do
   (US-West) region.
   """
   def submit_feedback(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SubmitFeedback", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SubmitFeedback", input, options)
   end
 
   @doc """
@@ -672,14 +774,18 @@ defmodule AWS.Kendra do
   If the tag already exists, the existing value is replaced with the new value.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes a tag from an index, FAQ, or a data source.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -709,14 +815,18 @@ defmodule AWS.Kendra do
   sources and documents indexed using the `BatchPutDocument` API.
   """
   def update_access_control_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateAccessControlConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAccessControlConfiguration", input, options)
   end
 
   @doc """
   Updates an existing Amazon Kendra data source connector.
   """
   def update_data_source(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateDataSource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDataSource", input, options)
   end
 
   @doc """
@@ -726,14 +836,18 @@ defmodule AWS.Kendra do
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
   """
   def update_experience(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateExperience", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateExperience", input, options)
   end
 
   @doc """
   Updates an existing Amazon Kendra index.
   """
   def update_index(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateIndex", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateIndex", input, options)
   end
 
   @doc """
@@ -753,7 +867,9 @@ defmodule AWS.Kendra do
   Services GovCloud (US-West) region.
   """
   def update_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateQuerySuggestionsBlockList", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateQuerySuggestionsBlockList", input, options)
   end
 
   @doc """
@@ -775,13 +891,17 @@ defmodule AWS.Kendra do
   Services GovCloud (US-West) region.
   """
   def update_query_suggestions_config(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateQuerySuggestionsConfig", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateQuerySuggestionsConfig", input, options)
   end
 
   @doc """
   Updates a thesaurus for an index.
   """
   def update_thesaurus(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateThesaurus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateThesaurus", input, options)
   end
 end

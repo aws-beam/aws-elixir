@@ -39,14 +39,18 @@ defmodule AWS.MemoryDB do
   updates](https://docs.aws.amazon.com/MemoryDB/latest/devguide/managing-updates.html#applying-updates).
   """
   def batch_update_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchUpdateCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchUpdateCluster", input, options)
   end
 
   @doc """
   Makes a copy of an existing snapshot.
   """
   def copy_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CopySnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CopySnapshot", input, options)
   end
 
   @doc """
@@ -55,7 +59,9 @@ defmodule AWS.MemoryDB do
   For more information, see [Authenticating users with Access Contol Lists (ACLs)](https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html).
   """
   def create_acl(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateACL", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateACL", input, options)
   end
 
   @doc """
@@ -64,7 +70,9 @@ defmodule AWS.MemoryDB do
   All nodes in the cluster run the same protocol-compliant engine software.
   """
   def create_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCluster", input, options)
   end
 
   @doc """
@@ -75,14 +83,18 @@ defmodule AWS.MemoryDB do
   [Configuring engine parameters using parameter groups](https://docs.aws.amazon.com/MemoryDB/latest/devguide/parametergroups.html).
   """
   def create_parameter_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateParameterGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateParameterGroup", input, options)
   end
 
   @doc """
   Creates a copy of an entire cluster at a specific moment in time.
   """
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
 
   @doc """
@@ -96,7 +108,9 @@ defmodule AWS.MemoryDB do
   see [Subnets and subnet groups](https://docs.aws.amazon.com/MemoryDB/latest/devguide/subnetgroups.html).
   """
   def create_subnet_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateSubnetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSubnetGroup", input, options)
   end
 
   @doc """
@@ -105,7 +119,9 @@ defmodule AWS.MemoryDB do
   For more information, see [Authenticating users with Access Contol Lists (ACLs)](https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html).
   """
   def create_user(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateUser", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateUser", input, options)
   end
 
   @doc """
@@ -115,7 +131,9 @@ defmodule AWS.MemoryDB do
   For more information, see [Authenticating users with Access Contol Lists (ACLs)](https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html).
   """
   def delete_acl(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteACL", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteACL", input, options)
   end
 
   @doc """
@@ -124,7 +142,9 @@ defmodule AWS.MemoryDB do
   It also deletes all associated nodes and node endpoints
   """
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCluster", input, options)
   end
 
   @doc """
@@ -134,7 +154,9 @@ defmodule AWS.MemoryDB do
   cannot delete the default parameter groups in your account.
   """
   def delete_parameter_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteParameterGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteParameterGroup", input, options)
   end
 
   @doc """
@@ -144,7 +166,9 @@ defmodule AWS.MemoryDB do
   begins deleting the snapshot; you cannot cancel or revert this operation.
   """
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
 
   @doc """
@@ -154,7 +178,9 @@ defmodule AWS.MemoryDB do
   clusters.
   """
   def delete_subnet_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSubnetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSubnetGroup", input, options)
   end
 
   @doc """
@@ -163,14 +189,18 @@ defmodule AWS.MemoryDB do
   The user will be removed from all ACLs and in turn removed from all clusters.
   """
   def delete_user(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteUser", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteUser", input, options)
   end
 
   @doc """
   Returns a list of ACLs
   """
   def describe_acls(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeACLs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeACLs", input, options)
   end
 
   @doc """
@@ -178,14 +208,18 @@ defmodule AWS.MemoryDB do
   specified, or about a specific cluster if a cluster name is supplied.
   """
   def describe_clusters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeClusters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeClusters", input, options)
   end
 
   @doc """
   Returns a list of the available Redis engine versions.
   """
   def describe_engine_versions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEngineVersions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEngineVersions", input, options)
   end
 
   @doc """
@@ -197,7 +231,9 @@ defmodule AWS.MemoryDB do
   to 14 days' worth of events if necessary.
   """
   def describe_events(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEvents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEvents", input, options)
   end
 
   @doc """
@@ -207,21 +243,27 @@ defmodule AWS.MemoryDB do
   for that group.
   """
   def describe_parameter_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeParameterGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeParameterGroups", input, options)
   end
 
   @doc """
   Returns the detailed parameter list for a particular parameter group.
   """
   def describe_parameters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeParameters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeParameters", input, options)
   end
 
   @doc """
   Returns details of the service updates
   """
   def describe_service_updates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeServiceUpdates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeServiceUpdates", input, options)
   end
 
   @doc """
@@ -232,7 +274,9 @@ defmodule AWS.MemoryDB do
   cluster.
   """
   def describe_snapshots(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSnapshots", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSnapshots", input, options)
   end
 
   @doc """
@@ -242,21 +286,27 @@ defmodule AWS.MemoryDB do
   that group.
   """
   def describe_subnet_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSubnetGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSubnetGroups", input, options)
   end
 
   @doc """
   Returns a list of users.
   """
   def describe_users(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeUsers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeUsers", input, options)
   end
 
   @doc """
   Used to failover a shard
   """
   def failover_shard(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "FailoverShard", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "FailoverShard", input, options)
   end
 
   @doc """
@@ -267,7 +317,9 @@ defmodule AWS.MemoryDB do
   NodeType parameter must be one of the node types returned by this operation.
   """
   def list_allowed_node_type_updates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAllowedNodeTypeUpdates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAllowedNodeTypeUpdates", input, options)
   end
 
   @doc """
@@ -278,7 +330,9 @@ defmodule AWS.MemoryDB do
   see [Tagging your MemoryDB resources](https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html)
   """
   def list_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTags", input, options)
   end
 
   @doc """
@@ -290,7 +344,9 @@ defmodule AWS.MemoryDB do
   ParameterGroupName parameters.
   """
   def reset_parameter_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ResetParameterGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ResetParameterGroup", input, options)
   end
 
   @doc """
@@ -308,21 +364,27 @@ defmodule AWS.MemoryDB do
   Tags](https://docs.aws.amazon.com/MemoryDB/latest/devguide/tagging.html).
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Use this operation to remove tags on a resource
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
   Changes the list of users that belong to the Access Control List.
   """
   def update_acl(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateACL", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateACL", input, options)
   end
 
   @doc """
@@ -332,7 +394,9 @@ defmodule AWS.MemoryDB do
   by specifying the settings and the new values.
   """
   def update_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCluster", input, options)
   end
 
   @doc """
@@ -342,7 +406,9 @@ defmodule AWS.MemoryDB do
   parameter name and value pairs.
   """
   def update_parameter_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateParameterGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateParameterGroup", input, options)
   end
 
   @doc """
@@ -351,13 +417,17 @@ defmodule AWS.MemoryDB do
   For more information, see [Updating a subnet group](https://docs.aws.amazon.com/MemoryDB/latest/devguide/ubnetGroups.Modifying.html)
   """
   def update_subnet_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateSubnetGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSubnetGroup", input, options)
   end
 
   @doc """
   Changes user password(s) and/or access string.
   """
   def update_user(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateUser", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateUser", input, options)
   end
 end

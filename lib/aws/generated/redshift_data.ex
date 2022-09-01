@@ -53,7 +53,9 @@ defmodule AWS.RedshiftData do
   operation is required.
   """
   def batch_execute_statement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchExecuteStatement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchExecuteStatement", input, options)
   end
 
   @doc """
@@ -62,7 +64,9 @@ defmodule AWS.RedshiftData do
   To be canceled, a query must be running.
   """
   def cancel_statement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelStatement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelStatement", input, options)
   end
 
   @doc """
@@ -73,7 +77,9 @@ defmodule AWS.RedshiftData do
   status, the number of rows returned, and the SQL statement.
   """
   def describe_statement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStatement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStatement", input, options)
   end
 
   @doc """
@@ -97,7 +103,9 @@ defmodule AWS.RedshiftData do
   operation is required.
   """
   def describe_table(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTable", input, options)
   end
 
   @doc """
@@ -121,7 +129,9 @@ defmodule AWS.RedshiftData do
   operation is required.
   """
   def execute_statement(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ExecuteStatement", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExecuteStatement", input, options)
   end
 
   @doc """
@@ -130,7 +140,9 @@ defmodule AWS.RedshiftData do
   A token is returned to page through the statement results.
   """
   def get_statement_result(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetStatementResult", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetStatementResult", input, options)
   end
 
   @doc """
@@ -154,7 +166,9 @@ defmodule AWS.RedshiftData do
   operation is required.
   """
   def list_databases(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDatabases", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDatabases", input, options)
   end
 
   @doc """
@@ -178,7 +192,9 @@ defmodule AWS.RedshiftData do
   operation is required.
   """
   def list_schemas(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListSchemas", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSchemas", input, options)
   end
 
   @doc """
@@ -188,7 +204,9 @@ defmodule AWS.RedshiftData do
   through the statement list.
   """
   def list_statements(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListStatements", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStatements", input, options)
   end
 
   @doc """
@@ -213,6 +231,8 @@ defmodule AWS.RedshiftData do
   operation is required.
   """
   def list_tables(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTables", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTables", input, options)
   end
 end

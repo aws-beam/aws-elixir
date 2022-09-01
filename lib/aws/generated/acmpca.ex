@@ -71,7 +71,9 @@ defmodule AWS.ACMPCA do
   [Access policies for CRLs in Amazon S3](https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies).
   """
   def create_certificate_authority(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCertificateAuthority", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCertificateAuthority", input, options)
   end
 
   @doc """
@@ -93,13 +95,9 @@ defmodule AWS.ACMPCA do
   You can generate a maximum of one report every 30 minutes.
   """
   def create_certificate_authority_audit_report(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "CreateCertificateAuthorityAuditReport",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCertificateAuthorityAuditReport", input, options)
   end
 
   @doc """
@@ -130,7 +128,9 @@ defmodule AWS.ACMPCA do
   CA](https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html).
   """
   def create_permission(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreatePermission", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePermission", input, options)
   end
 
   @doc """
@@ -165,7 +165,9 @@ defmodule AWS.ACMPCA do
   action.
   """
   def delete_certificate_authority(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCertificateAuthority", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCertificateAuthority", input, options)
   end
 
   @doc """
@@ -197,7 +199,9 @@ defmodule AWS.ACMPCA do
   CA](https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html).
   """
   def delete_permission(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeletePermission", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePermission", input, options)
   end
 
   @doc """
@@ -237,7 +241,9 @@ defmodule AWS.ACMPCA do
   Access](https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html).
   """
   def delete_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeletePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePolicy", input, options)
   end
 
   @doc """
@@ -270,7 +276,9 @@ defmodule AWS.ACMPCA do
   restoration period is also included in this action's output.
   """
   def describe_certificate_authority(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeCertificateAuthority", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCertificateAuthority", input, options)
   end
 
   @doc """
@@ -285,13 +293,9 @@ defmodule AWS.ACMPCA do
   action.
   """
   def describe_certificate_authority_audit_report(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeCertificateAuthorityAuditReport",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCertificateAuthorityAuditReport", input, options)
   end
 
   @doc """
@@ -307,7 +311,9 @@ defmodule AWS.ACMPCA do
   certificates issued and revoked by your private CA.
   """
   def get_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCertificate", input, options)
   end
 
   @doc """
@@ -319,7 +325,9 @@ defmodule AWS.ACMPCA do
   it.
   """
   def get_certificate_authority_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCertificateAuthorityCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCertificateAuthorityCertificate", input, options)
   end
 
   @doc """
@@ -334,7 +342,9 @@ defmodule AWS.ACMPCA do
   action. The CSR is returned as a base64 PEM-encoded string.
   """
   def get_certificate_authority_csr(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCertificateAuthorityCsr", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCertificateAuthorityCsr", input, options)
   end
 
   @doc """
@@ -367,7 +377,9 @@ defmodule AWS.ACMPCA do
   Access](https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html).
   """
   def get_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetPolicy", input, options)
   end
 
   @doc """
@@ -466,13 +478,9 @@ defmodule AWS.ACMPCA do
     * Any other extension
   """
   def import_certificate_authority_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ImportCertificateAuthorityCertificate",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportCertificateAuthorityCertificate", input, options)
   end
 
   @doc """
@@ -488,7 +496,9 @@ defmodule AWS.ACMPCA do
   ARNs of the certificates that you issue by using ACM Private CA.
   """
   def issue_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "IssueCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "IssueCertificate", input, options)
   end
 
   @doc """
@@ -497,7 +507,9 @@ defmodule AWS.ACMPCA do
   action.
   """
   def list_certificate_authorities(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListCertificateAuthorities", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCertificateAuthorities", input, options)
   end
 
   @doc """
@@ -528,7 +540,9 @@ defmodule AWS.ACMPCA do
   CA](https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html).
   """
   def list_permissions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPermissions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPermissions", input, options)
   end
 
   @doc """
@@ -542,7 +556,9 @@ defmodule AWS.ACMPCA do
   action to remove tags.
   """
   def list_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTags", input, options)
   end
 
   @doc """
@@ -576,7 +592,9 @@ defmodule AWS.ACMPCA do
   Access](https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html).
   """
   def put_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutPolicy", input, options)
   end
 
   @doc """
@@ -601,7 +619,9 @@ defmodule AWS.ACMPCA do
   activated. You cannot restore a CA after the restoration period has ended.
   """
   def restore_certificate_authority(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RestoreCertificateAuthority", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RestoreCertificateAuthority", input, options)
   end
 
   @doc """
@@ -628,7 +648,9 @@ defmodule AWS.ACMPCA do
   You cannot revoke a root CA self-signed certificate.
   """
   def revoke_certificate(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RevokeCertificate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RevokeCertificate", input, options)
   end
 
   @doc """
@@ -646,7 +668,9 @@ defmodule AWS.ACMPCA do
   action to see what tags are associated with your CA.
   """
   def tag_certificate_authority(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagCertificateAuthority", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagCertificateAuthority", input, options)
   end
 
   @doc """
@@ -661,7 +685,9 @@ defmodule AWS.ACMPCA do
   action to see what tags are associated with your CA.
   """
   def untag_certificate_authority(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagCertificateAuthority", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagCertificateAuthority", input, options)
   end
 
   @doc """
@@ -677,6 +703,8 @@ defmodule AWS.ACMPCA do
   [Access policies for CRLs in Amazon S3](https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies).
   """
   def update_certificate_authority(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateCertificateAuthority", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCertificateAuthority", input, options)
   end
 end

@@ -45,7 +45,9 @@ defmodule AWS.ElasticBeanstalk do
   deployment.
   """
   def abort_environment_update(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AbortEnvironmentUpdate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AbortEnvironmentUpdate", input, options)
   end
 
   @doc """
@@ -56,7 +58,9 @@ defmodule AWS.ElasticBeanstalk do
   `DescribeEnvironmentManagedActions`.
   """
   def apply_environment_managed_action(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ApplyEnvironmentManagedAction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ApplyEnvironmentManagedAction", input, options)
   end
 
   @doc """
@@ -68,14 +72,18 @@ defmodule AWS.ElasticBeanstalk do
   in the *AWS Elastic Beanstalk Developer Guide*.
   """
   def associate_environment_operations_role(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateEnvironmentOperationsRole", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateEnvironmentOperationsRole", input, options)
   end
 
   @doc """
   Checks if the specified CNAME is available.
   """
   def check_dns_availability(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CheckDNSAvailability", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CheckDNSAvailability", input, options)
   end
 
   @doc """
@@ -89,7 +97,9 @@ defmodule AWS.ElasticBeanstalk do
   for details.
   """
   def compose_environments(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ComposeEnvironments", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ComposeEnvironments", input, options)
   end
 
   @doc """
@@ -97,7 +107,9 @@ defmodule AWS.ElasticBeanstalk do
   no application versions.
   """
   def create_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateApplication", input, options)
   end
 
   @doc """
@@ -122,7 +134,9 @@ defmodule AWS.ElasticBeanstalk do
   from the application version.
   """
   def create_application_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateApplicationVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateApplicationVersion", input, options)
   end
 
   @doc """
@@ -145,7 +159,9 @@ defmodule AWS.ElasticBeanstalk do
     * `ListAvailableSolutionStacks`
   """
   def create_configuration_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateConfigurationTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateConfigurationTemplate", input, options)
   end
 
   @doc """
@@ -153,14 +169,18 @@ defmodule AWS.ElasticBeanstalk do
   using the specified configuration.
   """
   def create_environment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateEnvironment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEnvironment", input, options)
   end
 
   @doc """
   Create a new version of your custom platform.
   """
   def create_platform_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreatePlatformVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePlatformVersion", input, options)
   end
 
   @doc """
@@ -173,7 +193,9 @@ defmodule AWS.ElasticBeanstalk do
   bucket.
   """
   def create_storage_location(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateStorageLocation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateStorageLocation", input, options)
   end
 
   @doc """
@@ -185,7 +207,9 @@ defmodule AWS.ElasticBeanstalk do
   You cannot delete an application that has a running environment.
   """
   def delete_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteApplication", input, options)
   end
 
   @doc """
@@ -195,7 +219,9 @@ defmodule AWS.ElasticBeanstalk do
   environment.
   """
   def delete_application_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteApplicationVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteApplicationVersion", input, options)
   end
 
   @doc """
@@ -206,7 +232,9 @@ defmodule AWS.ElasticBeanstalk do
   the template without affecting the running environment.
   """
   def delete_configuration_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteConfigurationTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteConfigurationTemplate", input, options)
   end
 
   @doc """
@@ -220,14 +248,18 @@ defmodule AWS.ElasticBeanstalk do
   existence until it is deleted with this action.
   """
   def delete_environment_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEnvironmentConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEnvironmentConfiguration", input, options)
   end
 
   @doc """
   Deletes the specified version of a custom platform.
   """
   def delete_platform_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeletePlatformVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePlatformVersion", input, options)
   end
 
   @doc """
@@ -237,21 +269,27 @@ defmodule AWS.ElasticBeanstalk do
   The result currently has one set of attributes—resource quotas.
   """
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAccountAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
   end
 
   @doc """
   Retrieve a list of application versions.
   """
   def describe_application_versions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeApplicationVersions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeApplicationVersions", input, options)
   end
 
   @doc """
   Returns the descriptions of existing applications.
   """
   def describe_applications(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeApplications", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeApplications", input, options)
   end
 
   @doc """
@@ -263,7 +301,9 @@ defmodule AWS.ElasticBeanstalk do
   changed.
   """
   def describe_configuration_options(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeConfigurationOptions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConfigurationOptions", input, options)
   end
 
   @doc """
@@ -282,7 +322,9 @@ defmodule AWS.ElasticBeanstalk do
     * `DeleteEnvironmentConfiguration`
   """
   def describe_configuration_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeConfigurationSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConfigurationSettings", input, options)
   end
 
   @doc """
@@ -292,41 +334,45 @@ defmodule AWS.ElasticBeanstalk do
   Beanstalk Enhanced Health.
   """
   def describe_environment_health(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEnvironmentHealth", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEnvironmentHealth", input, options)
   end
 
   @doc """
   Lists an environment's completed and failed managed actions.
   """
   def describe_environment_managed_action_history(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeEnvironmentManagedActionHistory",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEnvironmentManagedActionHistory", input, options)
   end
 
   @doc """
   Lists an environment's upcoming and in-progress managed actions.
   """
   def describe_environment_managed_actions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEnvironmentManagedActions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEnvironmentManagedActions", input, options)
   end
 
   @doc """
   Returns AWS resources for this environment.
   """
   def describe_environment_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEnvironmentResources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEnvironmentResources", input, options)
   end
 
   @doc """
   Returns descriptions for existing environments.
   """
   def describe_environments(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEnvironments", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEnvironments", input, options)
   end
 
   @doc """
@@ -335,7 +381,9 @@ defmodule AWS.ElasticBeanstalk do
   This action returns the most recent 1,000 events from the specified `NextToken`.
   """
   def describe_events(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEvents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEvents", input, options)
   end
 
   @doc """
@@ -345,7 +393,9 @@ defmodule AWS.ElasticBeanstalk do
   This operation requires [enhanced health reporting](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html).
   """
   def describe_instances_health(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeInstancesHealth", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInstancesHealth", input, options)
   end
 
   @doc """
@@ -358,7 +408,9 @@ defmodule AWS.ElasticBeanstalk do
   Glossary](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html).
   """
   def describe_platform_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePlatformVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePlatformVersion", input, options)
   end
 
   @doc """
@@ -370,13 +422,9 @@ defmodule AWS.ElasticBeanstalk do
   in the *AWS Elastic Beanstalk Developer Guide*.
   """
   def disassociate_environment_operations_role(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DisassociateEnvironmentOperationsRole",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateEnvironmentOperationsRole", input, options)
   end
 
   @doc """
@@ -384,7 +432,9 @@ defmodule AWS.ElasticBeanstalk do
   first and then in reverse chronological order.
   """
   def list_available_solution_stacks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListAvailableSolutionStacks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAvailableSolutionStacks", input, options)
   end
 
   @doc """
@@ -396,7 +446,9 @@ defmodule AWS.ElasticBeanstalk do
   Glossary](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html).
   """
   def list_platform_branches(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPlatformBranches", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPlatformBranches", input, options)
   end
 
   @doc """
@@ -410,7 +462,9 @@ defmodule AWS.ElasticBeanstalk do
   Glossary](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html).
   """
   def list_platform_versions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPlatformVersions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPlatformVersions", input, options)
   end
 
   @doc """
@@ -422,7 +476,9 @@ defmodule AWS.ElasticBeanstalk do
   resource tagging, see [Tagging Application Resources](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-tagging-resources.html).
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -430,7 +486,9 @@ defmodule AWS.ElasticBeanstalk do
   group, load balancer, etc.) for a specified environment and forces a restart.
   """
   def rebuild_environment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RebuildEnvironment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RebuildEnvironment", input, options)
   end
 
   @doc """
@@ -451,7 +509,9 @@ defmodule AWS.ElasticBeanstalk do
     * `RetrieveEnvironmentInfo`
   """
   def request_environment_info(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RequestEnvironmentInfo", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RequestEnvironmentInfo", input, options)
   end
 
   @doc """
@@ -459,7 +519,9 @@ defmodule AWS.ElasticBeanstalk do
   each Amazon EC2 instance.
   """
   def restart_app_server(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RestartAppServer", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RestartAppServer", input, options)
   end
 
   @doc """
@@ -470,21 +532,27 @@ defmodule AWS.ElasticBeanstalk do
     * `RequestEnvironmentInfo`
   """
   def retrieve_environment_info(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RetrieveEnvironmentInfo", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RetrieveEnvironmentInfo", input, options)
   end
 
   @doc """
   Swaps the CNAMEs of two environments.
   """
   def swap_environment_cnames(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SwapEnvironmentCNAMEs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SwapEnvironmentCNAMEs", input, options)
   end
 
   @doc """
   Terminates the specified environment.
   """
   def terminate_environment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TerminateEnvironment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TerminateEnvironment", input, options)
   end
 
   @doc """
@@ -494,14 +562,18 @@ defmodule AWS.ElasticBeanstalk do
   unchanged. To clear these properties, specify an empty string.
   """
   def update_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateApplication", input, options)
   end
 
   @doc """
   Modifies lifecycle settings for an application.
   """
   def update_application_resource_lifecycle(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateApplicationResourceLifecycle", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateApplicationResourceLifecycle", input, options)
   end
 
   @doc """
@@ -511,7 +583,9 @@ defmodule AWS.ElasticBeanstalk do
   unchanged. To clear properties, specify an empty string.
   """
   def update_application_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateApplicationVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateApplicationVersion", input, options)
   end
 
   @doc """
@@ -526,7 +600,9 @@ defmodule AWS.ElasticBeanstalk do
     * `DescribeConfigurationOptions`
   """
   def update_configuration_template(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateConfigurationTemplate", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateConfigurationTemplate", input, options)
   end
 
   @doc """
@@ -543,7 +619,9 @@ defmodule AWS.ElasticBeanstalk do
   `DeploymentStatus` values.
   """
   def update_environment(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateEnvironment", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateEnvironment", input, options)
   end
 
   @doc """
@@ -574,7 +652,9 @@ defmodule AWS.ElasticBeanstalk do
   For details about creating a custom user policy, see [Creating a Custom User Policy](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#AWSHowTo.iam.policies).
   """
   def update_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateTagsForResource", input, options)
   end
 
   @doc """
@@ -585,6 +665,8 @@ defmodule AWS.ElasticBeanstalk do
   associated with the selection of option values.
   """
   def validate_configuration_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ValidateConfigurationSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ValidateConfigurationSettings", input, options)
   end
 end

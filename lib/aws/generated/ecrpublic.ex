@@ -48,7 +48,9 @@ defmodule AWS.ECRPUBLIC do
   `docker` CLI to pull, tag, and push images.
   """
   def batch_check_layer_availability(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchCheckLayerAvailability", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchCheckLayerAvailability", input, options)
   end
 
   @doc """
@@ -64,7 +66,9 @@ defmodule AWS.ECRPUBLIC do
   image's digest in your request.
   """
   def batch_delete_image(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BatchDeleteImage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchDeleteImage", input, options)
   end
 
   @doc """
@@ -82,7 +86,9 @@ defmodule AWS.ECRPUBLIC do
   `docker` CLI to pull, tag, and push images.
   """
   def complete_layer_upload(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CompleteLayerUpload", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CompleteLayerUpload", input, options)
   end
 
   @doc """
@@ -92,7 +98,9 @@ defmodule AWS.ECRPUBLIC do
   in the *Amazon Elastic Container Registry User Guide*.
   """
   def create_repository(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateRepository", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRepository", input, options)
   end
 
   @doc """
@@ -103,21 +111,27 @@ defmodule AWS.ECRPUBLIC do
   before deleting the repository.
   """
   def delete_repository(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteRepository", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRepository", input, options)
   end
 
   @doc """
   Deletes the repository policy associated with the specified repository.
   """
   def delete_repository_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteRepositoryPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRepositoryPolicy", input, options)
   end
 
   @doc """
   Returns the image tag details for a repository in a public registry.
   """
   def describe_image_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeImageTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeImageTags", input, options)
   end
 
   @doc """
@@ -129,21 +143,27 @@ defmodule AWS.ECRPUBLIC do
   than the image sizes returned by `DescribeImages`.
   """
   def describe_images(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeImages", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeImages", input, options)
   end
 
   @doc """
   Returns details for a public registry.
   """
   def describe_registries(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRegistries", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRegistries", input, options)
   end
 
   @doc """
   Describes repositories in a public registry.
   """
   def describe_repositories(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRepositories", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRepositories", input, options)
   end
 
   @doc """
@@ -155,14 +175,18 @@ defmodule AWS.ECRPUBLIC do
   `ecr-public:GetAuthorizationToken` and `sts:GetServiceBearerToken` permissions.
   """
   def get_authorization_token(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAuthorizationToken", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAuthorizationToken", input, options)
   end
 
   @doc """
   Retrieves catalog metadata for a public registry.
   """
   def get_registry_catalog_data(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRegistryCatalogData", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRegistryCatalogData", input, options)
   end
 
   @doc """
@@ -171,14 +195,18 @@ defmodule AWS.ECRPUBLIC do
   This metadata is displayed publicly in the Amazon ECR Public Gallery.
   """
   def get_repository_catalog_data(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRepositoryCatalogData", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRepositoryCatalogData", input, options)
   end
 
   @doc """
   Retrieves the repository policy for the specified repository.
   """
   def get_repository_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRepositoryPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRepositoryPolicy", input, options)
   end
 
   @doc """
@@ -193,14 +221,18 @@ defmodule AWS.ECRPUBLIC do
   `docker` CLI to pull, tag, and push images.
   """
   def initiate_layer_upload(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "InitiateLayerUpload", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "InitiateLayerUpload", input, options)
   end
 
   @doc """
   List the tags for an Amazon ECR Public resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -215,21 +247,27 @@ defmodule AWS.ECRPUBLIC do
   `docker` CLI to pull, tag, and push images.
   """
   def put_image(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutImage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutImage", input, options)
   end
 
   @doc """
   Create or updates the catalog data for a public registry.
   """
   def put_registry_catalog_data(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutRegistryCatalogData", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutRegistryCatalogData", input, options)
   end
 
   @doc """
   Creates or updates the catalog data for a repository in a public registry.
   """
   def put_repository_catalog_data(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutRepositoryCatalogData", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutRepositoryCatalogData", input, options)
   end
 
   @doc """
@@ -240,7 +278,9 @@ defmodule AWS.ECRPUBLIC do
   in the *Amazon Elastic Container Registry User Guide*.
   """
   def set_repository_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SetRepositoryPolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetRepositoryPolicy", input, options)
   end
 
   @doc """
@@ -251,14 +291,18 @@ defmodule AWS.ECRPUBLIC do
   resource are deleted as well.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Deletes specified tags from a resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -273,6 +317,8 @@ defmodule AWS.ECRPUBLIC do
   `docker` CLI to pull, tag, and push images.
   """
   def upload_layer_part(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UploadLayerPart", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UploadLayerPart", input, options)
   end
 end

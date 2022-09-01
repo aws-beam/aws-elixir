@@ -100,7 +100,9 @@ defmodule AWS.Route53RecoveryCluster do
     * [Working with routing controls in Route 53 ARC](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html)
   """
   def get_routing_control_state(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRoutingControlState", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRoutingControlState", input, options)
   end
 
   @doc """
@@ -133,7 +135,9 @@ defmodule AWS.Route53RecoveryCluster do
     * [Working with routing controls in Route 53 ARC](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html)
   """
   def list_routing_controls(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListRoutingControls", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRoutingControls", input, options)
   end
 
   @doc """
@@ -169,7 +173,9 @@ defmodule AWS.Route53RecoveryCluster do
     * [Working with routing controls overall](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html)
   """
   def update_routing_control_state(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateRoutingControlState", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateRoutingControlState", input, options)
   end
 
   @doc """
@@ -205,6 +211,8 @@ defmodule AWS.Route53RecoveryCluster do
     * [Working with routing controls overall](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html)
   """
   def update_routing_control_states(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateRoutingControlStates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateRoutingControlStates", input, options)
   end
 end

@@ -52,7 +52,9 @@ defmodule AWS.TimestreamWrite do
   for details.
   """
   def create_database(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDatabase", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDatabase", input, options)
   end
 
   @doc """
@@ -68,7 +70,9 @@ defmodule AWS.TimestreamWrite do
   for details.
   """
   def create_table(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateTable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTable", input, options)
   end
 
   @doc """
@@ -87,7 +91,9 @@ defmodule AWS.TimestreamWrite do
   for details.
   """
   def delete_database(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDatabase", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDatabase", input, options)
   end
 
   @doc """
@@ -103,7 +109,9 @@ defmodule AWS.TimestreamWrite do
   for details.
   """
   def delete_table(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteTable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTable", input, options)
   end
 
   @doc """
@@ -116,7 +124,9 @@ defmodule AWS.TimestreamWrite do
   for details.
   """
   def describe_database(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDatabase", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDatabase", input, options)
   end
 
   @doc """
@@ -141,7 +151,9 @@ defmodule AWS.TimestreamWrite do
   see [The Endpoint Discovery Pattern](https://docs.aws.amazon.com/timestream/latest/developerguide/Using.API.html#Using-API.endpoint-discovery).
   """
   def describe_endpoints(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEndpoints", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEndpoints", input, options)
   end
 
   @doc """
@@ -153,7 +165,9 @@ defmodule AWS.TimestreamWrite do
   for details.
   """
   def describe_table(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTable", input, options)
   end
 
   @doc """
@@ -164,7 +178,9 @@ defmodule AWS.TimestreamWrite do
   for details.
   """
   def list_databases(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDatabases", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDatabases", input, options)
   end
 
   @doc """
@@ -175,14 +191,18 @@ defmodule AWS.TimestreamWrite do
   for details.
   """
   def list_tables(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTables", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTables", input, options)
   end
 
   @doc """
   List all tags on a Timestream resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -192,14 +212,18 @@ defmodule AWS.TimestreamWrite do
   and Cost Management console for cost allocation tracking.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes the association of tags from a Timestream resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -213,7 +237,9 @@ defmodule AWS.TimestreamWrite do
   for details.
   """
   def update_database(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateDatabase", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDatabase", input, options)
   end
 
   @doc """
@@ -231,7 +257,9 @@ defmodule AWS.TimestreamWrite do
   for details.
   """
   def update_table(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateTable", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateTable", input, options)
   end
 
   @doc """
@@ -279,6 +307,8 @@ defmodule AWS.TimestreamWrite do
   `3`, or the update requests would receive a `RejectedRecordsException`.
   """
   def write_records(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "WriteRecords", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "WriteRecords", input, options)
   end
 end

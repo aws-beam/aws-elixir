@@ -64,7 +64,9 @@ defmodule AWS.SFN do
   even if they are different.
   """
   def create_activity(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateActivity", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateActivity", input, options)
   end
 
   @doc """
@@ -89,14 +91,18 @@ defmodule AWS.SFN do
   `tags` will not be updated, even if they are different.
   """
   def create_state_machine(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateStateMachine", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateStateMachine", input, options)
   end
 
   @doc """
   Deletes an activity.
   """
   def delete_activity(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteActivity", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteActivity", input, options)
   end
 
   @doc """
@@ -110,7 +116,9 @@ defmodule AWS.SFN do
   is called.
   """
   def delete_state_machine(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteStateMachine", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteStateMachine", input, options)
   end
 
   @doc """
@@ -120,7 +128,9 @@ defmodule AWS.SFN do
   reflect very recent updates and changes.
   """
   def describe_activity(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeActivity", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeActivity", input, options)
   end
 
   @doc """
@@ -132,7 +142,9 @@ defmodule AWS.SFN do
   This API action is not supported by `EXPRESS` state machines.
   """
   def describe_execution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeExecution", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeExecution", input, options)
   end
 
   @doc """
@@ -142,7 +154,9 @@ defmodule AWS.SFN do
   reflect very recent updates and changes.
   """
   def describe_state_machine(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStateMachine", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStateMachine", input, options)
   end
 
   @doc """
@@ -154,7 +168,9 @@ defmodule AWS.SFN do
   This API action is not supported by `EXPRESS` state machines.
   """
   def describe_state_machine_for_execution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStateMachineForExecution", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStateMachineForExecution", input, options)
   end
 
   @doc """
@@ -175,7 +191,9 @@ defmodule AWS.SFN do
   in the Step Functions Developer Guide.
   """
   def get_activity_task(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetActivityTask", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetActivityTask", input, options)
   end
 
   @doc """
@@ -193,7 +211,9 @@ defmodule AWS.SFN do
   This API action is not supported by `EXPRESS` state machines.
   """
   def get_execution_history(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetExecutionHistory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetExecutionHistory", input, options)
   end
 
   @doc """
@@ -209,7 +229,9 @@ defmodule AWS.SFN do
   reflect very recent updates and changes.
   """
   def list_activities(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListActivities", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListActivities", input, options)
   end
 
   @doc """
@@ -229,7 +251,9 @@ defmodule AWS.SFN do
   This API action is not supported by `EXPRESS` state machines.
   """
   def list_executions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListExecutions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListExecutions", input, options)
   end
 
   @doc """
@@ -245,7 +269,9 @@ defmodule AWS.SFN do
   reflect very recent updates and changes.
   """
   def list_state_machines(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListStateMachines", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStateMachines", input, options)
   end
 
   @doc """
@@ -255,7 +281,9 @@ defmodule AWS.SFN do
   . : / = + - @`.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -264,7 +292,9 @@ defmodule AWS.SFN do
   pattern to report that the task identified by the `taskToken` failed.
   """
   def send_task_failure(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SendTaskFailure", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendTaskFailure", input, options)
   end
 
   @doc """
@@ -289,7 +319,9 @@ defmodule AWS.SFN do
   timeout interval for heartbeats.
   """
   def send_task_heartbeat(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SendTaskHeartbeat", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendTaskHeartbeat", input, options)
   end
 
   @doc """
@@ -299,7 +331,9 @@ defmodule AWS.SFN do
   successfully.
   """
   def send_task_success(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SendTaskSuccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendTaskSuccess", input, options)
   end
 
   @doc """
@@ -312,14 +346,18 @@ defmodule AWS.SFN do
   reused after 90 days.
   """
   def start_execution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartExecution", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartExecution", input, options)
   end
 
   @doc """
   Starts a Synchronous Express state machine execution.
   """
   def start_sync_execution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartSyncExecution", input, options)
+    meta = metadata() |> Map.put_new(:host_prefix, "sync-")
+
+    Request.request_post(client, meta, "StartSyncExecution", input, options)
   end
 
   @doc """
@@ -328,7 +366,9 @@ defmodule AWS.SFN do
   This API action is not supported by `EXPRESS` state machines.
   """
   def stop_execution(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopExecution", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopExecution", input, options)
   end
 
   @doc """
@@ -342,14 +382,18 @@ defmodule AWS.SFN do
   . : / = + - @`.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Remove a tag from a Step Functions resource
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -366,6 +410,8 @@ defmodule AWS.SFN do
   `roleArn`.
   """
   def update_state_machine(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateStateMachine", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateStateMachine", input, options)
   end
 end

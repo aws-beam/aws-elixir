@@ -83,13 +83,9 @@ defmodule AWS.Health do
   next request to return more results.
   """
   def describe_affected_accounts_for_organization(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeAffectedAccountsForOrganization",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAffectedAccountsForOrganization", input, options)
   end
 
   @doc """
@@ -112,7 +108,9 @@ defmodule AWS.Health do
   in the *Health User Guide*.
   """
   def describe_affected_entities(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAffectedEntities", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAffectedEntities", input, options)
   end
 
   @doc """
@@ -139,13 +137,9 @@ defmodule AWS.Health do
   in the *Health User Guide*.
   """
   def describe_affected_entities_for_organization(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeAffectedEntitiesForOrganization",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAffectedEntitiesForOrganization", input, options)
   end
 
   @doc """
@@ -153,7 +147,9 @@ defmodule AWS.Health do
   events.
   """
   def describe_entity_aggregates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEntityAggregates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEntityAggregates", input, options)
   end
 
   @doc """
@@ -167,7 +163,9 @@ defmodule AWS.Health do
   next request to return more results.
   """
   def describe_event_aggregates(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEventAggregates", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEventAggregates", input, options)
   end
 
   @doc """
@@ -190,7 +188,9 @@ defmodule AWS.Health do
   in the *Health User Guide*.
   """
   def describe_event_details(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEventDetails", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEventDetails", input, options)
   end
 
   @doc """
@@ -230,13 +230,9 @@ defmodule AWS.Health do
   in the *Health User Guide*.
   """
   def describe_event_details_for_organization(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeEventDetailsForOrganization",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEventDetailsForOrganization", input, options)
   end
 
   @doc """
@@ -255,7 +251,9 @@ defmodule AWS.Health do
   next request to return more results.
   """
   def describe_event_types(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEventTypes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEventTypes", input, options)
   end
 
   @doc """
@@ -284,7 +282,9 @@ defmodule AWS.Health do
   parameter in the next request to return more results.
   """
   def describe_events(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEvents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEvents", input, options)
   end
 
   @doc """
@@ -319,7 +319,9 @@ defmodule AWS.Health do
   next request to return more results.
   """
   def describe_events_for_organization(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEventsForOrganization", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEventsForOrganization", input, options)
   end
 
   @doc """
@@ -331,9 +333,11 @@ defmodule AWS.Health do
   account.
   """
   def describe_health_service_status_for_organization(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "DescribeHealthServiceStatusForOrganization",
       input,
       options
@@ -363,9 +367,11 @@ defmodule AWS.Health do
   continues to aggregate health events for your Amazon Web Services account.
   """
   def disable_health_service_access_for_organization(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "DisableHealthServiceAccessForOrganization",
       input,
       options
@@ -399,12 +405,8 @@ defmodule AWS.Health do
   the *Health User Guide*.
   """
   def enable_health_service_access_for_organization(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "EnableHealthServiceAccessForOrganization",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableHealthServiceAccessForOrganization", input, options)
   end
 end

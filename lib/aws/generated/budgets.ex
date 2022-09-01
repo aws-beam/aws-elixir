@@ -79,14 +79,18 @@ defmodule AWS.Budgets do
   section.
   """
   def create_budget(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateBudget", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateBudget", input, options)
   end
 
   @doc """
   Creates a budget action.
   """
   def create_budget_action(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateBudgetAction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateBudgetAction", input, options)
   end
 
   @doc """
@@ -95,7 +99,9 @@ defmodule AWS.Budgets do
   You must create the budget before you create the associated notification.
   """
   def create_notification(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateNotification", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateNotification", input, options)
   end
 
   @doc """
@@ -105,7 +111,9 @@ defmodule AWS.Budgets do
   subscriber.
   """
   def create_subscriber(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateSubscriber", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSubscriber", input, options)
   end
 
   @doc """
@@ -117,14 +125,18 @@ defmodule AWS.Budgets do
   associated with that budget.
   """
   def delete_budget(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteBudget", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteBudget", input, options)
   end
 
   @doc """
   Deletes a budget action.
   """
   def delete_budget_action(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteBudgetAction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteBudgetAction", input, options)
   end
 
   @doc """
@@ -134,7 +146,9 @@ defmodule AWS.Budgets do
   the notification.
   """
   def delete_notification(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteNotification", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteNotification", input, options)
   end
 
   @doc """
@@ -143,7 +157,9 @@ defmodule AWS.Budgets do
   Deleting the last subscriber to a notification also deletes the notification.
   """
   def delete_subscriber(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSubscriber", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSubscriber", input, options)
   end
 
   @doc """
@@ -155,48 +171,54 @@ defmodule AWS.Budgets do
   section.
   """
   def describe_budget(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeBudget", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBudget", input, options)
   end
 
   @doc """
   Describes a budget action detail.
   """
   def describe_budget_action(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeBudgetAction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBudgetAction", input, options)
   end
 
   @doc """
   Describes a budget action history detail.
   """
   def describe_budget_action_histories(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeBudgetActionHistories", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBudgetActionHistories", input, options)
   end
 
   @doc """
   Describes all of the budget actions for an account.
   """
   def describe_budget_actions_for_account(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeBudgetActionsForAccount", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBudgetActionsForAccount", input, options)
   end
 
   @doc """
   Describes all of the budget actions for a budget.
   """
   def describe_budget_actions_for_budget(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeBudgetActionsForBudget", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBudgetActionsForBudget", input, options)
   end
 
   @doc """
   Lists the budget names and notifications that are associated with an account.
   """
   def describe_budget_notifications_for_account(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DescribeBudgetNotificationsForAccount",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBudgetNotificationsForAccount", input, options)
   end
 
   @doc """
@@ -205,7 +227,9 @@ defmodule AWS.Budgets do
   Budget history isn't available for `ANNUAL` budgets.
   """
   def describe_budget_performance_history(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeBudgetPerformanceHistory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBudgetPerformanceHistory", input, options)
   end
 
   @doc """
@@ -217,28 +241,36 @@ defmodule AWS.Budgets do
   section.
   """
   def describe_budgets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeBudgets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBudgets", input, options)
   end
 
   @doc """
   Lists the notifications that are associated with a budget.
   """
   def describe_notifications_for_budget(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeNotificationsForBudget", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeNotificationsForBudget", input, options)
   end
 
   @doc """
   Lists the subscribers that are associated with a notification.
   """
   def describe_subscribers_for_notification(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSubscribersForNotification", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSubscribersForNotification", input, options)
   end
 
   @doc """
   Executes a budget action.
   """
   def execute_budget_action(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ExecuteBudgetAction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExecuteBudgetAction", input, options)
   end
 
   @doc """
@@ -255,27 +287,35 @@ defmodule AWS.Budgets do
   section.
   """
   def update_budget(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateBudget", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateBudget", input, options)
   end
 
   @doc """
   Updates a budget action.
   """
   def update_budget_action(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateBudgetAction", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateBudgetAction", input, options)
   end
 
   @doc """
   Updates a notification.
   """
   def update_notification(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateNotification", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateNotification", input, options)
   end
 
   @doc """
   Updates a subscriber.
   """
   def update_subscriber(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateSubscriber", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSubscriber", input, options)
   end
 end

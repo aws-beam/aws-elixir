@@ -50,14 +50,18 @@ defmodule AWS.EventBridge do
   event source.
   """
   def activate_event_source(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ActivateEventSource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ActivateEventSource", input, options)
   end
 
   @doc """
   Cancels the specified replay.
   """
   def cancel_replay(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelReplay", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelReplay", input, options)
   end
 
   @doc """
@@ -65,7 +69,9 @@ defmodule AWS.EventBridge do
   target for events.
   """
   def create_api_destination(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateApiDestination", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateApiDestination", input, options)
   end
 
   @doc """
@@ -78,7 +84,9 @@ defmodule AWS.EventBridge do
   an archive.
   """
   def create_archive(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateArchive", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateArchive", input, options)
   end
 
   @doc """
@@ -88,7 +96,9 @@ defmodule AWS.EventBridge do
   authorization with an API destination HTTP endpoint.
   """
   def create_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateConnection", input, options)
   end
 
   @doc """
@@ -102,7 +112,9 @@ defmodule AWS.EventBridge do
   Region when the health check reports a "healthy" state.
   """
   def create_endpoint(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateEndpoint", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEndpoint", input, options)
   end
 
   @doc """
@@ -113,7 +125,9 @@ defmodule AWS.EventBridge do
   matched to a partner event source.
   """
   def create_event_bus(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateEventBus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEventBus", input, options)
   end
 
   @doc """
@@ -146,7 +160,9 @@ defmodule AWS.EventBridge do
   an event bus to receive these events.
   """
   def create_partner_event_source(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreatePartnerEventSource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePartnerEventSource", input, options)
   end
 
   @doc """
@@ -162,7 +178,9 @@ defmodule AWS.EventBridge do
   [ActivateEventSource](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ActivateEventSource.html).
   """
   def deactivate_event_source(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeactivateEventSource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeactivateEventSource", input, options)
   end
 
   @doc """
@@ -172,28 +190,36 @@ defmodule AWS.EventBridge do
   having to create a new connection.
   """
   def deauthorize_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeauthorizeConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeauthorizeConnection", input, options)
   end
 
   @doc """
   Deletes the specified API destination.
   """
   def delete_api_destination(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteApiDestination", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteApiDestination", input, options)
   end
 
   @doc """
   Deletes the specified archive.
   """
   def delete_archive(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteArchive", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteArchive", input, options)
   end
 
   @doc """
   Deletes a connection.
   """
   def delete_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteConnection", input, options)
   end
 
   @doc """
@@ -204,7 +230,9 @@ defmodule AWS.EventBridge do
   in the Amazon EventBridge User Guide.
   """
   def delete_endpoint(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEndpoint", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEndpoint", input, options)
   end
 
   @doc """
@@ -214,7 +242,9 @@ defmodule AWS.EventBridge do
   your account's default event bus.
   """
   def delete_event_bus(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEventBus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEventBus", input, options)
   end
 
   @doc """
@@ -226,7 +256,9 @@ defmodule AWS.EventBridge do
   bus in the Amazon Web Services customer account becomes DELETED.
   """
   def delete_partner_event_source(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeletePartnerEventSource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePartnerEventSource", input, options)
   end
 
   @doc """
@@ -249,28 +281,36 @@ defmodule AWS.EventBridge do
   the other service is not still using that rule.
   """
   def delete_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRule", input, options)
   end
 
   @doc """
   Retrieves details about an API destination.
   """
   def describe_api_destination(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeApiDestination", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeApiDestination", input, options)
   end
 
   @doc """
   Retrieves details about an archive.
   """
   def describe_archive(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeArchive", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeArchive", input, options)
   end
 
   @doc """
   Retrieves details about a connection.
   """
   def describe_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConnection", input, options)
   end
 
   @doc """
@@ -281,7 +321,9 @@ defmodule AWS.EventBridge do
   in the Amazon EventBridge User Guide..
   """
   def describe_endpoint(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEndpoint", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEndpoint", input, options)
   end
 
   @doc """
@@ -298,7 +340,9 @@ defmodule AWS.EventBridge do
   [CreateEventBus](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html).
   """
   def describe_event_bus(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEventBus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEventBus", input, options)
   end
 
   @doc """
@@ -306,7 +350,9 @@ defmodule AWS.EventBridge do
   your account.
   """
   def describe_event_source(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEventSource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEventSource", input, options)
   end
 
   @doc """
@@ -319,7 +365,9 @@ defmodule AWS.EventBridge do
   to see details about a partner event source that is shared with them.
   """
   def describe_partner_event_source(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribePartnerEventSource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePartnerEventSource", input, options)
   end
 
   @doc """
@@ -336,7 +384,9 @@ defmodule AWS.EventBridge do
   associated with the last event replayed.
   """
   def describe_replay(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeReplay", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReplay", input, options)
   end
 
   @doc """
@@ -347,7 +397,9 @@ defmodule AWS.EventBridge do
   [ListTargetsByRule](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html).
   """
   def describe_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRule", input, options)
   end
 
   @doc """
@@ -360,7 +412,9 @@ defmodule AWS.EventBridge do
   rule. Allow a short period of time for changes to take effect.
   """
   def disable_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisableRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableRule", input, options)
   end
 
   @doc """
@@ -372,14 +426,18 @@ defmodule AWS.EventBridge do
   a newly enabled rule. Allow a short period of time for changes to take effect.
   """
   def enable_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnableRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableRule", input, options)
   end
 
   @doc """
   Retrieves a list of API destination in the account in the current Region.
   """
   def list_api_destinations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListApiDestinations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListApiDestinations", input, options)
   end
 
   @doc """
@@ -389,14 +447,18 @@ defmodule AWS.EventBridge do
   archive names. Filter parameters are exclusive.
   """
   def list_archives(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListArchives", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListArchives", input, options)
   end
 
   @doc """
   Retrieves a list of connections from the account.
   """
   def list_connections(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListConnections", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListConnections", input, options)
   end
 
   @doc """
@@ -407,7 +469,9 @@ defmodule AWS.EventBridge do
   in the Amazon EventBridge User Guide..
   """
   def list_endpoints(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEndpoints", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEndpoints", input, options)
   end
 
   @doc """
@@ -415,7 +479,9 @@ defmodule AWS.EventBridge do
   custom event buses, and partner event buses.
   """
   def list_event_buses(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEventBuses", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEventBuses", input, options)
   end
 
   @doc """
@@ -426,7 +492,9 @@ defmodule AWS.EventBridge do
   [CreateEventBus](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html).
   """
   def list_event_sources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEventSources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEventSources", input, options)
   end
 
   @doc """
@@ -436,7 +504,9 @@ defmodule AWS.EventBridge do
   This operation is not used by Amazon Web Services customers.
   """
   def list_partner_event_source_accounts(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPartnerEventSourceAccounts", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPartnerEventSourceAccounts", input, options)
   end
 
   @doc """
@@ -446,7 +516,9 @@ defmodule AWS.EventBridge do
   This operation is not used by Amazon Web Services customers.
   """
   def list_partner_event_sources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPartnerEventSources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPartnerEventSources", input, options)
   end
 
   @doc """
@@ -456,7 +528,9 @@ defmodule AWS.EventBridge do
   replay names. Filter parameters are exclusive.
   """
   def list_replays(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListReplays", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListReplays", input, options)
   end
 
   @doc """
@@ -466,7 +540,9 @@ defmodule AWS.EventBridge do
   target in your account.
   """
   def list_rule_names_by_target(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListRuleNamesByTarget", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRuleNamesByTarget", input, options)
   end
 
   @doc """
@@ -480,7 +556,9 @@ defmodule AWS.EventBridge do
   [ListTargetsByRule](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html).
   """
   def list_rules(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListRules", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRules", input, options)
   end
 
   @doc """
@@ -489,14 +567,18 @@ defmodule AWS.EventBridge do
   In EventBridge, rules and event buses can be tagged.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Lists the targets assigned to the specified rule.
   """
   def list_targets_by_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTargetsByRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTargetsByRule", input, options)
   end
 
   @doc """
@@ -505,7 +587,9 @@ defmodule AWS.EventBridge do
   PutEvents will only process nested JSON up to 1100 levels deep.
   """
   def put_events(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutEvents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutEvents", input, options)
   end
 
   @doc """
@@ -514,7 +598,9 @@ defmodule AWS.EventBridge do
   Amazon Web Services customers do not use this operation.
   """
   def put_partner_events(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutPartnerEvents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutPartnerEvents", input, options)
   end
 
   @doc """
@@ -543,7 +629,9 @@ defmodule AWS.EventBridge do
   The permission policy on the event bus cannot exceed 10 KB in size.
   """
   def put_permission(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutPermission", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutPermission", input, options)
   end
 
   @doc """
@@ -605,7 +693,9 @@ defmodule AWS.EventBridge do
   limit. For more information, see [Managing Your Costs with Budgets](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html).
   """
   def put_rule(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutRule", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutRule", input, options)
   end
 
   @doc """
@@ -747,7 +837,9 @@ defmodule AWS.EventBridge do
   in `FailedEntries` provides the ID of the failed target and the error code.
   """
   def put_targets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutTargets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutTargets", input, options)
   end
 
   @doc """
@@ -760,7 +852,9 @@ defmodule AWS.EventBridge do
   [DescribeEventBus](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventBus.html).
   """
   def remove_permission(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemovePermission", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemovePermission", input, options)
   end
 
   @doc """
@@ -781,7 +875,9 @@ defmodule AWS.EventBridge do
   in `FailedEntries` provides the ID of the failed target and the error code.
   """
   def remove_targets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveTargets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveTargets", input, options)
   end
 
   @doc """
@@ -798,7 +894,9 @@ defmodule AWS.EventBridge do
   associated with the last event replayed.
   """
   def start_replay(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartReplay", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartReplay", input, options)
   end
 
   @doc """
@@ -822,7 +920,9 @@ defmodule AWS.EventBridge do
   You can associate as many as 50 tags with a resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -834,7 +934,9 @@ defmodule AWS.EventBridge do
   event patterns so that they match the ARN syntax in the event you want to match.
   """
   def test_event_pattern(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TestEventPattern", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TestEventPattern", input, options)
   end
 
   @doc """
@@ -843,28 +945,36 @@ defmodule AWS.EventBridge do
   In Amazon EventBridge (CloudWatch Events), rules and event buses can be tagged.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
   Updates an API destination.
   """
   def update_api_destination(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateApiDestination", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateApiDestination", input, options)
   end
 
   @doc """
   Updates the specified archive.
   """
   def update_archive(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateArchive", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateArchive", input, options)
   end
 
   @doc """
   Updates settings for a connection.
   """
   def update_connection(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateConnection", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateConnection", input, options)
   end
 
   @doc """
@@ -875,6 +985,8 @@ defmodule AWS.EventBridge do
   in the Amazon EventBridge User Guide..
   """
   def update_endpoint(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateEndpoint", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateEndpoint", input, options)
   end
 end

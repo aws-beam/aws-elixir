@@ -42,27 +42,35 @@ defmodule AWS.CostandUsageReport do
   Deletes the specified report.
   """
   def delete_report_definition(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteReportDefinition", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteReportDefinition", input, options)
   end
 
   @doc """
   Lists the AWS Cost and Usage reports available to this account.
   """
   def describe_report_definitions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeReportDefinitions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReportDefinitions", input, options)
   end
 
   @doc """
   Allows you to programatically update your report preferences.
   """
   def modify_report_definition(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyReportDefinition", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyReportDefinition", input, options)
   end
 
   @doc """
   Creates a new report using the description that you provide.
   """
   def put_report_definition(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutReportDefinition", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutReportDefinition", input, options)
   end
 end

@@ -45,7 +45,9 @@ defmodule AWS.ComputeOptimizer do
   in the *Compute Optimizer User Guide*.
   """
   def delete_recommendation_preferences(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteRecommendationPreferences", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRecommendationPreferences", input, options)
   end
 
   @doc """
@@ -57,7 +59,9 @@ defmodule AWS.ComputeOptimizer do
   your export jobs.
   """
   def describe_recommendation_export_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeRecommendationExportJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRecommendationExportJobs", input, options)
   end
 
   @doc """
@@ -73,13 +77,9 @@ defmodule AWS.ComputeOptimizer do
   Services Region.
   """
   def export_auto_scaling_group_recommendations(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ExportAutoScalingGroupRecommendations",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExportAutoScalingGroupRecommendations", input, options)
   end
 
   @doc """
@@ -95,7 +95,9 @@ defmodule AWS.ComputeOptimizer do
   Services Region.
   """
   def export_ebs_volume_recommendations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ExportEBSVolumeRecommendations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExportEBSVolumeRecommendations", input, options)
   end
 
   @doc """
@@ -111,7 +113,9 @@ defmodule AWS.ComputeOptimizer do
   Services Region.
   """
   def export_ec2_instance_recommendations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ExportEC2InstanceRecommendations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExportEC2InstanceRecommendations", input, options)
   end
 
   @doc """
@@ -127,13 +131,9 @@ defmodule AWS.ComputeOptimizer do
   Services Region.
   """
   def export_lambda_function_recommendations(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ExportLambdaFunctionRecommendations",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExportLambdaFunctionRecommendations", input, options)
   end
 
   @doc """
@@ -145,7 +145,9 @@ defmodule AWS.ComputeOptimizer do
   in the *Compute Optimizer User Guide*.
   """
   def get_auto_scaling_group_recommendations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAutoScalingGroupRecommendations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAutoScalingGroupRecommendations", input, options)
   end
 
   @doc """
@@ -157,7 +159,9 @@ defmodule AWS.ComputeOptimizer do
   in the *Compute Optimizer User Guide*.
   """
   def get_ebs_volume_recommendations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetEBSVolumeRecommendations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEBSVolumeRecommendations", input, options)
   end
 
   @doc """
@@ -169,7 +173,9 @@ defmodule AWS.ComputeOptimizer do
   in the *Compute Optimizer User Guide*.
   """
   def get_ec2_instance_recommendations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetEC2InstanceRecommendations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEC2InstanceRecommendations", input, options)
   end
 
   @doc """
@@ -182,13 +188,9 @@ defmodule AWS.ComputeOptimizer do
   more information, see [Enabling Memory Utilization with the CloudWatch Agent](https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent).
   """
   def get_ec2_recommendation_projected_metrics(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "GetEC2RecommendationProjectedMetrics",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEC2RecommendationProjectedMetrics", input, options)
   end
 
   @doc """
@@ -203,13 +205,9 @@ defmodule AWS.ComputeOptimizer do
   in effect, or `Active`.
   """
   def get_effective_recommendation_preferences(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "GetEffectiveRecommendationPreferences",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEffectiveRecommendationPreferences", input, options)
   end
 
   @doc """
@@ -222,7 +220,9 @@ defmodule AWS.ComputeOptimizer do
   the enrollment status of member accounts of an organization.
   """
   def get_enrollment_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetEnrollmentStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEnrollmentStatus", input, options)
   end
 
   @doc """
@@ -233,13 +233,9 @@ defmodule AWS.ComputeOptimizer do
   `GetEnrollmentStatus` action.
   """
   def get_enrollment_statuses_for_organization(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "GetEnrollmentStatusesForOrganization",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEnrollmentStatusesForOrganization", input, options)
   end
 
   @doc """
@@ -250,7 +246,9 @@ defmodule AWS.ComputeOptimizer do
   in the *Compute Optimizer User Guide*.
   """
   def get_lambda_function_recommendations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetLambdaFunctionRecommendations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetLambdaFunctionRecommendations", input, options)
   end
 
   @doc """
@@ -265,7 +263,9 @@ defmodule AWS.ComputeOptimizer do
   in the *Compute Optimizer User Guide*.
   """
   def get_recommendation_preferences(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRecommendationPreferences", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRecommendationPreferences", input, options)
   end
 
   @doc """
@@ -286,7 +286,9 @@ defmodule AWS.ComputeOptimizer do
   `Optimized`.
   """
   def get_recommendation_summaries(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRecommendationSummaries", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRecommendationSummaries", input, options)
   end
 
   @doc """
@@ -297,7 +299,9 @@ defmodule AWS.ComputeOptimizer do
   in the *Compute Optimizer User Guide*.
   """
   def put_recommendation_preferences(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutRecommendationPreferences", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutRecommendationPreferences", input, options)
   end
 
   @doc """
@@ -318,6 +322,8 @@ defmodule AWS.ComputeOptimizer do
   in the *Compute Optimizer User Guide*.
   """
   def update_enrollment_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateEnrollmentStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateEnrollmentStatus", input, options)
   end
 end

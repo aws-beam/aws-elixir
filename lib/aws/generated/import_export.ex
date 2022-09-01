@@ -40,7 +40,9 @@ defmodule AWS.ImportExport do
   started or is complete.
   """
   def cancel_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelJob", input, options)
   end
 
   @doc """
@@ -53,7 +55,9 @@ defmodule AWS.ImportExport do
   the address where you should ship your storage device.
   """
   def create_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateJob", input, options)
   end
 
   @doc """
@@ -61,7 +65,9 @@ defmodule AWS.ImportExport do
   your device to AWS for processing.
   """
   def get_shipping_label(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetShippingLabel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetShippingLabel", input, options)
   end
 
   @doc """
@@ -72,7 +78,9 @@ defmodule AWS.ImportExport do
   You can only return information about jobs you own.
   """
   def get_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetStatus", input, options)
   end
 
   @doc """
@@ -83,7 +91,9 @@ defmodule AWS.ImportExport do
   created 2010Feb05, the ListJobs operation would return Test2 followed by Test1.
   """
   def list_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListJobs", input, options)
   end
 
   @doc """
@@ -95,6 +105,8 @@ defmodule AWS.ImportExport do
   transfer starts and you can only use it on jobs you own.
   """
   def update_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateJob", input, options)
   end
 end

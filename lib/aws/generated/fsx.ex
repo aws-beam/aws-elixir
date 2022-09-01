@@ -43,7 +43,9 @@ defmodule AWS.FSx do
   the aliases Amazon FSx is associating with the file system.
   """
   def associate_file_system_aliases(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateFileSystemAliases", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateFileSystemAliases", input, options)
   end
 
   @doc """
@@ -60,7 +62,9 @@ defmodule AWS.FSx do
     * FSx does not export any files that have not yet been exported.
   """
   def cancel_data_repository_task(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelDataRepositoryTask", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelDataRepositoryTask", input, options)
   end
 
   @doc """
@@ -95,7 +99,9 @@ defmodule AWS.FSx do
   in the *Amazon FSx for OpenZFS User Guide*.
   """
   def copy_backup(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CopyBackup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CopyBackup", input, options)
   end
 
   @doc """
@@ -148,7 +154,9 @@ defmodule AWS.FSx do
   operation, which returns the backup state along with other information.
   """
   def create_backup(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateBackup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateBackup", input, options)
   end
 
   @doc """
@@ -166,7 +174,9 @@ defmodule AWS.FSx do
   system, see [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html).
   """
   def create_data_repository_association(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDataRepositoryAssociation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDataRepositoryAssociation", input, options)
   end
 
   @doc """
@@ -183,7 +193,9 @@ defmodule AWS.FSx do
   bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html).
   """
   def create_data_repository_task(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDataRepositoryTask", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDataRepositoryTask", input, options)
   end
 
   @doc """
@@ -240,7 +252,9 @@ defmodule AWS.FSx do
   operation, which returns the file system state along with other information.
   """
   def create_file_system(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateFileSystem", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFileSystem", input, options)
   end
 
   @doc """
@@ -278,7 +292,9 @@ defmodule AWS.FSx do
   operation, which returns the file system state along with other information.
   """
   def create_file_system_from_backup(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateFileSystemFromBackup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFileSystemFromBackup", input, options)
   end
 
   @doc """
@@ -312,21 +328,27 @@ defmodule AWS.FSx do
   operation, which returns the snapshot state along with other information.
   """
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
 
   @doc """
   Creates a storage virtual machine (SVM) for an Amazon FSx for ONTAP file system.
   """
   def create_storage_virtual_machine(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateStorageVirtualMachine", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateStorageVirtualMachine", input, options)
   end
 
   @doc """
   Creates an FSx for ONTAP or Amazon FSx for OpenZFS storage volume.
   """
   def create_volume(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateVolume", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateVolume", input, options)
   end
 
   @doc """
@@ -334,7 +356,9 @@ defmodule AWS.FSx do
   volume backup.
   """
   def create_volume_from_backup(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateVolumeFromBackup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateVolumeFromBackup", input, options)
   end
 
   @doc """
@@ -349,7 +373,9 @@ defmodule AWS.FSx do
   means.
   """
   def delete_backup(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteBackup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteBackup", input, options)
   end
 
   @doc """
@@ -362,7 +388,9 @@ defmodule AWS.FSx do
   with the `Persistent_2` deployment type.
   """
   def delete_data_repository_association(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDataRepositoryAssociation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDataRepositoryAssociation", input, options)
   end
 
   @doc """
@@ -394,7 +422,9 @@ defmodule AWS.FSx do
   means.
   """
   def delete_file_system(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteFileSystem", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFileSystem", input, options)
   end
 
   @doc """
@@ -407,7 +437,9 @@ defmodule AWS.FSx do
   lifecycle status of `DELETING` until the deletion is complete.
   """
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
 
   @doc """
@@ -417,14 +449,18 @@ defmodule AWS.FSx do
   otherwise the operation will fail.
   """
   def delete_storage_virtual_machine(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteStorageVirtualMachine", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteStorageVirtualMachine", input, options)
   end
 
   @doc """
   Deletes an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS volume.
   """
   def delete_volume(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteVolume", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteVolume", input, options)
   end
 
   @doc """
@@ -455,7 +491,9 @@ defmodule AWS.FSx do
   responses of a multi-call iteration is unspecified.
   """
   def describe_backups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeBackups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBackups", input, options)
   end
 
   @doc """
@@ -482,7 +520,9 @@ defmodule AWS.FSx do
   the value of `NextToken` from the last response.
   """
   def describe_data_repository_associations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDataRepositoryAssociations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDataRepositoryAssociations", input, options)
   end
 
   @doc """
@@ -502,7 +542,9 @@ defmodule AWS.FSx do
   the value of `NextToken` from the last response.
   """
   def describe_data_repository_tasks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDataRepositoryTasks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDataRepositoryTasks", input, options)
   end
 
   @doc """
@@ -514,7 +556,9 @@ defmodule AWS.FSx do
   in the `DescribeFileSystems` operation response.
   """
   def describe_file_system_aliases(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFileSystemAliases", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFileSystemAliases", input, options)
   end
 
   @doc """
@@ -547,7 +591,9 @@ defmodule AWS.FSx do
   responses of a multicall iteration is unspecified.
   """
   def describe_file_systems(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeFileSystems", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFileSystems", input, options)
   end
 
   @doc """
@@ -579,7 +625,9 @@ defmodule AWS.FSx do
   of a multi-call iteration is unspecified.
   """
   def describe_snapshots(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSnapshots", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSnapshots", input, options)
   end
 
   @doc """
@@ -587,7 +635,9 @@ defmodule AWS.FSx do
   (SVMs).
   """
   def describe_storage_virtual_machines(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeStorageVirtualMachines", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStorageVirtualMachines", input, options)
   end
 
   @doc """
@@ -595,7 +645,9 @@ defmodule AWS.FSx do
   volumes.
   """
   def describe_volumes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeVolumes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeVolumes", input, options)
   end
 
   @doc """
@@ -612,7 +664,9 @@ defmodule AWS.FSx do
   system.
   """
   def disassociate_file_system_aliases(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateFileSystemAliases", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateFileSystemAliases", input, options)
   end
 
   @doc """
@@ -639,14 +693,18 @@ defmodule AWS.FSx do
   of a multi-call iteration is unspecified.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Releases the file system lock from an Amazon FSx for OpenZFS file system.
   """
   def release_file_system_nfs_v3_locks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ReleaseFileSystemNfsV3Locks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ReleaseFileSystemNfsV3Locks", input, options)
   end
 
   @doc """
@@ -654,21 +712,27 @@ defmodule AWS.FSx do
   snapshot.
   """
   def restore_volume_from_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RestoreVolumeFromSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RestoreVolumeFromSnapshot", input, options)
   end
 
   @doc """
   Tags an Amazon FSx resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   This action removes a tag from an Amazon FSx resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -679,7 +743,9 @@ defmodule AWS.FSx do
   `Persistent_2` deployment type.
   """
   def update_data_repository_association(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateDataRepositoryAssociation", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDataRepositoryAssociation", input, options)
   end
 
   @doc """
@@ -754,21 +820,27 @@ defmodule AWS.FSx do
     * `WeeklyMaintenanceStartTime`
   """
   def update_file_system(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateFileSystem", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFileSystem", input, options)
   end
 
   @doc """
   Updates the name of an Amazon FSx for OpenZFS snapshot.
   """
   def update_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSnapshot", input, options)
   end
 
   @doc """
   Updates an Amazon FSx for ONTAP storage virtual machine (SVM).
   """
   def update_storage_virtual_machine(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateStorageVirtualMachine", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateStorageVirtualMachine", input, options)
   end
 
   @doc """
@@ -776,6 +848,8 @@ defmodule AWS.FSx do
   OpenZFS volume.
   """
   def update_volume(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateVolume", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateVolume", input, options)
   end
 end

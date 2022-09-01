@@ -85,7 +85,9 @@ defmodule AWS.CodeStar do
   Adds an IAM user to the team for an AWS CodeStar project.
   """
   def associate_team_member(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AssociateTeamMember", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateTeamMember", input, options)
   end
 
   @doc """
@@ -96,7 +98,9 @@ defmodule AWS.CodeStar do
   request. If these are not provided, an empty project is created.
   """
   def create_project(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateProject", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateProject", input, options)
   end
 
   @doc """
@@ -108,7 +112,9 @@ defmodule AWS.CodeStar do
   CodeStar.
   """
   def create_user_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateUserProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateUserProfile", input, options)
   end
 
   @doc """
@@ -118,7 +124,9 @@ defmodule AWS.CodeStar do
   that allowed access to the project.
   """
   def delete_project(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteProject", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteProject", input, options)
   end
 
   @doc """
@@ -129,21 +137,27 @@ defmodule AWS.CodeStar do
   made by that user.
   """
   def delete_user_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteUserProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteUserProfile", input, options)
   end
 
   @doc """
   Describes a project and its resources.
   """
   def describe_project(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeProject", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeProject", input, options)
   end
 
   @doc """
   Describes a user in AWS CodeStar and the user attributes across all projects.
   """
   def describe_user_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeUserProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeUserProfile", input, options)
   end
 
   @doc """
@@ -155,63 +169,81 @@ defmodule AWS.CodeStar do
   user from IAM.
   """
   def disassociate_team_member(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DisassociateTeamMember", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateTeamMember", input, options)
   end
 
   @doc """
   Lists all projects in AWS CodeStar associated with your AWS account.
   """
   def list_projects(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListProjects", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListProjects", input, options)
   end
 
   @doc """
   Lists resources associated with a project in AWS CodeStar.
   """
   def list_resources(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListResources", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResources", input, options)
   end
 
   @doc """
   Gets the tags for a project.
   """
   def list_tags_for_project(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForProject", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForProject", input, options)
   end
 
   @doc """
   Lists all team members associated with a project.
   """
   def list_team_members(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTeamMembers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTeamMembers", input, options)
   end
 
   @doc """
   Lists all the user profiles configured for your AWS account in AWS CodeStar.
   """
   def list_user_profiles(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListUserProfiles", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListUserProfiles", input, options)
   end
 
   @doc """
   Adds tags to a project.
   """
   def tag_project(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagProject", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagProject", input, options)
   end
 
   @doc """
   Removes tags from a project.
   """
   def untag_project(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagProject", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagProject", input, options)
   end
 
   @doc """
   Updates a project in AWS CodeStar.
   """
   def update_project(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateProject", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateProject", input, options)
   end
 
   @doc """
@@ -221,7 +253,9 @@ defmodule AWS.CodeStar do
   whether they have remote access to project resources.
   """
   def update_team_member(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateTeamMember", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateTeamMember", input, options)
   end
 
   @doc """
@@ -232,6 +266,8 @@ defmodule AWS.CodeStar do
   CodeStar.
   """
   def update_user_profile(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateUserProfile", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateUserProfile", input, options)
   end
 end

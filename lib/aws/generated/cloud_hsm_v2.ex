@@ -29,14 +29,18 @@ defmodule AWS.CloudHSMV2 do
   Copy an AWS CloudHSM cluster backup to a different region.
   """
   def copy_backup_to_region(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CopyBackupToRegion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CopyBackupToRegion", input, options)
   end
 
   @doc """
   Creates a new AWS CloudHSM cluster.
   """
   def create_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCluster", input, options)
   end
 
   @doc """
@@ -44,7 +48,9 @@ defmodule AWS.CloudHSMV2 do
   cluster.
   """
   def create_hsm(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateHsm", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateHsm", input, options)
   end
 
   @doc """
@@ -54,7 +60,9 @@ defmodule AWS.CloudHSMV2 do
   For more information on restoring a backup, see `RestoreBackup`.
   """
   def delete_backup(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteBackup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteBackup", input, options)
   end
 
   @doc """
@@ -65,7 +73,9 @@ defmodule AWS.CloudHSMV2 do
   `DeleteHsm`.
   """
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCluster", input, options)
   end
 
   @doc """
@@ -76,7 +86,9 @@ defmodule AWS.CloudHSMV2 do
   only one of these values. To find these values, use `DescribeClusters`.
   """
   def delete_hsm(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteHsm", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteHsm", input, options)
   end
 
   @doc """
@@ -90,7 +102,9 @@ defmodule AWS.CloudHSMV2 do
   to get.
   """
   def describe_backups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeBackups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBackups", input, options)
   end
 
   @doc """
@@ -104,7 +118,9 @@ defmodule AWS.CloudHSMV2 do
   clusters to get.
   """
   def describe_clusters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeClusters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeClusters", input, options)
   end
 
   @doc """
@@ -116,7 +132,9 @@ defmodule AWS.CloudHSMV2 do
   `DescribeClusters`.
   """
   def initialize_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "InitializeCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "InitializeCluster", input, options)
   end
 
   @doc """
@@ -129,21 +147,27 @@ defmodule AWS.CloudHSMV2 do
   or null value), that means there are no more tags to get.
   """
   def list_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTags", input, options)
   end
 
   @doc """
   Modifies attributes for AWS CloudHSM backup.
   """
   def modify_backup_attributes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyBackupAttributes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyBackupAttributes", input, options)
   end
 
   @doc """
   Modifies AWS CloudHSM cluster.
   """
   def modify_cluster(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ModifyCluster", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyCluster", input, options)
   end
 
   @doc """
@@ -153,20 +177,26 @@ defmodule AWS.CloudHSMV2 do
   For mor information on deleting a backup, see `DeleteBackup`.
   """
   def restore_backup(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RestoreBackup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RestoreBackup", input, options)
   end
 
   @doc """
   Adds or overwrites one or more tags for the specified AWS CloudHSM cluster.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes the specified tag or tags from the specified AWS CloudHSM cluster.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 end

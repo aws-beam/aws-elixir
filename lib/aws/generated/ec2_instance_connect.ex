@@ -36,7 +36,9 @@ defmodule AWS.EC2InstanceConnect do
   in the *Amazon EC2 User Guide*.
   """
   def send_serial_console_ssh_public_key(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SendSerialConsoleSSHPublicKey", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendSerialConsoleSSHPublicKey", input, options)
   end
 
   @doc """
@@ -48,6 +50,8 @@ defmodule AWS.EC2InstanceConnect do
   in the *Amazon EC2 User Guide*.
   """
   def send_ssh_public_key(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "SendSSHPublicKey", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendSSHPublicKey", input, options)
   end
 end

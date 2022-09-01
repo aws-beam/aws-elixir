@@ -44,7 +44,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def build_suggesters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "BuildSuggesters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "BuildSuggesters", input, options)
   end
 
   @doc """
@@ -54,7 +56,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def create_domain(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDomain", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDomain", input, options)
   end
 
   @doc """
@@ -65,7 +69,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def define_analysis_scheme(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DefineAnalysisScheme", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DefineAnalysisScheme", input, options)
   end
 
   @doc """
@@ -77,7 +83,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def define_expression(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DefineExpression", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DefineExpression", input, options)
   end
 
   @doc """
@@ -92,7 +100,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def define_index_field(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DefineIndexField", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DefineIndexField", input, options)
   end
 
   @doc """
@@ -105,7 +115,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def define_suggester(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DefineSuggester", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DefineSuggester", input, options)
   end
 
   @doc """
@@ -115,7 +127,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def delete_analysis_scheme(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteAnalysisScheme", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAnalysisScheme", input, options)
   end
 
   @doc """
@@ -126,7 +140,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def delete_domain(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDomain", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDomain", input, options)
   end
 
   @doc """
@@ -136,7 +152,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def delete_expression(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteExpression", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteExpression", input, options)
   end
 
   @doc """
@@ -146,7 +164,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def delete_index_field(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteIndexField", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteIndexField", input, options)
   end
 
   @doc """
@@ -156,7 +176,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def delete_suggester(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSuggester", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSuggester", input, options)
   end
 
   @doc """
@@ -171,7 +193,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def describe_analysis_schemes(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAnalysisSchemes", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAnalysisSchemes", input, options)
   end
 
   @doc """
@@ -183,7 +207,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def describe_availability_options(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeAvailabilityOptions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAvailabilityOptions", input, options)
   end
 
   @doc """
@@ -194,7 +220,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def describe_domain_endpoint_options(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDomainEndpointOptions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDomainEndpointOptions", input, options)
   end
 
   @doc """
@@ -208,7 +236,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def describe_domains(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDomains", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDomains", input, options)
   end
 
   @doc """
@@ -221,7 +251,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def describe_expressions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeExpressions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeExpressions", input, options)
   end
 
   @doc """
@@ -234,7 +266,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def describe_index_fields(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeIndexFields", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeIndexFields", input, options)
   end
 
   @doc """
@@ -245,7 +279,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def describe_scaling_parameters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeScalingParameters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeScalingParameters", input, options)
   end
 
   @doc """
@@ -258,7 +294,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def describe_service_access_policies(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeServiceAccessPolicies", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeServiceAccessPolicies", input, options)
   end
 
   @doc """
@@ -272,7 +310,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def describe_suggesters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeSuggesters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSuggesters", input, options)
   end
 
   @doc """
@@ -283,14 +323,18 @@ defmodule AWS.CloudSearch do
   `RequiresIndexDocuments`.
   """
   def index_documents(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "IndexDocuments", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "IndexDocuments", input, options)
   end
 
   @doc """
   Lists all search domains owned by an account.
   """
   def list_domain_names(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDomainNames", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDomainNames", input, options)
   end
 
   @doc """
@@ -304,7 +348,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def update_availability_options(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateAvailabilityOptions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAvailabilityOptions", input, options)
   end
 
   @doc """
@@ -315,7 +361,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def update_domain_endpoint_options(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateDomainEndpointOptions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDomainEndpointOptions", input, options)
   end
 
   @doc """
@@ -330,7 +378,9 @@ defmodule AWS.CloudSearch do
   in the *Amazon CloudSearch Developer Guide*.
   """
   def update_scaling_parameters(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateScalingParameters", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateScalingParameters", input, options)
   end
 
   @doc """
@@ -340,6 +390,8 @@ defmodule AWS.CloudSearch do
   For more information, see [ Configuring Access for an Amazon CloudSearch Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html).
   """
   def update_service_access_policies(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateServiceAccessPolicies", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateServiceAccessPolicies", input, options)
   end
 end

@@ -36,7 +36,9 @@ defmodule AWS.LookoutEquipment do
   associated with the ingested data.
   """
   def create_dataset(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateDataset", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDataset", input, options)
   end
 
   @doc """
@@ -49,21 +51,27 @@ defmodule AWS.LookoutEquipment do
   inferencing. You must also provide an S3 bucket location for the output data.
   """
   def create_inference_scheduler(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateInferenceScheduler", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateInferenceScheduler", input, options)
   end
 
   @doc """
   Creates a label for an event.
   """
   def create_label(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateLabel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLabel", input, options)
   end
 
   @doc """
   Creates a group of labels.
   """
   def create_label_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateLabelGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLabelGroup", input, options)
   end
 
   @doc """
@@ -81,7 +89,9 @@ defmodule AWS.LookoutEquipment do
   model's accuracy.
   """
   def create_model(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateModel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateModel", input, options)
   end
 
   @doc """
@@ -94,7 +104,9 @@ defmodule AWS.LookoutEquipment do
   from being used in the future.
   """
   def delete_dataset(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteDataset", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDataset", input, options)
   end
 
   @doc """
@@ -103,21 +115,27 @@ defmodule AWS.LookoutEquipment do
   Already processed output results are not affected.
   """
   def delete_inference_scheduler(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteInferenceScheduler", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteInferenceScheduler", input, options)
   end
 
   @doc """
   Deletes a label.
   """
   def delete_label(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteLabel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLabel", input, options)
   end
 
   @doc """
   Deletes a group of labels.
   """
   def delete_label_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteLabelGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLabelGroup", input, options)
   end
 
   @doc """
@@ -127,7 +145,9 @@ defmodule AWS.LookoutEquipment do
   is already set up.
   """
   def delete_model(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteModel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteModel", input, options)
   end
 
   @doc """
@@ -135,7 +155,9 @@ defmodule AWS.LookoutEquipment do
   dataset ARN, and status.
   """
   def describe_data_ingestion_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDataIngestionJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDataIngestionJob", input, options)
   end
 
   @doc """
@@ -143,7 +165,9 @@ defmodule AWS.LookoutEquipment do
   names, column names, and data types.
   """
   def describe_dataset(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeDataset", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDataset", input, options)
   end
 
   @doc """
@@ -151,21 +175,27 @@ defmodule AWS.LookoutEquipment do
   model, status, and associated metadata
   """
   def describe_inference_scheduler(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeInferenceScheduler", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInferenceScheduler", input, options)
   end
 
   @doc """
   Returns the name of the label.
   """
   def describe_label(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeLabel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeLabel", input, options)
   end
 
   @doc """
   Returns information about the label group.
   """
   def describe_label_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeLabelGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeLabelGroup", input, options)
   end
 
   @doc """
@@ -174,7 +204,9 @@ defmodule AWS.LookoutEquipment do
   status, and so on.
   """
   def describe_model(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeModel", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeModel", input, options)
   end
 
   @doc """
@@ -182,7 +214,9 @@ defmodule AWS.LookoutEquipment do
   location of the input data, status, and so on.
   """
   def list_data_ingestion_jobs(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDataIngestionJobs", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDataIngestionJobs", input, options)
   end
 
   @doc """
@@ -190,7 +224,9 @@ defmodule AWS.LookoutEquipment do
   name.
   """
   def list_datasets(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDatasets", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDatasets", input, options)
   end
 
   @doc """
@@ -198,7 +234,9 @@ defmodule AWS.LookoutEquipment do
   scheduler.
   """
   def list_inference_events(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListInferenceEvents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListInferenceEvents", input, options)
   end
 
   @doc """
@@ -206,7 +244,9 @@ defmodule AWS.LookoutEquipment do
   inference scheduler.
   """
   def list_inference_executions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListInferenceExecutions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListInferenceExecutions", input, options)
   end
 
   @doc """
@@ -214,21 +254,27 @@ defmodule AWS.LookoutEquipment do
   account.
   """
   def list_inference_schedulers(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListInferenceSchedulers", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListInferenceSchedulers", input, options)
   end
 
   @doc """
   Returns a list of the label groups.
   """
   def list_label_groups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListLabelGroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLabelGroups", input, options)
   end
 
   @doc """
   Provides a list of labels.
   """
   def list_labels(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListLabels", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLabels", input, options)
   end
 
   @doc """
@@ -236,7 +282,9 @@ defmodule AWS.LookoutEquipment do
   dataset, and status.
   """
   def list_models(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListModels", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListModels", input, options)
   end
 
   @doc """
@@ -246,14 +294,18 @@ defmodule AWS.LookoutEquipment do
   Can also be used to retreive Sensor Statistics for a previous ingestion job.
   """
   def list_sensor_statistics(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListSensorStatistics", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSensorStatistics", input, options)
   end
 
   @doc """
   Lists all the tags for a specified resource, including key and value.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -262,21 +314,27 @@ defmodule AWS.LookoutEquipment do
   Amazon Lookout for Equipment returns the job status.
   """
   def start_data_ingestion_job(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartDataIngestionJob", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartDataIngestionJob", input, options)
   end
 
   @doc """
   Starts an inference scheduler.
   """
   def start_inference_scheduler(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartInferenceScheduler", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartInferenceScheduler", input, options)
   end
 
   @doc """
   Stops an inference scheduler.
   """
   def stop_inference_scheduler(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopInferenceScheduler", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopInferenceScheduler", input, options)
   end
 
   @doc """
@@ -289,7 +347,9 @@ defmodule AWS.LookoutEquipment do
   with each resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -298,20 +358,26 @@ defmodule AWS.LookoutEquipment do
   The tag is specified by its key.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
   Updates an inference scheduler.
   """
   def update_inference_scheduler(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateInferenceScheduler", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateInferenceScheduler", input, options)
   end
 
   @doc """
   Updates the label group.
   """
   def update_label_group(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateLabelGroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLabelGroup", input, options)
   end
 end

@@ -35,7 +35,9 @@ defmodule AWS.TimestreamQuery do
   for details.
   """
   def cancel_query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelQuery", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelQuery", input, options)
   end
 
   @doc """
@@ -48,7 +50,9 @@ defmodule AWS.TimestreamQuery do
   scheduled query operations.
   """
   def create_scheduled_query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateScheduledQuery", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateScheduledQuery", input, options)
   end
 
   @doc """
@@ -57,7 +61,9 @@ defmodule AWS.TimestreamQuery do
   This is an irreversible operation.
   """
   def delete_scheduled_query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteScheduledQuery", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteScheduledQuery", input, options)
   end
 
   @doc """
@@ -82,21 +88,27 @@ defmodule AWS.TimestreamQuery do
   see [The Endpoint Discovery Pattern](https://docs.aws.amazon.com/timestream/latest/developerguide/Using.API.html#Using-API.endpoint-discovery).
   """
   def describe_endpoints(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeEndpoints", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEndpoints", input, options)
   end
 
   @doc """
   Provides detailed information about a scheduled query.
   """
   def describe_scheduled_query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeScheduledQuery", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeScheduledQuery", input, options)
   end
 
   @doc """
   You can use this API to run a scheduled query manually.
   """
   def execute_scheduled_query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ExecuteScheduledQuery", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExecuteScheduledQuery", input, options)
   end
 
   @doc """
@@ -105,14 +117,18 @@ defmodule AWS.TimestreamQuery do
   `ListScheduledQueries` is eventually consistent.
   """
   def list_scheduled_queries(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListScheduledQueries", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListScheduledQueries", input, options)
   end
 
   @doc """
   List all tags on a Timestream query resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -123,7 +139,9 @@ defmodule AWS.TimestreamQuery do
   `PrepareQueryRequest$ValidateOnly` set to `true`.
   """
   def prepare_query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PrepareQuery", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PrepareQuery", input, options)
   end
 
   @doc """
@@ -154,7 +172,9 @@ defmodule AWS.TimestreamQuery do
   `Invalid pagination token` error.
   """
   def query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "Query", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "Query", input, options)
   end
 
   @doc """
@@ -164,20 +184,26 @@ defmodule AWS.TimestreamQuery do
   and Cost Management console for cost allocation tracking.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes the association of tags from a Timestream query resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
   Update a scheduled query.
   """
   def update_scheduled_query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateScheduledQuery", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateScheduledQuery", input, options)
   end
 end

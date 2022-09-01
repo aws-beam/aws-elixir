@@ -30,7 +30,9 @@ defmodule AWS.LicenseManager do
   Accepts the specified grant.
   """
   def accept_grant(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AcceptGrant", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AcceptGrant", input, options)
   end
 
   @doc """
@@ -39,21 +41,27 @@ defmodule AWS.LicenseManager do
   Check in a license when it is no longer in use.
   """
   def check_in_license(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CheckInLicense", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CheckInLicense", input, options)
   end
 
   @doc """
   Checks out the specified license for offline use.
   """
   def checkout_borrow_license(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CheckoutBorrowLicense", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CheckoutBorrowLicense", input, options)
   end
 
   @doc """
   Checks out the specified license.
   """
   def checkout_license(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CheckoutLicense", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CheckoutLicense", input, options)
   end
 
   @doc """
@@ -63,21 +71,27 @@ defmodule AWS.LicenseManager do
   accounts.
   """
   def create_grant(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateGrant", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateGrant", input, options)
   end
 
   @doc """
   Creates a new version of the specified grant.
   """
   def create_grant_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateGrantVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateGrantVersion", input, options)
   end
 
   @doc """
   Creates a license.
   """
   def create_license(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateLicense", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLicense", input, options)
   end
 
   @doc """
@@ -91,40 +105,36 @@ defmodule AWS.LicenseManager do
   with a host), and the number of licenses purchased and used.
   """
   def create_license_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateLicenseConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLicenseConfiguration", input, options)
   end
 
   @doc """
   Creates a new license conversion task.
   """
   def create_license_conversion_task_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "CreateLicenseConversionTaskForResource",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLicenseConversionTaskForResource", input, options)
   end
 
   @doc """
   Creates a report generator.
   """
   def create_license_manager_report_generator(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "CreateLicenseManagerReportGenerator",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLicenseManagerReportGenerator", input, options)
   end
 
   @doc """
   Creates a new version of the specified license.
   """
   def create_license_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateLicenseVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLicenseVersion", input, options)
   end
 
   @doc """
@@ -135,21 +145,27 @@ defmodule AWS.LicenseManager do
   can use to call License Manager to manage the specified license.
   """
   def create_token(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateToken", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateToken", input, options)
   end
 
   @doc """
   Deletes the specified grant.
   """
   def delete_grant(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteGrant", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteGrant", input, options)
   end
 
   @doc """
   Deletes the specified license.
   """
   def delete_license(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteLicense", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLicense", input, options)
   end
 
   @doc """
@@ -158,7 +174,9 @@ defmodule AWS.LicenseManager do
   You cannot delete a license configuration that is in use.
   """
   def delete_license_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteLicenseConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLicenseConfiguration", input, options)
   end
 
   @doc """
@@ -169,13 +187,9 @@ defmodule AWS.LicenseManager do
   from this generator.
   """
   def delete_license_manager_report_generator(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DeleteLicenseManagerReportGenerator",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLicenseManagerReportGenerator", input, options)
   end
 
   @doc """
@@ -184,14 +198,18 @@ defmodule AWS.LicenseManager do
   Must be called in the license home Region.
   """
   def delete_token(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteToken", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteToken", input, options)
   end
 
   @doc """
   Extends the expiration date for license consumption.
   """
   def extend_license_consumption(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ExtendLicenseConsumption", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExtendLicenseConsumption", input, options)
   end
 
   @doc """
@@ -200,56 +218,72 @@ defmodule AWS.LicenseManager do
   Access tokens are valid for one hour.
   """
   def get_access_token(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAccessToken", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAccessToken", input, options)
   end
 
   @doc """
   Gets detailed information about the specified grant.
   """
   def get_grant(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetGrant", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetGrant", input, options)
   end
 
   @doc """
   Gets detailed information about the specified license.
   """
   def get_license(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetLicense", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetLicense", input, options)
   end
 
   @doc """
   Gets detailed information about the specified license configuration.
   """
   def get_license_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetLicenseConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetLicenseConfiguration", input, options)
   end
 
   @doc """
   Gets information about the specified license type conversion task.
   """
   def get_license_conversion_task(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetLicenseConversionTask", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetLicenseConversionTask", input, options)
   end
 
   @doc """
   Gets information about the specified report generator.
   """
   def get_license_manager_report_generator(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetLicenseManagerReportGenerator", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetLicenseManagerReportGenerator", input, options)
   end
 
   @doc """
   Gets detailed information about the usage of the specified license.
   """
   def get_license_usage(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetLicenseUsage", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetLicenseUsage", input, options)
   end
 
   @doc """
   Gets the License Manager settings for the current Region.
   """
   def get_service_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetServiceSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetServiceSettings", input, options)
   end
 
   @doc """
@@ -260,29 +294,29 @@ defmodule AWS.LicenseManager do
   on the license rules).
   """
   def list_associations_for_license_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ListAssociationsForLicenseConfiguration",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAssociationsForLicenseConfiguration", input, options)
   end
 
   @doc """
   Lists the grants distributed for the specified license.
   """
   def list_distributed_grants(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListDistributedGrants", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDistributedGrants", input, options)
   end
 
   @doc """
   Lists the license configuration operations that failed.
   """
   def list_failures_for_license_configuration_operations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "ListFailuresForLicenseConfigurationOperations",
       input,
       options
@@ -293,83 +327,99 @@ defmodule AWS.LicenseManager do
   Lists the license configurations for your account.
   """
   def list_license_configurations(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListLicenseConfigurations", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLicenseConfigurations", input, options)
   end
 
   @doc """
   Lists the license type conversion tasks for your account.
   """
   def list_license_conversion_tasks(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListLicenseConversionTasks", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLicenseConversionTasks", input, options)
   end
 
   @doc """
   Lists the report generators for your account.
   """
   def list_license_manager_report_generators(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListLicenseManagerReportGenerators", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLicenseManagerReportGenerators", input, options)
   end
 
   @doc """
   Describes the license configurations for the specified resource.
   """
   def list_license_specifications_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ListLicenseSpecificationsForResource",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLicenseSpecificationsForResource", input, options)
   end
 
   @doc """
   Lists all versions of the specified license.
   """
   def list_license_versions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListLicenseVersions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLicenseVersions", input, options)
   end
 
   @doc """
   Lists the licenses for your account.
   """
   def list_licenses(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListLicenses", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLicenses", input, options)
   end
 
   @doc """
   Lists grants that are received but not accepted.
   """
   def list_received_grants(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListReceivedGrants", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListReceivedGrants", input, options)
   end
 
   @doc """
   Lists received licenses.
   """
   def list_received_licenses(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListReceivedLicenses", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListReceivedLicenses", input, options)
   end
 
   @doc """
   Lists resources managed using Systems Manager inventory.
   """
   def list_resource_inventory(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListResourceInventory", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResourceInventory", input, options)
   end
 
   @doc """
   Lists the tags for the specified license configuration.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Lists your tokens.
   """
   def list_tokens(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTokens", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTokens", input, options)
   end
 
   @doc """
@@ -380,35 +430,45 @@ defmodule AWS.LicenseManager do
   inventory and configuration.
   """
   def list_usage_for_license_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListUsageForLicenseConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListUsageForLicenseConfiguration", input, options)
   end
 
   @doc """
   Rejects the specified grant.
   """
   def reject_grant(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RejectGrant", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RejectGrant", input, options)
   end
 
   @doc """
   Adds the specified tags to the specified license configuration.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes the specified tags from the specified license configuration.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
   Modifies the attributes of an existing license configuration.
   """
   def update_license_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateLicenseConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLicenseConfiguration", input, options)
   end
 
   @doc """
@@ -418,13 +478,9 @@ defmodule AWS.LicenseManager do
   within 60 minutes of being updated.
   """
   def update_license_manager_report_generator(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "UpdateLicenseManagerReportGenerator",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLicenseManagerReportGenerator", input, options)
   end
 
   @doc """
@@ -437,19 +493,17 @@ defmodule AWS.LicenseManager do
   resource.
   """
   def update_license_specifications_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "UpdateLicenseSpecificationsForResource",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLicenseSpecificationsForResource", input, options)
   end
 
   @doc """
   Updates License Manager settings for the current Region.
   """
   def update_service_settings(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateServiceSettings", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateServiceSettings", input, options)
   end
 end

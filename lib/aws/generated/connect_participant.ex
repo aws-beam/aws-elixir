@@ -49,9 +49,11 @@ defmodule AWS.ConnectParticipant do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -107,9 +109,11 @@ defmodule AWS.ConnectParticipant do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -139,9 +143,11 @@ defmodule AWS.ConnectParticipant do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -170,9 +176,11 @@ defmodule AWS.ConnectParticipant do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -202,9 +210,11 @@ defmodule AWS.ConnectParticipant do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -234,9 +244,11 @@ defmodule AWS.ConnectParticipant do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -266,9 +278,11 @@ defmodule AWS.ConnectParticipant do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -296,9 +310,11 @@ defmodule AWS.ConnectParticipant do
 
     query_params = []
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,

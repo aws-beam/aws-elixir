@@ -35,13 +35,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   errors.
   """
   def add_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "AddApplicationCloudWatchLoggingOption",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddApplicationCloudWatchLoggingOption", input, options)
   end
 
   @doc """
@@ -56,7 +52,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   `DescribeApplication` operation to find the current application version.
   """
   def add_application_input(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddApplicationInput", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddApplicationInput", input, options)
   end
 
   @doc """
@@ -68,9 +66,11 @@ defmodule AWS.KinesisAnalyticsV2 do
   is [Amazon Lambda](https://docs.aws.amazon.com/lambda/).
   """
   def add_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "AddApplicationInputProcessingConfiguration",
       input,
       options
@@ -97,7 +97,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   `DescribeApplication` operation to find the current application version.
   """
   def add_application_output(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddApplicationOutput", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddApplicationOutput", input, options)
   end
 
   @doc """
@@ -112,7 +114,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   in-application table.
   """
   def add_application_reference_data_source(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddApplicationReferenceDataSource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddApplicationReferenceDataSource", input, options)
   end
 
   @doc """
@@ -130,7 +134,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   Internet access to the application, add an Internet gateway to your VPC.
   """
   def add_application_vpc_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddApplicationVpcConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddApplicationVpcConfiguration", input, options)
   end
 
   @doc """
@@ -140,7 +146,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
   """
   def create_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateApplication", input, options)
   end
 
   @doc """
@@ -163,14 +171,18 @@ defmodule AWS.KinesisAnalyticsV2 do
   limit expires, the service returns an HTTP 403 Forbidden error.
   """
   def create_application_presigned_url(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateApplicationPresignedUrl", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateApplicationPresignedUrl", input, options)
   end
 
   @doc """
   Creates a snapshot of the application's state data.
   """
   def create_application_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateApplicationSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateApplicationSnapshot", input, options)
   end
 
   @doc """
@@ -179,7 +191,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   Kinesis Data Analytics halts application execution and deletes the application.
   """
   def delete_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteApplication", input, options)
   end
 
   @doc """
@@ -187,22 +201,20 @@ defmodule AWS.KinesisAnalyticsV2 do
   application.
   """
   def delete_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DeleteApplicationCloudWatchLoggingOption",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteApplicationCloudWatchLoggingOption", input, options)
   end
 
   @doc """
   Deletes an `InputProcessingConfiguration` from an input.
   """
   def delete_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "DeleteApplicationInputProcessingConfiguration",
       input,
       options
@@ -217,7 +229,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   in-application stream to the external output destination.
   """
   def delete_application_output(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteApplicationOutput", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteApplicationOutput", input, options)
   end
 
   @doc """
@@ -229,27 +243,27 @@ defmodule AWS.KinesisAnalyticsV2 do
   `AddApplicationReferenceDataSource` operation.
   """
   def delete_application_reference_data_source(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "DeleteApplicationReferenceDataSource",
-      input,
-      options
-    )
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteApplicationReferenceDataSource", input, options)
   end
 
   @doc """
   Deletes a snapshot of application state.
   """
   def delete_application_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteApplicationSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteApplicationSnapshot", input, options)
   end
 
   @doc """
   Removes a VPC configuration from a Kinesis Data Analytics application.
   """
   def delete_application_vpc_configuration(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteApplicationVpcConfiguration", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteApplicationVpcConfiguration", input, options)
   end
 
   @doc """
@@ -259,14 +273,18 @@ defmodule AWS.KinesisAnalyticsV2 do
   `ListApplications` operation.
   """
   def describe_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeApplication", input, options)
   end
 
   @doc """
   Returns information about a snapshot of application state data.
   """
   def describe_application_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeApplicationSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeApplicationSnapshot", input, options)
   end
 
   @doc """
@@ -279,7 +297,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   Flink.
   """
   def describe_application_version(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeApplicationVersion", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeApplicationVersion", input, options)
   end
 
   @doc """
@@ -296,14 +316,18 @@ defmodule AWS.KinesisAnalyticsV2 do
   console user interface.
   """
   def discover_input_schema(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DiscoverInputSchema", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DiscoverInputSchema", input, options)
   end
 
   @doc """
   Lists information about the current application snapshots.
   """
   def list_application_snapshots(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListApplicationSnapshots", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListApplicationSnapshots", input, options)
   end
 
   @doc """
@@ -320,7 +344,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   Flink.
   """
   def list_application_versions(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListApplicationVersions", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListApplicationVersions", input, options)
   end
 
   @doc """
@@ -333,7 +359,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   `DescribeApplication`.
   """
   def list_applications(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListApplications", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListApplications", input, options)
   end
 
   @doc """
@@ -342,7 +370,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   For more information, see [Using Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html).
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -361,7 +391,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   This action is not supported for Kinesis Data Analytics for SQL applications.
   """
   def rollback_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RollbackApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RollbackApplication", input, options)
   end
 
   @doc """
@@ -371,7 +403,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   your application.
   """
   def start_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartApplication", input, options)
   end
 
   @doc """
@@ -386,7 +420,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   `Force` is set to `true`.
   """
   def stop_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopApplication", input, options)
   end
 
   @doc """
@@ -397,7 +433,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   [Using Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html).
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -406,7 +444,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   For more information, see [Using Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html).
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
@@ -423,7 +463,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   application and create it again.
   """
   def update_application(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateApplication", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateApplication", input, options)
   end
 
   @doc """
@@ -450,9 +492,11 @@ defmodule AWS.KinesisAnalyticsV2 do
   Flink.
   """
   def update_application_maintenance_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
     Request.request_post(
       client,
-      metadata(),
+      meta,
       "UpdateApplicationMaintenanceConfiguration",
       input,
       options

@@ -92,9 +92,11 @@ defmodule AWS.SageMakerRuntime do
         true
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,
@@ -148,9 +150,11 @@ defmodule AWS.SageMakerRuntime do
         [{"X-Amzn-SageMaker-OutputLocation", "OutputLocation"}]
       )
 
+    meta = metadata()
+
     Request.request_rest(
       client,
-      metadata(),
+      meta,
       :post,
       url_path,
       query_params,

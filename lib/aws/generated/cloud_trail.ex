@@ -60,7 +60,9 @@ defmodule AWS.CloudTrail do
   as its home region).
   """
   def add_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "AddTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddTags", input, options)
   end
 
   @doc """
@@ -72,14 +74,18 @@ defmodule AWS.CloudTrail do
   might show as `CANCELLED` even if the operation is not yet finished.
   """
   def cancel_query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CancelQuery", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelQuery", input, options)
   end
 
   @doc """
   Creates a new event data store.
   """
   def create_event_data_store(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateEventDataStore", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEventDataStore", input, options)
   end
 
   @doc """
@@ -87,7 +93,9 @@ defmodule AWS.CloudTrail do
   Amazon S3 bucket.
   """
   def create_trail(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateTrail", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTrail", input, options)
   end
 
   @doc """
@@ -106,7 +114,9 @@ defmodule AWS.CloudTrail do
   `PENDING_DELETION` state does not incur costs.
   """
   def delete_event_data_store(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEventDataStore", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEventDataStore", input, options)
   end
 
   @doc """
@@ -117,7 +127,9 @@ defmodule AWS.CloudTrail do
   regions) of a trail that is enabled in all regions.
   """
   def delete_trail(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteTrail", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTrail", input, options)
   end
 
   @doc """
@@ -127,7 +139,9 @@ defmodule AWS.CloudTrail do
   You must specify an ARN for `EventDataStore`, and a value for `QueryID`.
   """
   def describe_query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeQuery", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeQuery", input, options)
   end
 
   @doc """
@@ -135,7 +149,9 @@ defmodule AWS.CloudTrail do
   your account.
   """
   def describe_trails(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DescribeTrails", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTrails", input, options)
   end
 
   @doc """
@@ -143,7 +159,9 @@ defmodule AWS.CloudTrail do
   ID portion of the ARN.
   """
   def get_event_data_store(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetEventDataStore", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEventDataStore", input, options)
   end
 
   @doc """
@@ -165,7 +183,9 @@ defmodule AWS.CloudTrail do
   in the *CloudTrail User Guide*.
   """
   def get_event_selectors(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetEventSelectors", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEventSelectors", input, options)
   end
 
   @doc """
@@ -182,7 +202,9 @@ defmodule AWS.CloudTrail do
   in the *CloudTrail User Guide*.
   """
   def get_insight_selectors(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetInsightSelectors", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetInsightSelectors", input, options)
   end
 
   @doc """
@@ -192,14 +214,18 @@ defmodule AWS.CloudTrail do
   an ARN for `EventDataStore`.
   """
   def get_query_results(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetQueryResults", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetQueryResults", input, options)
   end
 
   @doc """
   Returns settings information for a specified trail.
   """
   def get_trail(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetTrail", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTrail", input, options)
   end
 
   @doc """
@@ -211,7 +237,9 @@ defmodule AWS.CloudTrail do
   call the operation on each region.
   """
   def get_trail_status(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetTrailStatus", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTrailStatus", input, options)
   end
 
   @doc """
@@ -219,7 +247,9 @@ defmodule AWS.CloudTrail do
   region.
   """
   def list_event_data_stores(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEventDataStores", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEventDataStores", input, options)
   end
 
   @doc """
@@ -235,7 +265,9 @@ defmodule AWS.CloudTrail do
   corresponding public key.
   """
   def list_public_keys(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListPublicKeys", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPublicKeys", input, options)
   end
 
   @doc """
@@ -248,21 +280,27 @@ defmodule AWS.CloudTrail do
   `TIMED_OUT`, or `CANCELLED`.
   """
   def list_queries(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListQueries", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListQueries", input, options)
   end
 
   @doc """
   Lists the tags for the trail or event data store in the current region.
   """
   def list_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTags", input, options)
   end
 
   @doc """
   Lists trails that are in the current account.
   """
   def list_trails(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTrails", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTrails", input, options)
   end
 
   @doc """
@@ -305,7 +343,9 @@ defmodule AWS.CloudTrail do
   region. If this limit is exceeded, a throttling error occurs.
   """
   def lookup_events(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "LookupEvents", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "LookupEvents", input, options)
   end
 
   @doc """
@@ -357,7 +397,9 @@ defmodule AWS.CloudTrail do
   in the *CloudTrail User Guide*.
   """
   def put_event_selectors(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutEventSelectors", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutEventSelectors", input, options)
   end
 
   @doc """
@@ -369,14 +411,18 @@ defmodule AWS.CloudTrail do
   release are `ApiErrorRateInsight` and `ApiCallRateInsight`.
   """
   def put_insight_selectors(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutInsightSelectors", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutInsightSelectors", input, options)
   end
 
   @doc """
   Removes the specified tags from a trail or event data store.
   """
   def remove_tags(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RemoveTags", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveTags", input, options)
   end
 
   @doc """
@@ -388,7 +434,9 @@ defmodule AWS.CloudTrail do
   depending on the size of the event data store.
   """
   def restore_event_data_store(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RestoreEventDataStore", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RestoreEventDataStore", input, options)
   end
 
   @doc """
@@ -401,7 +449,9 @@ defmodule AWS.CloudTrail do
   enabled in all regions.
   """
   def start_logging(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartLogging", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartLogging", input, options)
   end
 
   @doc """
@@ -411,7 +461,9 @@ defmodule AWS.CloudTrail do
   single quotation marks.
   """
   def start_query(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StartQuery", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartQuery", input, options)
   end
 
   @doc """
@@ -426,7 +478,9 @@ defmodule AWS.CloudTrail do
   in other regions) of a trail enabled in all regions.
   """
   def stop_logging(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "StopLogging", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopLogging", input, options)
   end
 
   @doc """
@@ -442,7 +496,9 @@ defmodule AWS.CloudTrail do
   `PutEventSelectorsRequest$AdvancedEventSelectors`.
   """
   def update_event_data_store(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateEventDataStore", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateEventDataStore", input, options)
   end
 
   @doc """
@@ -456,6 +512,8 @@ defmodule AWS.CloudTrail do
   created; otherwise, an `InvalidHomeRegionException` is thrown.
   """
   def update_trail(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateTrail", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateTrail", input, options)
   end
 end

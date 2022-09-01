@@ -44,21 +44,27 @@ defmodule AWS.RedshiftServerless do
   points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html).
   """
   def convert_recovery_point_to_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ConvertRecoveryPointToSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ConvertRecoveryPointToSnapshot", input, options)
   end
 
   @doc """
   Creates an Amazon Redshift Serverless managed VPC endpoint.
   """
   def create_endpoint_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateEndpointAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEndpointAccess", input, options)
   end
 
   @doc """
   Creates a namespace in Amazon Redshift Serverless.
   """
   def create_namespace(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateNamespace", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateNamespace", input, options)
   end
 
   @doc """
@@ -67,7 +73,9 @@ defmodule AWS.RedshiftServerless do
   For more information about snapshots, see [ Working with snapshots and recovery points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html).
   """
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
 
   @doc """
@@ -76,21 +84,27 @@ defmodule AWS.RedshiftServerless do
   The usage limit is identified by the returned usage limit identifier.
   """
   def create_usage_limit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateUsageLimit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateUsageLimit", input, options)
   end
 
   @doc """
   Creates an workgroup in Amazon Redshift Serverless.
   """
   def create_workgroup(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "CreateWorkgroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateWorkgroup", input, options)
   end
 
   @doc """
   Deletes an Amazon Redshift Serverless managed VPC endpoint.
   """
   def delete_endpoint_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteEndpointAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEndpointAccess", input, options)
   end
 
   @doc """
@@ -100,35 +114,45 @@ defmodule AWS.RedshiftServerless do
   the data within the namespace.
   """
   def delete_namespace(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteNamespace", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteNamespace", input, options)
   end
 
   @doc """
   Deletes the specified resource policy.
   """
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteResourcePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
 
   @doc """
   Deletes a snapshot from Amazon Redshift Serverless.
   """
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
 
   @doc """
   Deletes a usage limit from Amazon Redshift Serverless.
   """
   def delete_usage_limit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteUsageLimit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteUsageLimit", input, options)
   end
 
   @doc """
   Deletes a workgroup.
   """
   def delete_workgroup(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteWorkgroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteWorkgroup", input, options)
   end
 
   @doc """
@@ -149,105 +173,135 @@ defmodule AWS.RedshiftServerless do
   `
   """
   def get_credentials(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetCredentials", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCredentials", input, options)
   end
 
   @doc """
   Returns information, such as the name, about a VPC endpoint.
   """
   def get_endpoint_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetEndpointAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEndpointAccess", input, options)
   end
 
   @doc """
   Returns information about a namespace in Amazon Redshift Serverless.
   """
   def get_namespace(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetNamespace", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetNamespace", input, options)
   end
 
   @doc """
   Returns information about a recovery point.
   """
   def get_recovery_point(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetRecoveryPoint", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRecoveryPoint", input, options)
   end
 
   @doc """
   Returns a resource policy.
   """
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetResourcePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
 
   @doc """
   Returns information about a specific snapshot.
   """
   def get_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSnapshot", input, options)
   end
 
   @doc """
   Returns information about a usage limit.
   """
   def get_usage_limit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetUsageLimit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetUsageLimit", input, options)
   end
 
   @doc """
   Returns information about a specific workgroup.
   """
   def get_workgroup(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetWorkgroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetWorkgroup", input, options)
   end
 
   @doc """
   Returns an array of `EndpointAccess` objects and relevant information.
   """
   def list_endpoint_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListEndpointAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEndpointAccess", input, options)
   end
 
   @doc """
   Returns information about a list of specified namespaces.
   """
   def list_namespaces(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListNamespaces", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListNamespaces", input, options)
   end
 
   @doc """
   Returns an array of recovery points.
   """
   def list_recovery_points(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListRecoveryPoints", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRecoveryPoints", input, options)
   end
 
   @doc """
   Returns a list of snapshots.
   """
   def list_snapshots(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListSnapshots", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSnapshots", input, options)
   end
 
   @doc """
   Lists the tags assigned to a resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
   Lists all usage limits within Amazon Redshift Serverless.
   """
   def list_usage_limits(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListUsageLimits", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListUsageLimits", input, options)
   end
 
   @doc """
   Returns information about a list of specified workgroups.
   """
   def list_workgroups(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListWorkgroups", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListWorkgroups", input, options)
   end
 
   @doc """
@@ -257,56 +311,72 @@ defmodule AWS.RedshiftServerless do
   accounts.
   """
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "PutResourcePolicy", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
 
   @doc """
   Restore the data from a recovery point.
   """
   def restore_from_recovery_point(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RestoreFromRecoveryPoint", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RestoreFromRecoveryPoint", input, options)
   end
 
   @doc """
   Restores a namespace from a snapshot.
   """
   def restore_from_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "RestoreFromSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "RestoreFromSnapshot", input, options)
   end
 
   @doc """
   Assigns one or more tags to a resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "TagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
   Removes a tag or set of tags from a resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UntagResource", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """
   Updates an Amazon Redshift Serverless managed endpoint.
   """
   def update_endpoint_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateEndpointAccess", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateEndpointAccess", input, options)
   end
 
   @doc """
   Updates a namespace with the specified settings.
   """
   def update_namespace(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateNamespace", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateNamespace", input, options)
   end
 
   @doc """
   Updates a snapshot.
   """
   def update_snapshot(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateSnapshot", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSnapshot", input, options)
   end
 
   @doc """
@@ -315,13 +385,17 @@ defmodule AWS.RedshiftServerless do
   You can't update the usage type or period of a usage limit.
   """
   def update_usage_limit(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateUsageLimit", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateUsageLimit", input, options)
   end
 
   @doc """
   Updates a workgroup with the specified configuration settings.
   """
   def update_workgroup(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateWorkgroup", input, options)
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateWorkgroup", input, options)
   end
 end

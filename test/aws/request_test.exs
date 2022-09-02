@@ -210,5 +210,52 @@ defmodule AWS.RequestTest do
       assert {:unexpected_response,
               %{body: "{\"Response\":\"foo\"}", headers: [], status_code: 206}} = error
     end
+
+    test "send get request with host prefix", %{client: client, metadata: metadata} do
+      assert {:ok, _response, _http_response} =
+               Request.request_rest(
+                 client,
+                 Map.put(metadata, :host_prefix, "my-prefix."),
+                 :get,
+                 "/foo/bar",
+                 [{"q", "x&y="}, {"size", 5}],
+                 [],
+                 nil,
+                 [],
+                 nil
+               )
+
+      assert_receive {:request, :get, url, body, _headers, _options}
+
+      assert body == ""
+
+      assert url ==
+               "https://my-prefix.mobileanalytics.us-east1.amazonaws.com/foo/bar?q=x%26y%3D&size=5"
+    end
+
+    test "send get request with host prefix with account id", %{
+      client: client,
+      metadata: metadata
+    } do
+      assert {:ok, _response, _http_response} =
+               Request.request_rest(
+                 client,
+                 Map.put(metadata, :host_prefix, "{AccountId}-foo."),
+                 :get,
+                 "/foo/bar",
+                 [{"q", "x&y="}, {"size", 5}],
+                 [{"x-amz-account-id", "425211"}],
+                 nil,
+                 [],
+                 nil
+               )
+
+      assert_receive {:request, :get, url, body, _headers, _options}
+
+      assert body == ""
+
+      assert url ==
+               "https://425211-foo.mobileanalytics.us-east1.amazonaws.com/foo/bar?q=x%26y%3D&size=5"
+    end
   end
 end

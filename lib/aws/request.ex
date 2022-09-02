@@ -184,12 +184,22 @@ defmodule AWS.Request do
       %{global?: true, endpoint: endpoint} ->
         endpoint = resolve_endpoint_sufix(endpoint)
 
-        build_final_endpoint([metadata.endpoint_prefix, endpoint], build_options)
+        build_final_endpoint(
+          [to_string(metadata[:host_prefix]) <> metadata.endpoint_prefix, endpoint],
+          build_options
+        )
 
       %{endpoint: endpoint} ->
         endpoint = resolve_endpoint_sufix(endpoint)
 
-        build_final_endpoint([metadata.endpoint_prefix, client.region, endpoint], build_options)
+        build_final_endpoint(
+          [
+            to_string(metadata[:host_prefix]) <> metadata.endpoint_prefix,
+            client.region,
+            endpoint
+          ],
+          build_options
+        )
     end
   end
 
@@ -208,7 +218,14 @@ defmodule AWS.Request do
         parts
       end
 
-    Enum.join(parts, ".")
+    joined = Enum.join(parts, ".")
+
+    # TODO: handle more cases other than `AccountId`
+    if options[:account_id] do
+      joined |> String.replace("{AccountId}", options.account_id, global: true)
+    else
+      joined
+    end
   end
 
   defp build_uri(%Client{} = client, host, path \\ "/") do

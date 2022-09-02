@@ -43,7 +43,7 @@ defmodule AWS.CodeGuruReviewer do
   end
 
   @doc """
-  Use to associate an Amazon Web Services CodeCommit repository or a repostory
+  Use to associate an Amazon Web Services CodeCommit repository or a repository
   managed by Amazon Web Services CodeStar Connections with Amazon CodeGuru
   Reviewer.
 
@@ -89,8 +89,8 @@ defmodule AWS.CodeGuruReviewer do
   end
 
   @doc """
-  Use to create a code review with a [ `CodeReviewType`
-  ](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html)
+  Use to create a code review with a
+  [CodeReviewType](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html)
   of `RepositoryAnalysis`.
 
   This type of code review analyzes all code under a specified branch in an
@@ -164,8 +164,8 @@ defmodule AWS.CodeGuruReviewer do
   end
 
   @doc """
-  Returns a [ `RepositoryAssociation`
-  ](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html)
+  Returns a
+  [RepositoryAssociation](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html)
   object that contains information about the requested repository association.
   """
   def describe_repository_association(%Client{} = client, association_arn, options \\ []) do
@@ -266,8 +266,8 @@ defmodule AWS.CodeGuruReviewer do
   end
 
   @doc """
-  Returns a list of [ `RecommendationFeedbackSummary`
-  ](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html)
+  Returns a list of
+  [RecommendationFeedbackSummary](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html)
   objects that contain customer recommendation feedback for all CodeGuru Reviewer
   users.
   """
@@ -351,18 +351,14 @@ defmodule AWS.CodeGuruReviewer do
   end
 
   @doc """
-  Returns a list of [ `RepositoryAssociationSummary`
-  ](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html)
-  objects that contain summary information about a repository association.
+  Returns a list of
+  [RepositoryAssociationSummary](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html) objects that contain summary information about a repository association.
 
-  You can filter the returned list by [ `ProviderType`
-  ](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-ProviderType),
-  [ `Name`
-  ](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Name),
-  [ `State`
-  ](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-State),
-  and [ `Owner`
-  ](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Owner).
+  You can filter the returned list by
+  [ProviderType](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-ProviderType),
+  [Name](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Name), [State](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-State),
+  and
+  [Owner](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Owner).
   """
   def list_repository_associations(
         %Client{} = client,

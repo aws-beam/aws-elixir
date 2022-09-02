@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
 
+## [v0.13.0] - 2022-09-02
+
+### Fixed
+
+- Fix services that need a host prefix before the endpoint prefix.
+  This makes services like "Location" to work properly.
+
+### Changed
+
+- Update the AWS generated modules to reflect v1.44.90 of Go SDK. 
+  This may cause breaking changes.
+
 ## [v0.12.0] - 2022-07-18
 
 ### Fixed
@@ -491,7 +503,8 @@ is an example).
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.12.0...HEAD
+[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.13.0...HEAD
+[v0.13.0]: https://github.com/aws-beam/aws-elixir/compare/v0.12.0...v0.13.0
 [v0.12.0]: https://github.com/aws-beam/aws-elixir/compare/v0.11.0...v0.12.0
 [v0.11.0]: https://github.com/aws-beam/aws-elixir/compare/v0.10.1...v0.11.0
 [v0.10.1]: https://github.com/aws-beam/aws-elixir/compare/v0.10.0...v0.10.1

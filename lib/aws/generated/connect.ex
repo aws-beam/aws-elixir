@@ -903,6 +903,8 @@ defmodule AWS.Connect do
 
   Contact information remains available in Amazon Connect for 24 months, and then
   it is deleted.
+
+  Only data from November 12, 2021, and later is returned by this API.
   """
   def describe_contact(%Client{} = client, contact_id, instance_id, options \\ []) do
     url_path = "/contacts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
@@ -1696,7 +1698,8 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   For the specified version of Amazon Lex, returns a paginated list of all the
-  Amazon Lex bots currently associated with the instance.
+  Amazon Lex bots currently associated with the instance. Use this API to returns
+  both Amazon Lex V1 and V2 bots.
   """
   def list_bots(
         %Client{} = client,
@@ -2117,8 +2120,10 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Returns a paginated list of all the Amazon Lex bots currently associated with
-  the instance.
+  Returns a paginated list of all the Amazon Lex V1 bots currently associated with
+  the instance. To return both Amazon Lex V1 and V2 bots, use the
+  [ListBots](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html)
+  API.
   """
   def list_lex_bots(
         %Client{} = client,
@@ -2829,6 +2834,57 @@ defmodule AWS.Connect do
   """
   def search_available_phone_numbers(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number/search-available"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Searches queues in an Amazon Connect instance, with optional filtering.
+  """
+  def search_queues(%Client{} = client, input, options \\ []) do
+    url_path = "/search-queues"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Searches routing profiles in an Amazon Connect instance, with optional
+  filtering.
+  """
+  def search_routing_profiles(%Client{} = client, input, options \\ []) do
+    url_path = "/search-routing-profiles"
     headers = []
     query_params = []
 

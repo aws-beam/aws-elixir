@@ -103,7 +103,7 @@ jobs:
         run: |
           git config --local user.email "noreply@github.com"
           git config --local user.name "github-actions[bot]"
-          git add lib/aws/generated/*
+          git add lib/aws/generated
           git add .latest-tag-aws-sdk-go
           echo "Update services based on ${{ env.LATEST_AWS_SDK_GO_TAG }} of AWS Go SDK" >> commit-msg
           echo >> commit-msg

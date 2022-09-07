@@ -3,10 +3,20 @@
 
 defmodule AWS.Identitystore do
   @moduledoc """
-  The AWS Single Sign-On (SSO) Identity Store service provides a single place to
-  retrieve all of your identities (users and groups).
+  The Identity Store service used by AWS IAM Identity Center (successor to AWS
+  Single Sign-On) provides a single place to retrieve all of your identities
+  (users and groups).
 
-  For more information about AWS, see the [AWS Single Sign-On User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
+  For more information, see the [IAM Identity Center User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
+
+  ` Although AWS Single Sign-On was renamed, the `sso` and `identitystore` API
+  namespaces will continue to retain their original name for backward
+  compatibility purposes. For more information, see [IAM Identity Center rename](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed).
+
+  This reference guide describes the identity store operations that you can call
+  programatically and includes detailed information on data types and errors.
+
+  `
   """
 
   alias AWS.Client
@@ -95,7 +105,8 @@ defmodule AWS.Identitystore do
   end
 
   @doc """
-  Retrieves membership metadata and attributes from `MembershipId` in a group.
+  Retrieves membership metadata and attributes from `MembershipId` in an identity
+  store.
   """
   def describe_group_membership(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -123,7 +134,7 @@ defmodule AWS.Identitystore do
   end
 
   @doc """
-  Retrieves the `MembershipId` in a group.
+  Retrieves the `MembershipId` in an identity store.
   """
   def get_group_membership_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -141,7 +152,8 @@ defmodule AWS.Identitystore do
   end
 
   @doc """
-  Returns if a member exists in specified groups.
+  Checks the user's membership in all requested groups and returns if the member
+  exists in all queried groups.
   """
   def is_member_in_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -170,12 +182,12 @@ defmodule AWS.Identitystore do
   end
 
   @doc """
-  *Filtering for a group by the group `DisplayName` attribute is deprecated.
+  Lists the attribute name and value of the group that you specified in the
+  search.
 
-  Instead, use the `GetGroupId` API action.*
-
-  Lists all groups in the identity store. Returns a paginated list of complete
-  `Group` objects.
+  We only support `DisplayName` as a valid filter attribute path currently, and
+  filter is required. This API returns minimum attributes, including `GroupId` and
+  group `DisplayName` in the response.
   """
   def list_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -184,12 +196,11 @@ defmodule AWS.Identitystore do
   end
 
   @doc """
-  *Filtering for a user by the `UserName` attribute is deprecated.
+  Lists the attribute name and value of the user that you specified in the search.
 
-  Instead, use the `GetUserId` API action.*
-
-  Lists all users in the identity store. Returns a paginated list of complete
-  `User` objects.
+  We only support `UserName` as a valid filter attribute path currently, and
+  filter is required. This API returns minimum attributes, including `UserId` and
+  `UserName` in the response.
   """
   def list_users(%Client{} = client, input, options \\ []) do
     meta = metadata()

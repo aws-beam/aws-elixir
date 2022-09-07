@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
 
+## [v0.13.1] - 2022-09-07
+
+### Fixed
+
+- Fix the generator to commit removed files to the repository.
+  This prevents problems with renamed modules, or removed ones.
+  We also removed the modules with problems.
+
 ## [v0.13.0] - 2022-09-02
 
 ### Fixed
@@ -503,7 +511,8 @@ is an example).
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.13.0...HEAD
+[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.13.1...HEAD
+[v0.13.1]: https://github.com/aws-beam/aws-elixir/compare/v0.13.0...v0.13.1
 [v0.13.0]: https://github.com/aws-beam/aws-elixir/compare/v0.12.0...v0.13.0
 [v0.12.0]: https://github.com/aws-beam/aws-elixir/compare/v0.11.0...v0.12.0
 [v0.11.0]: https://github.com/aws-beam/aws-elixir/compare/v0.10.1...v0.11.0

@@ -345,14 +345,9 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  This API operation is in preview release for IoT SiteWise and is subject to
-  change.
+  Defines a job to ingest data to IoT SiteWise from Amazon S3.
 
-  We recommend that you use this operation only with test data, and not in
-  production environments.
-
-  Defines a job to ingest data to IoT SiteWise from Amazon S3. For more
-  information, see [Create a bulk import job (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html)
+  For more information, see [Create a bulk import job (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html)
   in the *Amazon Simple Storage Service User Guide*.
 
   You must enable IoT SiteWise to export data to Amazon S3 before you create a
@@ -809,14 +804,9 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  This API operation is in preview release for IoT SiteWise and is subject to
-  change.
+  Retrieves information about a bulk import job request.
 
-  We recommend that you use this operation only with test data, and not in
-  production environments.
-
-  Retrieves information about a bulk import job request. For more information, see
-  [Describe a bulk import job (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html)
+  For more information, see [Describe a bulk import job (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html)
   in the *Amazon Simple Storage Service User Guide*.
   """
   def describe_bulk_import_job(%Client{} = client, job_id, options \\ []) do
@@ -1724,15 +1714,10 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  This API operation is in preview release for IoT SiteWise and is subject to
-  change.
+  Retrieves a paginated list of bulk import job requests.
 
-  We recommend that you use this operation only with test data, and not in
-  production environments.
-
-  Retrieves a paginated list of bulk import job requests. For more information,
-  see [List bulk import jobs (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html)
-  in the *Amazon Simple Storage Service User Guide*.
+  For more information, see [List bulk import jobs (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html)
+  in the *IoT SiteWise User Guide*.
   """
   def list_bulk_import_jobs(
         %Client{} = client,

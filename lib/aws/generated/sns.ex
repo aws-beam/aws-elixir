@@ -241,6 +241,16 @@ defmodule AWS.SNS do
   end
 
   @doc """
+  Retrieves the specified inline `DataProtectionPolicy` document that is stored in
+  the specified Amazon SNS topic.
+  """
+  def get_data_protection_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDataProtectionPolicy", input, options)
+  end
+
+  @doc """
   Retrieves the endpoint attributes for a device on one of the supported push
   notification services, such as GCM (Firebase Cloud Messaging) and APNS.
 
@@ -537,6 +547,16 @@ defmodule AWS.SNS do
     meta = metadata()
 
     Request.request_post(client, meta, "PublishBatch", input, options)
+  end
+
+  @doc """
+  Adds or updates an inline policy document that is stored in the specified Amazon
+  SNS topic.
+  """
+  def put_data_protection_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutDataProtectionPolicy", input, options)
   end
 
   @doc """

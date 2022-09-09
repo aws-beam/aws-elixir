@@ -945,7 +945,12 @@ defmodule AWS.SageMaker do
   enable the estimation of model parameters during training. Hyperparameters can
   be tuned to optimize this learning process. For a list of hyperparameters for
   each training algorithm provided by SageMaker, see
-  [Algorithms](https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html).     * `InputDataConfig` - Describes the training dataset and the Amazon
+  [Algorithms](https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html).  You must not include any security-sensitive information, such as account access
+  IDs, secrets, and tokens, in the dictionary for configuring hyperparameters.
+  SageMaker rejects the training job request and returns an exception error for
+  detected credentials, if such user input is found.
+
+    * `InputDataConfig` - Describes the training dataset and the Amazon
   S3, EFS, or FSx location where it is stored.
 
     * `OutputDataConfig` - Identifies the Amazon S3 bucket where you

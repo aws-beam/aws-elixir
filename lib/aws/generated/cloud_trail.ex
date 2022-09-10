@@ -155,6 +155,18 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+  Returns the specified CloudTrail service-linked channel.
+
+  Amazon Web Services services create service-linked channels to view CloudTrail
+  events.
+  """
+  def get_channel(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetChannel", input, options)
+  end
+
+  @doc """
   Returns information about an event data store specified as either an ARN or the
   ID portion of the ARN.
   """
@@ -240,6 +252,15 @@ defmodule AWS.CloudTrail do
     meta = metadata()
 
     Request.request_post(client, meta, "GetTrailStatus", input, options)
+  end
+
+  @doc """
+  Returns all CloudTrail channels.
+  """
+  def list_channels(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListChannels", input, options)
   end
 
   @doc """
@@ -489,7 +510,7 @@ defmodule AWS.CloudTrail do
   The required `EventDataStore` value is an ARN or the ID portion of the ARN.
   Other parameters are optional, but at least one optional parameter must be
   specified, or CloudTrail throws an error. `RetentionPeriod` is in days, and
-  valid values are integers between 90 and 2555. By default,
+  valid values are integers between 90 and 2557. By default,
   `TerminationProtection` is enabled. `AdvancedEventSelectors` includes or
   excludes management and data events in your event data store; for more
   information about `AdvancedEventSelectors`, see

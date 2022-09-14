@@ -178,6 +178,15 @@ defmodule AWS.Transfer do
   end
 
   @doc """
+  Deletes the host key that's specified in the `HoskKeyId` parameter.
+  """
+  def delete_host_key(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteHostKey", input, options)
+  end
+
+  @doc """
   Deletes the profile that's specified in the `ProfileId` parameter.
   """
   def delete_profile(%Client{} = client, input, options \\ []) do
@@ -281,6 +290,16 @@ defmodule AWS.Transfer do
   end
 
   @doc """
+  Returns the details of the host key that's specified by the `HostKeyId` and
+  `ServerId`.
+  """
+  def describe_host_key(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeHostKey", input, options)
+  end
+
+  @doc """
   Returns the details of the profile that's specified by the `ProfileId`.
   """
   def describe_profile(%Client{} = client, input, options \\ []) do
@@ -345,6 +364,15 @@ defmodule AWS.Transfer do
     meta = metadata()
 
     Request.request_post(client, meta, "ImportCertificate", input, options)
+  end
+
+  @doc """
+  Adds a host key to the server specified by the `ServerId` parameter.
+  """
+  def import_host_key(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportHostKey", input, options)
   end
 
   @doc """
@@ -416,6 +444,15 @@ defmodule AWS.Transfer do
     meta = metadata()
 
     Request.request_post(client, meta, "ListExecutions", input, options)
+  end
+
+  @doc """
+  Returns a list of host keys for the server specified by the `ServerId` paramter.
+  """
+  def list_host_keys(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListHostKeys", input, options)
   end
 
   @doc """
@@ -655,6 +692,16 @@ defmodule AWS.Transfer do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateConnector", input, options)
+  end
+
+  @doc """
+  Updates the description for the host key specified by the specified by the
+  `ServerId` and `HostKeyId` parameters.
+  """
+  def update_host_key(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateHostKey", input, options)
   end
 
   @doc """

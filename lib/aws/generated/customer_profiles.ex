@@ -40,8 +40,8 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
-  Associates a new key value with a specific profile, such as a Contact Trace
-  Record (CTR) ContactId.
+  Associates a new key value with a specific profile, such as a Contact Record
+  ContactId.
 
   A profile object can have a single unique key and any number of additional keys
   that can be used to identify the profile that it belongs to.
@@ -924,6 +924,10 @@ defmodule AWS.CustomerProfiles do
   includes Amazon AppFlow and Amazon Connect.
 
   An integration can belong to only one domain.
+
+  To add or remove tags on an existing Integration, see [ TagResource
+  ](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html)/[
+  UntagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html).
   """
   def put_integration(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/integrations"
@@ -938,11 +942,11 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Adds additional objects to customer profiles of a given ObjectType.
 
-  When adding a specific profile object, like a Contact Trace Record (CTR), an
-  inferred profile can get created if it is not mapped to an existing profile. The
+  When adding a specific profile object, like a Contact Record, an inferred
+  profile can get created if it is not mapped to an existing profile. The
   resulting profile will only have a phone number populated in the standard
-  ProfileObject. Any additional CTRs with the same phone number will be mapped to
-  the same inferred profile.
+  ProfileObject. Any additional Contact Records with the same phone number will be
+  mapped to the same inferred profile.
 
   When a ProfileObject is created and if a ProfileObjectType already exists for
   the ProfileObject, it will provide data to a standard profile depending on the
@@ -963,6 +967,9 @@ defmodule AWS.CustomerProfiles do
 
   @doc """
   Defines a ProfileObjectType.
+
+  To add or remove tags on an existing ObjectType, see [
+  TagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html)/[UntagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html).
   """
   def put_profile_object_type(
         %Client{} = client,
@@ -1098,6 +1105,9 @@ defmodule AWS.CustomerProfiles do
   To prevent cross-service impersonation when you call this API, see
   [Cross-service confused deputy prevention](https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html)
   for sample policies that you should apply.
+
+  To add or remove tags on an existing Domain, see
+  [TagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html)/[UntagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html).
   """
   def update_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"

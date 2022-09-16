@@ -1027,7 +1027,7 @@ defmodule AWS.DynamoDB do
   items from one or more tables (but not from indexes) in a single account and
   Region.
 
-  A `TransactGetItems` call can contain up to 25 `TransactGetItem` objects, each
+  A `TransactGetItems` call can contain up to 100 `TransactGetItem` objects, each
   of which contains a `Get` structure that specifies an item to retrieve from a
   table in the account and Region. A call to `TransactGetItems` cannot retrieve
   items from tables in more than one Amazon Web Services account or Region. The
@@ -1054,7 +1054,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
-  `TransactWriteItems` is a synchronous write operation that groups up to 25
+  `TransactWriteItems` is a synchronous write operation that groups up to 100
   action requests.
 
   These actions can target items in different tables, but not in different Amazon

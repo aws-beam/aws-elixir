@@ -32,8 +32,8 @@ defmodule AWS.Codestarnotifications do
 
   Targets, by calling the following:
 
-    * `DeleteTarget`, which removes a notification rule target (SNS
-  topic) from a notification rule.
+    * `DeleteTarget`, which removes a notification rule target from a
+  notification rule.
 
     * `ListTargets`, which lists the targets associated with a
   notification rule.
@@ -54,8 +54,8 @@ defmodule AWS.Codestarnotifications do
     * `UntagResource`, which removes a tag from a notification rule in
   your account.
 
-  For information about how to use AWS CodeStar Notifications, see link in the
-  CodeStarNotifications User Guide.
+  For information about how to use AWS CodeStar Notifications, see the [Amazon Web Services Developer Tools Console User
+  Guide](https://docs.aws.amazon.com/dtconsole/latest/userguide/what-is-dtconsole.html).
   """
 
   alias AWS.Client
@@ -81,7 +81,8 @@ defmodule AWS.Codestarnotifications do
   Creates a notification rule for a resource.
 
   The rule specifies the events you want notifications about and the targets (such
-  as SNS topics) where you want to receive them.
+  as Chatbot topics or Chatbot clients configured for Slack) where you want to
+  receive them.
   """
   def create_notification_rule(%Client{} = client, input, options \\ []) do
     url_path = "/createNotificationRule"
@@ -197,7 +198,7 @@ defmodule AWS.Codestarnotifications do
   end
 
   @doc """
-  Returns a list of the notification rules for an AWS account.
+  Returns a list of the notification rules for an Amazon Web Services account.
   """
   def list_notification_rules(%Client{} = client, input, options \\ []) do
     url_path = "/listNotificationRules"
@@ -243,7 +244,8 @@ defmodule AWS.Codestarnotifications do
   end
 
   @doc """
-  Returns a list of the notification rule targets for an AWS account.
+  Returns a list of the notification rule targets for an Amazon Web Services
+  account.
   """
   def list_targets(%Client{} = client, input, options \\ []) do
     url_path = "/listTargets"
@@ -266,9 +268,9 @@ defmodule AWS.Codestarnotifications do
   end
 
   @doc """
-  Creates an association between a notification rule and an SNS topic so that the
-  associated target can receive notifications when the events described in the
-  rule are triggered.
+  Creates an association between a notification rule and an Chatbot topic or
+  Chatbot client so that the associated target can receive notifications when the
+  events described in the rule are triggered.
   """
   def subscribe(%Client{} = client, input, options \\ []) do
     url_path = "/subscribe"
@@ -314,9 +316,9 @@ defmodule AWS.Codestarnotifications do
   end
 
   @doc """
-  Removes an association between a notification rule and an Amazon SNS topic so
-  that subscribers to that topic stop receiving notifications when the events
-  described in the rule are triggered.
+  Removes an association between a notification rule and an Chatbot topic so that
+  subscribers to that topic stop receiving notifications when the events described
+  in the rule are triggered.
   """
   def unsubscribe(%Client{} = client, input, options \\ []) do
     url_path = "/unsubscribe"
@@ -342,10 +344,15 @@ defmodule AWS.Codestarnotifications do
   Removes the association between one or more provided tags and a notification
   rule.
   """
-  def untag_resource(%Client{} = client, input, options \\ []) do
-    url_path = "/untagResource"
+  def untag_resource(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/untagResource/#{AWS.Util.encode_uri(arn)}"
     headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"TagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 

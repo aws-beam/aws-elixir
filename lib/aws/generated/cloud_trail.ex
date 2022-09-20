@@ -190,14 +190,28 @@ defmodule AWS.CloudTrail do
     * If your event selector includes data events, the resources on
   which you are logging data events.
 
-  For more information, see [Logging Data and Management Events for Trails
-  ](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html)
-  in the *CloudTrail User Guide*.
+  For more information about logging management and data events, see the following
+  topics in the *CloudTrail User Guide*:
+
+    * [Logging management events for trails
+  ](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html)
+
+    * [Logging data events for trails
+  ](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html)
   """
   def get_event_selectors(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "GetEventSelectors", input, options)
+  end
+
+  @doc """
+  Returns information for the specified import.
+  """
+  def get_import(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetImport", input, options)
   end
 
   @doc """
@@ -271,6 +285,25 @@ defmodule AWS.CloudTrail do
     meta = metadata()
 
     Request.request_post(client, meta, "ListEventDataStores", input, options)
+  end
+
+  @doc """
+  Returns a list of failures for the specified import.
+  """
+  def list_import_failures(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListImportFailures", input, options)
+  end
+
+  @doc """
+  Returns information on all imports, or a select set of imports by `ImportStatus`
+  or `Destination`.
+  """
+  def list_imports(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListImports", input, options)
   end
 
   @doc """
@@ -404,8 +437,10 @@ defmodule AWS.CloudTrail do
   thrown.
 
   You can configure up to five event selectors for each trail. For more
-  information, see [Logging data and management events for trails
-  ](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html)
+  information, see [Logging management events for trails
+  ](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html),
+  [Logging data events for trails
+  ](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html),
   and [Quotas in CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html)
   in the *CloudTrail User Guide*.
 
@@ -461,6 +496,23 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+  Starts an import of logged trail events from a source S3 bucket to a destination
+  event data store.
+
+  When you start a new import, the `Destinations` and `ImportSource` parameters
+  are required. Before starting a new import, disable any access control lists
+  (ACLs) attached to the source S3 bucket. For more information about disabling
+  ACLs, see [Controlling ownership of objects and disabling ACLs for your bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html).
+
+  When you retry an import, the `ImportID` parameter is required.
+  """
+  def start_import(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartImport", input, options)
+  end
+
+  @doc """
   Starts the recording of Amazon Web Services API calls and log file delivery for
   a trail.
 
@@ -485,6 +537,15 @@ defmodule AWS.CloudTrail do
     meta = metadata()
 
     Request.request_post(client, meta, "StartQuery", input, options)
+  end
+
+  @doc """
+  Stops a specified import.
+  """
+  def stop_import(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopImport", input, options)
   end
 
   @doc """

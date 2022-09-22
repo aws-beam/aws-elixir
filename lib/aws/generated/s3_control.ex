@@ -39,11 +39,11 @@ defmodule AWS.S3Control do
   in the *Amazon S3 User Guide*.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of `x-amz-outpost-id` to be passed with the request and an
-  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
-  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
-  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
-  point ARN, see the
+  additional parameter of `x-amz-outpost-id` to be passed with the request. In
+  addition, you must use an S3 on Outposts endpoint hostname prefix instead of
+  `s3-control`. For an example of the request syntax for Amazon S3 on Outposts
+  that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id`
+  derived by using the access point ARN, see the
   [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html#API_control_CreateAccessPoint_Examples) section.
 
   The following actions are related to `CreateAccessPoint`:
@@ -280,11 +280,11 @@ defmodule AWS.S3Control do
   Deletes the specified access point.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of `x-amz-outpost-id` to be passed with the request and an
-  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
-  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
-  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
-  point ARN, see the
+  additional parameter of `x-amz-outpost-id` to be passed with the request. In
+  addition, you must use an S3 on Outposts endpoint hostname prefix instead of
+  `s3-control`. For an example of the request syntax for Amazon S3 on Outposts
+  that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id`
+  derived by using the access point ARN, see the
   [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html#API_control_DeleteAccessPoint_Examples) section.
 
   The following actions are related to `DeleteAccessPoint`:
@@ -364,11 +364,11 @@ defmodule AWS.S3Control do
   Deletes the access point policy for the specified access point.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of `x-amz-outpost-id` to be passed with the request and an
-  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
-  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
-  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
-  point ARN, see the
+  additional parameter of `x-amz-outpost-id` to be passed with the request. In
+  addition, you must use an S3 on Outposts endpoint hostname prefix instead of
+  `s3-control`. For an example of the request syntax for Amazon S3 on Outposts
+  that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id`
+  derived by using the access point ARN, see the
   [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html#API_control_DeleteAccessPointPolicy_Examples) section.
 
   The following actions are related to `DeleteAccessPointPolicy`:
@@ -453,11 +453,11 @@ defmodule AWS.S3Control do
   in *Amazon S3 User Guide*.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of `x-amz-outpost-id` to be passed with the request and an
-  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
-  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
-  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
-  point ARN, see the
+  additional parameter of `x-amz-outpost-id` to be passed with the request. In
+  addition, you must use an S3 on Outposts endpoint hostname prefix instead of
+  `s3-control`. For an example of the request syntax for Amazon S3 on Outposts
+  that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id`
+  derived by using the access point ARN, see the
   [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucket.html#API_control_DeleteBucket_Examples) section.
 
   ## Related Resources
@@ -516,11 +516,11 @@ defmodule AWS.S3Control do
   others.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of `x-amz-outpost-id` to be passed with the request and an
-  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
-  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
-  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
-  point ARN, see the
+  additional parameter of `x-amz-outpost-id` to be passed with the request. In
+  addition, you must use an S3 on Outposts endpoint hostname prefix instead of
+  `s3-control`. For an example of the request syntax for Amazon S3 on Outposts
+  that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id`
+  derived by using the access point ARN, see the
   [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketLifecycleConfiguration.html#API_control_DeleteBucketLifecycleConfiguration_Examples) section.
 
   For more information about object expiration, see [Elements to Describe
@@ -586,11 +586,11 @@ defmodule AWS.S3Control do
   For more information about bucket policies, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of `x-amz-outpost-id` to be passed with the request and an
-  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
-  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
-  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
-  point ARN, see the
+  additional parameter of `x-amz-outpost-id` to be passed with the request. In
+  addition, you must use an S3 on Outposts endpoint hostname prefix instead of
+  `s3-control`. For an example of the request syntax for Amazon S3 on Outposts
+  that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id`
+  derived by using the access point ARN, see the
   [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html#API_control_DeleteBucketPolicy_Examples) section.
 
   The following actions are related to `DeleteBucketPolicy`:
@@ -643,11 +643,11 @@ defmodule AWS.S3Control do
   permission to others.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of `x-amz-outpost-id` to be passed with the request and an
-  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
-  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
-  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
-  point ARN, see the
+  additional parameter of `x-amz-outpost-id` to be passed with the request. In
+  addition, you must use an S3 on Outposts endpoint hostname prefix instead of
+  `s3-control`. For an example of the request syntax for Amazon S3 on Outposts
+  that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id`
+  derived by using the access point ARN, see the
   [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketTagging.html#API_control_DeleteBucketTagging_Examples) section.
 
   The following actions are related to `DeleteBucketTagging`:
@@ -979,11 +979,11 @@ defmodule AWS.S3Control do
   Returns configuration information about the specified access point.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of `x-amz-outpost-id` to be passed with the request and an
-  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
-  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
-  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
-  point ARN, see the
+  additional parameter of `x-amz-outpost-id` to be passed with the request. In
+  addition, you must use an S3 on Outposts endpoint hostname prefix instead of
+  `s3-control`. For an example of the request syntax for Amazon S3 on Outposts
+  that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id`
+  derived by using the access point ARN, see the
   [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html#API_control_GetAccessPoint_Examples) section.
 
   The following actions are related to `GetAccessPoint`:
@@ -1207,11 +1207,11 @@ defmodule AWS.S3Control do
   The following actions are related to `GetBucket` for Amazon S3 on Outposts:
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of `x-amz-outpost-id` to be passed with the request and an
-  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
-  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
-  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
-  point ARN, see the
+  additional parameter of `x-amz-outpost-id` to be passed with the request. In
+  addition, you must use an S3 on Outposts endpoint hostname prefix instead of
+  `s3-control`. For an example of the request syntax for Amazon S3 on Outposts
+  that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id`
+  derived by using the access point ARN, see the
   [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucket.html#API_control_GetBucket_Examples) section.
 
     *
@@ -1259,11 +1259,11 @@ defmodule AWS.S3Control do
   and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of `x-amz-outpost-id` to be passed with the request and an
-  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
-  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
-  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
-  point ARN, see the
+  additional parameter of `x-amz-outpost-id` to be passed with the request. In
+  addition, you must use an S3 on Outposts endpoint hostname prefix instead of
+  `s3-control`. For an example of the request syntax for Amazon S3 on Outposts
+  that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id`
+  derived by using the access point ARN, see the
   [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html#API_control_GetBucketLifecycleConfiguration_Examples) section.
 
   `GetBucketLifecycleConfiguration` has the following special error:
@@ -1332,11 +1332,11 @@ defmodule AWS.S3Control do
   For more information about bucket policies, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of `x-amz-outpost-id` to be passed with the request and an
-  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
-  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
-  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
-  point ARN, see the
+  additional parameter of `x-amz-outpost-id` to be passed with the request. In
+  addition, you must use an S3 on Outposts endpoint hostname prefix instead of
+  `s3-control`. For an example of the request syntax for Amazon S3 on Outposts
+  that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id`
+  derived by using the access point ARN, see the
   [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketPolicy.html#API_control_GetBucketPolicy_Examples) section.
 
   The following actions are related to `GetBucketPolicy`:
@@ -1389,11 +1389,11 @@ defmodule AWS.S3Control do
   bucket.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of `x-amz-outpost-id` to be passed with the request and an
-  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
-  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
-  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
-  point ARN, see the
+  additional parameter of `x-amz-outpost-id` to be passed with the request. In
+  addition, you must use an S3 on Outposts endpoint hostname prefix instead of
+  `s3-control`. For an example of the request syntax for Amazon S3 on Outposts
+  that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id`
+  derived by using the access point ARN, see the
   [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketTagging.html#API_control_GetBucketTagging_Examples) section.
 
   The following actions are related to `GetBucketTagging`:
@@ -1406,6 +1406,60 @@ defmodule AWS.S3Control do
   """
   def get_bucket_tagging(%Client{} = client, bucket, account_id, options \\ []) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/tagging"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  This operation returns the versioning state only for S3 on Outposts buckets.
+
+  To return the versioning state for an S3 bucket, see
+  [GetBucketVersioning](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html) in the *Amazon S3 API Reference*.
+
+  Returns the versioning state for an S3 on Outposts bucket. With versioning, you
+  can save multiple distinct copies of your data and recover from unintended user
+  actions and application failures.
+
+  If you've never set versioning on your bucket, it has no versioning state. In
+  that case, the `GetBucketVersioning` request does not return a versioning state
+  value.
+
+  For more information about versioning, see
+  [Versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html)
+  in the *Amazon S3 User Guide*.
+
+  All Amazon S3 on Outposts REST API requests for this action require an
+  additional parameter of `x-amz-outpost-id` to be passed with the request. In
+  addition, you must use an S3 on Outposts endpoint hostname prefix instead of
+  `s3-control`. For an example of the request syntax for Amazon S3 on Outposts
+  that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id`
+  derived by using the access point ARN, see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketVersioning.html#API_control_GetBucketVersioning_Examples) section.
+
+  The following operations are related to `GetBucketVersioning` for S3 on
+  Outposts.
+
+    *
+  [PutBucketVersioning](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketVersioning.html)
+
+    *
+  [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html)     *
+  [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html)
+  """
+  def get_bucket_versioning(%Client{} = client, bucket, account_id, options \\ []) do
+    url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/versioning"
     headers = []
 
     headers =
@@ -1668,11 +1722,11 @@ defmodule AWS.S3Control do
   use to list the additional access points.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of `x-amz-outpost-id` to be passed with the request and an
-  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
-  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
-  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
-  point ARN, see the
+  additional parameter of `x-amz-outpost-id` to be passed with the request. In
+  addition, you must use an S3 on Outposts endpoint hostname prefix instead of
+  `s3-control`. For an example of the request syntax for Amazon S3 on Outposts
+  that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id`
+  derived by using the access point ARN, see the
   [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html#API_control_GetAccessPoint_Examples) section.
 
   The following actions are related to `ListAccessPoints`:
@@ -2046,11 +2100,11 @@ defmodule AWS.S3Control do
   replaces any existing policy associated with the specified access point.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of `x-amz-outpost-id` to be passed with the request and an
-  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
-  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
-  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
-  point ARN, see the
+  additional parameter of `x-amz-outpost-id` to be passed with the request. In
+  addition, you must use an S3 on Outposts endpoint hostname prefix instead of
+  `s3-control`. For an example of the request syntax for Amazon S3 on Outposts
+  that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id`
+  derived by using the access point ARN, see the
   [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html#API_control_PutAccessPointPolicy_Examples) section.
 
   The following actions are related to `PutAccessPointPolicy`:
@@ -2117,11 +2171,11 @@ defmodule AWS.S3Control do
   abort incomplete multipart uploads.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of `x-amz-outpost-id` to be passed with the request and an
-  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
-  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
-  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
-  point ARN, see the
+  additional parameter of `x-amz-outpost-id` to be passed with the request. In
+  addition, you must use an S3 on Outposts endpoint hostname prefix instead of
+  `s3-control`. For an example of the request syntax for Amazon S3 on Outposts
+  that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id`
+  derived by using the access point ARN, see the
   [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html#API_control_PutBucketLifecycleConfiguration_Examples)
   section.
 
@@ -2175,11 +2229,11 @@ defmodule AWS.S3Control do
   For more information about bucket policies, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of `x-amz-outpost-id` to be passed with the request and an
-  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
-  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
-  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
-  point ARN, see the
+  additional parameter of `x-amz-outpost-id` to be passed with the request. In
+  addition, you must use an S3 on Outposts endpoint hostname prefix instead of
+  `s3-control`. For an example of the request syntax for Amazon S3 on Outposts
+  that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id`
+  derived by using the access point ARN, see the
   [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketPolicy.html#API_control_PutBucketPolicy_Examples) section.
 
   The following actions are related to `PutBucketPolicy`:
@@ -2261,11 +2315,11 @@ defmodule AWS.S3Control do
   provided tag to the bucket.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of `x-amz-outpost-id` to be passed with the request and an
-  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
-  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
-  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
-  point ARN, see the
+  additional parameter of `x-amz-outpost-id` to be passed with the request. In
+  addition, you must use an S3 on Outposts endpoint hostname prefix instead of
+  `s3-control`. For an example of the request syntax for Amazon S3 on Outposts
+  that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id`
+  derived by using the access point ARN, see the
   [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketTagging.html#API_control_PutBucketTagging_Examples) section.
 
   The following actions are related to `PutBucketTagging`:
@@ -2282,6 +2336,79 @@ defmodule AWS.S3Control do
     {headers, input} =
       [
         {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  This operation sets the versioning state only for S3 on Outposts buckets.
+
+  To set the versioning state for an S3 bucket, see
+  [PutBucketVersioning](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html) in the *Amazon S3 API Reference*.
+
+  Sets the versioning state for an S3 on Outposts bucket. With versioning, you can
+  save multiple distinct copies of your data and recover from unintended user
+  actions and application failures.
+
+  You can set the versioning state to one of the following:
+
+    * **Enabled** - Enables versioning for the objects in the bucket.
+  All objects added to the bucket receive a unique version ID.
+
+    * **Suspended** - Suspends versioning for the objects in the bucket.
+  All objects added to the bucket receive the version ID `null`.
+
+  If you've never set versioning on your bucket, it has no versioning state. In
+  that case, a [
+  GetBucketVersioning](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketVersioning.html)
+  request does not return a versioning state value.
+
+  When you enable S3 Versioning, for each object in your bucket, you have a
+  current version and zero or more noncurrent versions. You can configure your
+  bucket S3 Lifecycle rules to expire noncurrent versions after a specified time
+  period. For more information, see [ Creating and managing a lifecycle configuration for your S3 on Outposts
+  bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsLifecycleManaging.html)
+  in the *Amazon S3 User Guide*.
+
+  If you have an object expiration lifecycle policy in your non-versioned bucket
+  and you want to maintain the same permanent delete behavior when you enable
+  versioning, you must add a noncurrent expiration policy. The noncurrent
+  expiration lifecycle policy will manage the deletes of the noncurrent object
+  versions in the version-enabled bucket. For more information, see
+  [Versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html) in the *Amazon S3 User Guide*.
+
+  All Amazon S3 on Outposts REST API requests for this action require an
+  additional parameter of `x-amz-outpost-id` to be passed with the request. In
+  addition, you must use an S3 on Outposts endpoint hostname prefix instead of
+  `s3-control`. For an example of the request syntax for Amazon S3 on Outposts
+  that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id`
+  derived by using the access point ARN, see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketVersioning.html#API_control_PutBucketVersioning_Examples)
+  section.
+
+  The following operations are related to `PutBucketVersioning` for S3 on
+  Outposts.
+
+    *
+  [GetBucketVersioning](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketVersioning.html)     *
+  [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html)
+
+    *
+  [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html)
+  """
+  def put_bucket_versioning(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/versioning"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"},
+        {"MFA", "x-amz-mfa"}
       ]
       |> Request.build_params(input)
 
@@ -2408,7 +2535,7 @@ defmodule AWS.S3Control do
   Creates or modifies the `PublicAccessBlock` configuration for an Amazon Web
   Services account.
 
-  For this operation, users must have the `s3:PutBucketPublicAccessBlock`
+  For this operation, users must have the `s3:PutAccountPublicAccessBlock`
   permission. For more information, see [ Using Amazon S3 block public access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
 
   Related actions include:

@@ -46,7 +46,9 @@ defmodule AWS.Comprehend do
   Inspects the text of a batch of documents for named entities and returns
   information about them.
 
-  For more information about named entities, see `how-entities`
+  For more information about named entities, see
+  [Entities](https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html)
+  in the Comprehend Developer Guide.
   """
   def batch_detect_entities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -77,12 +79,26 @@ defmodule AWS.Comprehend do
   Inspects the text of a batch of documents for the syntax and part of speech of
   the words in the document and returns information about them.
 
-  For more information, see `how-syntax`.
+  For more information, see
+  [Syntax](https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html) in
+  the Comprehend Developer Guide.
   """
   def batch_detect_syntax(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "BatchDetectSyntax", input, options)
+  end
+
+  @doc """
+  Inspects a batch of documents and returns a sentiment analysis for each entity
+  identified in the documents.
+
+  For more information about targeted sentiment, see [Targeted sentiment](https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html).
+  """
+  def batch_detect_targeted_sentiment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchDetectTargetedSentiment", input, options)
   end
 
   @doc """
@@ -112,7 +128,8 @@ defmodule AWS.Comprehend do
   To create a classifier, you provide a set of training documents that labeled
   with the categories that you want to use. After the classifier is trained you
   can use it to categorize a set of labeled documents into the categories. For
-  more information, see `how-document-classification`.
+  more information, see [Document Classification](https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html)
+  in the Comprehend Developer Guide.
   """
   def create_document_classifier(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -352,7 +369,9 @@ defmodule AWS.Comprehend do
   @doc """
   Inspects text for named entities, and returns information about them.
 
-  For more information, about named entities, see `how-entities`.
+  For more information, about named entities, see
+  [Entities](https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html)
+  in the Comprehend Developer Guide.
   """
   def detect_entities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -392,12 +411,26 @@ defmodule AWS.Comprehend do
   @doc """
   Inspects text for syntax and the part of speech of words in the document.
 
-  For more information, `how-syntax`.
+  For more information, see
+  [Syntax](https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html) in
+  the Comprehend Developer Guide.
   """
   def detect_syntax(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "DetectSyntax", input, options)
+  end
+
+  @doc """
+  Inspects the input text and returns a sentiment analysis for each entity
+  identified in the text.
+
+  For more information about targeted sentiment, see [Targeted sentiment](https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html).
+  """
+  def detect_targeted_sentiment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetectTargetedSentiment", input, options)
   end
 
   @doc """

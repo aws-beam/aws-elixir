@@ -182,12 +182,11 @@ defmodule AWS.Identitystore do
   end
 
   @doc """
-  Lists the attribute name and value of the group that you specified in the
-  search.
+  Lists all groups in the identity store.
 
-  We only support `DisplayName` as a valid filter attribute path currently, and
-  filter is required. This API returns minimum attributes, including `GroupId` and
-  group `DisplayName` in the response.
+  Returns a paginated list of complete `Group` objects. Filtering for a `Group` by
+  the `DisplayName` attribute is deprecated. Instead, use the `GetGroupId` API
+  action.
   """
   def list_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -196,11 +195,10 @@ defmodule AWS.Identitystore do
   end
 
   @doc """
-  Lists the attribute name and value of the user that you specified in the search.
+  Lists all users in the identity store.
 
-  We only support `UserName` as a valid filter attribute path currently, and
-  filter is required. This API returns minimum attributes, including `UserId` and
-  `UserName` in the response.
+  Returns a paginated list of complete `User` objects. Filtering for a `User` by
+  the `UserName` attribute is deprecated. Instead, use the `GetUserId` API action.
   """
   def list_users(%Client{} = client, input, options \\ []) do
     meta = metadata()

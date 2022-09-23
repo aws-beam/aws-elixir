@@ -103,6 +103,16 @@ defmodule AWS.BackupGateway do
   end
 
   @doc """
+  By providing the ARN (Amazon Resource Name), this API returns the virtual
+  machine.
+  """
+  def get_virtual_machine(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetVirtualMachine", input, options)
+  end
+
+  @doc """
   Connect to a hypervisor by importing its configuration.
   """
   def import_hypervisor_configuration(%Client{} = client, input, options \\ []) do

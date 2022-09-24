@@ -1,0 +1,29 @@
+name: Upload release
+
+on:
+  push:
+    tags:
+    - '*'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: erlang:24.3.4.2
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Compile
+        run: rebar3 compile
+
+      - name: Run EUnit Tests
+        run: rebar3 eunit
+
+      - uses: ncipollo/release-action@v1
+        with:
+          generateReleaseNotes: true
+          token: ${{ secrets.GITHUB_TOKEN }}

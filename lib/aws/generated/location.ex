@@ -883,6 +883,39 @@ defmodule AWS.Location do
   end
 
   @doc """
+  Finds a place by its unique ID.
+
+  A `PlaceId` is returned by other search operations.
+
+  A PlaceId is valid only if all of the following are the same in the original
+  search request and the call to `GetPlace`.
+
+     Customer AWS account
+
+     AWS Region
+
+     Data provider specified in the place index resource
+  """
+  def get_place(%Client{} = client, index_name, place_id, language \\ nil, options \\ []) do
+    url_path =
+      "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/places/#{AWS.Util.encode_uri(place_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(language) do
+        [{"language", language} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "places.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   A batch request to retrieve all device positions.
   """
   def list_device_positions(%Client{} = client, tracker_name, input, options \\ []) do

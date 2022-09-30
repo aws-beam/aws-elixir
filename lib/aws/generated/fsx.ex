@@ -172,6 +172,10 @@ defmodule AWS.FSx do
   a data repository association for automatic import only, for automatic export
   only, or for both. To learn more about linking a data repository to your file
   system, see [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html).
+
+  `CreateDataRepositoryAssociation` isn't supported on Amazon File Cache
+  resources. To create a DRA on Amazon File Cache, use the `CreateFileCache`
+  operation.
   """
   def create_data_repository_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -196,6 +200,33 @@ defmodule AWS.FSx do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateDataRepositoryTask", input, options)
+  end
+
+  @doc """
+  Creates a new Amazon File Cache resource.
+
+  You can use this operation with a client request token in the request that
+  Amazon File Cache uses to ensure idempotent creation. If a cache with the
+  specified client request token exists and the parameters match,
+  `CreateFileCache` returns the description of the existing cache. If a cache with
+  the specified client request token exists and the parameters don't match, this
+  call returns `IncompatibleParameterError`. If a file cache with the specified
+  client request token doesn't exist, `CreateFileCache` does the following:
+
+    * Creates a new, empty Amazon File Cache resourcewith an assigned
+  ID, and an initial lifecycle state of `CREATING`.
+
+    * Returns the description of the cache in JSON format.
+
+  The `CreateFileCache` call returns while the cache's lifecycle state is still
+  `CREATING`. You can check the cache creation status by calling the
+  [DescribeFileCaches](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileCaches.html)
+  operation, which returns the cache state along with other information.
+  """
+  def create_file_cache(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFileCache", input, options)
   end
 
   @doc """
@@ -234,17 +265,6 @@ defmodule AWS.FSx do
   and an initial lifecycle state of `CREATING`.
 
     * Returns the description of the file system in JSON format.
-
-  This operation requires a client request token in the request that Amazon FSx
-  uses to ensure idempotent creation. This means that calling the operation
-  multiple times with the same client request token has no effect. By using the
-  idempotent operation, you can retry a `CreateFileSystem` operation without the
-  risk of creating an extra file system. This approach can be useful when an
-  initial call fails in a way that makes it unclear whether a file system was
-  created. Examples are if a transport-level timeout occurred, or your connection
-  was reset. If you use the same client request token and the initial call created
-  a file system, the client receives a success message as long as the parameters
-  are the same.
 
   The `CreateFileSystem` call returns while the file system's lifecycle state is
   still `CREATING`. You can check the file-system creation status by calling the
@@ -394,6 +414,26 @@ defmodule AWS.FSx do
   end
 
   @doc """
+  Deletes an Amazon File Cache resource.
+
+  After deletion, the cache no longer exists, and its data is gone.
+
+  The `DeleteFileCache` operation returns while the cache has the `DELETING`
+  status. You can check the cache deletion status by calling the
+  [DescribeFileCaches](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileCaches.html)
+  operation, which returns a list of caches in your account. If you pass the cache
+  ID for a deleted cache, the `DescribeFileCaches` operation returns a
+  `FileCacheNotFound` error.
+
+  The data in a deleted cache is also deleted and can't be recovered by any means.
+  """
+  def delete_file_cache(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFileCache", input, options)
+  end
+
+  @doc """
   Deletes a file system.
 
   After deletion, the file system no longer exists, and its data is gone. Any
@@ -497,17 +537,19 @@ defmodule AWS.FSx do
   end
 
   @doc """
-  Returns the description of specific Amazon FSx for Lustre data repository
-  associations, if one or more `AssociationIds` values are provided in the
-  request, or if filters are used in the request.
+  Returns the description of specific Amazon FSx for Lustre or Amazon File Cache
+  data repository associations, if one or more `AssociationIds` values are
+  provided in the request, or if filters are used in the request.
 
-  Data repository associations are supported only for file systems with the
-  `Persistent_2` deployment type.
+  Data repository associations are supported only for Amazon FSx for Lustre file
+  systems with the `Persistent_2` deployment type and for Amazon File Cache
+  resources.
 
   You can use filters to narrow the response to include just data repository
   associations for specific file systems (use the `file-system-id` filter with the
-  ID of the file system) or data repository associations for a specific repository
-  type (use the `data-repository-type` filter with a value of `S3`). If you don't
+  ID of the file system) or caches (use the `file-cache-id` filter with the ID of
+  the cache), or data repository associations for a specific repository type (use
+  the `data-repository-type` filter with a value of `S3` or `NFS`). If you don't
   use filters, the response returns all data repository associations owned by your
   Amazon Web Services account in the Amazon Web Services Region of the endpoint
   that you're calling.
@@ -515,9 +557,9 @@ defmodule AWS.FSx do
   When retrieving all data repository associations, you can paginate the response
   by using the optional `MaxResults` parameter to limit the number of data
   repository associations returned in a response. If more data repository
-  associations remain, Amazon FSx returns a `NextToken` value in the response. In
-  this case, send a later request with the `NextToken` request parameter set to
-  the value of `NextToken` from the last response.
+  associations remain, a `NextToken` value is returned in the response. In this
+  case, send a later request with the `NextToken` request parameter set to the
+  value of `NextToken` from the last response.
   """
   def describe_data_repository_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -526,25 +568,59 @@ defmodule AWS.FSx do
   end
 
   @doc """
-  Returns the description of specific Amazon FSx for Lustre data repository tasks,
-  if one or more `TaskIds` values are provided in the request, or if filters are
-  used in the request.
+  Returns the description of specific Amazon FSx for Lustre or Amazon File Cache
+  data repository tasks, if one or more `TaskIds` values are provided in the
+  request, or if filters are used in the request.
 
   You can use filters to narrow the response to include just tasks for specific
-  file systems, or tasks in a specific lifecycle state. Otherwise, it returns all
-  data repository tasks owned by your Amazon Web Services account in the Amazon
-  Web Services Region of the endpoint that you're calling.
+  file systems or caches, or tasks in a specific lifecycle state. Otherwise, it
+  returns all data repository tasks owned by your Amazon Web Services account in
+  the Amazon Web Services Region of the endpoint that you're calling.
 
   When retrieving all tasks, you can paginate the response by using the optional
   `MaxResults` parameter to limit the number of tasks returned in a response. If
-  more tasks remain, Amazon FSx returns a `NextToken` value in the response. In
-  this case, send a later request with the `NextToken` request parameter set to
-  the value of `NextToken` from the last response.
+  more tasks remain, a `NextToken` value is returned in the response. In this
+  case, send a later request with the `NextToken` request parameter set to the
+  value of `NextToken` from the last response.
   """
   def describe_data_repository_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeDataRepositoryTasks", input, options)
+  end
+
+  @doc """
+  Returns the description of a specific Amazon File Cache resource, if a
+  `FileCacheIds` value is provided for that cache.
+
+  Otherwise, it returns descriptions of all caches owned by your Amazon Web
+  Services account in the Amazon Web Services Region of the endpoint that you're
+  calling.
+
+  When retrieving all cache descriptions, you can optionally specify the
+  `MaxResults` parameter to limit the number of descriptions in a response. If
+  more cache descriptions remain, the operation returns a `NextToken` value in the
+  response. In this case, send a later request with the `NextToken` request
+  parameter set to the value of `NextToken` from the last response.
+
+  This operation is used in an iterative process to retrieve a list of your cache
+  descriptions. `DescribeFileCaches` is called first without a `NextToken`value.
+  Then the operation continues to be called with the `NextToken` parameter set to
+  the value of the last `NextToken` value until a response has no `NextToken`.
+
+  When using this operation, keep the following in mind:
+
+    * The implementation might return fewer than `MaxResults` cache
+  descriptions while still including a `NextToken` value.
+
+    * The order of caches returned in the response of one
+  `DescribeFileCaches` call and the order of caches returned across the responses
+  of a multicall iteration is unspecified.
+  """
+  def describe_file_caches(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFileCaches", input, options)
   end
 
   @doc """
@@ -746,6 +822,17 @@ defmodule AWS.FSx do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateDataRepositoryAssociation", input, options)
+  end
+
+  @doc """
+  Updates the configuration of an existing Amazon File Cache resource.
+
+  You can update multiple properties in a single request.
+  """
+  def update_file_cache(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFileCache", input, options)
   end
 
   @doc """

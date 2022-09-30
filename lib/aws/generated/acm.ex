@@ -3,12 +3,12 @@
 
 defmodule AWS.ACM do
   @moduledoc """
-  Amazon Web Services Certificate Manager
+  Certificate Manager
 
-  You can use Amazon Web Services Certificate Manager (ACM) to manage SSL/TLS
-  certificates for your Amazon Web Services-based websites and applications.
+  You can use Certificate Manager (ACM) to manage SSL/TLS certificates for your
+  Amazon Web Services-based websites and applications.
 
-  For more information about using ACM, see the [Amazon Web Services Certificate Manager User Guide](https://docs.aws.amazon.com/acm/latest/userguide/).
+  For more information about using ACM, see the [Certificate Manager User Guide](https://docs.aws.amazon.com/acm/latest/userguide/).
   """
 
   alias AWS.Client
@@ -77,6 +77,10 @@ defmodule AWS.ACM do
 
   @doc """
   Returns detailed metadata about the specified ACM certificate.
+
+  If you have just created a certificate using the `RequestCertificate` action,
+  there is a delay of several seconds before you can retrieve information about
+  it.
   """
   def describe_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -128,8 +132,8 @@ defmodule AWS.ACM do
   end
 
   @doc """
-  Imports a certificate into Amazon Web Services Certificate Manager (ACM) to use
-  with services that are integrated with ACM.
+  Imports a certificate into Certificate Manager (ACM) to use with services that
+  are integrated with ACM.
 
   Note that [integrated services](https://docs.aws.amazon.com/acm/latest/userguide/acm-services.html)
   allow only certificate types and keys they support to be associated with their
@@ -137,7 +141,7 @@ defmodule AWS.ACM do
   is imported into IAM or into ACM. For more information, see the documentation
   for each service. For more information about importing certificates into ACM,
   see [Importing Certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html)
-  in the *Amazon Web Services Certificate Manager User Guide*.
+  in the *Certificate Manager User Guide*.
 
   ACM does not provide [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for
   certificates that you import.
@@ -259,8 +263,8 @@ defmodule AWS.ACM do
   Renews an eligible ACM certificate.
 
   At this time, only exported private certificates can be renewed with this
-  operation. In order to renew your ACM PCA certificates with ACM, you must first
-  [grant the ACM service principal permission to do so](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaPermissions.html).
+  operation. In order to renew your ACM Private CA certificates with ACM, you must
+  first [grant the ACM service principal permission to do so](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaPermissions.html).
   For more information, see [Testing Managed Renewal](https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html)
   in the ACM User Guide.
   """
@@ -284,10 +288,13 @@ defmodule AWS.ACM do
   We recommend that you use DNS validation. ACM issues public certificates after
   receiving approval from the domain owner.
 
-  ACM behavior differs from the
-  [https://tools.ietf.org/html/rfc6125#appendix-B.2](https://tools.ietf.org/html/rfc6125#appendix-B.2)RFC
-  6125 specification of the certificate validation process. first checks for a
-  subject alternative name, and, if it finds one, ignores the common name (CN)
+  ACM behavior differs from the [RFC 6125](https://datatracker.ietf.org/doc/html/rfc6125#appendix-B.2) specification
+  of the certificate validation process. ACM first checks for a Subject
+  Alternative Name, and, if it finds one, ignores the common name (CN).
+
+  After successful completion of the `RequestCertificate` action, there is a delay
+  of several seconds before you can retrieve information about the new
+  certificate.
   """
   def request_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -130,6 +130,21 @@ defmodule AWS.EMRServerless do
   end
 
   @doc """
+  Returns a URL to access the job run dashboard.
+  """
+  def get_dashboard_for_job_run(%Client{} = client, application_id, job_run_id, options \\ []) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}/dashboard"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Displays detailed information about a job run.
   """
   def get_job_run(%Client{} = client, application_id, job_run_id, options \\ []) do

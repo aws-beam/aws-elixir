@@ -3365,7 +3365,8 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Update a model training job to request a new Debugger profiling configuration.
+  Update a model training job to request a new Debugger profiling configuration or
+  to change warm pool retention length.
   """
   def update_training_job(%Client{} = client, input, options \\ []) do
     meta = metadata()

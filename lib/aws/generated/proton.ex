@@ -31,10 +31,7 @@ defmodule AWS.Proton do
   *delete* API operations and the service instance *list* and *update* API
   operations.
 
-  To learn more about Proton administration, see the [Proton Administrator Guide](https://docs.aws.amazon.com/proton/latest/adminguide/Welcome.html).
-
-  To learn more about deploying serverless and containerized applications on
-  Proton, see the [Proton User Guide](https://docs.aws.amazon.com/proton/latest/userguide/Welcome.html).
+  To learn more about Proton, see the [Proton User Guide](https://docs.aws.amazon.com/proton/latest/userguide/Welcome.html).
 
   ## Ensuring Idempotency
 
@@ -183,8 +180,8 @@ defmodule AWS.Proton do
   associated IAM role to provision environment infrastructure resources in the
   associated environment account.
 
-  For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html)
-  in the *Proton Administrator guide*.
+  For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html)
+  in the *Proton User guide*.
   """
   def accept_environment_account_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -196,8 +193,8 @@ defmodule AWS.Proton do
   Attempts to cancel a component deployment (for a component that is in the
   `IN_PROGRESS` deployment status).
 
-  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
-  in the *Proton Administrator Guide*.
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+  in the *Proton User Guide*.
   """
   def cancel_component_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -209,8 +206,8 @@ defmodule AWS.Proton do
   Attempts to cancel an environment deployment on an `UpdateEnvironment` action,
   if the deployment is `IN_PROGRESS`.
 
-  For more information, see [Update an environment](https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-update.html)
-  in the *Proton Administrator guide*.
+  For more information, see [Update an environment](https://docs.aws.amazon.com/proton/latest/userguide/ag-env-update.html)
+  in the *Proton User guide*.
 
   The following list includes potential cancellation scenarios.
 
@@ -234,9 +231,8 @@ defmodule AWS.Proton do
   Attempts to cancel a service instance deployment on an `UpdateServiceInstance`
   action, if the deployment is `IN_PROGRESS`.
 
-  For more information, see *Update a service instance* in the [Proton Administrator
-  guide](https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-instance-update.html)
-  or the [Proton User guide](https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-instance-update.html).
+  For more information, see [Update a service instance](https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-instance-update.html)
+  in the *Proton User guide*.
 
   The following list includes potential cancellation scenarios.
 
@@ -260,9 +256,8 @@ defmodule AWS.Proton do
   Attempts to cancel a service pipeline deployment on an `UpdateServicePipeline`
   action, if the deployment is `IN_PROGRESS`.
 
-  For more information, see *Update a service pipeline* in the [Proton Administrator
-  guide](https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-pipeline-update.html)
-  or the [Proton User guide](https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-pipeline-update.html).
+  For more information, see [Update a service pipeline](https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-pipeline-update.html)
+  in the *Proton User guide*.
 
   The following list includes potential cancellation scenarios.
 
@@ -287,8 +282,8 @@ defmodule AWS.Proton do
 
   A component is an infrastructure extension for a service instance.
 
-  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
-  in the *Proton Administrator Guide*.
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+  in the *Proton User Guide*.
   """
   def create_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -312,9 +307,9 @@ defmodule AWS.Proton do
   engine uses to provision resources.
 
   For more information, see
-  [Environments](https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html) and [Provisioning
-  methods](https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html)
-  in the *Proton Administrator Guide*.
+  [Environments](https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html) and [Provisioning
+  methods](https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html)
+  in the *Proton User Guide*.
   """
   def create_environment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -329,8 +324,8 @@ defmodule AWS.Proton do
 
   An environment account connection is a secure bi-directional connection between
   a *management account* and an *environment account* that maintains authorization
-  and permissions. For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html)
-  in the *Proton Administrator guide*.
+  and permissions. For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html)
+  in the *Proton User guide*.
   """
   def create_environment_account_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -341,8 +336,8 @@ defmodule AWS.Proton do
   @doc """
   Create an environment template for Proton.
 
-  For more information, see [Environment Templates](https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html)
-  in the *Proton Administrator Guide*.
+  For more information, see [Environment Templates](https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html)
+  in the *Proton User Guide*.
 
   You can create an environment template in one of the two following ways:
 
@@ -355,8 +350,8 @@ defmodule AWS.Proton do
   create an environment template for customer provisioned and managed
   infrastructure, include the `provisioning` parameter and set the value to
   `CUSTOMER_MANAGED`. For more information, see [Register and publish an environment
-  template](https://docs.aws.amazon.com/proton/latest/adminguide/template-create.html)
-  in the *Proton Administrator Guide*.
+  template](https://docs.aws.amazon.com/proton/latest/userguide/template-create.html)
+  in the *Proton User Guide*.
   """
   def create_environment_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -378,16 +373,19 @@ defmodule AWS.Proton do
   end
 
   @doc """
-  Create and register a link to a repository that can be used with self-managed
-  provisioning (infrastructure or pipelines) or for template sync configurations.
+  Create and register a link to a repository.
 
-  When you create a repository link, Proton creates a [service-linked role](https://docs.aws.amazon.com/proton/latest/adminguide/using-service-linked-roles.html)
+  Proton uses the link to repeatedly access the repository, to either push to it
+  (self-managed provisioning) or pull from it (template sync). You can share a
+  linked repository across multiple resources (like environments using
+  self-managed provisioning, or synced templates). When you create a repository
+  link, Proton creates a [service-linked role](https://docs.aws.amazon.com/proton/latest/userguide/using-service-linked-roles.html)
   for you.
 
-  For more information, see [Self-managed provisioning](https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html#ag-works-prov-methods-self),
-  [Template bundles](https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html),
-  and [Template sync configurations](https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-sync-configs.html)
-  in the *Proton Administrator Guide*.
+  For more information, see [Self-managed provisioning](https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self),
+  [Template bundles](https://docs.aws.amazon.com/proton/latest/userguide/ag-template-authoring.html#ag-template-bundles),
+  and [Template sync configurations](https://docs.aws.amazon.com/proton/latest/userguide/ag-template-sync-configs.html)
+  in the *Proton User Guide*.
   """
   def create_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -400,8 +398,7 @@ defmodule AWS.Proton do
 
   An Proton service is an instantiation of a service template and often includes
   several service instances and pipeline. For more information, see
-  [Services](https://docs.aws.amazon.com/proton/latest/adminguide/ag-services.html) in the *Proton Administrator Guide* and
-  [Services](https://docs.aws.amazon.com/proton/latest/userguide/ug-service.html)
+  [Services](https://docs.aws.amazon.com/proton/latest/userguide/ag-services.html)
   in the *Proton User Guide*.
   """
   def create_service(%Client{} = client, input, options \\ []) do
@@ -418,8 +415,8 @@ defmodule AWS.Proton do
   select the service template from Proton. If the selected service template
   includes a service pipeline definition, they provide a link to their source code
   repository. Proton then deploys and manages the infrastructure defined by the
-  selected service template. For more information, see [Service Templates](https://docs.aws.amazon.com/proton/latest/adminguide/managing-svc-templates.html)
-  in the *Proton Administrator Guide*.
+  selected service template. For more information, see [Proton templates](https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html)
+  in the *Proton User Guide*.
   """
   def create_service_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -441,14 +438,17 @@ defmodule AWS.Proton do
   end
 
   @doc """
-  Set up a template to create new template versions automatically.
+  Set up a template to create new template versions automatically by tracking a
+  linked repository.
 
-  When a commit is pushed to your registered
-  [repository](https://docs.aws.amazon.com/proton/latest/APIReference/API_Repository.html), Proton checks for changes to your repository template bundles. If it detects a
-  template bundle change, a new major or minor version of its template is created,
-  if the version doesn’t already exist. For more information, see [Template sync
-  configurations](https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-sync-configs.html)
-  in the *Proton Administrator Guide*.
+  A linked repository is a repository that has been registered with Proton. For
+  more information, see `CreateRepository`.
+
+  When a commit is pushed to your linked repository, Proton checks for changes to
+  your repository template bundles. If it detects a template bundle change, a new
+  major or minor version of its template is created, if the version doesn’t
+  already exist. For more information, see [Template sync configurations](https://docs.aws.amazon.com/proton/latest/userguide/ag-template-sync-configs.html)
+  in the *Proton User Guide*.
   """
   def create_template_sync_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -459,8 +459,8 @@ defmodule AWS.Proton do
   @doc """
   Delete an Proton component resource.
 
-  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
-  in the *Proton Administrator Guide*.
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+  in the *Proton User Guide*.
   """
   def delete_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -486,8 +486,8 @@ defmodule AWS.Proton do
   account and associated environment. You're responsible for cleaning up
   provisioned resources that remain without an environment connection.
 
-  For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html)
-  in the *Proton Administrator guide*.
+  For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html)
+  in the *Proton User guide*.
   """
   def delete_environment_account_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -539,8 +539,8 @@ defmodule AWS.Proton do
   You can't delete a service if it has any service instances that have components
   attached to them.
 
-  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
-  in the *Proton Administrator Guide*.
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+  in the *Proton User Guide*.
   """
   def delete_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -587,7 +587,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
-  Get detail data for the Proton pipeline service role.
+  Get detail data for Proton account-wide settings.
   """
   def get_account_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -598,8 +598,8 @@ defmodule AWS.Proton do
   @doc """
   Get detailed data for a component.
 
-  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
-  in the *Proton Administrator Guide*.
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+  in the *Proton User Guide*.
   """
   def get_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -620,8 +620,8 @@ defmodule AWS.Proton do
   In an environment account, get the detailed data for an environment account
   connection.
 
-  For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html)
-  in the *Proton Administrator guide*.
+  For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html)
+  in the *Proton User guide*.
   """
   def get_environment_account_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -648,7 +648,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
-  Get detail data for a repository.
+  Get detail data for a linked repository.
   """
   def get_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -667,8 +667,8 @@ defmodule AWS.Proton do
   to this action using Attribute-based access control (ABAC).
 
   For more information about ABAC, see
-  [ABAC](https://docs.aws.amazon.com/proton/latest/adminguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags)
-  in the *Proton Administrator Guide*.
+  [ABAC](https://docs.aws.amazon.com/proton/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags)
+  in the *Proton User Guide*.
   """
   def get_repository_sync_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -736,8 +736,8 @@ defmodule AWS.Proton do
   @doc """
   Get a list of component Infrastructure as Code (IaC) outputs.
 
-  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
-  in the *Proton Administrator Guide*.
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+  in the *Proton User Guide*.
   """
   def list_component_outputs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -748,8 +748,8 @@ defmodule AWS.Proton do
   @doc """
   List provisioned resources for a component with details.
 
-  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
-  in the *Proton Administrator Guide*.
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+  in the *Proton User Guide*.
   """
   def list_component_provisioned_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -763,8 +763,8 @@ defmodule AWS.Proton do
   You can filter the result list by environment, service, or a single service
   instance.
 
-  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
-  in the *Proton Administrator Guide*.
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+  in the *Proton User Guide*.
   """
   def list_components(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -775,8 +775,8 @@ defmodule AWS.Proton do
   @doc """
   View a list of environment account connections.
 
-  For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html)
-  in the *Proton Administrator guide*.
+  For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html)
+  in the *Proton User guide*.
   """
   def list_environment_account_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -830,7 +830,7 @@ defmodule AWS.Proton do
   end
 
   @doc """
-  List repositories with detail data.
+  List linked repositories with detail data.
   """
   def list_repositories(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -922,9 +922,8 @@ defmodule AWS.Proton do
   @doc """
   List tags for a resource.
 
-  For more information, see *Proton resources and tagging* in the [Proton Administrator
-  Guide](https://docs.aws.amazon.com/proton/latest/adminguide/resources.html) or
-  [Proton User Guide](https://docs.aws.amazon.com/proton/latest/userguide/resources.html).
+  For more information, see [Proton resources and tagging](https://docs.aws.amazon.com/proton/latest/userguide/resources.html) in
+  the *Proton User Guide*.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -936,8 +935,8 @@ defmodule AWS.Proton do
   Notify Proton of status changes to a provisioned resource when you use
   self-managed provisioning.
 
-  For more information, see [Self-managed provisioning](https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html#ag-works-prov-methods-self)
-  in the *Proton Administrator Guide*.
+  For more information, see [Self-managed provisioning](https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self)
+  in the *Proton User Guide*.
   """
   def notify_resource_deployment_status_change(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -955,8 +954,8 @@ defmodule AWS.Proton do
   You *can’t* reject an environment account connection that's connected to an
   environment.
 
-  For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html)
-  in the *Proton Administrator guide*.
+  For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html)
+  in the *Proton User guide*.
   """
   def reject_environment_account_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -970,9 +969,8 @@ defmodule AWS.Proton do
   A tag is a key-value pair of metadata that you associate with an Proton
   resource.
 
-  For more information, see *Proton resources and tagging* in the [Proton Administrator
-  Guide](https://docs.aws.amazon.com/proton/latest/adminguide/resources.html) or
-  [Proton User Guide](https://docs.aws.amazon.com/proton/latest/userguide/resources.html).
+  For more information, see [Proton resources and tagging](https://docs.aws.amazon.com/proton/latest/userguide/resources.html) in
+  the *Proton User Guide*.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -985,9 +983,8 @@ defmodule AWS.Proton do
 
   A tag is a key-value pair of metadata associated with an Proton resource.
 
-  For more information, see *Proton resources and tagging* in the [Proton Administrator
-  Guide](https://docs.aws.amazon.com/proton/latest/adminguide/resources.html) or
-  [Proton User Guide](https://docs.aws.amazon.com/proton/latest/userguide/resources.html).
+  For more information, see [Proton resources and tagging](https://docs.aws.amazon.com/proton/latest/userguide/resources.html) in
+  the *Proton User Guide*.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -996,7 +993,8 @@ defmodule AWS.Proton do
   end
 
   @doc """
-  Update the Proton service pipeline role or repository settings.
+  Update Proton settings that are used for multiple services in the Amazon Web
+  Services account.
   """
   def update_account_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1013,8 +1011,8 @@ defmodule AWS.Proton do
   You can't update a component while its deployment status, or the deployment
   status of a service instance attached to it, is `IN_PROGRESS`.
 
-  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
-  in the *Proton Administrator Guide*.
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+  in the *Proton User Guide*.
   """
   def update_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1050,9 +1048,9 @@ defmodule AWS.Proton do
   `environmentAccountConnectionId` parameters.
 
   For more information, see
-  [Environments](https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html) and [Provisioning
-  methods](https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html)
-  in the *Proton Administrator Guide*.
+  [Environments](https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html) and [Provisioning
+  methods](https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html)
+  in the *Proton User Guide*.
 
   There are four modes for updating an environment. The `deploymentType` field
   defines the mode.
@@ -1102,8 +1100,8 @@ defmodule AWS.Proton do
   In an environment account, update an environment account connection to use a new
   IAM role.
 
-  For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html)
-  in the *Proton Administrator guide*.
+  For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html)
+  in the *Proton User guide*.
   """
   def update_environment_account_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1142,8 +1140,8 @@ defmodule AWS.Proton do
   You can't delete a service instance (remove it from the spec) if it has an
   attached component.
 
-  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
-  in the *Proton Administrator Guide*.
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+  in the *Proton User Guide*.
   """
   def update_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1160,8 +1158,8 @@ defmodule AWS.Proton do
   You can't update a service instance while its deployment status, or the
   deployment status of a component attached to it, is `IN_PROGRESS`.
 
-  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)
-  in the *Proton Administrator Guide*.
+  For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+  in the *Proton User Guide*.
   """
   def update_service_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1237,6 +1235,10 @@ defmodule AWS.Proton do
   @doc """
   Update template sync configuration parameters, except for the `templateName` and
   `templateType`.
+
+  Repository details (branch, name, and provider) should be of a linked
+  repository. A linked repository is a repository that has been registered with
+  Proton. For more information, see `CreateRepository`.
   """
   def update_template_sync_config(%Client{} = client, input, options \\ []) do
     meta = metadata()

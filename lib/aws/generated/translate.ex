@@ -125,6 +125,12 @@ defmodule AWS.Translate do
     Request.request_post(client, meta, "ListParallelData", input, options)
   end
 
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
+  end
+
   @doc """
   Provides a list of custom terminologies associated with your account.
   """
@@ -181,6 +187,12 @@ defmodule AWS.Translate do
     Request.request_post(client, meta, "StopTextTranslationJob", input, options)
   end
 
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
+  end
+
   @doc """
   Translates input text from the source language to the target language.
 
@@ -190,6 +202,12 @@ defmodule AWS.Translate do
     meta = metadata()
 
     Request.request_post(client, meta, "TranslateText", input, options)
+  end
+
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """

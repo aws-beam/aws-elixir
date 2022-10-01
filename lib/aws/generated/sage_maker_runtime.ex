@@ -58,6 +58,7 @@ defmodule AWS.SageMakerRuntime do
         {"Accept", "Accept"},
         {"ContentType", "Content-Type"},
         {"CustomAttributes", "X-Amzn-SageMaker-Custom-Attributes"},
+        {"EnableExplanations", "X-Amzn-SageMaker-Enable-Explanations"},
         {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
         {"TargetContainerHostname", "X-Amzn-SageMaker-Target-Container-Hostname"},
         {"TargetModel", "X-Amzn-SageMaker-Target-Model"},

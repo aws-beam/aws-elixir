@@ -11,8 +11,10 @@ defmodule AWS.DLM do
   You create lifecycle policies, which are used to automate operations on the
   specified resources.
 
-  Amazon DLM supports Amazon EBS volumes and snapshots. For information about
-  using Amazon DLM with Amazon EBS, see [Automating the Amazon EBS Snapshot Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)
+  Amazon Data Lifecycle Manager supports Amazon EBS volumes and snapshots. For
+  information about using Amazon Data Lifecycle Manager with Amazon EBS, see [
+  Amazon Data Lifecycle
+  Manager](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)
   in the *Amazon EC2 User Guide*.
   """
 
@@ -64,6 +66,8 @@ defmodule AWS.DLM do
   @doc """
   Deletes the specified lifecycle policy and halts the automated operations that
   the policy specified.
+
+  For more information about deleting a policy, see [Delete lifecycle policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#delete).
   """
   def delete_lifecycle_policy(%Client{} = client, policy_id, input, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_id)}/"
@@ -222,6 +226,8 @@ defmodule AWS.DLM do
 
   @doc """
   Updates the specified lifecycle policy.
+
+  For more information about updating a policy, see [Modify lifecycle policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#modify).
   """
   def update_lifecycle_policy(%Client{} = client, policy_id, input, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_id)}"

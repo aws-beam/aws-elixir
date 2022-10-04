@@ -101,7 +101,7 @@ defmodule AWS.Snowball do
   Availability of device types differ by Amazon Web Services Region. For more
   information about Region availability, see [Amazon Web Services Regional Services](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&loc=4).
 
-  ## Snow Family Devices and their capacities.
+  ## Snow Family devices and their capacities.
 
     * Snow Family device type: ## SNC1_SSD
 
@@ -141,6 +141,13 @@ defmodule AWS.Snowball do
 
       * Description: Snowball Edge Storage Optimized with EC2
   Compute
+
+    * Device type: ## V3_5C
+
+      * Capacity: T32
+
+      * Description: Snowball Edge Compute Optimized without
+  GPU
 
     * Device type: ## STANDARD
 
@@ -250,9 +257,11 @@ defmodule AWS.Snowball do
   to make another call to the `GetJobManifest` action.
 
   The manifest is an encrypted file that you can download after your job enters
-  the `WithCustomer` status. The manifest is decrypted by using the `UnlockCode`
-  code value, when you pass both values to the Snow device through the Snowball
-  client when the client is started for the first time.
+  the `WithCustomer` status. This is the only valid status for calling this API as
+  the manifest and `UnlockCode` code value are used for securing your device and
+  should only be used when you have the device. The manifest is decrypted by using
+  the `UnlockCode` code value, when you pass both values to the Snow device
+  through the Snowball client when the client is started for the first time.
 
   As a best practice, we recommend that you don't save a copy of an `UnlockCode`
   value in the same location as the manifest file for that job. Saving these
@@ -277,7 +286,9 @@ defmodule AWS.Snowball do
   The `UnlockCode` value is a 29-character code with 25 alphanumeric characters
   and 4 hyphens. This code is used to decrypt the manifest file when it is passed
   along with the manifest to the Snow device through the Snowball client when the
-  client is started for the first time.
+  client is started for the first time. The only valid status for calling this API
+  is `WithCustomer` as the manifest and `Unlock` code values are used for securing
+  your device and should only be used when you have the device.
 
   As a best practice, we recommend that you don't save a copy of the `UnlockCode`
   in the same location as the manifest file for that job. Saving these separately

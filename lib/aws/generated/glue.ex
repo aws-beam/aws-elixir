@@ -2003,6 +2003,20 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Synchronizes a job from the source control repository.
+
+  This operation takes the job artifacts that are located in the remote repository
+  and updates the Glue internal stores with these artifacts.
+
+  This API supports optional parameters which take in the repository information.
+  """
+  def update_job_from_source_control(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateJobFromSourceControl", input, options)
+  end
+
+  @doc """
   Updates an existing machine learning transform.
 
   Call this operation to tune the algorithm parameters to achieve better results.
@@ -2058,6 +2072,20 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateSchema", input, options)
+  end
+
+  @doc """
+  Synchronizes a job to the source control repository.
+
+  This operation takes the job artifacts from the Glue internal stores and makes a
+  commit to the remote repository that is configured on the job.
+
+  This API supports optional parameters which take in the repository information.
+  """
+  def update_source_control_from_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSourceControlFromJob", input, options)
   end
 
   @doc """

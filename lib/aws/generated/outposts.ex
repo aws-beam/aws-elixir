@@ -33,7 +33,7 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Cancels an order for an Outpost.
+  Cancels the specified order for an Outpost.
   """
   def cancel_order(%Client{} = client, order_id, input, options \\ []) do
     url_path = "/orders/#{AWS.Util.encode_uri(order_id)}/cancel"
@@ -81,7 +81,7 @@ defmodule AWS.Outposts do
   @doc """
   Creates an Outpost.
 
-  You can specify `AvailabilityZone` or `AvailabilityZoneId`.
+  You can specify either an Availability one or an AZ ID.
   """
   def create_outpost(%Client{} = client, input, options \\ []) do
     url_path = "/outposts"
@@ -127,7 +127,7 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Deletes the Outpost.
+  Deletes the specified Outpost.
   """
   def delete_outpost(%Client{} = client, outpost_id, input, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}"
@@ -150,7 +150,7 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Deletes the site.
+  Deletes the specified site.
   """
   def delete_site(%Client{} = client, site_id, input, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}"
@@ -173,7 +173,7 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Gets information about a catalog item.
+  Gets information about the specified catalog item.
   """
   def get_catalog_item(%Client{} = client, catalog_item_id, options \\ []) do
     url_path = "/catalog/item/#{AWS.Util.encode_uri(catalog_item_id)}"
@@ -188,7 +188,7 @@ defmodule AWS.Outposts do
   @doc """
   Amazon Web Services uses this action to install Outpost servers.
 
-  Gets information about a specified connection.
+  Gets information about the specified connection.
 
   Use CloudTrail to monitor this action or Amazon Web Services managed policy for
   Amazon Web Services Outposts to secure it. For more information, see [ Amazon Web Services managed policies for Amazon Web Services
@@ -207,7 +207,7 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Gets an order.
+  Gets information about the specified order.
   """
   def get_order(%Client{} = client, order_id, options \\ []) do
     url_path = "/orders/#{AWS.Util.encode_uri(order_id)}"
@@ -279,7 +279,7 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Gets the site address.
+  Gets the site address of the specified site.
   """
   def get_site_address(%Client{} = client, site_id, address_type, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}/address"
@@ -299,11 +299,12 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Lists the hardware assets in an Outpost.
+  Lists the hardware assets for the specified Outpost.
 
-  If you are using Dedicated Hosts on Amazon Web Services Outposts, you can filter
-  your request by host ID to return a list of hardware assets that allocate
-  resources for Dedicated Hosts.
+  Use filters to return specific results. If you specify multiple filters, the
+  results include only the resources that match all of the specified filters. For
+  a filter where you can specify multiple values, the results include items that
+  match any of the values that you specify for the filter.
   """
   def list_assets(
         %Client{} = client,
@@ -311,11 +312,19 @@ defmodule AWS.Outposts do
         host_id_filter \\ nil,
         max_results \\ nil,
         next_token \\ nil,
+        status_filter \\ nil,
         options \\ []
       ) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/assets"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(status_filter) do
+        [{"StatusFilter", status_filter} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do
@@ -346,11 +355,10 @@ defmodule AWS.Outposts do
   @doc """
   Lists the items in the catalog.
 
-  Add filters to your request to return a more specific list of results. Use
-  filters to match an item class, storage option, or EC2 family.
-
-  If you specify multiple filters, the filters are joined with an `AND`, and the
-  request returns only results that match all of the specified filters.
+  Use filters to return specific results. If you specify multiple filters, the
+  results include only the resources that match all of the specified filters. For
+  a filter where you can specify multiple values, the results include items that
+  match any of the values that you specify for the filter.
   """
   def list_catalog_items(
         %Client{} = client,
@@ -407,9 +415,6 @@ defmodule AWS.Outposts do
 
   @doc """
   Lists the Outpost orders for your Amazon Web Services account.
-
-  You can filter your request by Outpost to return a more specific list of
-  results.
   """
   def list_orders(
         %Client{} = client,
@@ -451,12 +456,10 @@ defmodule AWS.Outposts do
   @doc """
   Lists the Outposts for your Amazon Web Services account.
 
-  Add filters to your request to return a more specific list of results. Use
-  filters to match an Outpost lifecycle status, Availability Zone (`us-east-1a`),
-  and AZ ID (`use1-az1`).
-
-  If you specify multiple filters, the filters are joined with an `AND`, and the
-  request returns only results that match all of the specified filters.
+  Use filters to return specific results. If you specify multiple filters, the
+  results include only the resources that match all of the specified filters. For
+  a filter where you can specify multiple values, the results include items that
+  match any of the values that you specify for the filter.
   """
   def list_outposts(
         %Client{} = client,
@@ -514,12 +517,12 @@ defmodule AWS.Outposts do
   @doc """
   Lists the Outpost sites for your Amazon Web Services account.
 
-  Add operating address filters to your request to return a more specific list of
-  results. Use filters to match site city, country code, or state/region of the
-  operating address.
+  Use filters to return specific results.
 
-  If you specify multiple filters, the filters are joined with an `AND`, and the
-  request returns only results that match all of the specified filters.
+  Use filters to return specific results. If you specify multiple filters, the
+  results include only the resources that match all of the specified filters. For
+  a filter where you can specify multiple values, the results include items that
+  match any of the values that you specify for the filter.
   """
   def list_sites(
         %Client{} = client,
@@ -699,7 +702,7 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Updates the site.
+  Updates the specified site.
   """
   def update_site(%Client{} = client, site_id, input, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}"
@@ -722,10 +725,10 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Updates the site address.
+  Updates the address of the specified site.
 
-  To update a site address with an order `IN_PROGRESS`, you must wait for the
-  order to complete or cancel the order.
+  You can't update a site address if there is an order in progress. You must wait
+  for the order to complete or cancel the order.
 
   You can update the operating address before you place an order at the site, or
   after all Outposts that belong to the site have been deactivated.

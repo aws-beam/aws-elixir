@@ -3173,6 +3173,7 @@ defmodule AWS.QuickSight do
   Updates a dataset.
 
   This operation doesn't support datasets that include uploaded files as a source.
+  Partial updates are not supported by this operation.
   """
   def update_data_set(%Client{} = client, aws_account_id, data_set_id, input, options \\ []) do
     url_path =

@@ -510,8 +510,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
-  Sets the type of IP addresses used by the subnets of the specified Application
-  Load Balancer or Network Load Balancer.
+  Sets the type of IP addresses used by the subnets of the specified load
+  balancer.
   """
   def set_ip_address_type(%Client{} = client, input, options \\ []) do
     meta = metadata()

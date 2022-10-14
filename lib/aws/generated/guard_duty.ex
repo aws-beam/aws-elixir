@@ -4,8 +4,9 @@
 defmodule AWS.GuardDuty do
   @moduledoc """
   Amazon GuardDuty is a continuous security monitoring service that analyzes and
-  processes the following data sources: VPC Flow Logs, AWS CloudTrail management
-  event logs, CloudTrail S3 data event logs, EKS audit logs, and DNS logs.
+  processes the following data sources: VPC flow logs, Amazon Web Services
+  CloudTrail management event logs, CloudTrail S3 data event logs, EKS audit logs,
+  and DNS logs.
 
   It uses threat intelligence feeds (such as lists of malicious IPs and domains)
   and machine learning to identify unexpected, potentially unauthorized, and
@@ -523,6 +524,9 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Returns a list of malware scans.
+
+  Each member account can view the malware scans for their own accounts. An
+  administrator can view the malware scans for all the member accounts.
   """
   def describe_malware_scans(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scans"
@@ -657,8 +661,8 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Disassociates GuardDuty member accounts (to the current GuardDuty administrator
-  account) specified by the account IDs.
+  Disassociates GuardDuty member accounts (to the current administrator account)
+  specified by the account IDs.
   """
   def disassociate_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/disassociate"

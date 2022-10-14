@@ -451,6 +451,15 @@ defmodule AWS.Directory do
   end
 
   @doc """
+  Describes the updates of a directory for a particular update type.
+  """
+  def describe_update_directory(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeUpdateDirectory", input, options)
+  end
+
+  @doc """
   Disables alternative client authentication methods for the specified directory.
   """
   def disable_client_authentication(%Client{} = client, input, options \\ []) do
@@ -753,6 +762,15 @@ defmodule AWS.Directory do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateConditionalForwarder", input, options)
+  end
+
+  @doc """
+  Updates the directory for a particular update type.
+  """
+  def update_directory_setup(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDirectorySetup", input, options)
   end
 
   @doc """

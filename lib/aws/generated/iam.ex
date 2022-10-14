@@ -563,9 +563,8 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Deletes the password for the specified IAM user, which terminates the user's
-  ability to access Amazon Web Services services through the Amazon Web Services
-  Management Console.
+  Deletes the password for the specified IAM user, For more information, see
+  [Managing passwords for IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html).
 
   You can use the CLI, the Amazon Web Services API, or the **Users** page in the
   IAM console to delete a password for any IAM user. You can use `ChangePassword`

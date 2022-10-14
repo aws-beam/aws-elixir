@@ -598,24 +598,6 @@ defmodule AWS.Wisdom do
   end
 
   @doc """
-  Submits feedback to Wisdom.
-
-  The feedback is used to improve future recommendations from
-  [GetRecommendations](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html) or results from
-  [QueryAssistant](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_QueryAssistant.html).
-  Feedback can be resubmitted up to 6 hours after submission.
-  """
-  def put_feedback(%Client{} = client, assistant_id, input, options \\ []) do
-    url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/feedback"
-    headers = []
-    query_params = []
-
-    meta = metadata()
-
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
-  end
-
-  @doc """
   Performs a manual search against the specified assistant.
 
   To retrieve recommendations for an assistant, use

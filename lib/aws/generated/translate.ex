@@ -3,8 +3,8 @@
 
 defmodule AWS.Translate do
   @moduledoc """
-  Provides translation between one source language and another of the same set of
-  languages.
+  Provides language translation for input text in the source language to the
+  specified target language.
   """
 
   alias AWS.Client
@@ -125,6 +125,11 @@ defmodule AWS.Translate do
     Request.request_post(client, meta, "ListParallelData", input, options)
   end
 
+  @doc """
+  Lists all tags associated with a given Amazon Translate resource.
+
+  For more information, see [ Tagging your resources](https://docs.aws.amazon.com/translate/latest/dg/tagging.html).
+  """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -152,8 +157,11 @@ defmodule AWS.Translate do
   @doc """
   Starts an asynchronous batch translation job.
 
-  Batch translation jobs can be used to translate large volumes of text across
-  multiple documents at once. For more information, see `async`.
+  Use batch translation jobs to translate large volumes of text across multiple
+  documents at once. For batch translation, the input documents must share the
+  same source language. You can specify one or more target languages. Batch
+  translation translates each input document into each of the target languages.
+  For more information, see [Asynchronous batch processing](https://docs.aws.amazon.com/translate/latest/dg/async.html)
 
   Batch translation jobs can be described with the `DescribeTextTranslationJob`
   operation, listed with the `ListTextTranslationJobs` operation, and stopped with
@@ -187,6 +195,12 @@ defmodule AWS.Translate do
     Request.request_post(client, meta, "StopTextTranslationJob", input, options)
   end
 
+  @doc """
+  Associates a specific tag with a resource.
+
+  A tag is a key-value pair that adds as a metadata to a resource. For more
+  information, see [ Tagging your resources](https://docs.aws.amazon.com/translate/latest/dg/tagging.html).
+  """
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -196,7 +210,7 @@ defmodule AWS.Translate do
   @doc """
   Translates input text from the source language to the target language.
 
-  For a list of available languages and language codes, see `what-is-languages`.
+  For a list of available languages and language codes, see [Supported languages](https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html).
   """
   def translate_text(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -204,6 +218,11 @@ defmodule AWS.Translate do
     Request.request_post(client, meta, "TranslateText", input, options)
   end
 
+  @doc """
+  Removes a specific tag associated with an Amazon Translate resource.
+
+  For more information, see [ Tagging your resources](https://docs.aws.amazon.com/translate/latest/dg/tagging.html).
+  """
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

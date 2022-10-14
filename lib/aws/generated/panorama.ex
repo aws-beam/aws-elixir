@@ -57,6 +57,8 @@ defmodule AWS.Panorama do
 
   @doc """
   Creates a job to run on one or more devices.
+
+  A job can update a device's software or reboot it.
   """
   def create_job_for_devices(%Client{} = client, input, options \\ []) do
     url_path = "/jobs"
@@ -865,6 +867,26 @@ defmodule AWS.Panorama do
       options,
       200
     )
+  end
+
+  @doc """
+  Signal camera nodes to stop or resume.
+  """
+  def signal_application_instance_node_instances(
+        %Client{} = client,
+        application_instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/application-instances/#{AWS.Util.encode_uri(application_instance_id)}/node-signals"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """

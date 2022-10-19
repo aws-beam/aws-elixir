@@ -41,7 +41,7 @@ defmodule AWS.ServiceDiscovery do
   `DiscoverInstances` request but can't be discovered using DNS.
 
   For the current quota on the number of namespaces that you can create using the
-  same account, see [Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
+  same Amazon Web Services account, see [Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
   in the *Cloud Map Developer Guide*.
   """
   def create_http_namespace(%Client{} = client, input, options \\ []) do
@@ -59,7 +59,8 @@ defmodule AWS.ServiceDiscovery do
   for the service is `backend.example.com`. Service instances that are registered
   using a private DNS namespace can be discovered using either a
   `DiscoverInstances` request or using DNS. For the current quota on the number of
-  namespaces that you can create using the same account, see [Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
+  namespaces that you can create using the same Amazon Web Services account, see
+  [Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
   in the *Cloud Map Developer Guide*.
   """
   def create_private_dns_namespace(%Client{} = client, input, options \\ []) do
@@ -76,8 +77,11 @@ defmodule AWS.ServiceDiscovery do
   for the service is `backend.example.com`. You can discover instances that were
   registered with a public DNS namespace by using either a `DiscoverInstances`
   request or using DNS. For the current quota on the number of namespaces that you
-  can create using the same account, see [Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
+  can create using the same Amazon Web Services account, see [Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
   in the *Cloud Map Developer Guide*.
+
+  The `CreatePublicDnsNamespace` API operation is not supported in the Amazon Web
+  Services GovCloud (US) Regions.
   """
   def create_public_dns_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -91,7 +95,7 @@ defmodule AWS.ServiceDiscovery do
   This action defines the configuration for the following entities:
 
     * For public and private DNS namespaces, one of the following
-  combinations of DNS records in Amazon Route 53:
+  combinations of DNS records in Amazon Route 53:
 
       * `A`
 
@@ -144,7 +148,7 @@ defmodule AWS.ServiceDiscovery do
   end
 
   @doc """
-  Deletes the Amazon Route 53 DNS records and health check, if any, that Cloud Map
+  Deletes the Amazon Route 53 DNS records and health check, if any, that Cloud Map
   created for the specified instance.
   """
   def deregister_instance(%Client{} = client, input, options \\ []) do
@@ -231,7 +235,7 @@ defmodule AWS.ServiceDiscovery do
 
   @doc """
   Lists summary information about the namespaces that were created by the current
-  account.
+  Amazon Web Services account.
   """
   def list_namespaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -342,7 +346,7 @@ defmodule AWS.ServiceDiscovery do
 
   You can use `UpdateInstanceCustomHealthStatus` to change the status only for
   custom health checks, which you define using `HealthCheckCustomConfig` when you
-  create a service. You can't use it to change the status for Route 53 health
+  create a service. You can't use it to change the status for Route 53 health
   checks, which you define using `HealthCheckConfig`.
 
   For more information, see

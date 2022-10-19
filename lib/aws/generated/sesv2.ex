@@ -150,8 +150,8 @@ defmodule AWS.SESv2 do
   @doc """
   Creates a new custom verification email template.
 
-  For more information about custom verification email templates, see [Using Custom Verification Email
-  Templates](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html)
+  For more information about custom verification email templates, see [Using custom verification email
+  templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
   in the *Amazon SES Developer Guide*.
 
   You can execute this operation no more than once per second.
@@ -500,8 +500,8 @@ defmodule AWS.SESv2 do
   @doc """
   Deletes an existing custom verification email template.
 
-  For more information about custom verification email templates, see [Using Custom Verification Email
-  Templates](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html)
+  For more information about custom verification email templates, see [Using custom verification email
+  templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
   in the *Amazon SES Developer Guide*.
 
   You can execute this operation no more than once per second.
@@ -788,8 +788,8 @@ defmodule AWS.SESv2 do
   Returns the custom email verification template for the template name you
   specify.
 
-  For more information about custom verification email templates, see [Using Custom Verification Email
-  Templates](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html)
+  For more information about custom verification email templates, see [Using custom verification email
+  templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
   in the *Amazon SES Developer Guide*.
 
   You can execute this operation no more than once per second.
@@ -813,6 +813,19 @@ defmodule AWS.SESv2 do
   """
   def get_dedicated_ip(%Client{} = client, ip, options \\ []) do
     url_path = "/v2/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieve information about the dedicated pool.
+  """
+  def get_dedicated_ip_pool(%Client{} = client, pool_name, options \\ []) do
+    url_path = "/v2/email/dedicated-ip-pools/#{AWS.Util.encode_uri(pool_name)}"
     headers = []
     query_params = []
 
@@ -1137,8 +1150,8 @@ defmodule AWS.SESv2 do
   Lists the existing custom verification email templates for your account in the
   current Amazon Web Services Region.
 
-  For more information about custom verification email templates, see [Using Custom Verification Email
-  Templates](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html)
+  For more information about custom verification email templates, see [Using custom verification email
+  templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
   in the *Amazon SES Developer Guide*.
 
   You can execute this operation no more than once per second.
@@ -1851,7 +1864,7 @@ defmodule AWS.SESv2 do
 
   To use this operation, you must first create a custom verification email
   template. For more information about creating and using custom verification
-  email templates, see [Using Custom Verification Email Templates](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html)
+  email templates, see [Using custom verification email templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
   in the *Amazon SES Developer Guide*.
 
   You can execute this operation no more than once per second.
@@ -2064,8 +2077,8 @@ defmodule AWS.SESv2 do
   @doc """
   Updates an existing custom verification email template.
 
-  For more information about custom verification email templates, see [Using Custom Verification Email
-  Templates](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html)
+  For more information about custom verification email templates, see [Using custom verification email
+  templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
   in the *Amazon SES Developer Guide*.
 
   You can execute this operation no more than once per second.

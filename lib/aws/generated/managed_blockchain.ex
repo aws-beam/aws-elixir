@@ -16,7 +16,7 @@ defmodule AWS.ManagedBlockchain do
   frameworks. Because of fundamental differences between the frameworks, some API
   actions or data types may only apply in the context of one framework and not the
   other. For example, actions related to Hyperledger Fabric network members such
-  as `CreateMember` and `DeleteMember` do not apply to Ethereum.
+  as `CreateMember` and `DeleteMember` don't apply to Ethereum.
 
   The description for each action indicates the framework or frameworks to which
   it applies. Data types and properties that apply only in the context of a
@@ -40,6 +40,37 @@ defmodule AWS.ManagedBlockchain do
       signing_name: "managedblockchain",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  The token based access feature is in preview release for Ethereum on Amazon
+  Managed Blockchain and is subject to change.
+
+  We recommend that you use this feature only with test scenarios, and not in
+  production environments.
+
+  Creates a new accessor for use with Managed Blockchain Ethereum nodes. An
+  accessor object is a container that has the information required for token based
+  access to your Ethereum nodes.
+  """
+  def create_accessor(%Client{} = client, input, options \\ []) do
+    url_path = "/accessors"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -146,15 +177,51 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
+  The token based access feature is in preview release for Ethereum on Amazon
+  Managed Blockchain and is subject to change.
+
+  We recommend that you use this feature only with test scenarios, and not in
+  production environments.
+
+  Deletes an accessor that your Amazon Web Services account owns. An accessor
+  object is a container that has the information required for token based access
+  to your Ethereum nodes including, the `BILLING_TOKEN`. After an accessor is
+  deleted, the status of the accessor changes from `AVAILABLE` to
+  `PENDING_DELETION`. An accessor in the `PENDING_DELETION` state can’t be used
+  for new WebSocket requests or HTTP requests. However, WebSocket connections that
+  are initiated while the accessor was in the `AVAILABLE` state remain open until
+  they expire (up to 2 hours).
+  """
+  def delete_accessor(%Client{} = client, accessor_id, input, options \\ []) do
+    url_path = "/accessors/#{AWS.Util.encode_uri(accessor_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes a member.
 
   Deleting a member removes the member and all associated resources from the
   network. `DeleteMember` can only be called for a specified `MemberId` if the
-  principal performing the action is associated with the AWS account that owns the
-  member. In all other cases, the `DeleteMember` action is carried out as the
-  result of an approved proposal to remove a member. If `MemberId` is the last
-  member in a network specified by the last AWS account, the network is deleted
-  also.
+  principal performing the action is associated with the Amazon Web Services
+  account that owns the member. In all other cases, the `DeleteMember` action is
+  carried out as the result of an approved proposal to remove a member. If
+  `MemberId` is the last member in a network specified by the last Amazon Web
+  Services account, the network is deleted also.
 
   Applies only to Hyperledger Fabric.
   """
@@ -181,7 +248,7 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Deletes a node that your AWS account owns.
+  Deletes a node that your Amazon Web Services account owns.
 
   All data on the node is lost and cannot be recovered.
 
@@ -212,6 +279,27 @@ defmodule AWS.ManagedBlockchain do
       options,
       nil
     )
+  end
+
+  @doc """
+  The token based access feature is in preview release for Ethereum on Amazon
+  Managed Blockchain and is subject to change.
+
+  We recommend that you use this feature only with test scenarios, and not in
+  production environments.
+
+  Returns detailed information about an accessor. An accessor object is a
+  container that has the information required for token based access to your
+  Ethereum nodes.
+  """
+  def get_accessor(%Client{} = client, accessor_id, options \\ []) do
+    url_path = "/accessors/#{AWS.Util.encode_uri(accessor_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -288,7 +376,42 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Returns a list of all invitations for the current AWS account.
+  The token based access feature is in preview release for Ethereum on Amazon
+  Managed Blockchain and is subject to change.
+
+  We recommend that you use this feature only with test scenarios, and not in
+  production environments.
+
+  Returns a list of the accessors and their properties. Accessor objects are
+  containers that have the information required for token based access to your
+  Ethereum nodes.
+  """
+  def list_accessors(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/accessors"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Returns a list of all invitations for the current Amazon Web Services account.
 
   Applies only to Hyperledger Fabric.
   """
@@ -377,8 +500,8 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Returns information about the networks in which the current AWS account
-  participates.
+  Returns information about the networks in which the current Amazon Web Services
+  account participates.
 
   Applies to Hyperledger Fabric and Ethereum.
   """
@@ -582,8 +705,8 @@ defmodule AWS.ManagedBlockchain do
   @doc """
   Rejects an invitation to join a network.
 
-  This action can be called by a principal in an AWS account that has received an
-  invitation to create a member and join a network.
+  This action can be called by a principal in an Amazon Web Services account that
+  has received an invitation to create a member and join a network.
 
   Applies only to Hyperledger Fabric.
   """
@@ -732,8 +855,8 @@ defmodule AWS.ManagedBlockchain do
   @doc """
   Casts a vote for a specified `ProposalId` on behalf of a member.
 
-  The member to vote as, specified by `VoterMemberId`, must be in the same AWS
-  account as the principal that calls the action.
+  The member to vote as, specified by `VoterMemberId`, must be in the same Amazon
+  Web Services account as the principal that calls the action.
 
   Applies only to Hyperledger Fabric.
   """

@@ -35,14 +35,12 @@ defmodule AWS.SupportApp do
   more information, see [Authorize a Slack workspace to enable the Amazon Web Services Support
   App](https://docs.aws.amazon.com/awssupport/latest/user/authorize-slack-workspace.html).
 
-  `    You must have a Business or Enterprise Support plan to use the
+     You must have a Business or Enterprise Support plan to use the
   Amazon Web Services Support App API.
 
      For more information about the Amazon Web Services Support App
   endpoints, see the [Amazon Web Services Support App in Slack endpoints](https://docs.aws.amazon.com/general/latest/gr/awssupport.html#awssupport_app_region)
   in the *Amazon Web Services General Reference*.
-
-  `
   """
 
   alias AWS.Client
@@ -261,6 +259,58 @@ defmodule AWS.SupportApp do
   """
   def put_account_alias(%Client{} = client, input, options \\ []) do
     url_path = "/control/put-account-alias"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Registers a Slack workspace for your Amazon Web Services account.
+
+  To call this API, your account must be part of an organization in Organizations.
+
+  If you're the *management account* and you want to register Slack workspaces for
+  your organization, you must complete the following tasks:
+
+    1. Sign in to the [Amazon Web Services Support Center](https://console.aws.amazon.com/support/app) and authorize the Slack
+  workspaces where you want your organization to have access to. See [Authorize a Slack
+  workspace](https://docs.aws.amazon.com/awssupport/latest/user/authorize-slack-workspace.html)
+  in the *Amazon Web Services Support User Guide*.
+
+    2. Call the `RegisterSlackWorkspaceForOrganization` API to authorize
+  each Slack workspace for the organization.
+
+  After the management account authorizes the Slack workspace, member accounts can
+  call this API to authorize the same Slack workspace for their individual
+  accounts. Member accounts don't need to authorize the Slack workspace manually
+  through the [Amazon Web Services Support Center](https://console.aws.amazon.com/support/app).
+
+  To use the Amazon Web Services Support App, each account must then complete the
+  following tasks:
+
+    * Create an Identity and Access Management (IAM) role with the
+  required permission. For more information, see [Managing access to the Amazon Web Services Support
+  App](https://docs.aws.amazon.com/awssupport/latest/user/support-app-permissions.html).
+
+    * Configure a Slack channel to use the Amazon Web Services Support
+  App for support cases for that account. For more information, see [Configuring a Slack
+  channel](https://docs.aws.amazon.com/awssupport/latest/user/add-your-slack-channel.html).
+  """
+  def register_slack_workspace_for_organization(%Client{} = client, input, options \\ []) do
+    url_path = "/control/register-slack-workspace-for-organization"
     headers = []
     query_params = []
 

@@ -1629,10 +1629,10 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Allows an `AppInstanceUser` to search the channels that they belong to.
+  Allows `ChimeBearer` to search channels by channel members.
 
-  The `AppInstanceUser` can search by membership or external ID. An
-  `AppInstanceAdmin` can search across all channels within the `AppInstance`.
+  AppInstanceUsers can search across the channels that they belong to.
+  AppInstanceAdmins can search across all channels.
   """
   def search_channels(%Client{} = client, input, options \\ []) do
     url_path = "/channels?operation=search"

@@ -88,6 +88,26 @@ defmodule AWS.WorkSpacesWeb do
   end
 
   @doc """
+  Associates a user access logging settings resource with a web portal.
+  """
+  def associate_user_access_logging_settings(%Client{} = client, portal_arn, input, options \\ []) do
+    url_path =
+      "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/userAccessLoggingSettings"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"userAccessLoggingSettingsArn", "userAccessLoggingSettingsArn"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Associates a user settings resource with a web portal.
   """
   def associate_user_settings(%Client{} = client, portal_arn, input, options \\ []) do
@@ -214,6 +234,30 @@ defmodule AWS.WorkSpacesWeb do
   """
   def create_trust_store(%Client{} = client, input, options \\ []) do
     url_path = "/trustStores"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a user access logging settings resource that can be associated with a
+  web portal.
+  """
+  def create_user_access_logging_settings(%Client{} = client, input, options \\ []) do
+    url_path = "/userAccessLoggingSettings"
     headers = []
     query_params = []
 
@@ -374,6 +418,36 @@ defmodule AWS.WorkSpacesWeb do
   end
 
   @doc """
+  Deletes user access logging settings.
+  """
+  def delete_user_access_logging_settings(
+        %Client{} = client,
+        user_access_logging_settings_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/userAccessLoggingSettings/#{AWS.Util.encode_multi_segment_uri(user_access_logging_settings_arn)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes user settings.
   """
   def delete_user_settings(%Client{} = client, user_settings_arn, input, options \\ []) do
@@ -447,6 +521,36 @@ defmodule AWS.WorkSpacesWeb do
   """
   def disassociate_trust_store(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/trustStores"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Disassociates user access logging settings from a web portal.
+  """
+  def disassociate_user_access_logging_settings(
+        %Client{} = client,
+        portal_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/userAccessLoggingSettings"
+
     headers = []
     query_params = []
 
@@ -580,6 +684,25 @@ defmodule AWS.WorkSpacesWeb do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets user access logging settings.
+  """
+  def get_user_access_logging_settings(
+        %Client{} = client,
+        user_access_logging_settings_arn,
+        options \\ []
+      ) do
+    url_path =
+      "/userAccessLoggingSettings/#{AWS.Util.encode_multi_segment_uri(user_access_logging_settings_arn)}"
+
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -797,6 +920,38 @@ defmodule AWS.WorkSpacesWeb do
   end
 
   @doc """
+  Retrieves a list of user access logging settings.
+  """
+  def list_user_access_logging_settings(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/userAccessLoggingSettings"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a list of user settings.
   """
   def list_user_settings(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
@@ -961,6 +1116,36 @@ defmodule AWS.WorkSpacesWeb do
   """
   def update_trust_store(%Client{} = client, trust_store_arn, input, options \\ []) do
     url_path = "/trustStores/#{AWS.Util.encode_multi_segment_uri(trust_store_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the user access logging settings.
+  """
+  def update_user_access_logging_settings(
+        %Client{} = client,
+        user_access_logging_settings_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/userAccessLoggingSettings/#{AWS.Util.encode_multi_segment_uri(user_access_logging_settings_arn)}"
+
     headers = []
     query_params = []
 

@@ -152,6 +152,15 @@ defmodule AWS.Connect do
 
   @doc """
   Associates a flow with a phone number claimed to your Amazon Connect instance.
+
+  If the number is claimed to a traffic distribution group, and you are calling
+  this API using an instance in the Amazon Web Services Region where the traffic
+  distribution group was created, you can use either a full phone number ARN or
+  UUID value for the `PhoneNumberId` URI request parameter. However, if the number
+  is claimed to a traffic distribution group and you are calling this API using an
+  instance in the alternate Amazon Web Services Region associated with the traffic
+  distribution group, you must provide a full phone number ARN. If a UUID is
+  provided in this scenario, you will receive a `ResourceNotFoundException`.
   """
   def associate_phone_number_contact_flow(
         %Client{} = client,
@@ -248,7 +257,16 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Claims an available phone number to your Amazon Connect instance.
+  Claims an available phone number to your Amazon Connect instance or traffic
+  distribution group.
+
+  You can call this API only in the same Amazon Web Services Region where the
+  Amazon Connect instance or traffic distribution group was created.
+
+  You can call the
+  [DescribePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html) API to verify the status of a previous
+  [ClaimPhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html)
+  operation.
   """
   def claim_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number/claim"
@@ -370,6 +388,18 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Creates a new queue for the specified Amazon Connect instance.
+
+  If the number being used in the input is claimed to a traffic distribution
+  group, and you are calling this API using an instance in the Amazon Web Services
+  Region where the traffic distribution group was created, you can use either a
+  full phone number ARN or UUID value for the `OutboundCallerIdNumberId` value of
+  the
+  [OutboundCallerConfig](https://docs.aws.amazon.com/connect/latest/APIReference/API_OutboundCallerConfig)
+  request body parameter. However, if the number is claimed to a traffic
+  distribution group and you are calling this API using an instance in the
+  alternate Amazon Web Services Region associated with the traffic distribution
+  group, you must provide a full phone number ARN. If a UUID is provided in this
+  scenario, you will receive a `ResourceNotFoundException`.
   """
   def create_queue(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}"
@@ -427,6 +457,24 @@ defmodule AWS.Connect do
   """
   def create_task_template(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Creates a traffic distribution group given an Amazon Connect instance that has
+  been replicated.
+
+  For more information about creating traffic distribution groups, see [Set up traffic distribution
+  groups](https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html)
+  in the *Amazon Connect Administrator Guide*.
+  """
+  def create_traffic_distribution_group(%Client{} = client, input, options \\ []) do
+    url_path = "/traffic-distribution-group"
     headers = []
     query_params = []
 
@@ -763,6 +811,41 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Deletes a traffic distribution group.
+
+  This API can be called only in the Region where the traffic distribution group
+  is created.
+
+  For more information about deleting traffic distribution groups, see [Delete traffic distribution
+  groups](https://docs.aws.amazon.com/connect/latest/adminguide/delete-traffic-distribution-groups.html)
+  in the *Amazon Connect Administrator Guide*.
+  """
+  def delete_traffic_distribution_group(
+        %Client{} = client,
+        traffic_distribution_group_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/traffic-distribution-group/#{AWS.Util.encode_uri(traffic_distribution_group_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes a use case from an integration association.
   """
   def delete_use_case(
@@ -1045,7 +1128,16 @@ defmodule AWS.Connect do
 
   @doc """
   Gets details and status of a phone number that’s claimed to your Amazon Connect
-  instance
+  instance or traffic distribution group.
+
+  If the number is claimed to a traffic distribution group, and you are calling in
+  the Amazon Web Services Region where the traffic distribution group was created,
+  you can use either a phone number ARN or UUID value for the `PhoneNumberId` URI
+  request parameter. However, if the number is claimed to a traffic distribution
+  group and you are calling this API in the alternate Amazon Web Services Region
+  associated with the traffic distribution group, you must provide a full phone
+  number ARN. If a UUID is provided in this scenario, you will receive a
+  `ResourceNotFoundException`.
   """
   def describe_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
@@ -1116,6 +1208,23 @@ defmodule AWS.Connect do
     url_path =
       "/security-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(security_profile_id)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets details and status of a traffic distribution group.
+  """
+  def describe_traffic_distribution_group(
+        %Client{} = client,
+        traffic_distribution_group_id,
+        options \\ []
+      ) do
+    url_path = "/traffic-distribution-group/#{AWS.Util.encode_uri(traffic_distribution_group_id)}"
     headers = []
     query_params = []
 
@@ -1349,7 +1458,16 @@ defmodule AWS.Connect do
 
   @doc """
   Removes the flow association from a phone number claimed to your Amazon Connect
-  instance, if a flow association exists.
+  instance.
+
+  If the number is claimed to a traffic distribution group, and you are calling
+  this API using an instance in the Amazon Web Services Region where the traffic
+  distribution group was created, you can use either a full phone number ARN or
+  UUID value for the `PhoneNumberId` URI request parameter. However, if the number
+  is claimed to a traffic distribution group and you are calling this API using an
+  instance in the alternate Amazon Web Services Region associated with the traffic
+  distribution group, you must provide a full phone number ARN. If a UUID is
+  provided in this scenario, you will receive a `ResourceNotFoundException`.
   """
   def disassociate_phone_number_contact_flow(
         %Client{} = client,
@@ -1610,6 +1728,20 @@ defmodule AWS.Connect do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieves the current traffic distribution for a given traffic distribution
+  group.
+  """
+  def get_traffic_distribution(%Client{} = client, id, options \\ []) do
+    url_path = "/traffic-distribution/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -2162,6 +2294,13 @@ defmodule AWS.Connect do
   For more information about phone numbers, see [Set Up Phone Numbers for Your Contact
   Center](https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html)
   in the *Amazon Connect Administrator Guide*.
+
+  The phone number `Arn` value that is returned from each of the items in the
+  [PhoneNumberSummaryList](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbers.html#connect-ListPhoneNumbers-response-PhoneNumberSummaryList) cannot be used to tag phone number resources. It will fail with a
+  `ResourceNotFoundException`. Instead, use the
+  [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html)
+  API. It returns the new phone number ARN that can be used to tag phone number
+  resources.
   """
   def list_phone_numbers(
         %Client{} = client,
@@ -2210,7 +2349,12 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Lists phone numbers claimed to your Amazon Connect instance.
+  Lists phone numbers claimed to your Amazon Connect instance or traffic
+  distribution group.
+
+  If the provided `TargetArn` is a traffic distribution group, you can call this
+  API in both Amazon Web Services Regions associated with traffic distribution
+  group.
 
   For more information about phone numbers, see [Set Up Phone Numbers for Your Contact
   Center](https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html)
@@ -2649,6 +2793,46 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Lists traffic distribution groups.
+  """
+  def list_traffic_distribution_groups(
+        %Client{} = client,
+        instance_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/traffic-distribution-groups"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(instance_id) do
+        [{"instanceId", instance_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Lists the use cases for the integration association.
   """
   def list_use_cases(
@@ -2775,7 +2959,19 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Releases a phone number previously claimed to an Amazon Connect instance.
+  Releases a phone number previously claimed to an Amazon Connect instance or
+  traffic distribution group.
+
+  You can call this API only in the Amazon Web Services Region where the number
+  was claimed.
+
+  To release phone numbers from a traffic distribution group, use the
+  `ReleasePhoneNumber` API, not the Amazon Connect console.
+
+  After releasing a phone number, the phone number enters into a cooldown period
+  of 30 days. It cannot be searched for or claimed again until the period has
+  ended. If you accidentally release a phone number, contact Amazon Web Services
+  Support.
   """
   def release_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
@@ -2793,6 +2989,34 @@ defmodule AWS.Connect do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Replicates an Amazon Connect instance in the specified Amazon Web Services
+  Region.
+
+  For more information about replicating an Amazon Connect instance, see [Create a replica of your existing Amazon Connect
+  instance](https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html)
+  in the *Amazon Connect Administrator Guide*.
+  """
+  def replicate_instance(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/replicate"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       headers,
@@ -2830,7 +3054,11 @@ defmodule AWS.Connect do
 
   @doc """
   Searches for available phone numbers that you can claim to your Amazon Connect
-  instance.
+  instance or traffic distribution group.
+
+  If the provided `TargetArn` is a traffic distribution group, you can call this
+  API in both Amazon Web Services Regions associated with the traffic distribution
+  group.
   """
   def search_available_phone_numbers(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number/search-available"
@@ -2931,6 +3159,8 @@ defmodule AWS.Connect do
 
   @doc """
   Searches users in an Amazon Connect instance, with optional filtering.
+
+  `AfterContactWorkTimeLimit` is returned in milliseconds.
   """
   def search_users(%Client{} = client, input, options \\ []) do
     url_path = "/search-users"
@@ -3730,8 +3960,14 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Updates your claimed phone number from its current Amazon Connect instance to
-  another Amazon Connect instance in the same Region.
+  Updates your claimed phone number from its current Amazon Connect instance or
+  traffic distribution group to another Amazon Connect instance or traffic
+  distribution group in the same Amazon Web Services Region.
+
+  You can call
+  [DescribePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html) API to verify the status of a previous
+  [UpdatePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html)
+  operation.
   """
   def update_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
@@ -3835,6 +4071,18 @@ defmodule AWS.Connect do
 
   Updates the outbound caller ID name, number, and outbound whisper flow for a
   specified queue.
+
+  If the number being used in the input is claimed to a traffic distribution
+  group, and you are calling this API using an instance in the Amazon Web Services
+  Region where the traffic distribution group was created, you can use either a
+  full phone number ARN or UUID value for the `OutboundCallerIdNumberId` value of
+  the
+  [OutboundCallerConfig](https://docs.aws.amazon.com/connect/latest/APIReference/API_OutboundCallerConfig)
+  request body parameter. However, if the number is claimed to a traffic
+  distribution group and you are calling this API using an instance in the
+  alternate Amazon Web Services Region associated with the traffic distribution
+  group, you must provide a full phone number ARN. If a UUID is provided in this
+  scenario, you will receive a `ResourceNotFoundException`.
   """
   def update_queue_outbound_caller_config(
         %Client{} = client,
@@ -4150,6 +4398,23 @@ defmodule AWS.Connect do
       options,
       nil
     )
+  end
+
+  @doc """
+  Updates the traffic distribution for a given traffic distribution group.
+
+  For more information about updating a traffic distribution group see [Update telephony traffic distribution across Amazon Web Services Regions
+  ](https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html)
+  in the *Amazon Connect Administrator Guide*.
+  """
+  def update_traffic_distribution(%Client{} = client, id, input, options \\ []) do
+    url_path = "/traffic-distribution/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """

@@ -111,6 +111,31 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+  Add endpoints to an endpoint group.
+
+  The `AddEndpoints` API operation is the recommended option for adding endpoints.
+  The alternative options are to add endpoints when you create an endpoint group
+  (with the
+  [CreateEndpointGroup](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html) API) or when you update an endpoint group (with the
+  [UpdateEndpointGroup](https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateEndpointGroup.html)
+  API).
+
+  There are two advantages to using `AddEndpoints` to add endpoints:
+
+    * It's faster, because Global Accelerator only has to resolve the
+  new endpoints that you're adding.
+
+    * It's more convenient, because you don't need to specify all of the
+  current endpoints that are already in the endpoint group in addition to the new
+  endpoints that you want to add.
+  """
+  def add_endpoints(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddEndpoints", input, options)
+  end
+
+  @doc """
   Advertises an IPv4 address range that is provisioned for use with your Amazon
   Web Services resources through bring your own IP addresses (BYOIP).
 
@@ -591,6 +616,31 @@ defmodule AWS.GlobalAccelerator do
     meta = metadata()
 
     Request.request_post(client, meta, "RemoveCustomRoutingEndpoints", input, options)
+  end
+
+  @doc """
+  Remove endpoints from an endpoint group.
+
+  The `RemoveEndpoints` API operation is the recommended option for removing
+  endpoints. The alternative is to remove endpoints by updating an endpoint group
+  by using the
+  [UpdateEndpointGroup](https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateEndpointGroup.html)
+  API operation. There are two advantages to using `AddEndpoints` to remove
+  endpoints instead:
+
+    * It's more convenient, because you only need to specify the
+  endpoints that you want to remove. With the `UpdateEndpointGroup` API operation,
+  you must specify all of the endpoints in the endpoint group except the ones that
+  you want to remove from the group.
+
+    * It's faster, because Global Accelerator doesn't need to resolve
+  any endpoints. With the `UpdateEndpointGroup` API operation, Global Accelerator
+  must resolve all of the endpoints that remain in the group.
+  """
+  def remove_endpoints(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveEndpoints", input, options)
   end
 
   @doc """

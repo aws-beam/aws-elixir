@@ -40,6 +40,160 @@ defmodule AWS.RUM do
   end
 
   @doc """
+  Specifies the extended metrics that you want a CloudWatch RUM app monitor to
+  send to a destination.
+
+  Valid destinations include CloudWatch and Evidently.
+
+  By default, RUM app monitors send some metrics to CloudWatch. These default
+  metrics are listed in [CloudWatch metrics that you can collect with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-metrics.html).
+
+  If you also send extended metrics, you can send metrics to Evidently as well as
+  CloudWatch, and you can also optionally send the metrics with additional
+  dimensions. The valid dimension names for the additional dimensions are
+  `BrowserName`, `CountryCode`, `DeviceType`, `FileType`, `OSName`, and `PageId`.
+  For more information, see [ Extended metrics that you can send to CloudWatch and CloudWatch
+  Evidently](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-vended-metrics.html).
+
+  The maximum number of metric definitions that you can specify in one
+  `BatchCreateRumMetricDefinitions` operation is 200.
+
+  ` The maximum number of metric definitions that one destination can contain is
+  2000.
+
+  Extended metrics sent are charged as CloudWatch custom metrics. Each combination
+  of additional dimension name and dimension value counts as a custom metric. For
+  more information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).
+
+  You must have already created a destination for the metrics before you send
+  them. For more information, see
+  [PutRumMetricsDestination](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html).
+
+  If some metric definitions specified in a `BatchCreateRumMetricDefinitions`
+  operations are not valid, those metric definitions fail and return errors, but
+  all valid metric definitions in the same operation still succeed.
+
+  `
+  """
+  def batch_create_rum_metric_definitions(
+        %Client{} = client,
+        app_monitor_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metrics"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes the specified metrics from being sent to an extended metrics
+  destination.
+
+  If some metric definition IDs specified in a `BatchDeleteRumMetricDefinitions`
+  operations are not valid, those metric definitions fail and return errors, but
+  all valid metric definition IDs in the same operation are still deleted.
+
+  The maximum number of metric definitions that you can specify in one
+  `BatchDeleteRumMetricDefinitions` operation is 200.
+  """
+  def batch_delete_rum_metric_definitions(
+        %Client{} = client,
+        app_monitor_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metrics"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"Destination", "destination"},
+        {"DestinationArn", "destinationArn"},
+        {"MetricDefinitionIds", "metricDefinitionIds"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves the list of metrics and dimensions that a RUM app monitor is sending
+  to a single destination.
+  """
+  def batch_get_rum_metric_definitions(
+        %Client{} = client,
+        app_monitor_name,
+        destination,
+        destination_arn \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metrics"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(destination_arn) do
+        [{"destinationArn", destination_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(destination) do
+        [{"destination", destination} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Creates a Amazon CloudWatch RUM app monitor, which collects telemetry data from
   your application and sends that data to RUM.
 
@@ -84,6 +238,36 @@ defmodule AWS.RUM do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a destination for CloudWatch RUM extended metrics, so that the specified
+  app monitor stops sending extended metrics to that destination.
+  """
+  def delete_rum_metrics_destination(%Client{} = client, app_monitor_name, input, options \\ []) do
+    url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metricsdestination"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"Destination", "destination"},
+        {"DestinationArn", "destinationArn"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -167,6 +351,43 @@ defmodule AWS.RUM do
   end
 
   @doc """
+  Returns a list of destinations that you have created to receive RUM extended
+  metrics, for the specified app monitor.
+
+  For more information about extended metrics, see
+  [AddRumMetrics](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_AddRumMetrcs.html).
+  """
+  def list_rum_metrics_destinations(
+        %Client{} = client,
+        app_monitor_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metricsdestination"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Displays the tags associated with a CloudWatch RUM resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
@@ -194,6 +415,36 @@ defmodule AWS.RUM do
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "dataplane.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates or updates a destination to receive extended metrics from CloudWatch
+  RUM.
+
+  You can send extended metrics to CloudWatch or to a CloudWatch Evidently
+  experiment.
+
+  For more information about extended metrics, see
+  [AddRumMetrics](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_AddRumMetrics.html).
+  """
+  def put_rum_metrics_destination(%Client{} = client, app_monitor_name, input, options \\ []) do
+    url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metricsdestination"
+    headers = []
+    query_params = []
+
+    meta = metadata()
 
     Request.request_rest(
       client,
@@ -297,6 +548,32 @@ defmodule AWS.RUM do
   """
   def update_app_monitor(%Client{} = client, name, input, options \\ []) do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Modifies one existing metric definition for CloudWatch RUM extended metrics.
+
+  For more information about extended metrics, see
+  [BatchCreateRumMetricsDefinitions](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricsDefinitions.html).
+  """
+  def update_rum_metric_definition(%Client{} = client, app_monitor_name, input, options \\ []) do
+    url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metrics"
     headers = []
     query_params = []
 

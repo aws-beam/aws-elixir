@@ -2473,6 +2473,18 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Returns a list of the subtasks for an Inference Recommender job.
+
+  The supported subtasks are benchmarks, which evaluate the performance of your
+  model on different instance types.
+  """
+  def list_inference_recommendations_job_steps(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListInferenceRecommendationsJobSteps", input, options)
+  end
+
+  @doc """
   Lists recommendation jobs that satisfy various filters.
   """
   def list_inference_recommendations_jobs(%Client{} = client, input, options \\ []) do

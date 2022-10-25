@@ -3,8 +3,7 @@
 
 defmodule AWS.ACMPCA do
   @moduledoc """
-  This is the *Certificate Manager Private Certificate Authority (PCA) API
-  Reference*.
+  This is the *Private Certificate Authority (PCA) API Reference*.
 
   It provides descriptions, syntax, and usage examples for each of the actions and
   data types involved in creating and managing a private certificate authority

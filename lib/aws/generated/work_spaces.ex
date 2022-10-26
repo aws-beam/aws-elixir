@@ -213,6 +213,10 @@ defmodule AWS.WorkSpaces do
   Creates one or more WorkSpaces.
 
   This operation is asynchronous and returns before the WorkSpaces are created.
+
+  The `MANUAL` running mode value is only supported by Amazon WorkSpaces Core.
+  Contact your account team to be allow-listed to use this value. For more
+  information, see [Amazon WorkSpaces Core](http://aws.amazon.com/workspaces/core/).
   """
   def create_workspaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -565,8 +569,8 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
-  Imports the specified Windows 10 Bring Your Own License (BYOL) image into Amazon
-  WorkSpaces.
+  Imports the specified Windows 10 Bring Your Own License (BYOL) or Windows Server
+  2016 BYOL image into Amazon WorkSpaces.
 
   The image must be an already licensed Amazon EC2 image that is in your Amazon
   Web Services account, and you must own the image. For more information about
@@ -687,6 +691,10 @@ defmodule AWS.WorkSpaces do
 
   For important information about how to modify the size of the root and user
   volumes, see [ Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html).
+
+  The `MANUAL` running mode value is only supported by Amazon WorkSpaces Core.
+  Contact your account team to be allow-listed to use this value. For more
+  information, see [Amazon WorkSpaces Core](http://aws.amazon.com/workspaces/core/).
   """
   def modify_workspace_properties(%Client{} = client, input, options \\ []) do
     meta = metadata()

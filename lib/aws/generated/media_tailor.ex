@@ -38,7 +38,7 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Configures Amazon CloudWatch log settings for a playback configuration.
+  Amazon CloudWatch log settings for a playback configuration.
   """
   def configure_logs_for_playback_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/configureLogs/playbackConfiguration"
@@ -52,6 +52,9 @@ defmodule AWS.MediaTailor do
 
   @doc """
   Creates a channel.
+
+  For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
+  in the *MediaTailor User Guide*.
   """
   def create_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
@@ -74,7 +77,7 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Creates name for a specific live source in a source location.
+  The live source configuration.
   """
   def create_live_source(
         %Client{} = client,
@@ -105,7 +108,12 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Creates a new prefetch schedule for the specified playback configuration.
+  Creates a prefetch schedule for a playback configuration.
+
+  A prefetch schedule allows you to tell MediaTailor to fetch and prepare certain
+  ads before an ad break happens. For more information about ad prefetching, see
+  [Using ad prefetching](https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html)
+  in the *MediaTailor User Guide*.
   """
   def create_prefetch_schedule(
         %Client{} = client,
@@ -136,7 +144,10 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Creates a program.
+  Creates a program within a channel.
+
+  For information about programs, see [Working with programs](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html)
+  in the *MediaTailor User Guide*.
   """
   def create_program(%Client{} = client, channel_name, program_name, input, options \\ []) do
     url_path =
@@ -161,7 +172,11 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Creates a source location on a specific channel.
+  Creates a source location.
+
+  A source location is a container for sources. For more information about source
+  locations, see [Working with source locations](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html)
+  in the *MediaTailor User Guide*.
   """
   def create_source_location(%Client{} = client, source_location_name, input, options \\ []) do
     url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}"
@@ -184,7 +199,7 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Creates name for a specific VOD source in a source location.
+  The VOD source configuration parameters.
   """
   def create_vod_source(
         %Client{} = client,
@@ -217,7 +232,8 @@ defmodule AWS.MediaTailor do
   @doc """
   Deletes a channel.
 
-  You must stop the channel before it can be deleted.
+  For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
+  in the *MediaTailor User Guide*.
   """
   def delete_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
@@ -240,7 +256,7 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Deletes a channel's IAM policy.
+  The channel policy to delete.
   """
   def delete_channel_policy(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
@@ -263,7 +279,7 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Deletes a specific live source in a specific source location.
+  The live source to delete.
   """
   def delete_live_source(
         %Client{} = client,
@@ -294,7 +310,10 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Deletes the playback configuration for the specified name.
+  Deletes a playback configuration.
+
+  For information about MediaTailor configurations, see [Working with configurations in AWS Elemental
+  MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html).
   """
   def delete_playback_configuration(%Client{} = client, name, input, options \\ []) do
     url_path = "/playbackConfiguration/#{AWS.Util.encode_uri(name)}"
@@ -319,8 +338,10 @@ defmodule AWS.MediaTailor do
   @doc """
   Deletes a prefetch schedule for a specific playback configuration.
 
-  If you call DeletePrefetchSchedule on an expired prefetch schedule, MediaTailor
-  returns an HTTP 404 status code.
+  If you call `DeletePrefetchSchedule` on an expired prefetch schedule,
+  MediaTailor returns an HTTP 404 status code. For more information about ad
+  prefetching, see [Using ad prefetching](https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html)
+  in the *MediaTailor User Guide*.
   """
   def delete_prefetch_schedule(
         %Client{} = client,
@@ -351,7 +372,10 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Deletes a specific program on a specific channel.
+  Deletes a program within a channel.
+
+  For information about programs, see [Working with programs](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html)
+  in the *MediaTailor User Guide*.
   """
   def delete_program(%Client{} = client, channel_name, program_name, input, options \\ []) do
     url_path =
@@ -376,7 +400,11 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Deletes a source location on a specific channel.
+  Deletes a source location.
+
+  A source location is a container for sources. For more information about source
+  locations, see [Working with source locations](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html)
+  in the *MediaTailor User Guide*.
   """
   def delete_source_location(%Client{} = client, source_location_name, input, options \\ []) do
     url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}"
@@ -399,7 +427,7 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Deletes a specific VOD source in a specific source location.
+  The video on demand (VOD) source to delete.
   """
   def delete_vod_source(
         %Client{} = client,
@@ -430,7 +458,10 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Describes the properties of a specific channel.
+  Describes a channel.
+
+  For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
+  in the *MediaTailor User Guide*.
   """
   def describe_channel(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
@@ -443,7 +474,7 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Provides details about a specific live source in a specific source location.
+  The live source to describe.
   """
   def describe_live_source(
         %Client{} = client,
@@ -463,7 +494,10 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Retrieves the properties of the requested program.
+  Describes a program within a channel.
+
+  For information about programs, see [Working with programs](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html)
+  in the *MediaTailor User Guide*.
   """
   def describe_program(%Client{} = client, channel_name, program_name, options \\ []) do
     url_path =
@@ -478,7 +512,11 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Retrieves the properties of the requested source location.
+  Describes a source location.
+
+  A source location is a container for sources. For more information about source
+  locations, see [Working with source locations](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html)
+  in the *MediaTailor User Guide*.
   """
   def describe_source_location(%Client{} = client, source_location_name, options \\ []) do
     url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}"
@@ -491,7 +529,8 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Provides details about a specific VOD source in a specific source location.
+  Provides details about a specific video on demand (VOD) source in a specific
+  source location.
   """
   def describe_vod_source(
         %Client{} = client,
@@ -511,7 +550,9 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Retrieves information about a channel's IAM policy.
+  Returns the channel's IAM policy.
+
+  IAM policies are used to control access to your channel.
   """
   def get_channel_policy(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
@@ -565,7 +606,10 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Returns the playback configuration for the specified name.
+  Retrieves a playback configuration.
+
+  For information about MediaTailor configurations, see [Working with configurations in AWS Elemental
+  MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html).
   """
   def get_playback_configuration(%Client{} = client, name, options \\ []) do
     url_path = "/playbackConfiguration/#{AWS.Util.encode_uri(name)}"
@@ -578,11 +622,12 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Returns information about the prefetch schedule for a specific playback
-  configuration.
+  Retrieves a prefetch schedule for a playback configuration.
 
-  If you call GetPrefetchSchedule on an expired prefetch schedule, MediaTailor
-  returns an HTTP 404 status code.
+  A prefetch schedule allows you to tell MediaTailor to fetch and prepare certain
+  ads before an ad break happens. For more information about ad prefetching, see
+  [Using ad prefetching](https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html)
+  in the *MediaTailor User Guide*.
   """
   def get_prefetch_schedule(%Client{} = client, name, playback_configuration_name, options \\ []) do
     url_path =
@@ -597,7 +642,8 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Returns a list of alerts for the given resource.
+  Lists the alerts that are associated with a MediaTailor channel assembly
+  resource.
   """
   def list_alerts(
         %Client{} = client,
@@ -637,7 +683,8 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Retrieves a list of channels that are associated with this account.
+  Retrieves information about the channels that are associated with the current
+  AWS account.
   """
   def list_channels(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/channels"
@@ -664,7 +711,9 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  lists all the live sources in a source location.
+  Lists the live sources contained in a source location.
+
+  A source represents a piece of content.
   """
   def list_live_sources(
         %Client{} = client,
@@ -697,13 +746,10 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Returns a list of the playback configurations defined in AWS Elemental
-  MediaTailor.
+  Retrieves existing playback configurations.
 
-  You can specify a maximum number of configurations to return at a time. The
-  default maximum is 50. Results are returned in pagefuls. If MediaTailor has more
-  configurations than the specified maximum, it provides parameters in the
-  response that you can use to retrieve the next pageful.
+  For information about MediaTailor configurations, see [Working with Configurations in AWS Elemental
+  MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html).
   """
   def list_playback_configurations(
         %Client{} = client,
@@ -735,7 +781,7 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Creates a new prefetch schedule.
+  Lists the prefetch schedules for a playback configuration.
   """
   def list_prefetch_schedules(
         %Client{} = client,
@@ -763,7 +809,9 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Retrieves a list of source locations.
+  Lists the source locations for a channel.
+
+  A source location defines the host server URL, and contains a list of sources.
   """
   def list_source_locations(
         %Client{} = client,
@@ -795,8 +843,11 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Returns a list of the tags assigned to the specified playback configuration
-  resource.
+  A list of tags that are associated with this resource.
+
+  Tags are key-value pairs that you can associate with Amazon resources to help
+  with organization, access control, and cost tracking. For more information, see
+  [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -809,7 +860,9 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Lists all the VOD sources in a source location.
+  Lists the VOD sources contained in a source location.
+
+  A source represents a piece of content.
   """
   def list_vod_sources(
         %Client{} = client,
@@ -843,6 +896,8 @@ defmodule AWS.MediaTailor do
 
   @doc """
   Creates an IAM policy for the channel.
+
+  IAM policies are used to control access to your channel.
   """
   def put_channel_policy(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
@@ -855,7 +910,10 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Adds a new playback configuration to AWS Elemental MediaTailor.
+  Creates a playback configuration.
+
+  For information about MediaTailor configurations, see [Working with configurations in AWS Elemental
+  MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html).
   """
   def put_playback_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/playbackConfiguration"
@@ -868,7 +926,10 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Starts a specific channel.
+  Starts a channel.
+
+  For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
+  in the *MediaTailor User Guide*.
   """
   def start_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/start"
@@ -881,7 +942,10 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Stops a specific channel.
+  Stops a channel.
+
+  For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
+  in the *MediaTailor User Guide*.
   """
   def stop_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/stop"
@@ -894,9 +958,11 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Adds tags to the specified playback configuration resource.
+  The resource to tag.
 
-  You can specify one or more tags to add.
+  Tags are key-value pairs that you can associate with Amazon resources to help
+  with organization, access control, and cost tracking. For more information, see
+  [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -919,9 +985,7 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Removes tags from the specified playback configuration resource.
-
-  You can specify one or more tags to remove.
+  The resource to untag.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -949,7 +1013,10 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Updates an existing channel.
+  Updates a channel.
+
+  For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
+  in the *MediaTailor User Guide*.
   """
   def update_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
@@ -962,7 +1029,7 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Updates a specific live source in a specific source location.
+  Updates a live source's configuration.
   """
   def update_live_source(
         %Client{} = client,
@@ -983,7 +1050,11 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Updates a source location on a specific channel.
+  Updates a source location.
+
+  A source location is a container for sources. For more information about source
+  locations, see [Working with source locations](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html)
+  in the *MediaTailor User Guide*.
   """
   def update_source_location(%Client{} = client, source_location_name, input, options \\ []) do
     url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}"
@@ -996,7 +1067,7 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Updates a specific VOD source in a specific source location.
+  Updates a VOD source's configuration.
   """
   def update_vod_source(
         %Client{} = client,

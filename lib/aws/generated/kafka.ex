@@ -796,4 +796,17 @@ defmodule AWS.Kafka do
       200
     )
   end
+
+  @doc """
+  Updates cluster broker volume size (or) sets cluster storage mode to TIERED.
+  """
+  def update_storage(%Client{} = client, cluster_arn, input, options \\ []) do
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/storage"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
 end

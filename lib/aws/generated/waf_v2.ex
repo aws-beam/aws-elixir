@@ -319,9 +319,9 @@ defmodule AWS.WAFV2 do
   Generates a presigned download URL for the specified release of the mobile SDK.
 
   The mobile SDK is not generally available. Customers who have access to the
-  mobile SDK can use it to establish and manage Security Token Service (STS)
-  security tokens for use in HTTP(S) requests from a mobile device to WAF. For
-  more information, see [WAF client application integration](https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html)
+  mobile SDK can use it to establish and manage WAF tokens for use in HTTP(S)
+  requests from a mobile device to WAF. For more information, see [WAF client application
+  integration](https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html)
   in the *WAF Developer Guide*.
   """
   def generate_mobile_sdk_release_url(%Client{} = client, input, options \\ []) do
@@ -370,9 +370,9 @@ defmodule AWS.WAFV2 do
   notes and tags.
 
   The mobile SDK is not generally available. Customers who have access to the
-  mobile SDK can use it to establish and manage Security Token Service (STS)
-  security tokens for use in HTTP(S) requests from a mobile device to WAF. For
-  more information, see [WAF client application integration](https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html)
+  mobile SDK can use it to establish and manage WAF tokens for use in HTTP(S)
+  requests from a mobile device to WAF. For more information, see [WAF client application
+  integration](https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html)
   in the *WAF Developer Guide*.
   """
   def get_mobile_sdk_release(%Client{} = client, input, options \\ []) do
@@ -536,9 +536,9 @@ defmodule AWS.WAFV2 do
   device platform.
 
   The mobile SDK is not generally available. Customers who have access to the
-  mobile SDK can use it to establish and manage Security Token Service (STS)
-  security tokens for use in HTTP(S) requests from a mobile device to WAF. For
-  more information, see [WAF client application integration](https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html)
+  mobile SDK can use it to establish and manage WAF tokens for use in HTTP(S)
+  requests from a mobile device to WAF. For more information, see [WAF client application
+  integration](https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html)
   in the *WAF Developer Guide*.
   """
   def list_mobile_sdk_releases(%Client{} = client, input, options \\ []) do

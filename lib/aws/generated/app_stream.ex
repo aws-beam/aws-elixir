@@ -173,8 +173,8 @@ defmodule AWS.AppStream do
   @doc """
   Creates a fleet.
 
-  A fleet consists of streaming instances that run a specified image when using
-  Always-On or On-Demand.
+  A fleet consists of streaming instances that your users access for their
+  applications and desktops.
   """
   def create_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()

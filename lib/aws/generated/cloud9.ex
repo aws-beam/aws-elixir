@@ -100,7 +100,7 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
-  Deletes an environment member from an Cloud9 development environment.
+  Deletes an environment member from a development environment.
   """
   def delete_environment_membership(%Client{} = client, input, options \\ []) do
     meta = metadata()

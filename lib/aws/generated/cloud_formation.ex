@@ -1064,7 +1064,8 @@ defmodule AWS.CloudFormation do
 
   To perform testing, CloudFormation assumes the execution role specified when the
   type was registered. For more information, see
-  [RegisterType](AWSCloudFormation/latest/APIReference/API_RegisterType.html).  Once you've initiated testing on an extension using `TestType`, you can use
+  [RegisterType](AWSCloudFormation/latest/APIReference/API_RegisterType.html).  Once you've initiated testing on an extension using `TestType`, you can pass the
+  returned `TypeVersionArn` into
   [DescribeType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html)
   to monitor the current test status and test status description for the
   extension.

@@ -1597,6 +1597,35 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Dismisses contacts from an agent’s CCP and returns the agent to an available
+  state, which allows the agent to receive a new routed contact.
+
+  Contacts can only be dismissed if they are in a `MISSED`, `ERROR`, `ENDED`, or
+  `REJECTED` state in the [Agent Event Stream](https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html).
+  """
+  def dismiss_user_contact(%Client{} = client, instance_id, user_id, input, options \\ []) do
+    url_path =
+      "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/contact"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Retrieves the contact attributes for the specified contact.
   """
   def get_contact_attributes(%Client{} = client, initial_contact_id, instance_id, options \\ []) do
@@ -4403,7 +4432,7 @@ defmodule AWS.Connect do
   @doc """
   Updates the traffic distribution for a given traffic distribution group.
 
-  For more information about updating a traffic distribution group see [Update telephony traffic distribution across Amazon Web Services Regions
+  For more information about updating a traffic distribution group, see [Update telephony traffic distribution across Amazon Web Services Regions
   ](https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html)
   in the *Amazon Connect Administrator Guide*.
   """

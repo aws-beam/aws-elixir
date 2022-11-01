@@ -34,6 +34,32 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
+  Retrieves batches of metric data collected based on your sending activity.
+
+  You can execute this operation no more than 16 times per second, and with at
+  most 160 queries from the batches per second (cumulative).
+  """
+  def batch_get_metric_data(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/metrics/batch"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Create a configuration set.
 
   *Configuration sets* are groups of rules that you can apply to the emails that
@@ -1404,6 +1430,32 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
+  Lists the recommendations present in your Amazon SES account in the current
+  Amazon Web Services Region.
+
+  You can execute this operation no more than once per second.
+  """
+  def list_recommendations(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/vdm/recommendations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Retrieves a list of email addresses that are on the suppression list for your
   account.
   """
@@ -1549,6 +1601,21 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
+  Update your Amazon SES account VDM attributes.
+
+  You can execute this operation no more than once per second.
+  """
+  def put_account_vdm_attributes(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/account/vdm"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
   Associate a configuration set with a dedicated IP pool.
 
   You can use dedicated IP pools to create groups of dedicated IP addresses for
@@ -1645,6 +1712,28 @@ defmodule AWS.SESv2 do
       ) do
     url_path =
       "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/tracking-options"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Specify VDM preferences for email that you send using the configuration set.
+
+  You can execute this operation no more than once per second.
+  """
+  def put_configuration_set_vdm_options(
+        %Client{} = client,
+        configuration_set_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/vdm-options"
 
     headers = []
     query_params = []

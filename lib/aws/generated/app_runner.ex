@@ -165,6 +165,18 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+  Create an App Runner VPC Ingress Connection resource.
+
+  App Runner requires this resource when you want to associate your App Runner
+  service with an Amazon VPC endpoint.
+  """
+  def create_vpc_ingress_connection(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateVpcIngressConnection", input, options)
+  end
+
+  @doc """
   Delete an App Runner automatic scaling configuration resource.
 
   You can delete a specific revision or the latest active revision. You can't
@@ -206,6 +218,9 @@ defmodule AWS.AppRunner do
   This is an asynchronous operation. On a successful call, you can use the
   returned `OperationId` and the `ListOperations` call to track the operation's
   progress.
+
+  Make sure that you don't have any active VPCIngressConnections associated with
+  the service you want to delete.
   """
   def delete_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -222,6 +237,26 @@ defmodule AWS.AppRunner do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteVpcConnector", input, options)
+  end
+
+  @doc """
+  Delete an App Runner VPC Ingress Connection resource that's associated with an
+  App Runner service.
+
+  The VPC Ingress Connection must be in one of the following states to be deleted:
+
+    * `AVAILABLE`
+
+    * `FAILED_CREATION`
+
+    * `FAILED_UPDATE`
+
+    * `FAILED_DELETION`
+  """
+  def delete_vpc_ingress_connection(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteVpcIngressConnection", input, options)
   end
 
   @doc """
@@ -269,6 +304,15 @@ defmodule AWS.AppRunner do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpcConnector", input, options)
+  end
+
+  @doc """
+  Return a full description of an App Runner VPC Ingress Connection resource.
+  """
+  def describe_vpc_ingress_connection(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeVpcIngressConnection", input, options)
   end
 
   @doc """
@@ -373,6 +417,16 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+  Return a list of App Runner VPC Ingress Connections in your Amazon Web Services
+  account.
+  """
+  def list_vpc_ingress_connections(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListVpcIngressConnections", input, options)
+  end
+
+  @doc """
   Pause an active App Runner service.
 
   App Runner reduces compute capacity for the service to zero and loses state (for
@@ -462,5 +516,22 @@ defmodule AWS.AppRunner do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateService", input, options)
+  end
+
+  @doc """
+  Update an existing App Runner VPC Ingress Connection resource.
+
+  The VPC Ingress Connection must be in one of the following states to be updated:
+
+    * AVAILABLE
+
+    * FAILED_CREATION
+
+    * FAILED_UPDATE
+  """
+  def update_vpc_ingress_connection(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateVpcIngressConnection", input, options)
   end
 end

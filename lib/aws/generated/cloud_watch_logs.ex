@@ -99,12 +99,6 @@ defmodule AWS.CloudWatchLogs do
   When you perform a `CreateExportTask` operation, you must use credentials that
   have permission to write to the S3 bucket that you specify as the destination.
 
-  Exporting log data to Amazon S3 buckets that are encrypted by KMS is not
-  supported. Exporting log data to Amazon S3 buckets that have S3 Object Lock
-  enabled with a retention period is not supported.
-
-  Exporting to S3 buckets that are encrypted with AES-256 is supported.
-
   This is an asynchronous call. If all the required information is provided, this
   operation initiates an export task and responds with the ID of the task. After
   the task has started, you can use
@@ -116,8 +110,8 @@ defmodule AWS.CloudWatchLogs do
   S3 bucket. To separate out log data for each export task, you can specify a
   prefix to be used as the Amazon S3 key prefix for all exported objects.
 
-  Time-based sorting on chunks of log data inside an exported file is not
-  guaranteed. You can sort the exported log fild data by using Linux utilities.
+  Exporting to S3 buckets that are encrypted with AES-256 is supported. Exporting
+  to S3 buckets encrypted with SSE-KMS is not supported.
   """
   def create_export_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -506,6 +500,23 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Displays the tags associated with a CloudWatch Logs resource.
+
+  Currently, log groups and destinations support tagging.
+  """
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  The ListTagsLogGroup operation is on the path to deprecation.
+
+  We recommend that you use
+  [ListTagsForResource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html)
+  instead.
+
   Lists the tags for the specified log group.
   """
   def list_tags_log_group(%Client{} = client, input, options \\ []) do
@@ -750,13 +761,18 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  The TagLogGroup operation is on the path to deprecation.
+
+  We recommend that you use
+  [TagResource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html) instead.
+
   Adds or updates the specified tags for the specified log group.
 
   To list the tags for a log group, use
-  [ListTagsLogGroup](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html). To remove tags, use
-  [UntagLogGroup](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagLogGroup.html).
-
-  For more information about tags, see [Tag Log Groups in Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging)
+  [ListTagsForResource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html).
+  To remove tags, use
+  [UntagResource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html).  For more information about tags, see [Tag Log Groups in Amazon CloudWatch
+  Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging)
   in the *Amazon CloudWatch Logs User Guide*.
 
   CloudWatch Logs doesn’t support IAM policies that prevent users from assigning
@@ -768,6 +784,34 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "TagLogGroup", input, options)
+  end
+
+  @doc """
+  Assigns one or more tags (key-value pairs) to the specified CloudWatch Logs
+  resource.
+
+  Currently, the only CloudWatch Logs resources that can be tagged are log groups
+  and destinations.
+
+  Tags can help you organize and categorize your resources. You can also use them
+  to scope user permissions by granting a user permission to access or change only
+  resources with certain tag values.
+
+  Tags don't have any semantic meaning to Amazon Web Services and are interpreted
+  strictly as strings of characters.
+
+  You can use the `TagResource` action with a resource that already has tags. If
+  you specify a new tag key for the alarm, this tag is appended to the list of
+  tags associated with the alarm. If you specify a tag key that is already
+  associated with the alarm, the new tag value that you specify replaces the
+  previous value for that tag.
+
+  You can associate as many as 50 tags with a CloudWatch Logs resource.
+  """
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
   end
 
   @doc """
@@ -784,11 +828,17 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  The UntagLogGroup operation is on the path to deprecation.
+
+  We recommend that you use
+  [UntagResource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html) instead.
+
   Removes the specified tags from the specified log group.
 
   To list the tags for a log group, use
-  [ListTagsLogGroup](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html). To add tags, use
-  [TagLogGroup](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagLogGroup.html).
+  [ListTagsForResource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html).
+  To add tags, use
+  [TagResource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html).
 
   CloudWatch Logs doesn’t support IAM policies that prevent users from assigning
   specified tags to log groups using the `aws:Resource/*key-name* ` or
@@ -798,5 +848,14 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "UntagLogGroup", input, options)
+  end
+
+  @doc """
+  Removes one or more tags from the specified resource.
+  """
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 end

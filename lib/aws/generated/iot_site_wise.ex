@@ -265,9 +265,9 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Creates an access policy that grants the specified identity (Amazon Web Services
-  SSO user, Amazon Web Services SSO group, or IAM user) access to the specified
-  IoT SiteWise Monitor portal or project resource.
+  Creates an access policy that grants the specified identity (IAM Identity Center
+  user, IAM Identity Center group, or IAM user) access to the specified IoT
+  SiteWise Monitor portal or project resource.
   """
   def create_access_policy(%Client{} = client, input, options \\ []) do
     url_path = "/access-policies"
@@ -428,7 +428,7 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Creates a portal, which can contain projects and dashboards.
 
-  IoT SiteWise Monitor uses Amazon Web Services SSO or IAM to authenticate portal
+  IoT SiteWise Monitor uses IAM Identity Center or IAM to authenticate portal
   users and manage user permissions.
 
   Before you can sign in to a new portal, you must add at least one identity to
@@ -756,10 +756,17 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves information about an asset.
   """
-  def describe_asset(%Client{} = client, asset_id, options \\ []) do
+  def describe_asset(%Client{} = client, asset_id, exclude_properties \\ nil, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(exclude_properties) do
+        [{"excludeProperties", exclude_properties} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
@@ -769,10 +776,22 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves information about an asset model.
   """
-  def describe_asset_model(%Client{} = client, asset_model_id, options \\ []) do
+  def describe_asset_model(
+        %Client{} = client,
+        asset_model_id,
+        exclude_properties \\ nil,
+        options \\ []
+      ) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(exclude_properties) do
+        [{"excludeProperties", exclude_properties} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
@@ -1453,9 +1472,9 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves a paginated list of access policies for an identity (an Amazon Web
-  Services SSO user, an Amazon Web Services SSO group, or an IAM user) or an IoT
-  SiteWise Monitor resource (a portal or project).
+  Retrieves a paginated list of access policies for an identity (an IAM Identity
+  Center user, an IAM Identity Center group, or an IAM user) or an IoT SiteWise
+  Monitor resource (a portal or project).
   """
   def list_access_policies(
         %Client{} = client,
@@ -1527,6 +1546,50 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
+  Retrieves a paginated list of properties associated with an asset model.
+
+  If you update properties associated with the model before you finish listing all
+  the properties, you need to start all over again.
+  """
+  def list_asset_model_properties(
+        %Client{} = client,
+        asset_model_id,
+        filter \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/properties"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(filter) do
+        [{"filter", filter} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Retrieves a paginated list of summaries of all asset models.
   """
   def list_asset_models(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
@@ -1544,6 +1607,50 @@ defmodule AWS.IoTSiteWise do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieves a paginated list of properties associated with an asset.
+
+  If you update properties associated with the model before you finish listing all
+  the properties, you need to start all over again.
+  """
+  def list_asset_properties(
+        %Client{} = client,
+        asset_id,
+        filter \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/properties"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(filter) do
+        [{"filter", filter} | query_params]
       else
         query_params
       end

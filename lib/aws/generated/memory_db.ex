@@ -301,7 +301,13 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Used to failover a shard
+  Used to failover a shard.
+
+  This API is designed for testing the behavior of your application in case of
+  MemoryDB failover. It is not designed to be used as a production-level tool for
+  initiating a failover to overcome a problem you may have with the cluster.
+  Moreover, in certain conditions such as large scale operational events, Amazon
+  may block this API.
   """
   def failover_shard(%Client{} = client, input, options \\ []) do
     meta = metadata()

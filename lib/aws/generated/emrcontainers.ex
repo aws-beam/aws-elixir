@@ -75,6 +75,34 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
+  Creates a job template.
+
+  Job template stores values of StartJobRun API request in a template and can be
+  used to start a job run. Job template allows two use cases: avoid repeating
+  recurring StartJobRun API request values, enforcing certain values in
+  StartJobRun API request.
+  """
+  def create_job_template(%Client{} = client, input, options \\ []) do
+    url_path = "/jobtemplates"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates a managed endpoint.
 
   A managed endpoint is a gateway that connects EMR Studio to Amazon EMR on EKS so
@@ -120,6 +148,34 @@ defmodule AWS.EMRcontainers do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes a job template.
+
+  Job template stores values of StartJobRun API request in a template and can be
+  used to start a job run. Job template allows two use cases: avoid repeating
+  recurring StartJobRun API request values, enforcing certain values in
+  StartJobRun API request.
+  """
+  def delete_job_template(%Client{} = client, id, input, options \\ []) do
+    url_path = "/jobtemplates/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       headers,
@@ -205,6 +261,24 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
+  Displays detailed information about a specified job template.
+
+  Job template stores values of StartJobRun API request in a template and can be
+  used to start a job run. Job template allows two use cases: avoid repeating
+  recurring StartJobRun API request values, enforcing certain values in
+  StartJobRun API request.
+  """
+  def describe_job_template(%Client{} = client, id, options \\ []) do
+    url_path = "/jobtemplates/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Displays detailed information about a managed endpoint.
 
   A managed endpoint is a gateway that connects EMR Studio to Amazon EMR on EKS so
@@ -279,6 +353,59 @@ defmodule AWS.EMRcontainers do
     query_params =
       if !is_nil(name) do
         [{"name", name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(created_before) do
+        [{"createdBefore", created_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(created_after) do
+        [{"createdAfter", created_after} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists job templates based on a set of parameters.
+
+  Job template stores values of StartJobRun API request in a template and can be
+  used to start a job run. Job template allows two use cases: avoid repeating
+  recurring StartJobRun API request values, enforcing certain values in
+  StartJobRun API request.
+  """
+  def list_job_templates(
+        %Client{} = client,
+        created_after \\ nil,
+        created_before \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/jobtemplates"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

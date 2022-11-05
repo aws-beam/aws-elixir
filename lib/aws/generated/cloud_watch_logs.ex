@@ -99,6 +99,12 @@ defmodule AWS.CloudWatchLogs do
   When you perform a `CreateExportTask` operation, you must use credentials that
   have permission to write to the S3 bucket that you specify as the destination.
 
+  Exporting log data to Amazon S3 buckets that are encrypted by KMS is supported.
+  Exporting log data to Amazon S3 buckets that have S3 Object Lock enabled with a
+  retention period is also supported.
+
+  Exporting to S3 buckets that are encrypted with AES-256 is supported.
+
   This is an asynchronous call. If all the required information is provided, this
   operation initiates an export task and responds with the ID of the task. After
   the task has started, you can use
@@ -110,8 +116,8 @@ defmodule AWS.CloudWatchLogs do
   S3 bucket. To separate out log data for each export task, you can specify a
   prefix to be used as the Amazon S3 key prefix for all exported objects.
 
-  Exporting to S3 buckets that are encrypted with AES-256 is supported. Exporting
-  to S3 buckets encrypted with SSE-KMS is not supported.
+  Time-based sorting on chunks of log data inside an exported file is not
+  guaranteed. You can sort the exported log fild data by using Linux utilities.
   """
   def create_export_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -412,6 +418,8 @@ defmodule AWS.CloudWatchLogs do
   You can list all the log events or filter the results using a filter pattern, a
   time range, and the name of the log stream.
 
+  You must have the `logs;FilterLogEvents` permission to perform this operation.
+
   By default, this operation returns as many log events as can fit in 1 MB (up to
   10,000 log events) or all the events found within the time range that you
   specify. If the results include a token, then there are more log events
@@ -686,6 +694,18 @@ defmodule AWS.CloudWatchLogs do
 
   A retention policy allows you to configure the number of days for which to
   retain log events in the specified log group.
+
+  CloudWatch Logs doesn’t immediately delete log events when they reach their
+  retention setting. It typically takes up to 72 hours after that before log
+  events are deleted, but in rare situations might take longer.
+
+  This means that if you change a log group to have a longer retention setting
+  when it contains log events that are past the expiration date, but haven’t been
+  actually deleted, those log events will take up to 72 hours to be deleted after
+  the new retention date is reached. To make sure that log data is deleted
+  permanently, keep a log group at its lower retention setting until 72 hours has
+  passed after the end of the previous retention period, or you have confirmed
+  that the older log events are deleted.
   """
   def put_retention_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -741,6 +761,9 @@ defmodule AWS.CloudWatchLogs do
   Queries time out after 15 minutes of execution. If your queries are timing out,
   reduce the time range being searched or partition your query into a number of
   queries.
+
+  You are limited to 20 concurrent CloudWatch Logs insights queries, including
+  queries that have been added to dashboards.
   """
   def start_query(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -747,10 +747,10 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Used to failover the primary region to a selected secondary region.
+  Used to failover the primary region to a secondary region.
 
-  The selected secondary region will become primary, and all other clusters will
-  become secondary.
+  The secondary region will become primary, and all other clusters will become
+  secondary.
   """
   def failover_global_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -22,6 +22,85 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
+  Batch create custom vocabulary item for the specified locale in the specified
+  bot.
+  """
+  def batch_create_custom_vocabulary_item(
+        %Client{} = client,
+        bot_id,
+        bot_version,
+        locale_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/customvocabulary/DEFAULT/batchcreate"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Batch delete custom vocabulary item for the specified locale in the specified
+  bot.
+  """
+  def batch_delete_custom_vocabulary_item(
+        %Client{} = client,
+        bot_id,
+        bot_version,
+        locale_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/customvocabulary/DEFAULT/batchdelete"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Batch update custom vocabulary item for the specified locale in the specified
+  bot.
+  """
+  def batch_update_custom_vocabulary_item(
+        %Client{} = client,
+        bot_id,
+        bot_version,
+        locale_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/customvocabulary/DEFAULT/batchupdate"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Builds a bot, its intents, and its slot types into a specific locale.
 
   A bot can be built into multiple locales. At runtime the locale is used to
@@ -1184,6 +1263,38 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
+  List custom vocabulary items for the specified locale in the specified bot.
+  """
+  def list_custom_vocabulary_items(
+        %Client{} = client,
+        bot_id,
+        bot_version,
+        locale_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/customvocabulary/DEFAULT/list"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists the exports for a bot, bot locale, or custom vocabulary.
 
   Exports are kept in the list for 7 days.
@@ -1261,6 +1372,8 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Gets a list of recommended intents provided by the bot recommendation that you
   can use in your bot.
+
+  Intents in the response are ordered by relevance.
   """
   def list_recommended_intents(
         %Client{} = client,

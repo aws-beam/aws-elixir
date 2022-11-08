@@ -133,6 +133,16 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+  Removes CloudTrail delegated administrator permissions from a member account in
+  an organization.
+  """
+  def deregister_organization_delegated_admin(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterOrganizationDelegatedAdmin", input, options)
+  end
+
+  @doc """
   Returns metadata about a query, including query run time in milliseconds, number
   of events scanned and matched, and query status.
 
@@ -160,7 +170,7 @@ defmodule AWS.CloudTrail do
   Amazon Web Services services create service-linked channels to get information
   about CloudTrail events on your behalf. For more information about
   service-linked channels, see [Viewing service-linked channels for CloudTrail by using the
-  CLI.](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html).
+  CLI](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html).
   """
   def get_channel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -477,6 +487,16 @@ defmodule AWS.CloudTrail do
     meta = metadata()
 
     Request.request_post(client, meta, "PutInsightSelectors", input, options)
+  end
+
+  @doc """
+  Registers an organization’s member account as the CloudTrail delegated
+  administrator.
+  """
+  def register_organization_delegated_admin(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterOrganizationDelegatedAdmin", input, options)
   end
 
   @doc """

@@ -4,7 +4,7 @@
 defmodule AWS.Billingconductor do
   @moduledoc """
   Amazon Web Services Billing Conductor is a fully managed service that you can
-  use to customize a [pro forma](https://docs.aws.amazon.com/enterprisebilling/6b7c01c5-b592-467e-9769-90052eaf359c/userguide/understanding-eb.html#eb-other-definitions)
+  use to customize a [pro forma](https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions)
   version of your billing data each month, to accurately show or chargeback your
   end customers.
 
@@ -19,8 +19,8 @@ defmodule AWS.Billingconductor do
   report per billing group.
 
   This documentation shows how you can configure Amazon Web Services Billing
-  Conductor using its API. For more information about using the [Amazon Web Services Billing Conductor](https://console.aws.amazon.com/enterprisebilling/)
-  user interface, see the [ Amazon Web Services Enterprise Billing Console User Guide](https://docs.aws.amazon.com/enterprisebilling/6b7c01c5-b592-467e-9769-90052eaf359c/userguide/what-is-enterprisebilling.html).
+  Conductor using its API. For more information about using the [Amazon Web Services Billing Conductor](https://console.aws.amazon.com/billingconductor/)
+  user interface, see the [ Amazon Web Services Billing Conductor User Guide](https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.html).
   """
 
   alias AWS.Client
@@ -308,7 +308,8 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-  Deletes the pricing rule identified by the input Amazon Resource Name (ARN).
+  Deletes the pricing rule that's identified by the input Amazon Resource Name
+  (ARN).
   """
   def delete_pricing_rule(%Client{} = client, input, options \\ []) do
     url_path = "/delete-pricing-rule"
@@ -367,16 +368,12 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-  * **Amazon Web Services Billing Conductor is in beta release and is subject to
-  change.
-
-  Your use of Amazon Web Services Billing Conductor is subject to the Beta Service
-  Participation terms of the [Amazon Web Services Service Terms](https://aws.amazon.com/service-terms/) (Section 1.10).** *
-
   This is a paginated call to list linked accounts that are linked to the payer
-  account for the specified time period. If no information is provided, the
-  current billing period is used. The response will optionally include the billing
-  group associated with the linked account.
+  account for the specified time period.
+
+  If no information is provided, the current billing period is used. The response
+  will optionally include the billing group that's associated with the linked
+  account.
   """
   def list_account_associations(%Client{} = client, input, options \\ []) do
     url_path = "/list-account-associations"
@@ -450,6 +447,29 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
+  A paginated call to get a list of all custom line item versions.
+  """
+  def list_custom_line_item_versions(%Client{} = client, input, options \\ []) do
+    url_path = "/list-custom-line-item-versions"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   A paginated call to get a list of all custom line items (FFLIs) for the given
   billing period.
 
@@ -501,7 +521,7 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-  A list of the pricing plans associated with a pricing rule.
+  A list of the pricing plans that are associated with a pricing rule.
   """
   def list_pricing_plans_associated_with_pricing_rule(%Client{} = client, input, options \\ []) do
     url_path = "/list-pricing-plans-associated-with-pricing-rule"
@@ -548,7 +568,7 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-  Lists the pricing rules associated with a pricing plan.
+  Lists the pricing rules that are associated with a pricing plan.
   """
   def list_pricing_rules_associated_to_pricing_plan(%Client{} = client, input, options \\ []) do
     url_path = "/list-pricing-rules-associated-to-pricing-plan"
@@ -571,7 +591,7 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-  List the resources associated to a custom line item.
+  List the resources that are associated to a custom line item.
   """
   def list_resources_associated_to_custom_line_item(%Client{} = client, input, options \\ []) do
     url_path = "/list-resources-associated-to-custom-line-item"

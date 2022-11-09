@@ -14,8 +14,8 @@ defmodule AWS.Lightsail do
   resource snapshots (backups) - for a low, predictable monthly price.
 
   You can manage your Lightsail resources using the Lightsail console, Lightsail
-  API, AWS Command Line Interface (AWS CLI), or SDKs. For more information about
-  Lightsail concepts and tasks, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli).
+  API, Command Line Interface (CLI), or SDKs. For more information about Lightsail
+  concepts and tasks, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli).
 
   This API Reference provides detailed information about the actions, data types,
   parameters, and errors of the Lightsail service. For more information about the
@@ -1190,7 +1190,7 @@ defmodule AWS.Lightsail do
 
   Container logs are retained for a certain amount of time. For more information,
   see [Amazon Lightsail endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/lightsail.html) in the
-  *AWS General Reference*.
+  *Amazon Web Services General Reference*.
   """
   def get_container_log(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1209,7 +1209,7 @@ defmodule AWS.Lightsail do
 
   A set number of deployments are kept before the oldest one is replaced with the
   newest one. For more information, see [Amazon Lightsail endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/lightsail.html) in the
-  *AWS General Reference*.
+  *Amazon Web Services General Reference*.
   """
   def get_container_service_deployments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2078,8 +2078,8 @@ defmodule AWS.Lightsail do
 
   A bucket bundle specifies the monthly cost, storage space, and data transfer
   quota for a bucket. You can update a bucket's bundle only one time within a
-  monthly AWS billing cycle. To determine if you can update a bucket's bundle, use
-  the
+  monthly Amazon Web Services billing cycle. To determine if you can update a
+  bucket's bundle, use the
   [GetBuckets](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html)
   action. The `ableToUpdateBundle` parameter in the response will indicate whether
   you can currently update a bucket's bundle.
@@ -2131,10 +2131,11 @@ defmodule AWS.Lightsail do
   Update your distribution's bundle if your distribution is going over its monthly
   network transfer quota and is incurring an overage fee.
 
-  You can update your distribution's bundle only one time within your monthly AWS
-  billing cycle. To determine if you can update your distribution's bundle, use
-  the `GetDistributions` action. The `ableToUpdateBundle` parameter in the result
-  will indicate whether you can currently update your distribution's bundle.
+  You can update your distribution's bundle only one time within your monthly
+  Amazon Web Services billing cycle. To determine if you can update your
+  distribution's bundle, use the `GetDistributions` action. The
+  `ableToUpdateBundle` parameter in the result will indicate whether you can
+  currently update your distribution's bundle.
   """
   def update_distribution_bundle(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -3,19 +3,16 @@
 
 defmodule AWS.OpenSearch do
   @moduledoc """
-  Amazon OpenSearch Configuration Service
+  Use the Amazon OpenSearch Service configuration API to create, configure, and
+  manage OpenSearch Service domains.
 
-  Use the Amazon OpenSearch configuration API to create, configure, and manage
-  Amazon OpenSearch Service domains.
-
-  For sample code that uses the configuration API, see the [ Amazon OpenSearch Service Developer
-  Guide](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/opensearch-configuration-samples.html).
-  The guide also contains [ sample code for sending signed HTTP requests to the OpenSearch
-  APIs](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/request-signing.html).
-
-  The endpoint for configuration service requests is region-specific:
-  es.*region*.amazonaws.com. For example, es.us-east-1.amazonaws.com. For a
-  current list of supported regions and endpoints, see [Regions and Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#service-regions).
+  For sample code that uses the configuration API, see the [ *Amazon OpenSearch Service Developer Guide*
+  ](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/opensearch-configuration-samples.html).
+  The guide also contains [sample code](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/request-signing.html)
+  for sending signed HTTP requests to the OpenSearch APIs. The endpoint for
+  configuration service requests is Region specific: es.*region*.amazonaws.com.
+  For example, es.us-east-1.amazonaws.com. For a current list of supported Regions
+  and endpoints, see [Amazon Web Services service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#service-regions).
   """
 
   alias AWS.Client
@@ -38,8 +35,10 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Allows the remote domain owner to accept an inbound cross-cluster connection
-  request.
+  Allows the destination Amazon OpenSearch Service domain owner to accept an
+  inbound cross-cluster search connection request.
+
+  For more information, see [Cross-cluster search for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
   """
   def accept_inbound_connection(%Client{} = client, connection_id, input, options \\ []) do
     url_path =
@@ -54,11 +53,10 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Attaches tags to an existing domain.
+  Attaches tags to an existing Amazon OpenSearch Service domain.
 
-  Tags are a set of case-sensitive key value pairs. An domain can have up to 10
-  tags. See [ Tagging Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging)
-  for more information.
+  Tags are a set of case-sensitive key-value pairs. An domain can have up to 10
+  tags. For more information, see [ Tagging Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging).
   """
   def add_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/tags"
@@ -82,6 +80,8 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Associates a package with an Amazon OpenSearch Service domain.
+
+  For more information, see [Custom packages for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
   def associate_package(%Client{} = client, domain_name, package_id, input, options \\ []) do
     url_path =
@@ -106,11 +106,38 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Provides access to an Amazon OpenSearch Service domain through the use of an
+  interface VPC endpoint.
+  """
+  def authorize_vpc_endpoint_access(%Client{} = client, domain_name, input, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/authorizeVpcEndpointAccess"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Cancels a scheduled service software update for an Amazon OpenSearch Service
   domain.
 
   You can only perform this operation before the `AutomatedUpdateDate` and when
-  the `UpdateStatus` is in the `PENDING_UPDATE` state.
+  the domain's `UpdateStatus` is `PENDING_UPDATE`. For more information, see
+  [Service software updates in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html).
   """
   def cancel_service_software_update(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/serviceSoftwareUpdate/cancel"
@@ -133,11 +160,9 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Creates a new Amazon OpenSearch Service domain.
+  Creates an Amazon OpenSearch Service domain.
 
-  For more information, see [Creating and managing Amazon OpenSearch Service domains
-  ](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html)
-  in the *Amazon OpenSearch Service Developer Guide*.
+  For more information, see [Creating and managing Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html).
   """
   def create_domain(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain"
@@ -160,8 +185,10 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Creates a new cross-cluster connection from a local OpenSearch domain to a
-  remote OpenSearch domain.
+  Creates a new cross-cluster search connection from a source Amazon OpenSearch
+  Service domain to a destination domain.
+
+  For more information, see [Cross-cluster search for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
   """
   def create_outbound_connection(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/cc/outboundConnection"
@@ -184,7 +211,9 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Create a package for use with Amazon OpenSearch Service domains.
+  Creates a package for use with Amazon OpenSearch Service domains.
+
+  For more information, see [Custom packages for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
   def create_package(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/packages"
@@ -207,9 +236,32 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Permanently deletes the specified domain and all of its data.
+  Creates an Amazon OpenSearch Service-managed VPC endpoint.
+  """
+  def create_vpc_endpoint(%Client{} = client, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/vpcEndpoints"
+    headers = []
+    query_params = []
 
-  Once a domain is deleted, it cannot be recovered.
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes an Amazon OpenSearch Service domain and all of its data.
+
+  You can't recover a domain after you delete it.
   """
   def delete_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}"
@@ -232,8 +284,10 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Allows the remote domain owner to delete an existing inbound cross-cluster
-  connection.
+  Allows the destination Amazon OpenSearch Service domain owner to delete an
+  existing inbound cross-cluster search connection.
+
+  For more information, see [Cross-cluster search for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
   """
   def delete_inbound_connection(%Client{} = client, connection_id, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/cc/inboundConnection/#{AWS.Util.encode_uri(connection_id)}"
@@ -256,8 +310,10 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Allows the local domain owner to delete an existing outbound cross-cluster
-  connection.
+  Allows the source Amazon OpenSearch Service domain owner to delete an existing
+  outbound cross-cluster search connection.
+
+  For more information, see [Cross-cluster search for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
   """
   def delete_outbound_connection(%Client{} = client, connection_id, input, options \\ []) do
     url_path =
@@ -282,7 +338,9 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Deletes the package.
+  Deletes an Amazon OpenSearch Service package.
+
+  For more information, see [Custom packages for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
   def delete_package(%Client{} = client, package_id, input, options \\ []) do
     url_path = "/2021-01-01/packages/#{AWS.Util.encode_uri(package_id)}"
@@ -305,8 +363,31 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Returns domain configuration information about the specified domain, including
-  the domain ID, domain endpoint, and domain ARN.
+  Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.
+  """
+  def delete_vpc_endpoint(%Client{} = client, vpc_endpoint_id, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/vpcEndpoints/#{AWS.Util.encode_uri(vpc_endpoint_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Describes the domain configuration for the specified Amazon OpenSearch Service
+  domain, including the domain ID, domain service endpoint, and domain ARN.
   """
   def describe_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}"
@@ -319,8 +400,10 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Provides scheduled Auto-Tune action details for the domain, such as Auto-Tune
-  action type, description, severity, and scheduled date.
+  Returns the list of optimizations that Auto-Tune has made to an Amazon
+  OpenSearch Service domain.
+
+  For more information, see [Auto-Tune for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html).
   """
   def describe_domain_auto_tunes(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/autoTunes"
@@ -333,8 +416,10 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Returns information about the current blue/green deployment happening on a
-  domain, including a change ID, status, and progress stages.
+  Returns information about the current blue/green deployment happening on an
+  Amazon OpenSearch Service domain.
+
+  For more information, see [Making configuration changes in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html).
   """
   def describe_domain_change_progress(
         %Client{} = client,
@@ -359,8 +444,7 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Provides cluster configuration information about the specified domain, such as
-  the state, creation date, update version, and update date for cluster options.
+  Returns the configuration of an Amazon OpenSearch Service domain.
   """
   def describe_domain_config(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/config"
@@ -373,8 +457,8 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Returns domain configuration information about the specified domains, including
-  the domain ID, domain endpoint, and domain ARN.
+  Returns domain configuration information about the specified Amazon OpenSearch
+  Service domains.
   """
   def describe_domains(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain-info"
@@ -397,7 +481,10 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Lists all the inbound cross-cluster connections for a remote domain.
+  Lists all the inbound cross-cluster search connections for a destination
+  (remote) Amazon OpenSearch Service domain.
+
+  For more information, see [Cross-cluster search for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
   """
   def describe_inbound_connections(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/cc/inboundConnection/search"
@@ -420,11 +507,8 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Describe the limits for a given instance type and OpenSearch or Elasticsearch
-  version.
-
-  When modifying an existing domain, specify the ` `DomainName` ` to see which
-  limits you can modify.
+  Describes the instance count, storage, and master node limits for a given
+  OpenSearch or Elasticsearch version and instance type.
   """
   def describe_instance_type_limits(
         %Client{} = client,
@@ -452,7 +536,10 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Lists all the outbound cross-cluster connections for a local domain.
+  Lists all the outbound cross-cluster connections for a local (source) Amazon
+  OpenSearch Service domain.
+
+  For more information, see [Cross-cluster search for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
   """
   def describe_outbound_connections(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/cc/outboundConnection/search"
@@ -475,9 +562,9 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Describes all packages available to Amazon OpenSearch Service domains.
+  Describes all packages available to OpenSearch Service.
 
-  Includes options for filtering, limiting the number of results, and pagination.
+  For more information, see [Custom packages for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
   def describe_packages(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/packages/describe"
@@ -500,7 +587,10 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Lists available reserved OpenSearch instance offerings.
+  Describes the available Amazon OpenSearch Service Reserved Instance offerings
+  for a given Region.
+
+  For more information, see [Reserved Instances in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html).
   """
   def describe_reserved_instance_offerings(
         %Client{} = client,
@@ -540,7 +630,10 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Returns information about reserved OpenSearch instances for this account.
+  Describes the Amazon OpenSearch Service instances that you have reserved in a
+  given Region.
+
+  For more information, see [Reserved Instances in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html).
   """
   def describe_reserved_instances(
         %Client{} = client,
@@ -580,7 +673,34 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Dissociates a package from the Amazon OpenSearch Service domain.
+  Describes one or more Amazon OpenSearch Service-managed VPC endpoints.
+  """
+  def describe_vpc_endpoints(%Client{} = client, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/vpcEndpoints/describe"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Removes a package from the specified Amazon OpenSearch Service domain.
+
+  The package can't be in use with any OpenSearch index for the dissociation to
+  succeed. The package is still available in OpenSearch Service for association
+  later. For more information, see [Custom packages for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
   def dissociate_package(%Client{} = client, domain_name, package_id, input, options \\ []) do
     url_path =
@@ -605,10 +725,8 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Returns a list of upgrade-compatible versions of OpenSearch/Elasticsearch.
-
-  You can optionally pass a ` `DomainName` ` to get all upgrade-compatible
-  versions of OpenSearch/Elasticsearch for that specific domain.
+  Returns a map of OpenSearch or Elasticsearch versions and the versions you can
+  upgrade them to.
   """
   def get_compatible_versions(%Client{} = client, domain_name \\ nil, options \\ []) do
     url_path = "/2021-01-01/opensearch/compatibleVersions"
@@ -628,8 +746,10 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Returns a list of package versions, along with their creation time and commit
-  message.
+  Returns a list of Amazon OpenSearch Service package versions, along with their
+  creation time and commit message.
+
+  For more information, see [Custom packages for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
   def get_package_version_history(
         %Client{} = client,
@@ -662,7 +782,8 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Retrieves the complete history of the last 10 upgrades performed on the domain.
+  Retrieves the complete history of the last 10 upgrades performed on an Amazon
+  OpenSearch Service domain.
   """
   def get_upgrade_history(
         %Client{} = client,
@@ -695,8 +816,8 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Retrieves the latest status of the last upgrade or upgrade eligibility check
-  performed on the domain.
+  Returns the most recent status of the last upgrade or upgrade eligibility check
+  performed on an Amazon OpenSearch Service domain.
   """
   def get_upgrade_status(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/upgradeDomain/#{AWS.Util.encode_uri(domain_name)}/status"
@@ -709,7 +830,8 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Returns the names of all domains owned by the current user's account.
+  Returns the names of all Amazon OpenSearch Service domains owned by the current
+  user in the active Region.
   """
   def list_domain_names(%Client{} = client, engine_type \\ nil, options \\ []) do
     url_path = "/2021-01-01/domain"
@@ -729,7 +851,9 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Lists all Amazon OpenSearch Service domains associated with the package.
+  Lists all Amazon OpenSearch Service domains associated with a given package.
+
+  For more information, see [Custom packages for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
   def list_domains_for_package(
         %Client{} = client,
@@ -761,6 +885,10 @@ defmodule AWS.OpenSearch do
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
+  @doc """
+  Lists all instance types and available features for a given OpenSearch or
+  Elasticsearch version.
+  """
   def list_instance_type_details(
         %Client{} = client,
         engine_version,
@@ -800,7 +928,9 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Lists all packages associated with the Amazon OpenSearch Service domain.
+  Lists all packages associated with an Amazon OpenSearch Service domain.
+
+  For more information, see [Custom packages for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
   def list_packages_for_domain(
         %Client{} = client,
@@ -833,7 +963,9 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Returns all tags for the given domain.
+  Returns all resource tags for an Amazon OpenSearch Service domain.
+
+  For more information, see [Tagging Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html).
   """
   def list_tags(%Client{} = client, arn, options \\ []) do
     url_path = "/2021-01-01/tags/"
@@ -853,7 +985,8 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  List all supported versions of OpenSearch and Elasticsearch.
+  Lists all versions of OpenSearch and Elasticsearch that Amazon OpenSearch
+  Service supports.
   """
   def list_versions(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/2021-01-01/opensearch/versions"
@@ -880,7 +1013,78 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Allows you to purchase reserved OpenSearch instances.
+  Retrieves information about each Amazon Web Services principal that is allowed
+  to access a given Amazon OpenSearch Service domain through the use of an
+  interface VPC endpoint.
+  """
+  def list_vpc_endpoint_access(%Client{} = client, domain_name, next_token \\ nil, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/listVpcEndpointAccess"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the current
+  Amazon Web Services account and Region.
+  """
+  def list_vpc_endpoints(%Client{} = client, next_token \\ nil, options \\ []) do
+    url_path = "/2021-01-01/opensearch/vpcEndpoints"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated with a
+  particular domain.
+  """
+  def list_vpc_endpoints_for_domain(
+        %Client{} = client,
+        domain_name,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/vpcEndpoints"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Allows you to purchase Amazon OpenSearch Service Reserved Instances.
   """
   def purchase_reserved_instance_offering(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/purchaseReservedInstanceOffering"
@@ -903,8 +1107,8 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Allows the remote domain owner to reject an inbound cross-cluster connection
-  request.
+  Allows the remote Amazon OpenSearch Service domain owner to reject an inbound
+  cross-cluster connection request.
   """
   def reject_inbound_connection(%Client{} = client, connection_id, input, options \\ []) do
     url_path =
@@ -919,7 +1123,9 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Removes the specified set of tags from the given domain.
+  Removes the specified set of tags from an Amazon OpenSearch Service domain.
+
+  For more information, see [ Tagging Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging).
   """
   def remove_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/tags-removal"
@@ -942,7 +1148,35 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Revokes access to an Amazon OpenSearch Service domain that was provided through
+  an interface VPC endpoint.
+  """
+  def revoke_vpc_endpoint_access(%Client{} = client, domain_name, input, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/revokeVpcEndpointAccess"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Schedules a service software update for an Amazon OpenSearch Service domain.
+
+  For more information, see [Service software updates in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html).
   """
   def start_service_software_update(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/serviceSoftwareUpdate/start"
@@ -965,8 +1199,8 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Modifies the cluster configuration of the specified domain, such as setting the
-  instance type and the number of instances.
+  Modifies the cluster configuration of the specified Amazon OpenSearch Service
+  domain.
   """
   def update_domain_config(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/config"
@@ -990,6 +1224,8 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Updates a package for use with Amazon OpenSearch Service domains.
+
+  For more information, see [Custom packages for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
   def update_package(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/packages/update"
@@ -1012,8 +1248,32 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Allows you to either upgrade your domain or perform an upgrade eligibility check
-  to a compatible version of OpenSearch or Elasticsearch.
+  Modifies an Amazon OpenSearch Service-managed interface VPC endpoint.
+  """
+  def update_vpc_endpoint(%Client{} = client, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/vpcEndpoints/update"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Allows you to either upgrade your Amazon OpenSearch Service domain or perform an
+  upgrade eligibility check to a compatible version of OpenSearch or
+  Elasticsearch.
   """
   def upgrade_domain(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/upgradeDomain"

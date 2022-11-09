@@ -62,6 +62,24 @@ defmodule AWS.FMS do
   end
 
   @doc """
+  Associate resources to a Firewall Manager resource set.
+  """
+  def batch_associate_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchAssociateResource", input, options)
+  end
+
+  @doc """
+  Disassociates resources from a Firewall Manager resource set.
+  """
+  def batch_disassociate_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchDisassociateResource", input, options)
+  end
+
+  @doc """
   Permanently deletes an Firewall Manager applications list.
   """
   def delete_apps_list(%Client{} = client, input, options \\ []) do
@@ -97,6 +115,15 @@ defmodule AWS.FMS do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteProtocolsList", input, options)
+  end
+
+  @doc """
+  Deletes the specified `ResourceSet`.
+  """
+  def delete_resource_set(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteResourceSet", input, options)
   end
 
   @doc """
@@ -214,6 +241,15 @@ defmodule AWS.FMS do
   end
 
   @doc """
+  Gets information about a specific resource set.
+  """
+  def get_resource_set(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResourceSet", input, options)
+  end
+
+  @doc """
   The onboarding status of a Firewall Manager admin account to third-party
   firewall vendor tenant.
   """
@@ -255,6 +291,16 @@ defmodule AWS.FMS do
   end
 
   @doc """
+  Returns an array of resources in the organization's accounts that are available
+  to be associated with a resource set.
+  """
+  def list_discovered_resources(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDiscoveredResources", input, options)
+  end
+
+  @doc """
   Returns a `MemberAccounts` object that lists the member accounts in the
   administrator's Amazon Web Services organization.
 
@@ -283,6 +329,24 @@ defmodule AWS.FMS do
     meta = metadata()
 
     Request.request_post(client, meta, "ListProtocolsLists", input, options)
+  end
+
+  @doc """
+  Returns an array of resources that are currently associated to a resource set.
+  """
+  def list_resource_set_resources(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResourceSetResources", input, options)
+  end
+
+  @doc """
+  Returns an array of `ResourceSetSummary` objects.
+  """
+  def list_resource_sets(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResourceSets", input, options)
   end
 
   @doc """
@@ -371,6 +435,18 @@ defmodule AWS.FMS do
     meta = metadata()
 
     Request.request_post(client, meta, "PutProtocolsList", input, options)
+  end
+
+  @doc """
+  Creates the resource set.
+
+  An Firewall Manager resource set defines the resources to import into an
+  Firewall Manager policy from another Amazon Web Services service.
+  """
+  def put_resource_set(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutResourceSet", input, options)
   end
 
   @doc """

@@ -109,6 +109,29 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
+  Creates an Ephemeris with the specified `EphemerisData`.
+  """
+  def create_ephemeris(%Client{} = client, input, options \\ []) do
+    url_path = "/ephemeris"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a mission profile.
 
   `dataflowEdges` is a list of lists of strings. Each lower level list of strings
@@ -186,6 +209,29 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
+  Deletes an ephemeris
+  """
+  def delete_ephemeris(%Client{} = client, ephemeris_id, input, options \\ []) do
+    url_path = "/ephemeris/#{AWS.Util.encode_uri(ephemeris_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a mission profile.
   """
   def delete_mission_profile(%Client{} = client, mission_profile_id, input, options \\ []) do
@@ -213,6 +259,19 @@ defmodule AWS.GroundStation do
   """
   def describe_contact(%Client{} = client, contact_id, options \\ []) do
     url_path = "/contact/#{AWS.Util.encode_uri(contact_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes an existing ephemeris.
+  """
+  def describe_ephemeris(%Client{} = client, ephemeris_id, options \\ []) do
+    url_path = "/ephemeris/#{AWS.Util.encode_uri(ephemeris_id)}"
     headers = []
     query_params = []
 
@@ -381,6 +440,35 @@ defmodule AWS.GroundStation do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List existing ephemerides.
+  """
+  def list_ephemerides(%Client{} = client, input, options \\ []) do
+    url_path = "/ephemerides"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -577,6 +665,19 @@ defmodule AWS.GroundStation do
   """
   def update_config(%Client{} = client, config_id, config_type, input, options \\ []) do
     url_path = "/config/#{AWS.Util.encode_uri(config_type)}/#{AWS.Util.encode_uri(config_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates an existing ephemeris
+  """
+  def update_ephemeris(%Client{} = client, ephemeris_id, input, options \\ []) do
+    url_path = "/ephemeris/#{AWS.Util.encode_uri(ephemeris_id)}"
     headers = []
     query_params = []
 

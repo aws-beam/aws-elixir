@@ -3,7 +3,16 @@
 
 defmodule AWS.TranscribeStreaming do
   @moduledoc """
-  Operations and objects for transcribing streaming speech to text.
+  Amazon Transcribe streaming offers two types of real-time transcription:
+  **Standard** and **Medical**.
+
+    * **Standard transcriptions** are the most common option. Refer to
+  for details.
+
+    * **Medical transcriptions** are tailored to medical professionals
+  and incorporate medical terms. A common use case for this service is
+  transcribing doctor-patient dialogue in real time, so doctors can focus on their
+  patient instead of taking notes. Refer to for details.
   """
 
   alias AWS.Client
@@ -26,9 +35,12 @@ defmodule AWS.TranscribeStreaming do
   end
 
   @doc """
-  Starts a bidirectional HTTP/2 stream where audio is streamed to Amazon
-  Transcribe Medical and the transcription results are streamed to your
+  Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
+  Amazon Transcribe Medical and the transcription results are streamed to your
   application.
+
+  For more information on streaming with Amazon Transcribe Medical, see
+  [Transcribing streaming audio](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html).
   """
   def start_medical_stream_transcription(%Client{} = client, input, options \\ []) do
     url_path = "/medical-stream-transcription"
@@ -87,21 +99,22 @@ defmodule AWS.TranscribeStreaming do
   end
 
   @doc """
-  Starts a bidirectional HTTP/2 stream where audio is streamed to Amazon
-  Transcribe and the transcription results are streamed to your application.
+  Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
+  Amazon Transcribe and the transcription results are streamed to your
+  application.
 
-  The following are encoded as HTTP/2 headers:
+  The following are encoded as headers:
 
-    * x-amzn-transcribe-language-code
+    * language-code
 
-    * x-amzn-transcribe-media-encoding
+    * media-encoding
 
-    * x-amzn-transcribe-sample-rate
+    * sample-rate
 
-    * x-amzn-transcribe-session-id
+    * session-id
 
-  See the [ SDK for Go API Reference](https://docs.aws.amazon.com/sdk-for-go/api/service/transcribestreamingservice/#TranscribeStreamingService.StartStreamTranscription)
-  for more detail.
+  For more information on streaming with Amazon Transcribe, see [Transcribing streaming
+  audio](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html).
   """
   def start_stream_transcription(%Client{} = client, input, options \\ []) do
     url_path = "/stream-transcription"

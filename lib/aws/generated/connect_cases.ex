@@ -225,11 +225,12 @@ defmodule AWS.ConnectCases do
   @doc """
   Creates a template in the Cases domain.
 
-  This template is used to define the case object model (that is, define what data
-  can be captured on cases) in a Cases domain. A template must have a unique name
-  within a domain, and it must reference existing field IDs and layout IDs.
+  This template is used to define the case object model (that is, to define what
+  data can be captured on cases) in a Cases domain. A template must have a unique
+  name within a domain, and it must reference existing field IDs and layout IDs.
   Additionally, multiple fields with same IDs are not allowed within the same
-  Template.
+  Template. A template can be either Active or Inactive, as indicated by its
+  status. Inactive templates cannot be used to create cases.
   """
   def create_template(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/templates"
@@ -541,7 +542,8 @@ defmodule AWS.ConnectCases do
     {query_params, input} =
       [
         {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"status", "status"}
       ]
       |> Request.build_params(input)
 
@@ -739,9 +741,9 @@ defmodule AWS.ConnectCases do
   Updates the attributes of an existing template.
 
   The template attributes that can be modified include `name`, `description`,
-  `layouts`, and `requiredFields`. At least one of these attributes must not be
-  null. If a null value is provided for a given attribute, that attribute is
-  ignored and its current value is preserved.
+  `layoutConfiguration`, `requiredFields`, and `status`. At least one of these
+  attributes must not be null. If a null value is provided for a given attribute,
+  that attribute is ignored and its current value is preserved.
   """
   def update_template(%Client{} = client, domain_id, template_id, input, options \\ []) do
     url_path =

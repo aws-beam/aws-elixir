@@ -110,6 +110,32 @@ defmodule AWS.Elasticsearch do
   end
 
   @doc """
+  Provides access to an Amazon OpenSearch Service domain through the use of an
+  interface VPC endpoint.
+  """
+  def authorize_vpc_endpoint_access(%Client{} = client, domain_name, input, options \\ []) do
+    url_path =
+      "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/authorizeVpcEndpointAccess"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Cancels a scheduled service software update for an Amazon ES domain.
 
   You can only perform this operation before the `AutomatedUpdateDate` and when
@@ -190,6 +216,29 @@ defmodule AWS.Elasticsearch do
   """
   def create_package(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/packages"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates an Amazon OpenSearch Service-managed VPC endpoint.
+  """
+  def create_vpc_endpoint(%Client{} = client, input, options \\ []) do
+    url_path = "/2015-01-01/es/vpcEndpoints"
     headers = []
     query_params = []
 
@@ -329,6 +378,29 @@ defmodule AWS.Elasticsearch do
   """
   def delete_package(%Client{} = client, package_id, input, options \\ []) do
     url_path = "/2015-01-01/packages/#{AWS.Util.encode_uri(package_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.
+  """
+  def delete_vpc_endpoint(%Client{} = client, vpc_endpoint_id, input, options \\ []) do
+    url_path = "/2015-01-01/es/vpcEndpoints/#{AWS.Util.encode_uri(vpc_endpoint_id)}"
     headers = []
     query_params = []
 
@@ -620,6 +692,29 @@ defmodule AWS.Elasticsearch do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Describes one or more Amazon OpenSearch Service-managed VPC endpoints.
+  """
+  def describe_vpc_endpoints(%Client{} = client, input, options \\ []) do
+    url_path = "/2015-01-01/es/vpcEndpoints/describe"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -934,6 +1029,74 @@ defmodule AWS.Elasticsearch do
   end
 
   @doc """
+  Retrieves information about each principal that is allowed to access a given
+  Amazon OpenSearch Service domain through the use of an interface VPC endpoint.
+  """
+  def list_vpc_endpoint_access(%Client{} = client, domain_name, next_token \\ nil, options \\ []) do
+    url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/listVpcEndpointAccess"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the current
+  account and Region.
+  """
+  def list_vpc_endpoints(%Client{} = client, next_token \\ nil, options \\ []) do
+    url_path = "/2015-01-01/es/vpcEndpoints"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated with a
+  particular domain.
+  """
+  def list_vpc_endpoints_for_domain(
+        %Client{} = client,
+        domain_name,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/vpcEndpoints"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Allows you to purchase reserved Elasticsearch instances.
   """
   def purchase_reserved_elasticsearch_instance_offering(%Client{} = client, input, options \\ []) do
@@ -982,6 +1145,30 @@ defmodule AWS.Elasticsearch do
   """
   def remove_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/tags-removal"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Revokes access to an Amazon OpenSearch Service domain that was provided through
+  an interface VPC endpoint.
+  """
+  def revoke_vpc_endpoint_access(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/revokeVpcEndpointAccess"
     headers = []
     query_params = []
 
@@ -1052,6 +1239,29 @@ defmodule AWS.Elasticsearch do
   """
   def update_package(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/packages/update"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Modifies an Amazon OpenSearch Service-managed interface VPC endpoint.
+  """
+  def update_vpc_endpoint(%Client{} = client, input, options \\ []) do
+    url_path = "/2015-01-01/es/vpcEndpoints/update"
     headers = []
     query_params = []
 

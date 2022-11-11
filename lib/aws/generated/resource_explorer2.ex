@@ -30,25 +30,9 @@ defmodule AWS.ResourceExplorer2 do
   aggregator index Region include resources from all of the indexed Regions in
   your account.
 
-  ` For more information about Amazon Web Services Resource Explorer, including
-  how to enable and configure the service, see the [Amazon Web Services Resource Explorer User
+  For more information about Amazon Web Services Resource Explorer, including how
+  to enable and configure the service, see the [Amazon Web Services Resource Explorer User
   Guide](https://docs.aws.amazon.com/resource-explorer/latest/userguide/).
-
-  The example HTTP query requests and responses in this guide are displayed with
-  the [JSON](https://json.org) formatted across multiple lines for readability.
-  The actual query responses from the Resource Explorer service do not include
-  this extra whitespace.
-
-  ## We want your feedback about this documentation
-
-  Our goal is to help you get everything you can from Resource Explorer. If this
-  guide helps you to do that, then let us know. If the guide isn't helping you,
-  then we want to hear from you so we can address the issue. Use the ## Feedback
-  link that's in the upper-right corner of every page. That sends your comments
-  directly to the writers of this guide. We review every submission, looking for
-  opportunities to improve the documentation. Thank you in advance for your help!
-
-  `
   """
 
   alias AWS.Client
@@ -149,7 +133,7 @@ defmodule AWS.ResourceExplorer2 do
   in your Amazon Web Services account that allows Resource Explorer to enumerate
   your resources to populate the index.
 
-  `   * **Action**: `resource-explorer-2:CreateIndex`
+    * **Action**: `resource-explorer-2:CreateIndex`
 
   **Resource**: The ARN of the index (as it will exist after the operation
   completes) in the Amazon Web Services Region and account in which you're trying
@@ -158,7 +142,7 @@ defmodule AWS.ResourceExplorer2 do
   restricts the role or user to creating an index in only the `us-east-2` Region
   of the specified account.
 
-  `"Resource": "arn:aws:resource-explorer-2:us-east-2:*<account-id>*:index/*"`
+  `"Resource": "arn:aws:resource-explorer-2:us-west-2:*<account-id>*:index/*"`
 
   Alternatively, you can use `"Resource": "*"` to allow the role or user to create
   an index in any Region.
@@ -172,8 +156,6 @@ defmodule AWS.ResourceExplorer2 do
   [service-linked role needed to index the resources in your account](https://docs.aws.amazon.com/resource-explorer/latest/userguide/security_iam_service-linked-roles.html).
   Resource Explorer uses the same service-linked role for all additional indexes
   you create afterwards.
-
-  `
   """
   def create_index(%Client{} = client, input, options \\ []) do
     url_path = "/CreateIndex"

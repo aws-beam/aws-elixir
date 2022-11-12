@@ -57,6 +57,9 @@ defmodule AWS.LicenseManager do
 
   @doc """
   Checks out the specified license.
+
+  If the account that created the license is the same that is performing the check
+  out, you must specify the account as the beneficiary.
   """
   def checkout_license(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -387,12 +390,30 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+  Lists the grants received for all accounts in the organization.
+  """
+  def list_received_grants_for_organization(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListReceivedGrantsForOrganization", input, options)
+  end
+
+  @doc """
   Lists received licenses.
   """
   def list_received_licenses(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "ListReceivedLicenses", input, options)
+  end
+
+  @doc """
+  Lists the licenses received for all accounts in the organization.
+  """
+  def list_received_licenses_for_organization(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListReceivedLicensesForOrganization", input, options)
   end
 
   @doc """

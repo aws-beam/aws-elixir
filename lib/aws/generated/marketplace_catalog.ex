@@ -175,24 +175,99 @@ defmodule AWS.MarketplaceCatalog do
   end
 
   @doc """
-  This operation allows you to request changes for your entities.
+  Lists all tags that have been added to a resource (either an
+  [entity](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities) or [change
+  set](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets)).
+  """
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/ListTagsForResource"
+    headers = []
+    query_params = []
 
-  Within a single ChangeSet, you cannot start the same change type against the
-  same entity multiple times. Additionally, when a ChangeSet is running, all the
-  entities targeted by the different changes are locked until the ChangeSet has
-  completed (either succeeded, cancelled, or failed). If you try to start a
-  ChangeSet containing a change against an entity that is already locked, you will
-  receive a `ResourceInUseException`.
+    meta = metadata()
 
-  For example, you cannot start the ChangeSet described in the
-  [example](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples) later in this topic, because it contains two changes to execute the same change
-  type (`AddRevisions`) against the same entity (`entity-id@1)`.
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Allows you to request changes for your entities.
+
+  Within a single `ChangeSet`, you can't start the same change type against the
+  same entity multiple times. Additionally, when a `ChangeSet` is running, all the
+  entities targeted by the different changes are locked until the change set has
+  completed (either succeeded, cancelled, or failed). If you try to start a change
+  set containing a change against an entity that is already locked, you will
+  receive a `ResourceInUseException` error.
+
+  For example, you can't start the `ChangeSet` described in the
+  [example](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples) later in this topic because it contains two changes to run the same change type
+  (`AddRevisions`) against the same entity (`entity-id@1`).
 
   For more information about working with change sets, see [ Working with change
   sets](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets).
   """
   def start_change_set(%Client{} = client, input, options \\ []) do
     url_path = "/StartChangeSet"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Tags a resource (either an
+  [entity](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities) or [change
+  set](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets)).
+  """
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/TagResource"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Removes a tag or list of tags from a resource (either an
+  [entity](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities) or [change
+  set](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets)).
+  """
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/UntagResource"
     headers = []
     query_params = []
 

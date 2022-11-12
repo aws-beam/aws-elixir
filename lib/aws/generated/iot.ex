@@ -5161,6 +5161,73 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  The related resources of an Audit finding.
+
+  The following resources can be returned from calling this API:
+
+    * DEVICE_CERTIFICATE
+
+    * CA_CERTIFICATE
+
+    * IOT_POLICY
+
+    * COGNITO_IDENTITY_POOL
+
+    * CLIENT_ID
+
+    * ACCOUNT_SETTINGS
+
+    * ROLE_ALIAS
+
+    * IAM_ROLE
+
+    * ISSUER_CERTIFICATE
+
+  This API is similar to DescribeAuditFinding's
+  [RelatedResources](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditFinding.html) but provides pagination and is not limited to 10 resources. When calling
+  [DescribeAuditFinding](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditFinding.html)
+  for the intermediate CA revoked for active device certificates check,
+  RelatedResources will not be populated. You must use this API,
+  ListRelatedResourcesForAuditFinding, to list the certificates.
+  """
+  def list_related_resources_for_audit_finding(
+        %Client{} = client,
+        finding_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/audit/relatedResources"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(finding_id) do
+        [{"findingId", finding_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Lists the role aliases registered in your account.
 
   Requires permission to access the
@@ -5766,7 +5833,8 @@ defmodule AWS.IoT do
   Use the **attributeName** and **attributeValue** parameters to filter your
   things. For example, calling `ListThings` with attributeName=Color and
   attributeValue=Red retrieves all things in the registry that contain an
-  attribute **Color** with the value **Red**.
+  attribute **Color** with the value **Red**. For more information, see [List Things](https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html#list-things)
+  from the *Amazon Web Services IoT Core Developer Guide*.
 
   Requires permission to access the
   [ListThings](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)

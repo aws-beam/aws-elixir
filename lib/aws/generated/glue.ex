@@ -918,7 +918,7 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Retrieves all the development endpoints in this AWS account.
+  Retrieves all the development endpoints in this Amazon Web Services account.
 
   When you create a development endpoint in a virtual private cloud (VPC), Glue
   returns only a private IP address and the public IP address field is not
@@ -942,6 +942,14 @@ defmodule AWS.Glue do
 
   @doc """
   Returns information on a job bookmark entry.
+
+  For more information about enabling and using job bookmarks, see:
+
+    * [Tracking processed data using job bookmarks](https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html)
+
+    * [Job parameters used by Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
+
+    * [Job structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job)
   """
   def get_job_bookmark(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1629,6 +1637,14 @@ defmodule AWS.Glue do
 
   @doc """
   Resets a bookmark entry.
+
+  For more information about enabling and using job bookmarks, see:
+
+    * [Tracking processed data using job bookmarks](https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html)
+
+    * [Job parameters used by Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
+
+    * [Job structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job)
   """
   def reset_job_bookmark(%Client{} = client, input, options \\ []) do
     meta = metadata()

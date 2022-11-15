@@ -299,12 +299,17 @@ defmodule AWS.Proton do
 
   ## You can provision environments using the following methods:
 
-    * Amazon Web Services-managed provisioning: Proton makes direct
+    * **Amazon Web Services-managed provisioning** – Proton makes direct
   calls to provision your resources.
 
-    * Self-managed provisioning: Proton makes pull requests on your
+    * **Self-managed provisioning** – Proton makes pull requests on your
   repository to provide compiled infrastructure as code (IaC) files that your IaC
   engine uses to provision resources.
+
+    * **CodeBuild-based provisioning** – Proton uses CodeBuild to run
+  shell commands that you provide. Your commands can read inputs that Proton
+  provides, and are responsible for provisioning or deprovisioning infrastructure
+  and generating output values.
 
   For more information, see
   [Environments](https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html) and [Provisioning
@@ -932,11 +937,18 @@ defmodule AWS.Proton do
   end
 
   @doc """
-  Notify Proton of status changes to a provisioned resource when you use
-  self-managed provisioning.
+  Notify Proton of the following information related to a provisioned resource
+  (environment, service instance, or service pipeline):
 
-  For more information, see [Self-managed provisioning](https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self)
-  in the *Proton User Guide*.
+    * For [CodeBuild-based provisioning](https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-codebuild),
+  provide your provisioned resource output values to Proton.
+
+    * For [self-managed provisioning](https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self),
+  notify Proton about the status of your provisioned resource. To disambiguate
+  between different deployments of the same resource, set `deploymentId` to a
+  unique deployment ID of your choice.
+
+  ` `
   """
   def notify_resource_deployment_status_change(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1024,8 +1036,8 @@ defmodule AWS.Proton do
   Update an environment.
 
   If the environment is associated with an environment account connection, *don't*
-  update or include the `protonServiceRoleArn` and `provisioningRepository`
-  parameter to update or connect to an environment account connection.
+  update or include the `protonServiceRoleArn`, `codebuildRoleArn`, and
+  `provisioningRepository` parameters.
 
   You can only update to a new environment account connection if that connection
   was created in the same environment account that the current environment account
@@ -1037,15 +1049,15 @@ defmodule AWS.Proton do
   *can't* update or connect the environment to an environment account connection
   if it *isn't* already associated with an environment connection.
 
-  You can update either the `environmentAccountConnectionId` or
-  `protonServiceRoleArn` parameter and value. You can’t update both.
+  You can update either `environmentAccountConnectionId` or one or more of
+  `protonServiceRoleArn`, `codebuildRoleArn`, and `provisioningRepository`.
 
-  If the environment was configured for Amazon Web Services-managed provisioning,
-  omit the `provisioningRepository` parameter.
+  If the environment was configured for Amazon Web Services-managed or
+  CodeBuild-based provisioning, omit the `provisioningRepository` parameter.
 
   If the environment was configured for self-managed provisioning, specify the
-  `provisioningRepository` parameter and omit the `protonServiceRoleArn` and
-  `environmentAccountConnectionId` parameters.
+  `provisioningRepository` parameter and omit the `protonServiceRoleArn`,
+  `codebuildRoleArn`, and `provisioningRepository` parameters.
 
   For more information, see
   [Environments](https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html) and [Provisioning

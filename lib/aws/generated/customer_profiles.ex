@@ -5,19 +5,14 @@ defmodule AWS.CustomerProfiles do
   @moduledoc """
   Amazon Connect Customer Profiles
 
-  Welcome to the Amazon Connect Customer Profiles API Reference.
-
-  This guide provides information about the Amazon Connect Customer Profiles API,
-  including supported operations, data types, parameters, and schemas.
-
   Amazon Connect Customer Profiles is a unified customer profile for your contact
   center that has pre-built connectors powered by AppFlow that make it easy to
   combine customer information from third party applications, such as Salesforce
   (CRM), ServiceNow (ITSM), and your enterprise resource planning (ERP), with
   contact history from your Amazon Connect contact center.
 
-  If you're new to Amazon Connect , you might find it helpful to also review the
-  [Amazon Connect Administrator Guide](https://docs.aws.amazon.com/connect/latest/adminguide/what-is-amazon-connect.html).
+  If you're new to Amazon Connect, you might find it helpful to review the [Amazon Connect Administrator
+  Guide](https://docs.aws.amazon.com/connect/latest/adminguide/).
   """
 
   alias AWS.Client
@@ -990,8 +985,14 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
-  Searches for profiles within a specific domain name using name, phone number,
-  email address, account number, or a custom defined index.
+  Searches for profiles within a specific domain using one or more predefined
+  search keys (e.g., _fullName, _phone, _email, _account, etc.) and/or
+  custom-defined search keys.
+
+  A search key is a data type pair that consists of a `KeyName` and `Values` list.
+
+  This operation supports searching for profiles with a minimum of 1 key-value(s)
+  pair and up to 5 key-value(s) pairs using either `AND` or `OR` logic.
   """
   def search_profiles(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/search"

@@ -34,6 +34,19 @@ defmodule AWS.WorkDocs do
   limited to, the ability to modify file permissions and upload any file to any
   user. This allows developers to perform the three use cases above, as well as
   give users the ability to grant access on a selective basis using the IAM model.
+
+  The pricing for Amazon WorkDocs APIs varies depending on the API call type for
+  these actions:
+
+     `READ (Get*)`
+
+     `WRITE (Activate*, Add*, Create*, Deactivate*, Initiate*, Update*)`
+
+     `LIST (Describe*)`
+
+     `DELETE*, CANCEL`
+
+  For information about Amazon WorkDocs API pricing, see [Amazon WorkDocs Pricing](https://aws.amazon.com/workdocs/pricing/).
   """
 
   alias AWS.Client
@@ -265,7 +278,7 @@ defmodule AWS.WorkDocs do
 
   The endpoint receives a confirmation message, and must confirm the subscription.
 
-  For more information, see [Subscribe to Notifications](https://docs.aws.amazon.com/workdocs/latest/developerguide/subscribe-notifications.html)
+  For more information, see [Setting up notifications for an IAM user or role](https://docs.aws.amazon.com/workdocs/latest/developerguide/manage-notifications.html)
   in the *Amazon WorkDocs Developer Guide*.
   """
   def create_notification_subscription(%Client{} = client, organization_id, input, options \\ []) do
@@ -435,6 +448,42 @@ defmodule AWS.WorkDocs do
       |> Request.build_params(input)
 
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a version of an Amazon WorkDocs document.
+
+  Use the `DeletePriorVersions` parameter to delete prior versions.
+  """
+  def delete_document_version(%Client{} = client, document_id, version_id, input, options \\ []) do
+    url_path =
+      "/api/v1/documentVersions/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}"
+
+    {headers, input} =
+      [
+        {"AuthenticationToken", "Authentication"}
+      ]
+      |> Request.build_params(input)
+
+    {query_params, input} =
+      [
+        {"DeletePriorVersions", "deletePriorVersions"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -1591,6 +1640,35 @@ defmodule AWS.WorkDocs do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Recovers a deleted version of an Amazon WorkDocs document.
+  """
+  def restore_document_versions(%Client{} = client, document_id, input, options \\ []) do
+    url_path = "/api/v1/documentVersions/restore/#{AWS.Util.encode_uri(document_id)}"
+
+    {headers, input} =
+      [
+        {"AuthenticationToken", "Authentication"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       headers,

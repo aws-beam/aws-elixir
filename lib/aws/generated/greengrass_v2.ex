@@ -727,6 +727,7 @@ defmodule AWS.GreengrassV2 do
         history_filter \\ nil,
         max_results \\ nil,
         next_token \\ nil,
+        parent_target_arn \\ nil,
         target_arn \\ nil,
         options \\ []
       ) do
@@ -737,6 +738,13 @@ defmodule AWS.GreengrassV2 do
     query_params =
       if !is_nil(target_arn) do
         [{"targetArn", target_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(parent_target_arn) do
+        [{"parentTargetArn", parent_target_arn} | query_params]
       else
         query_params
       end

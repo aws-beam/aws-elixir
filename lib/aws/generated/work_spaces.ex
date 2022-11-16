@@ -634,6 +634,16 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
+  Modifies the properties of the certificate-based authentication you want to use
+  with your WorkSpaces.
+  """
+  def modify_certificate_based_auth_properties(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyCertificateBasedAuthProperties", input, options)
+  end
+
+  @doc """
   Modifies the properties of the specified Amazon WorkSpaces clients.
   """
   def modify_client_properties(%Client{} = client, input, options \\ []) do

@@ -264,6 +264,30 @@ defmodule AWS.IoTTwinMaker do
   end
 
   @doc """
+  Run queries to access information from your knowledge graph of entities within
+  individual workspaces.
+  """
+  def execute_query(%Client{} = client, input, options \\ []) do
+    url_path = "/queries/execution"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves information about a component type.
   """
   def get_component_type(%Client{} = client, component_type_id, workspace_id, options \\ []) do
@@ -285,6 +309,19 @@ defmodule AWS.IoTTwinMaker do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities/#{AWS.Util.encode_uri(entity_id)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the pricing plan.
+  """
+  def get_pricing_plan(%Client{} = client, options \\ []) do
+    url_path = "/pricingplan"
     headers = []
     query_params = []
 
@@ -576,6 +613,29 @@ defmodule AWS.IoTTwinMaker do
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Update the pricing plan.
+  """
+  def update_pricing_plan(%Client{} = client, input, options \\ []) do
+    url_path = "/pricingplan"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

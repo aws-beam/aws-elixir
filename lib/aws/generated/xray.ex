@@ -130,6 +130,29 @@ defmodule AWS.XRay do
   end
 
   @doc """
+  Deletes a resource policy from the target Amazon Web Services account.
+  """
+  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteResourcePolicy"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes a sampling rule.
   """
   def delete_sampling_rule(%Client{} = client, input, options \\ []) do
@@ -512,6 +535,29 @@ defmodule AWS.XRay do
   end
 
   @doc """
+  Returns the list of resource policies in the target Amazon Web Services account.
+  """
+  def list_resource_policies(%Client{} = client, input, options \\ []) do
+    url_path = "/ListResourcePolicies"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns a list of tags that are applied to the specified Amazon Web Services
   X-Ray group or sampling rule.
   """
@@ -540,6 +586,35 @@ defmodule AWS.XRay do
   """
   def put_encryption_config(%Client{} = client, input, options \\ []) do
     url_path = "/PutEncryptionConfig"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Sets the resource policy to grant one or more Amazon Web Services services and
+  accounts permissions to access X-Ray.
+
+  Each resource policy will be associated with a specific Amazon Web Services
+  account. Each Amazon Web Services account can have a maximum of 5 resource
+  policies, and each policy name must be unique within that account. The maximum
+  size of each resource policy is 5KB.
+  """
+  def put_resource_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/PutResourcePolicy"
     headers = []
     query_params = []
 

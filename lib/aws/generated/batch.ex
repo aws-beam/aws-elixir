@@ -101,6 +101,9 @@ defmodule AWS.Batch do
   cluster. For more information, see [Launching an Amazon ECS container instance](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
+  To create a compute environment that uses EKS resources, the caller must have
+  permissions to call `eks:DescribeCluster`.
+
   Batch doesn't automatically upgrade the AMIs in a compute environment after it's
   created. For example, it also doesn't update the AMIs in your compute
   environment when a newer version of the Amazon ECS optimized AMI is available.

@@ -2969,6 +2969,32 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Initiates silent monitoring of a contact.
+
+  The Contact Control Panel (CCP) of the user specified by *userId* will be set to
+  silent monitoring mode on the contact.
+  """
+  def monitor_contact(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/monitor"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Changes the current status of a user or agent in Amazon Connect.
 
   If the agent is currently handling a contact, this sets the agent's next status.

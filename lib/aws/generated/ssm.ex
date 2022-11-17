@@ -425,6 +425,21 @@ defmodule AWS.SSM do
   end
 
   @doc """
+  Deletes a Systems Manager resource policy.
+
+  A resource policy helps you to define the IAM entity (for example, an Amazon Web
+  Services account) that can manage your Systems Manager resources. Currently,
+  `OpsItemGroup` is the only resource that supports Systems Manager resource
+  policies. The resource policy for `OpsItemGroup` enables Amazon Web Services
+  accounts to view and interact with OpsCenter operational work items (OpsItems).
+  """
+  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
+  end
+
+  @doc """
   Removes the server or virtual machine from the list of registered servers.
 
   You can reregister the node again at any time. If you don't plan to use Run
@@ -1195,6 +1210,15 @@ defmodule AWS.SSM do
   end
 
   @doc """
+  Returns an array of the `Policy` object.
+  """
+  def get_resource_policies(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResourcePolicies", input, options)
+  end
+
+  @doc """
   `ServiceSetting` is an account-level setting for an Amazon Web Services service.
 
   This setting defines how a user interacts with or uses a service or a feature of
@@ -1539,6 +1563,21 @@ defmodule AWS.SSM do
     meta = metadata()
 
     Request.request_post(client, meta, "PutParameter", input, options)
+  end
+
+  @doc """
+  Creates or updates a Systems Manager resource policy.
+
+  A resource policy helps you to define the IAM entity (for example, an Amazon Web
+  Services account) that can manage your Systems Manager resources. Currently,
+  `OpsItemGroup` is the only resource that supports Systems Manager resource
+  policies. The resource policy for `OpsItemGroup` enables Amazon Web Services
+  accounts to view and interact with OpsCenter operational work items (OpsItems).
+  """
+  def put_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
 
   @doc """

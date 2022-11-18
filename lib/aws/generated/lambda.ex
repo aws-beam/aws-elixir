@@ -219,7 +219,7 @@ defmodule AWS.Lambda do
   @doc """
   Creates a code signing configuration.
 
-  A [code signing configuration](https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html)
+  A [code signing configuration](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
   defines a list of allowed signing profiles and defines the code-signing
   validation policy (action to be taken if deployment validation checks fail).
   """

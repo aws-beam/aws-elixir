@@ -506,6 +506,10 @@ defmodule AWS.SecretsManager do
   assumes that a previous rotation request is still in progress and returns an
   error.
 
+  When rotation is unsuccessful, the `AWSPENDING` staging label might be attached
+  to an empty secret version. For more information, see [Troubleshoot rotation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot_rotation.html)
+  in the *Secrets Manager User Guide*.
+
   Secrets Manager generates a CloudTrail log entry when you call this action. Do
   not include sensitive information in request parameters because it might be
   logged. For more information, see [Logging Secrets Manager events with CloudTrail](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html).

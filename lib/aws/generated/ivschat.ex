@@ -25,7 +25,11 @@ defmodule AWS.Ivschat do
 
   ## Resources
 
-  The following resource is part of Amazon IVS Chat:
+  The following resources are part of Amazon IVS Chat:
+
+    * **LoggingConfiguration** — A configuration that allows customers
+  to store and record sent messages in a chat room. See the Logging Configuration
+  endpoints for more information.
 
     * **Room** — The central Amazon IVS Chat resource through which
   clients connect to and exchange chat messages. See the Room endpoints for more
@@ -116,10 +120,11 @@ defmodule AWS.Ivschat do
 
   ## Chat Token Endpoint
 
-    * `CreateChatToken` — Creates an encrypted token that is used to
-  establish an individual WebSocket connection to a room. The token is valid for
-  one minute, and a connection (session) established with the token is valid for
-  the specified duration.
+    * `CreateChatToken` — Creates an encrypted token that is used by a
+  chat participant to establish an individual WebSocket chat connection to a room.
+  When the token is used to connect to chat, the connection is valid for the
+  session duration specified in the request. The token becomes invalid at the
+  token-expiration timestamp included in the response.
 
   ## Room Endpoints
 
@@ -134,6 +139,24 @@ defmodule AWS.Ivschat do
   AWS region where the API request is processed.
 
     * `UpdateRoom` — Updates a room’s configuration.
+
+  ## Logging Configuration Endpoints
+
+    * `CreateLoggingConfiguration` — Creates a logging configuration
+  that allows clients to store and record sent messages.
+
+    * `DeleteLoggingConfiguration` — Deletes the specified logging
+  configuration.
+
+    * `GetLoggingConfiguration` — Gets the specified logging
+  configuration.
+
+    * `ListLoggingConfigurations` — Gets summary information about all
+  your logging configurations in the AWS region where the API request is
+  processed.
+
+    * `UpdateLoggingConfiguration` — Updates a specified logging
+  configuration.
 
   ## Tags Endpoints
 
@@ -170,17 +193,51 @@ defmodule AWS.Ivschat do
   end
 
   @doc """
-  Creates an encrypted token that is used to establish an individual WebSocket
-  connection to a room.
+  Creates an encrypted token that is used by a chat participant to establish an
+  individual WebSocket chat connection to a room.
 
-  The token is valid for one minute, and a connection (session) established with
-  the token is valid for the specified duration.
+  When the token is used to connect to chat, the connection is valid for the
+  session duration specified in the request. The token becomes invalid at the
+  token-expiration timestamp included in the response.
+
+  Use the `capabilities` field to permit an end user to send messages or moderate
+  a room.
+
+  The `attributes` field securely attaches structured data to the chat session;
+  the data is included within each message sent by the end user and received by
+  other participants in the room. Common use cases for attributes include passing
+  end-user profile data like an icon, display name, colors, badges, and other
+  display features.
 
   Encryption keys are owned by Amazon IVS Chat and never used directly by your
   application.
   """
   def create_chat_token(%Client{} = client, input, options \\ []) do
     url_path = "/CreateChatToken"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a logging configuration that allows clients to store and record sent
+  messages.
+  """
+  def create_logging_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateLoggingConfiguration"
     headers = []
     query_params = []
 
@@ -219,6 +276,29 @@ defmodule AWS.Ivschat do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Deletes the specified logging configuration.
+  """
+  def delete_logging_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteLoggingConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
     )
   end
 
@@ -302,10 +382,57 @@ defmodule AWS.Ivschat do
   end
 
   @doc """
+  Gets the specified logging configuration.
+  """
+  def get_logging_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/GetLoggingConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets the specified room.
   """
   def get_room(%Client{} = client, input, options \\ []) do
     url_path = "/GetRoom"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets summary information about all your logging configurations in the AWS region
+  where the API request is processed.
+  """
+  def list_logging_configurations(%Client{} = client, input, options \\ []) do
+    url_path = "/ListLoggingConfigurations"
     headers = []
     query_params = []
 
@@ -431,6 +558,29 @@ defmodule AWS.Ivschat do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a specified logging configuration.
+  """
+  def update_logging_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateLoggingConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       headers,

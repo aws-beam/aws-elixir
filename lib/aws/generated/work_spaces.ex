@@ -154,6 +154,15 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
+  Creates a Standby WorkSpace in a secondary region.
+  """
+  def create_standby_workspaces(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateStandbyWorkspaces", input, options)
+  end
+
+  @doc """
   Creates the specified tags for the specified WorkSpaces resource.
   """
   def create_tags(%Client{} = client, input, options \\ []) do

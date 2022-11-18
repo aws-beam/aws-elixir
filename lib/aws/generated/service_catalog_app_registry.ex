@@ -302,6 +302,19 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
+  Retrieves a `TagKey` configuration from an account.
+  """
+  def get_configuration(%Client{} = client, options \\ []) do
+    url_path = "/configuration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Retrieves a list of all of your applications.
 
   Results are paginated.
@@ -366,9 +379,13 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
-  Lists all resources that are associated with specified application.
+  Lists all of the resources that are associated with the specified application.
 
   Results are paginated.
+
+  If you share an application, and a consumer account associates a tag query to
+  the application, all of the users who can access the application can also view
+  the tag values in all accounts that are associated with it using this API.
   """
   def list_associated_resources(
         %Client{} = client,
@@ -481,6 +498,19 @@ defmodule AWS.ServiceCatalogAppRegistry do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Associates a `TagKey` configuration to an account.
+  """
+  def put_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/configuration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """

@@ -11,13 +11,11 @@ defmodule AWS.RUM do
   behavior. When you view this data, you can see it all aggregated together and
   also see breakdowns by the browsers and devices that your customers use.
 
-  ` You can use the collected data to quickly identify and debug client-side
+  You can use the collected data to quickly identify and debug client-side
   performance issues. CloudWatch RUM helps you visualize anomalies in your
   application performance and find relevant debugging data such as error messages,
   stack traces, and user sessions. You can also use RUM to understand the range of
   end-user impact including the number of users, geolocations, and browsers used.
-
-  `
   """
 
   alias AWS.Client
@@ -58,7 +56,7 @@ defmodule AWS.RUM do
   The maximum number of metric definitions that you can specify in one
   `BatchCreateRumMetricDefinitions` operation is 200.
 
-  ` The maximum number of metric definitions that one destination can contain is
+  The maximum number of metric definitions that one destination can contain is
   2000.
 
   Extended metrics sent are charged as CloudWatch custom metrics. Each combination
@@ -72,8 +70,6 @@ defmodule AWS.RUM do
   If some metric definitions specified in a `BatchCreateRumMetricDefinitions`
   operations are not valid, those metric definitions fail and return errors, but
   all valid metric definitions in the same operation still succeed.
-
-  `
   """
   def batch_create_rum_metric_definitions(
         %Client{} = client,

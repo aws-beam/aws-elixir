@@ -331,6 +331,19 @@ defmodule AWS.Personalize do
   end
 
   @doc """
+  Creates a metric attribution.
+
+  A metric attribution creates reports on the data that you import into Amazon
+  Personalize. Depending on how you imported the data, you can view reports in
+  Amazon CloudWatch or Amazon S3. For more information, see [Measuring impact of recommendations](https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html).
+  """
+  def create_metric_attribution(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateMetricAttribution", input, options)
+  end
+
+  @doc """
   Creates a recommender with the recipe (a Domain dataset group use case) you
   specify.
 
@@ -599,6 +612,15 @@ defmodule AWS.Personalize do
   end
 
   @doc """
+  Deletes a metric attribution.
+  """
+  def delete_metric_attribution(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteMetricAttribution", input, options)
+  end
+
+  @doc """
   Deactivates and removes a recommender.
 
   A deleted recommender can no longer be specified in a
@@ -767,6 +789,15 @@ defmodule AWS.Personalize do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeFilter", input, options)
+  end
+
+  @doc """
+  Describes a metric attribution.
+  """
+  def describe_metric_attribution(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMetricAttribution", input, options)
   end
 
   @doc """
@@ -982,6 +1013,24 @@ defmodule AWS.Personalize do
   end
 
   @doc """
+  Lists the metrics for the metric attribution.
+  """
+  def list_metric_attribution_metrics(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMetricAttributionMetrics", input, options)
+  end
+
+  @doc """
+  Lists metric attributions.
+  """
+  def list_metric_attributions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMetricAttributions", input, options)
+  end
+
+  @doc """
   Returns a list of available recipes.
 
   The response provides the properties for each recipe, including the recipe's
@@ -1146,6 +1195,15 @@ defmodule AWS.Personalize do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateCampaign", input, options)
+  end
+
+  @doc """
+  Updates a metric attribution.
+  """
+  def update_metric_attribution(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateMetricAttribution", input, options)
   end
 
   @doc """

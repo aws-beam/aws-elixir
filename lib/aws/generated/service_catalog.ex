@@ -3,9 +3,9 @@
 
 defmodule AWS.ServiceCatalog do
   @moduledoc """
-  AWS Service Catalog
+  Service Catalog
 
-  [Service Catalog](https://aws.amazon.com/servicecatalog/) enables organizations to create and manage catalogs of IT services that are approved for Amazon Web
+  [Service Catalog](http://aws.amazon.com/servicecatalog) enables organizations to create and manage catalogs of IT services that are approved for Amazon Web
   Services.
 
   To get the most out of this documentation, you should be familiar with the
@@ -52,6 +52,25 @@ defmodule AWS.ServiceCatalog do
 
   @doc """
   Associates the specified principal ARN with the specified portfolio.
+
+  If you share the portfolio with principal name sharing enabled, the
+  `PrincipalARN` association is included in the share.
+
+  The `PortfolioID`, `PrincipalARN`, and `PrincipalType` parameters are required.
+
+  You can associate a maximum of 10 Principals with a portfolio using
+  `PrincipalType` as `IAM_PATTERN`
+
+  When you associate a principal with portfolio, a potential privilege escalation
+  path may occur when that portfolio is then shared with other accounts. For a
+  user in a recipient account who is *not* an Service Catalog Admin, but still has
+  the ability to create Principals (Users/Groups/Roles), that user could create a
+  role that matches a principal name association for the portfolio. Although this
+  user may not know which principal names are associated through Service Catalog,
+  they may be able to guess the user. If this potential escalation path is a
+  concern, then Service Catalog recommends using `PrincipalType` as `IAM`. With
+  this configuration, the `PrincipalARN` must already exist in the recipient
+  account before it can be associated.
   """
   def associate_principal_with_portfolio(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -196,6 +215,17 @@ defmodule AWS.ServiceCatalog do
   If the portfolio share with the specified account or organization node already
   exists, this action will have no effect and will not return an error. To update
   an existing share, you must use the ` UpdatePortfolioShare` API instead.
+
+  When you associate a principal with portfolio, a potential privilege escalation
+  path may occur when that portfolio is then shared with other accounts. For a
+  user in a recipient account who is *not* an Service Catalog Admin, but still has
+  the ability to create Principals (Users/Groups/Roles), that user could create a
+  role that matches a principal name association for the portfolio. Although this
+  user may not know which principal names are associated through Service Catalog,
+  they may be able to guess the user. If this potential escalation path is a
+  concern, then Service Catalog recommends using `PrincipalType` as `IAM`. With
+  this configuration, the `PrincipalARN` must already exist in the recipient
+  account before it can be associated.
   """
   def create_portfolio_share(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -590,6 +620,17 @@ defmodule AWS.ServiceCatalog do
 
   @doc """
   Disassociates a previously associated principal ARN from a specified portfolio.
+
+  The `PrincipalType` and `PrincipalARN` must match the
+  `AssociatePrincipalWithPortfolio` call request details. For example, to
+  disassociate an association created with a `PrincipalARN` of `PrincipalType` IAM
+  you must use the `PrincipalType` IAM when calling
+  `DisassociatePrincipalFromPortfolio`.
+
+  For portfolios that have been shared with principal name sharing enabled: after
+  disassociating a principal, share recipient accounts will no longer be able to
+  provision products in this portfolio using a role matching the name of the
+  associated principal.
   """
   def disassociate_principal_from_portfolio(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -710,12 +751,11 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Requests the import of a resource as a Amazon Web Services Service Catalog
-  provisioned product that is associated to a Amazon Web Services Service Catalog
-  product and provisioning artifact.
+  Requests the import of a resource as an Service Catalog provisioned product that
+  is associated to an Service Catalog product and provisioning artifact.
 
-  Once imported, all supported Amazon Web Services Service Catalog governance
-  actions are supported on the provisioned product.
+  Once imported, all supported Service Catalog governance actions are supported on
+  the provisioned product.
 
   Resource import only supports CloudFormation stack ARNs. CloudFormation
   StackSets and non-root nested stacks are not supported.
@@ -725,8 +765,7 @@ defmodule AWS.ServiceCatalog do
   `IMPORT_COMPLETE`, `IMPORT_ROLLBACK_COMPLETE`.
 
   Import of the resource requires that the CloudFormation stack template matches
-  the associated Amazon Web Services Service Catalog product provisioning
-  artifact.
+  the associated Service Catalog product provisioning artifact.
 
   The user or role that performs this operation must have the
   `cloudformation:GetTemplate` and `cloudformation:DescribeStacks` IAM policy
@@ -829,7 +868,8 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Lists all principal ARNs associated with the specified portfolio.
+  Lists all `PrincipalARN`s and corresponding `PrincipalType`s associated with the
+  specified portfolio.
   """
   def list_principals_for_portfolio(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1049,11 +1089,11 @@ defmodule AWS.ServiceCatalog do
   @doc """
   Updates the specified portfolio share.
 
-  You can use this API to enable or disable TagOptions sharing for an existing
-  portfolio share.
+  You can use this API to enable or disable `TagOptions` sharing or Principal
+  sharing for an existing portfolio share.
 
-  The portfolio share cannot be updated if the ` CreatePortfolioShare` operation
-  is `IN_PROGRESS`, as the share is not available to recipient entities. In this
+  The portfolio share cannot be updated if the `CreatePortfolioShare` operation is
+  `IN_PROGRESS`, as the share is not available to recipient entities. In this
   case, you must wait for the portfolio share to be COMPLETED.
 
   You must provide the `accountId` or organization node in the input, but not
@@ -1065,6 +1105,17 @@ defmodule AWS.ServiceCatalog do
 
   This API cannot be used for removing the portfolio share. You must use
   `DeletePortfolioShare` API for that action.
+
+  When you associate a principal with portfolio, a potential privilege escalation
+  path may occur when that portfolio is then shared with other accounts. For a
+  user in a recipient account who is *not* an Service Catalog Admin, but still has
+  the ability to create Principals (Users/Groups/Roles), that user could create a
+  role that matches a principal name association for the portfolio. Although this
+  user may not know which principal names are associated through Service Catalog,
+  they may be able to guess the user. If this potential escalation path is a
+  concern, then Service Catalog recommends using `PrincipalType` as `IAM`. With
+  this configuration, the `PrincipalARN` must already exist in the recipient
+  account before it can be associated.
   """
   def update_portfolio_share(%Client{} = client, input, options \\ []) do
     meta = metadata()

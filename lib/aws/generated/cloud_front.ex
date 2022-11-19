@@ -65,6 +65,52 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Creates a staging distribution using the configuration of the provided primary
+  distribution.
+
+  A staging distribution is a copy of an existing distribution (called the primary
+  distribution) that you can use in a continuous deployment workflow.
+
+  After you create a staging distribution, you can use `UpdateDistribution` to
+  modify the staging distribution’s configuration. Then you can use
+  `CreateContinuousDeploymentPolicy` to incrementally move traffic to the staging
+  distribution.
+  """
+  def copy_distribution(%Client{} = client, primary_distribution_id, input, options \\ []) do
+    url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(primary_distribution_id)}/copy"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"},
+        {"Staging", "Staging"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a cache policy.
 
   After you create a cache policy, you can attach it to one or more cache
@@ -151,21 +197,47 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Creates a new web distribution.
+  Creates a continuous deployment policy that distributes traffic for a custom
+  domain name to two different CloudFront distributions.
 
-  You create a CloudFront distribution to tell CloudFront where you want content
-  to be delivered from, and the details about how to track and manage content
-  delivery. Send a `POST` request to the `/*CloudFront API
-  version*/distribution`/`distribution ID` resource.
+  To use a continuous deployment policy, first use `CopyDistribution` to create a
+  staging distribution, then use `UpdateDistribution` to modify the staging
+  distribution’s configuration.
 
-  When you update a distribution, there are more required fields than when you
-  create a distribution. When you update your distribution by using
-  [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html), follow the steps included in the documentation to get the current configuration
-  and then make your updates. This helps to make sure that you include all of the
-  required fields. To view a summary, see [Required Fields for Create Distribution
-  and Update
-  Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-overview-required-fields.html)
-  in the *Amazon CloudFront Developer Guide*.
+  After you create and update a staging distribution, you can use a continuous
+  deployment policy to incrementally move traffic to the staging distribution.
+  This workflow enables you to test changes to a distribution’s configuration
+  before moving all of your domain’s production traffic to the new configuration.
+  """
+  def create_continuous_deployment_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/continuous-deployment-policy"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a CloudFront distribution.
   """
   def create_distribution(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/distribution"
@@ -757,6 +829,39 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Deletes a continuous deployment policy.
+
+  You cannot delete a continuous deployment policy that’s attached to a primary
+  distribution. First update your distribution to remove the continuous deployment
+  policy, then you can delete the policy.
+  """
+  def delete_continuous_deployment_policy(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/continuous-deployment-policy/#{AWS.Util.encode_uri(id)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Delete a distribution.
   """
   def delete_distribution(%Client{} = client, id, input, options \\ []) do
@@ -1293,6 +1398,47 @@ defmodule AWS.CloudFront do
   """
   def get_cloud_front_origin_access_identity_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront/#{AWS.Util.encode_uri(id)}/config"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets a continuous deployment policy, including metadata (the policy’s identifier
+  and the date and time when the policy was last modified).
+  """
+  def get_continuous_deployment_policy(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/continuous-deployment-policy/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets configuration information about a continuous deployment policy.
+  """
+  def get_continuous_deployment_policy_config(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/continuous-deployment-policy/#{AWS.Util.encode_uri(id)}/config"
     headers = []
     query_params = []
 
@@ -1959,6 +2105,45 @@ defmodule AWS.CloudFront do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets a list of the continuous deployment policies in your Amazon Web Services
+  account.
+
+  You can optionally specify the maximum number of items to receive in the
+  response. If the total number of items in the list exceeds the maximum that you
+  specify, or the default maximum, the response is paginated. To get the next page
+  of items, send a subsequent request that specifies the `NextMarker` value from
+  the current response as the `Marker` value in the subsequent request.
+  """
+  def list_continuous_deployment_policies(
+        %Client{} = client,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/continuous-deployment-policy"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -2859,71 +3044,76 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Updates the configuration for a web distribution.
+  Updates a continuous deployment policy.
 
-  When you update a distribution, there are more required fields than when you
-  create a distribution. When you update your distribution by using this API
-  action, follow the steps here to get the current configuration and then make
-  your updates, to make sure that you include all of the required fields. To view
-  a summary, see [Required Fields for Create Distribution and Update Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-overview-required-fields.html)
-  in the *Amazon CloudFront Developer Guide*.
+  You can update a continuous deployment policy to enable or disable it, to change
+  the percentage of traffic that it sends to the staging distribution, or to
+  change the staging distribution that it sends traffic to.
+
+  When you update a continuous deployment policy configuration, all the fields are
+  updated with the values that are provided in the request. You cannot update some
+  fields independent of others. To update a continuous deployment policy
+  configuration:
+
+    1. Use `GetContinuousDeploymentPolicyConfig` to get the current
+  configuration.
+
+    2. Locally modify the fields in the continuous deployment policy
+  configuration that you want to update.
+
+    3. Use `UpdateContinuousDeploymentPolicy`, providing the entire
+  continuous deployment policy configuration, including the fields that you
+  modified and those that you didn’t.
+  """
+  def update_continuous_deployment_policy(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/continuous-deployment-policy/#{AWS.Util.encode_uri(id)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates the configuration for a CloudFront distribution.
 
   The update process includes getting the current distribution configuration,
-  updating the XML document that is returned to make your changes, and then
-  submitting an `UpdateDistribution` request to make the updates.
-
-  For information about updating a distribution using the CloudFront console
-  instead, see [Creating a Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating-console.html)
-  in the *Amazon CloudFront Developer Guide*.
+  updating it to make your changes, and then submitting an `UpdateDistribution`
+  request to make the updates.
 
   ## To update a web distribution using the CloudFront API
 
-    1. Submit a
-  [GetDistributionConfig](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistributionConfig.html) request to get the current configuration and an `Etag` header for the
-  distribution.
+    1. Use `GetDistributionConfig` to get the current configuration,
+  including the version identifier (`ETag`).
 
-  If you update the distribution again, you must get a new `Etag` header.
+    2. Update the distribution configuration that was returned in the
+  response. Note the following important requirements and restrictions:
 
-    2. Update the XML document that was returned in the response to your
-  `GetDistributionConfig` request to include your changes.
+      * You must rename the `ETag` field to `IfMatch`, leaving
+  the value unchanged. (Set the value of `IfMatch` to the value of `ETag`, then
+  remove the `ETag` field.)
 
-  When you edit the XML file, be aware of the following:
+      * You can’t change the value of `CallerReference`.
 
-     You must strip out the ETag parameter that is returned.
-
-     Additional fields are required when you update a distribution.
-  There may be fields included in the XML file for features that you haven't
-  configured for your distribution. This is expected and required to successfully
-  update the distribution.
-
-     You can't change the value of `CallerReference`. If you try to
-  change this value, CloudFront returns an `IllegalUpdate` error.
-
-     The new configuration replaces the existing configuration; the
-  values that you specify in an `UpdateDistribution` request are not merged into
-  your existing configuration. When you add, delete, or replace values in an
-  element that allows multiple values (for example, `CNAME`), you must specify all
-  of the values that you want to appear in the updated distribution. In addition,
-  you must update the corresponding `Quantity` element.
-
-    3. Submit an `UpdateDistribution` request to update the
-  configuration for your distribution:
-
-      * In the request body, include the XML document that you
-  updated in Step 2. The request body must include an XML document with a
-  `DistributionConfig` element.
-
-      * Set the value of the HTTP `If-Match` header to the
-  value of the `ETag` header that CloudFront returned when you submitted the
-  `GetDistributionConfig` request in Step 1.
-
-    4. Review the response to the `UpdateDistribution` request to
-  confirm that the configuration was successfully updated.
-
-    5. Optional: Submit a
-  [GetDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistribution.html)
-  request to confirm that your changes have propagated. When propagation is
-  complete, the value of `Status` is `Deployed`.
+    3. Submit an `UpdateDistribution` request, providing the
+  distribution configuration. The new configuration replaces the existing
+  configuration. The values that you specify in an `UpdateDistribution` request
+  are not merged into your existing configuration. Make sure to include all
+  fields: the ones that you modified and also the ones that you didn’t.
   """
   def update_distribution(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}/config"

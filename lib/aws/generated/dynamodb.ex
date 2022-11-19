@@ -142,8 +142,10 @@ defmodule AWS.DynamoDB do
   format for the API call. For more details on this distinction, see [Naming Rules and Data
   Types](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html).
 
-  `BatchWriteItem` cannot update items. To update items, use the `UpdateItem`
-  action.
+  `BatchWriteItem` cannot update items. If you perform a `BatchWriteItem`
+  operation on an existing item, that item's values will be overwritten by the
+  operation and it will appear like it was updated. To update items, we recommend
+  you use the `UpdateItem` action.
 
   The individual `PutItem` and `DeleteItem` operations specified in
   `BatchWriteItem` are atomic; however `BatchWriteItem` as a whole is not. If any
@@ -808,7 +810,7 @@ defmodule AWS.DynamoDB do
   operation, using the `ReturnValues` parameter.
 
   When you add an item, the primary key attributes are the only required
-  attributes. Attribute values cannot be null.
+  attributes.
 
   Empty String and Binary attribute values are allowed. Attribute values of type
   String and Binary must have a length greater than zero if the attribute is used

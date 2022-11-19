@@ -639,6 +639,36 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Use the `DeleteAccountSubscription` operation to delete an Amazon QuickSight
+  account.
+
+  This operation will result in an error message if you have configured your
+  account termination protection settings to `True`. To change this setting and
+  delete your account, call the `UpdateAccountSettings` API and set the value of
+  the `TerminationProtectionEnabled` parameter to `False`, then make another call
+  to the `DeleteAccountSubscription` API.
+  """
+  def delete_account_subscription(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/account/#{AWS.Util.encode_uri(aws_account_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes an analysis from Amazon QuickSight.
 
   You can optionally include a recovery window during which you can restore the
@@ -1237,7 +1267,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Use the DescribeAccountSubscription operation to receive a description of a
+  Use the DescribeAccountSubscription operation to receive a description of an
   Amazon QuickSight account's subscription.
 
   A successful API call returns an `AccountInfo` object that includes an account's
@@ -2882,6 +2912,54 @@ defmodule AWS.QuickSight do
   """
   def search_dashboards(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/dashboards"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Use the `SearchDataSets` operation to search for datasets that belong to an
+  account.
+  """
+  def search_data_sets(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/data-sets"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Use the `SearchDataSources` operation to search for data sources that belong to
+  an account.
+  """
+  def search_data_sources(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/data-sources"
     headers = []
     query_params = []
 

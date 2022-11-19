@@ -3,9 +3,9 @@
 
 defmodule AWS.SFN do
   @moduledoc """
-  AWS Step Functions
+  Step Functions
 
-  AWS Step Functions is a service that lets you coordinate the components of
+  Step Functions is a service that lets you coordinate the components of
   distributed applications and microservices using visual workflows.
 
   You can use Step Functions to build applications from individual components,
@@ -18,10 +18,11 @@ defmodule AWS.SFN do
   diagnose and debug any issues.
 
   Step Functions manages operations and underlying infrastructure to ensure your
-  application is available at any scale. You can run tasks on AWS, your own
-  servers, or any system that has access to AWS. You can access and use Step
-  Functions using the console, the AWS SDKs, or an HTTP API. For more information
-  about Step Functions, see the * [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) *.
+  application is available at any scale. You can run tasks on Amazon Web Services,
+  your own servers, or any system that has access to Amazon Web Services. You can
+  access and use Step Functions using the console, the Amazon Web Services SDKs,
+  or an HTTP API. For more information about Step Functions, see the * [Step Functions Developer
+  Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) *.
   """
 
   alias AWS.Client
@@ -47,11 +48,11 @@ defmodule AWS.SFN do
   Creates an activity.
 
   An activity is a task that you write in any programming language and host on any
-  machine that has access to AWS Step Functions. Activities must poll Step
-  Functions using the `GetActivityTask` API action and respond using `SendTask*`
-  API actions. This function lets Step Functions know the existence of your
-  activity and returns an identifier for use in a state machine and when polling
-  from the activity.
+  machine that has access to Step Functions. Activities must poll Step Functions
+  using the `GetActivityTask` API action and respond using `SendTask*` API
+  actions. This function lets Step Functions know the existence of your activity
+  and returns an identifier for use in a state machine and when polling from the
+  activity.
 
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
@@ -77,7 +78,7 @@ defmodule AWS.SFN do
   execution with an error (`Fail` states), and so on. State machines are specified
   using a JSON-based, structured language. For more information, see [Amazon States
   Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html)
-  in the AWS Step Functions User Guide.
+  in the Step Functions User Guide.
 
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
@@ -111,7 +112,7 @@ defmodule AWS.SFN do
   This is an asynchronous operation: It sets the state machine's status to
   `DELETING` and begins the deletion process.
 
-  For `EXPRESS`state machines, the deletion will happen eventually (usually less
+  For `EXPRESS` state machines, the deletion will happen eventually (usually less
   than a minute). Running executions may emit logs after `DeleteStateMachine` API
   is called.
   """
@@ -182,6 +183,8 @@ defmodule AWS.SFN do
   this type is needed.) The maximum time the service holds on to the request
   before responding is 60 seconds. If no task is available within 60 seconds, the
   poll returns a `taskToken` with a null string.
+
+  This API action isn't logged in CloudTrail.
 
   Workers should set their client side socket timeout to at least 65 seconds (5
   seconds higher than the maximum time the service may hold the poll request).
@@ -339,11 +342,14 @@ defmodule AWS.SFN do
   @doc """
   Starts a state machine execution.
 
-  `StartExecution` is idempotent. If `StartExecution` is called with the same name
-  and input as a running execution, the call will succeed and return the same
-  response as the original request. If the execution is closed or if the input is
-  different, it will return a 400 `ExecutionAlreadyExists` error. Names can be
-  reused after 90 days.
+  `StartExecution` is idempotent for `STANDARD` workflows. For a `STANDARD`
+  workflow, if `StartExecution` is called with the same name and input as a
+  running execution, the call will succeed and return the same response as the
+  original request. If the execution is closed or if the input is different, it
+  will return a `400 ExecutionAlreadyExists` error. Names can be reused after 90
+  days.
+
+  `StartExecution` is not idempotent for `EXPRESS` workflows.
   """
   def start_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -353,6 +359,16 @@ defmodule AWS.SFN do
 
   @doc """
   Starts a Synchronous Express state machine execution.
+
+  `StartSyncExecution` is not available for `STANDARD` workflows.
+
+  `StartSyncExecution` will return a `200 OK` response, even if your execution
+  fails, because the status code in the API response doesn't reflect function
+  errors. Error codes are reserved for errors that prevent your execution from
+  running, such as permissions errors, limit errors, or issues with your state
+  machine code and configuration.
+
+  This API action isn't logged in CloudTrail.
   """
   def start_sync_execution(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "sync-")
@@ -375,8 +391,8 @@ defmodule AWS.SFN do
   Add a tag to a Step Functions resource.
 
   An array of key-value pairs. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
-  in the *AWS Billing and Cost Management User Guide*, and [Controlling Access Using IAM
-  Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html).
+  in the *Amazon Web Services Billing and Cost Management User Guide*, and
+  [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html).
 
   Tags may only contain Unicode letters, digits, white space, or these symbols: `_
   . : / = + - @`.

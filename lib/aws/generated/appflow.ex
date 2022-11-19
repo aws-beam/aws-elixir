@@ -411,9 +411,10 @@ defmodule AWS.Appflow do
   end
 
   @doc """
-  Registers a new connector with your Amazon Web Services account.
+  Registers a new custom connector with your Amazon Web Services account.
 
-  Before you can register the connector, you must deploy lambda in your account.
+  Before you can register the connector, you must deploy the associated AWS lambda
+  function in your account.
   """
   def register_connector(%Client{} = client, input, options \\ []) do
     url_path = "/register-connector"
@@ -513,7 +514,7 @@ defmodule AWS.Appflow do
 
   @doc """
   Unregisters the custom connector registered in your account that matches the
-  connectorLabel provided in the request.
+  connector label provided in the request.
   """
   def unregister_connector(%Client{} = client, input, options \\ []) do
     url_path = "/unregister-connector"
@@ -568,6 +569,36 @@ defmodule AWS.Appflow do
   """
   def update_connector_profile(%Client{} = client, input, options \\ []) do
     url_path = "/update-connector-profile"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates a custom connector that you've previously registered.
+
+  This operation updates the connector with one of the following:
+
+    * The latest version of the AWS Lambda function that's assigned to
+  the connector
+
+    * A new AWS Lambda function that you specify
+  """
+  def update_connector_registration(%Client{} = client, input, options \\ []) do
+    url_path = "/update-connector-registration"
     headers = []
     query_params = []
 

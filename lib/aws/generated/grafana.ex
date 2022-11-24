@@ -95,12 +95,11 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Creates an API key for the workspace.
+  Creates a Grafana API key for the workspace.
 
   This key can be used to authenticate requests sent to the workspace's HTTP API.
-  See [
-  https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html](
-  https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html)
+  See
+  [https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html](https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html)
   for available APIs and example requests.
   """
   def create_workspace_api_key(%Client{} = client, workspace_id, input, options \\ []) do
@@ -147,7 +146,7 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Deletes an API key for a workspace.
+  Deletes a Grafana API key for the workspace.
   """
   def delete_workspace_api_key(%Client{} = client, key_name, workspace_id, input, options \\ []) do
     url_path =
@@ -190,6 +189,19 @@ defmodule AWS.Grafana do
   """
   def describe_workspace_authentication(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/authentication"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the current configuration string for the given workspace.
+  """
+  def describe_workspace_configuration(%Client{} = client, workspace_id, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/configuration"
     headers = []
     query_params = []
 
@@ -423,7 +435,7 @@ defmodule AWS.Grafana do
   of those parameters are not changed.
 
   To modify the user authentication methods that the workspace uses, such as SAML
-  or Amazon Web Services SSO, use
+  or IAM Identity Center, use
   [UpdateWorkspaceAuthentication](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html).  To modify which users in the workspace have the `Admin` and `Editor` Grafana
   roles, use
   [UpdatePermissions](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html).
@@ -464,5 +476,18 @@ defmodule AWS.Grafana do
       options,
       200
     )
+  end
+
+  @doc """
+  Updates the configuration string for the given workspace
+  """
+  def update_workspace_configuration(%Client{} = client, workspace_id, input, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/configuration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 end

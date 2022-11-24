@@ -144,6 +144,31 @@ defmodule AWS.Rbin do
   end
 
   @doc """
+  Locks a retention rule.
+
+  A locked retention rule can't be modified or deleted.
+  """
+  def lock_rule(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/rules/#{AWS.Util.encode_uri(identifier)}/lock"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Assigns tags to the specified retention rule.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -163,6 +188,32 @@ defmodule AWS.Rbin do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Unlocks a retention rule.
+
+  After a retention rule is unlocked, it can be modified or deleted only after the
+  unlock delay period expires.
+  """
+  def unlock_rule(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/rules/#{AWS.Util.encode_uri(identifier)}/unlock"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -197,7 +248,9 @@ defmodule AWS.Rbin do
   @doc """
   Updates an existing Recycle Bin retention rule.
 
-  For more information, see [ Update Recycle Bin retention rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-update-rule)
+  You can update a retention rule's description, resource tags, and retention
+  period at any time after creation. You can't update a retention rule's resource
+  type after creation. For more information, see [ Update Recycle Bin retention rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-update-rule)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
   def update_rule(%Client{} = client, identifier, input, options \\ []) do

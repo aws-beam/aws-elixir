@@ -1,7 +1,7 @@
 defmodule AWS.Examples.Textract do
 
   @doc"""
-  Examples of analyzing a document.
+  Example of analyzing a document.
   REF: https://docs.aws.amazon.com/textract/latest/dg/text-location.html
   """
   def analyze_document do

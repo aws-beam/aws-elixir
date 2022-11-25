@@ -71,34 +71,7 @@ defmodule AWS.Textract do
   `AnalyzeDocument` is a synchronous operation. To analyze documents
   asynchronously, use `StartDocumentAnalysis`.
 
-  ## Examples
-      case AWS.Client.create("ACCESS_KEY", "SECRET_KEY", "REGION")
-          |> AWS.Textract.analyze_document(%{
-            "Document" => %{
-              "Bytes" =>
-                "/folder/file"
-                |> File.read!()
-                |> Base.encode64()
-            },
-            "FeatureTypes" => ["TABLES"]
-          }) do
-        {
-          :ok,
-          %{
-            "AnalyzeDocumentModelVersion" => _,
-            "Blocks" => blocks,
-            "DocumentMetadata" => _
-          } = _results,
-          _response
-        } ->
-          # Process the results
-
-        error -> error
-      end
-
-
   For more information, see [Document Text Analysis](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html).
-
   """
   def analyze_document(%Client{} = client, input, options \\ []) do
     meta = metadata()

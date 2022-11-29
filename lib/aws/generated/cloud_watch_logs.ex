@@ -7,22 +7,22 @@ defmodule AWS.CloudWatchLogs do
   from EC2 instances, CloudTrail, and other sources.
 
   You can then retrieve the associated log data from CloudWatch Logs using the
-  CloudWatch console, CloudWatch Logs commands in the Amazon Web Services CLI,
-  CloudWatch Logs API, or CloudWatch Logs SDK.
+  CloudWatch console. Alternatively, you can use CloudWatch Logs commands in the
+  Amazon Web Services CLI, CloudWatch Logs API, or CloudWatch Logs SDK.
 
   You can use CloudWatch Logs to:
 
-    * **Monitor logs from EC2 instances in real-time**: You can use
+    * **Monitor logs from EC2 instances in real time**: You can use
   CloudWatch Logs to monitor applications and systems using log data. For example,
   CloudWatch Logs can track the number of errors that occur in your application
-  logs and send you a notification whenever the rate of errors exceeds a threshold
-  that you specify. CloudWatch Logs uses your log data for monitoring so no code
-  changes are required. For example, you can monitor application logs for specific
-  literal terms (such as "NullReferenceException") or count the number of
-  occurrences of a literal term at a particular position in log data (such as
-  "404" status codes in an Apache access log). When the term you are searching for
-  is found, CloudWatch Logs reports the data to a CloudWatch metric that you
-  specify.
+  logs. Then, it can send you a notification whenever the rate of errors exceeds a
+  threshold that you specify. CloudWatch Logs uses your log data for monitoring so
+  no code changes are required. For example, you can monitor application logs for
+  specific literal terms (such as "NullReferenceException"). You can also count
+  the number of occurrences of a literal term at a particular position in log data
+  (such as "404" status codes in an Apache access log). When the term you are
+  searching for is found, CloudWatch Logs reports the data to a CloudWatch metric
+  that you specify.
 
     * **Monitor CloudTrail logged events**: You can create alarms in
   CloudWatch and receive notifications of particular API activity as captured by
@@ -30,9 +30,9 @@ defmodule AWS.CloudWatchLogs do
 
     * **Archive log data**: You can use CloudWatch Logs to store your
   log data in highly durable storage. You can change the log retention setting so
-  that any log events older than this setting are automatically deleted. The
-  CloudWatch Logs agent makes it easy to quickly send both rotated and non-rotated
-  log data off of a host and into the log service. You can then access the raw log
+  that any log events earlier than this setting are automatically deleted. The
+  CloudWatch Logs agent helps to quickly send both rotated and non-rotated log
+  data off of a host and into the log service. You can then access the raw log
   data when you need it.
   """
 
@@ -56,24 +56,24 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
-  Associates the specified Key Management Service customer master key (CMK) with
-  the specified log group.
+  Associates the specified KMS key with the specified log group.
 
-  Associating an KMS CMK with a log group overrides any existing associations
-  between the log group and a CMK. After a CMK is associated with a log group, all
-  newly ingested data for the log group is encrypted using the CMK. This
-  association is stored as long as the data encrypted with the CMK is still within
-  CloudWatch Logs. This enables CloudWatch Logs to decrypt this data whenever it
-  is requested.
+  Associating a KMS key with a log group overrides any existing associations
+  between the log group and a KMS key. After a KMS key is associated with a log
+  group, all newly ingested data for the log group is encrypted using the KMS key.
+  This association is stored as long as the data encrypted with the KMS keyis
+  still within CloudWatch Logs. This enables CloudWatch Logs to decrypt this data
+  whenever it is requested.
 
-  CloudWatch Logs supports only symmetric CMKs. Do not use an associate an
-  asymmetric CMK with your log group. For more information, see [Using Symmetric and Asymmetric
+  CloudWatch Logs supports only symmetric KMS keys. Do not use an associate an
+  asymmetric KMS key with your log group. For more information, see [Using Symmetric and Asymmetric
   Keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html).
 
   It can take up to 5 minutes for this operation to take effect.
 
-  If you attempt to associate a CMK with a log group but the CMK does not exist or
-  the CMK is disabled, you receive an `InvalidParameterException` error.
+  If you attempt to associate a KMS key with a log group but the KMS key does not
+  exist or the KMS key is disabled, you receive an `InvalidParameterException`
+  error.
   """
   def associate_kms_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -93,13 +93,13 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
-  Creates an export task, which allows you to efficiently export data from a log
-  group to an Amazon S3 bucket.
+  Creates an export task so that you can efficiently export data from a log group
+  to an Amazon S3 bucket.
 
   When you perform a `CreateExportTask` operation, you must use credentials that
   have permission to write to the S3 bucket that you specify as the destination.
 
-  Exporting log data to Amazon S3 buckets that are encrypted by KMS is supported.
+  Exporting log data to S3 buckets that are encrypted by KMS is supported.
   Exporting log data to Amazon S3 buckets that have S3 Object Lock enabled with a
   retention period is also supported.
 
@@ -113,11 +113,11 @@ defmodule AWS.CloudWatchLogs do
   [CancelExportTask](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CancelExportTask.html).
 
   You can export logs from multiple log groups or multiple time ranges to the same
-  S3 bucket. To separate out log data for each export task, you can specify a
-  prefix to be used as the Amazon S3 key prefix for all exported objects.
+  S3 bucket. To separate log data for each export task, specify a prefix to be
+  used as the Amazon S3 key prefix for all exported objects.
 
   Time-based sorting on chunks of log data inside an exported file is not
-  guaranteed. You can sort the exported log fild data by using Linux utilities.
+  guaranteed. You can sort the exported log field data by using Linux utilities.
   """
   def create_export_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -132,7 +132,7 @@ defmodule AWS.CloudWatchLogs do
 
   You must use the following guidelines when naming a log group:
 
-    * Log group names must be unique within a region for an Amazon Web
+    * Log group names must be unique within a Region for an Amazon Web
   Services account.
 
     * Log group names can be between 1 and 512 characters long.
@@ -141,19 +141,21 @@ defmodule AWS.CloudWatchLogs do
   0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), '.' (period), and '#'
   (number sign)
 
-  When you create a log group, by default the log events in the log group never
+  When you create a log group, by default the log events in the log group do not
   expire. To set a retention policy so that events expire and are deleted after a
   specified time, use
-  [PutRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html).  If you associate a Key Management Service customer master key (CMK) with the log
-  group, ingested data is encrypted using the CMK. This association is stored as
-  long as the data encrypted with the CMK is still within CloudWatch Logs. This
-  enables CloudWatch Logs to decrypt this data whenever it is requested.
+  [PutRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html).  If you associate an KMS key with the log group, ingested data is encrypted using
+  the KMS key. This association is stored as long as the data encrypted with the
+  KMS key is still within CloudWatch Logs. This enables CloudWatch Logs to decrypt
+  this data whenever it is requested.
 
-  If you attempt to associate a CMK with the log group but the CMK does not exist
-  or the CMK is disabled, you receive an `InvalidParameterException` error.
+  If you attempt to associate a KMS key with the log group but the KMS keydoes not
+  exist or the KMS key is disabled, you receive an `InvalidParameterException`
+  error.
 
-  CloudWatch Logs supports only symmetric CMKs. Do not associate an asymmetric CMK
-  with your log group. For more information, see [Using Symmetric and Asymmetric
+  CloudWatch Logs supports only symmetric KMS keys. Do not associate an asymmetric
+  KMS key with your log group. For more information, see [Using Symmetric and
+  Asymmetric
   Keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html).
   """
   def create_log_group(%Client{} = client, input, options \\ []) do
@@ -178,12 +180,24 @@ defmodule AWS.CloudWatchLogs do
 
     * Log stream names can be between 1 and 512 characters long.
 
-    * The ':' (colon) and '*' (asterisk) characters are not allowed.
+    * Don't use ':' (colon) or '*' (asterisk) characters.
   """
   def create_log_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateLogStream", input, options)
+  end
+
+  @doc """
+  Deletes the data protection policy from the specified log group.
+
+  For more information about data protection policies, see
+  [PutDataProtectionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html).
+  """
+  def delete_data_protection_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDataProtectionPolicy", input, options)
   end
 
   @doc """
@@ -313,6 +327,10 @@ defmodule AWS.CloudWatchLogs do
   `aws:ResourceTag/*key-name* ` condition key to control access. For more
   information about using tags to control access, see [Controlling access to Amazon Web Services resources using
   tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html).
+
+  If you are using CloudWatch cross-account observability, you can use this
+  operation in a monitoring account and view data from the linked source accounts.
+  For more information, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
   """
   def describe_log_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -328,6 +346,10 @@ defmodule AWS.CloudWatchLogs do
 
   This operation has a limit of five transactions per second, after which
   transactions are throttled.
+
+  If you are using CloudWatch cross-account observability, you can use this
+  operation in a monitoring account and view data from the linked source accounts.
+  For more information, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
   """
   def describe_log_streams(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -349,8 +371,8 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
-  Returns a list of CloudWatch Logs Insights queries that are scheduled,
-  executing, or have been executed recently in this account.
+  Returns a list of CloudWatch Logs Insights queries that are scheduled, running,
+  or have been run recently in this account.
 
   You can request all queries or limit it to queries of a specific log group or
   queries with a certain status.
@@ -396,13 +418,12 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
-  Disassociates the associated Key Management Service customer master key (CMK)
-  from the specified log group.
+  Disassociates the associated KMS key from the specified log group.
 
-  After the KMS CMK is disassociated from the log group, CloudWatch Logs stops
+  After the KMS key is disassociated from the log group, CloudWatch Logs stops
   encrypting newly ingested data for the log group. All previously ingested data
-  remains encrypted, and CloudWatch Logs requires permissions for the CMK whenever
-  the encrypted data is requested.
+  remains encrypted, and CloudWatch Logs requires permissions for the KMS key
+  whenever the encrypted data is requested.
 
   Note that it can take up to 5 minutes for this operation to take effect.
   """
@@ -421,19 +442,32 @@ defmodule AWS.CloudWatchLogs do
   You must have the `logs;FilterLogEvents` permission to perform this operation.
 
   By default, this operation returns as many log events as can fit in 1 MB (up to
-  10,000 log events) or all the events found within the time range that you
-  specify. If the results include a token, then there are more log events
-  available, and you can get additional results by specifying the token in a
-  subsequent call. This operation can return empty results while there are more
-  log events available through the token.
+  10,000 log events) or all the events found within the specified time range. If
+  the results include a token, that means there are more log events available. You
+  can get additional results by specifying the token in a subsequent call. This
+  operation can return empty results while there are more log events available
+  through the token.
 
   The returned log events are sorted by event timestamp, the timestamp when the
   event was ingested by CloudWatch Logs, and the ID of the `PutLogEvents` request.
+
+  If you are using CloudWatch cross-account observability, you can use this
+  operation in a monitoring account and view data from the linked source accounts.
+  For more information, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
   """
   def filter_log_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "FilterLogEvents", input, options)
+  end
+
+  @doc """
+  Returns information about a log group data protection policy.
+  """
+  def get_data_protection_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDataProtectionPolicy", input, options)
   end
 
   @doc """
@@ -445,6 +479,10 @@ defmodule AWS.CloudWatchLogs do
   size of 1MB (up to 10,000 log events). You can get additional log events by
   specifying one of the tokens in a subsequent call. This operation can return
   empty results while there are more log events available through the token.
+
+  If you are using CloudWatch cross-account observability, you can use this
+  operation in a monitoring account and view data from the linked source accounts.
+  For more information, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
   """
   def get_log_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -454,17 +492,22 @@ defmodule AWS.CloudWatchLogs do
 
   @doc """
   Returns a list of the fields that are included in log events in the specified
-  log group, along with the percentage of log events that contain each field.
+  log group.
 
-  The search is limited to a time period that you specify.
+  Includes the percentage of log events that contain each field. The search is
+  limited to a time period that you specify.
 
-  In the results, fields that start with @ are fields generated by CloudWatch
+  In the results, fields that start with `@` are fields generated by CloudWatch
   Logs. For example, `@timestamp` is the timestamp of each log event. For more
   information about the fields that are generated by CloudWatch logs, see
   [Supported Logs and Discovered Fields](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData-discoverable-fields.html).
 
   The response results are sorted by the frequency percentage, starting with the
   highest percentage.
+
+  If you are using CloudWatch cross-account observability, you can use this
+  operation in a monitoring account and view data from the linked source accounts.
+  For more information, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
   """
   def get_log_group_fields(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -494,12 +537,16 @@ defmodule AWS.CloudWatchLogs do
   which is the identifier for the log record. You can use the value of `@ptr` in a
   [GetLogRecord](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogRecord.html) operation to get the full log record.
 
-  `GetQueryResults` does not start a query execution. To run a query, use
+  `GetQueryResults` does not start running a query. To run a query, use
   [StartQuery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html).
 
   If the value of the `Status` field in the output is `Running`, this operation
   returns only partial results. If you see a value of `Scheduled` or `Running` for
   the status, you can retry the operation later to see the final results.
+
+  If you are using CloudWatch cross-account observability, you can use this
+  operation in a monitoring account to start queries in linked source accounts.
+  For more information, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
   """
   def get_query_results(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -534,14 +581,43 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Creates a data protection policy for the specified log group.
+
+  A data protection policy can help safeguard sensitive data that's ingested by
+  the log group by auditing and masking the sensitive log data.
+
+  Sensitive data is detected and masked when it is ingested into the log group.
+  When you set a data protection policy, log events ingested into the log group
+  before that time are not masked.
+
+  By default, when a user views a log event that includes masked data, the
+  sensitive data is replaced by asterisks. A user who has the `logs:Unmask`
+  permission can use a
+  [GetLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html) or
+  [FilterLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.html)
+  operation with the `unmask` parameter set to `true` to view the unmasked log
+  events. Users with the `logs:Unmask` can also view unmasked data in the
+  CloudWatch Logs console by running a CloudWatch Logs Insights query with the
+  `unmask` query command.
+
+  For more information, including a list of types of data that can be audited and
+  masked, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
+  """
+  def put_data_protection_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutDataProtectionPolicy", input, options)
+  end
+
+  @doc """
   Creates or updates a destination.
 
   This operation is used only to create destinations for cross-account
   subscriptions.
 
   A destination encapsulates a physical resource (such as an Amazon Kinesis
-  stream) and enables you to subscribe to a real-time stream of log events for a
-  different account, ingested using
+  stream). With a destination, you can subscribe to a real-time stream of log
+  events for a different account, ingested using
   [PutLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html).  Through an access policy, a destination controls what is written to it. By
   default, `PutDestination` does not set any access policy with the destination,
   which means a cross-account user cannot call
@@ -595,26 +671,27 @@ defmodule AWS.CloudWatchLogs do
     * None of the log events in the batch can be more than 2 hours in
   the future.
 
-    * None of the log events in the batch can be older than 14 days or
-  older than the retention period of the log group.
+    * None of the log events in the batch can be more than 14 days in
+  the past. Also, none of the log events can be from earlier than the retention
+  period of the log group.
 
     * The log events in the batch must be in chronological order by
-  their timestamp. The timestamp is the time the event occurred, expressed as the
-  number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In Amazon Web Services
-  Tools for PowerShell and the Amazon Web Services SDK for .NET, the timestamp is
-  specified in .NET format: yyyy-mm-ddThh:mm:ss. For example,
-  2017-09-15T13:45:30.)
+  their timestamp. The timestamp is the time that the event occurred, expressed as
+  the number of milliseconds after `Jan 1, 1970 00:00:00 UTC`. (In Amazon Web
+  Services Tools for PowerShell and the Amazon Web Services SDK for .NET, the
+  timestamp is specified in .NET format: `yyyy-mm-ddThh:mm:ss`. For example,
+  `2017-09-15T13:45:30`.)
 
     * A batch of log events in a single request cannot span more than 24
   hours. Otherwise, the operation fails.
 
     * The maximum number of log events in a batch is 10,000.
 
-    * There is a quota of 5 requests per second per log stream.
+    * There is a quota of five requests per second per log stream.
   Additional requests are throttled. This quota can't be changed.
 
   If a call to `PutLogEvents` returns "UnrecognizedClientException" the most
-  likely cause is an invalid Amazon Web Services access key ID or secret key.
+  likely cause is a non-valid Amazon Web Services access key ID or secret key.
   """
   def put_log_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -626,7 +703,7 @@ defmodule AWS.CloudWatchLogs do
   Creates or updates a metric filter and associates it with the specified log
   group.
 
-  Metric filters allow you to configure rules to extract metric data from log
+  With metric filters, you can configure rules to extract metric data from log
   events ingested through
   [PutLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html).  The maximum number of metric filters that can be associated with a log group is
   100.
@@ -640,9 +717,9 @@ defmodule AWS.CloudWatchLogs do
   dimension is treated as a separate metric and accrues charges as a separate
   custom metric.
 
-  To help prevent accidental high charges, Amazon disables a metric filter if it
-  generates 1000 different name/value pairs for the dimensions that you have
-  specified within a certain amount of time.
+  CloudWatch Logs disables a metric filter if it generates 1,000 different
+  name/value pairs for your specified dimensions within a certain amount of time.
+  This helps to prevent accidental high charges.
 
   You can also set up a billing alarm to alert you if your charges are higher than
   expected. For more information, see [ Creating a Billing Alarm to Monitor Your
@@ -663,8 +740,8 @@ defmodule AWS.CloudWatchLogs do
   To update a query definition, specify its `queryDefinitionId` in your request.
   The values of `name`, `queryString`, and `logGroupNames` are changed to the
   values that you specify in your update operation. No current values are retained
-  from the current query definition. For example, if you update a current query
-  definition that includes log groups, and you don't specify the `logGroupNames`
+  from the current query definition. For example, imagine updating a current query
+  definition that includes log groups. If you don't specify the `logGroupNames`
   parameter in your update operation, the query definition changes to contain no
   log groups.
 
@@ -692,20 +769,20 @@ defmodule AWS.CloudWatchLogs do
   @doc """
   Sets the retention of the specified log group.
 
-  A retention policy allows you to configure the number of days for which to
+  With a retention policy, you can configure the number of days for which to
   retain log events in the specified log group.
 
   CloudWatch Logs doesn’t immediately delete log events when they reach their
   retention setting. It typically takes up to 72 hours after that before log
   events are deleted, but in rare situations might take longer.
 
-  This means that if you change a log group to have a longer retention setting
-  when it contains log events that are past the expiration date, but haven’t been
-  actually deleted, those log events will take up to 72 hours to be deleted after
-  the new retention date is reached. To make sure that log data is deleted
-  permanently, keep a log group at its lower retention setting until 72 hours has
-  passed after the end of the previous retention period, or you have confirmed
-  that the older log events are deleted.
+  To illustrate, imagine that you change a log group to have a longer retention
+  setting when it contains log events that are past the expiration date, but
+  haven’t been deleted. Those log events will take up to 72 hours to be deleted
+  after the new retention date is reached. To make sure that log data is deleted
+  permanently, keep a log group at its lower retention setting until 72 hours
+  after the previous retention period ends. Alternatively, wait to change the
+  retention setting until you confirm that the earlier log events are deleted.
   """
   def put_retention_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -717,23 +794,23 @@ defmodule AWS.CloudWatchLogs do
   Creates or updates a subscription filter and associates it with the specified
   log group.
 
-  Subscription filters allow you to subscribe to a real-time stream of log events
+  With subscription filters, you can subscribe to a real-time stream of log events
   ingested through
   [PutLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html)
   and have them delivered to a specific destination. When log events are sent to
-  the receiving service, they are Base64 encoded and compressed with the gzip
+  the receiving service, they are Base64 encoded and compressed with the GZIP
   format.
 
   The following destinations are supported for subscription filters:
 
-    * An Amazon Kinesis stream belonging to the same account as the
+    * An Amazon Kinesis data stream belonging to the same account as the
   subscription filter, for same-account delivery.
 
     * A logical destination that belongs to a different account, for
   cross-account delivery.
 
-    * An Amazon Kinesis Firehose delivery stream that belongs to the
-  same account as the subscription filter, for same-account delivery.
+    * An Amazon Kinesis Data Firehose delivery stream that belongs to
+  the same account as the subscription filter, for same-account delivery.
 
     * An Lambda function that belongs to the same account as the
   subscription filter, for same-account delivery.
@@ -758,11 +835,17 @@ defmodule AWS.CloudWatchLogs do
 
   For more information, see [CloudWatch Logs Insights Query Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
 
-  Queries time out after 15 minutes of execution. If your queries are timing out,
+  Queries time out after 15 minutes of runtime. If your queries are timing out,
   reduce the time range being searched or partition your query into a number of
   queries.
 
-  You are limited to 20 concurrent CloudWatch Logs insights queries, including
+  If you are using CloudWatch cross-account observability, you can use this
+  operation in a monitoring account to start a query in a linked source account.
+  For more information, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+  For a cross-account `StartQuery` operation, the query definition must be defined
+  in the monitoring account.
+
+  You can have up to 20 concurrent CloudWatch Logs insights queries, including
   queries that have been added to dashboards.
   """
   def start_query(%Client{} = client, input, options \\ []) do

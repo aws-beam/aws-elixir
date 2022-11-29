@@ -578,6 +578,34 @@ defmodule AWS.Drs do
   end
 
   @doc """
+  Start replication to origin / target region - applies only to protected
+  instances that originated in EC2.
+
+  For recovery instances on target region - starts replication back to origin
+  region. For failback instances on origin region - starts replication to target
+  region to re-protect them.
+  """
+  def reverse_replication(%Client{} = client, input, options \\ []) do
+    url_path = "/ReverseReplication"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Initiates a Job for launching the machine that is being failed back to from the
   specified Recovery Instance.
 
@@ -631,6 +659,32 @@ defmodule AWS.Drs do
   end
 
   @doc """
+  Starts replication for a stopped Source Server.
+
+  This action would make the Source Server protected again and restart billing for
+  it.
+  """
+  def start_replication(%Client{} = client, input, options \\ []) do
+    url_path = "/StartReplication"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Stops the failback process for a specified Recovery Instance.
 
   This changes the Failback State of the Recovery Instance back to
@@ -638,6 +692,32 @@ defmodule AWS.Drs do
   """
   def stop_failback(%Client{} = client, input, options \\ []) do
     url_path = "/StopFailback"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Stops replication for a Source Server.
+
+  This action would make the Source Server unprotected, delete its existing
+  snapshots and stop billing for it.
+  """
+  def stop_replication(%Client{} = client, input, options \\ []) do
+    url_path = "/StopReplication"
     headers = []
     query_params = []
 

@@ -26,6 +26,98 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  Archive application.
+  """
+  def archive_application(%Client{} = client, input, options \\ []) do
+    url_path = "/ArchiveApplication"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Archive wave.
+  """
+  def archive_wave(%Client{} = client, input, options \\ []) do
+    url_path = "/ArchiveWave"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associate applications to wave.
+  """
+  def associate_applications(%Client{} = client, input, options \\ []) do
+    url_path = "/AssociateApplications"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associate source servers to application.
+  """
+  def associate_source_servers(%Client{} = client, input, options \\ []) do
+    url_path = "/AssociateSourceServers"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Allows the user to set the SourceServer.LifeCycle.state property for specific
   Source Server IDs to one of the following: READY_FOR_TEST or READY_FOR_CUTOVER.
 
@@ -53,7 +145,30 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Creates a new ReplicationConfigurationTemplate.
+  Create application.
+  """
+  def create_application(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateApplication"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a new Launch Configuration Template.
   """
   def create_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLaunchConfigurationTemplate"
@@ -99,6 +214,52 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  Create wave.
+  """
+  def create_wave(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateWave"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Delete application.
+  """
+  def delete_application(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteApplication"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes a single Job by ID.
   """
   def delete_job(%Client{} = client, input, options \\ []) do
@@ -122,7 +283,7 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Creates a new ReplicationConfigurationTemplate.
+  Deletes a single Launch Configuration Template by ID.
   """
   def delete_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLaunchConfigurationTemplate"
@@ -214,6 +375,29 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  Delete wave.
+  """
+  def delete_wave(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteWave"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Retrieves detailed job log items with paging.
   """
   def describe_job_log_items(%Client{} = client, input, options \\ []) do
@@ -267,7 +451,8 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Creates a new ReplicationConfigurationTemplate.
+  Lists all Launch Configuration Templates, filtered by Launch Configuration
+  Template IDs
   """
   def describe_launch_configuration_templates(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeLaunchConfigurationTemplates"
@@ -365,6 +550,52 @@ defmodule AWS.Mgn do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Disassociate applications from wave.
+  """
+  def disassociate_applications(%Client{} = client, input, options \\ []) do
+    url_path = "/DisassociateApplications"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Disassociate source servers from application.
+  """
+  def disassociate_source_servers(%Client{} = client, input, options \\ []) do
+    url_path = "/DisassociateSourceServers"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -507,6 +738,52 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  Retrieves all applications or multiple applications by ID.
+  """
+  def list_applications(%Client{} = client, input, options \\ []) do
+    url_path = "/ListApplications"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  List source server post migration custom actions.
+  """
+  def list_source_server_actions(%Client{} = client, input, options \\ []) do
+    url_path = "/ListSourceServerActions"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   List all tags for your Application Migration Service resources.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
@@ -517,6 +794,52 @@ defmodule AWS.Mgn do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List template post migration custom actions.
+  """
+  def list_template_actions(%Client{} = client, input, options \\ []) do
+    url_path = "/ListTemplateActions"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves all waves or multiple waves by ID.
+  """
+  def list_waves(%Client{} = client, input, options \\ []) do
+    url_path = "/ListWaves"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -543,6 +866,98 @@ defmodule AWS.Mgn do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Put source server post migration custom action.
+  """
+  def put_source_server_action(%Client{} = client, input, options \\ []) do
+    url_path = "/PutSourceServerAction"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Put template post migration custom action.
+  """
+  def put_template_action(%Client{} = client, input, options \\ []) do
+    url_path = "/PutTemplateAction"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Remove source server post migration custom action.
+  """
+  def remove_source_server_action(%Client{} = client, input, options \\ []) do
+    url_path = "/RemoveSourceServerAction"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Remove template post migration custom action.
+  """
+  def remove_template_action(%Client{} = client, input, options \\ []) do
+    url_path = "/RemoveTemplateAction"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
     )
   end
 
@@ -704,6 +1119,52 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  Unarchive application.
+  """
+  def unarchive_application(%Client{} = client, input, options \\ []) do
+    url_path = "/UnarchiveApplication"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Unarchive wave.
+  """
+  def unarchive_wave(%Client{} = client, input, options \\ []) do
+    url_path = "/UnarchiveWave"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes the specified set of tags from the specified set of Application
   Migration Service resources.
   """
@@ -723,6 +1184,29 @@ defmodule AWS.Mgn do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Update application.
+  """
+  def update_application(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateApplication"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       headers,
@@ -756,7 +1240,7 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Creates a new ReplicationConfigurationTemplate.
+  Updates an existing Launch Configuration Template by ID.
   """
   def update_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLaunchConfigurationTemplate"
@@ -830,6 +1314,29 @@ defmodule AWS.Mgn do
   """
   def update_source_server_replication_type(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateSourceServerReplicationType"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Update wave.
+  """
+  def update_wave(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateWave"
     headers = []
     query_params = []
 

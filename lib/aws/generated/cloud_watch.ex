@@ -60,7 +60,7 @@ defmodule AWS.CloudWatch do
   To get out of such a situation, you must break the cycle by changing the rule of
   one of the composite alarms in the cycle to remove a dependency that creates the
   cycle. The simplest change to make to break a cycle is to change the `AlarmRule`
-  of one of the alarms to `False`.
+  of one of the alarms to `false`.
 
   Additionally, the evaluation of composite alarms stops if CloudWatch detects a
   cycle in the evaluation path.
@@ -497,15 +497,19 @@ defmodule AWS.CloudWatch do
   You can use the returned metrics with
   [GetMetricData](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html) or
   [GetMetricStatistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html)
-  to obtain statistical data.
+  to get statistical data.
 
   Up to 500 results are returned for any one call. To retrieve additional results,
   use the returned token with subsequent calls.
 
-  After you create a metric, allow up to 15 minutes before the metric appears. You
-  can see statistics about the metric sooner by using
+  After you create a metric, allow up to 15 minutes for the metric to appear. To
+  see metric statistics sooner, use
   [GetMetricData](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html) or
   [GetMetricStatistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html).
+
+  If you are using CloudWatch cross-account observability, you can use this
+  operation in a monitoring account and view metrics from the linked source
+  accounts. For more information, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
 
   `ListMetrics` doesn't return information about metrics if those metrics haven't
   reported data in the past two weeks. To retrieve those metrics, use
@@ -574,7 +578,7 @@ defmodule AWS.CloudWatch do
   To get out of such a situation, you must break the cycle by changing the rule of
   one of the composite alarms in the cycle to remove a dependency that creates the
   cycle. The simplest change to make to break a cycle is to change the `AlarmRule`
-  of one of the alarms to `False`.
+  of one of the alarms to `false`.
 
   Additionally, the evaluation of composite alarms stops if CloudWatch detects a
   cycle in the evaluation path.
@@ -780,11 +784,11 @@ defmodule AWS.CloudWatch do
   Creates or updates a metric stream.
 
   Metric streams can automatically stream CloudWatch metrics to Amazon Web
-  Services destinations including Amazon S3 and to many third-party solutions.
+  Services destinations, including Amazon S3, and to many third-party solutions.
 
   For more information, see [ Using Metric Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html).
 
-  To create a metric stream, you must be logged on to an account that has the
+  To create a metric stream, you must be signed in to an account that has the
   `iam:PassRole` permission and either the `CloudWatchFullAccess` policy or the
   `cloudwatch:PutMetricStream` permission.
 
@@ -800,9 +804,9 @@ defmodule AWS.CloudWatch do
 
   By default, a metric stream always sends the `MAX`, `MIN`, `SUM`, and
   `SAMPLECOUNT` statistics for each metric that is streamed. You can use the
-  `StatisticsConfigurations` parameter to have the metric stream also send
-  additional statistics in the stream. Streaming additional statistics incurs
-  additional costs. For more information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).
+  `StatisticsConfigurations` parameter to have the metric stream send additional
+  statistics in the stream. Streaming additional statistics incurs additional
+  costs. For more information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).
 
   When you use `PutMetricStream` to create a new metric stream, the stream is
   created in the `running` state. If you use it to update an existing stream, the

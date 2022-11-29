@@ -3,8 +3,8 @@
 
 defmodule AWS.TranscribeStreaming do
   @moduledoc """
-  Amazon Transcribe streaming offers two types of real-time transcription:
-  **Standard** and **Medical**.
+  Amazon Transcribe streaming offers three main types of real-time transcription:
+  **Standard**, **Medical**, and **Call Analytics**.
 
     * **Standard transcriptions** are the most common option. Refer to
   for details.
@@ -13,6 +13,10 @@ defmodule AWS.TranscribeStreaming do
   and incorporate medical terms. A common use case for this service is
   transcribing doctor-patient dialogue in real time, so doctors can focus on their
   patient instead of taking notes. Refer to for details.
+
+    * **Call Analytics transcriptions** are designed for use with call
+  center audio on two different channels; if you're looking for insight into
+  customer service calls, use this option. Refer to for details.
   """
 
   alias AWS.Client
@@ -36,8 +40,97 @@ defmodule AWS.TranscribeStreaming do
 
   @doc """
   Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
+  Amazon Transcribe and the transcription results are streamed to your
+  application.
+
+  Use this operation for [Call Analytics](https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html)
+  transcriptions.
+
+  The following parameters are required:
+
+    * `language-code`
+
+    * `media-encoding`
+
+    * `sample-rate`
+
+  For more information on streaming with Amazon Transcribe, see [Transcribing streaming
+  audio](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html).
+  """
+  def start_call_analytics_stream_transcription(%Client{} = client, input, options \\ []) do
+    url_path = "/call-analytics-stream-transcription"
+
+    {headers, input} =
+      [
+        {"ContentIdentificationType", "x-amzn-transcribe-content-identification-type"},
+        {"ContentRedactionType", "x-amzn-transcribe-content-redaction-type"},
+        {"EnablePartialResultsStabilization",
+         "x-amzn-transcribe-enable-partial-results-stabilization"},
+        {"LanguageCode", "x-amzn-transcribe-language-code"},
+        {"LanguageModelName", "x-amzn-transcribe-language-model-name"},
+        {"MediaEncoding", "x-amzn-transcribe-media-encoding"},
+        {"MediaSampleRateHertz", "x-amzn-transcribe-sample-rate"},
+        {"PartialResultsStability", "x-amzn-transcribe-partial-results-stability"},
+        {"PiiEntityTypes", "x-amzn-transcribe-pii-entity-types"},
+        {"SessionId", "x-amzn-transcribe-session-id"},
+        {"VocabularyFilterMethod", "x-amzn-transcribe-vocabulary-filter-method"},
+        {"VocabularyFilterName", "x-amzn-transcribe-vocabulary-filter-name"},
+        {"VocabularyName", "x-amzn-transcribe-vocabulary-name"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amzn-transcribe-content-identification-type", "ContentIdentificationType"},
+          {"x-amzn-transcribe-content-redaction-type", "ContentRedactionType"},
+          {"x-amzn-transcribe-enable-partial-results-stabilization",
+           "EnablePartialResultsStabilization"},
+          {"x-amzn-transcribe-language-code", "LanguageCode"},
+          {"x-amzn-transcribe-language-model-name", "LanguageModelName"},
+          {"x-amzn-transcribe-media-encoding", "MediaEncoding"},
+          {"x-amzn-transcribe-sample-rate", "MediaSampleRateHertz"},
+          {"x-amzn-transcribe-partial-results-stability", "PartialResultsStability"},
+          {"x-amzn-transcribe-pii-entity-types", "PiiEntityTypes"},
+          {"x-amzn-request-id", "RequestId"},
+          {"x-amzn-transcribe-session-id", "SessionId"},
+          {"x-amzn-transcribe-vocabulary-filter-method", "VocabularyFilterMethod"},
+          {"x-amzn-transcribe-vocabulary-filter-name", "VocabularyFilterName"},
+          {"x-amzn-transcribe-vocabulary-name", "VocabularyName"}
+        ]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
   Amazon Transcribe Medical and the transcription results are streamed to your
   application.
+
+  The following parameters are required:
+
+    * `language-code`
+
+    * `media-encoding`
+
+    * `sample-rate`
 
   For more information on streaming with Amazon Transcribe Medical, see
   [Transcribing streaming audio](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html).
@@ -103,15 +196,13 @@ defmodule AWS.TranscribeStreaming do
   Amazon Transcribe and the transcription results are streamed to your
   application.
 
-  The following are encoded as headers:
+  The following parameters are required:
 
-    * language-code
+    * `language-code` or `identify-language`
 
-    * media-encoding
+    * `media-encoding`
 
-    * sample-rate
-
-    * session-id
+    * `sample-rate`
 
   For more information on streaming with Amazon Transcribe, see [Transcribing streaming
   audio](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html).

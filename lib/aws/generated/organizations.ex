@@ -92,8 +92,8 @@ defmodule AWS.Organizations do
   Sends a response to the originator of a handshake agreeing to the action
   proposed by the handshake request.
 
-  This operation can be called only by the following principals when they also
-  have the relevant IAM permissions:
+  You can only call this operation by the following principals when they also have
+  the relevant IAM permissions:
 
     * **Invitation to join** or ## Approve all features request
   handshakes: only a principal from the member account.
@@ -221,7 +221,7 @@ defmodule AWS.Organizations do
   in progress. You might need to wait a few minutes before you can successfully
   access the account. To check the status of the request, do one of the following:
 
-    * Use the `Id` member of the `CreateAccountStatus` response element
+    * Use the `Id` value of the `CreateAccountStatus` response element
   from this operation to provide as a parameter to the
   `DescribeCreateAccountStatus` operation.
 
@@ -538,6 +538,17 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+  Deletes the resource policy from your organization.
+
+  You can only call this operation from the organization's management account.
+  """
+  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
+  end
+
+  @doc """
   Removes the specified member Amazon Web Services account as a delegated
   administrator for the specified Amazon Web Services service.
 
@@ -667,6 +678,18 @@ defmodule AWS.Organizations do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribePolicy", input, options)
+  end
+
+  @doc """
+  Retrieves information about a resource policy.
+
+  You can only call this operation from the organization's management account or
+  by a member account that is a delegated administrator for an AWS service.
+  """
+  def describe_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeResourcePolicy", input, options)
   end
 
   @doc """
@@ -845,7 +868,7 @@ defmodule AWS.Organizations do
   see [Integrating Organizations with Other Amazon Web Services Services](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
   in the *Organizations User Guide.*
 
-  This operation can be called only from the organization's management account and
+  You can only call this operation from the organization's management account and
   only if the organization has [enabled all features](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html).
   """
   def enable_aws_service_access(%Client{} = client, input, options \\ []) do
@@ -1308,6 +1331,17 @@ defmodule AWS.Organizations do
     meta = metadata()
 
     Request.request_post(client, meta, "MoveAccount", input, options)
+  end
+
+  @doc """
+  Creates or updates a resource policy.
+
+  You can only call this operation from the organization's management account.
+  """
+  def put_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
 
   @doc """

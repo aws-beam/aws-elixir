@@ -436,7 +436,7 @@ defmodule AWS.ECS do
 
   If you use a condition key in your IAM policy to refine the conditions for the
   policy statement, for example limit the actions to a specific cluster, you
-  recevie an `AccessDeniedException` when there is a mismatch between the
+  receive an `AccessDeniedException` when there is a mismatch between the
   condition key value and the corresponding parameter value.
   """
   def execute_command(%Client{} = client, input, options \\ []) do
@@ -512,6 +512,22 @@ defmodule AWS.ECS do
     meta = metadata()
 
     Request.request_post(client, meta, "ListServices", input, options)
+  end
+
+  @doc """
+  This operation lists all of the services that are associated with a Cloud Map
+  namespace.
+
+  This list might include services in different clusters. In contrast,
+  `ListServices` can only list services in one cluster at a time. If you need to
+  filter the list of services in a single cluster by various parameters, use
+  `ListServices`. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
+  """
+  def list_services_by_namespace(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListServicesByNamespace", input, options)
   end
 
   @doc """
@@ -875,6 +891,10 @@ defmodule AWS.ECS do
   information, see [Updating the Amazon ECS container agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/agent-update-ecs-ami.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
+  Agent updates with the `UpdateContainerAgent` API operation do not apply to
+  Windows container instances. We recommend that you launch new container
+  instances to update the agent version in your Windows clusters.
+
   The `UpdateContainerAgent` API requires an Amazon ECS-optimized AMI or Amazon
   Linux AMI with the `ecs-init` service installed and running. For help updating
   the Amazon ECS container agent on other operating systems, see [Manually updating the Amazon ECS container
@@ -1093,14 +1113,14 @@ defmodule AWS.ECS do
 
   To learn more about Amazon ECS task protection, see [Task scale-in
   protection](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-scale-in-protection.html)
-  in the *Amazon Elastic Container Service Developer Guide*.
+  in the * *Amazon Elastic Container Service Developer Guide* *.
 
   This operation is only supported for tasks belonging to an Amazon ECS service.
   Invoking this operation for a standalone task will result in an `TASK_NOT_VALID`
-  failure. For more information, see [API failure reasons](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html.html).
+  failure. For more information, see [API failure reasons](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html).
 
   If you prefer to set task protection from within the container, we recommend
-  using the [Amazon ECS container agent endpoint](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-endpoint.html).
+  using the [Task scale-in protection endpoint](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-scale-in-protection-endpoint.html).
   """
   def update_task_protection(%Client{} = client, input, options \\ []) do
     meta = metadata()

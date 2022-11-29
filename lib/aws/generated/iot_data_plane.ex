@@ -219,11 +219,21 @@ defmodule AWS.IoTDataPlane do
   """
   def publish(%Client{} = client, topic, input, options \\ []) do
     url_path = "/topics/#{AWS.Util.encode_uri(topic)}"
-    headers = []
+
+    {headers, input} =
+      [
+        {"correlationData", "x-amz-mqtt5-correlation-data"},
+        {"payloadFormatIndicator", "x-amz-mqtt5-payload-format-indicator"},
+        {"userProperties", "x-amz-mqtt5-user-properties"}
+      ]
+      |> Request.build_params(input)
 
     {query_params, input} =
       [
+        {"contentType", "contentType"},
+        {"messageExpiry", "messageExpiry"},
         {"qos", "qos"},
+        {"responseTopic", "responseTopic"},
         {"retain", "retain"}
       ]
       |> Request.build_params(input)

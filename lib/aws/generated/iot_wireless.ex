@@ -992,6 +992,11 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Get the position information for a given resource.
+
+  This action is no longer supported. Calls to retrieve the position information
+  should use the
+  [GetResourcePosition](https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html)
+  API operation instead.
   """
   def get_position(%Client{} = client, resource_identifier, resource_type, options \\ []) do
     url_path = "/positions/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -1012,6 +1017,11 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Get position configuration for a given resource.
+
+  This action is no longer supported. Calls to retrieve the position configuration
+  should use the
+  [GetResourcePosition](https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html)
+  API operation instead.
   """
   def get_position_configuration(
         %Client{} = client,
@@ -1033,6 +1043,32 @@ defmodule AWS.IoTWireless do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Get estimated position information as a payload in GeoJSON format.
+
+  The payload measurement data is resolved using solvers that are provided by
+  third-party vendors.
+  """
+  def get_position_estimate(%Client{} = client, input, options \\ []) do
+    url_path = "/position-estimate"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1094,6 +1130,29 @@ defmodule AWS.IoTWireless do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Get the position information for a given wireless device or a wireless gateway
+  resource.
+
+  The postion information uses the [ World Geodetic System (WGS84)](https://gisgeography.com/wgs84-world-geodetic-system/).
+  """
+  def get_resource_position(%Client{} = client, resource_identifier, resource_type, options \\ []) do
+    url_path = "/resource-positions/#{AWS.Util.encode_uri(resource_identifier)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"resourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1506,6 +1565,11 @@ defmodule AWS.IoTWireless do
 
   @doc """
   List position configurations for a given resource, such as positioning solvers.
+
+  This action is no longer supported. Calls to retrieve position information
+  should use the
+  [GetResourcePosition](https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html)
+  API operation instead.
   """
   def list_position_configurations(
         %Client{} = client,
@@ -1791,6 +1855,11 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Put position configuration for a given resource.
+
+  This action is no longer supported. Calls to update the position configuration
+  should use the
+  [UpdateResourcePosition](https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html)
+  API operation instead.
   """
   def put_position_configuration(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/position-configurations/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -2269,6 +2338,11 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Update the position information of a resource.
+
+  This action is no longer supported. Calls to update the position information
+  should use the
+  [UpdateResourcePosition](https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html)
+  API operation instead.
   """
   def update_position(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/positions/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -2306,6 +2380,37 @@ defmodule AWS.IoTWireless do
       [
         {"IdentifierType", "identifierType"},
         {"PartnerType", "partnerType"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Update the position information of a given wireless device or a wireless gateway
+  resource.
+
+  The postion coordinates are based on the [ World Geodetic System (WGS84)](https://gisgeography.com/wgs84-world-geodetic-system/).
+  """
+  def update_resource_position(%Client{} = client, resource_identifier, input, options \\ []) do
+    url_path = "/resource-positions/#{AWS.Util.encode_uri(resource_identifier)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"ResourceType", "resourceType"}
       ]
       |> Request.build_params(input)
 

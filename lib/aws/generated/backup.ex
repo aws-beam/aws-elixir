@@ -32,6 +32,37 @@ defmodule AWS.Backup do
   end
 
   @doc """
+  This action removes the specified legal hold on a recovery point.
+
+  This action can only be performed by a user with sufficient permissions.
+  """
+  def cancel_legal_hold(%Client{} = client, legal_hold_id, input, options \\ []) do
+    url_path = "/legal-holds/#{AWS.Util.encode_uri(legal_hold_id)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"CancelDescription", "cancelDescription"},
+        {"RetainRecordInDays", "retainRecordInDays"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a backup plan using a backup plan name and backup rules.
 
   A backup plan is a document that contains information that Backup uses to
@@ -95,6 +126,34 @@ defmodule AWS.Backup do
   """
   def create_framework(%Client{} = client, input, options \\ []) do
     url_path = "/audit/frameworks"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This action creates a legal hold on a recovery point (backup).
+
+  A legal hold is a restraint on altering or deleting a backup until an authorized
+  user cancels the legal hold. Any actions to delete or disassociate a recovery
+  point will fail with an error if one or more active legal holds are on the
+  recovery point.
+  """
+  def create_legal_hold(%Client{} = client, input, options \\ []) do
+    url_path = "/legal-holds/"
     headers = []
     query_params = []
 
@@ -345,6 +404,17 @@ defmodule AWS.Backup do
 
   If the recovery point ID belongs to a continuous backup, calling this endpoint
   deletes the existing continuous backup and stops future continuous backup.
+
+  When an IAM role's permissions are insufficient to call this API, the service
+  sends back an HTTP 200 response with an empty HTTP body, but the recovery point
+  is not deleted. Instead, it enters an `EXPIRED` state.
+
+  `EXPIRED` recovery points can be deleted with this API once the IAM role has the
+  `iam:CreateServiceLinkedRole` action. To learn more about adding this role, see
+  [ Troubleshooting manual deletions](https://docs.aws.amazon.com/aws-backup/latest/devguide/deleting-backups.html#deleting-backups-troubleshooting).
+
+  If the user or role is deleted or the permission within the role is removed, the
+  deletion will not be successful and will enter an `EXPIRED` state.
   """
   def delete_recovery_point(
         %Client{} = client,
@@ -599,6 +669,38 @@ defmodule AWS.Backup do
   end
 
   @doc """
+  This action to a specific child (nested) recovery point removes the relationship
+  between the specified recovery point and its parent (composite) recovery point.
+  """
+  def disassociate_recovery_point_from_parent(
+        %Client{} = client,
+        backup_vault_name,
+        recovery_point_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points/#{AWS.Util.encode_uri(recovery_point_arn)}/parentAssociation"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Returns the backup plan that is specified by the plan ID as a backup template.
   """
   def export_backup_plan_template(%Client{} = client, backup_plan_id, options \\ []) do
@@ -716,6 +818,22 @@ defmodule AWS.Backup do
   end
 
   @doc """
+  This action returns details for a specified legal hold.
+
+  The details are the body of a legal hold in JSON format, in addition to
+  metadata.
+  """
+  def get_legal_hold(%Client{} = client, legal_hold_id, options \\ []) do
+    url_path = "/legal-holds/#{AWS.Util.encode_uri(legal_hold_id)}/"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Returns a set of metadata key-value pairs that were used to create the backup.
   """
   def get_recovery_point_restore_metadata(
@@ -762,6 +880,7 @@ defmodule AWS.Backup do
         by_complete_before \\ nil,
         by_created_after \\ nil,
         by_created_before \\ nil,
+        by_parent_job_id \\ nil,
         by_resource_arn \\ nil,
         by_resource_type \\ nil,
         by_state \\ nil,
@@ -804,6 +923,13 @@ defmodule AWS.Backup do
     query_params =
       if !is_nil(by_resource_arn) do
         [{"resourceArn", by_resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_parent_job_id) do
+        [{"parentJobId", by_parent_job_id} | query_params]
       else
         query_params
       end
@@ -1039,6 +1165,7 @@ defmodule AWS.Backup do
         by_created_after \\ nil,
         by_created_before \\ nil,
         by_destination_vault_arn \\ nil,
+        by_parent_job_id \\ nil,
         by_resource_arn \\ nil,
         by_resource_type \\ nil,
         by_state \\ nil,
@@ -1081,6 +1208,13 @@ defmodule AWS.Backup do
     query_params =
       if !is_nil(by_resource_arn) do
         [{"resourceArn", by_resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_parent_job_id) do
+        [{"parentJobId", by_parent_job_id} | query_params]
       else
         query_params
       end
@@ -1161,6 +1295,33 @@ defmodule AWS.Backup do
   end
 
   @doc """
+  This action returns metadata about active and previous legal holds.
+  """
+  def list_legal_holds(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/legal-holds/"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Returns an array of resources successfully backed up by Backup, including the
   time the resource was saved, an Amazon Resource Name (ARN) of the resource, and
   a resource type.
@@ -1203,6 +1364,7 @@ defmodule AWS.Backup do
         by_backup_plan_id \\ nil,
         by_created_after \\ nil,
         by_created_before \\ nil,
+        by_parent_recovery_point_arn \\ nil,
         by_resource_arn \\ nil,
         by_resource_type \\ nil,
         max_results \\ nil,
@@ -1242,6 +1404,13 @@ defmodule AWS.Backup do
       end
 
     query_params =
+      if !is_nil(by_parent_recovery_point_arn) do
+        [{"parentRecoveryPointArn", by_parent_recovery_point_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(by_created_before) do
         [{"createdBefore", by_created_before} | query_params]
       else
@@ -1258,6 +1427,40 @@ defmodule AWS.Backup do
     query_params =
       if !is_nil(by_backup_plan_id) do
         [{"backupPlanId", by_backup_plan_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  This action returns recovery point ARNs (Amazon Resource Names) of the specified
+  legal hold.
+  """
+  def list_recovery_points_by_legal_hold(
+        %Client{} = client,
+        legal_hold_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/legal-holds/#{AWS.Util.encode_uri(legal_hold_id)}/recovery-points"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -1641,6 +1844,11 @@ defmodule AWS.Backup do
 
   @doc """
   Attempts to cancel a job to create a one-time backup of a resource.
+
+  This action is not supported for the following services: Amazon FSx for Windows
+  File Server, Amazon FSx for Lustre, FSx for ONTAP , Amazon FSx for OpenZFS,
+  Amazon DocumentDB (with MongoDB compatibility), Amazon RDS, Amazon Aurora, and
+  Amazon Neptune.
   """
   def stop_backup_job(%Client{} = client, backup_job_id, input, options \\ []) do
     url_path = "/backup-jobs/#{AWS.Util.encode_uri(backup_job_id)}"

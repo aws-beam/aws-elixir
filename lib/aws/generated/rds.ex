@@ -278,6 +278,34 @@ defmodule AWS.RDS do
   end
 
   @doc """
+  Creates a blue/green deployment.
+
+  A blue/green deployment creates a staging environment that copies the production
+  environment. In a blue/green deployment, the blue environment is the current
+  production environment. The green environment is the staging environment. The
+  staging environment stays in sync with the current production environment using
+  logical replication.
+
+  You can make changes to the databases in the green environment without affecting
+  production workloads. For example, you can upgrade the major or minor DB engine
+  version, change database parameters, or make schema changes in the staging
+  environment. You can thoroughly test changes in the green environment. When
+  ready, you can switch over the environments to promote the green environment to
+  be the new production environment. The switchover typically takes under a
+  minute.
+
+  For more information, see [Using Amazon RDS Blue/Green Deployments for database updates](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html)
+  in the *Amazon RDS User Guide* and [ Using Amazon RDS Blue/Green Deployments for database
+  updates](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html)
+  in the *Amazon Aurora User Guide*.
+  """
+  def create_blue_green_deployment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateBlueGreenDeployment", input, options)
+  end
+
+  @doc """
   Creates a custom DB engine version (CEV).
 
   A CEV is a binary volume snapshot of a database engine and specific AMI. The
@@ -638,6 +666,20 @@ defmodule AWS.RDS do
   end
 
   @doc """
+  Deletes a blue/green deployment.
+
+  For more information, see [Using Amazon RDS Blue/Green Deployments for database updates](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html)
+  in the *Amazon RDS User Guide* and [ Using Amazon RDS Blue/Green Deployments for database
+  updates](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html)
+  in the *Amazon Aurora User Guide*.
+  """
+  def delete_blue_green_deployment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteBlueGreenDeployment", input, options)
+  end
+
+  @doc """
   Deletes a custom engine version.
 
   To run this command, make sure you meet the following prerequisites:
@@ -913,6 +955,20 @@ defmodule AWS.RDS do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
+  end
+
+  @doc """
+  Returns information about blue/green deployments.
+
+  For more information, see [Using Amazon RDS Blue/Green Deployments for database updates](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html)
+  in the *Amazon RDS User Guide* and [ Using Amazon RDS Blue/Green Deployments for database
+  updates](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html)
+  in the *Amazon Aurora User Guide*.
+  """
+  def describe_blue_green_deployments(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBlueGreenDeployments", input, options)
   end
 
   @doc """
@@ -2392,6 +2448,24 @@ defmodule AWS.RDS do
       input,
       options
     )
+  end
+
+  @doc """
+  Switches over a blue/green deployment.
+
+  Before you switch over, production traffic is routed to the databases in the
+  blue environment. After you switch over, production traffic is routed to the
+  databases in the green environment.
+
+  For more information, see [Using Amazon RDS Blue/Green Deployments for database updates](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html)
+  in the *Amazon RDS User Guide* and [ Using Amazon RDS Blue/Green Deployments for database
+  updates](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html)
+  in the *Amazon Aurora User Guide*.
+  """
+  def switchover_blue_green_deployment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SwitchoverBlueGreenDeployment", input, options)
   end
 
   @doc """

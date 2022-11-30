@@ -37,6 +37,7 @@ defmodule AWS.GameSparks do
     Request.request_rest(
       client,
       meta,
+      "CreateGame",
       :post,
       url_path,
       query_params,
@@ -60,6 +61,7 @@ defmodule AWS.GameSparks do
     Request.request_rest(
       client,
       meta,
+      "CreateSnapshot",
       :post,
       url_path,
       query_params,
@@ -83,6 +85,7 @@ defmodule AWS.GameSparks do
     Request.request_rest(
       client,
       meta,
+      "CreateStage",
       :post,
       url_path,
       query_params,
@@ -106,6 +109,7 @@ defmodule AWS.GameSparks do
     Request.request_rest(
       client,
       meta,
+      "DeleteGame",
       :delete,
       url_path,
       query_params,
@@ -129,6 +133,7 @@ defmodule AWS.GameSparks do
     Request.request_rest(
       client,
       meta,
+      "DeleteStage",
       :delete,
       url_path,
       query_params,
@@ -164,6 +169,7 @@ defmodule AWS.GameSparks do
     Request.request_rest(
       client,
       meta,
+      "DisconnectPlayer",
       :post,
       url_path,
       query_params,
@@ -186,7 +192,18 @@ defmodule AWS.GameSparks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ExportSnapshot",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -199,7 +216,18 @@ defmodule AWS.GameSparks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetExtension",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -214,7 +242,18 @@ defmodule AWS.GameSparks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetExtensionVersion",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -227,7 +266,18 @@ defmodule AWS.GameSparks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetGame",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -247,7 +297,18 @@ defmodule AWS.GameSparks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetGameConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -262,7 +323,18 @@ defmodule AWS.GameSparks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetGeneratedCodeJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -286,7 +358,18 @@ defmodule AWS.GameSparks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPlayerConnectionStatus",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -308,7 +391,18 @@ defmodule AWS.GameSparks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSnapshot",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -321,7 +415,18 @@ defmodule AWS.GameSparks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetStage",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -349,7 +454,18 @@ defmodule AWS.GameSparks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetStageDeployment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -366,7 +482,18 @@ defmodule AWS.GameSparks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ImportGameConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -404,7 +531,18 @@ defmodule AWS.GameSparks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListExtensionVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -433,7 +571,18 @@ defmodule AWS.GameSparks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListExtensions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -460,7 +609,18 @@ defmodule AWS.GameSparks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListGames",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -496,7 +656,18 @@ defmodule AWS.GameSparks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListGeneratedCodeJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -529,7 +700,18 @@ defmodule AWS.GameSparks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSnapshots",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -565,7 +747,18 @@ defmodule AWS.GameSparks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListStageDeployments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -598,7 +791,18 @@ defmodule AWS.GameSparks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListStages",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -611,7 +815,18 @@ defmodule AWS.GameSparks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -633,6 +848,7 @@ defmodule AWS.GameSparks do
     Request.request_rest(
       client,
       meta,
+      "StartGeneratedCodeJob",
       :post,
       url_path,
       query_params,
@@ -666,6 +882,7 @@ defmodule AWS.GameSparks do
     Request.request_rest(
       client,
       meta,
+      "StartStageDeployment",
       :post,
       url_path,
       query_params,
@@ -689,6 +906,7 @@ defmodule AWS.GameSparks do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -717,6 +935,7 @@ defmodule AWS.GameSparks do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -740,6 +959,7 @@ defmodule AWS.GameSparks do
     Request.request_rest(
       client,
       meta,
+      "UpdateGame",
       :patch,
       url_path,
       query_params,
@@ -763,6 +983,7 @@ defmodule AWS.GameSparks do
     Request.request_rest(
       client,
       meta,
+      "UpdateGameConfiguration",
       :patch,
       url_path,
       query_params,
@@ -788,6 +1009,7 @@ defmodule AWS.GameSparks do
     Request.request_rest(
       client,
       meta,
+      "UpdateSnapshot",
       :patch,
       url_path,
       query_params,
@@ -811,6 +1033,7 @@ defmodule AWS.GameSparks do
     Request.request_rest(
       client,
       meta,
+      "UpdateStage",
       :patch,
       url_path,
       query_params,

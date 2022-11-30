@@ -44,6 +44,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "BatchPutPropertyValues",
       :post,
       url_path,
       query_params,
@@ -75,6 +76,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "CreateComponentType",
       :post,
       url_path,
       query_params,
@@ -98,6 +100,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "CreateEntity",
       :post,
       url_path,
       query_params,
@@ -121,6 +124,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "CreateScene",
       :post,
       url_path,
       query_params,
@@ -144,6 +148,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "CreateWorkspace",
       :post,
       url_path,
       query_params,
@@ -175,6 +180,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "DeleteComponentType",
       :delete,
       url_path,
       query_params,
@@ -205,6 +211,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "DeleteEntity",
       :delete,
       url_path,
       query_params,
@@ -230,6 +237,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "DeleteScene",
       :delete,
       url_path,
       query_params,
@@ -253,6 +261,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "DeleteWorkspace",
       :delete,
       url_path,
       query_params,
@@ -277,6 +286,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "ExecuteQuery",
       :post,
       url_path,
       query_params,
@@ -299,7 +309,18 @@ defmodule AWS.IoTTwinMaker do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetComponentType",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -314,7 +335,18 @@ defmodule AWS.IoTTwinMaker do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEntity",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -327,7 +359,18 @@ defmodule AWS.IoTTwinMaker do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPricingPlan",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -346,6 +389,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "GetPropertyValue",
       :post,
       url_path,
       query_params,
@@ -374,6 +418,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "GetPropertyValueHistory",
       :post,
       url_path,
       query_params,
@@ -396,7 +441,18 @@ defmodule AWS.IoTTwinMaker do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetScene",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -409,7 +465,18 @@ defmodule AWS.IoTTwinMaker do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetWorkspace",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -425,6 +492,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "ListComponentTypes",
       :post,
       url_path,
       query_params,
@@ -448,6 +516,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "ListEntities",
       :post,
       url_path,
       query_params,
@@ -471,6 +540,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "ListScenes",
       :post,
       url_path,
       query_params,
@@ -494,6 +564,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "ListTagsForResource",
       :post,
       url_path,
       query_params,
@@ -517,6 +588,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "ListWorkspaces",
       :post,
       url_path,
       query_params,
@@ -540,6 +612,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -569,6 +642,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -597,7 +671,18 @@ defmodule AWS.IoTTwinMaker do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateComponentType",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -612,7 +697,18 @@ defmodule AWS.IoTTwinMaker do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateEntity",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -628,6 +724,7 @@ defmodule AWS.IoTTwinMaker do
     Request.request_rest(
       client,
       meta,
+      "UpdatePricingPlan",
       :post,
       url_path,
       query_params,
@@ -650,7 +747,18 @@ defmodule AWS.IoTTwinMaker do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateScene",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -663,6 +771,17 @@ defmodule AWS.IoTTwinMaker do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateWorkspace",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

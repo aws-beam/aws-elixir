@@ -50,6 +50,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "AssociateAssets",
       :post,
       url_path,
       query_params,
@@ -80,6 +81,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "AssociateTimeSeriesToAssetProperty",
       :post,
       url_path,
       query_params,
@@ -103,6 +105,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "BatchAssociateProjectAssets",
       :post,
       url_path,
       query_params,
@@ -126,6 +129,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "BatchDisassociateProjectAssets",
       :post,
       url_path,
       query_params,
@@ -153,6 +157,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "BatchGetAssetPropertyAggregates",
       :post,
       url_path,
       query_params,
@@ -179,6 +184,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "BatchGetAssetPropertyValue",
       :post,
       url_path,
       query_params,
@@ -205,6 +211,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "BatchGetAssetPropertyValueHistory",
       :post,
       url_path,
       query_params,
@@ -254,6 +261,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "BatchPutAssetPropertyValue",
       :post,
       url_path,
       query_params,
@@ -279,6 +287,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "CreateAccessPolicy",
       :post,
       url_path,
       query_params,
@@ -305,6 +314,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "CreateAsset",
       :post,
       url_path,
       query_params,
@@ -334,6 +344,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "CreateAssetModel",
       :post,
       url_path,
       query_params,
@@ -365,6 +376,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "CreateBulkImportJob",
       :post,
       url_path,
       query_params,
@@ -388,6 +400,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "CreateDashboard",
       :post,
       url_path,
       query_params,
@@ -415,6 +428,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "CreateGateway",
       :post,
       url_path,
       query_params,
@@ -445,6 +459,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "CreatePortal",
       :post,
       url_path,
       query_params,
@@ -471,6 +486,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "CreateProject",
       :post,
       url_path,
       query_params,
@@ -502,6 +518,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "DeleteAccessPolicy",
       :delete,
       url_path,
       query_params,
@@ -537,6 +554,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "DeleteAsset",
       :delete,
       url_path,
       query_params,
@@ -572,6 +590,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "DeleteAssetModel",
       :delete,
       url_path,
       query_params,
@@ -600,6 +619,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "DeleteDashboard",
       :delete,
       url_path,
       query_params,
@@ -626,6 +646,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "DeleteGateway",
       :delete,
       url_path,
       query_params,
@@ -654,6 +675,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "DeletePortal",
       :delete,
       url_path,
       query_params,
@@ -682,6 +704,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "DeleteProject",
       :delete,
       url_path,
       query_params,
@@ -729,6 +752,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "DeleteTimeSeries",
       :post,
       url_path,
       query_params,
@@ -750,7 +774,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAccessPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -770,7 +805,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAsset",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -795,7 +841,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAssetModel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -819,7 +876,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAssetProperty",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -835,7 +903,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeBulkImportJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -848,7 +927,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDashboard",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -865,7 +955,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDefaultEncryptionConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -878,7 +979,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeGateway",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -905,7 +1017,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeGatewayCapabilityConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -918,7 +1041,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeLoggingOptions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -931,7 +1065,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribePortal",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -944,7 +1089,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeProject",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -957,7 +1113,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeStorageConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1010,7 +1177,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeTimeSeries",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1027,6 +1205,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "DisassociateAssets",
       :post,
       url_path,
       query_params,
@@ -1057,6 +1236,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "DisassociateTimeSeriesFromAssetProperty",
       :post,
       url_path,
       query_params,
@@ -1180,7 +1360,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAssetPropertyAggregates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1232,7 +1423,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAssetPropertyValue",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1332,7 +1534,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAssetPropertyValueHistory",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1468,7 +1681,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetInterpolatedAssetPropertyValues",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1542,7 +1766,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAccessPolicies",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1586,7 +1821,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAssetModelProperties",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1613,7 +1859,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAssetModels",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1657,7 +1914,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAssetProperties",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1701,7 +1969,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAssetRelationships",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1761,7 +2040,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAssets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1817,7 +2107,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAssociatedAssets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1860,7 +2161,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListBulkImportJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1900,7 +2212,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDashboards",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1927,7 +2250,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListGateways",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1954,7 +2288,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPortals",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1988,7 +2333,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProjectAssets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2028,7 +2384,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProjects",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2048,7 +2415,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2104,7 +2482,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTimeSeries",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2123,6 +2512,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "PutDefaultEncryptionConfiguration",
       :post,
       url_path,
       query_params,
@@ -2143,7 +2533,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutLoggingOptions",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2159,6 +2560,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "PutStorageConfiguration",
       :post,
       url_path,
       query_params,
@@ -2190,6 +2592,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -2219,6 +2622,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -2240,7 +2644,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAccessPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2256,7 +2671,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAsset",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -2284,7 +2710,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAssetModel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -2305,7 +2742,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAssetProperty",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2318,7 +2766,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDashboard",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2331,7 +2790,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateGateway",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2360,6 +2830,7 @@ defmodule AWS.IoTSiteWise do
     Request.request_rest(
       client,
       meta,
+      "UpdateGatewayCapabilityConfiguration",
       :post,
       url_path,
       query_params,
@@ -2380,7 +2851,18 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdatePortal",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -2393,6 +2875,17 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateProject",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

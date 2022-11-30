@@ -68,6 +68,7 @@ defmodule AWS.RDSData do
     Request.request_rest(
       client,
       meta,
+      "BatchExecuteStatement",
       :post,
       url_path,
       query_params,
@@ -101,6 +102,7 @@ defmodule AWS.RDSData do
     Request.request_rest(
       client,
       meta,
+      "BeginTransaction",
       :post,
       url_path,
       query_params,
@@ -125,6 +127,7 @@ defmodule AWS.RDSData do
     Request.request_rest(
       client,
       meta,
+      "CommitTransaction",
       :post,
       url_path,
       query_params,
@@ -151,6 +154,7 @@ defmodule AWS.RDSData do
     Request.request_rest(
       client,
       meta,
+      "ExecuteSql",
       :post,
       url_path,
       query_params,
@@ -181,6 +185,7 @@ defmodule AWS.RDSData do
     Request.request_rest(
       client,
       meta,
+      "ExecuteStatement",
       :post,
       url_path,
       query_params,
@@ -206,6 +211,7 @@ defmodule AWS.RDSData do
     Request.request_rest(
       client,
       meta,
+      "RollbackTransaction",
       :post,
       url_path,
       query_params,

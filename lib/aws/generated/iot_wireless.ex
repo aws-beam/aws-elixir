@@ -54,6 +54,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "AssociateAwsAccountWithPartnerAccount",
       :post,
       url_path,
       query_params,
@@ -74,7 +75,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateMulticastGroupWithFuotaTask",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -87,7 +99,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateWirelessDeviceWithFuotaTask",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -100,7 +123,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateWirelessDeviceWithMulticastGroup",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -113,7 +147,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateWirelessDeviceWithThing",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -126,7 +171,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateWirelessGatewayWithCertificate",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -139,7 +195,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateWirelessGatewayWithThing",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -155,6 +222,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "CancelMulticastGroupSession",
       :delete,
       url_path,
       query_params,
@@ -178,6 +246,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "CreateDestination",
       :post,
       url_path,
       query_params,
@@ -201,6 +270,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "CreateDeviceProfile",
       :post,
       url_path,
       query_params,
@@ -224,6 +294,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "CreateFuotaTask",
       :post,
       url_path,
       query_params,
@@ -247,6 +318,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "CreateMulticastGroup",
       :post,
       url_path,
       query_params,
@@ -270,6 +342,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "CreateNetworkAnalyzerConfiguration",
       :post,
       url_path,
       query_params,
@@ -293,6 +366,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "CreateServiceProfile",
       :post,
       url_path,
       query_params,
@@ -316,6 +390,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "CreateWirelessDevice",
       :post,
       url_path,
       query_params,
@@ -339,6 +414,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "CreateWirelessGateway",
       :post,
       url_path,
       query_params,
@@ -362,6 +438,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "CreateWirelessGatewayTask",
       :post,
       url_path,
       query_params,
@@ -385,6 +462,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "CreateWirelessGatewayTaskDefinition",
       :post,
       url_path,
       query_params,
@@ -408,6 +486,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "DeleteDestination",
       :delete,
       url_path,
       query_params,
@@ -431,6 +510,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "DeleteDeviceProfile",
       :delete,
       url_path,
       query_params,
@@ -454,6 +534,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "DeleteFuotaTask",
       :delete,
       url_path,
       query_params,
@@ -477,6 +558,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "DeleteMulticastGroup",
       :delete,
       url_path,
       query_params,
@@ -505,6 +587,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "DeleteNetworkAnalyzerConfiguration",
       :delete,
       url_path,
       query_params,
@@ -534,6 +617,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "DeleteQueuedMessages",
       :delete,
       url_path,
       query_params,
@@ -557,6 +641,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "DeleteServiceProfile",
       :delete,
       url_path,
       query_params,
@@ -580,6 +665,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "DeleteWirelessDevice",
       :delete,
       url_path,
       query_params,
@@ -603,6 +689,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "DeleteWirelessGateway",
       :delete,
       url_path,
       query_params,
@@ -626,6 +713,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "DeleteWirelessGatewayTask",
       :delete,
       url_path,
       query_params,
@@ -652,6 +740,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "DeleteWirelessGatewayTaskDefinition",
       :delete,
       url_path,
       query_params,
@@ -688,6 +777,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "DisassociateAwsAccountFromPartnerAccount",
       :delete,
       url_path,
       query_params,
@@ -719,6 +809,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "DisassociateMulticastGroupFromFuotaTask",
       :delete,
       url_path,
       query_params,
@@ -750,6 +841,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "DisassociateWirelessDeviceFromFuotaTask",
       :delete,
       url_path,
       query_params,
@@ -781,6 +873,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "DisassociateWirelessDeviceFromMulticastGroup",
       :delete,
       url_path,
       query_params,
@@ -804,6 +897,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "DisassociateWirelessDeviceFromThing",
       :delete,
       url_path,
       query_params,
@@ -827,6 +921,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "DisassociateWirelessGatewayFromCertificate",
       :delete,
       url_path,
       query_params,
@@ -850,6 +945,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "DisassociateWirelessGatewayFromThing",
       :delete,
       url_path,
       query_params,
@@ -870,7 +966,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDestination",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -883,7 +990,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDeviceProfile",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -896,7 +1014,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEventConfigurationByResourceTypes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -909,7 +1038,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFuotaTask",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -925,7 +1065,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLogLevelsByResourceTypes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -938,7 +1089,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMulticastGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -951,7 +1113,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMulticastGroupSession",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -964,7 +1137,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetNetworkAnalyzerConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -987,7 +1171,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPartnerAccount",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1012,7 +1207,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPosition",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1042,7 +1248,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPositionConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1061,6 +1278,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "GetPositionEstimate",
       :post,
       url_path,
       query_params,
@@ -1101,7 +1319,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetResourceEventConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1129,7 +1358,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetResourceLogLevel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1152,7 +1392,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetResourcePosition",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1173,7 +1424,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetServiceEndpoint",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1186,7 +1448,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetServiceProfile",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1206,7 +1479,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetWirelessDevice",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1219,7 +1503,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetWirelessDeviceStatistics",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1239,7 +1534,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetWirelessGateway",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1253,7 +1559,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetWirelessGatewayCertificate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1266,7 +1583,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetWirelessGatewayFirmwareInformation",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1279,7 +1607,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetWirelessGatewayStatistics",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1292,7 +1631,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetWirelessGatewayTask",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1305,7 +1655,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetWirelessGatewayTaskDefinition",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1332,7 +1693,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDestinations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1364,7 +1736,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDeviceProfiles",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1404,7 +1787,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListEventConfigurations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1431,7 +1825,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFuotaTasks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1463,7 +1868,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListMulticastGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1496,7 +1912,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListMulticastGroupsByFuotaTask",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1528,7 +1955,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListNetworkAnalyzerConfigurations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1560,7 +1998,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPartnerAccounts",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1605,7 +2054,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPositionConfigurations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1646,7 +2106,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListQueuedMessages",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1678,7 +2149,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListServiceProfiles",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1698,7 +2180,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1778,7 +2271,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListWirelessDevices",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1818,7 +2322,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListWirelessGatewayTaskDefinitions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1850,7 +2365,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListWirelessGateways",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1873,7 +2399,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutPositionConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1894,7 +2431,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutResourceLogLevel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1911,6 +2459,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "ResetAllResourceLogLevels",
       :delete,
       url_path,
       query_params,
@@ -1942,6 +2491,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "ResetResourceLogLevel",
       :delete,
       url_path,
       query_params,
@@ -1965,6 +2515,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "SendDataToMulticastGroup",
       :post,
       url_path,
       query_params,
@@ -1988,6 +2539,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "SendDataToWirelessDevice",
       :post,
       url_path,
       query_params,
@@ -2017,6 +2569,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "StartBulkAssociateWirelessDeviceWithMulticastGroup",
       :patch,
       url_path,
       query_params,
@@ -2046,6 +2599,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "StartBulkDisassociateWirelessDeviceFromMulticastGroup",
       :post,
       url_path,
       query_params,
@@ -2066,7 +2620,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "StartFuotaTask",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -2079,7 +2644,18 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "StartMulticastGroupSession",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -2100,6 +2676,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -2123,6 +2700,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "TestWirelessDevice",
       :post,
       url_path,
       query_params,
@@ -2152,6 +2730,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -2175,6 +2754,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "UpdateDestination",
       :patch,
       url_path,
       query_params,
@@ -2198,6 +2778,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "UpdateEventConfigurationByResourceTypes",
       :patch,
       url_path,
       query_params,
@@ -2221,6 +2802,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "UpdateFuotaTask",
       :patch,
       url_path,
       query_params,
@@ -2247,6 +2829,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "UpdateLogLevelsByResourceTypes",
       :post,
       url_path,
       query_params,
@@ -2270,6 +2853,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "UpdateMulticastGroup",
       :patch,
       url_path,
       query_params,
@@ -2298,6 +2882,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "UpdateNetworkAnalyzerConfiguration",
       :patch,
       url_path,
       query_params,
@@ -2326,6 +2911,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "UpdatePartnerAccount",
       :patch,
       url_path,
       query_params,
@@ -2359,6 +2945,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "UpdatePosition",
       :patch,
       url_path,
       query_params,
@@ -2388,6 +2975,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "UpdateResourceEventConfiguration",
       :patch,
       url_path,
       query_params,
@@ -2419,6 +3007,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "UpdateResourcePosition",
       :patch,
       url_path,
       query_params,
@@ -2442,6 +3031,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "UpdateWirelessDevice",
       :patch,
       url_path,
       query_params,
@@ -2465,6 +3055,7 @@ defmodule AWS.IoTWireless do
     Request.request_rest(
       client,
       meta,
+      "UpdateWirelessGateway",
       :patch,
       url_path,
       query_params,

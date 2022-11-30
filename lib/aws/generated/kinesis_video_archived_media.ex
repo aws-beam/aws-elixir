@@ -75,6 +75,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
     Request.request_rest(
       client,
       meta,
+      "GetClip",
       :post,
       url_path,
       query_params,
@@ -213,6 +214,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
     Request.request_rest(
       client,
       meta,
+      "GetDASHStreamingSessionURL",
       :post,
       url_path,
       query_params,
@@ -377,6 +379,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
     Request.request_rest(
       client,
       meta,
+      "GetHLSStreamingSessionURL",
       :post,
       url_path,
       query_params,
@@ -401,6 +404,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
     Request.request_rest(
       client,
       meta,
+      "GetImages",
       :post,
       url_path,
       query_params,
@@ -455,6 +459,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
     Request.request_rest(
       client,
       meta,
+      "GetMediaForFragmentList",
       :post,
       url_path,
       query_params,
@@ -505,6 +510,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
     Request.request_rest(
       client,
       meta,
+      "ListFragments",
       :post,
       url_path,
       query_params,

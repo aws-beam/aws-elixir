@@ -65,6 +65,7 @@ defmodule AWS.IoTDataPlane do
     Request.request_rest(
       client,
       meta,
+      "DeleteThingShadow",
       :delete,
       url_path,
       query_params,
@@ -93,7 +94,18 @@ defmodule AWS.IoTDataPlane do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRetainedMessage",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -120,7 +132,18 @@ defmodule AWS.IoTDataPlane do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetThingShadow",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -157,7 +180,18 @@ defmodule AWS.IoTDataPlane do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListNamedShadowsForThing",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -202,7 +236,18 @@ defmodule AWS.IoTDataPlane do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRetainedMessages",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -243,6 +288,7 @@ defmodule AWS.IoTDataPlane do
     Request.request_rest(
       client,
       meta,
+      "Publish",
       :post,
       url_path,
       query_params,
@@ -278,6 +324,7 @@ defmodule AWS.IoTDataPlane do
     Request.request_rest(
       client,
       meta,
+      "UpdateThingShadow",
       :post,
       url_path,
       query_params,

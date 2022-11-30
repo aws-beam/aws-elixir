@@ -38,6 +38,7 @@ defmodule AWS.Route53RecoveryReadiness do
     Request.request_rest(
       client,
       meta,
+      "CreateCell",
       :post,
       url_path,
       query_params,
@@ -65,6 +66,7 @@ defmodule AWS.Route53RecoveryReadiness do
     Request.request_rest(
       client,
       meta,
+      "CreateCrossAccountAuthorization",
       :post,
       url_path,
       query_params,
@@ -93,6 +95,7 @@ defmodule AWS.Route53RecoveryReadiness do
     Request.request_rest(
       client,
       meta,
+      "CreateReadinessCheck",
       :post,
       url_path,
       query_params,
@@ -119,6 +122,7 @@ defmodule AWS.Route53RecoveryReadiness do
     Request.request_rest(
       client,
       meta,
+      "CreateRecoveryGroup",
       :post,
       url_path,
       query_params,
@@ -146,6 +150,7 @@ defmodule AWS.Route53RecoveryReadiness do
     Request.request_rest(
       client,
       meta,
+      "CreateResourceSet",
       :post,
       url_path,
       query_params,
@@ -171,6 +176,7 @@ defmodule AWS.Route53RecoveryReadiness do
     Request.request_rest(
       client,
       meta,
+      "DeleteCell",
       :delete,
       url_path,
       query_params,
@@ -199,6 +205,7 @@ defmodule AWS.Route53RecoveryReadiness do
     Request.request_rest(
       client,
       meta,
+      "DeleteCrossAccountAuthorization",
       :delete,
       url_path,
       query_params,
@@ -222,6 +229,7 @@ defmodule AWS.Route53RecoveryReadiness do
     Request.request_rest(
       client,
       meta,
+      "DeleteReadinessCheck",
       :delete,
       url_path,
       query_params,
@@ -245,6 +253,7 @@ defmodule AWS.Route53RecoveryReadiness do
     Request.request_rest(
       client,
       meta,
+      "DeleteRecoveryGroup",
       :delete,
       url_path,
       query_params,
@@ -268,6 +277,7 @@ defmodule AWS.Route53RecoveryReadiness do
     Request.request_rest(
       client,
       meta,
+      "DeleteResourceSet",
       :delete,
       url_path,
       query_params,
@@ -311,7 +321,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetArchitectureRecommendations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -326,7 +347,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCell",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -362,7 +394,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCellReadinessSummary",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -375,7 +418,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetReadinessCheck",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -415,7 +469,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetReadinessCheckResourceStatus",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -452,7 +517,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetReadinessCheckStatus",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -466,7 +542,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRecoveryGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -502,7 +589,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRecoveryGroupReadinessSummary",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -516,7 +614,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetResourceSet",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -543,7 +652,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCells",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -576,7 +696,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCrossAccountAuthorizations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -608,7 +739,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListReadinessChecks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -640,7 +782,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRecoveryGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -667,7 +820,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListResourceSets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -708,7 +872,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRules",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -721,7 +896,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResources",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -737,6 +923,7 @@ defmodule AWS.Route53RecoveryReadiness do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -765,6 +952,7 @@ defmodule AWS.Route53RecoveryReadiness do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -786,7 +974,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateCell",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -799,7 +998,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateReadinessCheck",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -812,7 +1022,18 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateRecoveryGroup",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -825,6 +1046,17 @@ defmodule AWS.Route53RecoveryReadiness do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateResourceSet",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

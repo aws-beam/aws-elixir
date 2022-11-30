@@ -43,6 +43,7 @@ defmodule AWS.MigrationHubOrchestrator do
     Request.request_rest(
       client,
       meta,
+      "CreateWorkflow",
       :post,
       url_path,
       query_params,
@@ -66,6 +67,7 @@ defmodule AWS.MigrationHubOrchestrator do
     Request.request_rest(
       client,
       meta,
+      "CreateWorkflowStep",
       :post,
       url_path,
       query_params,
@@ -89,6 +91,7 @@ defmodule AWS.MigrationHubOrchestrator do
     Request.request_rest(
       client,
       meta,
+      "CreateWorkflowStepGroup",
       :post,
       url_path,
       query_params,
@@ -115,6 +118,7 @@ defmodule AWS.MigrationHubOrchestrator do
     Request.request_rest(
       client,
       meta,
+      "DeleteWorkflow",
       :delete,
       url_path,
       query_params,
@@ -146,6 +150,7 @@ defmodule AWS.MigrationHubOrchestrator do
     Request.request_rest(
       client,
       meta,
+      "DeleteWorkflowStep",
       :delete,
       url_path,
       query_params,
@@ -174,6 +179,7 @@ defmodule AWS.MigrationHubOrchestrator do
     Request.request_rest(
       client,
       meta,
+      "DeleteWorkflowStepGroup",
       :delete,
       url_path,
       query_params,
@@ -194,7 +200,18 @@ defmodule AWS.MigrationHubOrchestrator do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -221,7 +238,18 @@ defmodule AWS.MigrationHubOrchestrator do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTemplateStep",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -236,7 +264,18 @@ defmodule AWS.MigrationHubOrchestrator do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTemplateStepGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -249,7 +288,18 @@ defmodule AWS.MigrationHubOrchestrator do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetWorkflow",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -276,7 +326,18 @@ defmodule AWS.MigrationHubOrchestrator do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetWorkflowStep",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -296,7 +357,18 @@ defmodule AWS.MigrationHubOrchestrator do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetWorkflowStepGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -323,7 +395,18 @@ defmodule AWS.MigrationHubOrchestrator do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPlugins",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -336,7 +419,18 @@ defmodule AWS.MigrationHubOrchestrator do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -369,7 +463,18 @@ defmodule AWS.MigrationHubOrchestrator do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTemplateStepGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -417,7 +522,18 @@ defmodule AWS.MigrationHubOrchestrator do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTemplateSteps",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -458,7 +574,18 @@ defmodule AWS.MigrationHubOrchestrator do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTemplates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -498,7 +625,18 @@ defmodule AWS.MigrationHubOrchestrator do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListWorkflowStepGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -534,7 +672,18 @@ defmodule AWS.MigrationHubOrchestrator do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListWorkflowSteps",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -598,7 +747,18 @@ defmodule AWS.MigrationHubOrchestrator do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListWorkflows",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -620,6 +780,7 @@ defmodule AWS.MigrationHubOrchestrator do
     Request.request_rest(
       client,
       meta,
+      "RetryWorkflowStep",
       :post,
       url_path,
       query_params,
@@ -643,6 +804,7 @@ defmodule AWS.MigrationHubOrchestrator do
     Request.request_rest(
       client,
       meta,
+      "StartWorkflow",
       :post,
       url_path,
       query_params,
@@ -666,6 +828,7 @@ defmodule AWS.MigrationHubOrchestrator do
     Request.request_rest(
       client,
       meta,
+      "StopWorkflow",
       :post,
       url_path,
       query_params,
@@ -689,6 +852,7 @@ defmodule AWS.MigrationHubOrchestrator do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -717,6 +881,7 @@ defmodule AWS.MigrationHubOrchestrator do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -740,6 +905,7 @@ defmodule AWS.MigrationHubOrchestrator do
     Request.request_rest(
       client,
       meta,
+      "UpdateWorkflow",
       :post,
       url_path,
       query_params,
@@ -763,6 +929,7 @@ defmodule AWS.MigrationHubOrchestrator do
     Request.request_rest(
       client,
       meta,
+      "UpdateWorkflowStep",
       :post,
       url_path,
       query_params,
@@ -791,6 +958,7 @@ defmodule AWS.MigrationHubOrchestrator do
     Request.request_rest(
       client,
       meta,
+      "UpdateWorkflowStepGroup",
       :post,
       url_path,
       query_params,

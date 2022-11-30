@@ -79,6 +79,7 @@ defmodule AWS.SecurityLake do
     Request.request_rest(
       client,
       meta,
+      "CreateAwsLogSource",
       :post,
       url_path,
       query_params,
@@ -109,6 +110,7 @@ defmodule AWS.SecurityLake do
     Request.request_rest(
       client,
       meta,
+      "CreateCustomLogSource",
       :post,
       url_path,
       query_params,
@@ -149,6 +151,7 @@ defmodule AWS.SecurityLake do
     Request.request_rest(
       client,
       meta,
+      "CreateDatalake",
       :post,
       url_path,
       query_params,
@@ -178,6 +181,7 @@ defmodule AWS.SecurityLake do
     Request.request_rest(
       client,
       meta,
+      "CreateDatalakeAutoEnable",
       :post,
       url_path,
       query_params,
@@ -204,6 +208,7 @@ defmodule AWS.SecurityLake do
     Request.request_rest(
       client,
       meta,
+      "CreateDatalakeDelegatedAdmin",
       :post,
       url_path,
       query_params,
@@ -229,6 +234,7 @@ defmodule AWS.SecurityLake do
     Request.request_rest(
       client,
       meta,
+      "CreateDatalakeExceptionsSubscription",
       :post,
       url_path,
       query_params,
@@ -253,6 +259,7 @@ defmodule AWS.SecurityLake do
     Request.request_rest(
       client,
       meta,
+      "CreateSubscriber",
       :post,
       url_path,
       query_params,
@@ -284,6 +291,7 @@ defmodule AWS.SecurityLake do
     Request.request_rest(
       client,
       meta,
+      "CreateSubscriptionNotificationConfiguration",
       :post,
       url_path,
       query_params,
@@ -331,6 +339,7 @@ defmodule AWS.SecurityLake do
     Request.request_rest(
       client,
       meta,
+      "DeleteAwsLogSource",
       :post,
       url_path,
       query_params,
@@ -359,6 +368,7 @@ defmodule AWS.SecurityLake do
     Request.request_rest(
       client,
       meta,
+      "DeleteCustomLogSource",
       :delete,
       url_path,
       query_params,
@@ -391,6 +401,7 @@ defmodule AWS.SecurityLake do
     Request.request_rest(
       client,
       meta,
+      "DeleteDatalake",
       :delete,
       url_path,
       query_params,
@@ -424,6 +435,7 @@ defmodule AWS.SecurityLake do
     Request.request_rest(
       client,
       meta,
+      "DeleteDatalakeAutoEnable",
       :post,
       url_path,
       query_params,
@@ -450,6 +462,7 @@ defmodule AWS.SecurityLake do
     Request.request_rest(
       client,
       meta,
+      "DeleteDatalakeDelegatedAdmin",
       :delete,
       url_path,
       query_params,
@@ -475,6 +488,7 @@ defmodule AWS.SecurityLake do
     Request.request_rest(
       client,
       meta,
+      "DeleteDatalakeExceptionsSubscription",
       :delete,
       url_path,
       query_params,
@@ -505,6 +519,7 @@ defmodule AWS.SecurityLake do
     Request.request_rest(
       client,
       meta,
+      "DeleteSubscriber",
       :delete,
       url_path,
       query_params,
@@ -536,6 +551,7 @@ defmodule AWS.SecurityLake do
     Request.request_rest(
       client,
       meta,
+      "DeleteSubscriptionNotificationConfiguration",
       :delete,
       url_path,
       query_params,
@@ -558,7 +574,18 @@ defmodule AWS.SecurityLake do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDatalake",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -575,7 +602,18 @@ defmodule AWS.SecurityLake do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDatalakeAutoEnable",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -593,7 +631,18 @@ defmodule AWS.SecurityLake do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDatalakeExceptionsExpiry",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -607,7 +656,18 @@ defmodule AWS.SecurityLake do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDatalakeExceptionsSubscription",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -625,6 +685,7 @@ defmodule AWS.SecurityLake do
     Request.request_rest(
       client,
       meta,
+      "GetDatalakeStatus",
       :post,
       url_path,
       query_params,
@@ -645,7 +706,18 @@ defmodule AWS.SecurityLake do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSubscriber",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -662,6 +734,7 @@ defmodule AWS.SecurityLake do
     Request.request_rest(
       client,
       meta,
+      "ListDatalakeExceptions",
       :post,
       url_path,
       query_params,
@@ -685,6 +758,7 @@ defmodule AWS.SecurityLake do
     Request.request_rest(
       client,
       meta,
+      "ListLogSources",
       :post,
       url_path,
       query_params,
@@ -719,7 +793,18 @@ defmodule AWS.SecurityLake do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSubscribers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -738,7 +823,18 @@ defmodule AWS.SecurityLake do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDatalake",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -755,7 +851,18 @@ defmodule AWS.SecurityLake do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDatalakeExceptionsExpiry",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -768,7 +875,18 @@ defmodule AWS.SecurityLake do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDatalakeExceptionsSubscription",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -781,7 +899,18 @@ defmodule AWS.SecurityLake do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateSubscriber",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -800,6 +929,17 @@ defmodule AWS.SecurityLake do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateSubscriptionNotificationConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

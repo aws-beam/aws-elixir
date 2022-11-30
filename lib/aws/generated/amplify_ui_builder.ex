@@ -59,6 +59,7 @@ defmodule AWS.AmplifyUIBuilder do
     Request.request_rest(
       client,
       meta,
+      "CreateComponent",
       :post,
       url_path,
       query_params,
@@ -89,6 +90,7 @@ defmodule AWS.AmplifyUIBuilder do
     Request.request_rest(
       client,
       meta,
+      "CreateForm",
       :post,
       url_path,
       query_params,
@@ -119,6 +121,7 @@ defmodule AWS.AmplifyUIBuilder do
     Request.request_rest(
       client,
       meta,
+      "CreateTheme",
       :post,
       url_path,
       query_params,
@@ -144,6 +147,7 @@ defmodule AWS.AmplifyUIBuilder do
     Request.request_rest(
       client,
       meta,
+      "DeleteComponent",
       :delete,
       url_path,
       query_params,
@@ -169,6 +173,7 @@ defmodule AWS.AmplifyUIBuilder do
     Request.request_rest(
       client,
       meta,
+      "DeleteForm",
       :delete,
       url_path,
       query_params,
@@ -194,6 +199,7 @@ defmodule AWS.AmplifyUIBuilder do
     Request.request_rest(
       client,
       meta,
+      "DeleteTheme",
       :delete,
       url_path,
       query_params,
@@ -217,6 +223,7 @@ defmodule AWS.AmplifyUIBuilder do
     Request.request_rest(
       client,
       meta,
+      "ExchangeCodeForToken",
       :post,
       url_path,
       query_params,
@@ -253,7 +260,18 @@ defmodule AWS.AmplifyUIBuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ExportComponents",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -276,7 +294,18 @@ defmodule AWS.AmplifyUIBuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ExportForms",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -305,7 +334,18 @@ defmodule AWS.AmplifyUIBuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ExportThemes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -320,7 +360,18 @@ defmodule AWS.AmplifyUIBuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetComponent",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -335,7 +386,18 @@ defmodule AWS.AmplifyUIBuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetForm",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -350,7 +412,18 @@ defmodule AWS.AmplifyUIBuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMetadata",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -365,7 +438,18 @@ defmodule AWS.AmplifyUIBuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTheme",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -402,7 +486,18 @@ defmodule AWS.AmplifyUIBuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListComponents",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -438,7 +533,18 @@ defmodule AWS.AmplifyUIBuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListForms",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -474,7 +580,18 @@ defmodule AWS.AmplifyUIBuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListThemes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -496,7 +613,18 @@ defmodule AWS.AmplifyUIBuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutMetadataFlag",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -512,6 +640,7 @@ defmodule AWS.AmplifyUIBuilder do
     Request.request_rest(
       client,
       meta,
+      "RefreshToken",
       :post,
       url_path,
       query_params,
@@ -542,6 +671,7 @@ defmodule AWS.AmplifyUIBuilder do
     Request.request_rest(
       client,
       meta,
+      "UpdateComponent",
       :patch,
       url_path,
       query_params,
@@ -572,6 +702,7 @@ defmodule AWS.AmplifyUIBuilder do
     Request.request_rest(
       client,
       meta,
+      "UpdateForm",
       :patch,
       url_path,
       query_params,
@@ -602,6 +733,7 @@ defmodule AWS.AmplifyUIBuilder do
     Request.request_rest(
       client,
       meta,
+      "UpdateTheme",
       :patch,
       url_path,
       query_params,

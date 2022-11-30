@@ -53,6 +53,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "AssociateLenses",
       :patch,
       url_path,
       query_params,
@@ -89,6 +90,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "CreateLensShare",
       :post,
       url_path,
       query_params,
@@ -119,6 +121,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "CreateLensVersion",
       :post,
       url_path,
       query_params,
@@ -142,6 +145,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "CreateMilestone",
       :post,
       url_path,
       query_params,
@@ -172,6 +176,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "CreateWorkload",
       :post,
       url_path,
       query_params,
@@ -202,6 +207,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "CreateWorkloadShare",
       :post,
       url_path,
       query_params,
@@ -243,6 +249,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "DeleteLens",
       :delete,
       url_path,
       query_params,
@@ -286,6 +293,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "DeleteLensShare",
       :delete,
       url_path,
       query_params,
@@ -314,6 +322,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "DeleteWorkload",
       :delete,
       url_path,
       query_params,
@@ -344,6 +353,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "DeleteWorkloadShare",
       :delete,
       url_path,
       query_params,
@@ -372,6 +382,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "DisassociateLenses",
       :patch,
       url_path,
       query_params,
@@ -412,7 +423,18 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ExportLens",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -441,7 +463,18 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAnswer",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -461,7 +494,18 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLens",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -489,7 +533,18 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLensReview",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -517,7 +572,18 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLensReviewReport",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -550,7 +616,18 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLensVersionDifference",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -565,7 +642,18 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMilestone",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -578,7 +666,18 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetWorkload",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -608,7 +707,18 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ImportLens",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -660,7 +770,18 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAnswers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -676,6 +797,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "ListCheckDetails",
       :post,
       url_path,
       query_params,
@@ -700,6 +822,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "ListCheckSummaries",
       :post,
       url_path,
       query_params,
@@ -759,7 +882,18 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListLensReviewImprovements",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -800,7 +934,18 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListLensReviews",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -849,7 +994,18 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListLensShares",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -905,7 +1061,18 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListLenses",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -921,6 +1088,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "ListMilestones",
       :post,
       url_path,
       query_params,
@@ -944,6 +1112,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "ListNotifications",
       :post,
       url_path,
       query_params,
@@ -1007,7 +1176,18 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListShareInvitations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1022,7 +1202,18 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1071,7 +1262,18 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListWorkloadShares",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1089,6 +1291,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "ListWorkloads",
       :post,
       url_path,
       query_params,
@@ -1114,6 +1317,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1148,6 +1352,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1180,6 +1385,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "UpdateAnswer",
       :patch,
       url_path,
       query_params,
@@ -1204,6 +1410,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "UpdateGlobalSettings",
       :patch,
       url_path,
       query_params,
@@ -1229,6 +1436,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "UpdateLensReview",
       :patch,
       url_path,
       query_params,
@@ -1255,6 +1463,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "UpdateShareInvitation",
       :patch,
       url_path,
       query_params,
@@ -1278,6 +1487,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "UpdateWorkload",
       :patch,
       url_path,
       query_params,
@@ -1303,6 +1513,7 @@ defmodule AWS.WellArchitected do
     Request.request_rest(
       client,
       meta,
+      "UpdateWorkloadShare",
       :patch,
       url_path,
       query_params,
@@ -1325,6 +1536,17 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpgradeLensReview",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

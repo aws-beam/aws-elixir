@@ -60,6 +60,7 @@ defmodule AWS.CodeGuruProfiler do
     Request.request_rest(
       client,
       meta,
+      "AddNotificationChannels",
       :post,
       url_path,
       query_params,
@@ -92,6 +93,7 @@ defmodule AWS.CodeGuruProfiler do
     Request.request_rest(
       client,
       meta,
+      "BatchGetFrameMetricData",
       :post,
       url_path,
       query_params,
@@ -119,6 +121,7 @@ defmodule AWS.CodeGuruProfiler do
     Request.request_rest(
       client,
       meta,
+      "ConfigureAgent",
       :post,
       url_path,
       query_params,
@@ -147,6 +150,7 @@ defmodule AWS.CodeGuruProfiler do
     Request.request_rest(
       client,
       meta,
+      "CreateProfilingGroup",
       :post,
       url_path,
       query_params,
@@ -170,6 +174,7 @@ defmodule AWS.CodeGuruProfiler do
     Request.request_rest(
       client,
       meta,
+      "DeleteProfilingGroup",
       :delete,
       url_path,
       query_params,
@@ -192,7 +197,18 @@ defmodule AWS.CodeGuruProfiler do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeProfilingGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -235,7 +251,18 @@ defmodule AWS.CodeGuruProfiler do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFindingsReportAccountSummary",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -250,7 +277,18 @@ defmodule AWS.CodeGuruProfiler do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetNotificationConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -263,7 +301,18 @@ defmodule AWS.CodeGuruProfiler do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -376,7 +425,18 @@ defmodule AWS.CodeGuruProfiler do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetProfile",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -427,7 +487,18 @@ defmodule AWS.CodeGuruProfiler do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRecommendations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -486,7 +557,18 @@ defmodule AWS.CodeGuruProfiler do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFindingsReports",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -552,7 +634,18 @@ defmodule AWS.CodeGuruProfiler do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProfileTimes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -596,7 +689,18 @@ defmodule AWS.CodeGuruProfiler do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProfilingGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -609,7 +713,18 @@ defmodule AWS.CodeGuruProfiler do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -639,6 +754,7 @@ defmodule AWS.CodeGuruProfiler do
     Request.request_rest(
       client,
       meta,
+      "PostAgentProfile",
       :post,
       url_path,
       query_params,
@@ -683,7 +799,18 @@ defmodule AWS.CodeGuruProfiler do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutPermission",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -707,6 +834,7 @@ defmodule AWS.CodeGuruProfiler do
     Request.request_rest(
       client,
       meta,
+      "RemoveNotificationChannel",
       :delete,
       url_path,
       query_params,
@@ -752,6 +880,7 @@ defmodule AWS.CodeGuruProfiler do
     Request.request_rest(
       client,
       meta,
+      "RemovePermission",
       :delete,
       url_path,
       query_params,
@@ -784,6 +913,7 @@ defmodule AWS.CodeGuruProfiler do
     Request.request_rest(
       client,
       meta,
+      "SubmitFeedback",
       :post,
       url_path,
       query_params,
@@ -807,6 +937,7 @@ defmodule AWS.CodeGuruProfiler do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -835,6 +966,7 @@ defmodule AWS.CodeGuruProfiler do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -855,6 +987,17 @@ defmodule AWS.CodeGuruProfiler do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateProfilingGroup",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

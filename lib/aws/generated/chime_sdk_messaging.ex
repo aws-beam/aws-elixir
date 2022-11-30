@@ -52,7 +52,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateChannelFlow",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -74,6 +85,7 @@ defmodule AWS.ChimeSDKMessaging do
     Request.request_rest(
       client,
       meta,
+      "BatchCreateChannelMembership",
       :post,
       url_path,
       query_params,
@@ -107,6 +119,7 @@ defmodule AWS.ChimeSDKMessaging do
     Request.request_rest(
       client,
       meta,
+      "ChannelFlowCallback",
       :post,
       url_path,
       query_params,
@@ -142,6 +155,7 @@ defmodule AWS.ChimeSDKMessaging do
     Request.request_rest(
       client,
       meta,
+      "CreateChannel",
       :post,
       url_path,
       query_params,
@@ -182,6 +196,7 @@ defmodule AWS.ChimeSDKMessaging do
     Request.request_rest(
       client,
       meta,
+      "CreateChannelBan",
       :post,
       url_path,
       query_params,
@@ -222,6 +237,7 @@ defmodule AWS.ChimeSDKMessaging do
     Request.request_rest(
       client,
       meta,
+      "CreateChannelFlow",
       :post,
       url_path,
       query_params,
@@ -275,6 +291,7 @@ defmodule AWS.ChimeSDKMessaging do
     Request.request_rest(
       client,
       meta,
+      "CreateChannelMembership",
       :post,
       url_path,
       query_params,
@@ -320,6 +337,7 @@ defmodule AWS.ChimeSDKMessaging do
     Request.request_rest(
       client,
       meta,
+      "CreateChannelModerator",
       :post,
       url_path,
       query_params,
@@ -360,6 +378,7 @@ defmodule AWS.ChimeSDKMessaging do
     Request.request_rest(
       client,
       meta,
+      "DeleteChannel",
       :delete,
       url_path,
       query_params,
@@ -394,6 +413,7 @@ defmodule AWS.ChimeSDKMessaging do
     Request.request_rest(
       client,
       meta,
+      "DeleteChannelBan",
       :delete,
       url_path,
       query_params,
@@ -424,6 +444,7 @@ defmodule AWS.ChimeSDKMessaging do
     Request.request_rest(
       client,
       meta,
+      "DeleteChannelFlow",
       :delete,
       url_path,
       query_params,
@@ -462,6 +483,7 @@ defmodule AWS.ChimeSDKMessaging do
     Request.request_rest(
       client,
       meta,
+      "DeleteChannelMembership",
       :delete,
       url_path,
       query_params,
@@ -504,6 +526,7 @@ defmodule AWS.ChimeSDKMessaging do
     Request.request_rest(
       client,
       meta,
+      "DeleteChannelMessage",
       :delete,
       url_path,
       query_params,
@@ -544,6 +567,7 @@ defmodule AWS.ChimeSDKMessaging do
     Request.request_rest(
       client,
       meta,
+      "DeleteChannelModerator",
       :delete,
       url_path,
       query_params,
@@ -576,7 +600,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeChannel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -609,7 +644,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeChannelBan",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -624,7 +670,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeChannelFlow",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -665,7 +722,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeChannelMembership",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -704,7 +772,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeChannelMembershipForAppInstanceUser",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -745,7 +824,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeChannelModeratedByAppInstanceUser",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -778,7 +868,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeChannelModerator",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -814,6 +915,7 @@ defmodule AWS.ChimeSDKMessaging do
     Request.request_rest(
       client,
       meta,
+      "DisassociateChannelFlow",
       :delete,
       url_path,
       query_params,
@@ -857,7 +959,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetChannelMembershipPreferences",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -897,7 +1010,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetChannelMessage",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -968,7 +1092,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetChannelMessageStatus",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -981,7 +1116,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMessagingSessionEndpoint",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1027,7 +1173,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannelBans",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1069,7 +1226,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannelFlows",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1136,7 +1304,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannelMemberships",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1192,7 +1371,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannelMembershipsForAppInstanceUser",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1277,7 +1467,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannelMessages",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1323,7 +1524,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannelModerators",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1394,7 +1606,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannels",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1437,7 +1660,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannelsAssociatedWithChannelFlow",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1490,7 +1724,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannelsModeratedByAppInstanceUser",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1535,7 +1780,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSubChannels",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1555,7 +1811,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1588,7 +1855,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutChannelMembershipPreferences",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1618,6 +1896,7 @@ defmodule AWS.ChimeSDKMessaging do
     Request.request_rest(
       client,
       meta,
+      "RedactChannelMessage",
       :post,
       url_path,
       query_params,
@@ -1655,6 +1934,7 @@ defmodule AWS.ChimeSDKMessaging do
     Request.request_rest(
       client,
       meta,
+      "SearchChannels",
       :post,
       url_path,
       query_params,
@@ -1691,6 +1971,7 @@ defmodule AWS.ChimeSDKMessaging do
     Request.request_rest(
       client,
       meta,
+      "SendChannelMessage",
       :post,
       url_path,
       query_params,
@@ -1714,6 +1995,7 @@ defmodule AWS.ChimeSDKMessaging do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1738,6 +2020,7 @@ defmodule AWS.ChimeSDKMessaging do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :post,
       url_path,
       query_params,
@@ -1770,7 +2053,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateChannel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1785,7 +2079,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateChannelFlow",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1809,7 +2114,18 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateChannelMessage",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1832,6 +2148,17 @@ defmodule AWS.ChimeSDKMessaging do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateChannelReadMarker",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

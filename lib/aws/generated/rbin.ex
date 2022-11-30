@@ -58,6 +58,7 @@ defmodule AWS.Rbin do
     Request.request_rest(
       client,
       meta,
+      "CreateRule",
       :post,
       url_path,
       query_params,
@@ -84,6 +85,7 @@ defmodule AWS.Rbin do
     Request.request_rest(
       client,
       meta,
+      "DeleteRule",
       :delete,
       url_path,
       query_params,
@@ -104,7 +106,18 @@ defmodule AWS.Rbin do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRule",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -120,6 +133,7 @@ defmodule AWS.Rbin do
     Request.request_rest(
       client,
       meta,
+      "ListRules",
       :post,
       url_path,
       query_params,
@@ -140,7 +154,18 @@ defmodule AWS.Rbin do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -158,6 +183,7 @@ defmodule AWS.Rbin do
     Request.request_rest(
       client,
       meta,
+      "LockRule",
       :patch,
       url_path,
       query_params,
@@ -181,6 +207,7 @@ defmodule AWS.Rbin do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -207,6 +234,7 @@ defmodule AWS.Rbin do
     Request.request_rest(
       client,
       meta,
+      "UnlockRule",
       :patch,
       url_path,
       query_params,
@@ -235,6 +263,7 @@ defmodule AWS.Rbin do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -263,6 +292,7 @@ defmodule AWS.Rbin do
     Request.request_rest(
       client,
       meta,
+      "UpdateRule",
       :patch,
       url_path,
       query_params,

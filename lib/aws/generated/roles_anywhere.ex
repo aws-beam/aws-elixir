@@ -63,6 +63,7 @@ defmodule AWS.RolesAnywhere do
     Request.request_rest(
       client,
       meta,
+      "CreateProfile",
       :post,
       url_path,
       query_params,
@@ -95,6 +96,7 @@ defmodule AWS.RolesAnywhere do
     Request.request_rest(
       client,
       meta,
+      "CreateTrustAnchor",
       :post,
       url_path,
       query_params,
@@ -120,6 +122,7 @@ defmodule AWS.RolesAnywhere do
     Request.request_rest(
       client,
       meta,
+      "DeleteCrl",
       :delete,
       url_path,
       query_params,
@@ -145,6 +148,7 @@ defmodule AWS.RolesAnywhere do
     Request.request_rest(
       client,
       meta,
+      "DeleteProfile",
       :delete,
       url_path,
       query_params,
@@ -170,6 +174,7 @@ defmodule AWS.RolesAnywhere do
     Request.request_rest(
       client,
       meta,
+      "DeleteTrustAnchor",
       :delete,
       url_path,
       query_params,
@@ -195,6 +200,7 @@ defmodule AWS.RolesAnywhere do
     Request.request_rest(
       client,
       meta,
+      "DisableCrl",
       :post,
       url_path,
       query_params,
@@ -224,6 +230,7 @@ defmodule AWS.RolesAnywhere do
     Request.request_rest(
       client,
       meta,
+      "DisableProfile",
       :post,
       url_path,
       query_params,
@@ -253,6 +260,7 @@ defmodule AWS.RolesAnywhere do
     Request.request_rest(
       client,
       meta,
+      "DisableTrustAnchor",
       :post,
       url_path,
       query_params,
@@ -281,6 +289,7 @@ defmodule AWS.RolesAnywhere do
     Request.request_rest(
       client,
       meta,
+      "EnableCrl",
       :post,
       url_path,
       query_params,
@@ -307,6 +316,7 @@ defmodule AWS.RolesAnywhere do
     Request.request_rest(
       client,
       meta,
+      "EnableProfile",
       :post,
       url_path,
       query_params,
@@ -335,6 +345,7 @@ defmodule AWS.RolesAnywhere do
     Request.request_rest(
       client,
       meta,
+      "EnableTrustAnchor",
       :post,
       url_path,
       query_params,
@@ -357,7 +368,18 @@ defmodule AWS.RolesAnywhere do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCrl",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -372,7 +394,18 @@ defmodule AWS.RolesAnywhere do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetProfile",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -392,7 +425,18 @@ defmodule AWS.RolesAnywhere do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSubject",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -407,7 +451,18 @@ defmodule AWS.RolesAnywhere do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTrustAnchor",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -429,6 +484,7 @@ defmodule AWS.RolesAnywhere do
     Request.request_rest(
       client,
       meta,
+      "ImportCrl",
       :post,
       url_path,
       query_params,
@@ -465,7 +521,18 @@ defmodule AWS.RolesAnywhere do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCrls",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -494,7 +561,18 @@ defmodule AWS.RolesAnywhere do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProfiles",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -523,7 +601,18 @@ defmodule AWS.RolesAnywhere do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSubjects",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -545,7 +634,18 @@ defmodule AWS.RolesAnywhere do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -575,7 +675,18 @@ defmodule AWS.RolesAnywhere do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTrustAnchors",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -593,6 +704,7 @@ defmodule AWS.RolesAnywhere do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -618,6 +730,7 @@ defmodule AWS.RolesAnywhere do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :post,
       url_path,
       query_params,
@@ -647,6 +760,7 @@ defmodule AWS.RolesAnywhere do
     Request.request_rest(
       client,
       meta,
+      "UpdateCrl",
       :patch,
       url_path,
       query_params,
@@ -676,6 +790,7 @@ defmodule AWS.RolesAnywhere do
     Request.request_rest(
       client,
       meta,
+      "UpdateProfile",
       :patch,
       url_path,
       query_params,
@@ -708,6 +823,7 @@ defmodule AWS.RolesAnywhere do
     Request.request_rest(
       client,
       meta,
+      "UpdateTrustAnchor",
       :patch,
       url_path,
       query_params,

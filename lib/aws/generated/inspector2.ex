@@ -41,6 +41,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "AssociateMember",
       :post,
       url_path,
       query_params,
@@ -65,6 +66,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "BatchGetAccountStatus",
       :post,
       url_path,
       query_params,
@@ -88,6 +90,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "BatchGetFreeTrialInfo",
       :post,
       url_path,
       query_params,
@@ -111,6 +114,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "CancelFindingsReport",
       :post,
       url_path,
       query_params,
@@ -134,6 +138,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "CreateFilter",
       :post,
       url_path,
       query_params,
@@ -157,6 +162,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "CreateFindingsReport",
       :post,
       url_path,
       query_params,
@@ -180,6 +186,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteFilter",
       :post,
       url_path,
       query_params,
@@ -204,6 +211,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "DescribeOrganizationConfiguration",
       :post,
       url_path,
       query_params,
@@ -229,6 +237,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "Disable",
       :post,
       url_path,
       query_params,
@@ -252,6 +261,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "DisableDelegatedAdminAccount",
       :post,
       url_path,
       query_params,
@@ -275,6 +285,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "DisassociateMember",
       :post,
       url_path,
       query_params,
@@ -298,6 +309,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "Enable",
       :post,
       url_path,
       query_params,
@@ -322,6 +334,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "EnableDelegatedAdminAccount",
       :post,
       url_path,
       query_params,
@@ -345,6 +358,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "GetConfiguration",
       :post,
       url_path,
       query_params,
@@ -369,6 +383,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "GetDelegatedAdminAccount",
       :post,
       url_path,
       query_params,
@@ -392,6 +407,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "GetFindingsReportStatus",
       :post,
       url_path,
       query_params,
@@ -415,6 +431,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "GetMember",
       :post,
       url_path,
       query_params,
@@ -438,6 +455,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "ListAccountPermissions",
       :post,
       url_path,
       query_params,
@@ -461,6 +479,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "ListCoverage",
       :post,
       url_path,
       query_params,
@@ -484,6 +503,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "ListCoverageStatistics",
       :post,
       url_path,
       query_params,
@@ -508,6 +528,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "ListDelegatedAdminAccounts",
       :post,
       url_path,
       query_params,
@@ -531,6 +552,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "ListFilters",
       :post,
       url_path,
       query_params,
@@ -554,6 +576,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "ListFindingAggregations",
       :post,
       url_path,
       query_params,
@@ -577,6 +600,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "ListFindings",
       :post,
       url_path,
       query_params,
@@ -601,6 +625,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "ListMembers",
       :post,
       url_path,
       query_params,
@@ -621,7 +646,18 @@ defmodule AWS.Inspector2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -637,6 +673,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "ListUsageTotals",
       :post,
       url_path,
       query_params,
@@ -660,6 +697,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -688,6 +726,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -715,6 +754,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateConfiguration",
       :post,
       url_path,
       query_params,
@@ -739,6 +779,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateFilter",
       :post,
       url_path,
       query_params,
@@ -762,6 +803,7 @@ defmodule AWS.Inspector2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateOrganizationConfiguration",
       :post,
       url_path,
       query_params,

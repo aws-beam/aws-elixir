@@ -126,6 +126,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "AddLayerVersionPermission",
       :post,
       url_path,
       query_params,
@@ -175,6 +176,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "AddPermission",
       :post,
       url_path,
       query_params,
@@ -207,6 +209,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "CreateAlias",
       :post,
       url_path,
       query_params,
@@ -234,6 +237,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "CreateCodeSigningConfig",
       :post,
       url_path,
       query_params,
@@ -309,6 +313,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "CreateEventSourceMapping",
       :post,
       url_path,
       query_params,
@@ -389,6 +394,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "CreateFunction",
       :post,
       url_path,
       query_params,
@@ -420,6 +426,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "CreateFunctionUrlConfig",
       :post,
       url_path,
       query_params,
@@ -446,6 +453,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "DeleteAlias",
       :delete,
       url_path,
       query_params,
@@ -476,6 +484,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "DeleteCodeSigningConfig",
       :delete,
       url_path,
       query_params,
@@ -505,6 +514,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "DeleteEventSourceMapping",
       :delete,
       url_path,
       query_params,
@@ -541,6 +551,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "DeleteFunction",
       :delete,
       url_path,
       query_params,
@@ -564,6 +575,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "DeleteFunctionCodeSigningConfig",
       :delete,
       url_path,
       query_params,
@@ -587,6 +599,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "DeleteFunctionConcurrency",
       :delete,
       url_path,
       query_params,
@@ -619,6 +632,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "DeleteFunctionEventInvokeConfig",
       :delete,
       url_path,
       query_params,
@@ -650,6 +664,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "DeleteFunctionUrlConfig",
       :delete,
       url_path,
       query_params,
@@ -679,6 +694,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "DeleteLayerVersion",
       :delete,
       url_path,
       query_params,
@@ -714,6 +730,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "DeleteProvisionedConcurrencyConfig",
       :delete,
       url_path,
       query_params,
@@ -736,7 +753,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAccountSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -752,7 +780,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAlias",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -765,7 +804,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCodeSigningConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -781,7 +831,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEventSourceMapping",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -805,7 +866,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFunction",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -818,7 +890,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFunctionCodeSigningConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -833,7 +916,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFunctionConcurrency",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -864,7 +958,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFunctionConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -893,7 +998,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFunctionEventInvokeConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -913,7 +1029,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFunctionUrlConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -929,7 +1056,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLayerVersion",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -950,7 +1088,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLayerVersionByArn",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -967,7 +1116,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLayerVersionPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -988,7 +1148,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1016,7 +1187,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetProvisionedConcurrencyConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1096,6 +1278,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "Invoke",
       :post,
       url_path,
       query_params,
@@ -1121,6 +1304,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "InvokeAsync",
       :post,
       url_path,
       query_params,
@@ -1171,7 +1355,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAliases",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1206,7 +1401,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCodeSigningConfigs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1257,7 +1463,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListEventSourceMappings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1295,7 +1512,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFunctionEventInvokeConfigs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1328,7 +1556,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFunctionUrlConfigs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1387,7 +1626,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFunctions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1425,7 +1675,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFunctionsByCodeSigningConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1479,7 +1740,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListLayerVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1533,7 +1805,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListLayers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1568,7 +1851,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProvisionedConcurrencyConfigs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1584,7 +1878,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTags",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1621,7 +1926,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListVersionsByFunction",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1644,6 +1960,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "PublishLayerVersion",
       :post,
       url_path,
       query_params,
@@ -1680,6 +1997,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "PublishVersion",
       :post,
       url_path,
       query_params,
@@ -1703,7 +2021,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutFunctionCodeSigningConfig",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1728,7 +2057,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutFunctionConcurrency",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1765,7 +2105,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutFunctionEventInvokeConfig",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1785,7 +2136,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "PutProvisionedConcurrencyConfig",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -1817,6 +2179,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "RemoveLayerVersionPermission",
       :delete,
       url_path,
       query_params,
@@ -1851,6 +2214,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "RemovePermission",
       :delete,
       url_path,
       query_params,
@@ -1875,6 +2239,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1904,6 +2269,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1927,7 +2293,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAlias",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1948,7 +2325,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateCodeSigningConfig",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2014,7 +2402,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateEventSourceMapping",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -2049,7 +2448,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateFunctionCode",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2079,7 +2489,18 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateFunctionConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2104,6 +2525,7 @@ defmodule AWS.Lambda do
     Request.request_rest(
       client,
       meta,
+      "UpdateFunctionEventInvokeConfig",
       :post,
       url_path,
       query_params,
@@ -2129,6 +2551,17 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateFunctionUrlConfig",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

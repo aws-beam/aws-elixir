@@ -45,6 +45,7 @@ defmodule AWS.ChimeSDKMeetings do
     Request.request_rest(
       client,
       meta,
+      "BatchCreateAttendee",
       :post,
       url_path,
       query_params,
@@ -94,7 +95,18 @@ defmodule AWS.ChimeSDKMeetings do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "BatchUpdateAttendeeCapabilitiesExcept",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -113,6 +125,7 @@ defmodule AWS.ChimeSDKMeetings do
     Request.request_rest(
       client,
       meta,
+      "CreateAttendee",
       :post,
       url_path,
       query_params,
@@ -142,6 +155,7 @@ defmodule AWS.ChimeSDKMeetings do
     Request.request_rest(
       client,
       meta,
+      "CreateMeeting",
       :post,
       url_path,
       query_params,
@@ -171,6 +185,7 @@ defmodule AWS.ChimeSDKMeetings do
     Request.request_rest(
       client,
       meta,
+      "CreateMeetingWithAttendees",
       :post,
       url_path,
       query_params,
@@ -201,6 +216,7 @@ defmodule AWS.ChimeSDKMeetings do
     Request.request_rest(
       client,
       meta,
+      "DeleteAttendee",
       :delete,
       url_path,
       query_params,
@@ -229,6 +245,7 @@ defmodule AWS.ChimeSDKMeetings do
     Request.request_rest(
       client,
       meta,
+      "DeleteMeeting",
       :delete,
       url_path,
       query_params,
@@ -255,7 +272,18 @@ defmodule AWS.ChimeSDKMeetings do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAttendee",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -271,7 +299,18 @@ defmodule AWS.ChimeSDKMeetings do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMeeting",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -307,7 +346,18 @@ defmodule AWS.ChimeSDKMeetings do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAttendees",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -327,7 +377,18 @@ defmodule AWS.ChimeSDKMeetings do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -343,6 +404,7 @@ defmodule AWS.ChimeSDKMeetings do
     Request.request_rest(
       client,
       meta,
+      "StartMeetingTranscription",
       :post,
       url_path,
       query_params,
@@ -366,6 +428,7 @@ defmodule AWS.ChimeSDKMeetings do
     Request.request_rest(
       client,
       meta,
+      "StopMeetingTranscription",
       :post,
       url_path,
       query_params,
@@ -389,6 +452,7 @@ defmodule AWS.ChimeSDKMeetings do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -436,6 +500,7 @@ defmodule AWS.ChimeSDKMeetings do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :post,
       url_path,
       query_params,
@@ -485,6 +550,17 @@ defmodule AWS.ChimeSDKMeetings do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAttendeeCapabilities",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

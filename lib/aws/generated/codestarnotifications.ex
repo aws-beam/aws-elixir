@@ -94,6 +94,7 @@ defmodule AWS.Codestarnotifications do
     Request.request_rest(
       client,
       meta,
+      "CreateNotificationRule",
       :post,
       url_path,
       query_params,
@@ -117,6 +118,7 @@ defmodule AWS.Codestarnotifications do
     Request.request_rest(
       client,
       meta,
+      "DeleteNotificationRule",
       :post,
       url_path,
       query_params,
@@ -140,6 +142,7 @@ defmodule AWS.Codestarnotifications do
     Request.request_rest(
       client,
       meta,
+      "DeleteTarget",
       :post,
       url_path,
       query_params,
@@ -163,6 +166,7 @@ defmodule AWS.Codestarnotifications do
     Request.request_rest(
       client,
       meta,
+      "DescribeNotificationRule",
       :post,
       url_path,
       query_params,
@@ -187,6 +191,7 @@ defmodule AWS.Codestarnotifications do
     Request.request_rest(
       client,
       meta,
+      "ListEventTypes",
       :post,
       url_path,
       query_params,
@@ -210,6 +215,7 @@ defmodule AWS.Codestarnotifications do
     Request.request_rest(
       client,
       meta,
+      "ListNotificationRules",
       :post,
       url_path,
       query_params,
@@ -233,6 +239,7 @@ defmodule AWS.Codestarnotifications do
     Request.request_rest(
       client,
       meta,
+      "ListTagsForResource",
       :post,
       url_path,
       query_params,
@@ -257,6 +264,7 @@ defmodule AWS.Codestarnotifications do
     Request.request_rest(
       client,
       meta,
+      "ListTargets",
       :post,
       url_path,
       query_params,
@@ -282,6 +290,7 @@ defmodule AWS.Codestarnotifications do
     Request.request_rest(
       client,
       meta,
+      "Subscribe",
       :post,
       url_path,
       query_params,
@@ -305,6 +314,7 @@ defmodule AWS.Codestarnotifications do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -330,6 +340,7 @@ defmodule AWS.Codestarnotifications do
     Request.request_rest(
       client,
       meta,
+      "Unsubscribe",
       :post,
       url_path,
       query_params,
@@ -359,6 +370,7 @@ defmodule AWS.Codestarnotifications do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :post,
       url_path,
       query_params,
@@ -388,6 +400,7 @@ defmodule AWS.Codestarnotifications do
     Request.request_rest(
       client,
       meta,
+      "UpdateNotificationRule",
       :post,
       url_path,
       query_params,

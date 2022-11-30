@@ -73,7 +73,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateAssessmentReportEvidenceFolder",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -94,7 +105,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "BatchAssociateAssessmentReportEvidence",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -115,6 +137,7 @@ defmodule AWS.AuditManager do
     Request.request_rest(
       client,
       meta,
+      "BatchCreateDelegationByAssessment",
       :post,
       url_path,
       query_params,
@@ -140,7 +163,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "BatchDeleteDelegationByAssessment",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -160,7 +194,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "BatchDisassociateAssessmentReportEvidence",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -207,6 +252,7 @@ defmodule AWS.AuditManager do
     Request.request_rest(
       client,
       meta,
+      "BatchImportEvidenceToAssessmentControl",
       :post,
       url_path,
       query_params,
@@ -230,6 +276,7 @@ defmodule AWS.AuditManager do
     Request.request_rest(
       client,
       meta,
+      "CreateAssessment",
       :post,
       url_path,
       query_params,
@@ -253,6 +300,7 @@ defmodule AWS.AuditManager do
     Request.request_rest(
       client,
       meta,
+      "CreateAssessmentFramework",
       :post,
       url_path,
       query_params,
@@ -276,6 +324,7 @@ defmodule AWS.AuditManager do
     Request.request_rest(
       client,
       meta,
+      "CreateAssessmentReport",
       :post,
       url_path,
       query_params,
@@ -299,6 +348,7 @@ defmodule AWS.AuditManager do
     Request.request_rest(
       client,
       meta,
+      "CreateControl",
       :post,
       url_path,
       query_params,
@@ -322,6 +372,7 @@ defmodule AWS.AuditManager do
     Request.request_rest(
       client,
       meta,
+      "DeleteAssessment",
       :delete,
       url_path,
       query_params,
@@ -345,6 +396,7 @@ defmodule AWS.AuditManager do
     Request.request_rest(
       client,
       meta,
+      "DeleteAssessmentFramework",
       :delete,
       url_path,
       query_params,
@@ -373,6 +425,7 @@ defmodule AWS.AuditManager do
     Request.request_rest(
       client,
       meta,
+      "DeleteAssessmentFrameworkShare",
       :delete,
       url_path,
       query_params,
@@ -426,6 +479,7 @@ defmodule AWS.AuditManager do
     Request.request_rest(
       client,
       meta,
+      "DeleteAssessmentReport",
       :delete,
       url_path,
       query_params,
@@ -449,6 +503,7 @@ defmodule AWS.AuditManager do
     Request.request_rest(
       client,
       meta,
+      "DeleteControl",
       :delete,
       url_path,
       query_params,
@@ -508,6 +563,7 @@ defmodule AWS.AuditManager do
     Request.request_rest(
       client,
       meta,
+      "DeregisterAccount",
       :post,
       url_path,
       query_params,
@@ -591,6 +647,7 @@ defmodule AWS.AuditManager do
     Request.request_rest(
       client,
       meta,
+      "DeregisterOrganizationAdminAccount",
       :post,
       url_path,
       query_params,
@@ -619,7 +676,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DisassociateAssessmentReportEvidenceFolder",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -632,7 +700,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAccountStatus",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -645,7 +724,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAssessment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -658,7 +748,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAssessmentFramework",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -678,7 +779,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAssessmentReportUrl",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -727,7 +839,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetChangeLogs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -740,7 +863,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetControl",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -767,7 +901,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDelegations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -789,7 +934,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEvidence",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -826,7 +982,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEvidenceByEvidenceFolder",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -847,7 +1014,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEvidenceFolder",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -880,7 +1058,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEvidenceFoldersByAssessment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -918,7 +1107,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEvidenceFoldersByAssessmentControl",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -931,7 +1131,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetInsights",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -944,7 +1155,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetInsightsByAssessment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -958,7 +1180,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetOrganizationAdminAccount",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -976,7 +1209,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetServicesInScope",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -989,7 +1233,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1043,7 +1298,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAssessmentControlInsightsByControlDomain",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1084,7 +1350,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAssessmentFrameworkShareRequests",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1125,7 +1402,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAssessmentFrameworks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1157,7 +1445,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAssessmentReports",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1197,7 +1496,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAssessments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1234,7 +1544,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListControlDomainInsights",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1278,7 +1599,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListControlDomainInsightsByAssessment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1324,7 +1656,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListControlInsightsByControlDomain",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1364,7 +1707,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListControls",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1405,7 +1759,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListKeywordsForDataSource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1432,7 +1797,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListNotifications",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1445,7 +1821,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1461,6 +1848,7 @@ defmodule AWS.AuditManager do
     Request.request_rest(
       client,
       meta,
+      "RegisterAccount",
       :post,
       url_path,
       query_params,
@@ -1485,6 +1873,7 @@ defmodule AWS.AuditManager do
     Request.request_rest(
       client,
       meta,
+      "RegisterOrganizationAdminAccount",
       :post,
       url_path,
       query_params,
@@ -1547,6 +1936,7 @@ defmodule AWS.AuditManager do
     Request.request_rest(
       client,
       meta,
+      "StartAssessmentFrameworkShare",
       :post,
       url_path,
       query_params,
@@ -1570,6 +1960,7 @@ defmodule AWS.AuditManager do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1598,6 +1989,7 @@ defmodule AWS.AuditManager do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1618,7 +2010,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAssessment",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1640,7 +2043,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAssessmentControl",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1661,7 +2075,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAssessmentControlSetStatus",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1674,7 +2099,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAssessmentFramework",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1687,7 +2123,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAssessmentFrameworkShare",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1700,7 +2147,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAssessmentStatus",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1713,7 +2171,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateControl",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1726,7 +2195,18 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateSettings",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1742,6 +2222,7 @@ defmodule AWS.AuditManager do
     Request.request_rest(
       client,
       meta,
+      "ValidateAssessmentReportIntegrity",
       :post,
       url_path,
       query_params,

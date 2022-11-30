@@ -85,6 +85,7 @@ defmodule AWS.ResourceGroups do
     Request.request_rest(
       client,
       meta,
+      "CreateGroup",
       :post,
       url_path,
       query_params,
@@ -117,6 +118,7 @@ defmodule AWS.ResourceGroups do
     Request.request_rest(
       client,
       meta,
+      "DeleteGroup",
       :post,
       url_path,
       query_params,
@@ -146,6 +148,7 @@ defmodule AWS.ResourceGroups do
     Request.request_rest(
       client,
       meta,
+      "GetGroup",
       :post,
       url_path,
       query_params,
@@ -178,6 +181,7 @@ defmodule AWS.ResourceGroups do
     Request.request_rest(
       client,
       meta,
+      "GetGroupConfiguration",
       :post,
       url_path,
       query_params,
@@ -210,6 +214,7 @@ defmodule AWS.ResourceGroups do
     Request.request_rest(
       client,
       meta,
+      "GetGroupQuery",
       :post,
       url_path,
       query_params,
@@ -237,7 +242,18 @@ defmodule AWS.ResourceGroups do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTags",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -259,6 +275,7 @@ defmodule AWS.ResourceGroups do
     Request.request_rest(
       client,
       meta,
+      "GroupResources",
       :post,
       url_path,
       query_params,
@@ -295,6 +312,7 @@ defmodule AWS.ResourceGroups do
     Request.request_rest(
       client,
       meta,
+      "ListGroupResources",
       :post,
       url_path,
       query_params,
@@ -330,6 +348,7 @@ defmodule AWS.ResourceGroups do
     Request.request_rest(
       client,
       meta,
+      "ListGroups",
       :post,
       url_path,
       query_params,
@@ -362,6 +381,7 @@ defmodule AWS.ResourceGroups do
     Request.request_rest(
       client,
       meta,
+      "PutGroupConfiguration",
       :post,
       url_path,
       query_params,
@@ -400,6 +420,7 @@ defmodule AWS.ResourceGroups do
     Request.request_rest(
       client,
       meta,
+      "SearchResources",
       :post,
       url_path,
       query_params,
@@ -434,7 +455,18 @@ defmodule AWS.ResourceGroups do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "Tag",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -456,6 +488,7 @@ defmodule AWS.ResourceGroups do
     Request.request_rest(
       client,
       meta,
+      "UngroupResources",
       :post,
       url_path,
       query_params,
@@ -485,6 +518,7 @@ defmodule AWS.ResourceGroups do
     Request.request_rest(
       client,
       meta,
+      "Untag",
       :patch,
       url_path,
       query_params,
@@ -516,6 +550,7 @@ defmodule AWS.ResourceGroups do
     Request.request_rest(
       client,
       meta,
+      "UpdateGroup",
       :post,
       url_path,
       query_params,
@@ -548,6 +583,7 @@ defmodule AWS.ResourceGroups do
     Request.request_rest(
       client,
       meta,
+      "UpdateGroupQuery",
       :post,
       url_path,
       query_params,

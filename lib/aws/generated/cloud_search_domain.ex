@@ -181,7 +181,18 @@ defmodule AWS.CloudSearchDomain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "Search",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -232,7 +243,18 @@ defmodule AWS.CloudSearchDomain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "Suggest",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -276,6 +298,7 @@ defmodule AWS.CloudSearchDomain do
     Request.request_rest(
       client,
       meta,
+      "UploadDocuments",
       :post,
       url_path,
       query_params,

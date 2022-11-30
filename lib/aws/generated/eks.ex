@@ -55,6 +55,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "AssociateEncryptionConfig",
       :post,
       url_path,
       query_params,
@@ -88,6 +89,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "AssociateIdentityProviderConfig",
       :post,
       url_path,
       query_params,
@@ -116,6 +118,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "CreateAddon",
       :post,
       url_path,
       query_params,
@@ -162,6 +165,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "CreateCluster",
       :post,
       url_path,
       query_params,
@@ -217,6 +221,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "CreateFargateProfile",
       :post,
       url_path,
       query_params,
@@ -252,6 +257,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "CreateNodegroup",
       :post,
       url_path,
       query_params,
@@ -285,6 +291,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "DeleteAddon",
       :delete,
       url_path,
       query_params,
@@ -319,6 +326,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "DeleteCluster",
       :delete,
       url_path,
       query_params,
@@ -360,6 +368,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "DeleteFargateProfile",
       :delete,
       url_path,
       query_params,
@@ -385,6 +394,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "DeleteNodegroup",
       :delete,
       url_path,
       query_params,
@@ -408,6 +418,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "DeregisterCluster",
       :delete,
       url_path,
       query_params,
@@ -430,7 +441,18 @@ defmodule AWS.EKS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAddon",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -505,7 +527,18 @@ defmodule AWS.EKS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAddonVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -525,7 +558,18 @@ defmodule AWS.EKS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeCluster",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -545,7 +589,18 @@ defmodule AWS.EKS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeFargateProfile",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -561,6 +616,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "DescribeIdentityProviderConfig",
       :post,
       url_path,
       query_params,
@@ -583,7 +639,18 @@ defmodule AWS.EKS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeNodegroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -622,7 +689,18 @@ defmodule AWS.EKS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeUpdate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -649,6 +727,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "DisassociateIdentityProviderConfig",
       :post,
       url_path,
       query_params,
@@ -689,7 +768,18 @@ defmodule AWS.EKS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAddons",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -730,7 +820,18 @@ defmodule AWS.EKS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListClusters",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -764,7 +865,18 @@ defmodule AWS.EKS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFargateProfiles",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -797,7 +909,18 @@ defmodule AWS.EKS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListIdentityProviderConfigs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -833,7 +956,18 @@ defmodule AWS.EKS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListNodegroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -846,7 +980,18 @@ defmodule AWS.EKS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -896,7 +1041,18 @@ defmodule AWS.EKS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListUpdates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -928,6 +1084,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "RegisterCluster",
       :post,
       url_path,
       query_params,
@@ -958,6 +1115,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -986,6 +1144,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1011,6 +1170,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "UpdateAddon",
       :post,
       url_path,
       query_params,
@@ -1060,6 +1220,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "UpdateClusterConfig",
       :post,
       url_path,
       query_params,
@@ -1096,6 +1257,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "UpdateClusterVersion",
       :post,
       url_path,
       query_params,
@@ -1132,6 +1294,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "UpdateNodegroupConfig",
       :post,
       url_path,
       query_params,
@@ -1187,6 +1350,7 @@ defmodule AWS.EKS do
     Request.request_rest(
       client,
       meta,
+      "UpdateNodegroupVersion",
       :post,
       url_path,
       query_params,

@@ -63,6 +63,7 @@ defmodule AWS.DataExchange do
     Request.request_rest(
       client,
       meta,
+      "CancelJob",
       :delete,
       url_path,
       query_params,
@@ -86,6 +87,7 @@ defmodule AWS.DataExchange do
     Request.request_rest(
       client,
       meta,
+      "CreateDataSet",
       :post,
       url_path,
       query_params,
@@ -109,6 +111,7 @@ defmodule AWS.DataExchange do
     Request.request_rest(
       client,
       meta,
+      "CreateEventAction",
       :post,
       url_path,
       query_params,
@@ -132,6 +135,7 @@ defmodule AWS.DataExchange do
     Request.request_rest(
       client,
       meta,
+      "CreateJob",
       :post,
       url_path,
       query_params,
@@ -155,6 +159,7 @@ defmodule AWS.DataExchange do
     Request.request_rest(
       client,
       meta,
+      "CreateRevision",
       :post,
       url_path,
       query_params,
@@ -180,6 +185,7 @@ defmodule AWS.DataExchange do
     Request.request_rest(
       client,
       meta,
+      "DeleteAsset",
       :delete,
       url_path,
       query_params,
@@ -203,6 +209,7 @@ defmodule AWS.DataExchange do
     Request.request_rest(
       client,
       meta,
+      "DeleteDataSet",
       :delete,
       url_path,
       query_params,
@@ -226,6 +233,7 @@ defmodule AWS.DataExchange do
     Request.request_rest(
       client,
       meta,
+      "DeleteEventAction",
       :delete,
       url_path,
       query_params,
@@ -251,6 +259,7 @@ defmodule AWS.DataExchange do
     Request.request_rest(
       client,
       meta,
+      "DeleteRevision",
       :delete,
       url_path,
       query_params,
@@ -273,7 +282,18 @@ defmodule AWS.DataExchange do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAsset",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -286,7 +306,18 @@ defmodule AWS.DataExchange do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDataSet",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -299,7 +330,18 @@ defmodule AWS.DataExchange do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEventAction",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -312,7 +354,18 @@ defmodule AWS.DataExchange do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -327,7 +380,18 @@ defmodule AWS.DataExchange do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRevision",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -361,7 +425,18 @@ defmodule AWS.DataExchange do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDataSetRevisions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -405,7 +480,18 @@ defmodule AWS.DataExchange do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDataSets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -445,7 +531,18 @@ defmodule AWS.DataExchange do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListEventActions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -493,7 +590,18 @@ defmodule AWS.DataExchange do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -530,7 +638,18 @@ defmodule AWS.DataExchange do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRevisionAssets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -543,7 +662,18 @@ defmodule AWS.DataExchange do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -561,6 +691,7 @@ defmodule AWS.DataExchange do
     Request.request_rest(
       client,
       meta,
+      "RevokeRevision",
       :post,
       url_path,
       query_params,
@@ -614,6 +745,7 @@ defmodule AWS.DataExchange do
     Request.request_rest(
       client,
       meta,
+      "SendApiAsset",
       :post,
       url_path,
       query_params,
@@ -637,6 +769,7 @@ defmodule AWS.DataExchange do
     Request.request_rest(
       client,
       meta,
+      "StartJob",
       :patch,
       url_path,
       query_params,
@@ -660,6 +793,7 @@ defmodule AWS.DataExchange do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -688,6 +822,7 @@ defmodule AWS.DataExchange do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -713,6 +848,7 @@ defmodule AWS.DataExchange do
     Request.request_rest(
       client,
       meta,
+      "UpdateAsset",
       :patch,
       url_path,
       query_params,
@@ -736,6 +872,7 @@ defmodule AWS.DataExchange do
     Request.request_rest(
       client,
       meta,
+      "UpdateDataSet",
       :patch,
       url_path,
       query_params,
@@ -759,6 +896,7 @@ defmodule AWS.DataExchange do
     Request.request_rest(
       client,
       meta,
+      "UpdateEventAction",
       :patch,
       url_path,
       query_params,
@@ -784,6 +922,7 @@ defmodule AWS.DataExchange do
     Request.request_rest(
       client,
       meta,
+      "UpdateRevision",
       :patch,
       url_path,
       query_params,

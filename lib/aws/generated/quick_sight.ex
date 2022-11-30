@@ -54,6 +54,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "CancelIngestion",
       :delete,
       url_path,
       query_params,
@@ -104,6 +105,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "CreateAccountCustomization",
       :post,
       url_path,
       query_params,
@@ -156,6 +158,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "CreateAccountSubscription",
       :post,
       url_path,
       query_params,
@@ -181,6 +184,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "CreateAnalysis",
       :post,
       url_path,
       query_params,
@@ -216,6 +220,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "CreateDashboard",
       :post,
       url_path,
       query_params,
@@ -241,6 +246,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "CreateDataSet",
       :post,
       url_path,
       query_params,
@@ -264,6 +270,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "CreateDataSource",
       :post,
       url_path,
       query_params,
@@ -289,6 +296,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "CreateFolder",
       :post,
       url_path,
       query_params,
@@ -319,7 +327,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateFolderMembership",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -346,6 +365,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "CreateGroup",
       :post,
       url_path,
       query_params,
@@ -376,7 +396,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateGroupMembership",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -406,6 +437,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "CreateIAMPolicyAssignment",
       :post,
       url_path,
       query_params,
@@ -446,7 +478,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateIngestion",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -472,6 +515,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "CreateNamespace",
       :post,
       url_path,
       query_params,
@@ -506,6 +550,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "CreateTemplate",
       :post,
       url_path,
       query_params,
@@ -538,6 +583,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "CreateTemplateAlias",
       :post,
       url_path,
       query_params,
@@ -567,6 +613,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "CreateTheme",
       :post,
       url_path,
       query_params,
@@ -599,6 +646,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "CreateThemeAlias",
       :post,
       url_path,
       query_params,
@@ -628,6 +676,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "DeleteAccountCustomization",
       :delete,
       url_path,
       query_params,
@@ -658,6 +707,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "DeleteAccountSubscription",
       :delete,
       url_path,
       query_params,
@@ -704,6 +754,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "DeleteAnalysis",
       :delete,
       url_path,
       query_params,
@@ -734,6 +785,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "DeleteDashboard",
       :delete,
       url_path,
       query_params,
@@ -759,6 +811,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "DeleteDataSet",
       :delete,
       url_path,
       query_params,
@@ -786,6 +839,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "DeleteDataSource",
       :delete,
       url_path,
       query_params,
@@ -811,6 +865,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "DeleteFolder",
       :delete,
       url_path,
       query_params,
@@ -844,6 +899,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "DeleteFolderMembership",
       :delete,
       url_path,
       query_params,
@@ -876,6 +932,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "DeleteGroup",
       :delete,
       url_path,
       query_params,
@@ -909,6 +966,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "DeleteGroupMembership",
       :delete,
       url_path,
       query_params,
@@ -941,6 +999,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "DeleteIAMPolicyAssignment",
       :delete,
       url_path,
       query_params,
@@ -971,6 +1030,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "DeleteNamespace",
       :delete,
       url_path,
       query_params,
@@ -1001,6 +1061,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "DeleteTemplate",
       :delete,
       url_path,
       query_params,
@@ -1036,6 +1097,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "DeleteTemplateAlias",
       :delete,
       url_path,
       query_params,
@@ -1066,6 +1128,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "DeleteTheme",
       :delete,
       url_path,
       query_params,
@@ -1101,6 +1164,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "DeleteThemeAlias",
       :delete,
       url_path,
       query_params,
@@ -1129,6 +1193,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "DeleteUser",
       :delete,
       url_path,
       query_params,
@@ -1161,6 +1226,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "DeleteUserByPrincipalId",
       :delete,
       url_path,
       query_params,
@@ -1249,7 +1315,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAccountCustomization",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1263,7 +1340,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAccountSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1281,7 +1369,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAccountSubscription",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1296,7 +1395,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAnalysis",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1317,7 +1427,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAnalysisDefinition",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1337,7 +1458,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAnalysisPermissions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1373,7 +1505,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDashboard",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1415,7 +1558,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDashboardDefinition",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1435,7 +1589,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDashboardPermissions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1452,7 +1617,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDataSet",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1475,7 +1651,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDataSetPermissions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1490,7 +1677,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDataSource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1510,7 +1708,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDataSourcePermissions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1525,7 +1734,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeFolder",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1540,7 +1760,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeFolderPermissions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1563,7 +1794,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeFolderResolvedPermissions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1578,7 +1820,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1604,7 +1857,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeGroupMembership",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1626,7 +1890,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeIAMPolicyAssignment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1647,7 +1922,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeIngestion",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1660,7 +1946,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeIpRestriction",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1675,7 +1972,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeNamespace",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1711,7 +2019,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1732,7 +2051,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeTemplateAlias",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1774,7 +2104,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeTemplateDefinition",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1794,7 +2135,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeTemplatePermissions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1830,7 +2182,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeTheme",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1851,7 +2214,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeThemeAlias",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1866,7 +2240,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeThemePermissions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1881,7 +2266,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeUser",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1928,6 +2324,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "GenerateEmbedUrlForAnonymousUser",
       :post,
       url_path,
       query_params,
@@ -1985,6 +2382,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "GenerateEmbedUrlForRegisteredUser",
       :post,
       url_path,
       query_params,
@@ -2104,7 +2502,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDashboardEmbedUrl",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2161,7 +2570,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSessionEmbedUrl",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2195,7 +2615,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAnalyses",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2231,7 +2662,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDashboardVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2264,7 +2706,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDashboards",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2301,7 +2754,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDataSets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2335,7 +2799,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDataSources",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2371,7 +2846,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFolderMembers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2404,7 +2890,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFolders",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2441,7 +2938,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListGroupMemberships",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2477,7 +2985,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2513,7 +3032,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListIAMPolicyAssignments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2552,7 +3082,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListIAMPolicyAssignmentsForUser",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2588,7 +3129,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListIngestions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2623,7 +3175,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListNamespaces",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2636,7 +3199,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2672,7 +3246,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTemplateAliases",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2709,7 +3294,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTemplateVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2742,7 +3338,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTemplates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2778,7 +3385,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListThemeAliases",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2814,7 +3432,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListThemeVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2855,7 +3484,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListThemes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2893,7 +3533,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListUserGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2929,7 +3580,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListUsers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2948,6 +3610,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "RegisterUser",
       :post,
       url_path,
       query_params,
@@ -2973,6 +3636,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "RestoreAnalysis",
       :post,
       url_path,
       query_params,
@@ -2999,6 +3663,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "SearchAnalyses",
       :post,
       url_path,
       query_params,
@@ -3025,6 +3690,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "SearchDashboards",
       :post,
       url_path,
       query_params,
@@ -3049,6 +3715,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "SearchDataSets",
       :post,
       url_path,
       query_params,
@@ -3073,6 +3740,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "SearchDataSources",
       :post,
       url_path,
       query_params,
@@ -3096,6 +3764,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "SearchFolders",
       :post,
       url_path,
       query_params,
@@ -3128,6 +3797,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "SearchGroups",
       :post,
       url_path,
       query_params,
@@ -3174,6 +3844,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -3202,6 +3873,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -3236,7 +3908,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAccountCustomization",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3249,7 +3932,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAccountSettings",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3264,7 +3958,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAnalysis",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3285,7 +3990,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAnalysisPermissions",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3306,7 +4022,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDashboard",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3327,7 +4054,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDashboardPermissions",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3349,7 +4087,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDashboardPublishedVersion",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3367,7 +4116,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDataSet",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3394,6 +4154,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "UpdateDataSetPermissions",
       :post,
       url_path,
       query_params,
@@ -3416,7 +4177,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDataSource",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3440,6 +4212,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "UpdateDataSourcePermissions",
       :post,
       url_path,
       query_params,
@@ -3462,7 +4235,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateFolder",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3483,7 +4267,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateFolderPermissions",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3505,7 +4300,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateGroup",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3531,7 +4337,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateIAMPolicyAssignment",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3550,6 +4367,7 @@ defmodule AWS.QuickSight do
     Request.request_rest(
       client,
       meta,
+      "UpdateIpRestriction",
       :post,
       url_path,
       query_params,
@@ -3580,7 +4398,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdatePublicSharingSettings",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3596,7 +4425,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateTemplate",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3618,7 +4458,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateTemplateAlias",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3639,7 +4490,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateTemplatePermissions",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3654,7 +4516,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateTheme",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3676,7 +4549,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateThemeAlias",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3733,7 +4617,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateThemePermissions",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3748,6 +4643,17 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateUser",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

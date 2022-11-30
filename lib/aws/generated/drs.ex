@@ -39,6 +39,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "CreateExtendedSourceServer",
       :post,
       url_path,
       query_params,
@@ -62,6 +63,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "CreateReplicationConfigurationTemplate",
       :post,
       url_path,
       query_params,
@@ -85,6 +87,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "DeleteJob",
       :post,
       url_path,
       query_params,
@@ -111,6 +114,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "DeleteRecoveryInstance",
       :post,
       url_path,
       query_params,
@@ -134,6 +138,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "DeleteReplicationConfigurationTemplate",
       :post,
       url_path,
       query_params,
@@ -159,6 +164,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "DeleteSourceServer",
       :post,
       url_path,
       query_params,
@@ -182,6 +188,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "DescribeJobLogItems",
       :post,
       url_path,
       query_params,
@@ -212,6 +219,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "DescribeJobs",
       :post,
       url_path,
       query_params,
@@ -235,6 +243,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "DescribeRecoveryInstances",
       :post,
       url_path,
       query_params,
@@ -258,6 +267,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "DescribeRecoverySnapshots",
       :post,
       url_path,
       query_params,
@@ -281,6 +291,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "DescribeReplicationConfigurationTemplates",
       :post,
       url_path,
       query_params,
@@ -304,6 +315,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "DescribeSourceServers",
       :post,
       url_path,
       query_params,
@@ -339,6 +351,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "DisconnectRecoveryInstance",
       :post,
       url_path,
       query_params,
@@ -374,6 +387,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "DisconnectSourceServer",
       :post,
       url_path,
       query_params,
@@ -397,6 +411,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "GetFailbackReplicationConfiguration",
       :post,
       url_path,
       query_params,
@@ -420,6 +435,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "GetLaunchConfiguration",
       :post,
       url_path,
       query_params,
@@ -443,6 +459,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "GetReplicationConfiguration",
       :post,
       url_path,
       query_params,
@@ -466,6 +483,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "InitializeService",
       :post,
       url_path,
       query_params,
@@ -494,6 +512,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "ListExtensibleSourceServers",
       :post,
       url_path,
       query_params,
@@ -533,7 +552,18 @@ defmodule AWS.Drs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListStagingAccounts",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -546,7 +576,18 @@ defmodule AWS.Drs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -567,6 +608,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "RetryDataReplication",
       :post,
       url_path,
       query_params,
@@ -595,6 +637,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "ReverseReplication",
       :post,
       url_path,
       query_params,
@@ -622,6 +665,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "StartFailbackLaunch",
       :post,
       url_path,
       query_params,
@@ -648,6 +692,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "StartRecovery",
       :post,
       url_path,
       query_params,
@@ -674,6 +719,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "StartReplication",
       :post,
       url_path,
       query_params,
@@ -700,6 +746,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "StopFailback",
       :post,
       url_path,
       query_params,
@@ -726,6 +773,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "StopReplication",
       :post,
       url_path,
       query_params,
@@ -754,6 +802,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -779,6 +828,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "TerminateRecoveryInstances",
       :post,
       url_path,
       query_params,
@@ -808,6 +858,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -832,6 +883,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "UpdateFailbackReplicationConfiguration",
       :post,
       url_path,
       query_params,
@@ -855,6 +907,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "UpdateLaunchConfiguration",
       :post,
       url_path,
       query_params,
@@ -878,6 +931,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "UpdateReplicationConfiguration",
       :post,
       url_path,
       query_params,
@@ -901,6 +955,7 @@ defmodule AWS.Drs do
     Request.request_rest(
       client,
       meta,
+      "UpdateReplicationConfigurationTemplate",
       :post,
       url_path,
       query_params,

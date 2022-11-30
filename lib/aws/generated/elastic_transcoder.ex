@@ -44,6 +44,7 @@ defmodule AWS.ElasticTranscoder do
     Request.request_rest(
       client,
       meta,
+      "CancelJob",
       :delete,
       url_path,
       query_params,
@@ -73,6 +74,7 @@ defmodule AWS.ElasticTranscoder do
     Request.request_rest(
       client,
       meta,
+      "CreateJob",
       :post,
       url_path,
       query_params,
@@ -96,6 +98,7 @@ defmodule AWS.ElasticTranscoder do
     Request.request_rest(
       client,
       meta,
+      "CreatePipeline",
       :post,
       url_path,
       query_params,
@@ -134,6 +137,7 @@ defmodule AWS.ElasticTranscoder do
     Request.request_rest(
       client,
       meta,
+      "CreatePreset",
       :post,
       url_path,
       query_params,
@@ -161,6 +165,7 @@ defmodule AWS.ElasticTranscoder do
     Request.request_rest(
       client,
       meta,
+      "DeletePipeline",
       :delete,
       url_path,
       query_params,
@@ -186,6 +191,7 @@ defmodule AWS.ElasticTranscoder do
     Request.request_rest(
       client,
       meta,
+      "DeletePreset",
       :delete,
       url_path,
       query_params,
@@ -231,7 +237,18 @@ defmodule AWS.ElasticTranscoder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJobsByPipeline",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -267,7 +284,18 @@ defmodule AWS.ElasticTranscoder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJobsByStatus",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -295,7 +323,18 @@ defmodule AWS.ElasticTranscoder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPipelines",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -323,7 +362,18 @@ defmodule AWS.ElasticTranscoder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPresets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -336,7 +386,18 @@ defmodule AWS.ElasticTranscoder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ReadJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -349,7 +410,18 @@ defmodule AWS.ElasticTranscoder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ReadPipeline",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -362,7 +434,18 @@ defmodule AWS.ElasticTranscoder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ReadPreset",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -384,6 +467,7 @@ defmodule AWS.ElasticTranscoder do
     Request.request_rest(
       client,
       meta,
+      "TestRole",
       :post,
       url_path,
       query_params,
@@ -409,7 +493,18 @@ defmodule AWS.ElasticTranscoder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdatePipeline",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -429,6 +524,7 @@ defmodule AWS.ElasticTranscoder do
     Request.request_rest(
       client,
       meta,
+      "UpdatePipelineNotifications",
       :post,
       url_path,
       query_params,
@@ -459,6 +555,7 @@ defmodule AWS.ElasticTranscoder do
     Request.request_rest(
       client,
       meta,
+      "UpdatePipelineStatus",
       :post,
       url_path,
       query_params,

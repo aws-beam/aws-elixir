@@ -51,6 +51,7 @@ defmodule AWS.LexRuntime do
     Request.request_rest(
       client,
       meta,
+      "DeleteSession",
       :delete,
       url_path,
       query_params,
@@ -87,7 +88,18 @@ defmodule AWS.LexRuntime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSession",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -195,6 +207,7 @@ defmodule AWS.LexRuntime do
     Request.request_rest(
       client,
       meta,
+      "PostContent",
       :post,
       url_path,
       query_params,
@@ -271,6 +284,7 @@ defmodule AWS.LexRuntime do
     Request.request_rest(
       client,
       meta,
+      "PostText",
       :post,
       url_path,
       query_params,
@@ -324,6 +338,7 @@ defmodule AWS.LexRuntime do
     Request.request_rest(
       client,
       meta,
+      "PutSession",
       :post,
       url_path,
       query_params,

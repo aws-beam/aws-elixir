@@ -40,7 +40,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CancelImageCreation",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -62,7 +73,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateComponent",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -77,7 +99,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateContainerRecipe",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -92,7 +125,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateDistributionConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -110,7 +154,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateImage",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -125,7 +180,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateImagePipeline",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -140,7 +206,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateImageRecipe",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -156,7 +233,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateInfrastructureConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -177,6 +265,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "DeleteComponent",
       :delete,
       url_path,
       query_params,
@@ -205,6 +294,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "DeleteContainerRecipe",
       :delete,
       url_path,
       query_params,
@@ -233,6 +323,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "DeleteDistributionConfiguration",
       :delete,
       url_path,
       query_params,
@@ -274,6 +365,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "DeleteImage",
       :delete,
       url_path,
       query_params,
@@ -302,6 +394,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "DeleteImagePipeline",
       :delete,
       url_path,
       query_params,
@@ -330,6 +423,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "DeleteImageRecipe",
       :delete,
       url_path,
       query_params,
@@ -358,6 +452,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "DeleteInfrastructureConfiguration",
       :delete,
       url_path,
       query_params,
@@ -385,7 +480,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetComponent",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -405,7 +511,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetComponentPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -425,7 +542,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetContainerRecipe",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -445,7 +573,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetContainerRecipePolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -469,7 +608,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDistributionConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -489,7 +639,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetImage",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -509,7 +670,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetImagePipeline",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -529,7 +701,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetImagePolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -549,7 +732,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetImageRecipe",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -569,7 +763,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetImageRecipePolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -593,7 +798,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetInfrastructureConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -606,7 +822,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ImportComponent",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -629,7 +856,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ImportVmImage",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -653,6 +891,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "ListComponentBuildVersions",
       :post,
       url_path,
       query_params,
@@ -684,6 +923,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "ListComponents",
       :post,
       url_path,
       query_params,
@@ -707,6 +947,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "ListContainerRecipes",
       :post,
       url_path,
       query_params,
@@ -730,6 +971,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "ListDistributionConfigurations",
       :post,
       url_path,
       query_params,
@@ -753,6 +995,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "ListImageBuildVersions",
       :post,
       url_path,
       query_params,
@@ -777,6 +1020,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "ListImagePackages",
       :post,
       url_path,
       query_params,
@@ -800,6 +1044,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "ListImagePipelineImages",
       :post,
       url_path,
       query_params,
@@ -823,6 +1068,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "ListImagePipelines",
       :post,
       url_path,
       query_params,
@@ -846,6 +1092,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "ListImageRecipes",
       :post,
       url_path,
       query_params,
@@ -869,6 +1116,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "ListImages",
       :post,
       url_path,
       query_params,
@@ -892,6 +1140,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "ListInfrastructureConfigurations",
       :post,
       url_path,
       query_params,
@@ -912,7 +1161,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -932,7 +1192,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutComponentPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -953,7 +1224,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutContainerRecipePolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -973,7 +1255,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutImagePolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -993,7 +1286,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutImageRecipePolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1006,7 +1310,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "StartImagePipelineExecution",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1022,6 +1337,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1050,6 +1366,7 @@ defmodule AWS.Imagebuilder do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1072,7 +1389,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDistributionConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1091,7 +1419,18 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateImagePipeline",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1107,6 +1446,17 @@ defmodule AWS.Imagebuilder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateInfrastructureConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

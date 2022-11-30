@@ -48,7 +48,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateBrowserSettings",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -66,7 +77,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateNetworkSettings",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -84,7 +106,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateTrustStore",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -104,7 +137,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateUserAccessLoggingSettings",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -122,7 +166,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateUserSettings",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -141,6 +196,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "CreateBrowserSettings",
       :post,
       url_path,
       query_params,
@@ -164,6 +220,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "CreateIdentityProvider",
       :post,
       url_path,
       query_params,
@@ -190,6 +247,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "CreateNetworkSettings",
       :post,
       url_path,
       query_params,
@@ -213,6 +271,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "CreatePortal",
       :post,
       url_path,
       query_params,
@@ -242,6 +301,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "CreateTrustStore",
       :post,
       url_path,
       query_params,
@@ -266,6 +326,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "CreateUserAccessLoggingSettings",
       :post,
       url_path,
       query_params,
@@ -292,6 +353,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "CreateUserSettings",
       :post,
       url_path,
       query_params,
@@ -315,6 +377,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "DeleteBrowserSettings",
       :delete,
       url_path,
       query_params,
@@ -338,6 +401,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "DeleteIdentityProvider",
       :delete,
       url_path,
       query_params,
@@ -361,6 +425,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "DeleteNetworkSettings",
       :delete,
       url_path,
       query_params,
@@ -384,6 +449,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "DeletePortal",
       :delete,
       url_path,
       query_params,
@@ -407,6 +473,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "DeleteTrustStore",
       :delete,
       url_path,
       query_params,
@@ -437,6 +504,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "DeleteUserAccessLoggingSettings",
       :delete,
       url_path,
       query_params,
@@ -460,6 +528,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "DeleteUserSettings",
       :delete,
       url_path,
       query_params,
@@ -483,6 +552,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "DisassociateBrowserSettings",
       :delete,
       url_path,
       query_params,
@@ -506,6 +576,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "DisassociateNetworkSettings",
       :delete,
       url_path,
       query_params,
@@ -529,6 +600,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "DisassociateTrustStore",
       :delete,
       url_path,
       query_params,
@@ -559,6 +631,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "DisassociateUserAccessLoggingSettings",
       :delete,
       url_path,
       query_params,
@@ -582,6 +655,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "DisassociateUserSettings",
       :delete,
       url_path,
       query_params,
@@ -602,7 +676,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBrowserSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -615,7 +700,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetIdentityProvider",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -628,7 +724,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetNetworkSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -641,7 +748,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPortal",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -654,7 +772,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPortalServiceProviderMetadata",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -667,7 +796,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTrustStore",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -687,7 +827,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTrustStoreCertificate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -706,7 +857,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetUserAccessLoggingSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -719,7 +881,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetUserSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -751,7 +924,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListBrowserSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -784,7 +968,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListIdentityProviders",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -816,7 +1011,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListNetworkSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -843,7 +1049,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPortals",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -856,7 +1073,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -889,7 +1117,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTrustStoreCertificates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -916,7 +1155,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTrustStores",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -948,7 +1198,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListUserAccessLoggingSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -975,7 +1236,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListUserSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -991,6 +1263,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1019,6 +1292,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1042,6 +1316,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "UpdateBrowserSettings",
       :patch,
       url_path,
       query_params,
@@ -1065,6 +1340,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "UpdateIdentityProvider",
       :patch,
       url_path,
       query_params,
@@ -1088,6 +1364,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "UpdateNetworkSettings",
       :patch,
       url_path,
       query_params,
@@ -1108,7 +1385,18 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdatePortal",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1124,6 +1412,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "UpdateTrustStore",
       :patch,
       url_path,
       query_params,
@@ -1154,6 +1443,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "UpdateUserAccessLoggingSettings",
       :patch,
       url_path,
       query_params,
@@ -1177,6 +1467,7 @@ defmodule AWS.WorkSpacesWeb do
     Request.request_rest(
       client,
       meta,
+      "UpdateUserSettings",
       :patch,
       url_path,
       query_params,

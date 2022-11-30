@@ -63,6 +63,7 @@ defmodule AWS.ManagedBlockchain do
     Request.request_rest(
       client,
       meta,
+      "CreateAccessor",
       :post,
       url_path,
       query_params,
@@ -88,6 +89,7 @@ defmodule AWS.ManagedBlockchain do
     Request.request_rest(
       client,
       meta,
+      "CreateMember",
       :post,
       url_path,
       query_params,
@@ -113,6 +115,7 @@ defmodule AWS.ManagedBlockchain do
     Request.request_rest(
       client,
       meta,
+      "CreateNetwork",
       :post,
       url_path,
       query_params,
@@ -138,6 +141,7 @@ defmodule AWS.ManagedBlockchain do
     Request.request_rest(
       client,
       meta,
+      "CreateNode",
       :post,
       url_path,
       query_params,
@@ -166,6 +170,7 @@ defmodule AWS.ManagedBlockchain do
     Request.request_rest(
       client,
       meta,
+      "CreateProposal",
       :post,
       url_path,
       query_params,
@@ -202,6 +207,7 @@ defmodule AWS.ManagedBlockchain do
     Request.request_rest(
       client,
       meta,
+      "DeleteAccessor",
       :delete,
       url_path,
       query_params,
@@ -237,6 +243,7 @@ defmodule AWS.ManagedBlockchain do
     Request.request_rest(
       client,
       meta,
+      "DeleteMember",
       :delete,
       url_path,
       query_params,
@@ -271,6 +278,7 @@ defmodule AWS.ManagedBlockchain do
     Request.request_rest(
       client,
       meta,
+      "DeleteNode",
       :delete,
       url_path,
       query_params,
@@ -299,7 +307,18 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAccessor",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -316,7 +335,18 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMember",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -331,7 +361,18 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetNetwork",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -355,7 +396,18 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetNode",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -372,7 +424,18 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetProposal",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -407,7 +470,18 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAccessors",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -436,7 +510,18 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListInvitations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -496,7 +581,18 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListMembers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -555,7 +651,18 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListNetworks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -606,7 +713,18 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListNodes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -645,7 +763,18 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProposalVotes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -680,7 +809,18 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProposals",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -699,7 +839,18 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -720,6 +871,7 @@ defmodule AWS.ManagedBlockchain do
     Request.request_rest(
       client,
       meta,
+      "RejectInvitation",
       :delete,
       url_path,
       query_params,
@@ -756,6 +908,7 @@ defmodule AWS.ManagedBlockchain do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -788,6 +941,7 @@ defmodule AWS.ManagedBlockchain do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -815,6 +969,7 @@ defmodule AWS.ManagedBlockchain do
     Request.request_rest(
       client,
       meta,
+      "UpdateMember",
       :patch,
       url_path,
       query_params,
@@ -842,6 +997,7 @@ defmodule AWS.ManagedBlockchain do
     Request.request_rest(
       client,
       meta,
+      "UpdateNode",
       :patch,
       url_path,
       query_params,
@@ -872,6 +1028,7 @@ defmodule AWS.ManagedBlockchain do
     Request.request_rest(
       client,
       meta,
+      "VoteOnProposal",
       :post,
       url_path,
       query_params,

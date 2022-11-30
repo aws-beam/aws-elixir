@@ -91,6 +91,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "AssociatePhoneNumberWithUser",
       :post,
       url_path,
       query_params,
@@ -121,6 +122,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "AssociatePhoneNumbersWithVoiceConnector",
       :post,
       url_path,
       query_params,
@@ -151,6 +153,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "AssociatePhoneNumbersWithVoiceConnectorGroup",
       :post,
       url_path,
       query_params,
@@ -182,6 +185,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "AssociateSigninDelegateGroupsWithAccount",
       :post,
       url_path,
       query_params,
@@ -208,6 +212,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "BatchCreateAttendee",
       :post,
       url_path,
       query_params,
@@ -237,6 +242,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "BatchCreateChannelMembership",
       :post,
       url_path,
       query_params,
@@ -265,6 +271,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "BatchCreateRoomMembership",
       :post,
       url_path,
       query_params,
@@ -294,6 +301,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "BatchDeletePhoneNumber",
       :post,
       url_path,
       query_params,
@@ -332,6 +340,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "BatchSuspendUser",
       :post,
       url_path,
       query_params,
@@ -364,6 +373,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "BatchUnsuspendUser",
       :post,
       url_path,
       query_params,
@@ -398,6 +408,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "BatchUpdatePhoneNumber",
       :post,
       url_path,
       query_params,
@@ -424,6 +435,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "BatchUpdateUser",
       :post,
       url_path,
       query_params,
@@ -451,6 +463,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateAccount",
       :post,
       url_path,
       query_params,
@@ -477,6 +490,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateAppInstance",
       :post,
       url_path,
       query_params,
@@ -509,6 +523,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateAppInstanceAdmin",
       :post,
       url_path,
       query_params,
@@ -534,6 +549,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateAppInstanceUser",
       :post,
       url_path,
       query_params,
@@ -560,6 +576,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateAttendee",
       :post,
       url_path,
       query_params,
@@ -583,6 +600,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateBot",
       :post,
       url_path,
       query_params,
@@ -618,6 +636,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateChannel",
       :post,
       url_path,
       query_params,
@@ -658,6 +677,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateChannelBan",
       :post,
       url_path,
       query_params,
@@ -711,6 +731,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateChannelMembership",
       :post,
       url_path,
       query_params,
@@ -756,6 +777,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateChannelModerator",
       :post,
       url_path,
       query_params,
@@ -779,6 +801,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateMediaCapturePipeline",
       :post,
       url_path,
       query_params,
@@ -808,6 +831,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateMeeting",
       :post,
       url_path,
       query_params,
@@ -839,6 +863,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateMeetingDialOut",
       :post,
       url_path,
       query_params,
@@ -868,6 +893,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateMeetingWithAttendees",
       :post,
       url_path,
       query_params,
@@ -895,6 +921,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreatePhoneNumberOrder",
       :post,
       url_path,
       query_params,
@@ -919,6 +946,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateProxySession",
       :post,
       url_path,
       query_params,
@@ -942,6 +970,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateRoom",
       :post,
       url_path,
       query_params,
@@ -970,6 +999,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateRoomMembership",
       :post,
       url_path,
       query_params,
@@ -993,6 +1023,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateSipMediaApplication",
       :post,
       url_path,
       query_params,
@@ -1023,6 +1054,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateSipMediaApplicationCall",
       :post,
       url_path,
       query_params,
@@ -1047,6 +1079,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateSipRule",
       :post,
       url_path,
       query_params,
@@ -1070,6 +1103,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateUser",
       :post,
       url_path,
       query_params,
@@ -1101,6 +1135,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateVoiceConnector",
       :post,
       url_path,
       query_params,
@@ -1132,6 +1167,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "CreateVoiceConnectorGroup",
       :post,
       url_path,
       query_params,
@@ -1169,6 +1205,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteAccount",
       :delete,
       url_path,
       query_params,
@@ -1192,6 +1229,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteAppInstance",
       :delete,
       url_path,
       query_params,
@@ -1225,6 +1263,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteAppInstanceAdmin",
       :delete,
       url_path,
       query_params,
@@ -1253,6 +1292,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteAppInstanceStreamingConfigurations",
       :delete,
       url_path,
       query_params,
@@ -1276,6 +1316,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteAppInstanceUser",
       :delete,
       url_path,
       query_params,
@@ -1306,6 +1347,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteAttendee",
       :delete,
       url_path,
       query_params,
@@ -1342,6 +1384,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteChannel",
       :delete,
       url_path,
       query_params,
@@ -1376,6 +1419,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteChannelBan",
       :delete,
       url_path,
       query_params,
@@ -1410,6 +1454,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteChannelMembership",
       :delete,
       url_path,
       query_params,
@@ -1448,6 +1493,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteChannelMessage",
       :delete,
       url_path,
       query_params,
@@ -1488,6 +1534,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteChannelModerator",
       :delete,
       url_path,
       query_params,
@@ -1513,6 +1560,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteEventsConfiguration",
       :delete,
       url_path,
       query_params,
@@ -1536,6 +1584,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteMediaCapturePipeline",
       :delete,
       url_path,
       query_params,
@@ -1564,6 +1613,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteMeeting",
       :delete,
       url_path,
       query_params,
@@ -1593,6 +1643,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeletePhoneNumber",
       :delete,
       url_path,
       query_params,
@@ -1625,6 +1676,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteProxySession",
       :delete,
       url_path,
       query_params,
@@ -1650,6 +1702,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteRoom",
       :delete,
       url_path,
       query_params,
@@ -1682,6 +1735,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteRoomMembership",
       :delete,
       url_path,
       query_params,
@@ -1710,6 +1764,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteSipMediaApplication",
       :delete,
       url_path,
       query_params,
@@ -1735,6 +1790,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteSipRule",
       :delete,
       url_path,
       query_params,
@@ -1761,6 +1817,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteVoiceConnector",
       :delete,
       url_path,
       query_params,
@@ -1792,6 +1849,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteVoiceConnectorEmergencyCallingConfiguration",
       :delete,
       url_path,
       query_params,
@@ -1823,6 +1881,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteVoiceConnectorGroup",
       :delete,
       url_path,
       query_params,
@@ -1854,6 +1913,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteVoiceConnectorOrigination",
       :delete,
       url_path,
       query_params,
@@ -1879,6 +1939,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteVoiceConnectorProxy",
       :delete,
       url_path,
       query_params,
@@ -1910,6 +1971,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteVoiceConnectorStreamingConfiguration",
       :delete,
       url_path,
       query_params,
@@ -1941,6 +2003,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteVoiceConnectorTermination",
       :delete,
       url_path,
       query_params,
@@ -1972,6 +2035,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DeleteVoiceConnectorTerminationCredentials",
       :post,
       url_path,
       query_params,
@@ -1992,7 +2056,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAppInstance",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2012,7 +2087,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAppInstanceAdmin",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2025,7 +2111,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAppInstanceUser",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2050,7 +2147,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeChannel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2083,7 +2191,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeChannelBan",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2116,7 +2235,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeChannelMembership",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2155,7 +2285,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeChannelMembershipForAppInstanceUser",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2196,7 +2337,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeChannelModeratedByAppInstanceUser",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2229,7 +2381,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeChannelModerator",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2254,6 +2417,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DisassociatePhoneNumberFromUser",
       :post,
       url_path,
       query_params,
@@ -2285,6 +2449,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DisassociatePhoneNumbersFromVoiceConnector",
       :post,
       url_path,
       query_params,
@@ -2316,6 +2481,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DisassociatePhoneNumbersFromVoiceConnectorGroup",
       :post,
       url_path,
       query_params,
@@ -2347,6 +2513,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "DisassociateSigninDelegateGroupsFromAccount",
       :post,
       url_path,
       query_params,
@@ -2368,7 +2535,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAccount",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2385,7 +2563,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAccountSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2398,7 +2587,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAppInstanceRetentionSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2415,7 +2615,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAppInstanceStreamingConfigurations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2434,7 +2645,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAttendee",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2448,7 +2670,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBot",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2480,7 +2713,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetChannelMessage",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2496,7 +2740,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEventsConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2510,7 +2765,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetGlobalSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2523,7 +2789,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMediaCapturePipeline",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2539,7 +2816,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMeeting",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2552,7 +2840,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMessagingSessionEndpoint",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2566,7 +2865,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPhoneNumber",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2581,7 +2891,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPhoneNumberOrder",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2595,7 +2916,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPhoneNumberSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2611,7 +2943,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetProxySession",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2627,7 +2970,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRetentionSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2643,7 +2997,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRoom",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2657,7 +3022,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSipMediaApplication",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2676,7 +3052,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSipMediaApplicationLoggingConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2690,7 +3077,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSipRule",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2709,7 +3107,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetUser",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2725,7 +3134,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetUserSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2739,7 +3159,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceConnector",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2759,7 +3190,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceConnectorEmergencyCallingConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2773,7 +3215,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceConnectorGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2796,7 +3249,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceConnectorLoggingConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2810,7 +3274,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceConnectorOrigination",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2826,7 +3301,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceConnectorProxy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2849,7 +3335,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceConnectorStreamingConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2863,7 +3360,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceConnectorTermination",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2881,7 +3389,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceConnectorTerminationHealth",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2900,6 +3419,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "InviteUsers",
       :post,
       url_path,
       query_params,
@@ -2959,7 +3479,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAccounts",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2992,7 +3523,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAppInstanceAdmins",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3032,7 +3574,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAppInstanceUsers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3059,7 +3612,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAppInstances",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3074,7 +3638,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAttendeeTags",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3110,7 +3685,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAttendees",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3144,7 +3730,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListBots",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3190,7 +3787,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannelBans",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3244,7 +3852,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannelMemberships",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3300,7 +3919,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannelMembershipsForAppInstanceUser",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3377,7 +4007,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannelMessages",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3423,7 +4064,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannelModerators",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3494,7 +4146,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannels",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3547,7 +4210,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannelsModeratedByAppInstanceUser",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3579,7 +4253,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListMediaCapturePipelines",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3592,7 +4277,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListMeetingTags",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3622,7 +4318,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListMeetings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3654,7 +4361,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPhoneNumberOrders",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3719,7 +4437,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPhoneNumbers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3760,7 +4489,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProxySessions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3797,7 +4537,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRoomMemberships",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3841,7 +4592,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRooms",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3873,7 +4635,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSipMediaApplications",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3913,7 +4686,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSipRules",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3933,7 +4717,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSupportedPhoneNumberCountries",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3953,7 +4748,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4005,7 +4811,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListUsers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4038,7 +4855,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListVoiceConnectorGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4057,7 +4885,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListVoiceConnectorTerminationCredentials",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4089,7 +4928,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListVoiceConnectors",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4108,6 +4958,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "LogoutUser",
       :post,
       url_path,
       query_params,
@@ -4133,7 +4984,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutAppInstanceRetentionSettings",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4151,7 +5013,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutAppInstanceStreamingConfigurations",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4170,7 +5043,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      "PutEventsConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -4192,7 +5076,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "PutRetentionSettings",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -4212,7 +5107,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutSipMediaApplicationLoggingConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4236,7 +5142,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutVoiceConnectorEmergencyCallingConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4259,7 +5176,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutVoiceConnectorLoggingConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4280,7 +5208,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutVoiceConnectorOrigination",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4296,7 +5235,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutVoiceConnectorProxy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4320,7 +5270,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutVoiceConnectorStreamingConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4341,7 +5302,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutVoiceConnectorTermination",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4364,6 +5336,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "PutVoiceConnectorTerminationCredentials",
       :post,
       url_path,
       query_params,
@@ -4401,6 +5374,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "RedactChannelMessage",
       :post,
       url_path,
       query_params,
@@ -4433,6 +5407,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "RedactConversationMessage",
       :post,
       url_path,
       query_params,
@@ -4465,6 +5440,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "RedactRoomMessage",
       :post,
       url_path,
       query_params,
@@ -4490,6 +5466,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "RegenerateSecurityToken",
       :post,
       url_path,
       query_params,
@@ -4518,6 +5495,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "ResetPersonalPIN",
       :post,
       url_path,
       query_params,
@@ -4542,6 +5520,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "RestorePhoneNumber",
       :post,
       url_path,
       query_params,
@@ -4634,7 +5613,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "SearchAvailablePhoneNumbers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4663,6 +5653,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "SendChannelMessage",
       :post,
       url_path,
       query_params,
@@ -4686,6 +5677,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "StartMeetingTranscription",
       :post,
       url_path,
       query_params,
@@ -4709,6 +5701,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "StopMeetingTranscription",
       :post,
       url_path,
       query_params,
@@ -4734,6 +5727,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "TagAttendee",
       :post,
       url_path,
       query_params,
@@ -4757,6 +5751,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "TagMeeting",
       :post,
       url_path,
       query_params,
@@ -4780,6 +5775,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -4805,6 +5801,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "UntagAttendee",
       :post,
       url_path,
       query_params,
@@ -4828,6 +5825,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "UntagMeeting",
       :post,
       url_path,
       query_params,
@@ -4851,6 +5849,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :post,
       url_path,
       query_params,
@@ -4877,6 +5876,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "UpdateAccount",
       :post,
       url_path,
       query_params,
@@ -4901,7 +5901,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAccountSettings",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -4914,7 +5925,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAppInstance",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4929,7 +5951,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAppInstanceUser",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4946,6 +5979,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "UpdateBot",
       :post,
       url_path,
       query_params,
@@ -4978,7 +6012,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateChannel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5002,7 +6047,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateChannelMessage",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5025,7 +6081,18 @@ defmodule AWS.Chime do
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateChannelReadMarker",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5039,7 +6106,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateGlobalSettings",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -5067,6 +6145,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "UpdatePhoneNumber",
       :post,
       url_path,
       query_params,
@@ -5091,7 +6170,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdatePhoneNumberSettings",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -5115,6 +6205,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "UpdateProxySession",
       :post,
       url_path,
       query_params,
@@ -5141,6 +6232,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "UpdateRoom",
       :post,
       url_path,
       query_params,
@@ -5177,6 +6269,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "UpdateRoomMembership",
       :post,
       url_path,
       query_params,
@@ -5202,7 +6295,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateSipMediaApplication",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5229,6 +6333,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "UpdateSipMediaApplicationCall",
       :post,
       url_path,
       query_params,
@@ -5249,7 +6354,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateSipRule",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -5269,6 +6385,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "UpdateUser",
       :post,
       url_path,
       query_params,
@@ -5291,7 +6408,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateUserSettings",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -5304,7 +6432,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateVoiceConnector",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5323,7 +6462,18 @@ defmodule AWS.Chime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateVoiceConnectorGroup",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -5344,6 +6494,7 @@ defmodule AWS.Chime do
     Request.request_rest(
       client,
       meta,
+      "ValidateE911Address",
       :post,
       url_path,
       query_params,

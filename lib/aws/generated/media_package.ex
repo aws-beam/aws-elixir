@@ -35,7 +35,18 @@ defmodule AWS.MediaPackage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ConfigureLogs",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -51,6 +62,7 @@ defmodule AWS.MediaPackage do
     Request.request_rest(
       client,
       meta,
+      "CreateChannel",
       :post,
       url_path,
       query_params,
@@ -74,6 +86,7 @@ defmodule AWS.MediaPackage do
     Request.request_rest(
       client,
       meta,
+      "CreateHarvestJob",
       :post,
       url_path,
       query_params,
@@ -97,6 +110,7 @@ defmodule AWS.MediaPackage do
     Request.request_rest(
       client,
       meta,
+      "CreateOriginEndpoint",
       :post,
       url_path,
       query_params,
@@ -120,6 +134,7 @@ defmodule AWS.MediaPackage do
     Request.request_rest(
       client,
       meta,
+      "DeleteChannel",
       :delete,
       url_path,
       query_params,
@@ -143,6 +158,7 @@ defmodule AWS.MediaPackage do
     Request.request_rest(
       client,
       meta,
+      "DeleteOriginEndpoint",
       :delete,
       url_path,
       query_params,
@@ -163,7 +179,18 @@ defmodule AWS.MediaPackage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeChannel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -176,7 +203,18 @@ defmodule AWS.MediaPackage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeHarvestJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -189,7 +227,18 @@ defmodule AWS.MediaPackage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeOriginEndpoint",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -216,7 +265,18 @@ defmodule AWS.MediaPackage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannels",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -264,7 +324,18 @@ defmodule AWS.MediaPackage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListHarvestJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -304,7 +375,18 @@ defmodule AWS.MediaPackage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListOriginEndpoints",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
@@ -314,7 +396,18 @@ defmodule AWS.MediaPackage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -330,7 +423,18 @@ defmodule AWS.MediaPackage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "RotateChannelCredentials",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -352,7 +456,18 @@ defmodule AWS.MediaPackage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "RotateIngestEndpointCredentials",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -365,6 +480,7 @@ defmodule AWS.MediaPackage do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -390,6 +506,7 @@ defmodule AWS.MediaPackage do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -410,7 +527,18 @@ defmodule AWS.MediaPackage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateChannel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -423,6 +551,17 @@ defmodule AWS.MediaPackage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateOriginEndpoint",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

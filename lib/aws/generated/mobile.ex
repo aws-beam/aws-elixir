@@ -48,6 +48,7 @@ defmodule AWS.Mobile do
     Request.request_rest(
       client,
       meta,
+      "CreateProject",
       :post,
       url_path,
       query_params,
@@ -71,6 +72,7 @@ defmodule AWS.Mobile do
     Request.request_rest(
       client,
       meta,
+      "DeleteProject",
       :delete,
       url_path,
       query_params,
@@ -91,7 +93,18 @@ defmodule AWS.Mobile do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeBundle",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -118,7 +131,18 @@ defmodule AWS.Mobile do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeProject",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -141,6 +165,7 @@ defmodule AWS.Mobile do
     Request.request_rest(
       client,
       meta,
+      "ExportBundle",
       :post,
       url_path,
       query_params,
@@ -167,6 +192,7 @@ defmodule AWS.Mobile do
     Request.request_rest(
       client,
       meta,
+      "ExportProject",
       :post,
       url_path,
       query_params,
@@ -201,7 +227,18 @@ defmodule AWS.Mobile do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListBundles",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -228,7 +265,18 @@ defmodule AWS.Mobile do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProjects",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -249,6 +297,7 @@ defmodule AWS.Mobile do
     Request.request_rest(
       client,
       meta,
+      "UpdateProject",
       :post,
       url_path,
       query_params,

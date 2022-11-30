@@ -60,7 +60,18 @@ defmodule AWS.GreengrassV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateServiceRoleToAccount",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -96,6 +107,7 @@ defmodule AWS.GreengrassV2 do
     Request.request_rest(
       client,
       meta,
+      "BatchAssociateClientDeviceWithCoreDevice",
       :post,
       url_path,
       query_params,
@@ -130,6 +142,7 @@ defmodule AWS.GreengrassV2 do
     Request.request_rest(
       client,
       meta,
+      "BatchDisassociateClientDeviceFromCoreDevice",
       :post,
       url_path,
       query_params,
@@ -157,6 +170,7 @@ defmodule AWS.GreengrassV2 do
     Request.request_rest(
       client,
       meta,
+      "CancelDeployment",
       :post,
       url_path,
       query_params,
@@ -229,6 +243,7 @@ defmodule AWS.GreengrassV2 do
     Request.request_rest(
       client,
       meta,
+      "CreateComponentVersion",
       :post,
       url_path,
       query_params,
@@ -267,6 +282,7 @@ defmodule AWS.GreengrassV2 do
     Request.request_rest(
       client,
       meta,
+      "CreateDeployment",
       :post,
       url_path,
       query_params,
@@ -295,6 +311,7 @@ defmodule AWS.GreengrassV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteComponent",
       :delete,
       url_path,
       query_params,
@@ -324,6 +341,7 @@ defmodule AWS.GreengrassV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteCoreDevice",
       :delete,
       url_path,
       query_params,
@@ -356,6 +374,7 @@ defmodule AWS.GreengrassV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteDeployment",
       :delete,
       url_path,
       query_params,
@@ -376,7 +395,18 @@ defmodule AWS.GreengrassV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeComponent",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -398,6 +428,7 @@ defmodule AWS.GreengrassV2 do
     Request.request_rest(
       client,
       meta,
+      "DisassociateServiceRoleFromAccount",
       :delete,
       url_path,
       query_params,
@@ -425,7 +456,18 @@ defmodule AWS.GreengrassV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetComponent",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -443,7 +485,18 @@ defmodule AWS.GreengrassV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetComponentVersionArtifact",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -464,7 +517,18 @@ defmodule AWS.GreengrassV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetConnectivityInfo",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -499,7 +563,18 @@ defmodule AWS.GreengrassV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCoreDevice",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -514,7 +589,18 @@ defmodule AWS.GreengrassV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDeployment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -533,7 +619,18 @@ defmodule AWS.GreengrassV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetServiceRoleForAccount",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -569,7 +666,18 @@ defmodule AWS.GreengrassV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListClientDevicesAssociatedWithCoreDevice",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -604,7 +712,18 @@ defmodule AWS.GreengrassV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListComponentVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -646,7 +765,18 @@ defmodule AWS.GreengrassV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListComponents",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -716,7 +846,18 @@ defmodule AWS.GreengrassV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCoreDevices",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -772,7 +913,18 @@ defmodule AWS.GreengrassV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDeployments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -808,7 +960,18 @@ defmodule AWS.GreengrassV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListEffectiveDeployments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -877,7 +1040,18 @@ defmodule AWS.GreengrassV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListInstalledComponents",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -890,7 +1064,18 @@ defmodule AWS.GreengrassV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -925,6 +1110,7 @@ defmodule AWS.GreengrassV2 do
     Request.request_rest(
       client,
       meta,
+      "ResolveComponentCandidates",
       :post,
       url_path,
       query_params,
@@ -951,6 +1137,7 @@ defmodule AWS.GreengrassV2 do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -979,6 +1166,7 @@ defmodule AWS.GreengrassV2 do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1007,6 +1195,17 @@ defmodule AWS.GreengrassV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateConnectivityInfo",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

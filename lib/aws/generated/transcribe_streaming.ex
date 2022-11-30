@@ -109,6 +109,7 @@ defmodule AWS.TranscribeStreaming do
     Request.request_rest(
       client,
       meta,
+      "StartCallAnalyticsStreamTranscription",
       :post,
       url_path,
       query_params,
@@ -181,6 +182,7 @@ defmodule AWS.TranscribeStreaming do
     Request.request_rest(
       client,
       meta,
+      "StartMedicalStreamTranscription",
       :post,
       url_path,
       query_params,
@@ -275,6 +277,7 @@ defmodule AWS.TranscribeStreaming do
     Request.request_rest(
       client,
       meta,
+      "StartStreamTranscription",
       :post,
       url_path,
       query_params,

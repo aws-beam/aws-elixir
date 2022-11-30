@@ -34,6 +34,7 @@ defmodule AWS.KafkaConnect do
     Request.request_rest(
       client,
       meta,
+      "CreateConnector",
       :post,
       url_path,
       query_params,
@@ -57,6 +58,7 @@ defmodule AWS.KafkaConnect do
     Request.request_rest(
       client,
       meta,
+      "CreateCustomPlugin",
       :post,
       url_path,
       query_params,
@@ -80,6 +82,7 @@ defmodule AWS.KafkaConnect do
     Request.request_rest(
       client,
       meta,
+      "CreateWorkerConfiguration",
       :post,
       url_path,
       query_params,
@@ -108,6 +111,7 @@ defmodule AWS.KafkaConnect do
     Request.request_rest(
       client,
       meta,
+      "DeleteConnector",
       :delete,
       url_path,
       query_params,
@@ -131,6 +135,7 @@ defmodule AWS.KafkaConnect do
     Request.request_rest(
       client,
       meta,
+      "DeleteCustomPlugin",
       :delete,
       url_path,
       query_params,
@@ -151,7 +156,18 @@ defmodule AWS.KafkaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeConnector",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -164,7 +180,18 @@ defmodule AWS.KafkaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeCustomPlugin",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -177,7 +204,18 @@ defmodule AWS.KafkaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeWorkerConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -220,7 +258,18 @@ defmodule AWS.KafkaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListConnectors",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -252,7 +301,18 @@ defmodule AWS.KafkaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCustomPlugins",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -284,7 +344,18 @@ defmodule AWS.KafkaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListWorkerConfigurations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -302,6 +373,17 @@ defmodule AWS.KafkaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateConnector",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

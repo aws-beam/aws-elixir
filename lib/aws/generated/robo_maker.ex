@@ -38,6 +38,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "BatchDeleteWorlds",
       :post,
       url_path,
       query_params,
@@ -61,6 +62,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "BatchDescribeSimulationJob",
       :post,
       url_path,
       query_params,
@@ -87,6 +89,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "CancelDeploymentJob",
       :post,
       url_path,
       query_params,
@@ -110,6 +113,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "CancelSimulationJob",
       :post,
       url_path,
       query_params,
@@ -136,6 +140,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "CancelSimulationJobBatch",
       :post,
       url_path,
       query_params,
@@ -159,6 +164,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "CancelWorldExportJob",
       :post,
       url_path,
       query_params,
@@ -182,6 +188,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "CancelWorldGenerationJob",
       :post,
       url_path,
       query_params,
@@ -214,6 +221,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "CreateDeploymentJob",
       :post,
       url_path,
       query_params,
@@ -239,6 +247,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "CreateFleet",
       :post,
       url_path,
       query_params,
@@ -264,6 +273,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "CreateRobot",
       :post,
       url_path,
       query_params,
@@ -287,6 +297,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "CreateRobotApplication",
       :post,
       url_path,
       query_params,
@@ -310,6 +321,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "CreateRobotApplicationVersion",
       :post,
       url_path,
       query_params,
@@ -333,6 +345,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "CreateSimulationApplication",
       :post,
       url_path,
       query_params,
@@ -356,6 +369,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "CreateSimulationApplicationVersion",
       :post,
       url_path,
       query_params,
@@ -382,6 +396,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "CreateSimulationJob",
       :post,
       url_path,
       query_params,
@@ -405,6 +420,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "CreateWorldExportJob",
       :post,
       url_path,
       query_params,
@@ -428,6 +444,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "CreateWorldGenerationJob",
       :post,
       url_path,
       query_params,
@@ -451,6 +468,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "CreateWorldTemplate",
       :post,
       url_path,
       query_params,
@@ -477,6 +495,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "DeleteFleet",
       :post,
       url_path,
       query_params,
@@ -503,6 +522,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "DeleteRobot",
       :post,
       url_path,
       query_params,
@@ -526,6 +546,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "DeleteRobotApplication",
       :post,
       url_path,
       query_params,
@@ -549,6 +570,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "DeleteSimulationApplication",
       :post,
       url_path,
       query_params,
@@ -572,6 +594,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "DeleteWorldTemplate",
       :post,
       url_path,
       query_params,
@@ -598,6 +621,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "DeregisterRobot",
       :post,
       url_path,
       query_params,
@@ -624,6 +648,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "DescribeDeploymentJob",
       :post,
       url_path,
       query_params,
@@ -650,6 +675,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "DescribeFleet",
       :post,
       url_path,
       query_params,
@@ -676,6 +702,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "DescribeRobot",
       :post,
       url_path,
       query_params,
@@ -699,6 +726,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "DescribeRobotApplication",
       :post,
       url_path,
       query_params,
@@ -722,6 +750,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "DescribeSimulationApplication",
       :post,
       url_path,
       query_params,
@@ -745,6 +774,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "DescribeSimulationJob",
       :post,
       url_path,
       query_params,
@@ -768,6 +798,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "DescribeSimulationJobBatch",
       :post,
       url_path,
       query_params,
@@ -791,6 +822,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "DescribeWorld",
       :post,
       url_path,
       query_params,
@@ -814,6 +846,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "DescribeWorldExportJob",
       :post,
       url_path,
       query_params,
@@ -837,6 +870,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "DescribeWorldGenerationJob",
       :post,
       url_path,
       query_params,
@@ -860,6 +894,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "DescribeWorldTemplate",
       :post,
       url_path,
       query_params,
@@ -883,6 +918,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "GetWorldTemplateBody",
       :post,
       url_path,
       query_params,
@@ -911,6 +947,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "ListDeploymentJobs",
       :post,
       url_path,
       query_params,
@@ -939,6 +976,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "ListFleets",
       :post,
       url_path,
       query_params,
@@ -964,6 +1002,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "ListRobotApplications",
       :post,
       url_path,
       query_params,
@@ -992,6 +1031,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "ListRobots",
       :post,
       url_path,
       query_params,
@@ -1017,6 +1057,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "ListSimulationApplications",
       :post,
       url_path,
       query_params,
@@ -1042,6 +1083,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "ListSimulationJobBatches",
       :post,
       url_path,
       query_params,
@@ -1067,6 +1109,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "ListSimulationJobs",
       :post,
       url_path,
       query_params,
@@ -1087,7 +1130,18 @@ defmodule AWS.RoboMaker do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1103,6 +1157,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "ListWorldExportJobs",
       :post,
       url_path,
       query_params,
@@ -1126,6 +1181,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "ListWorldGenerationJobs",
       :post,
       url_path,
       query_params,
@@ -1149,6 +1205,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "ListWorldTemplates",
       :post,
       url_path,
       query_params,
@@ -1172,6 +1229,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "ListWorlds",
       :post,
       url_path,
       query_params,
@@ -1197,6 +1255,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "RegisterRobot",
       :post,
       url_path,
       query_params,
@@ -1220,6 +1279,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "RestartSimulationJob",
       :post,
       url_path,
       query_params,
@@ -1245,6 +1305,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "StartSimulationJobBatch",
       :post,
       url_path,
       query_params,
@@ -1273,6 +1334,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "SyncDeploymentJob",
       :post,
       url_path,
       query_params,
@@ -1303,6 +1365,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1335,6 +1398,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1358,6 +1422,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "UpdateRobotApplication",
       :post,
       url_path,
       query_params,
@@ -1381,6 +1446,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "UpdateSimulationApplication",
       :post,
       url_path,
       query_params,
@@ -1404,6 +1470,7 @@ defmodule AWS.RoboMaker do
     Request.request_rest(
       client,
       meta,
+      "UpdateWorldTemplate",
       :post,
       url_path,
       query_params,

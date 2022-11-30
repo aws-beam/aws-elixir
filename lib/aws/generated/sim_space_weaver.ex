@@ -60,6 +60,7 @@ defmodule AWS.SimSpaceWeaver do
     Request.request_rest(
       client,
       meta,
+      "DeleteApp",
       :delete,
       url_path,
       query_params,
@@ -91,6 +92,7 @@ defmodule AWS.SimSpaceWeaver do
     Request.request_rest(
       client,
       meta,
+      "DeleteSimulation",
       :delete,
       url_path,
       query_params,
@@ -132,7 +134,18 @@ defmodule AWS.SimSpaceWeaver do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeApp",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -152,7 +165,18 @@ defmodule AWS.SimSpaceWeaver do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeSimulation",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -200,7 +224,18 @@ defmodule AWS.SimSpaceWeaver do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListApps",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -228,7 +263,18 @@ defmodule AWS.SimSpaceWeaver do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSimulations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -241,7 +287,18 @@ defmodule AWS.SimSpaceWeaver do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -257,6 +314,7 @@ defmodule AWS.SimSpaceWeaver do
     Request.request_rest(
       client,
       meta,
+      "StartApp",
       :post,
       url_path,
       query_params,
@@ -280,6 +338,7 @@ defmodule AWS.SimSpaceWeaver do
     Request.request_rest(
       client,
       meta,
+      "StartClock",
       :post,
       url_path,
       query_params,
@@ -303,6 +362,7 @@ defmodule AWS.SimSpaceWeaver do
     Request.request_rest(
       client,
       meta,
+      "StartSimulation",
       :post,
       url_path,
       query_params,
@@ -327,6 +387,7 @@ defmodule AWS.SimSpaceWeaver do
     Request.request_rest(
       client,
       meta,
+      "StopApp",
       :post,
       url_path,
       query_params,
@@ -350,6 +411,7 @@ defmodule AWS.SimSpaceWeaver do
     Request.request_rest(
       client,
       meta,
+      "StopClock",
       :post,
       url_path,
       query_params,
@@ -376,6 +438,7 @@ defmodule AWS.SimSpaceWeaver do
     Request.request_rest(
       client,
       meta,
+      "StopSimulation",
       :post,
       url_path,
       query_params,
@@ -402,6 +465,7 @@ defmodule AWS.SimSpaceWeaver do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -433,6 +497,7 @@ defmodule AWS.SimSpaceWeaver do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,

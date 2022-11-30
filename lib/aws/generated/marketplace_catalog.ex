@@ -56,6 +56,7 @@ defmodule AWS.MarketplaceCatalog do
     Request.request_rest(
       client,
       meta,
+      "CancelChangeSet",
       :patch,
       url_path,
       query_params,
@@ -90,7 +91,18 @@ defmodule AWS.MarketplaceCatalog do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeChangeSet",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -117,7 +129,18 @@ defmodule AWS.MarketplaceCatalog do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeEntity",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -141,6 +164,7 @@ defmodule AWS.MarketplaceCatalog do
     Request.request_rest(
       client,
       meta,
+      "ListChangeSets",
       :post,
       url_path,
       query_params,
@@ -164,6 +188,7 @@ defmodule AWS.MarketplaceCatalog do
     Request.request_rest(
       client,
       meta,
+      "ListEntities",
       :post,
       url_path,
       query_params,
@@ -189,6 +214,7 @@ defmodule AWS.MarketplaceCatalog do
     Request.request_rest(
       client,
       meta,
+      "ListTagsForResource",
       :post,
       url_path,
       query_params,
@@ -226,6 +252,7 @@ defmodule AWS.MarketplaceCatalog do
     Request.request_rest(
       client,
       meta,
+      "StartChangeSet",
       :post,
       url_path,
       query_params,
@@ -251,6 +278,7 @@ defmodule AWS.MarketplaceCatalog do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -276,6 +304,7 @@ defmodule AWS.MarketplaceCatalog do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :post,
       url_path,
       query_params,

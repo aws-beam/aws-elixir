@@ -52,7 +52,18 @@ defmodule AWS.MigrationHubStrategy do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApplicationComponentDetails",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -72,7 +83,18 @@ defmodule AWS.MigrationHubStrategy do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApplicationComponentStrategies",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -85,7 +107,18 @@ defmodule AWS.MigrationHubStrategy do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAssessment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -98,7 +131,18 @@ defmodule AWS.MigrationHubStrategy do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetImportFileTask",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -111,7 +155,18 @@ defmodule AWS.MigrationHubStrategy do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPortfolioPreferences",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -125,7 +180,18 @@ defmodule AWS.MigrationHubStrategy do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPortfolioSummary",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -138,7 +204,18 @@ defmodule AWS.MigrationHubStrategy do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRecommendationReportDetails",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -171,7 +248,18 @@ defmodule AWS.MigrationHubStrategy do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetServerDetails",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -184,7 +272,18 @@ defmodule AWS.MigrationHubStrategy do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetServerStrategies",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -200,6 +299,7 @@ defmodule AWS.MigrationHubStrategy do
     Request.request_rest(
       client,
       meta,
+      "ListApplicationComponents",
       :post,
       url_path,
       query_params,
@@ -234,7 +334,18 @@ defmodule AWS.MigrationHubStrategy do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCollectors",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -266,7 +377,18 @@ defmodule AWS.MigrationHubStrategy do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListImportFileTask",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -282,6 +404,7 @@ defmodule AWS.MigrationHubStrategy do
     Request.request_rest(
       client,
       meta,
+      "ListServers",
       :post,
       url_path,
       query_params,
@@ -305,6 +428,7 @@ defmodule AWS.MigrationHubStrategy do
     Request.request_rest(
       client,
       meta,
+      "PutPortfolioPreferences",
       :post,
       url_path,
       query_params,
@@ -328,6 +452,7 @@ defmodule AWS.MigrationHubStrategy do
     Request.request_rest(
       client,
       meta,
+      "StartAssessment",
       :post,
       url_path,
       query_params,
@@ -351,6 +476,7 @@ defmodule AWS.MigrationHubStrategy do
     Request.request_rest(
       client,
       meta,
+      "StartImportFileTask",
       :post,
       url_path,
       query_params,
@@ -374,6 +500,7 @@ defmodule AWS.MigrationHubStrategy do
     Request.request_rest(
       client,
       meta,
+      "StartRecommendationReportGeneration",
       :post,
       url_path,
       query_params,
@@ -397,6 +524,7 @@ defmodule AWS.MigrationHubStrategy do
     Request.request_rest(
       client,
       meta,
+      "StopAssessment",
       :post,
       url_path,
       query_params,
@@ -420,6 +548,7 @@ defmodule AWS.MigrationHubStrategy do
     Request.request_rest(
       client,
       meta,
+      "UpdateApplicationComponentConfig",
       :post,
       url_path,
       query_params,
@@ -443,6 +572,7 @@ defmodule AWS.MigrationHubStrategy do
     Request.request_rest(
       client,
       meta,
+      "UpdateServerConfig",
       :post,
       url_path,
       query_params,

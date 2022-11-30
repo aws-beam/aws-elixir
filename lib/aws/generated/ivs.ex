@@ -261,6 +261,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "BatchGetChannel",
       :post,
       url_path,
       query_params,
@@ -284,6 +285,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "BatchGetStreamKey",
       :post,
       url_path,
       query_params,
@@ -307,6 +309,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "CreateChannel",
       :post,
       url_path,
       query_params,
@@ -341,6 +344,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "CreateRecordingConfiguration",
       :post,
       url_path,
       query_params,
@@ -369,6 +373,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "CreateStreamKey",
       :post,
       url_path,
       query_params,
@@ -398,6 +403,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "DeleteChannel",
       :post,
       url_path,
       query_params,
@@ -425,6 +431,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "DeletePlaybackKeyPair",
       :post,
       url_path,
       query_params,
@@ -454,6 +461,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "DeleteRecordingConfiguration",
       :post,
       url_path,
       query_params,
@@ -478,6 +486,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "DeleteStreamKey",
       :post,
       url_path,
       query_params,
@@ -503,6 +512,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "GetChannel",
       :post,
       url_path,
       query_params,
@@ -532,6 +542,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "GetPlaybackKeyPair",
       :post,
       url_path,
       query_params,
@@ -555,6 +566,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "GetRecordingConfiguration",
       :post,
       url_path,
       query_params,
@@ -578,6 +590,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "GetStream",
       :post,
       url_path,
       query_params,
@@ -601,6 +614,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "GetStreamKey",
       :post,
       url_path,
       query_params,
@@ -624,6 +638,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "GetStreamSession",
       :post,
       url_path,
       query_params,
@@ -653,6 +668,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "ImportPlaybackKeyPair",
       :post,
       url_path,
       query_params,
@@ -681,6 +697,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "ListChannels",
       :post,
       url_path,
       query_params,
@@ -707,6 +724,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "ListPlaybackKeyPairs",
       :post,
       url_path,
       query_params,
@@ -731,6 +749,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "ListRecordingConfigurations",
       :post,
       url_path,
       query_params,
@@ -754,6 +773,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "ListStreamKeys",
       :post,
       url_path,
       query_params,
@@ -778,6 +798,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "ListStreamSessions",
       :post,
       url_path,
       query_params,
@@ -802,6 +823,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "ListStreams",
       :post,
       url_path,
       query_params,
@@ -822,7 +844,18 @@ defmodule AWS.Ivs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -844,6 +877,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "PutMetadata",
       :post,
       url_path,
       query_params,
@@ -874,6 +908,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "StopStream",
       :post,
       url_path,
       query_params,
@@ -898,6 +933,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -926,6 +962,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -952,6 +989,7 @@ defmodule AWS.Ivs do
     Request.request_rest(
       client,
       meta,
+      "UpdateChannel",
       :post,
       url_path,
       query_params,

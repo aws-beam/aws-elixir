@@ -48,6 +48,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "AssociateTrackerConsumer",
       :post,
       url_path,
       query_params,
@@ -71,6 +72,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "BatchDeleteDevicePositionHistory",
       :post,
       url_path,
       query_params,
@@ -98,6 +100,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "BatchDeleteGeofence",
       :post,
       url_path,
       query_params,
@@ -142,6 +145,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "BatchEvaluateGeofences",
       :post,
       url_path,
       query_params,
@@ -165,6 +169,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "BatchGetDevicePosition",
       :post,
       url_path,
       query_params,
@@ -190,6 +195,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "BatchPutGeofence",
       :post,
       url_path,
       query_params,
@@ -236,6 +242,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "BatchUpdateDevicePosition",
       :post,
       url_path,
       query_params,
@@ -283,6 +290,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "CalculateRoute",
       :post,
       url_path,
       query_params,
@@ -339,6 +347,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "CalculateRouteMatrix",
       :post,
       url_path,
       query_params,
@@ -362,6 +371,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "CreateGeofenceCollection",
       :post,
       url_path,
       query_params,
@@ -390,6 +400,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "CreateMap",
       :post,
       url_path,
       query_params,
@@ -422,6 +433,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "CreatePlaceIndex",
       :post,
       url_path,
       query_params,
@@ -453,6 +465,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "CreateRouteCalculator",
       :post,
       url_path,
       query_params,
@@ -477,6 +490,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "CreateTracker",
       :post,
       url_path,
       query_params,
@@ -503,6 +517,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "DeleteGeofenceCollection",
       :delete,
       url_path,
       query_params,
@@ -529,6 +544,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "DeleteMap",
       :delete,
       url_path,
       query_params,
@@ -554,6 +570,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "DeletePlaceIndex",
       :delete,
       url_path,
       query_params,
@@ -579,6 +596,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "DeleteRouteCalculator",
       :delete,
       url_path,
       query_params,
@@ -606,6 +624,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "DeleteTracker",
       :delete,
       url_path,
       query_params,
@@ -626,7 +645,18 @@ defmodule AWS.Location do
 
     meta = metadata() |> Map.put_new(:host_prefix, "geofencing.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeGeofenceCollection",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -639,7 +669,18 @@ defmodule AWS.Location do
 
     meta = metadata() |> Map.put_new(:host_prefix, "maps.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeMap",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -652,7 +693,18 @@ defmodule AWS.Location do
 
     meta = metadata() |> Map.put_new(:host_prefix, "places.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribePlaceIndex",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -665,7 +717,18 @@ defmodule AWS.Location do
 
     meta = metadata() |> Map.put_new(:host_prefix, "routes.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeRouteCalculator",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -678,7 +741,18 @@ defmodule AWS.Location do
 
     meta = metadata() |> Map.put_new(:host_prefix, "tracking.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeTracker",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -705,6 +779,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "DisassociateTrackerConsumer",
       :delete,
       url_path,
       query_params,
@@ -729,7 +804,18 @@ defmodule AWS.Location do
 
     meta = metadata() |> Map.put_new(:host_prefix, "tracking.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDevicePosition",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -756,6 +842,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "GetDevicePositionHistory",
       :post,
       url_path,
       query_params,
@@ -778,7 +865,18 @@ defmodule AWS.Location do
 
     meta = metadata() |> Map.put_new(:host_prefix, "geofencing.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetGeofence",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -800,7 +898,18 @@ defmodule AWS.Location do
 
     meta = metadata() |> Map.put_new(:host_prefix, "maps.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMapGlyphs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -825,7 +934,18 @@ defmodule AWS.Location do
 
     meta = metadata() |> Map.put_new(:host_prefix, "maps.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMapSprites",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -849,7 +969,18 @@ defmodule AWS.Location do
 
     meta = metadata() |> Map.put_new(:host_prefix, "maps.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMapStyleDescriptor",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -879,7 +1010,18 @@ defmodule AWS.Location do
 
     meta = metadata() |> Map.put_new(:host_prefix, "maps.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMapTile",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -912,7 +1054,18 @@ defmodule AWS.Location do
 
     meta = metadata() |> Map.put_new(:host_prefix, "places.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPlace",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -928,6 +1081,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "ListDevicePositions",
       :post,
       url_path,
       query_params,
@@ -951,6 +1105,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "ListGeofenceCollections",
       :post,
       url_path,
       query_params,
@@ -974,6 +1129,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "ListGeofences",
       :post,
       url_path,
       query_params,
@@ -997,6 +1153,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "ListMaps",
       :post,
       url_path,
       query_params,
@@ -1020,6 +1177,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "ListPlaceIndexes",
       :post,
       url_path,
       query_params,
@@ -1043,6 +1201,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "ListRouteCalculators",
       :post,
       url_path,
       query_params,
@@ -1064,7 +1223,18 @@ defmodule AWS.Location do
 
     meta = metadata() |> Map.put_new(:host_prefix, "metadata.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1080,6 +1250,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "ListTrackerConsumers",
       :post,
       url_path,
       query_params,
@@ -1103,6 +1274,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "ListTrackers",
       :post,
       url_path,
       query_params,
@@ -1126,7 +1298,18 @@ defmodule AWS.Location do
 
     meta = metadata() |> Map.put_new(:host_prefix, "geofencing.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutGeofence",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1144,6 +1327,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "SearchPlaceIndexForPosition",
       :post,
       url_path,
       query_params,
@@ -1178,6 +1362,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "SearchPlaceIndexForSuggestions",
       :post,
       url_path,
       query_params,
@@ -1211,6 +1396,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "SearchPlaceIndexForText",
       :post,
       url_path,
       query_params,
@@ -1249,6 +1435,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1277,6 +1464,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1300,6 +1488,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "UpdateGeofenceCollection",
       :patch,
       url_path,
       query_params,
@@ -1323,6 +1512,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "UpdateMap",
       :patch,
       url_path,
       query_params,
@@ -1346,6 +1536,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "UpdatePlaceIndex",
       :patch,
       url_path,
       query_params,
@@ -1369,6 +1560,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "UpdateRouteCalculator",
       :patch,
       url_path,
       query_params,
@@ -1392,6 +1584,7 @@ defmodule AWS.Location do
     Request.request_rest(
       client,
       meta,
+      "UpdateTracker",
       :patch,
       url_path,
       query_params,

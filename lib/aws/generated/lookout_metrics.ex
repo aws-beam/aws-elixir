@@ -41,6 +41,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "ActivateAnomalyDetector",
       :post,
       url_path,
       query_params,
@@ -64,6 +65,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "BackTestAnomalyDetector",
       :post,
       url_path,
       query_params,
@@ -87,6 +89,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "CreateAlert",
       :post,
       url_path,
       query_params,
@@ -110,6 +113,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "CreateAnomalyDetector",
       :post,
       url_path,
       query_params,
@@ -133,6 +137,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "CreateMetricSet",
       :post,
       url_path,
       query_params,
@@ -156,6 +161,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "DeactivateAnomalyDetector",
       :post,
       url_path,
       query_params,
@@ -179,6 +185,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "DeleteAlert",
       :post,
       url_path,
       query_params,
@@ -205,6 +212,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "DeleteAnomalyDetector",
       :post,
       url_path,
       query_params,
@@ -232,6 +240,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "DescribeAlert",
       :post,
       url_path,
       query_params,
@@ -255,6 +264,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "DescribeAnomalyDetectionExecutions",
       :post,
       url_path,
       query_params,
@@ -282,6 +292,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "DescribeAnomalyDetector",
       :post,
       url_path,
       query_params,
@@ -309,6 +320,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "DescribeMetricSet",
       :post,
       url_path,
       query_params,
@@ -332,6 +344,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "DetectMetricSetConfig",
       :post,
       url_path,
       query_params,
@@ -355,6 +368,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "GetAnomalyGroup",
       :post,
       url_path,
       query_params,
@@ -378,6 +392,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "GetDataQualityMetrics",
       :post,
       url_path,
       query_params,
@@ -401,6 +416,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "GetFeedback",
       :post,
       url_path,
       query_params,
@@ -424,6 +440,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "GetSampleData",
       :post,
       url_path,
       query_params,
@@ -451,6 +468,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "ListAlerts",
       :post,
       url_path,
       query_params,
@@ -478,6 +496,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "ListAnomalyDetectors",
       :post,
       url_path,
       query_params,
@@ -502,6 +521,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "ListAnomalyGroupRelatedMetrics",
       :post,
       url_path,
       query_params,
@@ -525,6 +545,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "ListAnomalyGroupSummaries",
       :post,
       url_path,
       query_params,
@@ -548,6 +569,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "ListAnomalyGroupTimeSeries",
       :post,
       url_path,
       query_params,
@@ -575,6 +597,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "ListMetricSets",
       :post,
       url_path,
       query_params,
@@ -597,7 +620,18 @@ defmodule AWS.LookoutMetrics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -613,6 +647,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "PutFeedback",
       :post,
       url_path,
       query_params,
@@ -638,6 +673,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -668,6 +704,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -691,6 +728,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "UpdateAlert",
       :post,
       url_path,
       query_params,
@@ -717,6 +755,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "UpdateAnomalyDetector",
       :post,
       url_path,
       query_params,
@@ -740,6 +779,7 @@ defmodule AWS.LookoutMetrics do
     Request.request_rest(
       client,
       meta,
+      "UpdateMetricSet",
       :post,
       url_path,
       query_params,

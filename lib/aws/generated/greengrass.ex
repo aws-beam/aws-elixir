@@ -46,7 +46,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateRoleToGroup",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -64,7 +75,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateServiceRoleToAccount",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -89,6 +111,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "CreateConnectorDefinition",
       :post,
       url_path,
       query_params,
@@ -124,6 +147,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "CreateConnectorDefinitionVersion",
       :post,
       url_path,
       query_params,
@@ -157,6 +181,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "CreateCoreDefinition",
       :post,
       url_path,
       query_params,
@@ -188,6 +213,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "CreateCoreDefinitionVersion",
       :post,
       url_path,
       query_params,
@@ -220,6 +246,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "CreateDeployment",
       :post,
       url_path,
       query_params,
@@ -252,6 +279,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "CreateDeviceDefinition",
       :post,
       url_path,
       query_params,
@@ -287,6 +315,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "CreateDeviceDefinitionVersion",
       :post,
       url_path,
       query_params,
@@ -321,6 +350,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "CreateFunctionDefinition",
       :post,
       url_path,
       query_params,
@@ -356,6 +386,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "CreateFunctionDefinitionVersion",
       :post,
       url_path,
       query_params,
@@ -390,6 +421,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "CreateGroup",
       :post,
       url_path,
       query_params,
@@ -421,6 +453,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "CreateGroupCertificateAuthority",
       :post,
       url_path,
       query_params,
@@ -450,6 +483,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "CreateGroupVersion",
       :post,
       url_path,
       query_params,
@@ -482,6 +516,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "CreateLoggerDefinition",
       :post,
       url_path,
       query_params,
@@ -517,6 +552,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "CreateLoggerDefinitionVersion",
       :post,
       url_path,
       query_params,
@@ -550,6 +586,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "CreateResourceDefinition",
       :post,
       url_path,
       query_params,
@@ -585,6 +622,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "CreateResourceDefinitionVersion",
       :post,
       url_path,
       query_params,
@@ -619,6 +657,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "CreateSoftwareUpdateJob",
       :post,
       url_path,
       query_params,
@@ -651,6 +690,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "CreateSubscriptionDefinition",
       :post,
       url_path,
       query_params,
@@ -686,6 +726,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "CreateSubscriptionDefinitionVersion",
       :post,
       url_path,
       query_params,
@@ -714,6 +755,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "DeleteConnectorDefinition",
       :delete,
       url_path,
       query_params,
@@ -737,6 +779,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "DeleteCoreDefinition",
       :delete,
       url_path,
       query_params,
@@ -760,6 +803,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "DeleteDeviceDefinition",
       :delete,
       url_path,
       query_params,
@@ -783,6 +827,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "DeleteFunctionDefinition",
       :delete,
       url_path,
       query_params,
@@ -806,6 +851,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "DeleteGroup",
       :delete,
       url_path,
       query_params,
@@ -829,6 +875,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "DeleteLoggerDefinition",
       :delete,
       url_path,
       query_params,
@@ -852,6 +899,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "DeleteResourceDefinition",
       :delete,
       url_path,
       query_params,
@@ -882,6 +930,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "DeleteSubscriptionDefinition",
       :delete,
       url_path,
       query_params,
@@ -905,6 +954,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "DisassociateRoleFromGroup",
       :delete,
       url_path,
       query_params,
@@ -930,6 +980,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "DisassociateServiceRoleFromAccount",
       :delete,
       url_path,
       query_params,
@@ -950,7 +1001,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAssociatedRole",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -963,7 +1025,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBulkDeploymentStatus",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -976,7 +1049,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetConnectivityInfo",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -989,7 +1073,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetConnectorDefinition",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1021,7 +1116,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetConnectorDefinitionVersion",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1034,7 +1140,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCoreDefinition",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1054,7 +1171,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCoreDefinitionVersion",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1069,7 +1197,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDeploymentStatus",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1082,7 +1221,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDeviceDefinition",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1110,7 +1260,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDeviceDefinitionVersion",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1124,7 +1285,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFunctionDefinition",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1153,7 +1325,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFunctionDefinitionVersion",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1166,7 +1349,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1188,7 +1382,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetGroupCertificateAuthority",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1203,7 +1408,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetGroupCertificateConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1218,7 +1434,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetGroupVersion",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1231,7 +1458,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLoggerDefinition",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1259,7 +1497,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLoggerDefinitionVersion",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1273,7 +1522,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetResourceDefinition",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1294,7 +1554,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetResourceDefinitionVersion",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1307,7 +1578,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetServiceRoleForAccount",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1322,7 +1604,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSubscriptionDefinition",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1350,7 +1643,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSubscriptionDefinitionVersion",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1363,7 +1667,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetThingRuntimeConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1399,7 +1714,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListBulkDeploymentDetailedReports",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1431,7 +1757,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListBulkDeployments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1470,7 +1807,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListConnectorDefinitionVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1502,7 +1850,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListConnectorDefinitions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1535,7 +1894,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCoreDefinitionVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1567,7 +1937,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCoreDefinitions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1600,7 +1981,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDeployments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1635,7 +2027,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDeviceDefinitionVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1667,7 +2070,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDeviceDefinitions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1702,7 +2116,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFunctionDefinitionVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1734,7 +2159,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFunctionDefinitions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1747,7 +2183,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListGroupCertificateAuthorities",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1780,7 +2227,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListGroupVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1807,7 +2265,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1842,7 +2311,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListLoggerDefinitionVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1874,7 +2354,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListLoggerDefinitions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1909,7 +2400,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListResourceDefinitionVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1941,7 +2443,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListResourceDefinitions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1976,7 +2489,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSubscriptionDefinitionVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2008,7 +2532,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSubscriptionDefinitions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2021,7 +2556,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2043,6 +2589,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "ResetDeployments",
       :post,
       url_path,
       query_params,
@@ -2078,6 +2625,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "StartBulkDeployment",
       :post,
       url_path,
       query_params,
@@ -2103,7 +2651,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "StopBulkDeployment",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2123,6 +2682,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -2151,6 +2711,7 @@ defmodule AWS.Greengrass do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -2174,7 +2735,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateConnectivityInfo",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2192,7 +2764,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateConnectorDefinition",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2205,7 +2788,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateCoreDefinition",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2218,7 +2812,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDeviceDefinition",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2231,7 +2836,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateFunctionDefinition",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2244,7 +2860,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateGroup",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2259,7 +2886,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateGroupCertificateConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2272,7 +2910,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateLoggerDefinition",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2285,7 +2934,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateResourceDefinition",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2305,7 +2965,18 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateSubscriptionDefinition",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2318,6 +2989,17 @@ defmodule AWS.Greengrass do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateThingRuntimeConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

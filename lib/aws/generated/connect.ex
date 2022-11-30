@@ -53,7 +53,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateApprovedOrigin",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -69,7 +80,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateBot",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -93,7 +115,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateDefaultVocabulary",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -115,7 +148,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateInstanceStorageConfig",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -131,7 +175,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateLambdaFunction",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -147,7 +202,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateLexBot",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -174,7 +240,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociatePhoneNumberContactFlow",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -200,6 +277,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "AssociateQueueQuickConnects",
       :post,
       url_path,
       query_params,
@@ -231,6 +309,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "AssociateRoutingProfileQueues",
       :post,
       url_path,
       query_params,
@@ -253,7 +332,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateSecurityKey",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -278,6 +368,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "ClaimPhoneNumber",
       :post,
       url_path,
       query_params,
@@ -300,7 +391,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateAgentStatus",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -315,7 +417,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateContactFlow",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -328,7 +441,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateContactFlowModule",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -343,7 +467,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateHoursOfOperation",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -367,7 +502,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateInstance",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -381,7 +527,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateIntegrationAssociation",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -408,7 +565,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateQueue",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -421,7 +589,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateQuickConnect",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -434,7 +613,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateRoutingProfile",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -449,7 +639,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateSecurityProfile",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -462,7 +663,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateTaskTemplate",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -480,7 +692,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateTrafficDistributionGroup",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -501,7 +724,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateUseCase",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -518,7 +752,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateUser",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -531,7 +776,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateUserHierarchyGroup",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -551,6 +807,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "CreateVocabulary",
       :post,
       url_path,
       query_params,
@@ -576,6 +833,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DeleteContactFlow",
       :delete,
       url_path,
       query_params,
@@ -607,6 +865,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DeleteContactFlowModule",
       :delete,
       url_path,
       query_params,
@@ -640,6 +899,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DeleteHoursOfOperation",
       :delete,
       url_path,
       query_params,
@@ -671,6 +931,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DeleteInstance",
       :delete,
       url_path,
       query_params,
@@ -705,6 +966,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DeleteIntegrationAssociation",
       :delete,
       url_path,
       query_params,
@@ -736,6 +998,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DeleteQuickConnect",
       :delete,
       url_path,
       query_params,
@@ -769,6 +1032,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DeleteSecurityProfile",
       :delete,
       url_path,
       query_params,
@@ -800,6 +1064,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DeleteTaskTemplate",
       :delete,
       url_path,
       query_params,
@@ -835,6 +1100,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DeleteTrafficDistributionGroup",
       :delete,
       url_path,
       query_params,
@@ -867,6 +1133,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DeleteUseCase",
       :delete,
       url_path,
       query_params,
@@ -894,6 +1161,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DeleteUser",
       :delete,
       url_path,
       query_params,
@@ -927,6 +1195,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DeleteUserHierarchyGroup",
       :delete,
       url_path,
       query_params,
@@ -952,6 +1221,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DeleteVocabulary",
       :post,
       url_path,
       query_params,
@@ -976,7 +1246,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAgentStatus",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -996,7 +1277,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeContact",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1013,7 +1305,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeContactFlow",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1033,7 +1336,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeContactFlowModule",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1055,7 +1369,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeHoursOfOperation",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1075,7 +1400,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeInstance",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1092,7 +1428,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeInstanceAttribute",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1123,7 +1470,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeInstanceStorageConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1146,7 +1504,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribePhoneNumber",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1161,7 +1530,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeQueue",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1176,7 +1556,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeQuickConnect",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1191,7 +1582,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeRoutingProfile",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1213,7 +1615,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeSecurityProfile",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1230,7 +1643,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeTrafficDistributionGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1247,7 +1671,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeUser",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1267,7 +1702,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeUserHierarchyGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1280,7 +1726,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeUserHierarchyStructure",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1295,7 +1752,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeVocabulary",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1318,6 +1786,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DisassociateApprovedOrigin",
       :delete,
       url_path,
       query_params,
@@ -1344,6 +1813,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DisassociateBot",
       :post,
       url_path,
       query_params,
@@ -1383,6 +1853,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DisassociateInstanceStorageConfig",
       :delete,
       url_path,
       query_params,
@@ -1414,6 +1885,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DisassociateLambdaFunction",
       :delete,
       url_path,
       query_params,
@@ -1446,6 +1918,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DisassociateLexBot",
       :delete,
       url_path,
       query_params,
@@ -1489,6 +1962,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DisassociatePhoneNumberContactFlow",
       :delete,
       url_path,
       query_params,
@@ -1522,6 +1996,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DisassociateQueueQuickConnects",
       :post,
       url_path,
       query_params,
@@ -1553,6 +2028,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DisassociateRoutingProfileQueues",
       :post,
       url_path,
       query_params,
@@ -1586,6 +2062,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DisassociateSecurityKey",
       :delete,
       url_path,
       query_params,
@@ -1615,6 +2092,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "DismissUserContact",
       :post,
       url_path,
       query_params,
@@ -1637,7 +2115,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetContactAttributes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1656,6 +2145,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "GetCurrentMetricData",
       :post,
       url_path,
       query_params,
@@ -1679,6 +2169,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "GetCurrentUserData",
       :post,
       url_path,
       query_params,
@@ -1705,7 +2196,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFederationToken",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1724,6 +2226,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "GetMetricData",
       :post,
       url_path,
       query_params,
@@ -1760,7 +2263,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTaskTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1774,7 +2288,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTrafficDistribution",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1817,7 +2342,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAgentStatuses",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1852,7 +2388,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListApprovedOrigins",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1897,7 +2444,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListBots",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1939,7 +2497,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListContactFlowModules",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1986,7 +2555,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListContactFlows",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2025,7 +2605,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListContactReferences",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2041,6 +2632,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "ListDefaultVocabularies",
       :post,
       url_path,
       query_params,
@@ -2086,7 +2678,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListHoursOfOperations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2121,7 +2724,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListInstanceAttributes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2165,7 +2779,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListInstanceStorageConfigs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2197,7 +2822,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListInstances",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2239,7 +2875,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListIntegrationAssociations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2275,7 +2922,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListLambdaFunctions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2313,7 +2971,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListLexBots",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2374,7 +3043,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPhoneNumbers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2399,6 +3079,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "ListPhoneNumbersV2",
       :post,
       url_path,
       query_params,
@@ -2440,7 +3121,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPrompts",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2478,7 +3170,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListQueueQuickConnects",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2527,7 +3230,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListQueues",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2569,7 +3283,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListQuickConnects",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2605,7 +3330,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRoutingProfileQueues",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2643,7 +3379,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRoutingProfiles",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2678,7 +3425,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSecurityKeys",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2716,7 +3474,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSecurityProfilePermissions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2753,7 +3522,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSecurityProfiles",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2769,7 +3549,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2818,7 +3609,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTaskTemplates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2858,7 +3660,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTrafficDistributionGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2894,7 +3707,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListUseCases",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2931,7 +3755,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListUserHierarchyGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2965,7 +3800,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListUsers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2984,6 +3830,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "MonitorContact",
       :post,
       url_path,
       query_params,
@@ -3010,7 +3857,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutUserStatus",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3043,6 +3901,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "ReleasePhoneNumber",
       :delete,
       url_path,
       query_params,
@@ -3071,6 +3930,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "ReplicateInstance",
       :post,
       url_path,
       query_params,
@@ -3097,6 +3957,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "ResumeContactRecording",
       :post,
       url_path,
       query_params,
@@ -3125,6 +3986,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "SearchAvailablePhoneNumbers",
       :post,
       url_path,
       query_params,
@@ -3150,6 +4012,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "SearchQueues",
       :post,
       url_path,
       query_params,
@@ -3176,6 +4039,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "SearchRoutingProfiles",
       :post,
       url_path,
       query_params,
@@ -3202,6 +4066,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "SearchSecurityProfiles",
       :post,
       url_path,
       query_params,
@@ -3227,6 +4092,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "SearchUsers",
       :post,
       url_path,
       query_params,
@@ -3251,6 +4117,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "SearchVocabularies",
       :post,
       url_path,
       query_params,
@@ -3296,7 +4163,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "StartChatContact",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3331,6 +4209,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "StartContactRecording",
       :post,
       url_path,
       query_params,
@@ -3357,6 +4236,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "StartContactStreaming",
       :post,
       url_path,
       query_params,
@@ -3396,7 +4276,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "StartOutboundVoiceContact",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3409,7 +4300,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "StartTaskContact",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3433,6 +4335,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "StopContact",
       :post,
       url_path,
       query_params,
@@ -3464,6 +4367,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "StopContactRecording",
       :post,
       url_path,
       query_params,
@@ -3491,6 +4395,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "StopContactStreaming",
       :post,
       url_path,
       query_params,
@@ -3523,6 +4428,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "SuspendContactRecording",
       :post,
       url_path,
       query_params,
@@ -3554,6 +4460,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -3596,6 +4503,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "TransferContact",
       :post,
       url_path,
       query_params,
@@ -3624,6 +4532,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -3651,6 +4560,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateAgentStatus",
       :post,
       url_path,
       query_params,
@@ -3680,6 +4590,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateContact",
       :post,
       url_path,
       query_params,
@@ -3718,6 +4629,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateContactAttributes",
       :post,
       url_path,
       query_params,
@@ -3751,6 +4663,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateContactFlowContent",
       :post,
       url_path,
       query_params,
@@ -3782,6 +4695,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateContactFlowMetadata",
       :post,
       url_path,
       query_params,
@@ -3813,6 +4727,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateContactFlowModuleContent",
       :post,
       url_path,
       query_params,
@@ -3844,6 +4759,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateContactFlowModuleMetadata",
       :post,
       url_path,
       query_params,
@@ -3877,6 +4793,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateContactFlowName",
       :post,
       url_path,
       query_params,
@@ -3900,6 +4817,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateContactSchedule",
       :post,
       url_path,
       query_params,
@@ -3933,6 +4851,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateHoursOfOperation",
       :post,
       url_path,
       query_params,
@@ -3966,6 +4885,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateInstanceAttribute",
       :post,
       url_path,
       query_params,
@@ -4004,6 +4924,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateInstanceStorageConfig",
       :post,
       url_path,
       query_params,
@@ -4031,7 +4952,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdatePhoneNumber",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4057,6 +4989,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateQueueHoursOfOperation",
       :post,
       url_path,
       query_params,
@@ -4085,6 +5018,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateQueueMaxContacts",
       :post,
       url_path,
       query_params,
@@ -4111,6 +5045,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateQueueName",
       :post,
       url_path,
       query_params,
@@ -4157,6 +5092,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateQueueOutboundCallerConfig",
       :post,
       url_path,
       query_params,
@@ -4184,6 +5120,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateQueueStatus",
       :post,
       url_path,
       query_params,
@@ -4215,6 +5152,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateQuickConnectConfig",
       :post,
       url_path,
       query_params,
@@ -4249,6 +5187,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateQuickConnectName",
       :post,
       url_path,
       query_params,
@@ -4281,6 +5220,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateRoutingProfileConcurrency",
       :post,
       url_path,
       query_params,
@@ -4312,6 +5252,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateRoutingProfileDefaultOutboundQueue",
       :post,
       url_path,
       query_params,
@@ -4346,6 +5287,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateRoutingProfileName",
       :post,
       url_path,
       query_params,
@@ -4377,6 +5319,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateRoutingProfileQueues",
       :post,
       url_path,
       query_params,
@@ -4410,6 +5353,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateSecurityProfile",
       :post,
       url_path,
       query_params,
@@ -4445,6 +5389,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateTaskTemplate",
       :post,
       url_path,
       query_params,
@@ -4469,7 +5414,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateTrafficDistribution",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4487,6 +5443,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateUserHierarchy",
       :post,
       url_path,
       query_params,
@@ -4518,6 +5475,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateUserHierarchyGroupName",
       :post,
       url_path,
       query_params,
@@ -4542,6 +5500,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateUserHierarchyStructure",
       :post,
       url_path,
       query_params,
@@ -4575,6 +5534,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateUserIdentityInfo",
       :post,
       url_path,
       query_params,
@@ -4600,6 +5560,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateUserPhoneConfig",
       :post,
       url_path,
       query_params,
@@ -4625,6 +5586,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateUserRoutingProfile",
       :post,
       url_path,
       query_params,
@@ -4656,6 +5618,7 @@ defmodule AWS.Connect do
     Request.request_rest(
       client,
       meta,
+      "UpdateUserSecurityProfiles",
       :post,
       url_path,
       query_params,

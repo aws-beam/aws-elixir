@@ -52,7 +52,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "AddFacetToObject",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -72,7 +83,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ApplySchema",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -97,7 +119,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "AttachObject",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -118,7 +151,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "AttachPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -137,7 +181,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "AttachToIndex",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -158,7 +213,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "AttachTypedLink",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -181,6 +247,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "BatchRead",
       :post,
       url_path,
       query_params,
@@ -209,7 +276,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "BatchWrite",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -234,7 +312,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateDirectory",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -255,7 +344,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateFacet",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -277,7 +377,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateIndex",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -301,7 +412,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateObject",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -327,7 +449,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateSchema",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -348,7 +481,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateTypedLinkFacet",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -370,7 +514,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DeleteDirectory",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -392,7 +547,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DeleteFacet",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -415,7 +581,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DeleteObject",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -436,7 +613,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DeleteSchema",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -457,7 +645,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DeleteTypedLinkFacet",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -476,7 +675,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DetachFromIndex",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -497,7 +707,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DetachObject",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -516,7 +737,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DetachPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -537,7 +769,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DetachTypedLink",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -559,7 +802,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DisableDirectory",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -581,7 +835,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "EnableDirectory",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -597,6 +862,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "GetAppliedSchemaVersion",
       :post,
       url_path,
       query_params,
@@ -626,6 +892,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "GetDirectory",
       :post,
       url_path,
       query_params,
@@ -659,6 +926,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "GetFacet",
       :post,
       url_path,
       query_params,
@@ -688,6 +956,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "GetLinkAttributes",
       :post,
       url_path,
       query_params,
@@ -718,6 +987,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "GetObjectAttributes",
       :post,
       url_path,
       query_params,
@@ -748,6 +1018,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "GetObjectInformation",
       :post,
       url_path,
       query_params,
@@ -780,6 +1051,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "GetSchemaAsJson",
       :post,
       url_path,
       query_params,
@@ -811,6 +1083,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "GetTypedLinkFacetInformation",
       :post,
       url_path,
       query_params,
@@ -836,6 +1109,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListAppliedSchemaArns",
       :post,
       url_path,
       query_params,
@@ -866,6 +1140,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListAttachedIndices",
       :post,
       url_path,
       query_params,
@@ -889,6 +1164,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListDevelopmentSchemaArns",
       :post,
       url_path,
       query_params,
@@ -912,6 +1188,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListDirectories",
       :post,
       url_path,
       query_params,
@@ -941,6 +1218,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListFacetAttributes",
       :post,
       url_path,
       query_params,
@@ -970,6 +1248,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListFacetNames",
       :post,
       url_path,
       query_params,
@@ -1003,6 +1282,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListIncomingTypedLinks",
       :post,
       url_path,
       query_params,
@@ -1033,6 +1313,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListIndex",
       :post,
       url_path,
       query_params,
@@ -1059,6 +1340,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListManagedSchemaArns",
       :post,
       url_path,
       query_params,
@@ -1089,6 +1371,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListObjectAttributes",
       :post,
       url_path,
       query_params,
@@ -1120,6 +1403,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListObjectChildren",
       :post,
       url_path,
       query_params,
@@ -1159,6 +1443,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListObjectParentPaths",
       :post,
       url_path,
       query_params,
@@ -1190,6 +1475,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListObjectParents",
       :post,
       url_path,
       query_params,
@@ -1220,6 +1506,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListObjectPolicies",
       :post,
       url_path,
       query_params,
@@ -1253,6 +1540,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListOutgoingTypedLinks",
       :post,
       url_path,
       query_params,
@@ -1283,6 +1571,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListPolicyAttachments",
       :post,
       url_path,
       query_params,
@@ -1309,6 +1598,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListPublishedSchemaArns",
       :post,
       url_path,
       query_params,
@@ -1335,6 +1625,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListTagsForResource",
       :post,
       url_path,
       query_params,
@@ -1367,6 +1658,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListTypedLinkFacetAttributes",
       :post,
       url_path,
       query_params,
@@ -1398,6 +1690,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "ListTypedLinkFacetNames",
       :post,
       url_path,
       query_params,
@@ -1434,6 +1727,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "LookupPolicy",
       :post,
       url_path,
       query_params,
@@ -1461,7 +1755,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PublishSchema",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1483,7 +1788,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutSchemaFromJson",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1502,7 +1818,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "RemoveFacetFromObject",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1515,7 +1842,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "TagResource",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1528,7 +1866,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UntagResource",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1555,7 +1904,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateFacet",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1580,6 +1940,7 @@ defmodule AWS.CloudDirectory do
     Request.request_rest(
       client,
       meta,
+      "UpdateLinkAttributes",
       :post,
       url_path,
       query_params,
@@ -1606,7 +1967,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateObjectAttributes",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1627,7 +1999,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateSchema",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1648,7 +2031,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateTypedLinkFacet",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1667,7 +2061,18 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpgradeAppliedSchema",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1681,6 +2086,17 @@ defmodule AWS.CloudDirectory do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpgradePublishedSchema",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

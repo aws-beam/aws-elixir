@@ -73,7 +73,18 @@ defmodule AWS.IoTJobsDataPlane do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeJobExecution",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -86,7 +97,18 @@ defmodule AWS.IoTJobsDataPlane do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPendingJobExecutions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -100,7 +122,18 @@ defmodule AWS.IoTJobsDataPlane do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "StartNextPendingJobExecution",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -116,6 +149,7 @@ defmodule AWS.IoTJobsDataPlane do
     Request.request_rest(
       client,
       meta,
+      "UpdateJobExecution",
       :post,
       url_path,
       query_params,

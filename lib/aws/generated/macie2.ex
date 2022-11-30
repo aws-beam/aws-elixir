@@ -48,6 +48,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "AcceptInvitation",
       :post,
       url_path,
       query_params,
@@ -71,6 +72,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "BatchGetCustomDataIdentifiers",
       :post,
       url_path,
       query_params,
@@ -94,6 +96,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "CreateAllowList",
       :post,
       url_path,
       query_params,
@@ -117,6 +120,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "CreateClassificationJob",
       :post,
       url_path,
       query_params,
@@ -141,6 +145,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "CreateCustomDataIdentifier",
       :post,
       url_path,
       query_params,
@@ -164,6 +169,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "CreateFindingsFilter",
       :post,
       url_path,
       query_params,
@@ -187,6 +193,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "CreateInvitations",
       :post,
       url_path,
       query_params,
@@ -210,6 +217,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "CreateMember",
       :post,
       url_path,
       query_params,
@@ -233,6 +241,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "CreateSampleFindings",
       :post,
       url_path,
       query_params,
@@ -257,6 +266,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "DeclineInvitations",
       :post,
       url_path,
       query_params,
@@ -285,6 +295,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteAllowList",
       :delete,
       url_path,
       query_params,
@@ -308,6 +319,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteCustomDataIdentifier",
       :delete,
       url_path,
       query_params,
@@ -331,6 +343,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteFindingsFilter",
       :delete,
       url_path,
       query_params,
@@ -355,6 +368,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteInvitations",
       :post,
       url_path,
       query_params,
@@ -379,6 +393,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteMember",
       :delete,
       url_path,
       query_params,
@@ -403,6 +418,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "DescribeBuckets",
       :post,
       url_path,
       query_params,
@@ -423,7 +439,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeClassificationJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -437,7 +464,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeOrganizationConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -454,6 +492,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "DisableMacie",
       :delete,
       url_path,
       query_params,
@@ -483,6 +522,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "DisableOrganizationAdminAccount",
       :delete,
       url_path,
       query_params,
@@ -506,6 +546,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "DisassociateFromAdministratorAccount",
       :post,
       url_path,
       query_params,
@@ -533,6 +574,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "DisassociateFromMasterAccount",
       :post,
       url_path,
       query_params,
@@ -556,6 +598,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "DisassociateMember",
       :post,
       url_path,
       query_params,
@@ -580,6 +623,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "EnableMacie",
       :post,
       url_path,
       query_params,
@@ -604,6 +648,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "EnableOrganizationAdminAccount",
       :post,
       url_path,
       query_params,
@@ -625,7 +670,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAdministratorAccount",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -638,7 +694,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAllowList",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -652,7 +719,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAutomatedDiscoveryConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -669,6 +747,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "GetBucketStatistics",
       :post,
       url_path,
       query_params,
@@ -689,7 +768,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetClassificationExportConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -702,7 +792,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetClassificationScope",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -715,7 +816,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCustomDataIdentifier",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -731,6 +843,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "GetFindingStatistics",
       :post,
       url_path,
       query_params,
@@ -754,6 +867,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "GetFindings",
       :post,
       url_path,
       query_params,
@@ -774,7 +888,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFindingsFilter",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -787,7 +912,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFindingsPublicationConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -801,7 +937,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetInvitationsCount",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -814,7 +961,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMacieSession",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -830,7 +988,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMasterAccount",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -844,7 +1013,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMember",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -865,7 +1045,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetResourceProfile",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -879,7 +1070,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRevealConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -892,7 +1094,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSensitiveDataOccurrences",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -905,7 +1118,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSensitiveDataOccurrencesAvailability",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -918,7 +1142,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSensitivityInspectionTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -934,6 +1169,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "GetUsageStatistics",
       :post,
       url_path,
       query_params,
@@ -961,7 +1197,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetUsageTotals",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -988,7 +1235,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAllowLists",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1004,6 +1262,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "ListClassificationJobs",
       :post,
       url_path,
       query_params,
@@ -1043,7 +1302,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListClassificationScopes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1060,6 +1330,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "ListCustomDataIdentifiers",
       :post,
       url_path,
       query_params,
@@ -1083,6 +1354,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "ListFindings",
       :post,
       url_path,
       query_params,
@@ -1122,7 +1394,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFindingsFilters",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1150,7 +1433,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListInvitations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1167,6 +1461,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "ListManagedDataIdentifiers",
       :post,
       url_path,
       query_params,
@@ -1215,7 +1510,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListMembers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1248,7 +1554,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListOrganizationAdminAccounts",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1281,7 +1598,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListResourceProfileArtifacts",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1322,7 +1650,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListResourceProfileDetections",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1355,7 +1694,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSensitivityInspectionTemplates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1369,7 +1719,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1383,7 +1744,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutClassificationExportConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1396,7 +1768,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutFindingsPublicationConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1413,6 +1796,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "SearchResources",
       :post,
       url_path,
       query_params,
@@ -1437,6 +1821,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1460,6 +1845,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "TestCustomDataIdentifier",
       :post,
       url_path,
       query_params,
@@ -1488,6 +1874,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1508,7 +1895,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAllowList",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1521,7 +1919,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAutomatedDiscoveryConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1537,6 +1946,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateClassificationJob",
       :patch,
       url_path,
       query_params,
@@ -1560,6 +1970,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateClassificationScope",
       :patch,
       url_path,
       query_params,
@@ -1583,6 +1994,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateFindingsFilter",
       :patch,
       url_path,
       query_params,
@@ -1607,6 +2019,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateMacieSession",
       :patch,
       url_path,
       query_params,
@@ -1631,6 +2044,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateMemberSession",
       :patch,
       url_path,
       query_params,
@@ -1655,6 +2069,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateOrganizationConfiguration",
       :patch,
       url_path,
       query_params,
@@ -1683,6 +2098,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateResourceProfile",
       :patch,
       url_path,
       query_params,
@@ -1711,6 +2127,7 @@ defmodule AWS.Macie2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateResourceProfileDetections",
       :patch,
       url_path,
       query_params,
@@ -1732,7 +2149,18 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateRevealConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1745,6 +2173,17 @@ defmodule AWS.Macie2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateSensitivityInspectionTemplate",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

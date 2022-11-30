@@ -38,6 +38,7 @@ defmodule AWS.SagemakerEdge do
     Request.request_rest(
       client,
       meta,
+      "GetDeployments",
       :post,
       url_path,
       query_params,
@@ -61,6 +62,7 @@ defmodule AWS.SagemakerEdge do
     Request.request_rest(
       client,
       meta,
+      "GetDeviceRegistration",
       :post,
       url_path,
       query_params,
@@ -84,6 +86,7 @@ defmodule AWS.SagemakerEdge do
     Request.request_rest(
       client,
       meta,
+      "SendHeartbeat",
       :post,
       url_path,
       query_params,

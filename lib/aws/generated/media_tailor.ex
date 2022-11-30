@@ -47,7 +47,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ConfigureLogsForPlaybackConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -66,6 +77,7 @@ defmodule AWS.MediaTailor do
     Request.request_rest(
       client,
       meta,
+      "CreateChannel",
       :post,
       url_path,
       query_params,
@@ -97,6 +109,7 @@ defmodule AWS.MediaTailor do
     Request.request_rest(
       client,
       meta,
+      "CreateLiveSource",
       :post,
       url_path,
       query_params,
@@ -133,6 +146,7 @@ defmodule AWS.MediaTailor do
     Request.request_rest(
       client,
       meta,
+      "CreatePrefetchSchedule",
       :post,
       url_path,
       query_params,
@@ -161,6 +175,7 @@ defmodule AWS.MediaTailor do
     Request.request_rest(
       client,
       meta,
+      "CreateProgram",
       :post,
       url_path,
       query_params,
@@ -188,6 +203,7 @@ defmodule AWS.MediaTailor do
     Request.request_rest(
       client,
       meta,
+      "CreateSourceLocation",
       :post,
       url_path,
       query_params,
@@ -219,6 +235,7 @@ defmodule AWS.MediaTailor do
     Request.request_rest(
       client,
       meta,
+      "CreateVodSource",
       :post,
       url_path,
       query_params,
@@ -245,6 +262,7 @@ defmodule AWS.MediaTailor do
     Request.request_rest(
       client,
       meta,
+      "DeleteChannel",
       :delete,
       url_path,
       query_params,
@@ -268,6 +286,7 @@ defmodule AWS.MediaTailor do
     Request.request_rest(
       client,
       meta,
+      "DeleteChannelPolicy",
       :delete,
       url_path,
       query_params,
@@ -299,6 +318,7 @@ defmodule AWS.MediaTailor do
     Request.request_rest(
       client,
       meta,
+      "DeleteLiveSource",
       :delete,
       url_path,
       query_params,
@@ -325,6 +345,7 @@ defmodule AWS.MediaTailor do
     Request.request_rest(
       client,
       meta,
+      "DeletePlaybackConfiguration",
       :delete,
       url_path,
       query_params,
@@ -361,6 +382,7 @@ defmodule AWS.MediaTailor do
     Request.request_rest(
       client,
       meta,
+      "DeletePrefetchSchedule",
       :delete,
       url_path,
       query_params,
@@ -389,6 +411,7 @@ defmodule AWS.MediaTailor do
     Request.request_rest(
       client,
       meta,
+      "DeleteProgram",
       :delete,
       url_path,
       query_params,
@@ -416,6 +439,7 @@ defmodule AWS.MediaTailor do
     Request.request_rest(
       client,
       meta,
+      "DeleteSourceLocation",
       :delete,
       url_path,
       query_params,
@@ -447,6 +471,7 @@ defmodule AWS.MediaTailor do
     Request.request_rest(
       client,
       meta,
+      "DeleteVodSource",
       :delete,
       url_path,
       query_params,
@@ -470,7 +495,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeChannel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -490,7 +526,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeLiveSource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -508,7 +555,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeProgram",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -525,7 +583,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeSourceLocation",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -546,7 +615,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeVodSource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -561,7 +641,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetChannelPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -602,7 +693,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetChannelSchedule",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -618,7 +720,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPlaybackConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -638,7 +751,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPrefetchSchedule",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -679,7 +803,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAlerts",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -707,7 +842,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannels",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -742,7 +888,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListLiveSources",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -777,7 +934,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPlaybackConfigurations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -798,6 +966,7 @@ defmodule AWS.MediaTailor do
     Request.request_rest(
       client,
       meta,
+      "ListPrefetchSchedules",
       :post,
       url_path,
       query_params,
@@ -839,7 +1008,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSourceLocations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -856,7 +1036,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -891,7 +1082,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListVodSources",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -906,7 +1108,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutChannelPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -922,7 +1135,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutPlaybackConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -938,7 +1162,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "StartChannel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -954,7 +1189,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "StopChannel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -974,6 +1220,7 @@ defmodule AWS.MediaTailor do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1002,6 +1249,7 @@ defmodule AWS.MediaTailor do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1025,7 +1273,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateChannel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1046,7 +1305,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateLiveSource",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1063,7 +1333,18 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateSourceLocation",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1084,6 +1365,17 @@ defmodule AWS.MediaTailor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateVodSource",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

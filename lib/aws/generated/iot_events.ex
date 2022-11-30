@@ -46,6 +46,7 @@ defmodule AWS.IoTEvents do
     Request.request_rest(
       client,
       meta,
+      "CreateAlarmModel",
       :post,
       url_path,
       query_params,
@@ -69,6 +70,7 @@ defmodule AWS.IoTEvents do
     Request.request_rest(
       client,
       meta,
+      "CreateDetectorModel",
       :post,
       url_path,
       query_params,
@@ -92,6 +94,7 @@ defmodule AWS.IoTEvents do
     Request.request_rest(
       client,
       meta,
+      "CreateInput",
       :post,
       url_path,
       query_params,
@@ -118,6 +121,7 @@ defmodule AWS.IoTEvents do
     Request.request_rest(
       client,
       meta,
+      "DeleteAlarmModel",
       :delete,
       url_path,
       query_params,
@@ -143,6 +147,7 @@ defmodule AWS.IoTEvents do
     Request.request_rest(
       client,
       meta,
+      "DeleteDetectorModel",
       :delete,
       url_path,
       query_params,
@@ -166,6 +171,7 @@ defmodule AWS.IoTEvents do
     Request.request_rest(
       client,
       meta,
+      "DeleteInput",
       :delete,
       url_path,
       query_params,
@@ -201,7 +207,18 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAlarmModel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -229,7 +246,18 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDetectorModel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -245,7 +273,18 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDetectorModelAnalysis",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -258,7 +297,18 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeInput",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -271,7 +321,18 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeLoggingOptions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -307,7 +368,18 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDetectorModelAnalysisResults",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -343,7 +415,18 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAlarmModelVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -372,7 +455,18 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAlarmModels",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -407,7 +501,18 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDetectorModelVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -441,7 +546,18 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDetectorModels",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -457,6 +573,7 @@ defmodule AWS.IoTEvents do
     Request.request_rest(
       client,
       meta,
+      "ListInputRoutings",
       :post,
       url_path,
       query_params,
@@ -491,7 +608,18 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListInputs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -511,7 +639,18 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -529,7 +668,18 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutLoggingOptions",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -548,6 +698,7 @@ defmodule AWS.IoTEvents do
     Request.request_rest(
       client,
       meta,
+      "StartDetectorModelAnalysis",
       :post,
       url_path,
       query_params,
@@ -578,6 +729,7 @@ defmodule AWS.IoTEvents do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -607,6 +759,7 @@ defmodule AWS.IoTEvents do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -633,6 +786,7 @@ defmodule AWS.IoTEvents do
     Request.request_rest(
       client,
       meta,
+      "UpdateAlarmModel",
       :post,
       url_path,
       query_params,
@@ -659,6 +813,7 @@ defmodule AWS.IoTEvents do
     Request.request_rest(
       client,
       meta,
+      "UpdateDetectorModel",
       :post,
       url_path,
       query_params,
@@ -679,6 +834,17 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateInput",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

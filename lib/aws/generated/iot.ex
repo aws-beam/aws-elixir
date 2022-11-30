@@ -73,6 +73,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "AcceptCertificateTransfer",
       :patch,
       url_path,
       query_params,
@@ -97,7 +98,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AddThingToBillingGroup",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -114,7 +126,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AddThingToThingGroup",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -149,6 +172,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "AssociateTargetsWithJob",
       :post,
       url_path,
       query_params,
@@ -174,7 +198,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AttachPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -201,7 +236,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AttachPrincipalPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -227,7 +273,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AttachSecurityProfile",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -253,7 +310,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AttachThingPrincipal",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -272,7 +340,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CancelAuditMitigationActionsTask",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -292,7 +371,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CancelAuditTask",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -321,6 +411,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CancelCertificateTransfer",
       :patch,
       url_path,
       query_params,
@@ -345,7 +436,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CancelDetectMitigationActionsTask",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -367,7 +469,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CancelJob",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -391,7 +504,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CancelJobExecution",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -411,6 +535,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "ClearDefaultAuthorizer",
       :delete,
       url_path,
       query_params,
@@ -440,7 +565,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ConfirmTopicRuleDestination",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -460,6 +596,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateAuditSuppression",
       :post,
       url_path,
       query_params,
@@ -487,6 +624,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateAuthorizer",
       :post,
       url_path,
       query_params,
@@ -514,6 +652,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateBillingGroup",
       :post,
       url_path,
       query_params,
@@ -588,6 +727,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateCertificateFromCsr",
       :post,
       url_path,
       query_params,
@@ -616,6 +756,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateCustomMetric",
       :post,
       url_path,
       query_params,
@@ -648,6 +789,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateDimension",
       :post,
       url_path,
       query_params,
@@ -680,6 +822,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateDomainConfiguration",
       :post,
       url_path,
       query_params,
@@ -707,6 +850,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateDynamicThingGroup",
       :post,
       url_path,
       query_params,
@@ -731,7 +875,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateFleetMetric",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -748,7 +903,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateJob",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -765,7 +931,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateJobTemplate",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -797,6 +974,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateKeysAndCertificate",
       :post,
       url_path,
       query_params,
@@ -829,6 +1007,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateMitigationAction",
       :post,
       url_path,
       query_params,
@@ -856,6 +1035,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateOTAUpdate",
       :post,
       url_path,
       query_params,
@@ -887,6 +1067,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreatePolicy",
       :post,
       url_path,
       query_params,
@@ -927,6 +1108,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreatePolicyVersion",
       :post,
       url_path,
       query_params,
@@ -954,6 +1136,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateProvisioningClaim",
       :post,
       url_path,
       query_params,
@@ -981,6 +1164,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateProvisioningTemplate",
       :post,
       url_path,
       query_params,
@@ -1018,6 +1202,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateProvisioningTemplateVersion",
       :post,
       url_path,
       query_params,
@@ -1045,6 +1230,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateRoleAlias",
       :post,
       url_path,
       query_params,
@@ -1072,6 +1258,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateScheduledAudit",
       :post,
       url_path,
       query_params,
@@ -1099,6 +1286,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateSecurityProfile",
       :post,
       url_path,
       query_params,
@@ -1129,6 +1317,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateStream",
       :post,
       url_path,
       query_params,
@@ -1163,6 +1352,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateThing",
       :post,
       url_path,
       query_params,
@@ -1193,6 +1383,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateThingGroup",
       :post,
       url_path,
       query_params,
@@ -1220,6 +1411,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateThingType",
       :post,
       url_path,
       query_params,
@@ -1256,6 +1448,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateTopicRule",
       :post,
       url_path,
       query_params,
@@ -1285,6 +1478,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "CreateTopicRuleDestination",
       :post,
       url_path,
       query_params,
@@ -1320,6 +1514,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteAccountAuditConfiguration",
       :delete,
       url_path,
       query_params,
@@ -1347,6 +1542,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteAuditSuppression",
       :post,
       url_path,
       query_params,
@@ -1374,6 +1570,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteAuthorizer",
       :delete,
       url_path,
       query_params,
@@ -1406,6 +1603,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteBillingGroup",
       :delete,
       url_path,
       query_params,
@@ -1433,6 +1631,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteCACertificate",
       :delete,
       url_path,
       query_params,
@@ -1470,6 +1669,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteCertificate",
       :delete,
       url_path,
       query_params,
@@ -1502,6 +1702,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteCustomMetric",
       :delete,
       url_path,
       query_params,
@@ -1529,6 +1730,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteDimension",
       :delete,
       url_path,
       query_params,
@@ -1561,6 +1763,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteDomainConfiguration",
       :delete,
       url_path,
       query_params,
@@ -1593,6 +1796,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteDynamicThingGroup",
       :delete,
       url_path,
       query_params,
@@ -1628,6 +1832,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteFleetMetric",
       :delete,
       url_path,
       query_params,
@@ -1670,6 +1875,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteJob",
       :delete,
       url_path,
       query_params,
@@ -1712,6 +1918,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteJobExecution",
       :delete,
       url_path,
       query_params,
@@ -1735,6 +1942,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteJobTemplate",
       :delete,
       url_path,
       query_params,
@@ -1762,6 +1970,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteMitigationAction",
       :delete,
       url_path,
       query_params,
@@ -1795,6 +2004,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteOTAUpdate",
       :delete,
       url_path,
       query_params,
@@ -1836,6 +2046,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeletePolicy",
       :delete,
       url_path,
       query_params,
@@ -1875,6 +2086,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeletePolicyVersion",
       :delete,
       url_path,
       query_params,
@@ -1902,6 +2114,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteProvisioningTemplate",
       :delete,
       url_path,
       query_params,
@@ -1937,6 +2150,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteProvisioningTemplateVersion",
       :delete,
       url_path,
       query_params,
@@ -1964,6 +2178,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteRegistrationCode",
       :delete,
       url_path,
       query_params,
@@ -1991,6 +2206,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteRoleAlias",
       :delete,
       url_path,
       query_params,
@@ -2018,6 +2234,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteScheduledAudit",
       :delete,
       url_path,
       query_params,
@@ -2050,6 +2267,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteSecurityProfile",
       :delete,
       url_path,
       query_params,
@@ -2077,6 +2295,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteStream",
       :delete,
       url_path,
       query_params,
@@ -2112,6 +2331,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteThing",
       :delete,
       url_path,
       query_params,
@@ -2144,6 +2364,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteThingGroup",
       :delete,
       url_path,
       query_params,
@@ -2177,6 +2398,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteThingType",
       :delete,
       url_path,
       query_params,
@@ -2204,6 +2426,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteTopicRule",
       :delete,
       url_path,
       query_params,
@@ -2231,6 +2454,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteTopicRuleDestination",
       :delete,
       url_path,
       query_params,
@@ -2264,6 +2488,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeleteV2LoggingLevel",
       :delete,
       url_path,
       query_params,
@@ -2293,6 +2518,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DeprecateThingType",
       :post,
       url_path,
       query_params,
@@ -2320,7 +2546,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAccountAuditConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2340,7 +2577,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAuditFinding",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2357,7 +2605,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAuditMitigationActionsTask",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2373,6 +2632,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DescribeAuditSuppression",
       :post,
       url_path,
       query_params,
@@ -2397,7 +2657,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAuditTask",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2414,7 +2685,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAuthorizer",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2431,7 +2713,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeBillingGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2448,7 +2741,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeCACertificate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2465,7 +2769,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeCertificate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2482,7 +2797,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeCustomMetric",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2499,7 +2825,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDefaultAuthorizer",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2516,7 +2853,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDetectMitigationActionsTask",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2534,7 +2882,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDimension",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2551,7 +2910,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDomainConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2576,7 +2946,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeEndpoint",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2593,7 +2974,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeEventConfigurations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2610,7 +3002,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeFleetMetric",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2627,7 +3030,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeIndex",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2644,7 +3058,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2674,7 +3099,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeJobExecution",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2687,7 +3123,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeJobTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2712,7 +3159,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeManagedJobTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2729,7 +3187,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeMitigationAction",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2746,7 +3215,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeProvisioningTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2770,7 +3250,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeProvisioningTemplateVersion",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2787,7 +3278,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeRoleAlias",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2804,7 +3306,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeScheduledAudit",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2821,7 +3334,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeSecurityProfile",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2838,7 +3362,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeStream",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2855,7 +3390,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeThing",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2872,7 +3418,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeThingGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2889,7 +3446,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeThingRegistrationTask",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2906,7 +3474,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeThingType",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2929,6 +3508,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DetachPolicy",
       :post,
       url_path,
       query_params,
@@ -2965,6 +3545,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DetachPrincipalPolicy",
       :delete,
       url_path,
       query_params,
@@ -2998,6 +3579,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DetachSecurityProfile",
       :delete,
       url_path,
       query_params,
@@ -3037,6 +3619,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DetachThingPrincipal",
       :delete,
       url_path,
       query_params,
@@ -3064,6 +3647,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "DisableTopicRule",
       :post,
       url_path,
       query_params,
@@ -3091,6 +3675,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "EnableTopicRule",
       :post,
       url_path,
       query_params,
@@ -3142,7 +3727,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBehaviorModelTrainingSummaries",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3162,6 +3758,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "GetBucketsAggregation",
       :post,
       url_path,
       query_params,
@@ -3189,6 +3786,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "GetCardinality",
       :post,
       url_path,
       query_params,
@@ -3222,6 +3820,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "GetEffectivePolicies",
       :post,
       url_path,
       query_params,
@@ -3246,7 +3845,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetIndexingConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3263,7 +3873,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetJobDocument",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3282,7 +3903,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLoggingOptions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3299,7 +3931,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetOTAUpdate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3329,6 +3972,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "GetPercentiles",
       :post,
       url_path,
       query_params,
@@ -3354,7 +3998,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3373,7 +4028,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPolicyVersion",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3390,7 +4056,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRegistrationCode",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3414,6 +4091,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "GetStatistics",
       :post,
       url_path,
       query_params,
@@ -3438,7 +4116,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTopicRule",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3455,7 +4144,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTopicRuleDestination",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3472,7 +4172,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetV2LoggingOptions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3548,7 +4259,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListActiveViolations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3575,6 +4297,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "ListAttachedPolicies",
       :post,
       url_path,
       query_params,
@@ -3605,6 +4328,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "ListAuditFindings",
       :post,
       url_path,
       query_params,
@@ -3672,7 +4396,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAuditMitigationActionsExecutions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3748,7 +4483,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAuditMitigationActionsTasks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3768,6 +4514,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "ListAuditSuppressions",
       :post,
       url_path,
       query_params,
@@ -3844,7 +4591,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAuditTasks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3896,7 +4654,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAuthorizers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3940,7 +4709,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListBillingGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3995,7 +4775,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCACertificates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4042,7 +4833,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCertificates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4087,7 +4889,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCertificatesByCA",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4123,7 +4936,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCustomMetrics",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4200,7 +5024,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDetectMitigationActionsExecutions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4252,7 +5087,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDetectMitigationActionsTasks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4284,7 +5130,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDimensions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4330,7 +5187,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDomainConfigurations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4361,7 +5229,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFleetMetrics",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4392,7 +5271,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListIndices",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4437,7 +5327,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJobExecutionsForJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4498,7 +5399,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJobExecutionsForThing",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4529,7 +5441,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJobTemplates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4605,7 +5528,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4645,7 +5579,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListManagedJobTemplates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4727,7 +5672,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListMetricValues",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4771,7 +5727,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListMitigationActions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4815,7 +5782,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListOTAUpdates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4859,7 +5837,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListOutgoingCertificates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4903,7 +5892,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPolicies",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4960,7 +5960,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPolicyPrincipals",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4977,7 +5988,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPolicyVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5036,7 +6058,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPrincipalPolicies",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5084,7 +6117,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPrincipalThings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5121,7 +6165,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProvisioningTemplateVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5157,7 +6212,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProvisioningTemplates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5224,7 +6290,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRelatedResourcesForAuditFinding",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5268,7 +6345,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRoleAliases",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5304,7 +6392,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListScheduledAudits",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5360,7 +6459,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSecurityProfiles",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5412,7 +6522,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSecurityProfilesForTarget",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5456,7 +6577,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListStreams",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5487,7 +6619,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5513,6 +6656,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "ListTargetsForPolicy",
       :post,
       url_path,
       query_params,
@@ -5558,7 +6702,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTargetsForSecurityProfile",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5618,7 +6773,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListThingGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5655,7 +6821,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListThingGroupsForThing",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5695,7 +6872,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListThingPrincipals",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5736,7 +6924,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListThingRegistrationTaskReports",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5780,7 +6979,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListThingRegistrationTasks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5824,7 +7034,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListThingTypes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5902,7 +7123,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListThings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5939,7 +7171,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListThingsInBillingGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5984,7 +7227,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListThingsInThingGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -6020,7 +7274,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTopicRuleDestinations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -6072,7 +7337,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTopicRules",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -6116,7 +7392,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListV2LoggingLevels",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -6212,7 +7499,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListViolationEvents",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -6229,6 +7527,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "PutVerificationStateOnViolation",
       :post,
       url_path,
       query_params,
@@ -6266,6 +7565,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "RegisterCACertificate",
       :post,
       url_path,
       query_params,
@@ -6303,6 +7603,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "RegisterCertificate",
       :post,
       url_path,
       query_params,
@@ -6329,6 +7630,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "RegisterCertificateWithoutCA",
       :post,
       url_path,
       query_params,
@@ -6361,6 +7663,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "RegisterThing",
       :post,
       url_path,
       query_params,
@@ -6398,6 +7701,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "RejectCertificateTransfer",
       :patch,
       url_path,
       query_params,
@@ -6425,7 +7729,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "RemoveThingFromBillingGroup",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -6446,7 +7761,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "RemoveThingFromThingGroup",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -6470,6 +7796,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "ReplaceTopicRule",
       :patch,
       url_path,
       query_params,
@@ -6497,6 +7824,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "SearchIndex",
       :post,
       url_path,
       query_params,
@@ -6527,6 +7855,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "SetDefaultAuthorizer",
       :post,
       url_path,
       query_params,
@@ -6567,6 +7896,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "SetDefaultPolicyVersion",
       :patch,
       url_path,
       query_params,
@@ -6596,6 +7926,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "SetLoggingOptions",
       :post,
       url_path,
       query_params,
@@ -6623,6 +7954,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "SetV2LoggingLevel",
       :post,
       url_path,
       query_params,
@@ -6650,6 +7982,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "SetV2LoggingOptions",
       :post,
       url_path,
       query_params,
@@ -6677,6 +8010,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "StartAuditMitigationActionsTask",
       :post,
       url_path,
       query_params,
@@ -6701,7 +8035,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "StartDetectMitigationActionsTask",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -6721,6 +8066,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "StartOnDemandAuditTask",
       :post,
       url_path,
       query_params,
@@ -6748,6 +8094,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "StartThingRegistrationTask",
       :post,
       url_path,
       query_params,
@@ -6772,7 +8119,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "StopThingRegistrationTask",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -6794,6 +8152,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -6830,6 +8189,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "TestAuthorization",
       :post,
       url_path,
       query_params,
@@ -6860,6 +8220,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "TestInvokeAuthorizer",
       :post,
       url_path,
       query_params,
@@ -6904,6 +8265,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "TransferCertificate",
       :patch,
       url_path,
       query_params,
@@ -6931,6 +8293,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :post,
       url_path,
       query_params,
@@ -6961,6 +8324,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "UpdateAccountAuditConfiguration",
       :patch,
       url_path,
       query_params,
@@ -6984,6 +8348,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "UpdateAuditSuppression",
       :patch,
       url_path,
       query_params,
@@ -7008,7 +8373,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAuthorizer",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -7028,6 +8404,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "UpdateBillingGroup",
       :patch,
       url_path,
       query_params,
@@ -7058,7 +8435,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateCACertificate",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -7089,7 +8477,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateCertificate",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -7109,6 +8508,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "UpdateCustomMetric",
       :patch,
       url_path,
       query_params,
@@ -7139,6 +8539,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "UpdateDimension",
       :patch,
       url_path,
       query_params,
@@ -7170,7 +8571,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDomainConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -7190,6 +8602,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "UpdateDynamicThingGroup",
       :patch,
       url_path,
       query_params,
@@ -7217,6 +8630,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "UpdateEventConfigurations",
       :patch,
       url_path,
       query_params,
@@ -7244,6 +8658,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "UpdateFleetMetric",
       :patch,
       url_path,
       query_params,
@@ -7271,6 +8686,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "UpdateIndexingConfiguration",
       :post,
       url_path,
       query_params,
@@ -7303,6 +8719,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "UpdateJob",
       :patch,
       url_path,
       query_params,
@@ -7330,6 +8747,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "UpdateMitigationAction",
       :patch,
       url_path,
       query_params,
@@ -7357,6 +8775,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "UpdateProvisioningTemplate",
       :patch,
       url_path,
       query_params,
@@ -7381,7 +8800,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateRoleAlias",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -7402,6 +8832,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "UpdateScheduledAudit",
       :patch,
       url_path,
       query_params,
@@ -7434,6 +8865,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "UpdateSecurityProfile",
       :patch,
       url_path,
       query_params,
@@ -7460,7 +8892,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateStream",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -7480,6 +8923,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "UpdateThing",
       :patch,
       url_path,
       query_params,
@@ -7507,6 +8951,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "UpdateThingGroup",
       :patch,
       url_path,
       query_params,
@@ -7531,7 +8976,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateThingGroupsForThing",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -7554,6 +9010,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "UpdateTopicRuleDestination",
       :patch,
       url_path,
       query_params,
@@ -7581,6 +9038,7 @@ defmodule AWS.IoT do
     Request.request_rest(
       client,
       meta,
+      "ValidateSecurityProfileBehaviors",
       :post,
       url_path,
       query_params,

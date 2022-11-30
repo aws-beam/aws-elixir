@@ -55,6 +55,7 @@ defmodule AWS.Honeycode do
     Request.request_rest(
       client,
       meta,
+      "BatchCreateTableRows",
       :post,
       url_path,
       query_params,
@@ -83,6 +84,7 @@ defmodule AWS.Honeycode do
     Request.request_rest(
       client,
       meta,
+      "BatchDeleteTableRows",
       :post,
       url_path,
       query_params,
@@ -114,6 +116,7 @@ defmodule AWS.Honeycode do
     Request.request_rest(
       client,
       meta,
+      "BatchUpdateTableRows",
       :post,
       url_path,
       query_params,
@@ -151,6 +154,7 @@ defmodule AWS.Honeycode do
     Request.request_rest(
       client,
       meta,
+      "BatchUpsertTableRows",
       :post,
       url_path,
       query_params,
@@ -180,7 +184,18 @@ defmodule AWS.Honeycode do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeTableDataImportJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -199,6 +214,7 @@ defmodule AWS.Honeycode do
     Request.request_rest(
       client,
       meta,
+      "GetScreenData",
       :post,
       url_path,
       query_params,
@@ -237,6 +253,7 @@ defmodule AWS.Honeycode do
     Request.request_rest(
       client,
       meta,
+      "InvokeScreenAutomation",
       :post,
       url_path,
       query_params,
@@ -273,7 +290,18 @@ defmodule AWS.Honeycode do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTableColumns",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -292,6 +320,7 @@ defmodule AWS.Honeycode do
     Request.request_rest(
       client,
       meta,
+      "ListTableRows",
       :post,
       url_path,
       query_params,
@@ -333,7 +362,18 @@ defmodule AWS.Honeycode do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTables",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -346,7 +386,18 @@ defmodule AWS.Honeycode do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -365,6 +416,7 @@ defmodule AWS.Honeycode do
     Request.request_rest(
       client,
       meta,
+      "QueryTableRows",
       :post,
       url_path,
       query_params,
@@ -400,6 +452,7 @@ defmodule AWS.Honeycode do
     Request.request_rest(
       client,
       meta,
+      "StartTableDataImportJob",
       :post,
       url_path,
       query_params,
@@ -425,6 +478,7 @@ defmodule AWS.Honeycode do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -455,6 +509,7 @@ defmodule AWS.Honeycode do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,

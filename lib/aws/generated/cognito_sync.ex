@@ -67,6 +67,7 @@ defmodule AWS.CognitoSync do
     Request.request_rest(
       client,
       meta,
+      "BulkPublish",
       :post,
       url_path,
       query_params,
@@ -106,6 +107,7 @@ defmodule AWS.CognitoSync do
     Request.request_rest(
       client,
       meta,
+      "DeleteDataset",
       :delete,
       url_path,
       query_params,
@@ -142,7 +144,18 @@ defmodule AWS.CognitoSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDataset",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -158,7 +171,18 @@ defmodule AWS.CognitoSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeIdentityPoolUsage",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -177,7 +201,18 @@ defmodule AWS.CognitoSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeIdentityUsage",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -196,6 +231,7 @@ defmodule AWS.CognitoSync do
     Request.request_rest(
       client,
       meta,
+      "GetBulkPublishDetails",
       :post,
       url_path,
       query_params,
@@ -220,7 +256,18 @@ defmodule AWS.CognitoSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCognitoEvents",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -236,7 +283,18 @@ defmodule AWS.CognitoSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetIdentityPoolConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -280,7 +338,18 @@ defmodule AWS.CognitoSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDatasets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -316,7 +385,18 @@ defmodule AWS.CognitoSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListIdentityPoolUsage",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -378,7 +458,18 @@ defmodule AWS.CognitoSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRecords",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -399,6 +490,7 @@ defmodule AWS.CognitoSync do
     Request.request_rest(
       client,
       meta,
+      "RegisterDevice",
       :post,
       url_path,
       query_params,
@@ -429,6 +521,7 @@ defmodule AWS.CognitoSync do
     Request.request_rest(
       client,
       meta,
+      "SetCognitoEvents",
       :post,
       url_path,
       query_params,
@@ -455,6 +548,7 @@ defmodule AWS.CognitoSync do
     Request.request_rest(
       client,
       meta,
+      "SetIdentityPoolConfiguration",
       :post,
       url_path,
       query_params,
@@ -492,6 +586,7 @@ defmodule AWS.CognitoSync do
     Request.request_rest(
       client,
       meta,
+      "SubscribeToDataset",
       :post,
       url_path,
       query_params,
@@ -529,6 +624,7 @@ defmodule AWS.CognitoSync do
     Request.request_rest(
       client,
       meta,
+      "UnsubscribeFromDataset",
       :delete,
       url_path,
       query_params,
@@ -581,6 +677,7 @@ defmodule AWS.CognitoSync do
     Request.request_rest(
       client,
       meta,
+      "UpdateRecords",
       :post,
       url_path,
       query_params,

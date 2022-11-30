@@ -47,6 +47,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "BatchGetField",
       :post,
       url_path,
       query_params,
@@ -70,7 +71,18 @@ defmodule AWS.ConnectCases do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "BatchPutFieldOptions",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -91,6 +103,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "CreateCase",
       :post,
       url_path,
       query_params,
@@ -122,6 +135,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "CreateDomain",
       :post,
       url_path,
       query_params,
@@ -148,6 +162,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "CreateField",
       :post,
       url_path,
       query_params,
@@ -181,6 +196,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "CreateLayout",
       :post,
       url_path,
       query_params,
@@ -212,6 +228,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "CreateRelatedItem",
       :post,
       url_path,
       query_params,
@@ -242,6 +259,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "CreateTemplate",
       :post,
       url_path,
       query_params,
@@ -265,6 +283,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "GetCase",
       :post,
       url_path,
       query_params,
@@ -288,6 +307,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "GetCaseEventConfiguration",
       :post,
       url_path,
       query_params,
@@ -311,6 +331,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "GetDomain",
       :post,
       url_path,
       query_params,
@@ -336,6 +357,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "GetLayout",
       :post,
       url_path,
       query_params,
@@ -361,6 +383,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "GetTemplate",
       :post,
       url_path,
       query_params,
@@ -384,6 +407,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "ListCasesForContact",
       :post,
       url_path,
       query_params,
@@ -415,6 +439,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "ListDomains",
       :post,
       url_path,
       query_params,
@@ -447,6 +472,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "ListFieldOptions",
       :post,
       url_path,
       query_params,
@@ -476,6 +502,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "ListFields",
       :post,
       url_path,
       query_params,
@@ -507,6 +534,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "ListLayouts",
       :post,
       url_path,
       query_params,
@@ -527,7 +555,18 @@ defmodule AWS.ConnectCases do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -552,6 +591,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "ListTemplates",
       :post,
       url_path,
       query_params,
@@ -572,7 +612,18 @@ defmodule AWS.ConnectCases do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutCaseEventConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -590,6 +641,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "SearchCases",
       :post,
       url_path,
       query_params,
@@ -618,6 +670,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "SearchRelatedItems",
       :post,
       url_path,
       query_params,
@@ -641,6 +694,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -669,6 +723,7 @@ defmodule AWS.ConnectCases do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -695,7 +750,18 @@ defmodule AWS.ConnectCases do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateCase",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -710,7 +776,18 @@ defmodule AWS.ConnectCases do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateField",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -734,7 +811,18 @@ defmodule AWS.ConnectCases do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateLayout",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -754,6 +842,17 @@ defmodule AWS.ConnectCases do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateTemplate",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

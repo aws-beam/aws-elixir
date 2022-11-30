@@ -58,6 +58,7 @@ defmodule AWS.Fis do
     Request.request_rest(
       client,
       meta,
+      "CreateExperimentTemplate",
       :post,
       url_path,
       query_params,
@@ -81,6 +82,7 @@ defmodule AWS.Fis do
     Request.request_rest(
       client,
       meta,
+      "DeleteExperimentTemplate",
       :delete,
       url_path,
       query_params,
@@ -101,7 +103,18 @@ defmodule AWS.Fis do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAction",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -114,7 +127,18 @@ defmodule AWS.Fis do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetExperiment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -127,7 +151,18 @@ defmodule AWS.Fis do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetExperimentTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -140,7 +175,18 @@ defmodule AWS.Fis do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTargetResourceType",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -167,7 +213,18 @@ defmodule AWS.Fis do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListActions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -199,7 +256,18 @@ defmodule AWS.Fis do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListExperimentTemplates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -226,7 +294,18 @@ defmodule AWS.Fis do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListExperiments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -239,7 +318,18 @@ defmodule AWS.Fis do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -271,7 +361,18 @@ defmodule AWS.Fis do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTargetResourceTypes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -287,6 +388,7 @@ defmodule AWS.Fis do
     Request.request_rest(
       client,
       meta,
+      "StartExperiment",
       :post,
       url_path,
       query_params,
@@ -310,6 +412,7 @@ defmodule AWS.Fis do
     Request.request_rest(
       client,
       meta,
+      "StopExperiment",
       :delete,
       url_path,
       query_params,
@@ -333,6 +436,7 @@ defmodule AWS.Fis do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -361,6 +465,7 @@ defmodule AWS.Fis do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -384,6 +489,7 @@ defmodule AWS.Fis do
     Request.request_rest(
       client,
       meta,
+      "UpdateExperimentTemplate",
       :patch,
       url_path,
       query_params,

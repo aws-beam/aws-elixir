@@ -45,6 +45,7 @@ defmodule AWS.Route53RecoveryControlConfig do
     Request.request_rest(
       client,
       meta,
+      "CreateCluster",
       :post,
       url_path,
       query_params,
@@ -74,6 +75,7 @@ defmodule AWS.Route53RecoveryControlConfig do
     Request.request_rest(
       client,
       meta,
+      "CreateControlPanel",
       :post,
       url_path,
       query_params,
@@ -104,6 +106,7 @@ defmodule AWS.Route53RecoveryControlConfig do
     Request.request_rest(
       client,
       meta,
+      "CreateRoutingControl",
       :post,
       url_path,
       query_params,
@@ -147,6 +150,7 @@ defmodule AWS.Route53RecoveryControlConfig do
     Request.request_rest(
       client,
       meta,
+      "CreateSafetyRule",
       :post,
       url_path,
       query_params,
@@ -170,6 +174,7 @@ defmodule AWS.Route53RecoveryControlConfig do
     Request.request_rest(
       client,
       meta,
+      "DeleteCluster",
       :delete,
       url_path,
       query_params,
@@ -193,6 +198,7 @@ defmodule AWS.Route53RecoveryControlConfig do
     Request.request_rest(
       client,
       meta,
+      "DeleteControlPanel",
       :delete,
       url_path,
       query_params,
@@ -216,6 +222,7 @@ defmodule AWS.Route53RecoveryControlConfig do
     Request.request_rest(
       client,
       meta,
+      "DeleteRoutingControl",
       :delete,
       url_path,
       query_params,
@@ -241,6 +248,7 @@ defmodule AWS.Route53RecoveryControlConfig do
     Request.request_rest(
       client,
       meta,
+      "DeleteSafetyRule",
       :delete,
       url_path,
       query_params,
@@ -264,7 +272,18 @@ defmodule AWS.Route53RecoveryControlConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeCluster",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -277,7 +296,18 @@ defmodule AWS.Route53RecoveryControlConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeControlPanel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -297,7 +327,18 @@ defmodule AWS.Route53RecoveryControlConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeRoutingControl",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -310,7 +351,18 @@ defmodule AWS.Route53RecoveryControlConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeSafetyRule",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -346,7 +398,18 @@ defmodule AWS.Route53RecoveryControlConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAssociatedRoute53HealthChecks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -373,7 +436,18 @@ defmodule AWS.Route53RecoveryControlConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListClusters",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -413,7 +487,18 @@ defmodule AWS.Route53RecoveryControlConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListControlPanels",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -451,7 +536,18 @@ defmodule AWS.Route53RecoveryControlConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRoutingControls",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -485,7 +581,18 @@ defmodule AWS.Route53RecoveryControlConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSafetyRules",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -498,7 +605,18 @@ defmodule AWS.Route53RecoveryControlConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -514,6 +632,7 @@ defmodule AWS.Route53RecoveryControlConfig do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -542,6 +661,7 @@ defmodule AWS.Route53RecoveryControlConfig do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -565,7 +685,18 @@ defmodule AWS.Route53RecoveryControlConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateControlPanel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -582,7 +713,18 @@ defmodule AWS.Route53RecoveryControlConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateRoutingControl",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -598,6 +740,17 @@ defmodule AWS.Route53RecoveryControlConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateSafetyRule",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

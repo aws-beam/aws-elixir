@@ -38,6 +38,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "ArchiveApplication",
       :post,
       url_path,
       query_params,
@@ -61,6 +62,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "ArchiveWave",
       :post,
       url_path,
       query_params,
@@ -84,6 +86,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "AssociateApplications",
       :post,
       url_path,
       query_params,
@@ -107,6 +110,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "AssociateSourceServers",
       :post,
       url_path,
       query_params,
@@ -134,6 +138,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "ChangeServerLifeCycleState",
       :post,
       url_path,
       query_params,
@@ -157,6 +162,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "CreateApplication",
       :post,
       url_path,
       query_params,
@@ -180,6 +186,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "CreateLaunchConfigurationTemplate",
       :post,
       url_path,
       query_params,
@@ -203,6 +210,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "CreateReplicationConfigurationTemplate",
       :post,
       url_path,
       query_params,
@@ -226,6 +234,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "CreateWave",
       :post,
       url_path,
       query_params,
@@ -249,6 +258,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "DeleteApplication",
       :post,
       url_path,
       query_params,
@@ -272,6 +282,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "DeleteJob",
       :post,
       url_path,
       query_params,
@@ -295,6 +306,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "DeleteLaunchConfigurationTemplate",
       :post,
       url_path,
       query_params,
@@ -318,6 +330,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "DeleteReplicationConfigurationTemplate",
       :post,
       url_path,
       query_params,
@@ -341,6 +354,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "DeleteSourceServer",
       :post,
       url_path,
       query_params,
@@ -364,6 +378,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "DeleteVcenterClient",
       :post,
       url_path,
       query_params,
@@ -387,6 +402,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "DeleteWave",
       :post,
       url_path,
       query_params,
@@ -410,6 +426,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "DescribeJobLogItems",
       :post,
       url_path,
       query_params,
@@ -440,6 +457,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "DescribeJobs",
       :post,
       url_path,
       query_params,
@@ -464,6 +482,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "DescribeLaunchConfigurationTemplates",
       :post,
       url_path,
       query_params,
@@ -487,6 +506,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "DescribeReplicationConfigurationTemplates",
       :post,
       url_path,
       query_params,
@@ -510,6 +530,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "DescribeSourceServers",
       :post,
       url_path,
       query_params,
@@ -549,7 +570,18 @@ defmodule AWS.Mgn do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeVcenterClients",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -565,6 +597,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "DisassociateApplications",
       :post,
       url_path,
       query_params,
@@ -588,6 +621,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "DisassociateSourceServers",
       :post,
       url_path,
       query_params,
@@ -624,6 +658,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "DisconnectFromService",
       :post,
       url_path,
       query_params,
@@ -658,6 +693,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "FinalizeCutover",
       :post,
       url_path,
       query_params,
@@ -681,6 +717,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "GetLaunchConfiguration",
       :post,
       url_path,
       query_params,
@@ -704,6 +741,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "GetReplicationConfiguration",
       :post,
       url_path,
       query_params,
@@ -727,6 +765,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "InitializeService",
       :post,
       url_path,
       query_params,
@@ -750,6 +789,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "ListApplications",
       :post,
       url_path,
       query_params,
@@ -773,6 +813,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "ListSourceServerActions",
       :post,
       url_path,
       query_params,
@@ -793,7 +834,18 @@ defmodule AWS.Mgn do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -809,6 +861,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "ListTemplateActions",
       :post,
       url_path,
       query_params,
@@ -832,6 +885,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "ListWaves",
       :post,
       url_path,
       query_params,
@@ -859,6 +913,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "MarkAsArchived",
       :post,
       url_path,
       query_params,
@@ -882,6 +937,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "PutSourceServerAction",
       :post,
       url_path,
       query_params,
@@ -905,6 +961,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "PutTemplateAction",
       :post,
       url_path,
       query_params,
@@ -928,6 +985,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "RemoveSourceServerAction",
       :post,
       url_path,
       query_params,
@@ -951,6 +1009,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "RemoveTemplateAction",
       :post,
       url_path,
       query_params,
@@ -979,6 +1038,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "RetryDataReplication",
       :post,
       url_path,
       query_params,
@@ -1005,6 +1065,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "StartCutover",
       :post,
       url_path,
       query_params,
@@ -1028,6 +1089,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "StartReplication",
       :post,
       url_path,
       query_params,
@@ -1054,6 +1116,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "StartTest",
       :post,
       url_path,
       query_params,
@@ -1082,6 +1145,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1108,6 +1172,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "TerminateTargetInstances",
       :post,
       url_path,
       query_params,
@@ -1131,6 +1196,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "UnarchiveApplication",
       :post,
       url_path,
       query_params,
@@ -1154,6 +1220,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "UnarchiveWave",
       :post,
       url_path,
       query_params,
@@ -1183,6 +1250,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1206,6 +1274,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "UpdateApplication",
       :post,
       url_path,
       query_params,
@@ -1229,6 +1298,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "UpdateLaunchConfiguration",
       :post,
       url_path,
       query_params,
@@ -1252,6 +1322,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "UpdateLaunchConfigurationTemplate",
       :post,
       url_path,
       query_params,
@@ -1275,6 +1346,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "UpdateReplicationConfiguration",
       :post,
       url_path,
       query_params,
@@ -1298,6 +1370,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "UpdateReplicationConfigurationTemplate",
       :post,
       url_path,
       query_params,
@@ -1322,6 +1395,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "UpdateSourceServerReplicationType",
       :post,
       url_path,
       query_params,
@@ -1345,6 +1419,7 @@ defmodule AWS.Mgn do
     Request.request_rest(
       client,
       meta,
+      "UpdateWave",
       :post,
       url_path,
       query_params,

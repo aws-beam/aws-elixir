@@ -61,6 +61,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "CancelJob",
       :post,
       url_path,
       query_params,
@@ -166,6 +167,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "CreateComputeEnvironment",
       :post,
       url_path,
       query_params,
@@ -198,6 +200,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "CreateJobQueue",
       :post,
       url_path,
       query_params,
@@ -221,6 +224,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "CreateSchedulingPolicy",
       :post,
       url_path,
       query_params,
@@ -251,6 +255,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "DeleteComputeEnvironment",
       :post,
       url_path,
       query_params,
@@ -281,6 +286,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "DeleteJobQueue",
       :post,
       url_path,
       query_params,
@@ -306,6 +312,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "DeleteSchedulingPolicy",
       :post,
       url_path,
       query_params,
@@ -331,6 +338,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "DeregisterJobDefinition",
       :post,
       url_path,
       query_params,
@@ -358,6 +366,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "DescribeComputeEnvironments",
       :post,
       url_path,
       query_params,
@@ -384,6 +393,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "DescribeJobDefinitions",
       :post,
       url_path,
       query_params,
@@ -407,6 +417,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "DescribeJobQueues",
       :post,
       url_path,
       query_params,
@@ -430,6 +441,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "DescribeJobs",
       :post,
       url_path,
       query_params,
@@ -453,6 +465,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "DescribeSchedulingPolicies",
       :post,
       url_path,
       query_params,
@@ -488,6 +501,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "ListJobs",
       :post,
       url_path,
       query_params,
@@ -511,6 +525,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "ListSchedulingPolicies",
       :post,
       url_path,
       query_params,
@@ -535,7 +550,18 @@ defmodule AWS.Batch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -551,6 +577,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "RegisterJobDefinition",
       :post,
       url_path,
       query_params,
@@ -589,6 +616,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "SubmitJob",
       :post,
       url_path,
       query_params,
@@ -618,6 +646,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -645,6 +674,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "TerminateJob",
       :post,
       url_path,
       query_params,
@@ -673,6 +703,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -696,6 +727,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "UpdateComputeEnvironment",
       :post,
       url_path,
       query_params,
@@ -719,6 +751,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "UpdateJobQueue",
       :post,
       url_path,
       query_params,
@@ -742,6 +775,7 @@ defmodule AWS.Batch do
     Request.request_rest(
       client,
       meta,
+      "UpdateSchedulingPolicy",
       :post,
       url_path,
       query_params,

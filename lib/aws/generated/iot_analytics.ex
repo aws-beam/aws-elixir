@@ -61,6 +61,7 @@ defmodule AWS.IoTAnalytics do
     Request.request_rest(
       client,
       meta,
+      "BatchPutMessage",
       :post,
       url_path,
       query_params,
@@ -92,6 +93,7 @@ defmodule AWS.IoTAnalytics do
     Request.request_rest(
       client,
       meta,
+      "CancelPipelineReprocessing",
       :delete,
       url_path,
       query_params,
@@ -118,6 +120,7 @@ defmodule AWS.IoTAnalytics do
     Request.request_rest(
       client,
       meta,
+      "CreateChannel",
       :post,
       url_path,
       query_params,
@@ -147,6 +150,7 @@ defmodule AWS.IoTAnalytics do
     Request.request_rest(
       client,
       meta,
+      "CreateDataset",
       :post,
       url_path,
       query_params,
@@ -171,6 +175,7 @@ defmodule AWS.IoTAnalytics do
     Request.request_rest(
       client,
       meta,
+      "CreateDatasetContent",
       :post,
       url_path,
       query_params,
@@ -194,6 +199,7 @@ defmodule AWS.IoTAnalytics do
     Request.request_rest(
       client,
       meta,
+      "CreateDatastore",
       :post,
       url_path,
       query_params,
@@ -222,6 +228,7 @@ defmodule AWS.IoTAnalytics do
     Request.request_rest(
       client,
       meta,
+      "CreatePipeline",
       :post,
       url_path,
       query_params,
@@ -245,6 +252,7 @@ defmodule AWS.IoTAnalytics do
     Request.request_rest(
       client,
       meta,
+      "DeleteChannel",
       :delete,
       url_path,
       query_params,
@@ -271,6 +279,7 @@ defmodule AWS.IoTAnalytics do
     Request.request_rest(
       client,
       meta,
+      "DeleteDataset",
       :delete,
       url_path,
       query_params,
@@ -299,6 +308,7 @@ defmodule AWS.IoTAnalytics do
     Request.request_rest(
       client,
       meta,
+      "DeleteDatasetContent",
       :delete,
       url_path,
       query_params,
@@ -322,6 +332,7 @@ defmodule AWS.IoTAnalytics do
     Request.request_rest(
       client,
       meta,
+      "DeleteDatastore",
       :delete,
       url_path,
       query_params,
@@ -345,6 +356,7 @@ defmodule AWS.IoTAnalytics do
     Request.request_rest(
       client,
       meta,
+      "DeletePipeline",
       :delete,
       url_path,
       query_params,
@@ -372,7 +384,18 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeChannel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -385,7 +408,18 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDataset",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -410,7 +444,18 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDatastore",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -423,7 +468,18 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeLoggingOptions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -436,7 +492,18 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribePipeline",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -456,7 +523,18 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDatasetContent",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -483,7 +561,18 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannels",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -532,7 +621,18 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDatasetContents",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -559,7 +659,18 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDatasets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -586,7 +697,18 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDatastores",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -613,7 +735,18 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPipelines",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -633,7 +766,18 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -651,7 +795,18 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutLoggingOptions",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -667,6 +822,7 @@ defmodule AWS.IoTAnalytics do
     Request.request_rest(
       client,
       meta,
+      "RunPipelineActivity",
       :post,
       url_path,
       query_params,
@@ -718,7 +874,18 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "SampleChannelData",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -734,6 +901,7 @@ defmodule AWS.IoTAnalytics do
     Request.request_rest(
       client,
       meta,
+      "StartPipelineReprocessing",
       :post,
       url_path,
       query_params,
@@ -764,6 +932,7 @@ defmodule AWS.IoTAnalytics do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -793,6 +962,7 @@ defmodule AWS.IoTAnalytics do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -813,7 +983,18 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateChannel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -826,7 +1007,18 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDataset",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -839,7 +1031,18 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDatastore",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -855,6 +1058,17 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdatePipeline",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

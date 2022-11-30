@@ -39,6 +39,7 @@ defmodule AWS.IoTRoboRunner do
     Request.request_rest(
       client,
       meta,
+      "CreateDestination",
       :post,
       url_path,
       query_params,
@@ -62,6 +63,7 @@ defmodule AWS.IoTRoboRunner do
     Request.request_rest(
       client,
       meta,
+      "CreateSite",
       :post,
       url_path,
       query_params,
@@ -85,6 +87,7 @@ defmodule AWS.IoTRoboRunner do
     Request.request_rest(
       client,
       meta,
+      "CreateWorker",
       :post,
       url_path,
       query_params,
@@ -108,6 +111,7 @@ defmodule AWS.IoTRoboRunner do
     Request.request_rest(
       client,
       meta,
+      "CreateWorkerFleet",
       :post,
       url_path,
       query_params,
@@ -131,6 +135,7 @@ defmodule AWS.IoTRoboRunner do
     Request.request_rest(
       client,
       meta,
+      "DeleteDestination",
       :post,
       url_path,
       query_params,
@@ -154,6 +159,7 @@ defmodule AWS.IoTRoboRunner do
     Request.request_rest(
       client,
       meta,
+      "DeleteSite",
       :post,
       url_path,
       query_params,
@@ -177,6 +183,7 @@ defmodule AWS.IoTRoboRunner do
     Request.request_rest(
       client,
       meta,
+      "DeleteWorker",
       :post,
       url_path,
       query_params,
@@ -200,6 +207,7 @@ defmodule AWS.IoTRoboRunner do
     Request.request_rest(
       client,
       meta,
+      "DeleteWorkerFleet",
       :post,
       url_path,
       query_params,
@@ -227,7 +235,18 @@ defmodule AWS.IoTRoboRunner do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDestination",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -247,7 +266,18 @@ defmodule AWS.IoTRoboRunner do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSite",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -267,7 +297,18 @@ defmodule AWS.IoTRoboRunner do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetWorker",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -287,7 +328,18 @@ defmodule AWS.IoTRoboRunner do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetWorkerFleet",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -335,7 +387,18 @@ defmodule AWS.IoTRoboRunner do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDestinations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -362,7 +425,18 @@ defmodule AWS.IoTRoboRunner do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSites",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -402,7 +476,18 @@ defmodule AWS.IoTRoboRunner do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListWorkerFleets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -450,7 +535,18 @@ defmodule AWS.IoTRoboRunner do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListWorkers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -466,6 +562,7 @@ defmodule AWS.IoTRoboRunner do
     Request.request_rest(
       client,
       meta,
+      "UpdateDestination",
       :post,
       url_path,
       query_params,
@@ -489,6 +586,7 @@ defmodule AWS.IoTRoboRunner do
     Request.request_rest(
       client,
       meta,
+      "UpdateSite",
       :post,
       url_path,
       query_params,
@@ -512,6 +610,7 @@ defmodule AWS.IoTRoboRunner do
     Request.request_rest(
       client,
       meta,
+      "UpdateWorker",
       :post,
       url_path,
       query_params,
@@ -535,6 +634,7 @@ defmodule AWS.IoTRoboRunner do
     Request.request_rest(
       client,
       meta,
+      "UpdateWorkerFleet",
       :post,
       url_path,
       query_params,

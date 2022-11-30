@@ -39,6 +39,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "AssociateApi",
       :post,
       url_path,
       query_params,
@@ -62,6 +63,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "CreateApiCache",
       :post,
       url_path,
       query_params,
@@ -85,6 +87,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "CreateApiKey",
       :post,
       url_path,
       query_params,
@@ -108,6 +111,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "CreateDataSource",
       :post,
       url_path,
       query_params,
@@ -131,6 +135,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "CreateDomainName",
       :post,
       url_path,
       query_params,
@@ -157,6 +162,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "CreateFunction",
       :post,
       url_path,
       query_params,
@@ -180,6 +186,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "CreateGraphqlApi",
       :post,
       url_path,
       query_params,
@@ -208,6 +215,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "CreateResolver",
       :post,
       url_path,
       query_params,
@@ -231,6 +239,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "CreateType",
       :post,
       url_path,
       query_params,
@@ -254,6 +263,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "DeleteApiCache",
       :delete,
       url_path,
       query_params,
@@ -277,6 +287,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "DeleteApiKey",
       :delete,
       url_path,
       query_params,
@@ -300,6 +311,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "DeleteDataSource",
       :delete,
       url_path,
       query_params,
@@ -323,6 +335,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "DeleteDomainName",
       :delete,
       url_path,
       query_params,
@@ -348,6 +361,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "DeleteFunction",
       :delete,
       url_path,
       query_params,
@@ -371,6 +385,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "DeleteGraphqlApi",
       :delete,
       url_path,
       query_params,
@@ -396,6 +411,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "DeleteResolver",
       :delete,
       url_path,
       query_params,
@@ -419,6 +435,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "DeleteType",
       :delete,
       url_path,
       query_params,
@@ -442,6 +459,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "DisassociateApi",
       :delete,
       url_path,
       query_params,
@@ -472,6 +490,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "EvaluateCode",
       :post,
       url_path,
       query_params,
@@ -504,6 +523,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "EvaluateMappingTemplate",
       :post,
       url_path,
       query_params,
@@ -527,6 +547,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "FlushApiCache",
       :delete,
       url_path,
       query_params,
@@ -547,7 +568,18 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApiAssociation",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -560,7 +592,18 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApiCache",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -573,7 +616,18 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDataSource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -586,7 +640,18 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDomainName",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -601,7 +666,18 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFunction",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -614,7 +690,18 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetGraphqlApi",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -647,7 +734,18 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetIntrospectionSchema",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -662,7 +760,18 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetResolver",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -675,7 +784,18 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSchemaCreationStatus",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -695,7 +815,18 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetType",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -733,7 +864,18 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListApiKeys",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -766,7 +908,18 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDataSources",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -793,7 +946,18 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDomainNames",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -826,7 +990,18 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFunctions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -853,7 +1028,18 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListGraphqlApis",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -889,7 +1075,18 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListResolvers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -925,7 +1122,18 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListResolversByFunction",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -938,7 +1146,18 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -979,7 +1198,18 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTypes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -997,6 +1227,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "StartSchemaCreation",
       :post,
       url_path,
       query_params,
@@ -1020,6 +1251,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1048,6 +1280,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1071,6 +1304,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "UpdateApiCache",
       :post,
       url_path,
       query_params,
@@ -1096,6 +1330,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "UpdateApiKey",
       :post,
       url_path,
       query_params,
@@ -1119,6 +1354,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "UpdateDataSource",
       :post,
       url_path,
       query_params,
@@ -1142,6 +1378,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "UpdateDomainName",
       :post,
       url_path,
       query_params,
@@ -1167,6 +1404,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "UpdateFunction",
       :post,
       url_path,
       query_params,
@@ -1190,6 +1428,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "UpdateGraphqlApi",
       :post,
       url_path,
       query_params,
@@ -1215,6 +1454,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "UpdateResolver",
       :post,
       url_path,
       query_params,
@@ -1238,6 +1478,7 @@ defmodule AWS.AppSync do
     Request.request_rest(
       client,
       meta,
+      "UpdateType",
       :post,
       url_path,
       query_params,

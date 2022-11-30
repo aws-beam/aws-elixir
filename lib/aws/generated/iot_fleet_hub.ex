@@ -45,6 +45,7 @@ defmodule AWS.IoTFleetHub do
     Request.request_rest(
       client,
       meta,
+      "CreateApplication",
       :post,
       url_path,
       query_params,
@@ -76,6 +77,7 @@ defmodule AWS.IoTFleetHub do
     Request.request_rest(
       client,
       meta,
+      "DeleteApplication",
       :delete,
       url_path,
       query_params,
@@ -100,7 +102,18 @@ defmodule AWS.IoTFleetHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeApplication",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -124,7 +137,18 @@ defmodule AWS.IoTFleetHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListApplications",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -140,7 +164,18 @@ defmodule AWS.IoTFleetHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -161,6 +196,7 @@ defmodule AWS.IoTFleetHub do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -192,6 +228,7 @@ defmodule AWS.IoTFleetHub do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -219,6 +256,7 @@ defmodule AWS.IoTFleetHub do
     Request.request_rest(
       client,
       meta,
+      "UpdateApplication",
       :patch,
       url_path,
       query_params,

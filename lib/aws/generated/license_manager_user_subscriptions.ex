@@ -45,6 +45,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     Request.request_rest(
       client,
       meta,
+      "AssociateUser",
       :post,
       url_path,
       query_params,
@@ -68,6 +69,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     Request.request_rest(
       client,
       meta,
+      "DeregisterIdentityProvider",
       :post,
       url_path,
       query_params,
@@ -91,6 +93,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     Request.request_rest(
       client,
       meta,
+      "DisassociateUser",
       :post,
       url_path,
       query_params,
@@ -114,6 +117,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     Request.request_rest(
       client,
       meta,
+      "ListIdentityProviders",
       :post,
       url_path,
       query_params,
@@ -137,6 +141,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     Request.request_rest(
       client,
       meta,
+      "ListInstances",
       :post,
       url_path,
       query_params,
@@ -160,6 +165,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     Request.request_rest(
       client,
       meta,
+      "ListProductSubscriptions",
       :post,
       url_path,
       query_params,
@@ -183,6 +189,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     Request.request_rest(
       client,
       meta,
+      "ListUserAssociations",
       :post,
       url_path,
       query_params,
@@ -206,6 +213,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     Request.request_rest(
       client,
       meta,
+      "RegisterIdentityProvider",
       :post,
       url_path,
       query_params,
@@ -235,6 +243,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     Request.request_rest(
       client,
       meta,
+      "StartProductSubscription",
       :post,
       url_path,
       query_params,
@@ -258,6 +267,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     Request.request_rest(
       client,
       meta,
+      "StopProductSubscription",
       :post,
       url_path,
       query_params,
@@ -282,6 +292,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
     Request.request_rest(
       client,
       meta,
+      "UpdateIdentityProviderSettings",
       :post,
       url_path,
       query_params,

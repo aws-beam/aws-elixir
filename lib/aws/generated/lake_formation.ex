@@ -40,6 +40,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "AddLFTagsToResource",
       :post,
       url_path,
       query_params,
@@ -78,6 +79,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "AssumeDecoratedRoleWithSAML",
       :post,
       url_path,
       query_params,
@@ -101,6 +103,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "BatchGrantPermissions",
       :post,
       url_path,
       query_params,
@@ -124,6 +127,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "BatchRevokePermissions",
       :post,
       url_path,
       query_params,
@@ -149,6 +153,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "CancelTransaction",
       :post,
       url_path,
       query_params,
@@ -175,6 +180,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "CommitTransaction",
       :post,
       url_path,
       query_params,
@@ -199,6 +205,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "CreateDataCellsFilter",
       :post,
       url_path,
       query_params,
@@ -222,6 +229,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "CreateLFTag",
       :post,
       url_path,
       query_params,
@@ -245,6 +253,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "DeleteDataCellsFilter",
       :post,
       url_path,
       query_params,
@@ -274,6 +283,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "DeleteLFTag",
       :post,
       url_path,
       query_params,
@@ -306,6 +316,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "DeleteObjectsOnCancel",
       :post,
       url_path,
       query_params,
@@ -332,6 +343,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "DeregisterResource",
       :post,
       url_path,
       query_params,
@@ -356,6 +368,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "DescribeResource",
       :post,
       url_path,
       query_params,
@@ -379,6 +392,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "DescribeTransaction",
       :post,
       url_path,
       query_params,
@@ -406,6 +420,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "ExtendTransaction",
       :post,
       url_path,
       query_params,
@@ -430,6 +445,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "GetDataLakeSettings",
       :post,
       url_path,
       query_params,
@@ -457,6 +473,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "GetEffectivePermissionsForPath",
       :post,
       url_path,
       query_params,
@@ -480,6 +497,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "GetLFTag",
       :post,
       url_path,
       query_params,
@@ -507,6 +525,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "GetQueryState",
       :post,
       url_path,
       query_params,
@@ -530,6 +549,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "GetQueryStatistics",
       :post,
       url_path,
       query_params,
@@ -553,6 +573,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "GetResourceLFTags",
       :post,
       url_path,
       query_params,
@@ -578,6 +599,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "GetTableObjects",
       :post,
       url_path,
       query_params,
@@ -605,6 +627,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "GetTemporaryGluePartitionCredentials",
       :post,
       url_path,
       query_params,
@@ -633,6 +656,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "GetTemporaryGlueTableCredentials",
       :post,
       url_path,
       query_params,
@@ -658,6 +682,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "GetWorkUnitResults",
       :post,
       url_path,
       query_params,
@@ -681,6 +706,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "GetWorkUnits",
       :post,
       url_path,
       query_params,
@@ -708,6 +734,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "GrantPermissions",
       :post,
       url_path,
       query_params,
@@ -731,6 +758,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "ListDataCellsFilter",
       :post,
       url_path,
       query_params,
@@ -754,6 +782,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "ListLFTags",
       :post,
       url_path,
       query_params,
@@ -786,6 +815,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "ListPermissions",
       :post,
       url_path,
       query_params,
@@ -809,6 +839,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "ListResources",
       :post,
       url_path,
       query_params,
@@ -833,6 +864,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "ListTableStorageOptimizers",
       :post,
       url_path,
       query_params,
@@ -862,6 +894,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "ListTransactions",
       :post,
       url_path,
       query_params,
@@ -892,6 +925,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "PutDataLakeSettings",
       :post,
       url_path,
       query_params,
@@ -933,6 +967,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "RegisterResource",
       :post,
       url_path,
       query_params,
@@ -959,6 +994,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "RemoveLFTagsFromResource",
       :post,
       url_path,
       query_params,
@@ -983,6 +1019,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "RevokePermissions",
       :post,
       url_path,
       query_params,
@@ -1011,6 +1048,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "SearchDatabasesByLFTags",
       :post,
       url_path,
       query_params,
@@ -1039,6 +1077,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "SearchTablesByLFTags",
       :post,
       url_path,
       query_params,
@@ -1066,6 +1105,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "StartQueryPlanning",
       :post,
       url_path,
       query_params,
@@ -1091,6 +1131,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "StartTransaction",
       :post,
       url_path,
       query_params,
@@ -1120,6 +1161,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "UpdateLFTag",
       :post,
       url_path,
       query_params,
@@ -1144,6 +1186,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "UpdateResource",
       :post,
       url_path,
       query_params,
@@ -1168,6 +1211,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "UpdateTableObjects",
       :post,
       url_path,
       query_params,
@@ -1191,6 +1235,7 @@ defmodule AWS.LakeFormation do
     Request.request_rest(
       client,
       meta,
+      "UpdateTableStorageOptimizer",
       :post,
       url_path,
       query_params,

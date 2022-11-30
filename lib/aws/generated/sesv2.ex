@@ -49,6 +49,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "BatchGetMetricData",
       :post,
       url_path,
       query_params,
@@ -78,6 +79,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "CreateConfigurationSet",
       :post,
       url_path,
       query_params,
@@ -116,6 +118,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "CreateConfigurationSetEventDestination",
       :post,
       url_path,
       query_params,
@@ -140,6 +143,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "CreateContact",
       :post,
       url_path,
       query_params,
@@ -163,6 +167,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "CreateContactList",
       :post,
       url_path,
       query_params,
@@ -192,6 +197,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "CreateCustomVerificationEmailTemplate",
       :post,
       url_path,
       query_params,
@@ -220,6 +226,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "CreateDedicatedIpPool",
       :post,
       url_path,
       query_params,
@@ -251,6 +258,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "CreateDeliverabilityTestReport",
       :post,
       url_path,
       query_params,
@@ -306,6 +314,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "CreateEmailIdentity",
       :post,
       url_path,
       query_params,
@@ -347,6 +356,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "CreateEmailIdentityPolicy",
       :post,
       url_path,
       query_params,
@@ -376,6 +386,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "CreateEmailTemplate",
       :post,
       url_path,
       query_params,
@@ -399,6 +410,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "CreateImportJob",
       :post,
       url_path,
       query_params,
@@ -428,6 +440,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteConfigurationSet",
       :delete,
       url_path,
       query_params,
@@ -465,6 +478,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteConfigurationSetEventDestination",
       :delete,
       url_path,
       query_params,
@@ -490,6 +504,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteContact",
       :delete,
       url_path,
       query_params,
@@ -513,6 +528,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteContactList",
       :delete,
       url_path,
       query_params,
@@ -549,6 +565,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteCustomVerificationEmailTemplate",
       :delete,
       url_path,
       query_params,
@@ -572,6 +589,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteDedicatedIpPool",
       :delete,
       url_path,
       query_params,
@@ -597,6 +615,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteEmailIdentity",
       :delete,
       url_path,
       query_params,
@@ -641,6 +660,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteEmailIdentityPolicy",
       :delete,
       url_path,
       query_params,
@@ -666,6 +686,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteEmailTemplate",
       :delete,
       url_path,
       query_params,
@@ -689,6 +710,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteSuppressedDestination",
       :delete,
       url_path,
       query_params,
@@ -710,7 +732,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAccount",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -730,7 +763,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBlacklistReports",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -751,7 +795,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetConfigurationSet",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -777,7 +832,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetConfigurationSetEventDestinations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -792,7 +858,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetContact",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -807,7 +884,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetContactList",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -829,7 +917,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCustomVerificationEmailTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -844,7 +943,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDedicatedIp",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -857,7 +967,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDedicatedIpPool",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -898,7 +1019,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDedicatedIps",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -921,7 +1053,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDeliverabilityDashboardOptions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -934,7 +1077,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDeliverabilityTestReport",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -950,7 +1104,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDomainDeliverabilityCampaign",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -986,7 +1151,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDomainStatisticsReport",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1001,7 +1177,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEmailIdentity",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1027,7 +1214,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEmailIdentityPolicies",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1043,7 +1241,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEmailTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1056,7 +1265,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetImportJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1070,7 +1290,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSuppressedDestination",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1109,7 +1340,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListConfigurationSets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1136,7 +1378,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListContactLists",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1169,7 +1422,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListContacts",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1208,7 +1472,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCustomVerificationEmailTemplates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1241,7 +1516,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDedicatedIpPools",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1277,7 +1563,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDeliverabilityTestReports",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1332,7 +1629,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDomainDeliverabilityCampaigns",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1369,7 +1677,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListEmailIdentities",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1399,7 +1718,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListEmailTemplates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1426,7 +1756,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListImportJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1445,6 +1786,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "ListRecommendations",
       :post,
       url_path,
       query_params,
@@ -1509,7 +1851,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSuppressedDestinations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1535,7 +1888,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1548,7 +1912,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutAccountDedicatedIpWarmupAttributes",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1564,6 +1939,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "PutAccountDetails",
       :post,
       url_path,
       query_params,
@@ -1584,7 +1960,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutAccountSendingAttributes",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1597,7 +1984,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutAccountSuppressionAttributes",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1612,7 +2010,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutAccountVdmAttributes",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1635,7 +2044,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutConfigurationSetDeliveryOptions",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1656,7 +2076,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutConfigurationSetReputationOptions",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1677,7 +2108,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutConfigurationSetSendingOptions",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1697,7 +2139,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutConfigurationSetSuppressionOptions",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1718,7 +2171,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutConfigurationSetTrackingOptions",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1740,7 +2204,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutConfigurationSetVdmOptions",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1759,7 +2234,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutDedicatedIpInPool",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   def put_dedicated_ip_warmup_attributes(%Client{} = client, ip, input, options \\ []) do
@@ -1769,7 +2255,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutDedicatedIpWarmupAttributes",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1791,7 +2288,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutDeliverabilityDashboardOption",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1809,7 +2317,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutEmailIdentityConfigurationSetAttributes",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1822,7 +2341,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutEmailIdentityDkimAttributes",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1856,7 +2386,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutEmailIdentityDkimSigningAttributes",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1886,7 +2427,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutEmailIdentityFeedbackAttributes",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1905,7 +2457,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutEmailIdentityMailFromAttributes",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1918,7 +2481,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutSuppressedDestination",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1934,6 +2508,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "SendBulkEmail",
       :post,
       url_path,
       query_params,
@@ -1968,6 +2543,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "SendCustomVerificationEmail",
       :post,
       url_path,
       query_params,
@@ -2006,6 +2582,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "SendEmail",
       :post,
       url_path,
       query_params,
@@ -2038,6 +2615,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -2064,6 +2642,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "TestRenderEmailTemplate",
       :post,
       url_path,
       query_params,
@@ -2093,6 +2672,7 @@ defmodule AWS.SESv2 do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -2127,7 +2707,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateConfigurationSetEventDestination",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2145,7 +2736,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateContact",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2160,7 +2762,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateContactList",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2186,7 +2799,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateCustomVerificationEmailTemplate",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2220,7 +2844,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateEmailIdentityPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2239,6 +2874,17 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateEmailTemplate",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

@@ -52,6 +52,7 @@ defmodule AWS.QLDB do
     Request.request_rest(
       client,
       meta,
+      "CancelJournalKinesisStream",
       :delete,
       url_path,
       query_params,
@@ -75,6 +76,7 @@ defmodule AWS.QLDB do
     Request.request_rest(
       client,
       meta,
+      "CreateLedger",
       :post,
       url_path,
       query_params,
@@ -104,6 +106,7 @@ defmodule AWS.QLDB do
     Request.request_rest(
       client,
       meta,
+      "DeleteLedger",
       :delete,
       url_path,
       query_params,
@@ -133,7 +136,18 @@ defmodule AWS.QLDB do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeJournalKinesisStream",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -160,7 +174,18 @@ defmodule AWS.QLDB do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeJournalS3Export",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -174,7 +199,18 @@ defmodule AWS.QLDB do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeLedger",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -209,6 +245,7 @@ defmodule AWS.QLDB do
     Request.request_rest(
       client,
       meta,
+      "ExportJournalToS3",
       :post,
       url_path,
       query_params,
@@ -247,6 +284,7 @@ defmodule AWS.QLDB do
     Request.request_rest(
       client,
       meta,
+      "GetBlock",
       :post,
       url_path,
       query_params,
@@ -272,6 +310,7 @@ defmodule AWS.QLDB do
     Request.request_rest(
       client,
       meta,
+      "GetDigest",
       :post,
       url_path,
       query_params,
@@ -298,6 +337,7 @@ defmodule AWS.QLDB do
     Request.request_rest(
       client,
       meta,
+      "GetRevision",
       :post,
       url_path,
       query_params,
@@ -350,7 +390,18 @@ defmodule AWS.QLDB do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJournalKinesisStreamsForLedger",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -390,7 +441,18 @@ defmodule AWS.QLDB do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJournalS3Exports",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -431,7 +493,18 @@ defmodule AWS.QLDB do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJournalS3ExportsForLedger",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -462,7 +535,18 @@ defmodule AWS.QLDB do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListLedgers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -475,7 +559,18 @@ defmodule AWS.QLDB do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -495,6 +590,7 @@ defmodule AWS.QLDB do
     Request.request_rest(
       client,
       meta,
+      "StreamJournalToKinesis",
       :post,
       url_path,
       query_params,
@@ -521,6 +617,7 @@ defmodule AWS.QLDB do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -551,6 +648,7 @@ defmodule AWS.QLDB do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -574,6 +672,7 @@ defmodule AWS.QLDB do
     Request.request_rest(
       client,
       meta,
+      "UpdateLedger",
       :patch,
       url_path,
       query_params,
@@ -602,6 +701,7 @@ defmodule AWS.QLDB do
     Request.request_rest(
       client,
       meta,
+      "UpdateLedgerPermissionsMode",
       :patch,
       url_path,
       query_params,

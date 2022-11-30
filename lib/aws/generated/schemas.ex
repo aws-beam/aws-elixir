@@ -38,6 +38,7 @@ defmodule AWS.Schemas do
     Request.request_rest(
       client,
       meta,
+      "CreateDiscoverer",
       :post,
       url_path,
       query_params,
@@ -61,6 +62,7 @@ defmodule AWS.Schemas do
     Request.request_rest(
       client,
       meta,
+      "CreateRegistry",
       :post,
       url_path,
       query_params,
@@ -88,6 +90,7 @@ defmodule AWS.Schemas do
     Request.request_rest(
       client,
       meta,
+      "CreateSchema",
       :post,
       url_path,
       query_params,
@@ -111,6 +114,7 @@ defmodule AWS.Schemas do
     Request.request_rest(
       client,
       meta,
+      "DeleteDiscoverer",
       :delete,
       url_path,
       query_params,
@@ -134,6 +138,7 @@ defmodule AWS.Schemas do
     Request.request_rest(
       client,
       meta,
+      "DeleteRegistry",
       :delete,
       url_path,
       query_params,
@@ -162,6 +167,7 @@ defmodule AWS.Schemas do
     Request.request_rest(
       client,
       meta,
+      "DeleteResourcePolicy",
       :delete,
       url_path,
       query_params,
@@ -187,6 +193,7 @@ defmodule AWS.Schemas do
     Request.request_rest(
       client,
       meta,
+      "DeleteSchema",
       :delete,
       url_path,
       query_params,
@@ -219,6 +226,7 @@ defmodule AWS.Schemas do
     Request.request_rest(
       client,
       meta,
+      "DeleteSchemaVersion",
       :delete,
       url_path,
       query_params,
@@ -255,7 +263,18 @@ defmodule AWS.Schemas do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeCodeBinding",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -268,7 +287,18 @@ defmodule AWS.Schemas do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDiscoverer",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -281,7 +311,18 @@ defmodule AWS.Schemas do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeRegistry",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -309,7 +350,18 @@ defmodule AWS.Schemas do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeSchema",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -345,7 +397,18 @@ defmodule AWS.Schemas do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ExportSchema",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -381,7 +444,18 @@ defmodule AWS.Schemas do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCodeBindingSource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -397,6 +471,7 @@ defmodule AWS.Schemas do
     Request.request_rest(
       client,
       meta,
+      "GetDiscoveredSchema",
       :post,
       url_path,
       query_params,
@@ -424,7 +499,18 @@ defmodule AWS.Schemas do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetResourcePolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -472,7 +558,18 @@ defmodule AWS.Schemas do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDiscoverers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -520,7 +617,18 @@ defmodule AWS.Schemas do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRegistries",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -556,7 +664,18 @@ defmodule AWS.Schemas do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSchemaVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -597,7 +716,18 @@ defmodule AWS.Schemas do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSchemas",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -610,7 +740,18 @@ defmodule AWS.Schemas do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -640,6 +781,7 @@ defmodule AWS.Schemas do
     Request.request_rest(
       client,
       meta,
+      "PutCodeBinding",
       :post,
       url_path,
       query_params,
@@ -665,7 +807,18 @@ defmodule AWS.Schemas do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutResourcePolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -706,7 +859,18 @@ defmodule AWS.Schemas do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "SearchSchemas",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -722,6 +886,7 @@ defmodule AWS.Schemas do
     Request.request_rest(
       client,
       meta,
+      "StartDiscoverer",
       :post,
       url_path,
       query_params,
@@ -745,6 +910,7 @@ defmodule AWS.Schemas do
     Request.request_rest(
       client,
       meta,
+      "StopDiscoverer",
       :post,
       url_path,
       query_params,
@@ -768,6 +934,7 @@ defmodule AWS.Schemas do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -796,6 +963,7 @@ defmodule AWS.Schemas do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -816,7 +984,18 @@ defmodule AWS.Schemas do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDiscoverer",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -829,7 +1008,18 @@ defmodule AWS.Schemas do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateRegistry",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -846,6 +1036,17 @@ defmodule AWS.Schemas do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateSchema",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

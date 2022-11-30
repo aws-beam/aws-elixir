@@ -36,6 +36,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "CreateSignalingChannel",
       :post,
       url_path,
       query_params,
@@ -69,6 +70,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "CreateStream",
       :post,
       url_path,
       query_params,
@@ -95,6 +97,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "DeleteSignalingChannel",
       :post,
       url_path,
       query_params,
@@ -128,6 +131,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "DeleteStream",
       :post,
       url_path,
       query_params,
@@ -151,6 +155,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "DescribeImageGenerationConfiguration",
       :post,
       url_path,
       query_params,
@@ -174,6 +179,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "DescribeNotificationConfiguration",
       :post,
       url_path,
       query_params,
@@ -200,6 +206,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "DescribeSignalingChannel",
       :post,
       url_path,
       query_params,
@@ -225,6 +232,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "DescribeStream",
       :post,
       url_path,
       query_params,
@@ -257,6 +265,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "GetDataEndpoint",
       :post,
       url_path,
       query_params,
@@ -294,6 +303,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "GetSignalingChannelEndpoint",
       :post,
       url_path,
       query_params,
@@ -320,6 +330,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "ListSignalingChannels",
       :post,
       url_path,
       query_params,
@@ -346,6 +357,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "ListStreams",
       :post,
       url_path,
       query_params,
@@ -369,6 +381,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "ListTagsForResource",
       :post,
       url_path,
       query_params,
@@ -394,6 +407,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "ListTagsForStream",
       :post,
       url_path,
       query_params,
@@ -423,6 +437,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -458,6 +473,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "TagStream",
       :post,
       url_path,
       query_params,
@@ -484,6 +500,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :post,
       url_path,
       query_params,
@@ -512,6 +529,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "UntagStream",
       :post,
       url_path,
       query_params,
@@ -557,6 +575,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "UpdateDataRetention",
       :post,
       url_path,
       query_params,
@@ -580,6 +599,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "UpdateImageGenerationConfiguration",
       :post,
       url_path,
       query_params,
@@ -603,6 +623,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "UpdateNotificationConfiguration",
       :post,
       url_path,
       query_params,
@@ -633,6 +654,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "UpdateSignalingChannel",
       :post,
       url_path,
       query_params,
@@ -666,6 +688,7 @@ defmodule AWS.KinesisVideo do
     Request.request_rest(
       client,
       meta,
+      "UpdateStream",
       :post,
       url_path,
       query_params,

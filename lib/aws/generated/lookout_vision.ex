@@ -67,6 +67,7 @@ defmodule AWS.LookoutVision do
     Request.request_rest(
       client,
       meta,
+      "CreateDataset",
       :post,
       url_path,
       query_params,
@@ -114,6 +115,7 @@ defmodule AWS.LookoutVision do
     Request.request_rest(
       client,
       meta,
+      "CreateModel",
       :post,
       url_path,
       query_params,
@@ -148,6 +150,7 @@ defmodule AWS.LookoutVision do
     Request.request_rest(
       client,
       meta,
+      "CreateProject",
       :post,
       url_path,
       query_params,
@@ -193,6 +196,7 @@ defmodule AWS.LookoutVision do
     Request.request_rest(
       client,
       meta,
+      "DeleteDataset",
       :delete,
       url_path,
       query_params,
@@ -233,6 +237,7 @@ defmodule AWS.LookoutVision do
     Request.request_rest(
       client,
       meta,
+      "DeleteModel",
       :delete,
       url_path,
       query_params,
@@ -272,6 +277,7 @@ defmodule AWS.LookoutVision do
     Request.request_rest(
       client,
       meta,
+      "DeleteProject",
       :delete,
       url_path,
       query_params,
@@ -297,7 +303,18 @@ defmodule AWS.LookoutVision do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDataset",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -315,7 +332,18 @@ defmodule AWS.LookoutVision do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeModel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -336,7 +364,18 @@ defmodule AWS.LookoutVision do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeModelPackagingJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -352,7 +391,18 @@ defmodule AWS.LookoutVision do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeProject",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -398,6 +448,7 @@ defmodule AWS.LookoutVision do
     Request.request_rest(
       client,
       meta,
+      "DetectAnomalies",
       :post,
       url_path,
       query_params,
@@ -487,7 +538,18 @@ defmodule AWS.LookoutVision do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDatasetEntries",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -526,7 +588,18 @@ defmodule AWS.LookoutVision do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListModelPackagingJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -565,7 +638,18 @@ defmodule AWS.LookoutVision do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListModels",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -600,7 +684,18 @@ defmodule AWS.LookoutVision do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProjects",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -617,7 +712,18 @@ defmodule AWS.LookoutVision do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -654,6 +760,7 @@ defmodule AWS.LookoutVision do
     Request.request_rest(
       client,
       meta,
+      "StartModel",
       :post,
       url_path,
       query_params,
@@ -714,6 +821,7 @@ defmodule AWS.LookoutVision do
     Request.request_rest(
       client,
       meta,
+      "StartModelPackagingJob",
       :post,
       url_path,
       query_params,
@@ -752,6 +860,7 @@ defmodule AWS.LookoutVision do
     Request.request_rest(
       client,
       meta,
+      "StopModel",
       :post,
       url_path,
       query_params,
@@ -781,6 +890,7 @@ defmodule AWS.LookoutVision do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -815,6 +925,7 @@ defmodule AWS.LookoutVision do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -865,6 +976,7 @@ defmodule AWS.LookoutVision do
     Request.request_rest(
       client,
       meta,
+      "UpdateDatasetEntries",
       :patch,
       url_path,
       query_params,

@@ -58,6 +58,7 @@ defmodule AWS.Synthetics do
     Request.request_rest(
       client,
       meta,
+      "AssociateResource",
       :patch,
       url_path,
       query_params,
@@ -100,6 +101,7 @@ defmodule AWS.Synthetics do
     Request.request_rest(
       client,
       meta,
+      "CreateCanary",
       :post,
       url_path,
       query_params,
@@ -140,6 +142,7 @@ defmodule AWS.Synthetics do
     Request.request_rest(
       client,
       meta,
+      "CreateGroup",
       :post,
       url_path,
       query_params,
@@ -192,6 +195,7 @@ defmodule AWS.Synthetics do
     Request.request_rest(
       client,
       meta,
+      "DeleteCanary",
       :delete,
       url_path,
       query_params,
@@ -222,6 +226,7 @@ defmodule AWS.Synthetics do
     Request.request_rest(
       client,
       meta,
+      "DeleteGroup",
       :delete,
       url_path,
       query_params,
@@ -256,6 +261,7 @@ defmodule AWS.Synthetics do
     Request.request_rest(
       client,
       meta,
+      "DescribeCanaries",
       :post,
       url_path,
       query_params,
@@ -290,6 +296,7 @@ defmodule AWS.Synthetics do
     Request.request_rest(
       client,
       meta,
+      "DescribeCanariesLastRun",
       :post,
       url_path,
       query_params,
@@ -315,6 +322,7 @@ defmodule AWS.Synthetics do
     Request.request_rest(
       client,
       meta,
+      "DescribeRuntimeVersions",
       :post,
       url_path,
       query_params,
@@ -340,6 +348,7 @@ defmodule AWS.Synthetics do
     Request.request_rest(
       client,
       meta,
+      "DisassociateResource",
       :patch,
       url_path,
       query_params,
@@ -364,7 +373,18 @@ defmodule AWS.Synthetics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCanary",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -380,6 +400,7 @@ defmodule AWS.Synthetics do
     Request.request_rest(
       client,
       meta,
+      "GetCanaryRuns",
       :post,
       url_path,
       query_params,
@@ -402,7 +423,18 @@ defmodule AWS.Synthetics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -420,6 +452,7 @@ defmodule AWS.Synthetics do
     Request.request_rest(
       client,
       meta,
+      "ListAssociatedGroups",
       :post,
       url_path,
       query_params,
@@ -444,6 +477,7 @@ defmodule AWS.Synthetics do
     Request.request_rest(
       client,
       meta,
+      "ListGroupResources",
       :post,
       url_path,
       query_params,
@@ -470,6 +504,7 @@ defmodule AWS.Synthetics do
     Request.request_rest(
       client,
       meta,
+      "ListGroups",
       :post,
       url_path,
       query_params,
@@ -490,7 +525,18 @@ defmodule AWS.Synthetics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -510,6 +556,7 @@ defmodule AWS.Synthetics do
     Request.request_rest(
       client,
       meta,
+      "StartCanary",
       :post,
       url_path,
       query_params,
@@ -540,6 +587,7 @@ defmodule AWS.Synthetics do
     Request.request_rest(
       client,
       meta,
+      "StopCanary",
       :post,
       url_path,
       query_params,
@@ -578,6 +626,7 @@ defmodule AWS.Synthetics do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -606,6 +655,7 @@ defmodule AWS.Synthetics do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -633,6 +683,7 @@ defmodule AWS.Synthetics do
     Request.request_rest(
       client,
       meta,
+      "UpdateCanary",
       :patch,
       url_path,
       query_params,

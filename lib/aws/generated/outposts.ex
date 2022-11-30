@@ -45,6 +45,7 @@ defmodule AWS.Outposts do
     Request.request_rest(
       client,
       meta,
+      "CancelOrder",
       :post,
       url_path,
       query_params,
@@ -68,6 +69,7 @@ defmodule AWS.Outposts do
     Request.request_rest(
       client,
       meta,
+      "CreateOrder",
       :post,
       url_path,
       query_params,
@@ -93,6 +95,7 @@ defmodule AWS.Outposts do
     Request.request_rest(
       client,
       meta,
+      "CreateOutpost",
       :post,
       url_path,
       query_params,
@@ -116,6 +119,7 @@ defmodule AWS.Outposts do
     Request.request_rest(
       client,
       meta,
+      "CreateSite",
       :post,
       url_path,
       query_params,
@@ -139,6 +143,7 @@ defmodule AWS.Outposts do
     Request.request_rest(
       client,
       meta,
+      "DeleteOutpost",
       :delete,
       url_path,
       query_params,
@@ -162,6 +167,7 @@ defmodule AWS.Outposts do
     Request.request_rest(
       client,
       meta,
+      "DeleteSite",
       :delete,
       url_path,
       query_params,
@@ -182,7 +188,18 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCatalogItem",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -203,7 +220,18 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetConnection",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -216,7 +244,18 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetOrder",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -229,7 +268,18 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetOutpost",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -262,7 +312,18 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetOutpostInstanceTypes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -275,7 +336,18 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSite",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -295,7 +367,18 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSiteAddress",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -349,7 +432,18 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAssets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -410,7 +504,18 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCatalogItems",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -450,7 +555,18 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListOrders",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -511,7 +627,18 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListOutposts",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -580,7 +707,18 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSites",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -593,7 +731,18 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -617,6 +766,7 @@ defmodule AWS.Outposts do
     Request.request_rest(
       client,
       meta,
+      "StartConnection",
       :post,
       url_path,
       query_params,
@@ -640,6 +790,7 @@ defmodule AWS.Outposts do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -668,6 +819,7 @@ defmodule AWS.Outposts do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -691,6 +843,7 @@ defmodule AWS.Outposts do
     Request.request_rest(
       client,
       meta,
+      "UpdateOutpost",
       :patch,
       url_path,
       query_params,
@@ -714,6 +867,7 @@ defmodule AWS.Outposts do
     Request.request_rest(
       client,
       meta,
+      "UpdateSite",
       :patch,
       url_path,
       query_params,
@@ -740,7 +894,18 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateSiteAddress",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -763,6 +928,7 @@ defmodule AWS.Outposts do
     Request.request_rest(
       client,
       meta,
+      "UpdateSiteRackPhysicalProperties",
       :patch,
       url_path,
       query_params,

@@ -70,6 +70,7 @@ defmodule AWS.OAM do
     Request.request_rest(
       client,
       meta,
+      "CreateLink",
       :post,
       url_path,
       query_params,
@@ -104,6 +105,7 @@ defmodule AWS.OAM do
     Request.request_rest(
       client,
       meta,
+      "CreateSink",
       :post,
       url_path,
       query_params,
@@ -129,6 +131,7 @@ defmodule AWS.OAM do
     Request.request_rest(
       client,
       meta,
+      "DeleteLink",
       :post,
       url_path,
       query_params,
@@ -154,6 +157,7 @@ defmodule AWS.OAM do
     Request.request_rest(
       client,
       meta,
+      "DeleteSink",
       :post,
       url_path,
       query_params,
@@ -181,6 +185,7 @@ defmodule AWS.OAM do
     Request.request_rest(
       client,
       meta,
+      "GetLink",
       :post,
       url_path,
       query_params,
@@ -208,6 +213,7 @@ defmodule AWS.OAM do
     Request.request_rest(
       client,
       meta,
+      "GetSink",
       :post,
       url_path,
       query_params,
@@ -234,6 +240,7 @@ defmodule AWS.OAM do
     Request.request_rest(
       client,
       meta,
+      "GetSinkPolicy",
       :post,
       url_path,
       query_params,
@@ -263,6 +270,7 @@ defmodule AWS.OAM do
     Request.request_rest(
       client,
       meta,
+      "ListAttachedLinks",
       :post,
       url_path,
       query_params,
@@ -291,6 +299,7 @@ defmodule AWS.OAM do
     Request.request_rest(
       client,
       meta,
+      "ListLinks",
       :post,
       url_path,
       query_params,
@@ -315,6 +324,7 @@ defmodule AWS.OAM do
     Request.request_rest(
       client,
       meta,
+      "ListSinks",
       :post,
       url_path,
       query_params,
@@ -337,7 +347,18 @@ defmodule AWS.OAM do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -369,6 +390,7 @@ defmodule AWS.OAM do
     Request.request_rest(
       client,
       meta,
+      "PutSinkPolicy",
       :post,
       url_path,
       query_params,
@@ -411,7 +433,18 @@ defmodule AWS.OAM do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "TagResource",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -437,6 +470,7 @@ defmodule AWS.OAM do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -466,6 +500,7 @@ defmodule AWS.OAM do
     Request.request_rest(
       client,
       meta,
+      "UpdateLink",
       :post,
       url_path,
       query_params,

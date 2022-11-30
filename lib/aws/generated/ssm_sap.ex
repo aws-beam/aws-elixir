@@ -41,6 +41,7 @@ defmodule AWS.SsmSap do
     Request.request_rest(
       client,
       meta,
+      "DeleteResourcePermission",
       :post,
       url_path,
       query_params,
@@ -67,6 +68,7 @@ defmodule AWS.SsmSap do
     Request.request_rest(
       client,
       meta,
+      "DeregisterApplication",
       :post,
       url_path,
       query_params,
@@ -92,6 +94,7 @@ defmodule AWS.SsmSap do
     Request.request_rest(
       client,
       meta,
+      "GetApplication",
       :post,
       url_path,
       query_params,
@@ -116,6 +119,7 @@ defmodule AWS.SsmSap do
     Request.request_rest(
       client,
       meta,
+      "GetComponent",
       :post,
       url_path,
       query_params,
@@ -140,6 +144,7 @@ defmodule AWS.SsmSap do
     Request.request_rest(
       client,
       meta,
+      "GetDatabase",
       :post,
       url_path,
       query_params,
@@ -163,6 +168,7 @@ defmodule AWS.SsmSap do
     Request.request_rest(
       client,
       meta,
+      "GetOperation",
       :post,
       url_path,
       query_params,
@@ -186,6 +192,7 @@ defmodule AWS.SsmSap do
     Request.request_rest(
       client,
       meta,
+      "GetResourcePermission",
       :post,
       url_path,
       query_params,
@@ -209,6 +216,7 @@ defmodule AWS.SsmSap do
     Request.request_rest(
       client,
       meta,
+      "ListApplications",
       :post,
       url_path,
       query_params,
@@ -232,6 +240,7 @@ defmodule AWS.SsmSap do
     Request.request_rest(
       client,
       meta,
+      "ListComponents",
       :post,
       url_path,
       query_params,
@@ -256,6 +265,7 @@ defmodule AWS.SsmSap do
     Request.request_rest(
       client,
       meta,
+      "ListDatabases",
       :post,
       url_path,
       query_params,
@@ -277,7 +287,18 @@ defmodule AWS.SsmSap do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -293,6 +314,7 @@ defmodule AWS.SsmSap do
     Request.request_rest(
       client,
       meta,
+      "PutResourcePermission",
       :post,
       url_path,
       query_params,
@@ -327,6 +349,7 @@ defmodule AWS.SsmSap do
     Request.request_rest(
       client,
       meta,
+      "RegisterApplication",
       :post,
       url_path,
       query_params,
@@ -350,6 +373,7 @@ defmodule AWS.SsmSap do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -378,6 +402,7 @@ defmodule AWS.SsmSap do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -398,6 +423,7 @@ defmodule AWS.SsmSap do
     Request.request_rest(
       client,
       meta,
+      "UpdateApplicationSettings",
       :post,
       url_path,
       query_params,

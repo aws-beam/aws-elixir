@@ -44,6 +44,7 @@ defmodule AWS.Wisdom do
     Request.request_rest(
       client,
       meta,
+      "CreateAssistant",
       :post,
       url_path,
       query_params,
@@ -71,6 +72,7 @@ defmodule AWS.Wisdom do
     Request.request_rest(
       client,
       meta,
+      "CreateAssistantAssociation",
       :post,
       url_path,
       query_params,
@@ -98,6 +100,7 @@ defmodule AWS.Wisdom do
     Request.request_rest(
       client,
       meta,
+      "CreateContent",
       :post,
       url_path,
       query_params,
@@ -141,6 +144,7 @@ defmodule AWS.Wisdom do
     Request.request_rest(
       client,
       meta,
+      "CreateKnowledgeBase",
       :post,
       url_path,
       query_params,
@@ -168,6 +172,7 @@ defmodule AWS.Wisdom do
     Request.request_rest(
       client,
       meta,
+      "CreateSession",
       :post,
       url_path,
       query_params,
@@ -191,6 +196,7 @@ defmodule AWS.Wisdom do
     Request.request_rest(
       client,
       meta,
+      "DeleteAssistant",
       :delete,
       url_path,
       query_params,
@@ -222,6 +228,7 @@ defmodule AWS.Wisdom do
     Request.request_rest(
       client,
       meta,
+      "DeleteAssistantAssociation",
       :delete,
       url_path,
       query_params,
@@ -247,6 +254,7 @@ defmodule AWS.Wisdom do
     Request.request_rest(
       client,
       meta,
+      "DeleteContent",
       :delete,
       url_path,
       query_params,
@@ -279,6 +287,7 @@ defmodule AWS.Wisdom do
     Request.request_rest(
       client,
       meta,
+      "DeleteKnowledgeBase",
       :delete,
       url_path,
       query_params,
@@ -299,7 +308,18 @@ defmodule AWS.Wisdom do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAssistant",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -319,7 +339,18 @@ defmodule AWS.Wisdom do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAssistantAssociation",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -334,7 +365,18 @@ defmodule AWS.Wisdom do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetContent",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -349,7 +391,18 @@ defmodule AWS.Wisdom do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetContentSummary",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -362,7 +415,18 @@ defmodule AWS.Wisdom do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetKnowledgeBase",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -404,7 +468,18 @@ defmodule AWS.Wisdom do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRecommendations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -419,7 +494,18 @@ defmodule AWS.Wisdom do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSession",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -452,7 +538,18 @@ defmodule AWS.Wisdom do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAssistantAssociations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -479,7 +576,18 @@ defmodule AWS.Wisdom do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAssistants",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -512,7 +620,18 @@ defmodule AWS.Wisdom do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListContents",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -544,7 +663,18 @@ defmodule AWS.Wisdom do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListKnowledgeBases",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -557,7 +687,18 @@ defmodule AWS.Wisdom do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -587,6 +728,7 @@ defmodule AWS.Wisdom do
     Request.request_rest(
       client,
       meta,
+      "NotifyRecommendationsReceived",
       :post,
       url_path,
       query_params,
@@ -613,6 +755,7 @@ defmodule AWS.Wisdom do
     Request.request_rest(
       client,
       meta,
+      "QueryAssistant",
       :post,
       url_path,
       query_params,
@@ -641,6 +784,7 @@ defmodule AWS.Wisdom do
     Request.request_rest(
       client,
       meta,
+      "RemoveKnowledgeBaseTemplateUri",
       :delete,
       url_path,
       query_params,
@@ -672,6 +816,7 @@ defmodule AWS.Wisdom do
     Request.request_rest(
       client,
       meta,
+      "SearchContent",
       :post,
       url_path,
       query_params,
@@ -701,6 +846,7 @@ defmodule AWS.Wisdom do
     Request.request_rest(
       client,
       meta,
+      "SearchSessions",
       :post,
       url_path,
       query_params,
@@ -731,6 +877,7 @@ defmodule AWS.Wisdom do
     Request.request_rest(
       client,
       meta,
+      "StartContentUpload",
       :post,
       url_path,
       query_params,
@@ -754,6 +901,7 @@ defmodule AWS.Wisdom do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -782,6 +930,7 @@ defmodule AWS.Wisdom do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -807,6 +956,7 @@ defmodule AWS.Wisdom do
     Request.request_rest(
       client,
       meta,
+      "UpdateContent",
       :post,
       url_path,
       query_params,
@@ -841,6 +991,7 @@ defmodule AWS.Wisdom do
     Request.request_rest(
       client,
       meta,
+      "UpdateKnowledgeBaseTemplateUri",
       :post,
       url_path,
       query_params,

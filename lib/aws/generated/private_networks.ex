@@ -44,6 +44,7 @@ defmodule AWS.PrivateNetworks do
     Request.request_rest(
       client,
       meta,
+      "AcknowledgeOrderReceipt",
       :post,
       url_path,
       query_params,
@@ -67,6 +68,7 @@ defmodule AWS.PrivateNetworks do
     Request.request_rest(
       client,
       meta,
+      "ActivateDeviceIdentifier",
       :post,
       url_path,
       query_params,
@@ -90,6 +92,7 @@ defmodule AWS.PrivateNetworks do
     Request.request_rest(
       client,
       meta,
+      "ActivateNetworkSite",
       :post,
       url_path,
       query_params,
@@ -118,6 +121,7 @@ defmodule AWS.PrivateNetworks do
     Request.request_rest(
       client,
       meta,
+      "ConfigureAccessPoint",
       :post,
       url_path,
       query_params,
@@ -141,6 +145,7 @@ defmodule AWS.PrivateNetworks do
     Request.request_rest(
       client,
       meta,
+      "CreateNetwork",
       :post,
       url_path,
       query_params,
@@ -164,6 +169,7 @@ defmodule AWS.PrivateNetworks do
     Request.request_rest(
       client,
       meta,
+      "CreateNetworkSite",
       :post,
       url_path,
       query_params,
@@ -187,6 +193,7 @@ defmodule AWS.PrivateNetworks do
     Request.request_rest(
       client,
       meta,
+      "DeactivateDeviceIdentifier",
       :post,
       url_path,
       query_params,
@@ -220,6 +227,7 @@ defmodule AWS.PrivateNetworks do
     Request.request_rest(
       client,
       meta,
+      "DeleteNetwork",
       :delete,
       url_path,
       query_params,
@@ -252,6 +260,7 @@ defmodule AWS.PrivateNetworks do
     Request.request_rest(
       client,
       meta,
+      "DeleteNetworkSite",
       :delete,
       url_path,
       query_params,
@@ -272,7 +281,18 @@ defmodule AWS.PrivateNetworks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDeviceIdentifier",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -285,7 +305,18 @@ defmodule AWS.PrivateNetworks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetNetwork",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -298,7 +329,18 @@ defmodule AWS.PrivateNetworks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetNetworkResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -311,7 +353,18 @@ defmodule AWS.PrivateNetworks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetNetworkSite",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -324,7 +377,18 @@ defmodule AWS.PrivateNetworks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetOrder",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -349,6 +413,7 @@ defmodule AWS.PrivateNetworks do
     Request.request_rest(
       client,
       meta,
+      "ListDeviceIdentifiers",
       :post,
       url_path,
       query_params,
@@ -379,6 +444,7 @@ defmodule AWS.PrivateNetworks do
     Request.request_rest(
       client,
       meta,
+      "ListNetworkResources",
       :post,
       url_path,
       query_params,
@@ -405,6 +471,7 @@ defmodule AWS.PrivateNetworks do
     Request.request_rest(
       client,
       meta,
+      "ListNetworkSites",
       :post,
       url_path,
       query_params,
@@ -431,6 +498,7 @@ defmodule AWS.PrivateNetworks do
     Request.request_rest(
       client,
       meta,
+      "ListNetworks",
       :post,
       url_path,
       query_params,
@@ -461,6 +529,7 @@ defmodule AWS.PrivateNetworks do
     Request.request_rest(
       client,
       meta,
+      "ListOrders",
       :post,
       url_path,
       query_params,
@@ -481,7 +550,18 @@ defmodule AWS.PrivateNetworks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -494,7 +574,18 @@ defmodule AWS.PrivateNetworks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "Ping",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -510,6 +601,7 @@ defmodule AWS.PrivateNetworks do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -538,6 +630,7 @@ defmodule AWS.PrivateNetworks do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -558,7 +651,18 @@ defmodule AWS.PrivateNetworks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateNetworkSite",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -571,6 +675,17 @@ defmodule AWS.PrivateNetworks do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateNetworkSitePlan",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

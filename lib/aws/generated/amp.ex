@@ -38,6 +38,7 @@ defmodule AWS.Amp do
     Request.request_rest(
       client,
       meta,
+      "CreateAlertManagerDefinition",
       :post,
       url_path,
       query_params,
@@ -61,6 +62,7 @@ defmodule AWS.Amp do
     Request.request_rest(
       client,
       meta,
+      "CreateLoggingConfiguration",
       :post,
       url_path,
       query_params,
@@ -84,6 +86,7 @@ defmodule AWS.Amp do
     Request.request_rest(
       client,
       meta,
+      "CreateRuleGroupsNamespace",
       :post,
       url_path,
       query_params,
@@ -107,6 +110,7 @@ defmodule AWS.Amp do
     Request.request_rest(
       client,
       meta,
+      "CreateWorkspace",
       :post,
       url_path,
       query_params,
@@ -135,6 +139,7 @@ defmodule AWS.Amp do
     Request.request_rest(
       client,
       meta,
+      "DeleteAlertManagerDefinition",
       :delete,
       url_path,
       query_params,
@@ -163,6 +168,7 @@ defmodule AWS.Amp do
     Request.request_rest(
       client,
       meta,
+      "DeleteLoggingConfiguration",
       :delete,
       url_path,
       query_params,
@@ -193,6 +199,7 @@ defmodule AWS.Amp do
     Request.request_rest(
       client,
       meta,
+      "DeleteRuleGroupsNamespace",
       :delete,
       url_path,
       query_params,
@@ -221,6 +228,7 @@ defmodule AWS.Amp do
     Request.request_rest(
       client,
       meta,
+      "DeleteWorkspace",
       :delete,
       url_path,
       query_params,
@@ -241,7 +249,18 @@ defmodule AWS.Amp do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAlertManagerDefinition",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -254,7 +273,18 @@ defmodule AWS.Amp do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeLoggingConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -269,7 +299,18 @@ defmodule AWS.Amp do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeRuleGroupsNamespace",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -282,7 +323,18 @@ defmodule AWS.Amp do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeWorkspace",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -323,7 +375,18 @@ defmodule AWS.Amp do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRuleGroupsNamespaces",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -336,7 +399,18 @@ defmodule AWS.Amp do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -376,7 +450,18 @@ defmodule AWS.Amp do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListWorkspaces",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -389,7 +474,18 @@ defmodule AWS.Amp do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "PutAlertManagerDefinition",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -404,7 +500,18 @@ defmodule AWS.Amp do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "PutRuleGroupsNamespace",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -420,6 +527,7 @@ defmodule AWS.Amp do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -448,6 +556,7 @@ defmodule AWS.Amp do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -468,7 +577,18 @@ defmodule AWS.Amp do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateLoggingConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -484,6 +604,7 @@ defmodule AWS.Amp do
     Request.request_rest(
       client,
       meta,
+      "UpdateWorkspaceAlias",
       :post,
       url_path,
       query_params,

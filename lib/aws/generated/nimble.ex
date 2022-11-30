@@ -51,6 +51,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "AcceptEulas",
       :post,
       url_path,
       query_params,
@@ -80,6 +81,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "CreateLaunchProfile",
       :post,
       url_path,
       query_params,
@@ -109,6 +111,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "CreateStreamingImage",
       :post,
       url_path,
       query_params,
@@ -141,6 +144,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "CreateStreamingSession",
       :post,
       url_path,
       query_params,
@@ -180,6 +184,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "CreateStreamingSessionStream",
       :post,
       url_path,
       query_params,
@@ -236,6 +241,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "CreateStudio",
       :post,
       url_path,
       query_params,
@@ -265,6 +271,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "CreateStudioComponent",
       :post,
       url_path,
       query_params,
@@ -301,6 +308,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "DeleteLaunchProfile",
       :delete,
       url_path,
       query_params,
@@ -338,6 +346,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "DeleteLaunchProfileMember",
       :delete,
       url_path,
       query_params,
@@ -374,6 +383,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "DeleteStreamingImage",
       :delete,
       url_path,
       query_params,
@@ -410,6 +420,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "DeleteStreamingSession",
       :delete,
       url_path,
       query_params,
@@ -439,6 +450,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "DeleteStudio",
       :delete,
       url_path,
       query_params,
@@ -475,6 +487,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "DeleteStudioComponent",
       :delete,
       url_path,
       query_params,
@@ -505,6 +518,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "DeleteStudioMember",
       :delete,
       url_path,
       query_params,
@@ -525,7 +539,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEula",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -540,7 +565,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLaunchProfile",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -560,7 +596,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLaunchProfileDetails",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -604,7 +651,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLaunchProfileInitialization",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -625,7 +683,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLaunchProfileMember",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -640,7 +709,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetStreamingImage",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -658,7 +738,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetStreamingSession",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -685,7 +776,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetStreamingSessionStream",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -698,7 +800,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetStudio",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -713,7 +826,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetStudioComponent",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -728,7 +852,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetStudioMember",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -761,7 +896,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListEulaAcceptances",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -788,7 +934,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListEulas",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -824,7 +981,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListLaunchProfileMembers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -873,7 +1041,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListLaunchProfiles",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -909,7 +1088,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListStreamingImages",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -958,7 +1148,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListStreamingSessions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1007,7 +1208,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListStudioComponents",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1042,7 +1254,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListStudioMembers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1063,7 +1286,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListStudios",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1081,7 +1315,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1110,6 +1355,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "PutLaunchProfileMembers",
       :post,
       url_path,
       query_params,
@@ -1139,6 +1385,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "PutStudioMembers",
       :post,
       url_path,
       query_params,
@@ -1172,6 +1419,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "StartStreamingSession",
       :post,
       url_path,
       query_params,
@@ -1208,7 +1456,18 @@ defmodule AWS.Nimble do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "StartStudioSSOConfigurationRepair",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1234,6 +1493,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "StopStreamingSession",
       :post,
       url_path,
       query_params,
@@ -1257,6 +1517,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1285,6 +1546,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1321,6 +1583,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "UpdateLaunchProfile",
       :patch,
       url_path,
       query_params,
@@ -1358,6 +1621,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "UpdateLaunchProfileMember",
       :patch,
       url_path,
       query_params,
@@ -1394,6 +1658,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "UpdateStreamingImage",
       :patch,
       url_path,
       query_params,
@@ -1425,6 +1690,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "UpdateStudio",
       :patch,
       url_path,
       query_params,
@@ -1461,6 +1727,7 @@ defmodule AWS.Nimble do
     Request.request_rest(
       client,
       meta,
+      "UpdateStudioComponent",
       :patch,
       url_path,
       query_params,

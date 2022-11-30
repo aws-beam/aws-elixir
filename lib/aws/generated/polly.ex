@@ -49,6 +49,7 @@ defmodule AWS.Polly do
     Request.request_rest(
       client,
       meta,
+      "DeleteLexicon",
       :delete,
       url_path,
       query_params,
@@ -123,7 +124,18 @@ defmodule AWS.Polly do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeVoices",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -139,7 +151,18 @@ defmodule AWS.Polly do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLexicon",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -156,7 +179,18 @@ defmodule AWS.Polly do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSpeechSynthesisTask",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -179,7 +213,18 @@ defmodule AWS.Polly do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListLexicons",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -222,7 +267,18 @@ defmodule AWS.Polly do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSpeechSynthesisTasks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -242,7 +298,18 @@ defmodule AWS.Polly do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutLexicon",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -267,6 +334,7 @@ defmodule AWS.Polly do
     Request.request_rest(
       client,
       meta,
+      "StartSpeechSynthesisTask",
       :post,
       url_path,
       query_params,
@@ -305,6 +373,7 @@ defmodule AWS.Polly do
     Request.request_rest(
       client,
       meta,
+      "SynthesizeSpeech",
       :post,
       url_path,
       query_params,

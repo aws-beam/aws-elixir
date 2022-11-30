@@ -38,6 +38,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "AssociatePhoneNumbersWithVoiceConnector",
       :post,
       url_path,
       query_params,
@@ -65,6 +66,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "AssociatePhoneNumbersWithVoiceConnectorGroup",
       :post,
       url_path,
       query_params,
@@ -85,6 +87,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "BatchDeletePhoneNumber",
       :post,
       url_path,
       query_params,
@@ -105,6 +108,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "BatchUpdatePhoneNumber",
       :post,
       url_path,
       query_params,
@@ -125,6 +129,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "CreatePhoneNumberOrder",
       :post,
       url_path,
       query_params,
@@ -145,6 +150,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "CreateProxySession",
       :post,
       url_path,
       query_params,
@@ -165,6 +171,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "CreateSipMediaApplication",
       :post,
       url_path,
       query_params,
@@ -190,6 +197,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "CreateSipMediaApplicationCall",
       :post,
       url_path,
       query_params,
@@ -210,6 +218,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "CreateSipRule",
       :post,
       url_path,
       query_params,
@@ -230,6 +239,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "CreateVoiceConnector",
       :post,
       url_path,
       query_params,
@@ -250,6 +260,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "CreateVoiceConnectorGroup",
       :post,
       url_path,
       query_params,
@@ -270,6 +281,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "DeletePhoneNumber",
       :delete,
       url_path,
       query_params,
@@ -298,6 +310,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "DeleteProxySession",
       :delete,
       url_path,
       query_params,
@@ -323,6 +336,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "DeleteSipMediaApplication",
       :delete,
       url_path,
       query_params,
@@ -343,6 +357,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "DeleteSipRule",
       :delete,
       url_path,
       query_params,
@@ -363,6 +378,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "DeleteVoiceConnector",
       :delete,
       url_path,
       query_params,
@@ -390,6 +406,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "DeleteVoiceConnectorEmergencyCallingConfiguration",
       :delete,
       url_path,
       query_params,
@@ -415,6 +432,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "DeleteVoiceConnectorGroup",
       :delete,
       url_path,
       query_params,
@@ -440,6 +458,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "DeleteVoiceConnectorOrigination",
       :delete,
       url_path,
       query_params,
@@ -462,6 +481,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "DeleteVoiceConnectorProxy",
       :delete,
       url_path,
       query_params,
@@ -489,6 +509,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "DeleteVoiceConnectorStreamingConfiguration",
       :delete,
       url_path,
       query_params,
@@ -514,6 +535,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "DeleteVoiceConnectorTermination",
       :delete,
       url_path,
       query_params,
@@ -541,6 +563,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "DeleteVoiceConnectorTerminationCredentials",
       :post,
       url_path,
       query_params,
@@ -568,6 +591,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "DisassociatePhoneNumbersFromVoiceConnector",
       :post,
       url_path,
       query_params,
@@ -595,6 +619,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "DisassociatePhoneNumbersFromVoiceConnectorGroup",
       :post,
       url_path,
       query_params,
@@ -612,7 +637,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetGlobalSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def get_phone_number(%Client{} = client, phone_number_id, options \\ []) do
@@ -622,7 +658,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPhoneNumber",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   def get_phone_number_order(%Client{} = client, phone_number_order_id, options \\ []) do
@@ -632,7 +679,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPhoneNumberOrder",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def get_phone_number_settings(%Client{} = client, options \\ []) do
@@ -642,7 +700,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPhoneNumberSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def get_proxy_session(%Client{} = client, proxy_session_id, voice_connector_id, options \\ []) do
@@ -654,7 +723,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetProxySession",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def get_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
@@ -664,7 +744,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSipMediaApplication",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def get_sip_media_application_alexa_skill_configuration(
@@ -680,7 +771,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSipMediaApplicationAlexaSkillConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def get_sip_media_application_logging_configuration(
@@ -696,7 +798,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSipMediaApplicationLoggingConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def get_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
@@ -706,7 +819,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSipRule",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def get_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
@@ -716,7 +840,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceConnector",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def get_voice_connector_emergency_calling_configuration(
@@ -732,7 +867,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceConnectorEmergencyCallingConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def get_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
@@ -742,7 +888,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceConnectorGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def get_voice_connector_logging_configuration(
@@ -758,7 +915,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceConnectorLoggingConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def get_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
@@ -768,7 +936,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceConnectorOrigination",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def get_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
@@ -780,7 +959,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceConnectorProxy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def get_voice_connector_streaming_configuration(
@@ -796,7 +986,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceConnectorStreamingConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def get_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
@@ -806,7 +1007,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceConnectorTermination",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def get_voice_connector_termination_health(
@@ -820,7 +1032,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceConnectorTerminationHealth",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def list_available_voice_connector_regions(%Client{} = client, options \\ []) do
@@ -830,7 +1053,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAvailableVoiceConnectorRegions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def list_phone_number_orders(
@@ -859,7 +1093,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPhoneNumberOrders",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def list_phone_numbers(
@@ -920,7 +1165,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPhoneNumbers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   def list_proxy_sessions(
@@ -958,7 +1214,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProxySessions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def list_sip_media_applications(
@@ -987,7 +1254,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSipMediaApplications",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def list_sip_rules(
@@ -1024,7 +1302,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSipRules",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def list_supported_phone_number_countries(%Client{} = client, product_type, options \\ []) do
@@ -1041,7 +1330,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSupportedPhoneNumberCountries",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def list_voice_connector_groups(
@@ -1070,7 +1370,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListVoiceConnectorGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def list_voice_connector_termination_credentials(
@@ -1086,7 +1397,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListVoiceConnectorTerminationCredentials",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def list_voice_connectors(
@@ -1115,7 +1437,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListVoiceConnectors",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   def put_sip_media_application_alexa_skill_configuration(
@@ -1132,7 +1465,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutSipMediaApplicationAlexaSkillConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   def put_sip_media_application_logging_configuration(
@@ -1149,7 +1493,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutSipMediaApplicationLoggingConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   def put_voice_connector_emergency_calling_configuration(
@@ -1166,7 +1521,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutVoiceConnectorEmergencyCallingConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   def put_voice_connector_logging_configuration(
@@ -1183,7 +1549,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutVoiceConnectorLoggingConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   def put_voice_connector_origination(
@@ -1198,7 +1575,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutVoiceConnectorOrigination",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   def put_voice_connector_proxy(%Client{} = client, voice_connector_id, input, options \\ []) do
@@ -1210,7 +1598,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutVoiceConnectorProxy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   def put_voice_connector_streaming_configuration(
@@ -1227,7 +1626,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutVoiceConnectorStreamingConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   def put_voice_connector_termination(
@@ -1242,7 +1652,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutVoiceConnectorTermination",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   def put_voice_connector_termination_credentials(
@@ -1262,6 +1683,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "PutVoiceConnectorTerminationCredentials",
       :post,
       url_path,
       query_params,
@@ -1282,6 +1704,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "RestorePhoneNumber",
       :post,
       url_path,
       query_params,
@@ -1366,7 +1789,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "SearchAvailablePhoneNumbers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   def update_global_settings(%Client{} = client, input, options \\ []) do
@@ -1376,7 +1810,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateGlobalSettings",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   def update_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
@@ -1389,6 +1834,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "UpdatePhoneNumber",
       :post,
       url_path,
       query_params,
@@ -1406,7 +1852,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdatePhoneNumberSettings",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   def update_proxy_session(
@@ -1427,6 +1884,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "UpdateProxySession",
       :post,
       url_path,
       query_params,
@@ -1449,7 +1907,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateSipMediaApplication",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   def update_sip_media_application_call(
@@ -1470,6 +1939,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "UpdateSipMediaApplicationCall",
       :post,
       url_path,
       query_params,
@@ -1487,7 +1957,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateSipRule",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   def update_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
@@ -1497,7 +1978,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateVoiceConnector",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   def update_voice_connector_group(
@@ -1512,7 +2004,18 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateVoiceConnectorGroup",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   def validate_e911_address(%Client{} = client, input, options \\ []) do
@@ -1525,6 +2028,7 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(
       client,
       meta,
+      "ValidateE911Address",
       :post,
       url_path,
       query_params,

@@ -68,6 +68,7 @@ defmodule AWS.ARCZonalShift do
     Request.request_rest(
       client,
       meta,
+      "CancelZonalShift",
       :delete,
       url_path,
       query_params,
@@ -95,7 +96,18 @@ defmodule AWS.ARCZonalShift do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetManagedResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -132,7 +144,18 @@ defmodule AWS.ARCZonalShift do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListManagedResources",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -173,7 +196,18 @@ defmodule AWS.ARCZonalShift do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListZonalShifts",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -207,6 +241,7 @@ defmodule AWS.ARCZonalShift do
     Request.request_rest(
       client,
       meta,
+      "StartZonalShift",
       :post,
       url_path,
       query_params,
@@ -234,6 +269,7 @@ defmodule AWS.ARCZonalShift do
     Request.request_rest(
       client,
       meta,
+      "UpdateZonalShift",
       :patch,
       url_path,
       query_params,

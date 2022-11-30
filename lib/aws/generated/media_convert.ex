@@ -39,6 +39,7 @@ defmodule AWS.MediaConvert do
     Request.request_rest(
       client,
       meta,
+      "AssociateCertificate",
       :post,
       url_path,
       query_params,
@@ -64,6 +65,7 @@ defmodule AWS.MediaConvert do
     Request.request_rest(
       client,
       meta,
+      "CancelJob",
       :delete,
       url_path,
       query_params,
@@ -90,6 +92,7 @@ defmodule AWS.MediaConvert do
     Request.request_rest(
       client,
       meta,
+      "CreateJob",
       :post,
       url_path,
       query_params,
@@ -116,6 +119,7 @@ defmodule AWS.MediaConvert do
     Request.request_rest(
       client,
       meta,
+      "CreateJobTemplate",
       :post,
       url_path,
       query_params,
@@ -142,6 +146,7 @@ defmodule AWS.MediaConvert do
     Request.request_rest(
       client,
       meta,
+      "CreatePreset",
       :post,
       url_path,
       query_params,
@@ -168,6 +173,7 @@ defmodule AWS.MediaConvert do
     Request.request_rest(
       client,
       meta,
+      "CreateQueue",
       :post,
       url_path,
       query_params,
@@ -191,6 +197,7 @@ defmodule AWS.MediaConvert do
     Request.request_rest(
       client,
       meta,
+      "DeleteJobTemplate",
       :delete,
       url_path,
       query_params,
@@ -214,6 +221,7 @@ defmodule AWS.MediaConvert do
     Request.request_rest(
       client,
       meta,
+      "DeletePolicy",
       :delete,
       url_path,
       query_params,
@@ -237,6 +245,7 @@ defmodule AWS.MediaConvert do
     Request.request_rest(
       client,
       meta,
+      "DeletePreset",
       :delete,
       url_path,
       query_params,
@@ -260,6 +269,7 @@ defmodule AWS.MediaConvert do
     Request.request_rest(
       client,
       meta,
+      "DeleteQueue",
       :delete,
       url_path,
       query_params,
@@ -284,6 +294,7 @@ defmodule AWS.MediaConvert do
     Request.request_rest(
       client,
       meta,
+      "DescribeEndpoints",
       :post,
       url_path,
       query_params,
@@ -309,6 +320,7 @@ defmodule AWS.MediaConvert do
     Request.request_rest(
       client,
       meta,
+      "DisassociateCertificate",
       :delete,
       url_path,
       query_params,
@@ -329,7 +341,18 @@ defmodule AWS.MediaConvert do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -342,7 +365,18 @@ defmodule AWS.MediaConvert do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetJobTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -355,7 +389,18 @@ defmodule AWS.MediaConvert do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -368,7 +413,18 @@ defmodule AWS.MediaConvert do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPreset",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -381,7 +437,18 @@ defmodule AWS.MediaConvert do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetQueue",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -440,7 +507,18 @@ defmodule AWS.MediaConvert do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJobTemplates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -500,7 +578,18 @@ defmodule AWS.MediaConvert do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -559,7 +648,18 @@ defmodule AWS.MediaConvert do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPresets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -610,7 +710,18 @@ defmodule AWS.MediaConvert do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListQueues",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -623,7 +734,18 @@ defmodule AWS.MediaConvert do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -639,7 +761,18 @@ defmodule AWS.MediaConvert do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -658,6 +791,7 @@ defmodule AWS.MediaConvert do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -681,7 +815,18 @@ defmodule AWS.MediaConvert do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UntagResource",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -694,7 +839,18 @@ defmodule AWS.MediaConvert do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateJobTemplate",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -707,7 +863,18 @@ defmodule AWS.MediaConvert do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdatePreset",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -720,6 +887,17 @@ defmodule AWS.MediaConvert do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateQueue",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

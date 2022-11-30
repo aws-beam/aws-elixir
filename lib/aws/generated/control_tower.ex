@@ -99,6 +99,7 @@ defmodule AWS.ControlTower do
     Request.request_rest(
       client,
       meta,
+      "DisableControl",
       :post,
       url_path,
       query_params,
@@ -126,6 +127,7 @@ defmodule AWS.ControlTower do
     Request.request_rest(
       client,
       meta,
+      "EnableControl",
       :post,
       url_path,
       query_params,
@@ -153,6 +155,7 @@ defmodule AWS.ControlTower do
     Request.request_rest(
       client,
       meta,
+      "GetControlOperation",
       :post,
       url_path,
       query_params,
@@ -177,6 +180,7 @@ defmodule AWS.ControlTower do
     Request.request_rest(
       client,
       meta,
+      "ListEnabledControls",
       :post,
       url_path,
       query_params,

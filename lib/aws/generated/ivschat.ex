@@ -222,6 +222,7 @@ defmodule AWS.Ivschat do
     Request.request_rest(
       client,
       meta,
+      "CreateChatToken",
       :post,
       url_path,
       query_params,
@@ -246,6 +247,7 @@ defmodule AWS.Ivschat do
     Request.request_rest(
       client,
       meta,
+      "CreateLoggingConfiguration",
       :post,
       url_path,
       query_params,
@@ -269,6 +271,7 @@ defmodule AWS.Ivschat do
     Request.request_rest(
       client,
       meta,
+      "CreateRoom",
       :post,
       url_path,
       query_params,
@@ -292,6 +295,7 @@ defmodule AWS.Ivschat do
     Request.request_rest(
       client,
       meta,
+      "DeleteLoggingConfiguration",
       :post,
       url_path,
       query_params,
@@ -321,6 +325,7 @@ defmodule AWS.Ivschat do
     Request.request_rest(
       client,
       meta,
+      "DeleteMessage",
       :post,
       url_path,
       query_params,
@@ -344,6 +349,7 @@ defmodule AWS.Ivschat do
     Request.request_rest(
       client,
       meta,
+      "DeleteRoom",
       :post,
       url_path,
       query_params,
@@ -371,6 +377,7 @@ defmodule AWS.Ivschat do
     Request.request_rest(
       client,
       meta,
+      "DisconnectUser",
       :post,
       url_path,
       query_params,
@@ -394,6 +401,7 @@ defmodule AWS.Ivschat do
     Request.request_rest(
       client,
       meta,
+      "GetLoggingConfiguration",
       :post,
       url_path,
       query_params,
@@ -417,6 +425,7 @@ defmodule AWS.Ivschat do
     Request.request_rest(
       client,
       meta,
+      "GetRoom",
       :post,
       url_path,
       query_params,
@@ -441,6 +450,7 @@ defmodule AWS.Ivschat do
     Request.request_rest(
       client,
       meta,
+      "ListLoggingConfigurations",
       :post,
       url_path,
       query_params,
@@ -467,6 +477,7 @@ defmodule AWS.Ivschat do
     Request.request_rest(
       client,
       meta,
+      "ListRooms",
       :post,
       url_path,
       query_params,
@@ -487,7 +498,18 @@ defmodule AWS.Ivschat do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -506,6 +528,7 @@ defmodule AWS.Ivschat do
     Request.request_rest(
       client,
       meta,
+      "SendEvent",
       :post,
       url_path,
       query_params,
@@ -529,6 +552,7 @@ defmodule AWS.Ivschat do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -557,6 +581,7 @@ defmodule AWS.Ivschat do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -580,6 +605,7 @@ defmodule AWS.Ivschat do
     Request.request_rest(
       client,
       meta,
+      "UpdateLoggingConfiguration",
       :post,
       url_path,
       query_params,
@@ -603,6 +629,7 @@ defmodule AWS.Ivschat do
     Request.request_rest(
       client,
       meta,
+      "UpdateRoom",
       :post,
       url_path,
       query_params,

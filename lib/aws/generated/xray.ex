@@ -42,6 +42,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "BatchGetTraces",
       :post,
       url_path,
       query_params,
@@ -65,6 +66,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "CreateGroup",
       :post,
       url_path,
       query_params,
@@ -96,6 +98,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "CreateSamplingRule",
       :post,
       url_path,
       query_params,
@@ -119,6 +122,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "DeleteGroup",
       :post,
       url_path,
       query_params,
@@ -142,6 +146,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "DeleteResourcePolicy",
       :post,
       url_path,
       query_params,
@@ -165,6 +170,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "DeleteSamplingRule",
       :post,
       url_path,
       query_params,
@@ -188,6 +194,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "GetEncryptionConfig",
       :post,
       url_path,
       query_params,
@@ -211,6 +218,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "GetGroup",
       :post,
       url_path,
       query_params,
@@ -234,6 +242,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "GetGroups",
       :post,
       url_path,
       query_params,
@@ -261,6 +270,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "GetInsight",
       :post,
       url_path,
       query_params,
@@ -288,6 +298,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "GetInsightEvents",
       :post,
       url_path,
       query_params,
@@ -314,6 +325,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "GetInsightImpactGraph",
       :post,
       url_path,
       query_params,
@@ -338,6 +350,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "GetInsightSummaries",
       :post,
       url_path,
       query_params,
@@ -361,6 +374,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "GetSamplingRules",
       :post,
       url_path,
       query_params,
@@ -384,6 +398,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "GetSamplingStatisticSummaries",
       :post,
       url_path,
       query_params,
@@ -408,6 +423,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "GetSamplingTargets",
       :post,
       url_path,
       query_params,
@@ -437,6 +453,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "GetServiceGraph",
       :post,
       url_path,
       query_params,
@@ -460,6 +477,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "GetTimeSeriesServiceStatistics",
       :post,
       url_path,
       query_params,
@@ -483,6 +501,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "GetTraceGraph",
       :post,
       url_path,
       query_params,
@@ -524,6 +543,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "GetTraceSummaries",
       :post,
       url_path,
       query_params,
@@ -547,6 +567,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "ListResourcePolicies",
       :post,
       url_path,
       query_params,
@@ -571,6 +592,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "ListTagsForResource",
       :post,
       url_path,
       query_params,
@@ -594,6 +616,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "PutEncryptionConfig",
       :post,
       url_path,
       query_params,
@@ -623,6 +646,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "PutResourcePolicy",
       :post,
       url_path,
       query_params,
@@ -646,6 +670,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "PutTelemetryRecords",
       :post,
       url_path,
       query_params,
@@ -716,6 +741,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "PutTraceSegments",
       :post,
       url_path,
       query_params,
@@ -739,6 +765,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -764,6 +791,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :post,
       url_path,
       query_params,
@@ -787,6 +815,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "UpdateGroup",
       :post,
       url_path,
       query_params,
@@ -810,6 +839,7 @@ defmodule AWS.XRay do
     Request.request_rest(
       client,
       meta,
+      "UpdateSamplingRule",
       :post,
       url_path,
       query_params,

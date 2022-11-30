@@ -87,6 +87,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "AcceptAdministratorInvitation",
       :post,
       url_path,
       query_params,
@@ -128,6 +129,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "AcceptInvitation",
       :post,
       url_path,
       query_params,
@@ -154,6 +156,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "BatchDisableStandards",
       :post,
       url_path,
       query_params,
@@ -182,6 +185,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "BatchEnableStandards",
       :post,
       url_path,
       query_params,
@@ -253,6 +257,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "BatchImportFindings",
       :post,
       url_path,
       query_params,
@@ -310,6 +315,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "BatchUpdateFindings",
       :patch,
       url_path,
       query_params,
@@ -336,6 +342,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "CreateActionTarget",
       :post,
       url_path,
       query_params,
@@ -364,6 +371,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "CreateFindingAggregator",
       :post,
       url_path,
       query_params,
@@ -392,6 +400,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "CreateInsight",
       :post,
       url_path,
       query_params,
@@ -457,6 +466,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "CreateMembers",
       :post,
       url_path,
       query_params,
@@ -483,6 +493,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "DeclineInvitations",
       :post,
       url_path,
       query_params,
@@ -509,6 +520,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "DeleteActionTarget",
       :delete,
       url_path,
       query_params,
@@ -540,6 +552,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "DeleteFindingAggregator",
       :delete,
       url_path,
       query_params,
@@ -563,6 +576,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "DeleteInsight",
       :delete,
       url_path,
       query_params,
@@ -590,6 +604,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "DeleteInvitations",
       :post,
       url_path,
       query_params,
@@ -616,6 +631,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "DeleteMembers",
       :post,
       url_path,
       query_params,
@@ -639,6 +655,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "DescribeActionTargets",
       :post,
       url_path,
       query_params,
@@ -667,7 +684,18 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeHub",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -682,7 +710,18 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeOrganizationConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -728,7 +767,18 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeProducts",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -758,7 +808,18 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeStandards",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -796,7 +857,18 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeStandardsControls",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -822,6 +894,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "DisableImportFindingsForProduct",
       :delete,
       url_path,
       query_params,
@@ -847,6 +920,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "DisableOrganizationAdminAccount",
       :post,
       url_path,
       query_params,
@@ -884,6 +958,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "DisableSecurityHub",
       :delete,
       url_path,
       query_params,
@@ -912,6 +987,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "DisassociateFromAdministratorAccount",
       :post,
       url_path,
       query_params,
@@ -952,6 +1028,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "DisassociateFromMasterAccount",
       :post,
       url_path,
       query_params,
@@ -979,6 +1056,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "DisassociateMembers",
       :post,
       url_path,
       query_params,
@@ -1007,6 +1085,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "EnableImportFindingsForProduct",
       :post,
       url_path,
       query_params,
@@ -1032,6 +1111,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "EnableOrganizationAdminAccount",
       :post,
       url_path,
       query_params,
@@ -1080,6 +1160,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "EnableSecurityHub",
       :post,
       url_path,
       query_params,
@@ -1104,7 +1185,18 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAdministratorAccount",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1120,6 +1212,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "GetEnabledStandards",
       :post,
       url_path,
       query_params,
@@ -1142,7 +1235,18 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFindingAggregator",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1162,6 +1266,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "GetFindings",
       :post,
       url_path,
       query_params,
@@ -1182,7 +1287,18 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetInsightResults",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1198,6 +1314,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "GetInsights",
       :post,
       url_path,
       query_params,
@@ -1219,7 +1336,18 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetInvitationsCount",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1247,7 +1375,18 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMasterAccount",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1271,6 +1410,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "GetMembers",
       :post,
       url_path,
       query_params,
@@ -1305,6 +1445,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "InviteMembers",
       :post,
       url_path,
       query_params,
@@ -1345,7 +1486,18 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListEnabledProductsForImport",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1380,7 +1532,18 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFindingAggregators",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1412,7 +1575,18 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListInvitations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1456,7 +1630,18 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListMembers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1490,7 +1675,18 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListOrganizationAdminAccounts",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1503,7 +1699,18 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1519,6 +1726,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1547,6 +1755,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1570,6 +1779,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "UpdateActionTarget",
       :patch,
       url_path,
       query_params,
@@ -1599,6 +1809,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "UpdateFindingAggregator",
       :patch,
       url_path,
       query_params,
@@ -1628,6 +1839,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "UpdateFindings",
       :patch,
       url_path,
       query_params,
@@ -1651,6 +1863,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "UpdateInsight",
       :patch,
       url_path,
       query_params,
@@ -1676,6 +1889,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "UpdateOrganizationConfiguration",
       :post,
       url_path,
       query_params,
@@ -1699,6 +1913,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "UpdateSecurityHubConfiguration",
       :patch,
       url_path,
       query_params,
@@ -1723,6 +1938,7 @@ defmodule AWS.SecurityHub do
     Request.request_rest(
       client,
       meta,
+      "UpdateStandardsControl",
       :patch,
       url_path,
       query_params,

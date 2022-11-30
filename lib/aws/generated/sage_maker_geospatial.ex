@@ -38,6 +38,7 @@ defmodule AWS.SageMakerGeospatial do
     Request.request_rest(
       client,
       meta,
+      "DeleteEarthObservationJob",
       :delete,
       url_path,
       query_params,
@@ -61,6 +62,7 @@ defmodule AWS.SageMakerGeospatial do
     Request.request_rest(
       client,
       meta,
+      "DeleteVectorEnrichmentJob",
       :delete,
       url_path,
       query_params,
@@ -85,6 +87,7 @@ defmodule AWS.SageMakerGeospatial do
     Request.request_rest(
       client,
       meta,
+      "ExportEarthObservationJob",
       :post,
       url_path,
       query_params,
@@ -108,6 +111,7 @@ defmodule AWS.SageMakerGeospatial do
     Request.request_rest(
       client,
       meta,
+      "ExportVectorEnrichmentJob",
       :post,
       url_path,
       query_params,
@@ -128,7 +132,18 @@ defmodule AWS.SageMakerGeospatial do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEarthObservationJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -141,7 +156,18 @@ defmodule AWS.SageMakerGeospatial do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRasterDataCollection",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -226,7 +252,18 @@ defmodule AWS.SageMakerGeospatial do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTile",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -240,7 +277,18 @@ defmodule AWS.SageMakerGeospatial do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVectorEnrichmentJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -257,6 +305,7 @@ defmodule AWS.SageMakerGeospatial do
     Request.request_rest(
       client,
       meta,
+      "ListEarthObservationJobs",
       :post,
       url_path,
       query_params,
@@ -296,7 +345,18 @@ defmodule AWS.SageMakerGeospatial do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRasterDataCollections",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -309,7 +369,18 @@ defmodule AWS.SageMakerGeospatial do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -325,6 +396,7 @@ defmodule AWS.SageMakerGeospatial do
     Request.request_rest(
       client,
       meta,
+      "ListVectorEnrichmentJobs",
       :post,
       url_path,
       query_params,
@@ -349,6 +421,7 @@ defmodule AWS.SageMakerGeospatial do
     Request.request_rest(
       client,
       meta,
+      "SearchRasterDataCollection",
       :post,
       url_path,
       query_params,
@@ -372,6 +445,7 @@ defmodule AWS.SageMakerGeospatial do
     Request.request_rest(
       client,
       meta,
+      "StartEarthObservationJob",
       :post,
       url_path,
       query_params,
@@ -398,6 +472,7 @@ defmodule AWS.SageMakerGeospatial do
     Request.request_rest(
       client,
       meta,
+      "StartVectorEnrichmentJob",
       :post,
       url_path,
       query_params,
@@ -421,6 +496,7 @@ defmodule AWS.SageMakerGeospatial do
     Request.request_rest(
       client,
       meta,
+      "StopEarthObservationJob",
       :post,
       url_path,
       query_params,
@@ -444,6 +520,7 @@ defmodule AWS.SageMakerGeospatial do
     Request.request_rest(
       client,
       meta,
+      "StopVectorEnrichmentJob",
       :post,
       url_path,
       query_params,
@@ -464,7 +541,18 @@ defmodule AWS.SageMakerGeospatial do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "TagResource",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -485,6 +573,7 @@ defmodule AWS.SageMakerGeospatial do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,

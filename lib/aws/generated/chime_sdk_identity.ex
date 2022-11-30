@@ -47,6 +47,7 @@ defmodule AWS.ChimeSDKIdentity do
     Request.request_rest(
       client,
       meta,
+      "CreateAppInstance",
       :post,
       url_path,
       query_params,
@@ -79,6 +80,7 @@ defmodule AWS.ChimeSDKIdentity do
     Request.request_rest(
       client,
       meta,
+      "CreateAppInstanceAdmin",
       :post,
       url_path,
       query_params,
@@ -104,6 +106,7 @@ defmodule AWS.ChimeSDKIdentity do
     Request.request_rest(
       client,
       meta,
+      "CreateAppInstanceUser",
       :post,
       url_path,
       query_params,
@@ -127,6 +130,7 @@ defmodule AWS.ChimeSDKIdentity do
     Request.request_rest(
       client,
       meta,
+      "DeleteAppInstance",
       :delete,
       url_path,
       query_params,
@@ -160,6 +164,7 @@ defmodule AWS.ChimeSDKIdentity do
     Request.request_rest(
       client,
       meta,
+      "DeleteAppInstanceAdmin",
       :delete,
       url_path,
       query_params,
@@ -183,6 +188,7 @@ defmodule AWS.ChimeSDKIdentity do
     Request.request_rest(
       client,
       meta,
+      "DeleteAppInstanceUser",
       :delete,
       url_path,
       query_params,
@@ -214,6 +220,7 @@ defmodule AWS.ChimeSDKIdentity do
     Request.request_rest(
       client,
       meta,
+      "DeregisterAppInstanceUserEndpoint",
       :delete,
       url_path,
       query_params,
@@ -234,7 +241,18 @@ defmodule AWS.ChimeSDKIdentity do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAppInstance",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -254,7 +272,18 @@ defmodule AWS.ChimeSDKIdentity do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAppInstanceAdmin",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -267,7 +296,18 @@ defmodule AWS.ChimeSDKIdentity do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAppInstanceUser",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -287,7 +327,18 @@ defmodule AWS.ChimeSDKIdentity do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAppInstanceUserEndpoint",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -300,7 +351,18 @@ defmodule AWS.ChimeSDKIdentity do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAppInstanceRetentionSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -333,7 +395,18 @@ defmodule AWS.ChimeSDKIdentity do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAppInstanceAdmins",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -367,7 +440,18 @@ defmodule AWS.ChimeSDKIdentity do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAppInstanceUserEndpoints",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -407,7 +491,18 @@ defmodule AWS.ChimeSDKIdentity do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAppInstanceUsers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -434,7 +529,18 @@ defmodule AWS.ChimeSDKIdentity do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAppInstances",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -454,7 +560,18 @@ defmodule AWS.ChimeSDKIdentity do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -472,7 +589,18 @@ defmodule AWS.ChimeSDKIdentity do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutAppInstanceRetentionSettings",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -496,6 +624,7 @@ defmodule AWS.ChimeSDKIdentity do
     Request.request_rest(
       client,
       meta,
+      "RegisterAppInstanceUserEndpoint",
       :post,
       url_path,
       query_params,
@@ -519,6 +648,7 @@ defmodule AWS.ChimeSDKIdentity do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -543,6 +673,7 @@ defmodule AWS.ChimeSDKIdentity do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :post,
       url_path,
       query_params,
@@ -563,7 +694,18 @@ defmodule AWS.ChimeSDKIdentity do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAppInstance",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -578,7 +720,18 @@ defmodule AWS.ChimeSDKIdentity do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAppInstanceUser",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -601,6 +754,17 @@ defmodule AWS.ChimeSDKIdentity do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAppInstanceUserEndpoint",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

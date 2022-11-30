@@ -109,7 +109,18 @@ defmodule AWS.AppConfigData do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLatestConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -130,6 +141,7 @@ defmodule AWS.AppConfigData do
     Request.request_rest(
       client,
       meta,
+      "StartConfigurationSession",
       :post,
       url_path,
       query_params,

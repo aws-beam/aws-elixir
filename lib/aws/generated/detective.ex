@@ -114,7 +114,18 @@ defmodule AWS.Detective do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AcceptInvitation",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -130,6 +141,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "BatchGetGraphMemberDatasources",
       :post,
       url_path,
       query_params,
@@ -153,6 +165,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "BatchGetMembershipDatasources",
       :post,
       url_path,
       query_params,
@@ -197,6 +210,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "CreateGraph",
       :post,
       url_path,
       query_params,
@@ -251,6 +265,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "CreateMembers",
       :post,
       url_path,
       query_params,
@@ -280,6 +295,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "DeleteGraph",
       :post,
       url_path,
       query_params,
@@ -320,6 +336,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "DeleteMembers",
       :post,
       url_path,
       query_params,
@@ -348,6 +365,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "DescribeOrganizationConfiguration",
       :post,
       url_path,
       query_params,
@@ -383,6 +401,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "DisableOrganizationAdminAccount",
       :post,
       url_path,
       query_params,
@@ -414,6 +433,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "DisassociateMembership",
       :post,
       url_path,
       query_params,
@@ -454,6 +474,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "EnableOrganizationAdminAccount",
       :post,
       url_path,
       query_params,
@@ -478,6 +499,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "GetMembers",
       :post,
       url_path,
       query_params,
@@ -501,6 +523,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "ListDatasourcePackages",
       :post,
       url_path,
       query_params,
@@ -530,6 +553,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "ListGraphs",
       :post,
       url_path,
       query_params,
@@ -562,6 +586,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "ListInvitations",
       :post,
       url_path,
       query_params,
@@ -592,6 +617,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "ListMembers",
       :post,
       url_path,
       query_params,
@@ -618,6 +644,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "ListOrganizationAdminAccounts",
       :post,
       url_path,
       query_params,
@@ -638,7 +665,18 @@ defmodule AWS.Detective do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -661,6 +699,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "RejectInvitation",
       :post,
       url_path,
       query_params,
@@ -693,6 +732,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "StartMonitoringMember",
       :post,
       url_path,
       query_params,
@@ -716,6 +756,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -744,6 +785,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -767,6 +809,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "UpdateDatasourcePackages",
       :post,
       url_path,
       query_params,
@@ -793,6 +836,7 @@ defmodule AWS.Detective do
     Request.request_rest(
       client,
       meta,
+      "UpdateOrganizationConfiguration",
       :post,
       url_path,
       query_params,

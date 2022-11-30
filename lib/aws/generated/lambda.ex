@@ -137,8 +137,8 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Grants an Amazon Web Services service, account, or organization permission to
-  use a function.
+  Grants an Amazon Web Service, Amazon Web Services account, or Amazon Web
+  Services organization permission to use a function.
 
   You can apply the policy at the function level, or specify a qualifier to
   restrict access to a single version or alias. If you use a qualifier, the
@@ -148,16 +148,17 @@ defmodule AWS.Lambda do
 
   To grant permission to another account, specify the account ID as the
   `Principal`. To grant permission to an organization defined in Organizations,
-  specify the organization ID as the `PrincipalOrgID`. For Amazon Web Services
-  services, the principal is a domain-style identifier defined by the service,
-  like `s3.amazonaws.com` or `sns.amazonaws.com`. For Amazon Web Services
-  services, you can also specify the ARN of the associated resource as the
-  `SourceArn`. If you grant permission to a service principal without specifying
-  the source, other accounts could potentially configure resources in their
-  account to invoke your Lambda function.
+  specify the organization ID as the `PrincipalOrgID`. For Amazon Web Services,
+  the principal is a domain-style identifier that the service defines, such as
+  `s3.amazonaws.com` or `sns.amazonaws.com`. For Amazon Web Services, you can also
+  specify the ARN of the associated resource as the `SourceArn`. If you grant
+  permission to a service principal without specifying the source, other accounts
+  could potentially configure resources in their account to invoke your Lambda
+  function.
 
-  This action adds a statement to a resource-based permissions policy for the
-  function. For more information about function policies, see [Lambda Function Policies](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).
+  This operation adds a statement to a resource-based permissions policy for the
+  function. For more information about function policies, see [Using resource-based policies for
+  Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).
   """
   def add_permission(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/policy"
@@ -325,27 +326,28 @@ defmodule AWS.Lambda do
   and an [execution role](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role).
   The deployment package is a .zip file archive or container image that contains
   your function code. The execution role grants the function permission to use
-  Amazon Web Services services, such as Amazon CloudWatch Logs for log streaming
-  and X-Ray for request tracing.
+  Amazon Web Services, such as Amazon CloudWatch Logs for log streaming and X-Ray
+  for request tracing.
 
-  You set the package type to `Image` if the deployment package is a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html). For a
-  container image, the code property must include the URI of a container image in
-  the Amazon ECR registry. You do not need to specify the handler and runtime
-  properties.
+  If the deployment package is a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html), then
+  you set the package type to `Image`. For a container image, the code property
+  must include the URI of a container image in the Amazon ECR registry. You do not
+  need to specify the handler and runtime properties.
 
-  You set the package type to `Zip` if the deployment package is a [.zip file archive](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip).
-  For a .zip file archive, the code property specifies the location of the .zip
-  file. You must also specify the handler and runtime properties. The code in the
-  deployment package must be compatible with the target instruction set
-  architecture of the function (`x86-64` or `arm64`). If you do not specify the
-  architecture, the default value is `x86-64`.
+  If the deployment package is a [.zip file archive](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip),
+  then you set the package type to `Zip`. For a .zip file archive, the code
+  property specifies the location of the .zip file. You must also specify the
+  handler and runtime properties. The code in the deployment package must be
+  compatible with the target instruction set architecture of the function
+  (`x86-64` or `arm64`). If you do not specify the architecture, then the default
+  value is `x86-64`.
 
   When you create a function, Lambda provisions an instance of the function and
   its supporting resources. If your function connects to a VPC, this process can
   take a minute or so. During this time, you can't invoke or modify the function.
   The `State`, `StateReason`, and `StateReasonCode` fields in the response from
   `GetFunctionConfiguration` indicate when the function is ready to invoke. For
-  more information, see [Function States](https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html).
+  more information, see [Lambda function states](https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html).
 
   A function has an unpublished version, and can have published versions and
   aliases. The unpublished version changes when you update your function's code
@@ -364,17 +366,18 @@ defmodule AWS.Lambda do
   enable code signing for this function, specify the ARN of a code-signing
   configuration. When a user attempts to deploy a code package with
   `UpdateFunctionCode`, Lambda checks that the code package has a valid signature
-  from a trusted publisher. The code-signing configuration includes set set of
-  signing profiles, which define the trusted publishers for this function.
+  from a trusted publisher. The code-signing configuration includes set of signing
+  profiles, which define the trusted publishers for this function.
 
-  If another account or an Amazon Web Services service invokes your function, use
-  `AddPermission` to grant permission by creating a resource-based IAM policy. You
-  can grant permissions at the function level, on a version, or on an alias.
+  If another Amazon Web Services account or an Amazon Web Service invokes your
+  function, use `AddPermission` to grant permission by creating a resource-based
+  Identity and Access Management (IAM) policy. You can grant permissions at the
+  function level, on a version, or on an alias.
 
   To invoke your function directly, use `Invoke`. To invoke your function in
-  response to events in other Amazon Web Services services, create an event source
-  mapping (`CreateEventSourceMapping`), or configure a function trigger in the
-  other service. For more information, see [Invoking Functions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html).
+  response to events in other Amazon Web Services, create an event source mapping
+  (`CreateEventSourceMapping`), or configure a function trigger in the other
+  service. For more information, see [Invoking Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html).
   """
   def create_function(%Client{} = client, input, options \\ []) do
     url_path = "/2015-03-31/functions"
@@ -519,9 +522,9 @@ defmodule AWS.Lambda do
   all versions and aliases are deleted.
 
   To delete Lambda event source mappings that invoke a function, use
-  `DeleteEventSourceMapping`. For Amazon Web Services services and resources that
-  invoke your function directly, delete the trigger in the service where you
-  originally configured it.
+  `DeleteEventSourceMapping`. For Amazon Web Services and resources that invoke
+  your function directly, delete the trigger in the service where you originally
+  configured it.
   """
   def delete_function(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}"
@@ -1030,34 +1033,35 @@ defmodule AWS.Lambda do
   [trace](https://docs.aws.amazon.com/lambda/latest/dg/lambda-x-ray.html).  When an error occurs, your function may be invoked multiple times. Retry
   behavior varies by error type, client, event source, and invocation type. For
   example, if you invoke a function asynchronously and it returns an error, Lambda
-  executes the function up to two more times. For more information, see [Retry
-  Behavior](https://docs.aws.amazon.com/lambda/latest/dg/retries-on-errors.html).
+  executes the function up to two more times. For more information, see [Error
+  handling and automatic retries in
+  Lambda](https://docs.aws.amazon.com/lambda/latest/dg/invocation-retries.html).
 
   For [asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html),
   Lambda adds events to a queue before sending them to your function. If your
   function does not have enough capacity to keep up with the queue, events may be
   lost. Occasionally, your function may receive the same event multiple times,
   even if no error occurs. To retain events that were not processed, configure
-  your function with a [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq).
+  your function with a [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
 
   The status code in the API response doesn't reflect function errors. Error codes
   are reserved for errors that prevent your function from executing, such as
-  permissions errors, [limit errors](https://docs.aws.amazon.com/lambda/latest/dg/limits.html), or issues
-  with your function's code and configuration. For example, Lambda returns
-  `TooManyRequestsException` if executing the function would cause you to exceed a
-  concurrency limit at either the account level
+  permissions errors,
+  [quota](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html) errors, or issues with your function's code and configuration. For example,
+  Lambda returns `TooManyRequestsException` if running the function would cause
+  you to exceed a concurrency limit at either the account level
   (`ConcurrentInvocationLimitExceeded`) or function level
   (`ReservedFunctionConcurrentInvocationLimitExceeded`).
 
-  For functions with a long timeout, your client might be disconnected during
+  For functions with a long timeout, your client might disconnect during
   synchronous invocation while it waits for a response. Configure your HTTP
   client, SDK, firewall, proxy, or operating system to allow for long connections
   with timeout or keep-alive settings.
 
   This operation requires permission for the
-  [lambda:InvokeFunction](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html) action. For details on how to set up permissions for cross-account invocations,
-  see [Granting function access to other
-  accounts](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke).
+  [lambda:InvokeFunction](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html)
+  action. For details on how to set up permissions for cross-account invocations,
+  see [Granting function access to other accounts](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke).
   """
   def invoke(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/invocations"
@@ -1336,7 +1340,7 @@ defmodule AWS.Lambda do
   Set `FunctionVersion` to `ALL` to include all published versions of each
   function in addition to the unpublished version.
 
-  The `ListFunctions` action returns a subset of the `FunctionConfiguration`
+  The `ListFunctions` operation returns a subset of the `FunctionConfiguration`
   fields. To get the additional fields (State, StateReasonCode, StateReason,
   LastUpdateStatus, LastUpdateStatusReason, LastUpdateStatusReasonCode) for a
   function or version, use `GetFunction`.
@@ -1715,7 +1719,7 @@ defmodule AWS.Lambda do
   Use `GetAccountSettings` to see your Regional concurrency limit. You can reserve
   concurrency for as many functions as you like, as long as you leave at least 100
   simultaneous executions unreserved for functions that aren't configured with a
-  per-function limit. For more information, see [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html).
+  per-function limit. For more information, see [Lambda function scaling](https://docs.aws.amazon.com/lambda/latest/dg/invocation-scaling.html).
   """
   def put_function_concurrency(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2017-10-31/functions/#{AWS.Util.encode_uri(function_name)}/concurrency"
@@ -1824,8 +1828,8 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Revokes function-use permission from an Amazon Web Services service or another
-  account.
+  Revokes function-use permission from an Amazon Web Service or another Amazon Web
+  Services account.
 
   You can get the ID of the statement from the output of `GetPolicy`.
   """
@@ -2017,14 +2021,14 @@ defmodule AWS.Lambda do
   Updates a Lambda function's code.
 
   If code signing is enabled for the function, the code package must be signed by
-  a trusted publisher. For more information, see [Configuring code signing](https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html).
+  a trusted publisher. For more information, see [Configuring code signing for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
 
-  If the function's package type is `Image`, you must specify the code package in
-  `ImageUri` as the URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the
+  If the function's package type is `Image`, then you must specify the code
+  package in `ImageUri` as the URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the
   Amazon ECR registry.
 
-  If the function's package type is `Zip`, you must specify the deployment package
-  as a [.zip file archive](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip).
+  If the function's package type is `Zip`, then you must specify the deployment
+  package as a [.zip file archive](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip).
   Enter the Amazon S3 bucket and key of the code .zip file location. You can also
   provide the function code inline using the `ZipFile` field.
 
@@ -2058,14 +2062,15 @@ defmodule AWS.Lambda do
   `LastUpdateStatusReasonCode` fields in the response from
   `GetFunctionConfiguration` indicate when the update is complete and the function
   is processing events with the new configuration. For more information, see
-  [Function States](https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html).
+  [Lambda function states](https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html).
 
   These settings can vary between versions of a function and are locked when you
   publish a version. You can't modify the configuration of a published version,
   only the unpublished version.
 
   To configure function concurrency, use `PutFunctionConcurrency`. To grant invoke
-  permissions to an account or Amazon Web Services service, use `AddPermission`.
+  permissions to an Amazon Web Services account or Amazon Web Service, use
+  `AddPermission`.
   """
   def update_function_configuration(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/configuration"

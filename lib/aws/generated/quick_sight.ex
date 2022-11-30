@@ -1300,6 +1300,27 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Provides a detailed description of the definition of an analysis.
+
+  If you do not need to know details about the content of an Analysis, for
+  instance if you are trying to check the status of a recently created or updated
+  Analysis, use the [ `DescribeAnalysis`
+  ](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAnalysis.html)
+  instead.
+  """
+  def describe_analysis_definition(%Client{} = client, analysis_id, aws_account_id, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}/definition"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Provides the read and write permissions for an analysis.
   """
   def describe_analysis_permissions(
@@ -1332,6 +1353,48 @@ defmodule AWS.QuickSight do
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(version_number) do
+        [{"version-number", version_number} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(alias_name) do
+        [{"alias-name", alias_name} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Provides a detailed description of the definition of a dashboard.
+
+  If you do not need to know details about the content of a dashboard, for
+  instance if you are trying to check the status of a recently created or updated
+  dashboard, use the [ `DescribeDashboard`
+  ](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDashboard.html)
+  instead.
+  """
+  def describe_dashboard_definition(
+        %Client{} = client,
+        aws_account_id,
+        dashboard_id,
+        alias_name \\ nil,
+        version_number \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/definition"
 
     headers = []
     query_params = []
@@ -1666,6 +1729,48 @@ defmodule AWS.QuickSight do
 
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Provides a detailed description of the definition of a template.
+
+  If you do not need to know details about the content of a template, for instance
+  if you are trying to check the status of a recently created or updated template,
+  use the [ `DescribeTemplate`
+  ](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeTemplate.html)
+  instead.
+  """
+  def describe_template_definition(
+        %Client{} = client,
+        aws_account_id,
+        template_id,
+        alias_name \\ nil,
+        version_number \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/definition"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(version_number) do
+        [{"version-number", version_number} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(alias_name) do
+        [{"alias-name", alias_name} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 

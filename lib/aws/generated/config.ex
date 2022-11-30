@@ -821,7 +821,7 @@ defmodule AWS.Config do
   Returns the evaluation results for the specified Amazon Web Services resource.
 
   The results indicate which Config rules were used to evaluate the resource, when
-  each rule was last used, and whether the resource complies with each rule.
+  each rule was last invoked, and whether the resource complies with each rule.
   """
   def get_compliance_details_by_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -987,6 +987,21 @@ defmodule AWS.Config do
   end
 
   @doc """
+  Returns a summary of resource evaluation for the specified resource evaluation
+  ID from the proactive rules that were run.
+
+  The results indicate which evaluation context was used to evaluate the rules,
+  which resource details were evaluated, the evaluation mode that was run, and
+  whether the resource details comply with the configuration of the proactive
+  rules.
+  """
+  def get_resource_evaluation_summary(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResourceEvaluationSummary", input, options)
+  end
+
+  @doc """
   Returns the details of a specific stored query.
   """
   def get_stored_query(%Client{} = client, input, options \\ []) do
@@ -1055,6 +1070,15 @@ defmodule AWS.Config do
     meta = metadata()
 
     Request.request_post(client, meta, "ListDiscoveredResources", input, options)
+  end
+
+  @doc """
+  Returns a list of proactive resource evaluations.
+  """
+  def list_resource_evaluations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResourceEvaluations", input, options)
   end
 
   @doc """
@@ -1392,6 +1416,9 @@ defmodule AWS.Config do
   Config generates a remediation exception when a problem occurs executing a
   remediation action to a specific resource. Remediation exceptions blocks
   auto-remediation until the exception is cleared.
+
+  To place an exception on an Amazon Web Services resource, ensure remediation is
+  set as manual remediation.
   """
   def put_remediation_exceptions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1565,6 +1592,24 @@ defmodule AWS.Config do
     meta = metadata()
 
     Request.request_post(client, meta, "StartRemediationExecution", input, options)
+  end
+
+  @doc """
+  Runs an on-demand evaluation for the specified resource to determine whether the
+  resource details will comply with configured Config rules.
+
+  You can also use it for evaluation purposes. Config recommends using an
+  evaluation context. It runs an execution against the resource details with all
+  of the Config rules in your account that match with the specified proactive mode
+  and resource type.
+
+  Ensure you have the `cloudformation:DescribeType` role setup to validate the
+  resource type schema.
+  """
+  def start_resource_evaluation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartResourceEvaluation", input, options)
   end
 
   @doc """

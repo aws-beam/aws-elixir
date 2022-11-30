@@ -4,8 +4,8 @@
 defmodule AWS.Macie2 do
   @moduledoc """
   Amazon Macie is a fully managed data security and data privacy service that uses
-  machine learning and pattern matching to discover and protect your sensitive
-  data in AWS.
+  machine learning and pattern matching to help you discover and protect your
+  sensitive data in AWS.
 
   Macie automates the discovery of sensitive data, such as PII and intellectual
   property, to provide you with insight into the data that your organization
@@ -391,7 +391,7 @@ defmodule AWS.Macie2 do
 
   @doc """
   Retrieves (queries) statistical data and other information about one or more S3
-  buckets that Amazon Macie monitors and analyzes.
+  buckets that Amazon Macie monitors and analyzes for an account.
   """
   def describe_buckets(%Client{} = client, input, options \\ []) do
     url_path = "/datasources/s3"
@@ -642,8 +642,22 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves (queries) aggregated statistical data about S3 buckets that Amazon
-  Macie monitors and analyzes.
+  Retrieves the configuration settings and status of automated sensitive data
+  discovery for an account.
+  """
+  def get_automated_discovery_configuration(%Client{} = client, options \\ []) do
+    url_path = "/automated-discovery/configuration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves (queries) aggregated statistical data about all the S3 buckets that
+  Amazon Macie monitors and analyzes for an account.
   """
   def get_bucket_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/datasources/s3/statistics"
@@ -670,6 +684,19 @@ defmodule AWS.Macie2 do
   """
   def get_classification_export_configuration(%Client{} = client, options \\ []) do
     url_path = "/classification-export-configuration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the classification scope settings for an account.
+  """
+  def get_classification_scope(%Client{} = client, id, options \\ []) do
+    url_path = "/classification-scopes/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -778,8 +805,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves the current status and configuration settings for an Amazon Macie
-  account.
+  Retrieves the status and configuration settings for an Amazon Macie account.
   """
   def get_macie_session(%Client{} = client, options \\ []) do
     url_path = "/macie"
@@ -822,6 +848,27 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
+  Retrieves (queries) sensitive data discovery statistics and the sensitivity
+  score for an S3 bucket.
+  """
+  def get_resource_profile(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/resource-profiles"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_arn) do
+        [{"resourceArn", resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves the status and configuration settings for retrieving occurrences of
   sensitive data reported by findings.
   """
@@ -853,6 +900,19 @@ defmodule AWS.Macie2 do
   """
   def get_sensitive_data_occurrences_availability(%Client{} = client, finding_id, options \\ []) do
     url_path = "/findings/#{AWS.Util.encode_uri(finding_id)}/reveal/availability"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the settings for the sensitivity inspection template for an account.
+  """
+  def get_sensitivity_inspection_template(%Client{} = client, id, options \\ []) do
+    url_path = "/templates/sensitivity-inspections/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -952,6 +1012,38 @@ defmodule AWS.Macie2 do
       options,
       200
     )
+  end
+
+  @doc """
+  Retrieves a subset of information about the classification scope for an account.
+  """
+  def list_classification_scopes(
+        %Client{} = client,
+        name \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/classification-scopes"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name) do
+        [{"name", name} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1160,6 +1252,113 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
+  Retrieves information about objects that were selected from an S3 bucket for
+  automated sensitive data discovery.
+  """
+  def list_resource_profile_artifacts(
+        %Client{} = client,
+        next_token \\ nil,
+        resource_arn,
+        options \\ []
+      ) do
+    url_path = "/resource-profiles/artifacts"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_arn) do
+        [{"resourceArn", resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about the types and amount of sensitive data that Amazon
+  Macie found in an S3 bucket.
+  """
+  def list_resource_profile_detections(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        resource_arn,
+        options \\ []
+      ) do
+    url_path = "/resource-profiles/detections"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_arn) do
+        [{"resourceArn", resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a subset of information about the sensitivity inspection template for
+  an account.
+  """
+  def list_sensitivity_inspection_templates(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/templates/sensitivity-inspections"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves the tags (keys and values) that are associated with an Amazon Macie
   resource.
   """
@@ -1313,10 +1512,46 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
+  Enables or disables automated sensitive data discovery for an account.
+  """
+  def update_automated_discovery_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/automated-discovery/configuration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Changes the status of a classification job.
   """
   def update_classification_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the classification scope settings for an account.
+  """
+  def update_classification_scope(%Client{} = client, id, input, options \\ []) do
+    url_path = "/classification-scopes/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1431,11 +1666,80 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
+  Updates the sensitivity score for an S3 bucket.
+  """
+  def update_resource_profile(%Client{} = client, input, options \\ []) do
+    url_path = "/resource-profiles"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"resourceArn", "resourceArn"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the sensitivity scoring settings for an S3 bucket.
+  """
+  def update_resource_profile_detections(%Client{} = client, input, options \\ []) do
+    url_path = "/resource-profiles/detections"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"resourceArn", "resourceArn"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates the status and configuration settings for retrieving occurrences of
   sensitive data reported by findings.
   """
   def update_reveal_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/reveal-configuration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates the settings for the sensitivity inspection template for an account.
+  """
+  def update_sensitivity_inspection_template(%Client{} = client, id, input, options \\ []) do
+    url_path = "/templates/sensitivity-inspections/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 

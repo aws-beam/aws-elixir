@@ -192,7 +192,7 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Describe Amazon Inspector configuration settings for an Amazon Web Services
-  organization
+  organization.
   """
   def describe_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/organizationconfiguration/describe"

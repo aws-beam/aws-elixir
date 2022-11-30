@@ -10,7 +10,7 @@ defmodule AWS.KMS do
   This guide describes the KMS operations that you can call programmatically. For
   general information about KMS, see the [ *Key Management Service Developer Guide* ](https://docs.aws.amazon.com/kms/latest/developerguide/).
 
-  KMS is replacing the term *customer master key (CMK)* with *KMS key* and *KMS
+  KMS has replaced the term *customer master key (CMK)* with *KMS key* and *KMS
   key*. The concept has not changed. To prevent breaking changes, KMS is keeping
   some variations of this term.
 
@@ -41,10 +41,10 @@ defmodule AWS.KMS do
 
   Requests must be signed by using an access key ID and a secret access key. We
   strongly recommend that you *do not* use your Amazon Web Services account (root)
-  access key ID and secret key for everyday work with KMS. Instead, use the access
-  key ID and secret access key for an IAM user. You can also use the Amazon Web
-  Services Security Token Service to generate temporary security credentials that
-  you can use to sign requests.
+  access key ID and secret access key for everyday work with KMS. Instead, use the
+  access key ID and secret access key for an IAM user. You can also use the Amazon
+  Web Services Security Token Service to generate temporary security credentials
+  that you can use to sign requests.
 
   All KMS operations require [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
 
@@ -138,31 +138,27 @@ defmodule AWS.KMS do
 
   @doc """
   Connects or reconnects a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
-  to its associated CloudHSM cluster.
+  to its backing key store.
+
+  For an CloudHSM key store, `ConnectCustomKeyStore` connects the key store to its
+  associated CloudHSM cluster. For an external key store, `ConnectCustomKeyStore`
+  connects the key store to the external key store proxy that communicates with
+  your external key manager.
 
   The custom key store must be connected before you can create KMS keys in the key
   store or use the KMS keys it contains. You can disconnect and reconnect a custom
   key store at any time.
 
-  To connect a custom key store, its associated CloudHSM cluster must have at
-  least one active HSM. To get the number of active HSMs in a cluster, use the
-  [DescribeClusters](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html) operation. To add HSMs to the cluster, use the
-  [CreateHsm](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html)
-  operation. Also, the [ `kmsuser` crypto user](https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser)
-  (CU) must not be logged into the cluster. This prevents KMS from using this
-  account to log in.
+  The connection process for a custom key store can take an extended amount of
+  time to complete. This operation starts the connection process, but it does not
+  wait for it to complete. When it succeeds, this operation quickly returns an
+  HTTP 200 response and a JSON object with no properties. However, this response
+  does not indicate that the custom key store is connected. To get the connection
+  state of the custom key store, use the `DescribeCustomKeyStores` operation.
 
-  The connection process can take an extended amount of time to complete; up to 20
-  minutes. This operation starts the connection process, but it does not wait for
-  it to complete. When it succeeds, this operation quickly returns an HTTP 200
-  response and a JSON object with no properties. However, this response does not
-  indicate that the custom key store is connected. To get the connection state of
-  the custom key store, use the `DescribeCustomKeyStores` operation.
-
-  During the connection process, KMS finds the CloudHSM cluster that is associated
-  with the custom key store, creates the connection infrastructure, connects to
-  the cluster, logs into the CloudHSM client as the `kmsuser` CU, and rotates its
-  password.
+  This operation is part of the [custom key stores](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
+  feature in KMS, which combines the convenience and extensive integration of KMS
+  with the isolation and control of a key store that you own and manage.
 
   The `ConnectCustomKeyStore` operation might fail for various reasons. To find
   the reason, use the `DescribeCustomKeyStores` operation and see the
@@ -173,8 +169,44 @@ defmodule AWS.KMS do
   the custom key store, correct the error, use the `UpdateCustomKeyStore`
   operation if necessary, and then use `ConnectCustomKeyStore` again.
 
-  If you are having trouble connecting or disconnecting a custom key store, see
-  [Troubleshooting a Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html)
+  ## CloudHSM key store
+
+  During the connection process for an CloudHSM key store, KMS finds the CloudHSM
+  cluster that is associated with the custom key store, creates the connection
+  infrastructure, connects to the cluster, logs into the CloudHSM client as the
+  `kmsuser` CU, and rotates its password.
+
+  To connect an CloudHSM key store, its associated CloudHSM cluster must have at
+  least one active HSM. To get the number of active HSMs in a cluster, use the
+  [DescribeClusters](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html) operation. To add HSMs to the cluster, use the
+  [CreateHsm](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html)
+  operation. Also, the [ `kmsuser` crypto user](https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser)
+  (CU) must not be logged into the cluster. This prevents KMS from using this
+  account to log in.
+
+  If you are having trouble connecting or disconnecting a CloudHSM key store, see
+  [Troubleshooting an CloudHSM key store](https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html)
+  in the *Key Management Service Developer Guide*.
+
+  ## External key store
+
+  When you connect an external key store that uses public endpoint connectivity,
+  KMS tests its ability to communicate with your external key manager by sending a
+  request via the external key store proxy.
+
+  When you connect to an external key store that uses VPC endpoint service
+  connectivity, KMS establishes the networking elements that it needs to
+  communicate with your external key manager via the external key store proxy.
+  This includes creating an interface endpoint to the VPC endpoint service and a
+  private hosted zone for traffic between KMS and the VPC endpoint service.
+
+  To connect an external key store, KMS must be able to connect to the external
+  key store proxy, the external key store proxy must be able to communicate with
+  your external key manager, and the external key manager must be available for
+  cryptographic operations.
+
+  If you are having trouble connecting or disconnecting an external key store, see
+  [Troubleshooting an external key store](https://docs.aws.amazon.com/kms/latest/developerguide/xks-troubleshooting.html)
   in the *Key Management Service Developer Guide*.
 
   **Cross-account use**: No. You cannot perform this operation on a custom key
@@ -206,7 +238,7 @@ defmodule AWS.KMS do
   Creates a friendly name for a KMS key.
 
   Adding, deleting, or updating an alias can allow or deny permission to the KMS
-  key. For details, see [ABAC in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the
+  key. For details, see [ABAC for KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the
   *Key Management Service Developer Guide*.
 
   You can use an alias to identify a KMS key in the KMS console, in the
@@ -263,26 +295,65 @@ defmodule AWS.KMS do
 
   @doc """
   Creates a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
-  that is associated with an [CloudHSM cluster](https://docs.aws.amazon.com/cloudhsm/latest/userguide/clusters.html)
-  that you own and manage.
+  backed by a key store that you own and manage.
 
-  This operation is part of the [custom key store feature](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
+  When you use a KMS key in a custom key store for a cryptographic operation, the
+  cryptographic operation is actually performed in your key store using your keys.
+  KMS supports [CloudHSM key stores](https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html)
+  backed by an [CloudHSM cluster](https://docs.aws.amazon.com/cloudhsm/latest/userguide/clusters.html)
+  and [external key stores](https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html)
+  backed by an external key store proxy and external key manager outside of Amazon
+  Web Services.
+
+  This operation is part of the [custom key stores](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
   feature in KMS, which combines the convenience and extensive integration of KMS
-  with the isolation and control of a single-tenant key store.
+  with the isolation and control of a key store that you own and manage.
 
-  Before you create the custom key store, you must assemble the required elements,
-  including an CloudHSM cluster that fulfills the requirements for a custom key
-  store. For details about the required elements, see [Assemble the Prerequisites](https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore)
+  Before you create the custom key store, the required elements must be in place
+  and operational. We recommend that you use the test tools that KMS provides to
+  verify the configuration your external key store proxy. For details about the
+  required elements and verification tests, see [Assemble the prerequisites (for CloudHSM key
+  stores)](https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore)
+  or [Assemble the prerequisites (for external key stores)](https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keystore.html#xks-requirements)
   in the *Key Management Service Developer Guide*.
+
+  To create a custom key store, use the following parameters.
+
+    * To create an CloudHSM key store, specify the `CustomKeyStoreName`,
+  `CloudHsmClusterId`, `KeyStorePassword`, and `TrustAnchorCertificate`. The
+  `CustomKeyStoreType` parameter is optional for CloudHSM key stores. If you
+  include it, set it to the default value, `AWS_CLOUDHSM`. For help with failures,
+  see [Troubleshooting an CloudHSM key store](https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html)
+  in the *Key Management Service Developer Guide*.
+
+    * To create an external key store, specify the `CustomKeyStoreName`
+  and a `CustomKeyStoreType` of `EXTERNAL_KEY_STORE`. Also, specify values for
+  `XksProxyConnectivity`, `XksProxyAuthenticationCredential`,
+  `XksProxyUriEndpoint`, and `XksProxyUriPath`. If your `XksProxyConnectivity`
+  value is `VPC_ENDPOINT_SERVICE`, specify the `XksProxyVpcEndpointServiceName`
+  parameter. For help with failures, see [Troubleshooting an external key store](https://docs.aws.amazon.com/kms/latest/developerguide/xks-troubleshooting.html)
+  in the *Key Management Service Developer Guide*.
+
+  For external key stores:
+
+  Some external key managers provide a simpler method for creating an external key
+  store. For details, see your external key manager documentation.
+
+  When creating an external key store in the KMS console, you can upload a
+  JSON-based proxy configuration file with the desired values. You cannot use a
+  proxy configuration with the `CreateCustomKeyStore` operation. However, you can
+  use the values in the file to help you determine the correct values for the
+  `CreateCustomKeyStore` parameters.
 
   When the operation completes successfully, it returns the ID of the new custom
   key store. Before you can use your new custom key store, you need to use the
-  `ConnectCustomKeyStore` operation to connect the new key store to its CloudHSM
-  cluster. Even if you are not going to use your custom key store immediately, you
-  might want to connect it to verify that all settings are correct and then
-  disconnect it until you are ready to use it.
+  `ConnectCustomKeyStore` operation to connect a new CloudHSM key store to its
+  CloudHSM cluster, or to connect a new external key store to the external key
+  store proxy for your external key manager. Even if you are not going to use your
+  custom key store immediately, you might want to connect it to verify that all
+  settings are correct and then disconnect it until you are ready to use it.
 
-  For help with failures, see [Troubleshooting a Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html)
+  For help with failures, see [Troubleshooting a custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html)
   in the *Key Management Service Developer Guide*.
 
   **Cross-account use**: No. You cannot perform this operation on a custom key
@@ -373,11 +444,20 @@ defmodule AWS.KMS do
   Creates a unique customer managed [KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms-keys)
   in your Amazon Web Services account and Region.
 
-  In addition to the required parameters, you can use the optional parameters to
-  specify a key policy, description, tags, and other useful elements for any key
-  type.
+  You can use a KMS key in cryptographic operations, such as encryption and
+  signing. Some Amazon Web Services services let you use KMS keys that you create
+  and manage to protect your service resources.
 
-  KMS is replacing the term *customer master key (CMK)* with *KMS key* and *KMS
+  A KMS key is a logical representation of a cryptographic key. In addition to the
+  key material used in cryptographic operations, a KMS key includes metadata, such
+  as the key ID, key policy, creation date, description, and key state. For
+  details, see [Managing keys](https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html)
+  in the *Key Management Service Developer Guide*
+
+  Use the parameters of `CreateKey` to specify the type of KMS key, the source of
+  its key material, its key policy, description, tags, and other properties.
+
+  KMS has replaced the term *customer master key (CMK)* with *KMS key* and *KMS
   key*. The concept has not changed. To prevent breaking changes, KMS is keeping
   some variations of this term.
 
@@ -387,11 +467,14 @@ defmodule AWS.KMS do
 
   ### Symmetric encryption KMS key
 
-  To create a symmetric encryption KMS key, you aren't required to specify any
-  parameters. The default value for `KeySpec`, `SYMMETRIC_DEFAULT`, and the
-  default value for `KeyUsage`, `ENCRYPT_DECRYPT`, create a symmetric encryption
-  KMS key. For technical details, see [ SYMMETRIC_DEFAULT key spec](https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default)
-  in the *Key Management Service Developer Guide*.
+  By default, `CreateKey` creates a symmetric encryption KMS key with key material
+  that KMS generates. This is the basic and most widely used type of KMS key, and
+  provides the best performance.
+
+  To create a symmetric encryption KMS key, you don't need to specify any
+  parameters. The default value for `KeySpec`, `SYMMETRIC_DEFAULT`, the default
+  value for `KeyUsage`, `ENCRYPT_DECRYPT`, and the default value for `Origin`,
+  `AWS_KMS`, create a symmetric encryption KMS key with KMS key material.
 
   If you need a key for basic encryption and decryption or you are creating a KMS
   key to protect your resources in an Amazon Web Services service, create a
@@ -462,12 +545,12 @@ defmodule AWS.KMS do
   multi-Region keys, see [Multi-Region keys in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html)
   in the *Key Management Service Developer Guide*.
 
-  To import your own key material, begin by creating a symmetric encryption KMS
-  key with no key material. To do this, use the `Origin` parameter of `CreateKey`
-  with a value of `EXTERNAL`. Next, use `GetParametersForImport` operation to get
-  a public key and import token, and use the public key to encrypt your key
-  material. Then, use `ImportKeyMaterial` with your import token to import the key
-  material. For step-by-step instructions, see [Importing Key Material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html)
+  To import your own key material into a KMS key, begin by creating a symmetric
+  encryption KMS key with no key material. To do this, use the `Origin` parameter
+  of `CreateKey` with a value of `EXTERNAL`. Next, use `GetParametersForImport`
+  operation to get a public key and import token, and use the public key to
+  encrypt your key material. Then, use `ImportKeyMaterial` with your import token
+  to import the key material. For step-by-step instructions, see [Importing Key Material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html)
   in the * *Key Management Service Developer Guide* *.
 
   This feature supports only symmetric encryption KMS keys, including multi-Region
@@ -477,22 +560,51 @@ defmodule AWS.KMS do
   To create a multi-Region primary key with imported key material, use the
   `Origin` parameter of `CreateKey` with a value of `EXTERNAL` and the
   `MultiRegion` parameter with a value of `True`. To create replicas of the
-  multi-Region primary key, use the `ReplicateKey` operation. For more information
-  about multi-Region keys, see [Multi-Region keys in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html)
+  multi-Region primary key, use the `ReplicateKey` operation. For instructions,
+  see [Importing key material into multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-import.html
+  ). For more information about multi-Region keys, see [Multi-Region keys in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html)
   in the *Key Management Service Developer Guide*.
 
   ### Custom key store
 
-  To create a symmetric encryption KMS key in a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html),
-  use the `CustomKeyStoreId` parameter to specify the custom key store. You must
-  also use the `Origin` parameter with a value of `AWS_CLOUDHSM`. The CloudHSM
-  cluster that is associated with the custom key store must have at least two
-  active HSMs in different Availability Zones in the Amazon Web Services Region.
+  A [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
+  lets you protect your Amazon Web Services resources using keys in a backing key
+  store that you own and manage. When you request a cryptographic operation with a
+  KMS key in a custom key store, the operation is performed in the backing key
+  store using its cryptographic keys.
 
-  Custom key stores support only symmetric encryption KMS keys. You cannot create
-  an HMAC KMS key or an asymmetric KMS key in a custom key store. For information
-  about custom key stores in KMS see [Custom key stores in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
-  in the * *Key Management Service Developer Guide* *.
+  KMS supports [CloudHSM key stores](https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html)
+  backed by an CloudHSM cluster and [external key stores](https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html)
+  backed by an external key manager outside of Amazon Web Services. When you
+  create a KMS key in an CloudHSM key store, KMS generates an encryption key in
+  the CloudHSM cluster and associates it with the KMS key. When you create a KMS
+  key in an external key store, you specify an existing encryption key in the
+  external key manager.
+
+  Some external key managers provide a simpler method for creating a KMS key in an
+  external key store. For details, see your external key manager documentation.
+
+  Before you create a KMS key in a custom key store, the `ConnectionState` of the
+  key store must be `CONNECTED`. To connect the custom key store, use the
+  `ConnectCustomKeyStore` operation. To find the `ConnectionState`, use the
+  `DescribeCustomKeyStores` operation.
+
+  To create a KMS key in a custom key store, use the `CustomKeyStoreId`. Use the
+  default `KeySpec` value, `SYMMETRIC_DEFAULT`, and the default `KeyUsage` value,
+  `ENCRYPT_DECRYPT` to create a symmetric encryption key. No other key type is
+  supported in a custom key store.
+
+  To create a KMS key in an [CloudHSM key store](https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html),
+  use the `Origin` parameter with a value of `AWS_CLOUDHSM`. The CloudHSM cluster
+  that is associated with the custom key store must have at least two active HSMs
+  in different Availability Zones in the Amazon Web Services Region.
+
+  To create a KMS key in an [external key store](https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html),
+  use the `Origin` parameter with a value of `EXTERNAL_KEY_STORE` and an
+  `XksKeyId` parameter that identifies an existing external key.
+
+  Some external key managers provide a simpler method for creating a KMS key in an
+  external key store. For details, see your external key manager documentation.
 
   **Cross-account use**: No. You cannot use this operation to create a KMS key in
   a different Amazon Web Services account.
@@ -542,7 +654,7 @@ defmodule AWS.KMS do
 
   The `Decrypt` operation also decrypts ciphertext that was encrypted outside of
   KMS by the public key in an KMS asymmetric KMS key. However, it cannot decrypt
-  ciphertext produced by other libraries, such as the [Amazon Web Services Encryption
+  symmetric ciphertext produced by other libraries, such as the [Amazon Web Services Encryption
   SDK](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/) or
   [Amazon S3 client-side encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html).
   These libraries return a ciphertext format that is incompatible with KMS.
@@ -605,7 +717,7 @@ defmodule AWS.KMS do
   Deletes the specified alias.
 
   Adding, deleting, or updating an alias can allow or deny permission to the KMS
-  key. For details, see [ABAC in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the
+  key. For details, see [ABAC for KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the
   *Key Management Service Developer Guide*.
 
   Because an alias is not a property of a KMS key, you can delete and change the
@@ -650,33 +762,38 @@ defmodule AWS.KMS do
   @doc """
   Deletes a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html).
 
-  This operation does not delete the CloudHSM cluster that is associated with the
-  custom key store, or affect any users or keys in the cluster.
+  This operation does not affect any backing elements of the custom key store. It
+  does not delete the CloudHSM cluster that is associated with an CloudHSM key
+  store, or affect any users or keys in the cluster. For an external key store, it
+  does not affect the external key store proxy, external key manager, or any
+  external keys.
+
+  This operation is part of the [custom key stores](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
+  feature in KMS, which combines the convenience and extensive integration of KMS
+  with the isolation and control of a key store that you own and manage.
 
   The custom key store that you delete cannot contain any [KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys).
   Before deleting the key store, verify that you will never need to use any of the
   KMS keys in the key store for any [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations).
-  Then, use `ScheduleKeyDeletion` to delete the KMS keys from the key store. When
-  the scheduled waiting period expires, the `ScheduleKeyDeletion` operation
-  deletes the KMS keys. Then it makes a best effort to delete the key material
-  from the associated cluster. However, you might need to manually [delete the orphaned key
-  material](https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-orphaned-key)
-  from the cluster and its backups.
+  Then, use `ScheduleKeyDeletion` to delete the KMS keys from the key store. After
+  the required waiting period expires and all KMS keys are deleted from the custom
+  key store, use `DisconnectCustomKeyStore` to disconnect the key store from KMS.
+  Then, you can delete the custom key store.
 
-  After all KMS keys are deleted from KMS, use `DisconnectCustomKeyStore` to
-  disconnect the key store from KMS. Then, you can delete the custom key store.
+  For keys in an CloudHSM key store, the `ScheduleKeyDeletion` operation makes a
+  best effort to delete the key material from the associated cluster. However, you
+  might need to manually [delete the orphaned key material](https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-orphaned-key)
+  from the cluster and its backups. KMS never creates, manages, or deletes
+  cryptographic keys in the external key manager associated with an external key
+  store. You must manage them using your external key manager tools.
 
-  Instead of deleting the custom key store, consider using
-  `DisconnectCustomKeyStore` to disconnect it from KMS. While the key store is
-  disconnected, you cannot create or use the KMS keys in the key store. But, you
-  do not need to delete KMS keys and you can reconnect a disconnected custom key
-  store at any time.
+  Instead of deleting the custom key store, consider using the
+  `DisconnectCustomKeyStore` operation to disconnect the custom key store from its
+  backing key store. While the key store is disconnected, you cannot create or use
+  the KMS keys in the key store. But, you do not need to delete KMS keys and you
+  can reconnect a disconnected custom key store at any time.
 
   If the operation succeeds, it returns a JSON object with no properties.
-
-  This operation is part of the [custom key store feature](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
-  feature in KMS, which combines the convenience and extensive integration of KMS
-  with the isolation and control of a single-tenant key store.
 
   **Cross-account use**: No. You cannot perform this operation on a custom key
   store in a different Amazon Web Services account.
@@ -744,30 +861,37 @@ defmodule AWS.KMS do
   Gets information about [custom key stores](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
   in the account and Region.
 
-  This operation is part of the [custom key store feature](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
+  This operation is part of the [custom key stores](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
   feature in KMS, which combines the convenience and extensive integration of KMS
-  with the isolation and control of a single-tenant key store.
+  with the isolation and control of a key store that you own and manage.
 
   By default, this operation returns information about all custom key stores in
   the account and Region. To get only information about a particular custom key
   store, use either the `CustomKeyStoreName` or `CustomKeyStoreId` parameter (but
   not both).
 
-  To determine whether the custom key store is connected to its CloudHSM cluster,
-  use the `ConnectionState` element in the response. If an attempt to connect the
-  custom key store failed, the `ConnectionState` value is `FAILED` and the
-  `ConnectionErrorCode` element in the response indicates the cause of the
-  failure. For help interpreting the `ConnectionErrorCode`, see
-  `CustomKeyStoresListEntry`.
+  To determine whether the custom key store is connected to its CloudHSM cluster
+  or external key store proxy, use the `ConnectionState` element in the response.
+  If an attempt to connect the custom key store failed, the `ConnectionState`
+  value is `FAILED` and the `ConnectionErrorCode` element in the response
+  indicates the cause of the failure. For help interpreting the
+  `ConnectionErrorCode`, see `CustomKeyStoresListEntry`.
 
   Custom key stores have a `DISCONNECTED` connection state if the key store has
-  never been connected or you use the `DisconnectCustomKeyStore` operation to
-  disconnect it. If your custom key store state is `CONNECTED` but you are having
-  trouble using it, make sure that its associated CloudHSM cluster is active and
-  contains the minimum number of HSMs required for the operation, if any.
+  never been connected or you used the `DisconnectCustomKeyStore` operation to
+  disconnect it. Otherwise, the connection state is CONNECTED. If your custom key
+  store connection state is `CONNECTED` but you are having trouble using it,
+  verify that the backing store is active and available. For an CloudHSM key
+  store, verify that the associated CloudHSM cluster is active and contains the
+  minimum number of HSMs required for the operation, if any. For an external key
+  store, verify that the external key store proxy and its associated external key
+  manager are reachable and enabled.
 
-  For help repairing your custom key store, see the [Troubleshooting Custom Key Stores](https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html)
-  topic in the *Key Management Service Developer Guide*.
+  For help repairing your CloudHSM key store, see the [Troubleshooting CloudHSM key
+  stores](https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html).
+  For help repairing your external key store, see the [Troubleshooting external key
+  stores](https://docs.aws.amazon.com/kms/latest/developerguide/xks-troubleshooting.html).
+  Both topics are in the *Key Management Service Developer Guide*.
 
   **Cross-account use**: No. You cannot perform this operation on a custom key
   store in a different Amazon Web Services account.
@@ -805,10 +929,11 @@ defmodule AWS.KMS do
   of the key material. It includes fields, like `KeySpec`, that help you
   distinguish different types of KMS keys. It also displays the key usage
   (encryption, signing, or generating and verifying MACs) and the algorithms that
-  the KMS key supports. For KMS keys in custom key stores, it includes information
-  about the custom key store, such as the key store ID and the CloudHSM cluster
-  ID. For multi-Region keys, it displays the primary key and all related replica
-  keys.
+  the KMS key supports. For [multi-Region keys](kms/latest/developerguide/multi-region-keys-overview.html), it displays
+  the primary key and all related replica keys. For KMS keys in [CloudHSM key stores](kms/latest/developerguide/keystore-cloudhsm.html), it includes
+  information about the custom key store, such as the key store ID and the
+  CloudHSM cluster ID. For KMS key in [external key stores](kms/latest/developerguide/keystore-external.html), it includes the
+  custom key store ID and the ID and status of the associated external key.
 
   `DescribeKey` does not return the following information:
 
@@ -895,12 +1020,11 @@ defmodule AWS.KMS do
   of the specified symmetric encryption KMS key.
 
   Automatic key rotation is supported only on symmetric encryption KMS keys. You
-  cannot enable or disable automatic rotation of [asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html),
+  cannot enable automatic rotation of [asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html),
   [HMAC KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html), KMS keys
   with [imported key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html),
   or KMS keys in a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html).
-  The key rotation status of these KMS keys is always `false`. To enable or
-  disable automatic rotation of a set of related [multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate),
+  To enable or disable automatic rotation of a set of related [multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate),
   set the property on the primary key.
 
   You can enable (`EnableKeyRotation`) and disable automatic rotation of the key
@@ -938,26 +1062,31 @@ defmodule AWS.KMS do
 
   @doc """
   Disconnects the [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
-  from its associated CloudHSM cluster.
+  from its backing key store.
+
+  This operation disconnects an CloudHSM key store from its associated CloudHSM
+  cluster or disconnects an external key store from the external key store proxy
+  that communicates with your external key manager.
+
+  This operation is part of the [custom key stores](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
+  feature in KMS, which combines the convenience and extensive integration of KMS
+  with the isolation and control of a key store that you own and manage.
 
   While a custom key store is disconnected, you can manage the custom key store
-  and its KMS keys, but you cannot create or use KMS keys in the custom key store.
-  You can reconnect the custom key store at any time.
+  and its KMS keys, but you cannot create or use its KMS keys. You can reconnect
+  the custom key store at any time.
 
   While a custom key store is disconnected, all attempts to create KMS keys in the
   custom key store or to use existing KMS keys in [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations)
   will fail. This action can prevent users from storing and accessing sensitive
   data.
 
-  To find the connection state of a custom key store, use the
+  When you disconnect a custom key store, its `ConnectionState` changes to
+  `Disconnected`. To find the connection state of a custom key store, use the
   `DescribeCustomKeyStores` operation. To reconnect a custom key store, use the
   `ConnectCustomKeyStore` operation.
 
   If the operation succeeds, it returns a JSON object with no properties.
-
-  This operation is part of the [custom key store feature](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
-  feature in KMS, which combines the convenience and extensive integration of KMS
-  with the isolation and control of a single-tenant key store.
 
   **Cross-account use**: No. You cannot perform this operation on a custom key
   store in a different Amazon Web Services account.
@@ -1020,12 +1149,11 @@ defmodule AWS.KMS do
   `DisableKeyRotation` operation.
 
   Automatic key rotation is supported only on [symmetric encryption KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#symmetric-cmks).
-  You cannot enable or disable automatic rotation of [asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html),
+  You cannot enable automatic rotation of [asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html),
   [HMAC KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html), KMS keys
   with [imported key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html),
   or KMS keys in a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html).
-  The key rotation status of these KMS keys is always `false`. To enable or
-  disable automatic rotation of a set of related [multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate),
+  To enable or disable automatic rotation of a set of related [multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate),
   set the property on the primary key.
 
   You cannot enable or disable automatic rotation [Amazon Web Services managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
@@ -1426,6 +1554,14 @@ defmodule AWS.KMS do
   in a custom key store to generate a data key. To get the type of your KMS key,
   use the `DescribeKey` operation.
 
+  You must also specify the length of the data key. Use either the `KeySpec` or
+  `NumberOfBytes` parameters (but not both). For 128-bit and 256-bit data keys,
+  use the `KeySpec` parameter.
+
+  To generate an SM4 data key (China Regions only), specify a `KeySpec` value of
+  `AES_128` or `NumberOfBytes` value of `128`. The symmetric encryption key used
+  in China Regions to encrypt your data key is an SM4 encryption key.
+
   If the operation succeeds, you will find the encrypted copy of the data key in
   the `CiphertextBlob` field.
 
@@ -1470,12 +1606,13 @@ defmodule AWS.KMS do
   Generates a hash-based message authentication code (HMAC) for a message using an
   HMAC KMS key and a MAC algorithm that the key supports.
 
-  The MAC algorithm computes the HMAC for the message and the key as described in
-  [RFC 2104](https://datatracker.ietf.org/doc/html/rfc2104).  You can use the HMAC that this operation generates with the `VerifyMac`
-  operation to demonstrate that the original message has not changed. Also,
-  because a secret key is used to create the hash, you can verify that the party
-  that generated the hash has the required secret key. This operation is part of
-  KMS support for HMAC KMS keys. For details, see [HMAC keys in
+  HMAC KMS keys and the HMAC algorithms that KMS uses conform to industry
+  standards defined in [RFC 2104](https://datatracker.ietf.org/doc/html/rfc2104).  You can use value that GenerateMac returns in the `VerifyMac` operation to
+  demonstrate that the original message has not changed. Also, because a secret
+  key is used to create the hash, you can verify that the party that generated the
+  hash has the required secret key. You can also use the raw result to implement
+  HMAC-based algorithms such as key derivation functions. This operation is part
+  of KMS support for HMAC KMS keys. For details, see [HMAC keys in
   KMS](https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html) in the *
   *Key Management Service Developer Guide* *.
 
@@ -1513,8 +1650,8 @@ defmodule AWS.KMS do
   byte string. There is no default value for string length.
 
   By default, the random byte string is generated in KMS. To generate the byte
-  string in the CloudHSM cluster that is associated with a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html),
-  specify the custom key store ID.
+  string in the CloudHSM cluster associated with an CloudHSM key store, use the
+  `CustomKeyStoreId` parameter.
 
   Applications in Amazon Web Services Nitro Enclaves can call this operation by
   using the [Amazon Web Services Nitro Enclaves Development Kit](https://github.com/aws/aws-nitro-enclaves-sdk-c). For information about the
@@ -1565,12 +1702,11 @@ defmodule AWS.KMS do
   key material for your KMS keys in CloudTrail and Amazon CloudWatch.
 
   Automatic key rotation is supported only on [symmetric encryption KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#symmetric-cmks).
-  You cannot enable or disable automatic rotation of [asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html),
+  You cannot enable automatic rotation of [asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html),
   [HMAC KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html), KMS keys
   with [imported key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html),
   or KMS keys in a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html).
-  The key rotation status of these KMS keys is always `false`. To enable or
-  disable automatic rotation of a set of related [multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate),
+  To enable or disable automatic rotation of a set of related [multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate),
   set the property on the primary key..
 
   You can enable (`EnableKeyRotation`) and disable automatic rotation
@@ -1631,11 +1767,11 @@ defmodule AWS.KMS do
   subsequent `ImportKeyMaterial` request.
 
   You must specify the key ID of the symmetric encryption KMS key into which you
-  will import key material. This KMS key's `Origin` must be `EXTERNAL`. You must
-  also specify the wrapping algorithm and type of wrapping key (public key) that
-  you will use to encrypt the key material. You cannot perform this operation on
-  an asymmetric KMS key, an HMAC KMS key, or on any KMS key in a different Amazon
-  Web Services account.
+  will import key material. The KMS key `Origin` must be `EXTERNAL`. You must also
+  specify the wrapping algorithm and type of wrapping key (public key) that you
+  will use to encrypt the key material. You cannot perform this operation on an
+  asymmetric KMS key, an HMAC KMS key, or on any KMS key in a different Amazon Web
+  Services account.
 
   To import key material, you must use the public key and import token from the
   same response. These items are valid for 24 hours. The expiration date and time
@@ -1683,11 +1819,6 @@ defmodule AWS.KMS do
   every KMS operation. You also reduce of risk of encrypting data that cannot be
   decrypted. These features are not effective outside of KMS.
 
-  To verify a signature outside of KMS with an SM2 public key (China Regions
-  only), you must specify the distinguishing ID. By default, KMS uses
-  `1234567812345678` as the distinguishing ID. For more information, see [Offline verification with SM2 key
-  pairs](https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification).
-
   To help you use the public key safely outside of KMS, `GetPublicKey` returns
   important information about the public key in the response, including:
 
@@ -1710,6 +1841,11 @@ defmodule AWS.KMS do
   encrypt data, or prevent a public key from being used with an encryption
   algorithm that is not supported by KMS. You can also avoid errors, such as using
   the wrong signing algorithm in a verification operation.
+
+  To verify a signature outside of KMS with an SM2 public key (China Regions
+  only), you must specify the distinguishing ID. By default, KMS uses
+  `1234567812345678` as the distinguishing ID. For more information, see [Offline verification with SM2 key
+  pairs](https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification).
 
   The KMS key that you use for this operation must be in a compatible key state.
   For details, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
@@ -1765,10 +1901,11 @@ defmodule AWS.KMS do
     * The import token that `GetParametersForImport` returned. You must
   use a public key and token from the same `GetParametersForImport` response.
 
-    * Whether the key material expires and if so, when. If you set an
-  expiration date, KMS deletes the key material from the KMS key on the specified
-  date, and the KMS key becomes unusable. To use the KMS key again, you must
-  reimport the same key material. The only way to change an expiration date is by
+    * Whether the key material expires (`ExpirationModel`) and, if so,
+  when (`ValidTo`). If you set an expiration date, on the specified date, KMS
+  deletes the key material from the KMS key, making the KMS key unusable. To use
+  the KMS key in cryptographic operations again, you must reimport the same key
+  material. The only way to change the expiration model or expiration date is by
   reimporting the same key material and specifying a new expiration date.
 
   When this operation is successful, the key state of the KMS key changes from
@@ -2073,10 +2210,10 @@ defmodule AWS.KMS do
   you use the KMS key that you intend.
 
     * To reencrypt the data, you must use the `DestinationKeyId`
-  parameter specify the KMS key that re-encrypts the data after it is decrypted.
-  If the destination KMS key is an asymmetric KMS key, you must also provide the
-  encryption algorithm. The algorithm that you choose must be compatible with the
-  KMS key.
+  parameter to specify the KMS key that re-encrypts the data after it is
+  decrypted. If the destination KMS key is an asymmetric KMS key, you must also
+  provide the encryption algorithm. The algorithm that you choose must be
+  compatible with the KMS key.
 
   When you use an asymmetric KMS key to encrypt or reencrypt data, be sure to
   record the KMS key and encryption algorithm that you choose. You will be
@@ -2321,12 +2458,6 @@ defmodule AWS.KMS do
   unrecoverable. (The only exception is a multi-Region replica key.) To prevent
   the use of a KMS key without deleting it, use `DisableKey`.
 
-  If you schedule deletion of a KMS key from a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html),
-  when the waiting period expires, `ScheduleKeyDeletion` deletes the KMS key from
-  KMS. Then KMS makes a best effort to delete the key material from the associated
-  CloudHSM cluster. However, you might need to manually [delete the orphaned key material](https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-orphaned-key)
-  from the cluster and its backups.
-
   You can schedule the deletion of a multi-Region primary key and its replica keys
   at any time. However, KMS will not delete a multi-Region primary key with
   existing replica keys. If you schedule the deletion of a primary key with
@@ -2337,6 +2468,16 @@ defmodule AWS.KMS do
   its waiting period (`PendingWindowInDays`) begins. For details, see [Deleting multi-Region
   keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html)
   in the *Key Management Service Developer Guide*.
+
+  When KMS [deletes a KMS key from an CloudHSM key store](https://docs.aws.amazon.com/kms/latest/developerguide/delete-cmk-keystore.html),
+  it makes a best effort to delete the associated key material from the associated
+  CloudHSM cluster. However, you might need to manually [delete the orphaned key material](https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-orphaned-key)
+  from the cluster and its backups. [Deleting a KMS key from an external key store](https://docs.aws.amazon.com/kms/latest/developerguide/delete-xks-key.html)
+  has no effect on the associated external key. However, for both types of custom
+  key stores, deleting a KMS key is destructive and irreversible. You cannot
+  decrypt ciphertext encrypted under the KMS key by using only its associated
+  external key or CloudHSM key. Also, you cannot recreate a KMS key in an external
+  key store by creating a new KMS key with the same key material.
 
   For more information about scheduling a KMS key for deletion, see [Deleting KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html)
   in the *Key Management Service Developer Guide*.
@@ -2430,7 +2571,7 @@ defmodule AWS.KMS do
   Adds or edits tags on a [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk).
 
   Tagging or untagging a KMS key can allow or deny permission to the KMS key. For
-  details, see [ABAC in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the
+  details, see [ABAC for KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the
   *Key Management Service Developer Guide*.
 
   Each tag consists of a tag key and a tag value, both of which are case-sensitive
@@ -2485,7 +2626,7 @@ defmodule AWS.KMS do
   To delete a tag, specify the tag key and the KMS key.
 
   Tagging or untagging a KMS key can allow or deny permission to the KMS key. For
-  details, see [ABAC in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the
+  details, see [ABAC for KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the
   *Key Management Service Developer Guide*.
 
   When it succeeds, the `UntagResource` operation doesn't return any output. Also,
@@ -2533,14 +2674,14 @@ defmodule AWS.KMS do
   Services account and Region.
 
   Adding, deleting, or updating an alias can allow or deny permission to the KMS
-  key. For details, see [ABAC in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the
+  key. For details, see [ABAC for KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the
   *Key Management Service Developer Guide*.
 
   The current and new KMS key must be the same type (both symmetric or both
-  asymmetric), and they must have the same key usage (`ENCRYPT_DECRYPT` or
-  `SIGN_VERIFY`). This restriction prevents errors in code that uses aliases. If
-  you must assign an alias to a different type of KMS key, use `DeleteAlias` to
-  delete the old alias and `CreateAlias` to create a new alias.
+  asymmetric or both HMAC), and they must have the same key usage. This
+  restriction prevents errors in code that uses aliases. If you must assign an
+  alias to a different type of KMS key, use `DeleteAlias` to delete the old alias
+  and `CreateAlias` to create a new alias.
 
   You cannot use `UpdateAlias` to change an alias name. To change an alias name,
   use `DeleteAlias` to delete the old alias and `CreateAlias` to create a new
@@ -2591,40 +2732,71 @@ defmodule AWS.KMS do
   @doc """
   Changes the properties of a custom key store.
 
-  Use the `CustomKeyStoreId` parameter to identify the custom key store you want
-  to edit. Use the remaining parameters to change the properties of the custom key
-  store.
+  You can use this operation to change the properties of an CloudHSM key store or
+  an external key store.
 
-  You can only update a custom key store that is disconnected. To disconnect the
-  custom key store, use `DisconnectCustomKeyStore`. To reconnect the custom key
-  store after the update completes, use `ConnectCustomKeyStore`. To find the
-  connection state of a custom key store, use the `DescribeCustomKeyStores`
-  operation.
+  Use the required `CustomKeyStoreId` parameter to identify the custom key store.
+  Use the remaining optional parameters to change its properties. This operation
+  does not return any property values. To verify the updated property values, use
+  the `DescribeCustomKeyStores` operation.
 
-  The `CustomKeyStoreId` parameter is required in all commands. Use the other
-  parameters of `UpdateCustomKeyStore` to edit your key store settings.
+  This operation is part of the [custom key stores](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
+  feature in KMS, which combines the convenience and extensive integration of KMS
+  with the isolation and control of a key store that you own and manage.
 
-    * Use the `NewCustomKeyStoreName` parameter to change the friendly
-  name of the custom key store to the value that you specify.
+  When updating the properties of an external key store, verify that the updated
+  settings connect your key store, via the external key store proxy, to the same
+  external key manager as the previous settings, or to a backup or snapshot of the
+  external key manager with the same cryptographic keys. If the updated connection
+  settings fail, you can fix them and retry, although an extended delay might
+  disrupt Amazon Web Services services. However, if KMS permanently loses its
+  access to cryptographic keys, ciphertext encrypted under those keys is
+  unrecoverable.
 
-    * Use the `KeyStorePassword` parameter tell KMS the current password
-  of the [ `kmsuser` crypto user (CU)](https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser)
-  in the associated CloudHSM cluster. You can use this parameter to [fix connection
-  failures](https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-password)
-  that occur when KMS cannot log into the associated cluster because the `kmsuser`
-  password has changed. This value does not change the password in the CloudHSM
-  cluster.
+  For external key stores:
 
-    * Use the `CloudHsmClusterId` parameter to associate the custom key
-  store with a different, but related, CloudHSM cluster. You can use this
-  parameter to repair a custom key store if its CloudHSM cluster becomes corrupted
-  or is deleted, or when you need to create or restore a cluster from a backup.
+  Some external key managers provide a simpler method for updating an external key
+  store. For details, see your external key manager documentation.
+
+  When updating an external key store in the KMS console, you can upload a
+  JSON-based proxy configuration file with the desired values. You cannot upload
+  the proxy configuration file to the `UpdateCustomKeyStore` operation. However,
+  you can use the file to help you determine the correct values for the
+  `UpdateCustomKeyStore` parameters.
+
+  For an CloudHSM key store, you can use this operation to change the custom key
+  store friendly name (`NewCustomKeyStoreName`), to tell KMS about a change to the
+  `kmsuser` crypto user password (`KeyStorePassword`), or to associate the custom
+  key store with a different, but related, CloudHSM cluster (`CloudHsmClusterId`).
+  To update any property of an CloudHSM key store, the `ConnectionState` of the
+  CloudHSM key store must be `DISCONNECTED`.
+
+  For an external key store, you can use this operation to change the custom key
+  store friendly name (`NewCustomKeyStoreName`), or to tell KMS about a change to
+  the external key store proxy authentication credentials
+  (`XksProxyAuthenticationCredential`), connection method
+  (`XksProxyConnectivity`), external proxy endpoint (`XksProxyUriEndpoint`) and
+  path (`XksProxyUriPath`). For external key stores with an `XksProxyConnectivity`
+  of `VPC_ENDPOINT_SERVICE`, you can also update the Amazon VPC endpoint service
+  name (`XksProxyVpcEndpointServiceName`). To update most properties of an
+  external key store, the `ConnectionState` of the external key store must be
+  `DISCONNECTED`. However, you can update the `CustomKeyStoreName`,
+  `XksProxyAuthenticationCredential`, and `XksProxyUriPath` of an external key
+  store when it is in the CONNECTED or DISCONNECTED state.
+
+  If your update requires a `DISCONNECTED` state, before using
+  `UpdateCustomKeyStore`, use the `DisconnectCustomKeyStore` operation to
+  disconnect the custom key store. After the `UpdateCustomKeyStore` operation
+  completes, use the `ConnectCustomKeyStore` to reconnect the custom key store. To
+  find the `ConnectionState` of the custom key store, use the
+  `DescribeCustomKeyStores` operation.
+
+  Before updating the custom key store, verify that the new values allow KMS to
+  connect the custom key store to its backing key store. For example, before you
+  change the `XksProxyUriPath` value, verify that the external key store proxy is
+  reachable at the new path.
 
   If the operation succeeds, it returns a JSON object with no properties.
-
-  This operation is part of the [custom key store feature](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
-  feature in KMS, which combines the convenience and extensive integration of KMS
-  with the isolation and control of a single-tenant key store.
 
   **Cross-account use**: No. You cannot perform this operation on a custom key
   store in a different Amazon Web Services account.
@@ -2776,15 +2948,16 @@ defmodule AWS.KMS do
   You can also verify the digital signature by using the public key of the KMS key
   outside of KMS. Use the `GetPublicKey` operation to download the public key in
   the asymmetric KMS key and then use the public key to verify the signature
-  outside of KMS. To verify a signature outside of KMS with an SM2 public key, you
-  must specify the distinguishing ID. By default, KMS uses `1234567812345678` as
-  the distinguishing ID. For more information, see [Offline verification with SM2 key
-  pairs](https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification)
-  in *Key Management Service Developer Guide*. The advantage of using the `Verify`
-  operation is that it is performed within KMS. As a result, it's easy to call,
-  the operation is performed within the FIPS boundary, it is logged in CloudTrail,
-  and you can use key policy and IAM policy to determine who is authorized to use
-  the KMS key to verify signatures.
+  outside of KMS. The advantage of using the `Verify` operation is that it is
+  performed within KMS. As a result, it's easy to call, the operation is performed
+  within the FIPS boundary, it is logged in CloudTrail, and you can use key policy
+  and IAM policy to determine who is authorized to use the KMS key to verify
+  signatures.
+
+  To verify a signature outside of KMS with an SM2 public key (China Regions
+  only), you must specify the distinguishing ID. By default, KMS uses
+  `1234567812345678` as the distinguishing ID. For more information, see [Offline verification with SM2 key
+  pairs](https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification).
 
   The KMS key that you use for this operation must be in a compatible key state.
   For details, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
@@ -2813,12 +2986,13 @@ defmodule AWS.KMS do
   To verify the HMAC, `VerifyMac` computes an HMAC using the message, HMAC KMS
   key, and MAC algorithm that you specify, and compares the computed HMAC to the
   HMAC that you specify. If the HMACs are identical, the verification succeeds;
-  otherwise, it fails.
+  otherwise, it fails. Verification indicates that the message hasn't changed
+  since the HMAC was calculated, and the specified key was used to generate and
+  verify the HMAC.
 
-  Verification indicates that the message hasn't changed since the HMAC was
-  calculated, and the specified key was used to generate and verify the HMAC.
-
-  This operation is part of KMS support for HMAC KMS keys. For details, see [HMAC keys in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html) in
+  HMAC KMS keys and the HMAC algorithms that KMS uses conform to industry
+  standards defined in [RFC 2104](https://datatracker.ietf.org/doc/html/rfc2104).  This operation is part of KMS support for HMAC KMS keys. For details, see [HMAC
+  keys in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html) in
   the *Key Management Service Developer Guide*.
 
   The KMS key that you use for this operation must be in a compatible key state.

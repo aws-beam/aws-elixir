@@ -28,6 +28,12 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   @doc """
   Associates the user to an EC2 instance to utilize user-based subscriptions.
+
+  Your estimated bill for charges on the number of users and related costs will
+  take 48 hours to appear for billing periods that haven't closed (marked as
+  **Pending** billing status) in Amazon Web Services Billing. For more
+  information, see [Viewing your monthly charges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html)
+  in the *Amazon Web Services Billing User Guide*.
   """
   def associate_user(%Client{} = client, input, options \\ []) do
     url_path = "/user/AssociateUser"
@@ -212,6 +218,12 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   @doc """
   Starts a product subscription for a user with the specified identity provider.
+
+  Your estimated bill for charges on the number of users and related costs will
+  take 48 hours to appear for billing periods that haven't closed (marked as
+  **Pending** billing status) in Amazon Web Services Billing. For more
+  information, see [Viewing your monthly charges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html)
+  in the *Amazon Web Services Billing User Guide*.
   """
   def start_product_subscription(%Client{} = client, input, options \\ []) do
     url_path = "/user/StartProductSubscription"
@@ -238,6 +250,30 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   """
   def stop_product_subscription(%Client{} = client, input, options \\ []) do
     url_path = "/user/StopProductSubscription"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates additional product configuration settings for the registered identity
+  provider.
+  """
+  def update_identity_provider_settings(%Client{} = client, input, options \\ []) do
+    url_path = "/identity-provider/UpdateIdentityProviderSettings"
     headers = []
     query_params = []
 

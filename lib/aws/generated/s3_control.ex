@@ -1530,7 +1530,7 @@ defmodule AWS.S3Control do
   [ListMultiRegionAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListMultiRegionAccessPoints.html)
   """
   def get_multi_region_access_point(%Client{} = client, name, account_id, options \\ []) do
-    url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_uri(name)}"
+    url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_multi_segment_uri(name)}"
     headers = []
 
     headers =
@@ -1562,7 +1562,7 @@ defmodule AWS.S3Control do
   [PutMultiRegionAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutMultiRegionAccessPointPolicy.html)
   """
   def get_multi_region_access_point_policy(%Client{} = client, name, account_id, options \\ []) do
-    url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_uri(name)}/policy"
+    url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_multi_segment_uri(name)}/policy"
     headers = []
 
     headers =
@@ -1600,7 +1600,45 @@ defmodule AWS.S3Control do
         account_id,
         options \\ []
       ) do
-    url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_uri(name)}/policystatus"
+    url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_multi_segment_uri(name)}/policystatus"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Returns the routing configuration for a Multi-Region Access Point, indicating
+  which Regions are active or passive.
+
+  To obtain routing control changes and failover requests, use the Amazon S3
+  failover control infrastructure endpoints in these five Amazon Web Services
+  Regions:
+
+    * `us-east-1`
+
+    * `us-west-2`
+
+    * `ap-southeast-2`
+
+    * `ap-northeast-1`
+
+    * `eu-west-1`
+
+  Your Amazon S3 bucket does not need to be in these five Regions.
+  """
+  def get_multi_region_access_point_routes(%Client{} = client, mrap, account_id, options \\ []) do
+    url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_multi_segment_uri(mrap)}/routes"
     headers = []
 
     headers =
@@ -2617,6 +2655,65 @@ defmodule AWS.S3Control do
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Submits an updated route configuration for a Multi-Region Access Point.
+
+  This API operation updates the routing status for the specified Regions from
+  active to passive, or from passive to active. A value of `0` indicates a passive
+  status, which means that traffic won't be routed to the specified Region. A
+  value of `100` indicates an active status, which means that traffic will be
+  routed to the specified Region. At least one Region must be active at all times.
+
+  When the routing configuration is changed, any in-progress operations (uploads,
+  copies, deletes, and so on) to formerly active Regions will continue to run to
+  their final completion state (success or failure). The routing configurations of
+  any Regions that aren’t specified remain unchanged.
+
+  Updated routing configurations might not be immediately applied. It can take up
+  to 2 minutes for your changes to take effect.
+
+  To submit routing control changes and failover requests, use the Amazon S3
+  failover control infrastructure endpoints in these five Amazon Web Services
+  Regions:
+
+    * `us-east-1`
+
+    * `us-west-2`
+
+    * `ap-southeast-2`
+
+    * `ap-northeast-1`
+
+    * `eu-west-1`
+
+  Your Amazon S3 bucket does not need to be in these five Regions.
+  """
+  def submit_multi_region_access_point_routes(%Client{} = client, mrap, input, options \\ []) do
+    url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_multi_segment_uri(mrap)}/routes"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """

@@ -434,7 +434,10 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Describes the Kubernetes versions that the add-on can be used with.
+  Describes the versions for an add-on.
+
+  Information such as the Kubernetes versions that you can use the add-on with,
+  the `owner`, `publisher`, and the `type` of the add-on are returned.
   """
   def describe_addon_versions(
         %Client{} = client,
@@ -442,11 +445,35 @@ defmodule AWS.EKS do
         kubernetes_version \\ nil,
         max_results \\ nil,
         next_token \\ nil,
+        owners \\ nil,
+        publishers \\ nil,
+        types \\ nil,
         options \\ []
       ) do
     url_path = "/addons/supported-versions"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(types) do
+        [{"types", types} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(publishers) do
+        [{"publishers", publishers} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(owners) do
+        [{"owners", owners} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do

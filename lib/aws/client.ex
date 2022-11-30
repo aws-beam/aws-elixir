@@ -42,7 +42,7 @@ defmodule AWS.Client do
             endpoint: nil,
             proto: "https",
             port: 443,
-            http_client: {AWS.HTTPClient, []},
+            http_client: {AWS.HTTPClient.Hackney, []},
             json_module: {AWS.JSON, []},
             xml_module: {AWS.XML, []}
 
@@ -173,6 +173,25 @@ defmodule AWS.Client do
   def put_endpoint(%__MODULE__{} = client, {:keep_prefixes, endpoint} = endpoint_config)
       when is_binary(endpoint) do
     %{client | endpoint: endpoint_config}
+  end
+
+  @doc """
+  Configures the HTTP client used by a given client.
+
+  Switches to a different HTTP client, defined by a `{module, opts}` tuple. See
+  `AWS.HTTPClient` behavior for more details.
+
+  ### Examples
+
+      iex> AWS.Client.put_http_client(%AWS.Client{}, {MyHTTPClient, []})
+      %AWS.Client{http_client: {MyHTTPClient, []}}
+
+      iex> AWS.Client.put_http_client(%AWS.Client{}, {AWS.HTTPClient.Finch, finch_name: AWS.Finch})
+      %AWS.Client{http_client: {AWS.HTTPClient.Finch, finch_name: AWS.Finch}}
+
+  """
+  def put_http_client(%__MODULE__{} = client, http_client) do
+    %{client | http_client: http_client}
   end
 
   def request(client, method, url, body, headers, _opts \\ []) do

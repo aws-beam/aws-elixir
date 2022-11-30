@@ -14,7 +14,13 @@ defmodule AWS.Mixfile do
       start_permanent: Mix.env() == :prod,
       package: package(),
       docs: docs(),
-      deps: deps()
+      deps: deps(),
+      xref: [
+        exclude: [
+          :hackney,
+          Finch
+        ]
+      ]
     ]
   end
 
@@ -32,6 +38,7 @@ defmodule AWS.Mixfile do
       {:earmark, "~> 1.4", only: [:dev]},
       {:ex_doc, "~> 0.24", only: [:dev]},
       {:bypass, "~> 2.1", only: [:test]},
+      {:finch, "~> 0.14.0 or ~> 0.14.0", optional: true},
       {:hackney, "~> 1.16", optional: true}
     ]
   end
@@ -65,6 +72,8 @@ defmodule AWS.Mixfile do
           AWS,
           AWS.Client,
           AWS.HTTPClient,
+          AWS.HTTPClient.Finch,
+          AWS.HTTPClient.Hackney,
           AWS.JSON,
           AWS.XML
         ]

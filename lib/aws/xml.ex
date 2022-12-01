@@ -61,10 +61,38 @@ defmodule AWS.XML do
     ["<", k, ">", Float.to_charlist(v), "</", k, ">"]
   end
 
+  defp encode_xml_key_value({k, v}) when is_binary(k) and is_boolean(v) do
+    ["<", k, ">", to_string(v), "</", k, ">"]
+  end
+
   defp encode_xml_key_value({k, v}) when is_binary(k) and is_map(v) do
     [
       "<",
       k,
+      ">",
+      v
+      |> Map.to_list()
+      |> Enum.map(&encode_xml_key_value/1),
+      "</",
+      k,
+      ">"
+    ]
+  end
+
+  # allow passing a map to use as xml attributes
+  defp encode_xml_key_value({{k, attrmap}, v})
+       when is_binary(k) and is_map(attrmap) and is_map(v) do
+    # note: assume that special chars in av are quoted by caller
+    attrlist =
+      for {a, av} <- attrmap do
+        [" ", to_string(a), "=", "\"#{av}\""]
+      end
+      |> List.flatten()
+
+    [
+      "<",
+      k,
+      attrlist,
       ">",
       v
       |> Map.to_list()

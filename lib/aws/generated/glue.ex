@@ -113,6 +113,15 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Retrieves a list of data quality results for the specified result IDs.
+  """
+  def batch_get_data_quality_result(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetDataQualityResult", input, options)
+  end
+
+  @doc """
   Returns a list of resource metadata for a given list of development endpoint
   names.
 
@@ -190,6 +199,24 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "BatchUpdatePartition", input, options)
+  end
+
+  @doc """
+  Cancels the specified recommendation run that was being used to generate rules.
+  """
+  def cancel_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelDataQualityRuleRecommendationRun", input, options)
+  end
+
+  @doc """
+  Cancels a run where a ruleset is being evaluated against a data source.
+  """
+  def cancel_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelDataQualityRulesetEvaluationRun", input, options)
   end
 
   @doc """
@@ -283,6 +310,19 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateCustomEntityType", input, options)
+  end
+
+  @doc """
+  Creates a data quality ruleset with DQDL rules applied to a specified Glue
+  table.
+
+  You create the ruleset using the Data Quality Definition Language (DQDL). For
+  more information, see the Glue developer guide.
+  """
+  def create_data_quality_ruleset(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDataQualityRuleset", input, options)
   end
 
   @doc """
@@ -520,6 +560,15 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteCustomEntityType", input, options)
+  end
+
+  @doc """
+  Deletes a data quality ruleset.
+  """
+  def delete_data_quality_ruleset(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDataQualityRuleset", input, options)
   end
 
   @doc """
@@ -874,6 +923,42 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "GetDataCatalogEncryptionSettings", input, options)
+  end
+
+  @doc """
+  Retrieves the result of a data quality rule evaluation.
+  """
+  def get_data_quality_result(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDataQualityResult", input, options)
+  end
+
+  @doc """
+  Gets the specified recommendation run that was used to generate rules.
+  """
+  def get_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDataQualityRuleRecommendationRun", input, options)
+  end
+
+  @doc """
+  Returns an existing ruleset by identifier or name.
+  """
+  def get_data_quality_ruleset(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDataQualityRuleset", input, options)
+  end
+
+  @doc """
+  Retrieves a specific run where a ruleset is evaluated against a data source.
+  """
+  def get_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDataQualityRulesetEvaluationRun", input, options)
   end
 
   @doc """
@@ -1415,6 +1500,43 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Returns all data quality execution results for your account.
+  """
+  def list_data_quality_results(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDataQualityResults", input, options)
+  end
+
+  @doc """
+  Lists the recommendation runs meeting the filter criteria.
+  """
+  def list_data_quality_rule_recommendation_runs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDataQualityRuleRecommendationRuns", input, options)
+  end
+
+  @doc """
+  Lists all the runs meeting the filter criteria, where a ruleset is evaluated
+  against a data source.
+  """
+  def list_data_quality_ruleset_evaluation_runs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDataQualityRulesetEvaluationRuns", input, options)
+  end
+
+  @doc """
+  Returns a paginated list of rulesets for the specified list of Glue tables.
+  """
+  def list_data_quality_rulesets(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDataQualityRulesets", input, options)
+  end
+
+  @doc """
   Retrieves the names of all `DevEndpoint` resources in this Amazon Web Services
   account, or the resources with the specified tag.
 
@@ -1726,6 +1848,33 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Starts a recommendation run that is used to generate rules when you don't know
+  what rules to write.
+
+  Glue Data Quality analyzes the data and comes up with recommendations for a
+  potential ruleset. You can then triage the ruleset and modify the generated
+  ruleset to your liking.
+  """
+  def start_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartDataQualityRuleRecommendationRun", input, options)
+  end
+
+  @doc """
+  Once you have a ruleset definition (either recommended or your own), you call
+  this operation to evaluate the ruleset against a data source (Glue table).
+
+  The evaluation computes results which you can retrieve with the
+  `GetDataQualityResult` API.
+  """
+  def start_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartDataQualityRulesetEvaluationRun", input, options)
+  end
+
+  @doc """
   Begins an asynchronous task to export all labeled data for a particular
   transform.
 
@@ -1987,6 +2136,15 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateCrawlerSchedule", input, options)
+  end
+
+  @doc """
+  Updates the specified data quality ruleset.
+  """
+  def update_data_quality_ruleset(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDataQualityRuleset", input, options)
   end
 
   @doc """

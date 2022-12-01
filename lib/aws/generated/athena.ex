@@ -115,6 +115,17 @@ defmodule AWS.Athena do
   end
 
   @doc """
+  Creates an empty `ipynb` file in the specified Apache Spark enabled workgroup.
+
+  Throws an error if a file in the workgroup with the same name already exists.
+  """
+  def create_notebook(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateNotebook", input, options)
+  end
+
+  @doc """
   Creates a prepared statement for use with SQL queries in Athena.
   """
   def create_prepared_statement(%Client{} = client, input, options \\ []) do
@@ -124,7 +135,23 @@ defmodule AWS.Athena do
   end
 
   @doc """
+  Gets an authentication token and the URL at which the notebook can be accessed.
+
+  During programmatic access, `CreatePresignedNotebookUrl` must be called every 10
+  minutes to refresh the authentication token.
+  """
+  def create_presigned_notebook_url(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePresignedNotebookUrl", input, options)
+  end
+
+  @doc """
   Creates a workgroup with the specified name.
+
+  Only one of `Configurations` or `Configuration` can be specified;
+  `Configurations` for a workgroup with multi engine support (for example, an
+  Apache Spark enabled workgroup) or `Configuration` for an Athena SQL workgroup.
   """
   def create_work_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -155,6 +182,15 @@ defmodule AWS.Athena do
   end
 
   @doc """
+  Deletes the specified notebook.
+  """
+  def delete_notebook(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteNotebook", input, options)
+  end
+
+  @doc """
   Deletes the prepared statement with the specified name from the specified
   workgroup.
   """
@@ -173,6 +209,43 @@ defmodule AWS.Athena do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteWorkGroup", input, options)
+  end
+
+  @doc """
+  Exports the specified notebook and its metadata.
+  """
+  def export_notebook(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExportNotebook", input, options)
+  end
+
+  @doc """
+  Describes a previously submitted calculation execution.
+  """
+  def get_calculation_execution(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCalculationExecution", input, options)
+  end
+
+  @doc """
+  Retrieves a pre-signed URL to a copy of the code that was executed for the
+  calculation.
+  """
+  def get_calculation_execution_code(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCalculationExecutionCode", input, options)
+  end
+
+  @doc """
+  Gets the status of a current calculation.
+  """
+  def get_calculation_execution_status(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCalculationExecutionStatus", input, options)
   end
 
   @doc """
@@ -202,6 +275,15 @@ defmodule AWS.Athena do
     meta = metadata()
 
     Request.request_post(client, meta, "GetNamedQuery", input, options)
+  end
+
+  @doc """
+  Retrieves notebook metadata for the specified notebook ID.
+  """
+  def get_notebook_metadata(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetNotebookMetadata", input, options)
   end
 
   @doc """
@@ -265,6 +347,25 @@ defmodule AWS.Athena do
   end
 
   @doc """
+  Gets the full details of a previously created session, including the session
+  status and configuration.
+  """
+  def get_session(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSession", input, options)
+  end
+
+  @doc """
+  Gets the current status of a session.
+  """
+  def get_session_status(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSessionStatus", input, options)
+  end
+
+  @doc """
   Returns table metadata for the specified catalog, database, and table.
   """
   def get_table_metadata(%Client{} = client, input, options \\ []) do
@@ -280,6 +381,40 @@ defmodule AWS.Athena do
     meta = metadata()
 
     Request.request_post(client, meta, "GetWorkGroup", input, options)
+  end
+
+  @doc """
+  Imports a single `ipynb` file to a Spark enabled workgroup.
+
+  The maximum file size that can be imported is 10 megabytes. If an `ipynb` file
+  with the same name already exists in the workgroup, throws an error.
+  """
+  def import_notebook(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportNotebook", input, options)
+  end
+
+  @doc """
+  Returns the supported DPU sizes for the supported application runtimes (for
+  example, `Jupyter 1.0`).
+  """
+  def list_application_d_p_u_sizes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListApplicationDPUSizes", input, options)
+  end
+
+  @doc """
+  Lists the calculations that have been submitted to a session in descending
+  order.
+
+  Newer calculations are listed first; older calculations are listed later.
+  """
+  def list_calculation_executions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCalculationExecutions", input, options)
   end
 
   @doc """
@@ -311,6 +446,18 @@ defmodule AWS.Athena do
   end
 
   @doc """
+  Lists, in descending order, the executors that have been submitted to a session.
+
+  Newer executors are listed first; older executors are listed later. The result
+  can be optionally filtered by state.
+  """
+  def list_executors(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListExecutors", input, options)
+  end
+
+  @doc """
   Provides a list of available query IDs only for queries saved in the specified
   workgroup.
 
@@ -324,6 +471,27 @@ defmodule AWS.Athena do
     meta = metadata()
 
     Request.request_post(client, meta, "ListNamedQueries", input, options)
+  end
+
+  @doc """
+  Displays the notebook files for the specified workgroup in paginated format.
+  """
+  def list_notebook_metadata(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListNotebookMetadata", input, options)
+  end
+
+  @doc """
+  Lists, in descending order, the sessions that have been created in a notebook
+  that are in an active state like `CREATING`, `CREATED`, `IDLE` or `BUSY`.
+
+  Newer sessions are listed first; older sessions are listed later.
+  """
+  def list_notebook_sessions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListNotebookSessions", input, options)
   end
 
   @doc """
@@ -350,6 +518,18 @@ defmodule AWS.Athena do
     meta = metadata()
 
     Request.request_post(client, meta, "ListQueryExecutions", input, options)
+  end
+
+  @doc """
+  Lists the sessions in a workgroup that are in an active state like `CREATING`,
+  `CREATED`, `IDLE`, or `BUSY`.
+
+  Newer sessions are listed first; older sessions are listed later.
+  """
+  def list_sessions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSessions", input, options)
   end
 
   @doc """
@@ -380,6 +560,18 @@ defmodule AWS.Athena do
   end
 
   @doc """
+  Submits calculations for execution within a session.
+
+  You can supply the code to run as an inline code block within the request or as
+  an Amazon S3 URL.
+  """
+  def start_calculation_execution(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartCalculationExecution", input, options)
+  end
+
+  @doc """
   Runs the SQL query statements contained in the `Query`.
 
   Requires you to have access to the workgroup in which the query ran. Running
@@ -392,6 +584,35 @@ defmodule AWS.Athena do
     meta = metadata()
 
     Request.request_post(client, meta, "StartQueryExecution", input, options)
+  end
+
+  @doc """
+  Creates a session for running calculations within a workgroup.
+
+  The session is ready when it reaches an `IDLE` state.
+  """
+  def start_session(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartSession", input, options)
+  end
+
+  @doc """
+  Requests the cancellation of a calculation.
+
+  A `StopCalculationExecution` call on a calculation that is already in a terminal
+  state (for example, `STOPPED`, `FAILED`, or `COMPLETED`) succeeds but has no
+  effect.
+
+  Cancelling a calculation is done on a best effort basis. If a calculation cannot
+  be cancelled, you can be charged for its completion. If you are concerned about
+  being charged for a calculation that cannot be cancelled, consider terminating
+  the session in which the calculation is running.
+  """
+  def stop_calculation_execution(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopCalculationExecution", input, options)
   end
 
   @doc """
@@ -430,6 +651,20 @@ defmodule AWS.Athena do
   end
 
   @doc """
+  Terminates an active session.
+
+  A `TerminateSession` call on a session that is already inactive (for example, in
+  a `FAILED`, `TERMINATED` or `TERMINATING` state) succeeds but has no effect.
+  Calculations running in the session when `TerminateSession` is called are
+  forcefully stopped, but may display as `FAILED` instead of `STOPPED`.
+  """
+  def terminate_session(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TerminateSession", input, options)
+  end
+
+  @doc """
   Removes one or more tags from a data catalog or workgroup resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
@@ -459,6 +694,24 @@ defmodule AWS.Athena do
   end
 
   @doc """
+  Updates the contents of a Spark notebook.
+  """
+  def update_notebook(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateNotebook", input, options)
+  end
+
+  @doc """
+  Updates the metadata for a notebook.
+  """
+  def update_notebook_metadata(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateNotebookMetadata", input, options)
+  end
+
+  @doc """
   Updates a prepared statement.
   """
   def update_prepared_statement(%Client{} = client, input, options \\ []) do
@@ -470,7 +723,10 @@ defmodule AWS.Athena do
   @doc """
   Updates the workgroup with the specified name.
 
-  The workgroup's name cannot be changed.
+  The workgroup's name cannot be changed. Only one of `ConfigurationsUpdates` or
+  `ConfigurationUpdates` can be specified; `ConfigurationsUpdates` for a workgroup
+  with multi engine support (for example, an Apache Spark enabled workgroup) or
+  `ConfigurationUpdates` for an Athena SQL workgroup.
   """
   def update_work_group(%Client{} = client, input, options \\ []) do
     meta = metadata()

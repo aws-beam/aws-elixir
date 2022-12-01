@@ -531,6 +531,15 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Create a hub.
+  """
+  def create_hub(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateHub", input, options)
+  end
+
+  @doc """
   Defines the settings you will use for the human review workflow user interface.
 
   Reviewers will see a three-panel interface with an instruction area, the item to
@@ -590,6 +599,27 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateImageVersion", input, options)
+  end
+
+  @doc """
+  Creates an inference experiment using the configurations specified in the
+  request.
+
+  Use this API to schedule an experiment to compare model variants on a Amazon
+  SageMaker inference endpoint. For more information about inference experiments,
+  see [Shadow tests](https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html).
+
+  Amazon SageMaker begins your experiment at the scheduled time and routes traffic
+  to your endpoint's model variants based on your specified configuration.
+
+  While the experiment is in progress or after it has concluded, you can view
+  metrics that compare your model variants. For more information, see [View, monitor, and edit shadow
+  tests](https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests-view-monitor-edit.html).
+  """
+  def create_inference_experiment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateInferenceExperiment", input, options)
   end
 
   @doc """
@@ -693,6 +723,26 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateModelBiasJobDefinition", input, options)
+  end
+
+  @doc """
+  Creates an Amazon SageMaker Model Card.
+
+  For information about how to use model cards, see [Amazon SageMaker Model Card](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html).
+  """
+  def create_model_card(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateModelCard", input, options)
+  end
+
+  @doc """
+  Creates an Amazon SageMaker Model Card export job.
+  """
+  def create_model_card_export_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateModelCardExportJob", input, options)
   end
 
   @doc """
@@ -923,6 +973,15 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateProject", input, options)
+  end
+
+  @doc """
+  Creates a space used for real time collaboration in a Domain.
+  """
+  def create_space(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSpace", input, options)
   end
 
   @doc """
@@ -1346,6 +1405,24 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Delete a hub.
+  """
+  def delete_hub(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteHub", input, options)
+  end
+
+  @doc """
+  Delete the contents of a hub.
+  """
+  def delete_hub_content(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteHubContent", input, options)
+  end
+
+  @doc """
   Use this operation to delete a human task user interface (worker task template).
 
   To see a list of human task user interfaces (work task templates) in your
@@ -1381,6 +1458,18 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Deletes an inference experiment.
+
+  This operation does not delete your endpoint, variants, or any underlying
+  resources. This operation only deletes the metadata of your experiment.
+  """
+  def delete_inference_experiment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteInferenceExperiment", input, options)
+  end
+
+  @doc """
   Deletes a model.
 
   The `DeleteModel` API deletes only the model entry that was created in SageMaker
@@ -1400,6 +1489,15 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteModelBiasJobDefinition", input, options)
+  end
+
+  @doc """
+  Deletes an Amazon SageMaker Model Card.
+  """
+  def delete_model_card(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteModelCard", input, options)
   end
 
   @doc """
@@ -1508,6 +1606,15 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteProject", input, options)
+  end
+
+  @doc """
+  Used to delete a space.
+  """
+  def delete_space(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSpace", input, options)
   end
 
   @doc """
@@ -1816,6 +1923,24 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Describe a hub.
+  """
+  def describe_hub(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeHub", input, options)
+  end
+
+  @doc """
+  Describe the content of a hub.
+  """
+  def describe_hub_content(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeHubContent", input, options)
+  end
+
+  @doc """
   Returns information about the requested human task user interface (worker task
   template).
   """
@@ -1850,6 +1975,15 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeImageVersion", input, options)
+  end
+
+  @doc """
+  Returns details about an inference experiment.
+  """
+  def describe_inference_experiment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInferenceExperiment", input, options)
   end
 
   @doc """
@@ -1901,6 +2035,25 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeModelBiasJobDefinition", input, options)
+  end
+
+  @doc """
+  Describes the content, creation time, and security configuration of an Amazon
+  SageMaker Model Card.
+  """
+  def describe_model_card(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeModelCard", input, options)
+  end
+
+  @doc """
+  Describes an Amazon SageMaker Model Card export job.
+  """
+  def describe_model_card_export_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeModelCardExportJob", input, options)
   end
 
   @doc """
@@ -2016,6 +2169,15 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeProject", input, options)
+  end
+
+  @doc """
+  Describes the space.
+  """
+  def describe_space(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSpace", input, options)
   end
 
   @doc """
@@ -2220,6 +2382,15 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "GetSearchSuggestions", input, options)
+  end
+
+  @doc """
+  Import hub content.
+  """
+  def import_hub_content(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportHubContent", input, options)
   end
 
   @doc """
@@ -2431,6 +2602,33 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  List hub content versions.
+  """
+  def list_hub_content_versions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListHubContentVersions", input, options)
+  end
+
+  @doc """
+  List the contents of a hub.
+  """
+  def list_hub_contents(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListHubContents", input, options)
+  end
+
+  @doc """
+  List all existing hubs.
+  """
+  def list_hubs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListHubs", input, options)
+  end
+
+  @doc """
   Returns information about the human task user interfaces in your account.
   """
   def list_human_task_uis(%Client{} = client, input, options \\ []) do
@@ -2470,6 +2668,15 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "ListImages", input, options)
+  end
+
+  @doc """
+  Returns the list of all inference experiments.
+  """
+  def list_inference_experiments(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListInferenceExperiments", input, options)
   end
 
   @doc """
@@ -2534,6 +2741,33 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  List the export jobs for the Amazon SageMaker Model Card.
+  """
+  def list_model_card_export_jobs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListModelCardExportJobs", input, options)
+  end
+
+  @doc """
+  List existing versions of an Amazon SageMaker Model Card.
+  """
+  def list_model_card_versions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListModelCardVersions", input, options)
+  end
+
+  @doc """
+  List existing model cards.
+  """
+  def list_model_cards(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListModelCards", input, options)
+  end
+
+  @doc """
   Lists model explainability job definitions that satisfy various filters.
   """
   def list_model_explainability_job_definitions(%Client{} = client, input, options \\ []) do
@@ -2586,6 +2820,24 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "ListModels", input, options)
+  end
+
+  @doc """
+  Gets a list of past alerts in a model monitoring schedule.
+  """
+  def list_monitoring_alert_history(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMonitoringAlertHistory", input, options)
+  end
+
+  @doc """
+  Gets the alerts for a single monitoring schedule.
+  """
+  def list_monitoring_alerts(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMonitoringAlerts", input, options)
   end
 
   @doc """
@@ -2678,6 +2930,15 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "ListProjects", input, options)
+  end
+
+  @doc """
+  Lists spaces.
+  """
+  def list_spaces(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSpaces", input, options)
   end
 
   @doc """
@@ -2947,6 +3208,15 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Starts an inference experiment.
+  """
+  def start_inference_experiment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartInferenceExperiment", input, options)
+  end
+
+  @doc """
   Starts a previously stopped monitoring schedule.
 
   By default, when you successfully create a new schedule, the status of a
@@ -3039,6 +3309,15 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "StopHyperParameterTuningJob", input, options)
+  end
+
+  @doc """
+  Stops an inference experiment.
+  """
+  def stop_inference_experiment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopInferenceExperiment", input, options)
   end
 
   @doc """
@@ -3303,6 +3582,15 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Update a hub.
+  """
+  def update_hub(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateHub", input, options)
+  end
+
+  @doc """
   Updates the properties of a SageMaker image.
 
   To change the image's tags, use the `AddTags` and `DeleteTags` APIs.
@@ -3314,12 +3602,46 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Updates an inference experiment that you created.
+
+  The status of the inference experiment has to be either `Created`, `Running`.
+  For more information on the status of an inference experiment, see
+  `DescribeInferenceExperimentResponse$Status`.
+  """
+  def update_inference_experiment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateInferenceExperiment", input, options)
+  end
+
+  @doc """
+  Update an Amazon SageMaker Model Card.
+
+  You cannot update both model card content and model card status in a single
+  call.
+  """
+  def update_model_card(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateModelCard", input, options)
+  end
+
+  @doc """
   Updates a versioned model.
   """
   def update_model_package(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateModelPackage", input, options)
+  end
+
+  @doc """
+  Update the parameters of a model monitor alert.
+  """
+  def update_monitoring_alert(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateMonitoringAlert", input, options)
   end
 
   @doc """
@@ -3384,6 +3706,15 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateProject", input, options)
+  end
+
+  @doc """
+  Updates the settings of a space.
+  """
+  def update_space(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSpace", input, options)
   end
 
   @doc """

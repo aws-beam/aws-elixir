@@ -3,11 +3,9 @@
 
 defmodule AWS.GameLift do
   @moduledoc """
-  GameLift Service
-
-  Amazon Web Services provides solutions for hosting session-based multiplayer
-  game servers in the cloud, including tools for deploying, operating, and scaling
-  game servers.
+  Amazon GameLift provides solutions for hosting session-based multiplayer game
+  servers in the cloud, including tools for deploying, operating, and scaling game
+  servers.
 
   Built on Amazon Web Services global computing infrastructure, GameLift helps you
   deliver high-performance, high-reliability, low-cost game servers while
@@ -43,9 +41,9 @@ defmodule AWS.GameLift do
 
   ## About this API Reference
 
-  This reference guide describes the low-level service API for Amazon Web
-  Services. With each topic in this guide, you can find links to language-specific
-  SDK guides and the Amazon Web Services CLI reference. Useful links:
+  This reference guide describes the low-level service API for Amazon GameLift.
+  With each topic in this guide, you can find links to language-specific SDK
+  guides and the Amazon Web Services CLI reference. Useful links:
 
     * [GameLift API operations listed by tasks](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html)
 
@@ -102,11 +100,6 @@ defmodule AWS.GameLift do
 
   [ FlexMatch events](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html)
   (reference)
-
-  ## Related actions
-
-  `StartMatchmaking` | `DescribeMatchmaking` | `StopMatchmaking` | `AcceptMatch` |
-  `StartMatchBackfill` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def accept_match(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -135,10 +128,10 @@ defmodule AWS.GameLift do
   When a game server is successfully claimed, connection information is returned.
   A claimed game server's utilization status remains `AVAILABLE` while the claim
   status is set to `CLAIMED` for up to 60 seconds. This time period gives the game
-  server time to update its status to `UTILIZED` (using `UpdateGameServer`) once
-  players join. If the game server's status is not updated within 60 seconds, the
-  game server reverts to unclaimed status and is available to be claimed by
-  another request. The claim time period is a fixed value and is not configurable.
+  server time to update its status to `UTILIZED` after players join. If the game
+  server's status is not updated within 60 seconds, the game server reverts to
+  unclaimed status and is available to be claimed by another request. The claim
+  time period is a fixed value and is not configurable.
 
   If you try to claim a specific game server, this request will fail in the
   following cases:
@@ -149,17 +142,13 @@ defmodule AWS.GameLift do
 
   When claiming a specific game server, this request will succeed even if the game
   server is running on an instance in `DRAINING` status. To avoid this, first
-  check the instance status by calling `DescribeGameServerInstances`.
+  check the instance status by calling
+  [DescribeGameServerInstances](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameServerInstances.html) .
 
   ## Learn more
 
-  [GameLift FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
-
-  ## Related actions
-
-  `RegisterGameServer` | `ListGameServers` | `ClaimGameServer` |
-  `DescribeGameServer` | `UpdateGameServer` | `DeregisterGameServer` | [All APIs by
-  task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
+  [GameLift FleetIQ
+  Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
   """
   def claim_game_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -188,8 +177,7 @@ defmodule AWS.GameLift do
 
   ## Related actions
 
-  `CreateAlias` | `ListAliases` | `DescribeAlias` | `UpdateAlias` | `DeleteAlias`
-  | `ResolveAlias` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -200,32 +188,31 @@ defmodule AWS.GameLift do
   @doc """
   Creates a new Amazon GameLift build resource for your game server binary files.
 
-  Game server binaries must be combined into a zip file for use with Amazon
-  GameLift.
+  Combine game server binaries into a zip file for use with Amazon GameLift.
 
-  When setting up a new game build for GameLift, we recommend using the Amazon Web
-  Services CLI command **
+  When setting up a new game build for GameLift, we recommend using the CLI
+  command **
   [upload-build](https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html) **. This helper command combines two tasks: (1) it uploads your build files from
   a file directory to a GameLift Amazon S3 location, and (2) it creates a new
   build resource.
 
-  The `CreateBuild` operation can used in the following scenarios:
+  You can use the operation in the following scenarios:
 
     * To create a new game build with build files that are in an Amazon
   S3 location under an Amazon Web Services account that you control. To use this
-  option, you must first give Amazon GameLift access to the Amazon S3 bucket. With
-  permissions in place, call `CreateBuild` and specify a build name, operating
-  system, and the Amazon S3 storage location of your game build.
+  option, you give Amazon GameLift access to the Amazon S3 bucket. With
+  permissions in place, specify a build name, operating system, and the Amazon S3
+  storage location of your game build.
 
     * To directly upload your build files to a GameLift Amazon S3
-  location. To use this option, first call `CreateBuild` and specify a build name
-  and operating system. This operation creates a new build resource and also
-  returns an Amazon S3 location with temporary access credentials. Use the
-  credentials to manually upload your build files to the specified Amazon S3
-  location. For more information, see [Uploading
+  location. To use this option, specify a build name and operating system. This
+  operation creates a new build resource and also returns an Amazon S3 location
+  with temporary access credentials. Use the credentials to manually upload your
+  build files to the specified Amazon S3 location. For more information, see
+  [Uploading
   Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html)
-  in the *Amazon S3 Developer Guide*. Build files can be uploaded to the GameLift
-  Amazon S3 location once only; that can't be updated.
+  in the *Amazon S3 Developer Guide*. After you upload build files to the GameLift
+  Amazon S3 location, you can't update them.
 
   If successful, this operation creates a new build resource with a unique build
   ID and places it in `INITIALIZED` status. A build must be in `READY` status
@@ -237,9 +224,6 @@ defmodule AWS.GameLift do
 
   [ Create a Build with Files in Amazon S3](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build)
 
-  ## Related actions
-
-  `CreateBuild` | `ListBuilds` | `DescribeBuild` | `UpdateBuild` | `DeleteBuild` |
   [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_build(%Client{} = client, input, options \\ []) do
@@ -279,13 +263,6 @@ defmodule AWS.GameLift do
 
   If successful, this operation creates a new Fleet resource and places it in
   `NEW` status, which prompts GameLift to initiate the [fleet creation workflow](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creation-workflow.html).
-  You can track fleet creation by checking fleet status using
-  `DescribeFleetAttributes` and `DescribeFleetLocationAttributes`/, or by
-  monitoring fleet creation events using `DescribeFleetEvents`. As soon as the
-  fleet status changes to `ACTIVE`, you can enable automatic scaling for the fleet
-  with `PutScalingPolicy` and set capacity for the home Region with
-  `UpdateFleetCapacity`. When the status of each remote location reaches `ACTIVE`,
-  you can set capacity by location using `UpdateFleetCapacity`.
 
   ## Learn more
 
@@ -294,13 +271,6 @@ defmodule AWS.GameLift do
   [Debug fleet creation issues](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html#fleets-creating-debug-creation)
 
   [Multi-location fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
-
-  ## Related actions
-
-  `CreateFleet` | `UpdateFleetCapacity` | `PutScalingPolicy` |
-  `DescribeEC2InstanceLimits` | `DescribeFleetAttributes` |
-  `DescribeFleetLocationAttributes` | `UpdateFleetAttributes` | `StopFleetActions`
-  | `DeleteFleet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -317,8 +287,8 @@ defmodule AWS.GameLift do
 
   This operation cannot be used with fleets that don't support remote locations.
   Fleets can have multiple locations only if they reside in Amazon Web Services
-  Regions that support this feature (see `CreateFleet` for the complete list) and
-  were created after the feature was released in March 2021.
+  Regions that support this feature and were created after the feature was
+  released in March 2021.
 
   To add fleet locations, specify the fleet to be updated and provide a list of
   one or more locations.
@@ -326,24 +296,13 @@ defmodule AWS.GameLift do
   If successful, this operation returns the list of added locations with their
   status set to `NEW`. GameLift initiates the process of starting an instance in
   each added location. You can track the status of each new location by monitoring
-  location creation events using `DescribeFleetEvents`. Alternatively, you can
-  poll location status by calling `DescribeFleetLocationAttributes`. After a
-  location status becomes `ACTIVE`, you can adjust the location's capacity as
-  needed with `UpdateFleetCapacity`.
+  location creation events using
+  [DescribeFleetEvents](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html).  ## Learn more
 
-  ## Learn more
-
-  [Setting up fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
+  [Setting up
+  fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
 
   [Multi-location fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
-
-  ## Related actions
-
-  `CreateFleetLocations` | `DescribeFleetLocationAttributes` |
-  `DescribeFleetLocationCapacity` | `DescribeFleetLocationUtilization` |
-  `DescribeFleetAttributes` | `DescribeFleetCapacity` | `DescribeFleetUtilization`
-  | `UpdateFleetCapacity` | `StopFleetActions` | `DeleteFleetLocations` | [All APIs by
-  task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_fleet_locations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -392,12 +351,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [GameLift FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
-
-  ## Related actions
-
-  `CreateGameServerGroup` | `ListGameServerGroups` | `DescribeGameServerGroup` |
-  `UpdateGameServerGroup` | `DeleteGameServerGroup` | `ResumeGameServerGroup` |
-  `SuspendGameServerGroup` | `DescribeGameServerInstances` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def create_game_server_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -411,9 +364,7 @@ defmodule AWS.GameLift do
   This operation prompts an available server process to start a game session and
   retrieves connection information for the new game session. As an alternative,
   consider using the GameLift game session placement feature with
-
-  with `StartGameSessionPlacement`, which uses FleetIQ algorithms and queues to
-  optimize the placement process.
+  [StartGameSessionPlacement](https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html) , which uses FleetIQ algorithms and queues to optimize the placement process.
 
   When creating a game session, you specify exactly where you want to place it and
   provide a set of game session configuration settings. The fleet must be in
@@ -433,24 +384,22 @@ defmodule AWS.GameLift do
   status. When the status is `ACTIVE`, game session connection information is
   provided and player sessions can be created for the game session. By default,
   newly created game sessions are open to new players. You can restrict new player
-  access by using `UpdateGameSession` to change the game session's player session
-  creation policy.
+  access by using
+  [UpdateGameSession](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html)
+  to change the game session's player session creation policy.
 
   Game session logs are retained for all active game sessions for 14 days. To
-  access the logs, call `GetGameSessionLogUrl` to download the log files.
+  access the logs, call
+  [GetGameSessionLogUrl](https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetGameSessionLogUrl.html) to download the log files.
 
   *Available in Amazon GameLift Local.*
 
   ## Learn more
 
-  [Start a game session](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession)
+  [Start a game
+  session](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession)
 
-  ## Related actions
-
-  `CreateGameSession` | `DescribeGameSessions` | `DescribeGameSessionDetails` |
-  `SearchGameSessions` | `UpdateGameSession` | `GetGameSessionLogUrl` |
-  `StartGameSessionPlacement` | `DescribeGameSessionPlacement` |
-  `StopGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_game_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -514,6 +463,15 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+  Creates a custom location for use in an Anywhere fleet.
+  """
+  def create_location(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLocation", input, options)
+  end
+
+  @doc """
   Defines a new matchmaking configuration for use with FlexMatch.
 
   Whether your are using FlexMatch with GameLift hosting or as a standalone
@@ -521,9 +479,8 @@ defmodule AWS.GameLift do
   players and forming teams. If you're also using GameLift hosting, it defines how
   to start game sessions for each match. Your matchmaking system can use multiple
   configurations to handle different game scenarios. All matchmaking requests
-  (`StartMatchmaking` or `StartMatchBackfill`) identify the matchmaking
-  configuration to use and provide player attributes consistent with that
-  configuration.
+  identify the matchmaking configuration to use and provide player attributes
+  consistent with that configuration.
 
   To create a matchmaking configuration, you must provide the following:
   configuration name and FlexMatch mode (with or without GameLift hosting); a rule
@@ -534,22 +491,13 @@ defmodule AWS.GameLift do
 
   In addition, you must set up an Amazon Simple Notification Service topic to
   receive matchmaking notifications. Provide the topic ARN in the matchmaking
-  configuration. An alternative method, continuously polling ticket status with
-  `DescribeMatchmaking`, is only suitable for games in development with low
-  matchmaking usage.
+  configuration.
 
   ## Learn more
 
   [ Design a FlexMatch matchmaker](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html)
 
   [ Set up FlexMatch event notification](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html)
-
-  ## Related actions
-
-  `CreateMatchmakingConfiguration` | `DescribeMatchmakingConfigurations` |
-  `UpdateMatchmakingConfiguration` | `DeleteMatchmakingConfiguration` |
-  `CreateMatchmakingRuleSet` | `DescribeMatchmakingRuleSets` |
-  `ValidateMatchmakingRuleSet` | `DeleteMatchmakingRuleSet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_matchmaking_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -562,31 +510,24 @@ defmodule AWS.GameLift do
 
   A rule set describes the type of match to create, such as the number and size of
   teams. It also sets the parameters for acceptable player matches, such as
-  minimum skill level or character type. A rule set is used by a
-  `MatchmakingConfiguration`.
+  minimum skill level or character type.
 
   To create a matchmaking rule set, provide unique rule set name and the rule set
   body in JSON format. Rule sets must be defined in the same Region as the
   matchmaking configuration they are used with.
 
   Since matchmaking rule sets cannot be edited, it is a good idea to check the
-  rule set syntax using `ValidateMatchmakingRuleSet` before creating a new rule
-  set.
+  rule set syntax using
+  [ValidateMatchmakingRuleSet](https://docs.aws.amazon.com/gamelift/latest/apireference/API_ValidateMatchmakingRuleSet.html) before creating a new rule set.
 
   ## Learn more
 
-    * [Build a rule set](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html)
+    * [Build a rule
+  set](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html)
 
     * [Design a matchmaker](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html)
 
     * [Matchmaking with FlexMatch](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-intro.html)
-
-  ## Related actions
-
-  `CreateMatchmakingConfiguration` | `DescribeMatchmakingConfigurations` |
-  `UpdateMatchmakingConfiguration` | `DeleteMatchmakingConfiguration` |
-  `CreateMatchmakingRuleSet` | `DescribeMatchmakingRuleSets` |
-  `ValidateMatchmakingRuleSet` | `DeleteMatchmakingRuleSet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -599,25 +540,24 @@ defmodule AWS.GameLift do
 
   New player sessions can be created in any game session with an open slot that is
   in `ACTIVE` status and has a player creation policy of `ACCEPT_ALL`. You can add
-  a group of players to a game session with `CreatePlayerSessions`.
+  a group of players to a game session with
+  [CreatePlayerSessions](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreatePlayerSessions.html) .
 
   To create a player session, specify a game session ID, player ID, and optionally
   a set of player data.
 
   If successful, a slot is reserved in the game session for the player and a new
-  `PlayerSession` object is returned with a player session ID. The player
+  `PlayerSessions` object is returned with a player session ID. The player
   references the player session ID when sending a connection request to the game
   session, and the game server can use it to validate the player reservation with
   the GameLift service. Player sessions cannot be updated.
 
   The maximum number of players per game session is 200. It is not adjustable.
 
-  *Available in Amazon GameLift Local.*
-
   ## Related actions
 
-  `CreatePlayerSession` | `CreatePlayerSessions` | `DescribePlayerSessions` |
-  `StartGameSessionPlacement` | `DescribeGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by
+  task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_player_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -630,9 +570,8 @@ defmodule AWS.GameLift do
 
   New player sessions can be created in any game session with an open slot that is
   in `ACTIVE` status and has a player creation policy of `ACCEPT_ALL`. To add a
-  single player to a game session, use `CreatePlayerSession`.
-
-  To create player sessions, specify a game session ID and a list of player IDs.
+  single player to a game session, use
+  [CreatePlayerSession](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreatePlayerSession.html)  To create player sessions, specify a game session ID and a list of player IDs.
   Optionally, provide a set of player data for each player ID.
 
   If successful, a slot is reserved in the game session for each player, and new
@@ -643,12 +582,10 @@ defmodule AWS.GameLift do
 
   The maximum number of players per game session is 200. It is not adjustable.
 
-  *Available in Amazon GameLift Local.*
-
   ## Related actions
 
-  `CreatePlayerSession` | `CreatePlayerSessions` | `DescribePlayerSessions` |
-  `StartGameSessionPlacement` | `DescribeGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by
+  task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_player_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -690,8 +627,7 @@ defmodule AWS.GameLift do
 
   ## Related actions
 
-  `CreateScript` | `ListScripts` | `DescribeScript` | `UpdateScript` |
-  `DeleteScript` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_script(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -705,9 +641,10 @@ defmodule AWS.GameLift do
   Services account.
 
   VPC peering enables the game servers on your fleet to communicate directly with
-  other Amazon Web Services resources. Once you've received authorization, call
-  `CreateVpcPeeringConnection` to establish the peering connection. For more
-  information, see [VPC Peering with Amazon GameLift Fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html).
+  other Amazon Web Services resources. After you've received authorization, use
+  [CreateVpcPeeringConnection](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringConnection.html) to establish the peering connection. For more information, see [VPC Peering with
+  Amazon GameLift
+  Fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html).
 
   You can peer with VPCs that are owned by any Amazon Web Services account you
   have access to, including the account that you use to manage your Amazon
@@ -727,15 +664,12 @@ defmodule AWS.GameLift do
   delete the peering connection for, and (2) ID of the Amazon Web Services account
   that you use to manage Amazon GameLift.
 
-  The authorization remains valid for 24 hours unless it is canceled by a call to
-  `DeleteVpcPeeringAuthorization`. You must create or delete the peering
-  connection while the authorization is valid.
+  The authorization remains valid for 24 hours unless it is canceled. You must
+  create or delete the peering connection while the authorization is valid.
 
   ## Related actions
 
-  `CreateVpcPeeringAuthorization` | `DescribeVpcPeeringAuthorizations` |
-  `DeleteVpcPeeringAuthorization` | `CreateVpcPeeringConnection` |
-  `DescribeVpcPeeringConnections` | `DeleteVpcPeeringConnection` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_vpc_peering_authorization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -754,27 +688,27 @@ defmodule AWS.GameLift do
   different Regions. For more information, see [VPC Peering with Amazon GameLift Fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html).
 
   Before calling this operation to establish the peering connection, you first
-  need to call `CreateVpcPeeringAuthorization` and identify the VPC you want to
-  peer with. Once the authorization for the specified VPC is issued, you have 24
-  hours to establish the connection. These two operations handle all tasks
-  necessary to peer the two VPCs, including acceptance, updating routing tables,
-  etc.
+  need to use
+  [CreateVpcPeeringAuthorization](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.html) and identify the VPC you want to peer with. Once the authorization for the
+  specified VPC is issued, you have 24 hours to establish the connection. These
+  two operations handle all tasks necessary to peer the two VPCs, including
+  acceptance, updating routing tables, etc.
 
   To establish the connection, call this operation from the Amazon Web Services
   account that is used to manage the Amazon GameLift fleets. Identify the
   following values: (1) The ID of the fleet you want to be enable a VPC peering
   connection for; (2) The Amazon Web Services account with the VPC that you want
   to peer with; and (3) The ID of the VPC you want to peer with. This operation is
-  asynchronous. If successful, a `VpcPeeringConnection` request is created. You
-  can use continuous polling to track the request's status using
-  `DescribeVpcPeeringConnections`, or by monitoring fleet events for success or
-  failure using `DescribeFleetEvents`.
+  asynchronous. If successful, a connection request is created. You can use
+  continuous polling to track the request's status using
+  [DescribeVpcPeeringConnections](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeVpcPeeringConnections.html)
+  , or by monitoring fleet events for success or failure using
+  [DescribeFleetEvents](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html) .
 
   ## Related actions
 
-  `CreateVpcPeeringAuthorization` | `DescribeVpcPeeringAuthorizations` |
-  `DeleteVpcPeeringAuthorization` | `CreateVpcPeeringConnection` |
-  `DescribeVpcPeeringConnections` | `DeleteVpcPeeringConnection` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by
+  task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def create_vpc_peering_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -791,8 +725,7 @@ defmodule AWS.GameLift do
 
   ## Related actions
 
-  `CreateAlias` | `ListAliases` | `DescribeAlias` | `UpdateAlias` | `DeleteAlias`
-  | `ResolveAlias` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -813,9 +746,6 @@ defmodule AWS.GameLift do
 
   [ Upload a Custom Server Build](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html)
 
-  ## Related actions
-
-  `CreateBuild` | `ListBuilds` | `DescribeBuild` | `UpdateBuild` | `DeleteBuild` |
   [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_build(%Client{} = client, input, options \\ []) do
@@ -832,8 +762,7 @@ defmodule AWS.GameLift do
 
   If the fleet being deleted has a VPC peering connection, you first need to get a
   valid authorization (good for 24 hours) by calling
-  `CreateVpcPeeringAuthorization`. You do not need to explicitly delete the VPC
-  peering connection--this is done as part of the delete fleet process.
+  [CreateVpcPeeringAuthorization](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.html). You do not need to explicitly delete the VPC peering connection.
 
   To delete a fleet, specify the fleet ID to be terminated. During the deletion
   process the fleet status is changed to `DELETING`. When completed, the status
@@ -841,14 +770,8 @@ defmodule AWS.GameLift do
 
   ## Learn more
 
-  [Setting up GameLift Fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
-
-  ## Related actions
-
-  `CreateFleetLocations` | `UpdateFleetAttributes` | `UpdateFleetCapacity` |
-  `UpdateFleetPortSettings` | `UpdateRuntimeConfiguration` | `StopFleetActions` |
-  `StartFleetActions` | `PutScalingPolicy` | `DeleteFleet` |
-  `DeleteFleetLocations` | `DeleteScalingPolicy` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [Setting up GameLift
+  Fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
   """
   def delete_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -872,14 +795,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [Setting up GameLift fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
-
-  ## Related actions
-
-  `CreateFleetLocations` | `DescribeFleetLocationAttributes` |
-  `DescribeFleetLocationCapacity` | `DescribeFleetLocationUtilization` |
-  `DescribeFleetAttributes` | `DescribeFleetCapacity` | `DescribeFleetUtilization`
-  | `UpdateFleetCapacity` | `StopFleetActions` | `DeleteFleetLocations` | [All APIs by
-  task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_fleet_locations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -920,12 +835,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [GameLift FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
-
-  ## Related actions
-
-  `CreateGameServerGroup` | `ListGameServerGroups` | `DescribeGameServerGroup` |
-  `UpdateGameServerGroup` | `DeleteGameServerGroup` | `ResumeGameServerGroup` |
-  `SuspendGameServerGroup` | `DescribeGameServerInstances` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def delete_game_server_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -937,22 +846,9 @@ defmodule AWS.GameLift do
   Deletes a game session queue.
 
   Once a queue is successfully deleted, unfulfilled
-  [StartGameSessionPlacement](https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html) requests that reference the queue will fail. To delete a queue, specify the
+  [StartGameSessionPlacement](https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html)
+  requests that reference the queue will fail. To delete a queue, specify the
   queue name.
-
-  ## Learn more
-
-  [ Using Multi-Region
-  Queues](https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html)
-
-  ## Related actions
-
-  [CreateGameSessionQueue](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html) |
-  [DescribeGameSessionQueues](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionQueues.html)
-  |
-  [UpdateGameSessionQueue](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSessionQueue.html) |
-  [DeleteGameSessionQueue](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteGameSessionQueue.html)
-  | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_game_session_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -961,17 +857,23 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+  Deletes a custom location.
+
+  Before deleting a custom location, review any fleets currently using the custom
+  location and deregister the location if it is in use. For more information see,
+  [DeregisterCompute](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeregisterCompute.html).
+  """
+  def delete_location(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLocation", input, options)
+  end
+
+  @doc """
   Permanently removes a FlexMatch matchmaking configuration.
 
   To delete, specify the configuration name. A matchmaking configuration cannot be
   deleted if it is being used in any active matchmaking tickets.
-
-  ## Related actions
-
-  `CreateMatchmakingConfiguration` | `DescribeMatchmakingConfigurations` |
-  `UpdateMatchmakingConfiguration` | `DeleteMatchmakingConfiguration` |
-  `CreateMatchmakingRuleSet` | `DescribeMatchmakingRuleSets` |
-  `ValidateMatchmakingRuleSet` | `DeleteMatchmakingRuleSet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_matchmaking_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -988,13 +890,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
     * [Build a rule set](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html)
-
-  ## Related actions
-
-  `CreateMatchmakingConfiguration` | `DescribeMatchmakingConfigurations` |
-  `UpdateMatchmakingConfiguration` | `DeleteMatchmakingConfiguration` |
-  `CreateMatchmakingRuleSet` | `DescribeMatchmakingRuleSets` |
-  `ValidateMatchmakingRuleSet` | `DeleteMatchmakingRuleSet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1009,14 +904,9 @@ defmodule AWS.GameLift do
   of it. To delete a scaling policy, specify both the scaling policy name and the
   fleet ID it is associated with.
 
-  To temporarily suspend scaling policies, call `StopFleetActions`. This operation
-  suspends all policies for the fleet.
-
-  ## Related actions
-
-  `DescribeFleetCapacity` | `UpdateFleetCapacity` | `DescribeEC2InstanceLimits` |
-  `PutScalingPolicy` | `DescribeScalingPolicies` | `DeleteScalingPolicy` |
-  `StopFleetActions` | `StartFleetActions` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  To temporarily suspend scaling policies, use
+  [StopFleetActions](https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html).
+  This operation suspends all policies for the fleet.
   """
   def delete_scaling_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1042,8 +932,7 @@ defmodule AWS.GameLift do
 
   ## Related actions
 
-  `CreateScript` | `ListScripts` | `DescribeScript` | `UpdateScript` |
-  `DeleteScript` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_script(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1054,14 +943,11 @@ defmodule AWS.GameLift do
   @doc """
   Cancels a pending VPC peering authorization for the specified VPC.
 
-  If you need to delete an existing VPC peering connection, call
-  `DeleteVpcPeeringConnection`.
+  If you need to delete an existing VPC peering connection, use
+  [DeleteVpcPeeringConnection](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteVpcPeeringConnection.html).  ## Related actions
 
-  ## Related actions
-
-  `CreateVpcPeeringAuthorization` | `DescribeVpcPeeringAuthorizations` |
-  `DeleteVpcPeeringAuthorization` | `CreateVpcPeeringConnection` |
-  `DescribeVpcPeeringConnections` | `DeleteVpcPeeringConnection` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by
+  task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_vpc_peering_authorization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1073,9 +959,7 @@ defmodule AWS.GameLift do
   Removes a VPC peering connection.
 
   To delete the connection, you must have a valid authorization for the VPC
-  peering connection that you want to delete. You can check for an authorization
-  by calling `DescribeVpcPeeringAuthorizations` or request a new one using
-  `CreateVpcPeeringAuthorization`.
+  peering connection that you want to delete..
 
   Once a valid authorization exists, call this operation from the Amazon Web
   Services account that is used to manage the Amazon GameLift fleets. Identify the
@@ -1084,14 +968,23 @@ defmodule AWS.GameLift do
 
   ## Related actions
 
-  `CreateVpcPeeringAuthorization` | `DescribeVpcPeeringAuthorizations` |
-  `DeleteVpcPeeringAuthorization` | `CreateVpcPeeringConnection` |
-  `DescribeVpcPeeringConnections` | `DeleteVpcPeeringConnection` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def delete_vpc_peering_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteVpcPeeringConnection", input, options)
+  end
+
+  @doc """
+  Removes a compute resource from the specified fleet.
+
+  Deregister your compute resources before you delete the compute.
+  """
+  def deregister_compute(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterCompute", input, options)
   end
 
   @doc """
@@ -1110,12 +1003,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [GameLift FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
-
-  ## Related actions
-
-  `RegisterGameServer` | `ListGameServers` | `ClaimGameServer` |
-  `DescribeGameServer` | `UpdateGameServer` | `DeregisterGameServer` | [All APIs by
-  task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def deregister_game_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1134,8 +1021,7 @@ defmodule AWS.GameLift do
 
   ## Related actions
 
-  `CreateAlias` | `ListAliases` | `DescribeAlias` | `UpdateAlias` | `DeleteAlias`
-  | `ResolveAlias` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1153,15 +1039,24 @@ defmodule AWS.GameLift do
 
   [ Upload a Custom Server Build](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html)
 
-  ## Related actions
-
-  `CreateBuild` | `ListBuilds` | `DescribeBuild` | `UpdateBuild` | `DeleteBuild` |
   [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_build(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeBuild", input, options)
+  end
+
+  @doc """
+  Retrieves properties for a compute resource.
+
+  To request a compute resource specify the fleet ID and compute name. If
+  successful, GameLift returns an object containing the build properties.
+  """
+  def describe_compute(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCompute", input, options)
   end
 
   @doc """
@@ -1215,13 +1110,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [Setting up GameLift fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
-
-  ## Related actions
-
-  `CreateFleet` | `UpdateFleetCapacity` | `PutScalingPolicy` |
-  `DescribeEC2InstanceLimits` | `DescribeFleetAttributes` |
-  `DescribeFleetLocationAttributes` | `UpdateFleetAttributes` | `StopFleetActions`
-  | `DeleteFleet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_ec2_instance_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1254,14 +1142,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [Setting up GameLift fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
-
-  ## Related actions
-
-  `ListFleets` | `DescribeEC2InstanceLimits` | `DescribeFleetAttributes` |
-  `DescribeFleetCapacity` | `DescribeFleetEvents` |
-  `DescribeFleetLocationAttributes` | `DescribeFleetPortSettings` |
-  `DescribeFleetUtilization` | `DescribeRuntimeConfiguration` |
-  `DescribeScalingPolicies` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_fleet_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1274,9 +1154,7 @@ defmodule AWS.GameLift do
 
   The data returned includes the current fleet capacity (number of EC2 instances),
   and settings that can control how capacity scaling. For fleets with remote
-  locations, this operation retrieves data for the fleet's home Region only. See
-  `DescribeFleetLocationCapacity` to get capacity settings for a fleet's remote
-  locations.
+  locations, this operation retrieves data for the fleet's home Region only.
 
   This operation can be used in the following ways:
 
@@ -1303,14 +1181,6 @@ defmodule AWS.GameLift do
   [Setting up GameLift fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
 
   [GameLift metrics for fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet)
-
-  ## Related actions
-
-  `ListFleets` | `DescribeEC2InstanceLimits` | `DescribeFleetAttributes` |
-  `DescribeFleetCapacity` | `DescribeFleetEvents` |
-  `DescribeFleetLocationAttributes` | `DescribeFleetPortSettings` |
-  `DescribeFleetUtilization` | `DescribeRuntimeConfiguration` |
-  `DescribeScalingPolicies` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_fleet_capacity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1334,14 +1204,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [Setting up GameLift fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
-
-  ## Related actions
-
-  `ListFleets` | `DescribeEC2InstanceLimits` | `DescribeFleetAttributes` |
-  `DescribeFleetCapacity` | `DescribeFleetEvents` |
-  `DescribeFleetLocationAttributes` | `DescribeFleetPortSettings` |
-  `DescribeFleetUtilization` | `DescribeRuntimeConfiguration` |
-  `DescribeScalingPolicies` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_fleet_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1373,14 +1235,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [Setting up GameLift fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
-
-  ## Related actions
-
-  `CreateFleetLocations` | `DescribeFleetLocationAttributes` |
-  `DescribeFleetLocationCapacity` | `DescribeFleetLocationUtilization` |
-  `DescribeFleetAttributes` | `DescribeFleetCapacity` | `DescribeFleetUtilization`
-  | `UpdateFleetCapacity` | `StopFleetActions` | `DeleteFleetLocations` | [All APIs by
-  task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_fleet_location_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1406,14 +1260,6 @@ defmodule AWS.GameLift do
   [Setting up GameLift fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
 
   [GameLift metrics for fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet)
-
-  ## Related actions
-
-  `CreateFleetLocations` | `DescribeFleetLocationAttributes` |
-  `DescribeFleetLocationCapacity` | `DescribeFleetLocationUtilization` |
-  `DescribeFleetAttributes` | `DescribeFleetCapacity` | `DescribeFleetUtilization`
-  | `UpdateFleetCapacity` | `StopFleetActions` | `DeleteFleetLocations` | [All APIs by
-  task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_fleet_location_capacity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1439,14 +1285,6 @@ defmodule AWS.GameLift do
   [Setting up GameLift fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
 
   [GameLift metrics for fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet)
-
-  ## Related actions
-
-  `CreateFleetLocations` | `DescribeFleetLocationAttributes` |
-  `DescribeFleetLocationCapacity` | `DescribeFleetLocationUtilization` |
-  `DescribeFleetAttributes` | `DescribeFleetCapacity` | `DescribeFleetUtilization`
-  | `UpdateFleetCapacity` | `StopFleetActions` | `DeleteFleetLocations` | [All APIs by
-  task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_fleet_location_utilization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1478,14 +1316,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [Setting up GameLift fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
-
-  ## Related actions
-
-  `ListFleets` | `DescribeEC2InstanceLimits` | `DescribeFleetAttributes` |
-  `DescribeFleetCapacity` | `DescribeFleetEvents` |
-  `DescribeFleetLocationAttributes` | `DescribeFleetPortSettings` |
-  `DescribeFleetUtilization` | `DescribeRuntimeConfiguration` |
-  `DescribeScalingPolicies` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_fleet_port_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1498,8 +1328,8 @@ defmodule AWS.GameLift do
 
   Utilization data provides a snapshot of how the fleet's hosting resources are
   currently being used. For fleets with remote locations, this operation retrieves
-  data for the fleet's home Region only. See `DescribeFleetLocationUtilization` to
-  get utilization statistics for a fleet's remote locations.
+  data for the fleet's home Region only. See
+  [DescribeFleetLocationUtilization](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationUtilization.html) to get utilization statistics for a fleet's remote locations.
 
   This operation can be used in the following ways:
 
@@ -1512,9 +1342,11 @@ defmodule AWS.GameLift do
   When requesting multiple fleets, use the pagination parameters to retrieve
   results as a set of sequential pages.
 
-  If successful, a `FleetUtilization` object is returned for each requested fleet
-  ID, unless the fleet identifier is not found. Each fleet utilization object
-  includes a `Location` property, which is set to the fleet's home Region.
+  If successful, a
+  [FleetUtilization](https://docs.aws.amazon.com/gamelift/latest/apireference/API_FleetUtilization.html)
+  object is returned for each requested fleet ID, unless the fleet identifier is
+  not found. Each fleet utilization object includes a `Location` property, which
+  is set to the fleet's home Region.
 
   Some API operations may limit the number of fleet IDs allowed in one request. If
   a request exceeds this limit, the request fails and the error message includes
@@ -1525,14 +1357,6 @@ defmodule AWS.GameLift do
   [Setting up GameLift Fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
 
   [GameLift Metrics for Fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet)
-
-  ## Related actions
-
-  `ListFleets` | `DescribeEC2InstanceLimits` | `DescribeFleetAttributes` |
-  `DescribeFleetCapacity` | `DescribeFleetEvents` |
-  `DescribeFleetLocationAttributes` | `DescribeFleetPortSettings` |
-  `DescribeFleetUtilization` | `DescribeRuntimeConfiguration` |
-  `DescribeScalingPolicies` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_fleet_utilization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1555,12 +1379,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [GameLift FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
-
-  ## Related actions
-
-  `RegisterGameServer` | `ListGameServers` | `ClaimGameServer` |
-  `DescribeGameServer` | `UpdateGameServer` | `DeregisterGameServer` | [All APIs by
-  task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def describe_game_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1585,12 +1403,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [GameLift FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
-
-  ## Related actions
-
-  `CreateGameServerGroup` | `ListGameServerGroups` | `DescribeGameServerGroup` |
-  `UpdateGameServerGroup` | `DeleteGameServerGroup` | `ResumeGameServerGroup` |
-  `SuspendGameServerGroup` | `DescribeGameServerInstances` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def describe_game_server_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1606,9 +1418,7 @@ defmodule AWS.GameLift do
   GameLift FleetIQ game server group.
 
   Use this operation to detect when instances are active or not available to host
-  new game servers. If you are looking for instance configuration information,
-  call `DescribeGameServerGroup` or access the corresponding Auto Scaling group
-  properties.
+  new game servers.
 
   To request status for all instances in the game server group, provide a game
   server group ID only. To request status for specific instances, provide the game
@@ -1624,12 +1434,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [GameLift FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
-
-  ## Related actions
-
-  `CreateGameServerGroup` | `ListGameServerGroups` | `DescribeGameServerGroup` |
-  `UpdateGameServerGroup` | `DeleteGameServerGroup` | `ResumeGameServerGroup` |
-  `SuspendGameServerGroup` | `DescribeGameServerInstances` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def describe_game_server_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1643,9 +1447,6 @@ defmodule AWS.GameLift do
   fleet location.
 
   You can optionally filter the results by current game session status.
-  Alternatively, use `SearchGameSessions` to request a set of active game sessions
-  that are filtered by certain criteria. To retrieve all game session properties,
-  use `DescribeGameSessions`.
 
   This operation can be used in the following ways:
 
@@ -1672,12 +1473,7 @@ defmodule AWS.GameLift do
 
   [Find a game session](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-find)
 
-  ## Related actions
-
-  `CreateGameSession` | `DescribeGameSessions` | `DescribeGameSessionDetails` |
-  `SearchGameSessions` | `UpdateGameSession` | `GetGameSessionLogUrl` |
-  `StartGameSessionPlacement` | `DescribeGameSessionPlacement` |
-  `StopGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_game_session_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1697,15 +1493,6 @@ defmodule AWS.GameLift do
   Service (SNS) topic to receive notifications from FlexMatch or queues.
   Continuously polling with `DescribeGameSessionPlacement` should only be used for
   games in development with low game session usage.
-
-  If successful, a `GameSessionPlacement` object is returned.
-
-  ## Related actions
-
-  `CreateGameSession` | `DescribeGameSessions` | `DescribeGameSessionDetails` |
-  `SearchGameSessions` | `UpdateGameSession` | `GetGameSessionLogUrl` |
-  `StartGameSessionPlacement` | `DescribeGameSessionPlacement` |
-  `StopGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_game_session_placement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1717,22 +1504,12 @@ defmodule AWS.GameLift do
   Retrieves the properties for one or more game session queues.
 
   When requesting multiple queues, use the pagination parameters to retrieve
-  results as a set of sequential pages. If successful, a `GameSessionQueue` object
-  is returned for each requested queue. When specifying a list of queues, objects
+  results as a set of sequential pages. When specifying a list of queues, objects
   are returned only for queues that currently exist in the Region.
 
   ## Learn more
 
   [ View Your Queues](https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-console.html)
-
-  ## Related actions
-
-  [CreateGameSessionQueue](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html) |
-  [DescribeGameSessionQueues](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionQueues.html)
-  |
-  [UpdateGameSessionQueue](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSessionQueue.html) |
-  [DeleteGameSessionQueue](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteGameSessionQueue.html)
-  | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_game_session_queues(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1744,16 +1521,6 @@ defmodule AWS.GameLift do
   Retrieves a set of one or more game sessions in a specific fleet location.
 
   You can optionally filter the results by current game session status.
-  Alternatively, use `SearchGameSessions` to request a set of active game sessions
-  that are filtered by certain criteria. To retrieve the protection policy for
-  game sessions, use `DescribeGameSessionDetails`.
-
-  This operation is not designed to be continually called to track game session
-  status. This practice can cause you to exceed your API limit, which results in
-  errors. Instead, you must configure configure an Amazon Simple Notification
-  Service (SNS) topic to receive notifications from FlexMatch or queues.
-  Continuously polling with `DescribeGameSessions` should only be used for games
-  in development with low game session usage.
 
   This operation can be used in the following ways:
 
@@ -1776,13 +1543,12 @@ defmodule AWS.GameLift do
   If successful, a `GameSession` object is returned for each game session that
   matches the request.
 
-  This operation is not designed to be continually called to track matchmaking
-  ticket status. This practice can cause you to exceed your API limit, which
-  results in errors. Instead, as a best practice, set up an Amazon Simple
-  Notification Service to receive notifications, and provide the topic ARN in the
-  matchmaking configuration. Continuously poling ticket status with
-  `DescribeGameSessions` should only be used for games in development with low
-  matchmaking usage.
+  This operation is not designed to be continually called to track game session
+  status. This practice can cause you to exceed your API limit, which results in
+  errors. Instead, you must configure an Amazon Simple Notification Service (SNS)
+  topic to receive notifications from FlexMatch or queues. Continuously polling
+  with `DescribeGameSessions` should only be used for games in development with
+  low game session usage.
 
   *Available in Amazon GameLift Local.*
 
@@ -1790,12 +1556,7 @@ defmodule AWS.GameLift do
 
   [Find a game session](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-find)
 
-  ## Related actions
-
-  `CreateGameSession` | `DescribeGameSessions` | `DescribeGameSessionDetails` |
-  `SearchGameSessions` | `UpdateGameSession` | `GetGameSessionLogUrl` |
-  `StartGameSessionPlacement` | `DescribeGameSessionPlacement` |
-  `StopGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_game_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1831,8 +1592,7 @@ defmodule AWS.GameLift do
 
   ## Related actions
 
-  `DescribeInstances` | `GetInstanceAccess` | `DescribeEC2InstanceLimits` | [All APIs by
-  task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1854,20 +1614,13 @@ defmodule AWS.GameLift do
   ticket status. This practice can cause you to exceed your API limit, which
   results in errors. Instead, as a best practice, set up an Amazon Simple
   Notification Service to receive notifications, and provide the topic ARN in the
-  matchmaking configuration. Continuously polling ticket status with
-  `DescribeMatchmaking` should only be used for games in development with low
-  matchmaking usage.
+  matchmaking configuration.
 
   ## Learn more
 
   [ Add FlexMatch to a game client](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html)
 
   [ Set Up FlexMatch event notification](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html)
-
-  ## Related actions
-
-  `StartMatchmaking` | `DescribeMatchmaking` | `StopMatchmaking` | `AcceptMatch` |
-  `StartMatchBackfill` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_matchmaking(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1891,13 +1644,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [ Setting up FlexMatch matchmakers](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/matchmaker-build.html)
-
-  ## Related actions
-
-  `CreateMatchmakingConfiguration` | `DescribeMatchmakingConfigurations` |
-  `UpdateMatchmakingConfiguration` | `DeleteMatchmakingConfiguration` |
-  `CreateMatchmakingRuleSet` | `DescribeMatchmakingRuleSets` |
-  `ValidateMatchmakingRuleSet` | `DeleteMatchmakingRuleSet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_matchmaking_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1916,13 +1662,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
     * [Build a rule set](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html)
-
-  ## Related actions
-
-  `CreateMatchmakingConfiguration` | `DescribeMatchmakingConfigurations` |
-  `UpdateMatchmakingConfiguration` | `DeleteMatchmakingConfiguration` |
-  `CreateMatchmakingRuleSet` | `DescribeMatchmakingRuleSets` |
-  `ValidateMatchmakingRuleSet` | `DeleteMatchmakingRuleSet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_matchmaking_rule_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1951,12 +1690,9 @@ defmodule AWS.GameLift do
   If successful, a `PlayerSession` object is returned for each session that
   matches the request.
 
-  *Available in Amazon GameLift Local.*
-
   ## Related actions
 
-  `CreatePlayerSession` | `CreatePlayerSessions` | `DescribePlayerSessions` |
-  `StartGameSessionPlacement` | `DescribeGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_player_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1981,14 +1717,6 @@ defmodule AWS.GameLift do
   [Setting up GameLift fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
 
   [Running multiple processes on a fleet](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html)
-
-  ## Related actions
-
-  `ListFleets` | `DescribeEC2InstanceLimits` | `DescribeFleetAttributes` |
-  `DescribeFleetCapacity` | `DescribeFleetEvents` |
-  `DescribeFleetLocationAttributes` | `DescribeFleetPortSettings` |
-  `DescribeFleetUtilization` | `DescribeRuntimeConfiguration` |
-  `DescribeScalingPolicies` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_runtime_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2004,16 +1732,8 @@ defmodule AWS.GameLift do
   the pagination parameters to retrieve results as a set of sequential pages. If
   successful, set of `ScalingPolicy` objects is returned for the fleet.
 
-  A fleet may have all of its scaling policies suspended (`StopFleetActions`).
-  This operation does not affect the status of the scaling policies, which remains
-  ACTIVE. To see whether a fleet's scaling policies are in force or suspended,
-  call `DescribeFleetAttributes` and check the stopped actions.
-
-  ## Related actions
-
-  `DescribeFleetCapacity` | `UpdateFleetCapacity` | `DescribeEC2InstanceLimits` |
-  `PutScalingPolicy` | `DescribeScalingPolicies` | `DeleteScalingPolicy` |
-  `StopFleetActions` | `StartFleetActions` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  A fleet may have all of its scaling policies suspended. This operation does not
+  affect the status of the scaling policies, which remains ACTIVE.
   """
   def describe_scaling_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2033,8 +1753,7 @@ defmodule AWS.GameLift do
 
   ## Related actions
 
-  `CreateScript` | `ListScripts` | `DescribeScript` | `UpdateScript` |
-  `DeleteScript` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_script(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2051,9 +1770,7 @@ defmodule AWS.GameLift do
 
   ## Related actions
 
-  `CreateVpcPeeringAuthorization` | `DescribeVpcPeeringAuthorizations` |
-  `DeleteVpcPeeringAuthorization` | `CreateVpcPeeringConnection` |
-  `DescribeVpcPeeringConnections` | `DeleteVpcPeeringConnection` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_vpc_peering_authorizations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2076,14 +1793,56 @@ defmodule AWS.GameLift do
 
   ## Related actions
 
-  `CreateVpcPeeringAuthorization` | `DescribeVpcPeeringAuthorizations` |
-  `DeleteVpcPeeringAuthorization` | `CreateVpcPeeringConnection` |
-  `DescribeVpcPeeringConnections` | `DeleteVpcPeeringConnection` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def describe_vpc_peering_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpcPeeringConnections", input, options)
+  end
+
+  @doc """
+  Requests remote access to a fleet instance.
+
+  Remote access is useful for debugging, gathering benchmarking data, or observing
+  activity in real time.
+
+  To remotely access an instance, you need credentials that match the operating
+  system of the instance. For a Windows instance, GameLift returns a user name and
+  password as strings for use with a Windows Remote Desktop client. For a Linux
+  instance, GameLift returns a user name and RSA private key, also as strings, for
+  use with an SSH client. The private key must be saved in the proper format to a
+  `.pem` file before using. If you're making this request using the CLI, saving
+  the secret can be handled as part of the `GetInstanceAccess` request, as shown
+  in one of the examples for this operation.
+
+  To request access to a specific instance, specify the IDs of both the instance
+  and the fleet it belongs to.
+
+  ## Learn more
+
+  [Remotely Access Fleet Instances](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html)
+
+  [Debug Fleet Issues](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html)
+  """
+  def get_compute_access(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetComputeAccess", input, options)
+  end
+
+  @doc """
+  Requests an authorization token from GameLift.
+
+  The authorization token is used by your game server to authenticate with
+  GameLift. Each authentication token has an expiration token. To continue using
+  the compute resource to host your game server, regularly retrieve a new
+  authorization token.
+  """
+  def get_compute_auth_token(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetComputeAuthToken", input, options)
   end
 
   @doc """
@@ -2095,12 +1854,7 @@ defmodule AWS.GameLift do
   See the [Amazon Web Services Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift)
   page for maximum log file sizes. Log files that exceed this limit are not saved.
 
-  ## Related actions
-
-  `CreateGameSession` | `DescribeGameSessions` | `DescribeGameSessionDetails` |
-  `SearchGameSessions` | `UpdateGameSession` | `GetGameSessionLogUrl` |
-  `StartGameSessionPlacement` | `DescribeGameSessionPlacement` |
-  `StopGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def get_game_session_log_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2125,19 +1879,16 @@ defmodule AWS.GameLift do
 
   To request access to a specific instance, specify the IDs of both the instance
   and the fleet it belongs to. You can retrieve a fleet's instance IDs by calling
-  `DescribeInstances`. If successful, an `InstanceAccess` object is returned that
-  contains the instance's IP address and a set of credentials.
+  [DescribeInstances](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeInstances.html).  ## Learn more
 
-  ## Learn more
-
-  [Remotely Access Fleet Instances](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html)
+  [Remotely Access Fleet
+  Instances](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html)
 
   [Debug Fleet Issues](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html)
 
   ## Related actions
 
-  `DescribeInstances` | `GetInstanceAccess` | `DescribeEC2InstanceLimits` | [All APIs by
-  task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def get_instance_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2155,8 +1906,7 @@ defmodule AWS.GameLift do
 
   ## Related actions
 
-  `CreateAlias` | `ListAliases` | `DescribeAlias` | `UpdateAlias` | `DeleteAlias`
-  | `ResolveAlias` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def list_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2178,15 +1928,24 @@ defmodule AWS.GameLift do
 
   [ Upload a Custom Server Build](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html)
 
-  ## Related actions
-
-  `CreateBuild` | `ListBuilds` | `DescribeBuild` | `UpdateBuild` | `DeleteBuild` |
   [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def list_builds(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "ListBuilds", input, options)
+  end
+
+  @doc """
+  Retrieves all compute resources registered to a fleet in your Amazon Web
+  Services account.
+
+  You can filter the result set by location.
+  """
+  def list_compute(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCompute", input, options)
   end
 
   @doc """
@@ -2222,13 +1981,6 @@ defmodule AWS.GameLift do
 
   [Setting up GameLift
   fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
-
-  ## Related actions
-
-  `CreateFleet` | `UpdateFleetCapacity` | `PutScalingPolicy` |
-  `DescribeEC2InstanceLimits` | `DescribeFleetAttributes` |
-  `DescribeFleetLocationAttributes` | `UpdateFleetAttributes` | `StopFleetActions`
-  | `DeleteFleet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def list_fleets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2237,24 +1989,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  ## This operation is used with the GameLift FleetIQ solution and game server
-  groups.
-
-  Retrieves information on all game servers groups that exist in the current
-  Amazon Web Services account for the selected Region.
-
-  Use the pagination parameters to retrieve results in a set of sequential
-  segments.
-
-  ## Learn more
-
-  [GameLift FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
-
-  ## Related actions
-
-  `CreateGameServerGroup` | `ListGameServerGroups` | `DescribeGameServerGroup` |
-  `UpdateGameServerGroup` | `DeleteGameServerGroup` | `ResumeGameServerGroup` |
-  `SuspendGameServerGroup` | `DescribeGameServerInstances` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
+  Lists a game server groups.
   """
   def list_game_server_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2275,17 +2010,20 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [GameLift FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
-
-  ## Related actions
-
-  `RegisterGameServer` | `ListGameServers` | `ClaimGameServer` |
-  `DescribeGameServer` | `UpdateGameServer` | `DeregisterGameServer` | [All APIs by
-  task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def list_game_servers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "ListGameServers", input, options)
+  end
+
+  @doc """
+  Lists all custom and Amazon Web Services locations.
+  """
+  def list_locations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLocations", input, options)
   end
 
   @doc """
@@ -2298,8 +2036,7 @@ defmodule AWS.GameLift do
 
   ## Related actions
 
-  `CreateScript` | `ListScripts` | `DescribeScript` | `UpdateScript` |
-  `DeleteScript` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def list_scripts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2339,7 +2076,7 @@ defmodule AWS.GameLift do
 
   ## Related actions
 
-  `TagResource` | `UntagResource` | `ListTagsForResource` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2362,12 +2099,6 @@ defmodule AWS.GameLift do
   time; you can have one target-based policy, one or multiple rule-based scaling
   policies, or both. We recommend caution, however, because multiple auto-scaling
   policies can have unintended consequences.
-
-  You can temporarily suspend all scaling policies for a fleet by calling
-  `StopFleetActions` with the fleet action AUTO_SCALING. To resume scaling
-  policies, call `StartFleetActions` with the same fleet action. To stop just one
-  scaling policy--or to permanently remove it, you must delete the policy with
-  `DeleteScalingPolicy`.
 
   Learn more about how to work with auto-scaling in [Set Up Fleet Automatic Scaling](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-autoscaling.html).
 
@@ -2413,24 +2144,38 @@ defmodule AWS.GameLift do
 
   To implement the example, the rule statement would look like this:
 
-  If `[PercentIdleInstances]` is `[GreaterThanThreshold]` `[20]` for `[15]` minutes, then `[PercentChangeInCapacity]` to/by `[10]`.  To create or update a scaling policy, specify a unique combination of name and
+  If `[PercentIdleInstances]` is `[GreaterThanThreshold]` `[20]` for `[15]` minutes, then `[PercentChangeInCapacity]` to/by `[10]`.
+
+  To create or update a scaling policy, specify a unique combination of name and
   fleet ID, and set the policy type to "RuleBased". Specify the parameter values
   for a policy rule statement. On a successful request, the policy name is
   returned. Scaling policies are automatically in force as soon as they're
   successfully created. If the fleet's auto-scaling actions are temporarily
   suspended, the new policy will be in force once the fleet actions are restarted.
-
-  ## Related actions
-
-  `DescribeFleetCapacity` | `UpdateFleetCapacity` | `DescribeEC2InstanceLimits` |
-  `PutScalingPolicy` | `DescribeScalingPolicies` | `DeleteScalingPolicy` |
-  `StopFleetActions` | `StartFleetActions` | [All APIs by
-  task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def put_scaling_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "PutScalingPolicy", input, options)
+  end
+
+  @doc """
+  Registers your compute resources in a fleet you previously created.
+
+  After you register a compute to your fleet, you can monitor and manage your
+  compute using GameLift. The operation returns the compute resource containing
+  SDK endpoint you can use to connect your game server to GameLift.
+
+  ## Learn more
+
+    * [Create an Anywhere fleet](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-anywhere.html)
+
+    * [Test your integration](https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-testing.html)
+  """
+  def register_compute(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterCompute", input, options)
   end
 
   @doc """
@@ -2447,9 +2192,7 @@ defmodule AWS.GameLift do
 
   To register a game server, identify the game server group and instance where the
   game server is running, and provide a unique identifier for the game server. You
-  can also include connection and game server data. When a game client or service
-  requests a game server by calling `ClaimGameServer`, this information is
-  returned in the response.
+  can also include connection and game server data.
 
   Once a game server is successfully registered, it is put in status `AVAILABLE`.
   A request to register a game server may fail if the instance it is running on is
@@ -2459,12 +2202,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [GameLift FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
-
-  ## Related actions
-
-  `RegisterGameServer` | `ListGameServers` | `ClaimGameServer` |
-  `DescribeGameServer` | `UpdateGameServer` | `DeregisterGameServer` | [All APIs by
-  task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def register_game_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2476,19 +2213,16 @@ defmodule AWS.GameLift do
   Retrieves a fresh set of credentials for use when uploading a new set of game
   build files to Amazon GameLift's Amazon S3.
 
-  This is done as part of the build creation process; see `CreateBuild`.
-
-  To request new credentials, specify the build ID as returned with an initial
+  This is done as part of the build creation process; see
+  [GameSession](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateBuild.html).  To request new credentials, specify the build ID as returned with an initial
   `CreateBuild` request. If successful, a new set of credentials are returned,
   along with the S3 storage location associated with the build ID.
 
   ## Learn more
 
-  [ Create a Build with Files in S3](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build)
+  [ Create a Build with Files in
+  S3](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build)
 
-  ## Related actions
-
-  `CreateBuild` | `ListBuilds` | `DescribeBuild` | `UpdateBuild` | `DeleteBuild` |
   [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def request_upload_credentials(%Client{} = client, input, options \\ []) do
@@ -2502,8 +2236,7 @@ defmodule AWS.GameLift do
 
   ## Related actions
 
-  `CreateAlias` | `ListAliases` | `DescribeAlias` | `UpdateAlias` | `DeleteAlias`
-  | `ResolveAlias` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def resolve_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2517,11 +2250,12 @@ defmodule AWS.GameLift do
 
   Reinstates activity on a game server group after it has been suspended.
 
-  A game server group might be suspended by the`SuspendGameServerGroup` operation,
-  or it might be suspended involuntarily due to a configuration problem. In the
-  second case, you can manually resume activity on the group once the
-  configuration problem has been resolved. Refer to the game server group status
-  and status reason for more information on why group activity is suspended.
+  A game server group might be suspended by the
+  [SuspendGameServerGroup](gamelift/latest/apireference/API_SuspendGameServerGroup.html) operation, or it might be suspended involuntarily due to a configuration
+  problem. In the second case, you can manually resume activity on the group once
+  the configuration problem has been resolved. Refer to the game server group
+  status and status reason for more information on why group activity is
+  suspended.
 
   To resume activity, specify a game server group ARN and the type of activity to
   be resumed. If successful, a `GameServerGroup` object is returned showing that
@@ -2529,13 +2263,8 @@ defmodule AWS.GameLift do
 
   ## Learn more
 
-  [GameLift FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
-
-  ## Related actions
-
-  `CreateGameServerGroup` | `ListGameServerGroups` | `DescribeGameServerGroup` |
-  `UpdateGameServerGroup` | `DeleteGameServerGroup` | `ResumeGameServerGroup` |
-  `SuspendGameServerGroup` | `DescribeGameServerInstances` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
+  [GameLift FleetIQ
+  Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
   """
   def resume_game_server_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2574,17 +2303,15 @@ defmodule AWS.GameLift do
   If successful, a `GameSession` object is returned for each game session that
   matches the request. Search finds game sessions that are in `ACTIVE` status
   only. To retrieve information on game sessions in other statuses, use
-  `DescribeGameSessions`.
+  [DescribeGameSessions](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessions.html) .
 
   You can search or sort by the following game session attributes:
 
     * **gameSessionId** -- A unique identifier for the game session. You
   can use either a `GameSessionId` or `GameSessionArn` value.
 
-    * **gameSessionName** -- Name assigned to a game session. This value
-  is set when requesting a new game session with `CreateGameSession` or updating
-  with `UpdateGameSession`. Game session names do not need to be unique to a game
-  session.
+    * **gameSessionName** -- Name assigned to a game session. Game
+  session names do not need to be unique to a game session.
 
     * **gameSessionProperties** -- Custom data defined in a game
   session's `GameProperty` parameter. `GameProperty` values are stored as
@@ -2595,8 +2322,7 @@ defmodule AWS.GameLift do
   as strings.
 
     * **maximumSessions** -- Maximum number of player sessions allowed
-  for a game session. This value is set when requesting a new game session with
-  `CreateGameSession` or updating with `UpdateGameSession`.
+  for a game session.
 
     * **creationTimeMillis** -- Value indicating when a game session was
   created. It is expressed in Unix time as milliseconds.
@@ -2615,12 +2341,8 @@ defmodule AWS.GameLift do
   considered a snapshot in time. Be sure to refresh search results often, and
   handle sessions that fill up before a player can join.
 
-  ## Related actions
-
-  `CreateGameSession` | `DescribeGameSessions` | `DescribeGameSessionDetails` |
-  `SearchGameSessions` | `UpdateGameSession` | `GetGameSessionLogUrl` |
-  `StartGameSessionPlacement` | `DescribeGameSessionPlacement` |
-  `StopGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by
+  task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def search_game_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2630,9 +2352,7 @@ defmodule AWS.GameLift do
 
   @doc """
   Resumes certain types of activity on fleet instances that were suspended with
-  `StopFleetActions`.
-
-  For multi-location fleets, fleet actions are managed separately for each
+  [StopFleetActions](https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html).  For multi-location fleets, fleet actions are managed separately for each
   location. Currently, this operation is used to restart a fleet's auto-scaling
   activity.
 
@@ -2647,19 +2367,12 @@ defmodule AWS.GameLift do
 
   If successful, GameLift once again initiates scaling events as triggered by the
   fleet's scaling policies. If actions on the fleet location were never stopped,
-  this operation will have no effect. You can view a fleet's stopped actions using
-  `DescribeFleetAttributes` or `DescribeFleetLocationAttributes`.
+  this operation will have no effect.
 
   ## Learn more
 
-  [Setting up GameLift fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
-
-  ## Related actions
-
-  `CreateFleet` | `UpdateFleetCapacity` | `PutScalingPolicy` |
-  `DescribeEC2InstanceLimits` | `DescribeFleetAttributes` |
-  `DescribeFleetLocationAttributes` | `UpdateFleetAttributes` | `StopFleetActions`
-  | `DeleteFleet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [Setting up GameLift
+  fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
   """
   def start_fleet_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2668,8 +2381,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Places a request for a new game session in a queue (see
-  `CreateGameSessionQueue`).
+  Places a request for a new game session in a queue.
 
   When processing a placement request, Amazon GameLift searches for available
   resources on the queue's destinations, scanning each until it finds resources or
@@ -2707,18 +2419,12 @@ defmodule AWS.GameLift do
 
   If successful, a new game session placement is created.
 
-  To track the status of a placement request, call `DescribeGameSessionPlacement`
+  To track the status of a placement request, call
+  [DescribeGameSessionPlacement](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionPlacement.html)
   and check the request's status. If the status is `FULFILLED`, a new game session
   has been created and a game session ARN and Region are referenced. If the
   placement request times out, you can resubmit the request or retry it with a
   different queue.
-
-  ## Related actions
-
-  `CreateGameSession` | `DescribeGameSessions` | `DescribeGameSessionDetails` |
-  `SearchGameSessions` | `UpdateGameSession` | `GetGameSessionLogUrl` |
-  `StartGameSessionPlacement` | `DescribeGameSessionPlacement` |
-  `StopGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def start_game_session_placement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2736,14 +2442,13 @@ defmodule AWS.GameLift do
   backfilled match continues to meet the original match requirements.
 
   When using FlexMatch with GameLift managed hosting, you can request a backfill
-  match from a client service by calling this operation with a `GameSession`
-  identifier. You also have the option of making backfill requests directly from
-  your game server. In response to a request, FlexMatch creates player sessions
-  for the new players, updates the `GameSession` resource, and sends updated
-  matchmaking data to the game server. You can request a backfill match at any
-  point after a game session is started. Each game session can have only one
-  active backfill request at a time; a subsequent request automatically replaces
-  the earlier request.
+  match from a client service by calling this operation with a `GameSessions` ID.
+  You also have the option of making backfill requests directly from your game
+  server. In response to a request, FlexMatch creates player sessions for the new
+  players, updates the `GameSession` resource, and sends updated matchmaking data
+  to the game server. You can request a backfill match at any point after a game
+  session is started. Each game session can have only one active backfill request
+  at a time; a subsequent request automatically replaces the earlier request.
 
   When using FlexMatch as a standalone component, request a backfill match by
   calling this operation without a game session identifier. As with newly formed
@@ -2767,11 +2472,6 @@ defmodule AWS.GameLift do
   (reference)
 
   [ How GameLift FlexMatch works](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html)
-
-  ## Related actions
-
-  `StartMatchmaking` | `DescribeMatchmaking` | `StopMatchmaking` | `AcceptMatch` |
-  `StartMatchBackfill` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def start_match_backfill(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2808,11 +2508,6 @@ defmodule AWS.GameLift do
   [ Set Up FlexMatch event notification](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html)
 
   [ How GameLift FlexMatch works](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html)
-
-  ## Related actions
-
-  `StartMatchmaking` | `DescribeMatchmaking` | `StopMatchmaking` | `AcceptMatch` |
-  `StartMatchBackfill` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def start_matchmaking(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2841,20 +2536,11 @@ defmodule AWS.GameLift do
   suspend.
 
   If successful, GameLift no longer initiates scaling events except in response to
-  manual changes using `UpdateFleetCapacity`. You can view a fleet's stopped
-  actions using `DescribeFleetAttributes` or `DescribeFleetLocationAttributes`.
-  Suspended activity can be restarted using `StartFleetActions`.
+  manual changes using
+  [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html).  ## Learn more
 
-  ## Learn more
-
-  [Setting up GameLift Fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
-
-  ## Related actions
-
-  `CreateFleet` | `UpdateFleetCapacity` | `PutScalingPolicy` |
-  `DescribeEC2InstanceLimits` | `DescribeFleetAttributes` |
-  `DescribeFleetLocationAttributes` | `UpdateFleetAttributes` | `StopFleetActions`
-  | `DeleteFleet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [Setting up GameLift
+  Fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
   """
   def stop_fleet_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2867,13 +2553,6 @@ defmodule AWS.GameLift do
 
   To stop a placement, provide the placement ID values. If successful, the
   placement is moved to `CANCELLED` status.
-
-  ## Related actions
-
-  `CreateGameSession` | `DescribeGameSessions` | `DescribeGameSessionDetails` |
-  `SearchGameSessions` | `UpdateGameSession` | `GetGameSessionLogUrl` |
-  `StartGameSessionPlacement` | `DescribeGameSessionPlacement` |
-  `StopGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def stop_game_session_placement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2900,11 +2579,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [ Add FlexMatch to a game client](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html)
-
-  ## Related actions
-
-  `StartMatchmaking` | `DescribeMatchmaking` | `StopMatchmaking` | `AcceptMatch` |
-  `StartMatchBackfill` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def stop_matchmaking(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2919,8 +2593,8 @@ defmodule AWS.GameLift do
   Temporarily stops activity on a game server group without terminating instances
   or the game server group.
 
-  You can restart activity by calling `ResumeGameServerGroup`. You can suspend the
-  following activity:
+  You can restart activity by calling
+  [ResumeGameServerGroup](gamelift/latest/apireference/API_ResumeGameServerGroup.html). You can suspend the following activity:
 
     * **Instance type replacement** - This activity evaluates the
   current game hosting viability of all Spot instance types that are defined for
@@ -2937,13 +2611,8 @@ defmodule AWS.GameLift do
 
   ## Learn more
 
-  [GameLift FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
-
-  ## Related actions
-
-  `CreateGameServerGroup` | `ListGameServerGroups` | `DescribeGameServerGroup` |
-  `UpdateGameServerGroup` | `DeleteGameServerGroup` | `ResumeGameServerGroup` |
-  `SuspendGameServerGroup` | `DescribeGameServerInstances` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
+  [GameLift FleetIQ
+  Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
   """
   def suspend_game_server_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2987,7 +2656,7 @@ defmodule AWS.GameLift do
 
   ## Related actions
 
-  `TagResource` | `UntagResource` | `ListTagsForResource` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3030,7 +2699,7 @@ defmodule AWS.GameLift do
 
   ## Related actions
 
-  `TagResource` | `UntagResource` | `ListTagsForResource` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3047,8 +2716,7 @@ defmodule AWS.GameLift do
 
   ## Related actions
 
-  `CreateAlias` | `ListAliases` | `DescribeAlias` | `UpdateAlias` | `DeleteAlias`
-  | `ResolveAlias` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def update_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3067,9 +2735,6 @@ defmodule AWS.GameLift do
 
   [ Upload a Custom Server Build](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html)
 
-  ## Related actions
-
-  `CreateBuild` | `ListBuilds` | `DescribeBuild` | `UpdateBuild` | `DeleteBuild` |
   [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def update_build(%Client{} = client, input, options \\ []) do
@@ -3090,13 +2755,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [Setting up GameLift fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
-
-  ## Related actions
-
-  `CreateFleetLocations` | `UpdateFleetAttributes` | `UpdateFleetCapacity` |
-  `UpdateFleetPortSettings` | `UpdateRuntimeConfiguration` | `StopFleetActions` |
-  `StartFleetActions` | `PutScalingPolicy` | `DeleteFleet` |
-  `DeleteFleetLocations` | `DeleteScalingPolicy` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def update_fleet_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3118,9 +2776,10 @@ defmodule AWS.GameLift do
 
     * Desired capacity: Manually set the number of Amazon EC2 instances
   to be maintained in a fleet location. Before changing a fleet's desired
-  capacity, you may want to call `DescribeEC2InstanceLimits` to get the maximum
-  capacity of the fleet's Amazon EC2 instance type. Alternatively, consider using
-  automatic scaling to adjust capacity based on player demand.
+  capacity, you may want to call
+  [DescribeEC2InstanceLimits](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeEC2InstanceLimits.html) to get the maximum capacity of the fleet's Amazon EC2 instance type.
+  Alternatively, consider using automatic scaling to adjust capacity based on
+  player demand.
 
   This operation can be used in the following ways:
 
@@ -3137,20 +2796,15 @@ defmodule AWS.GameLift do
   terminate existing instances in the requested fleet location. This continues
   until the location's active instance count matches the new desired instance
   count. You can track a fleet's current capacity by calling
-  `DescribeFleetCapacity` or `DescribeFleetLocationCapacity`. If the requested
-  desired instance count is higher than the instance type's limit, the
-  `LimitExceeded` exception occurs.
+  [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html)
+  or
+  [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html). If the requested desired instance count is higher than the instance type's
+  limit, the `LimitExceeded` exception occurs.
 
   ## Learn more
 
-  [Scaling fleet capacity](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-manage-capacity.html)
-
-  ## Related actions
-
-  `CreateFleetLocations` | `UpdateFleetAttributes` | `UpdateFleetCapacity` |
-  `UpdateFleetPortSettings` | `UpdateRuntimeConfiguration` | `StopFleetActions` |
-  `StartFleetActions` | `PutScalingPolicy` | `DeleteFleet` |
-  `DeleteFleetLocations` | `DeleteScalingPolicy` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [Scaling fleet
+  capacity](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-manage-capacity.html)
   """
   def update_fleet_capacity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3176,13 +2830,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [Setting up GameLift fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
-
-  ## Related actions
-
-  `CreateFleetLocations` | `UpdateFleetAttributes` | `UpdateFleetCapacity` |
-  `UpdateFleetPortSettings` | `UpdateRuntimeConfiguration` | `StopFleetActions` |
-  `StartFleetActions` | `PutScalingPolicy` | `DeleteFleet` |
-  `DeleteFleetLocations` | `DeleteScalingPolicy` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def update_fleet_port_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3223,12 +2870,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [GameLift FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
-
-  ## Related actions
-
-  `RegisterGameServer` | `ListGameServers` | `ClaimGameServer` |
-  `DescribeGameServer` | `UpdateGameServer` | `DeregisterGameServer` | [All APIs by
-  task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def update_game_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3254,12 +2895,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [GameLift FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
-
-  ## Related actions
-
-  `CreateGameServerGroup` | `ListGameServerGroups` | `DescribeGameServerGroup` |
-  `UpdateGameServerGroup` | `DeleteGameServerGroup` | `ResumeGameServerGroup` |
-  `SuspendGameServerGroup` | `DescribeGameServerInstances` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html)
   """
   def update_game_server_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3275,12 +2910,7 @@ defmodule AWS.GameLift do
 
   If successful, the updated `GameSession` object is returned.
 
-  ## Related actions
-
-  `CreateGameSession` | `DescribeGameSessions` | `DescribeGameSessionDetails` |
-  `SearchGameSessions` | `UpdateGameSession` | `GetGameSessionLogUrl` |
-  `StartGameSessionPlacement` | `DescribeGameSessionPlacement` |
-  `StopGameSessionPlacement` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def update_game_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3298,15 +2928,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [ Using Multi-Region Queues](https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html)
-
-  ## Related actions
-
-  [CreateGameSessionQueue](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html) |
-  [DescribeGameSessionQueues](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionQueues.html)
-  |
-  [UpdateGameSessionQueue](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSessionQueue.html) |
-  [DeleteGameSessionQueue](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteGameSessionQueue.html)
-  | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def update_game_session_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3324,13 +2945,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [ Design a FlexMatch matchmaker](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html)
-
-  ## Related actions
-
-  `CreateMatchmakingConfiguration` | `DescribeMatchmakingConfigurations` |
-  `UpdateMatchmakingConfiguration` | `DeleteMatchmakingConfiguration` |
-  `CreateMatchmakingRuleSet` | `DescribeMatchmakingRuleSets` |
-  `ValidateMatchmakingRuleSet` | `DeleteMatchmakingRuleSet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def update_matchmaking_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3358,13 +2972,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [Setting up GameLift fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
-
-  ## Related actions
-
-  `CreateFleetLocations` | `UpdateFleetAttributes` | `UpdateFleetCapacity` |
-  `UpdateFleetPortSettings` | `UpdateRuntimeConfiguration` | `StopFleetActions` |
-  `StartFleetActions` | `PutScalingPolicy` | `DeleteFleet` |
-  `DeleteFleetLocations` | `DeleteScalingPolicy` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def update_runtime_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3394,8 +3001,7 @@ defmodule AWS.GameLift do
 
   ## Related actions
 
-  `CreateScript` | `ListScripts` | `DescribeScript` | `UpdateScript` |
-  `DeleteScript` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+  [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def update_script(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3413,13 +3019,6 @@ defmodule AWS.GameLift do
   ## Learn more
 
     * [Build a rule set](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html)
-
-  ## Related actions
-
-  `CreateMatchmakingConfiguration` | `DescribeMatchmakingConfigurations` |
-  `UpdateMatchmakingConfiguration` | `DeleteMatchmakingConfiguration` |
-  `CreateMatchmakingRuleSet` | `DescribeMatchmakingRuleSets` |
-  `ValidateMatchmakingRuleSet` | `DeleteMatchmakingRuleSet` | [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
   """
   def validate_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
     meta = metadata()

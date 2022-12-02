@@ -104,6 +104,17 @@ defmodule AWS.Comprehend do
   @doc """
   Creates a new document classification request to analyze a single document in
   real-time, using a previously created and trained custom model and an endpoint.
+
+  You can input plain text or you can upload a single-page input document (text,
+  PDF, Word, or image).
+
+  If the system detects errors while processing a page in the input document, the
+  API response includes an entry in `Errors` that describes the errors.
+
+  If the system detects a document-level error in your input document, the API
+  returns an `InvalidRequestException` error response. For details about this
+  exception, see [ Errors in semi-structured documents](https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html)
+  in the Comprehend Developer Guide.
   """
   def classify_document(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -367,10 +378,24 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
-  Inspects text for named entities, and returns information about them.
+  Detects named entities in input text when you use the pre-trained model.
 
-  For more information, about named entities, see
-  [Entities](https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html)
+  Detects custom entities if you have a custom entity recognition model.
+
+  When detecting named entities using the pre-trained model, use plain text as the
+  input. For more information about named entities, see
+  [Entities](https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html) in the Comprehend Developer Guide.
+
+  When you use a custom entity recognition model, you can input plain text or you
+  can upload a single-page input document (text, PDF, Word, or image).
+
+  If the system detects errors while processing a page in the input document, the
+  API response includes an entry in `Errors` for each error.
+
+  If the system detects a document-level error in your input document, the API
+  returns an `InvalidRequestException` error response. For details about this
+  exception, see [ Errors in semi-structured
+  documents](https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html)
   in the Comprehend Developer Guide.
   """
   def detect_entities(%Client{} = client, input, options \\ []) do

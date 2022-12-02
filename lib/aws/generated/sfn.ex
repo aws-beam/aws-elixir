@@ -112,6 +112,15 @@ defmodule AWS.SFN do
   This is an asynchronous operation: It sets the state machine's status to
   `DELETING` and begins the deletion process.
 
+  If the given state machine Amazon Resource Name (ARN) is a qualified state
+  machine ARN, it will fail with ValidationException.
+
+  A qualified state machine ARN refers to a *Distributed Map state* defined within
+  a state machine. For example, the qualified state machine ARN
+  `arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel`
+  refers to a *Distributed Map state* with a label `mapStateLabel` in the state
+  machine named `stateMachineName`.
+
   For `EXPRESS` state machines, the deletion will happen eventually (usually less
   than a minute). Running executions may emit logs after `DeleteStateMachine` API
   is called.
@@ -135,12 +144,18 @@ defmodule AWS.SFN do
   end
 
   @doc """
-  Describes an execution.
+  Provides all information about a state machine execution, such as the state
+  machine associated with the execution, the execution input and output, and
+  relevant execution metadata.
+
+  Use this API action to return the Map Run ARN if the execution was dispatched by
+  a Map Run.
 
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
 
-  This API action is not supported by `EXPRESS` state machines.
+  This API action is not supported by `EXPRESS` state machine executions unless
+  they were dispatched by a Map Run.
   """
   def describe_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -149,7 +164,29 @@ defmodule AWS.SFN do
   end
 
   @doc """
-  Describes a state machine.
+  Provides information about a Map Run's configuration, progress, and results.
+
+  For more information, see [Examining Map Run](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html)
+  in the *Step Functions Developer Guide*.
+  """
+  def describe_map_run(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMapRun", input, options)
+  end
+
+  @doc """
+  Provides information about a state machine's definition, its IAM role Amazon
+  Resource Name (ARN), and configuration.
+
+  If the state machine ARN is a qualified state machine ARN, the response returned
+  includes the `Map` state's label.
+
+  A qualified state machine ARN refers to a *Distributed Map state* defined within
+  a state machine. For example, the qualified state machine ARN
+  `arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel`
+  refers to a *Distributed Map state* with a label `mapStateLabel` in the state
+  machine named `stateMachineName`.
 
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
@@ -161,7 +198,12 @@ defmodule AWS.SFN do
   end
 
   @doc """
-  Describes the state machine associated with a specific execution.
+  Provides information about a state machine's definition, its execution role ARN,
+  and configuration.
+
+  If an execution was dispatched by a Map Run, the Map Run is returned in the
+  response. Additionally, the state machine returned will be the state machine
+  associated with the Map Run.
 
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
@@ -238,7 +280,11 @@ defmodule AWS.SFN do
   end
 
   @doc """
-  Lists the executions of a state machine that meet the filtering criteria.
+  Lists all executions of a state machine or a Map Run.
+
+  You can list all executions related to a state machine by specifying a state
+  machine Amazon Resource Name (ARN), or those related to a Map Run by specifying
+  a Map Run ARN.
 
   Results are sorted by time, with the most recent execution first.
 
@@ -257,6 +303,18 @@ defmodule AWS.SFN do
     meta = metadata()
 
     Request.request_post(client, meta, "ListExecutions", input, options)
+  end
+
+  @doc """
+  Lists all Map Runs that were started by a given state machine execution.
+
+  Use this API action to obtain Map Run ARNs, and then call `DescribeMapRun` to
+  obtain more information, if needed.
+  """
+  def list_map_runs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMapRuns", input, options)
   end
 
   @doc """
@@ -342,6 +400,15 @@ defmodule AWS.SFN do
   @doc """
   Starts a state machine execution.
 
+  If the given state machine Amazon Resource Name (ARN) is a qualified state
+  machine ARN, it will fail with ValidationException.
+
+  A qualified state machine ARN refers to a *Distributed Map state* defined within
+  a state machine. For example, the qualified state machine ARN
+  `arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel`
+  refers to a *Distributed Map state* with a label `mapStateLabel` in the state
+  machine named `stateMachineName`.
+
   `StartExecution` is idempotent for `STANDARD` workflows. For a `STANDARD`
   workflow, if `StartExecution` is called with the same name and input as a
   running execution, the call will succeed and return the same response as the
@@ -413,12 +480,31 @@ defmodule AWS.SFN do
   end
 
   @doc """
+  Updates an in-progress Map Run's configuration to include changes to the
+  settings that control maximum concurrency and Map Run failure.
+  """
+  def update_map_run(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateMapRun", input, options)
+  end
+
+  @doc """
   Updates an existing state machine by modifying its `definition`, `roleArn`, or
   `loggingConfiguration`.
 
   Running executions will continue to use the previous `definition` and `roleArn`.
   You must include at least one of `definition` or `roleArn` or you will receive a
   `MissingRequiredParameter` error.
+
+  If the given state machine Amazon Resource Name (ARN) is a qualified state
+  machine ARN, it will fail with ValidationException.
+
+  A qualified state machine ARN refers to a *Distributed Map state* defined within
+  a state machine. For example, the qualified state machine ARN
+  `arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel`
+  refers to a *Distributed Map state* with a label `mapStateLabel` in the state
+  machine named `stateMachineName`.
 
   All `StartExecution` calls within a few seconds will use the updated
   `definition` and `roleArn`. Executions started immediately after calling

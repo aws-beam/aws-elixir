@@ -46,6 +46,10 @@ defmodule AWS.SNS do
   @doc """
   Adds a statement to a topic's access control policy, granting access for the
   specified Amazon Web Services accounts to the specified actions.
+
+  To remove the ability to change topic permissions, you must deny permissions to
+  the `AddPermission`, `RemovePermission`, and `SetTopicAttributes` actions in
+  your IAM policy.
   """
   def add_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -561,6 +565,10 @@ defmodule AWS.SNS do
 
   @doc """
   Removes a statement from a topic's access control policy.
+
+  To remove the ability to change topic permissions, you must deny permissions to
+  the `AddPermission`, `RemovePermission`, and `SetTopicAttributes` actions in
+  your IAM policy.
   """
   def remove_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -624,6 +632,10 @@ defmodule AWS.SNS do
 
   @doc """
   Allows a topic owner to set an attribute of the topic to a new value.
+
+  To remove the ability to change topic permissions, you must deny permissions to
+  the `AddPermission`, `RemovePermission`, and `SetTopicAttributes` actions in
+  your IAM policy.
   """
   def set_topic_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -686,6 +698,10 @@ defmodule AWS.SNS do
   and the requester is not the subscription owner, a final cancellation message is
   delivered to the endpoint, so that the endpoint owner can easily resubscribe to
   the topic if the `Unsubscribe` request was unintended.
+
+  Amazon SQS queue subscriptions require authentication for deletion. Only the
+  owner of the subscription, or the owner of the topic can unsubscribe using the
+  required Amazon Web Services signature.
 
   This action is throttled at 100 transactions per second (TPS).
   """

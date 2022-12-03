@@ -224,6 +224,15 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
+  Returns information about a `TableRestoreStatus` object.
+  """
+  def get_table_restore_status(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTableRestoreStatus", input, options)
+  end
+
+  @doc """
   Returns information about a usage limit.
   """
   def get_usage_limit(%Client{} = client, input, options \\ []) do
@@ -275,6 +284,15 @@ defmodule AWS.RedshiftServerless do
     meta = metadata()
 
     Request.request_post(client, meta, "ListSnapshots", input, options)
+  end
+
+  @doc """
+  Returns information about an array of `TableRestoreStatus` objects.
+  """
+  def list_table_restore_status(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTableRestoreStatus", input, options)
   end
 
   @doc """
@@ -332,6 +350,15 @@ defmodule AWS.RedshiftServerless do
     meta = metadata()
 
     Request.request_post(client, meta, "RestoreFromSnapshot", input, options)
+  end
+
+  @doc """
+  Restores a table from a snapshot to your Amazon Redshift Serverless instance.
+  """
+  def restore_table_from_snapshot(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RestoreTableFromSnapshot", input, options)
   end
 
   @doc """

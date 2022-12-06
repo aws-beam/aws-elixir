@@ -357,8 +357,11 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
-  Retrieves your request parameters, Savings Plan Recommendations Summary and
-  Details.
+  Retrieves the Savings Plans recommendations for your account.
+
+  First use `StartSavingsPlansPurchaseRecommendationGeneration` to generate a new
+  set of recommendations, and then use `GetSavingsPlansPurchaseRecommendation` to
+  retrieve them.
   """
   def get_savings_plans_purchase_recommendation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -452,6 +455,26 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+  Retrieves a list of your historical recommendation generations within the past
+  30 days.
+  """
+  def list_savings_plans_purchase_recommendation_generation(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "ListSavingsPlansPurchaseRecommendationGeneration",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Returns a list of resource tags associated with the resource specified by the
   Amazon Resource Name (ARN).
   """
@@ -468,6 +491,33 @@ defmodule AWS.CostExplorer do
     meta = metadata()
 
     Request.request_post(client, meta, "ProvideAnomalyFeedback", input, options)
+  end
+
+  @doc """
+  Requests a Savings Plans recommendation generation.
+
+  This enables you to calculate a fresh set of Savings Plans recommendations that
+  takes your latest usage data and current Savings Plans inventory into account.
+  You can refresh Savings Plans recommendations up to three times daily for a
+  consolidated billing family.
+
+  `StartSavingsPlansPurchaseRecommendationGeneration` has no request syntax
+  because no input parameters are needed to support this operation.
+  """
+  def start_savings_plans_purchase_recommendation_generation(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "StartSavingsPlansPurchaseRecommendationGeneration",
+      input,
+      options
+    )
   end
 
   @doc """

@@ -263,8 +263,15 @@ defmodule AWS.Connect do
   You can call this API only in the same Amazon Web Services Region where the
   Amazon Connect instance or traffic distribution group was created.
 
+  For more information about how to use this operation, see [Claim a phone number in your
+  country](https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-number.html)
+  and [Claim phone numbers to traffic distribution groups](https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-numbers-traffic-distribution-groups.html)
+  in the *Amazon Connect Administrator Guide*.
+
   You can call the
-  [DescribePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html) API to verify the status of a previous
+  [SearchAvailablePhoneNumbers](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html) API for available phone numbers that you can claim. Call the
+  [DescribePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html)
+  API to verify the status of a previous
   [ClaimPhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html)
   operation.
   """
@@ -435,6 +442,29 @@ defmodule AWS.Connect do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Creates a rule for the specified Amazon Connect instance.
+  """
+  def create_rule(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -728,6 +758,29 @@ defmodule AWS.Connect do
     url_path =
       "/quick-connects/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(quick_connect_id)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes a rule for the specified Amazon Connect instance.
+  """
+  def delete_rule(%Client{} = client, instance_id, rule_id, input, options \\ []) do
+    url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(rule_id)}"
     headers = []
     query_params = []
 
@@ -1186,6 +1239,19 @@ defmodule AWS.Connect do
     url_path =
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Describes a rule for the specified Amazon Connect instance.
+  """
+  def describe_rule(%Client{} = client, instance_id, rule_id, options \\ []) do
+    url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(rule_id)}"
     headers = []
     query_params = []
 
@@ -2637,6 +2703,55 @@ defmodule AWS.Connect do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  List all rules for the specified Amazon Connect instance.
+  """
+  def list_rules(
+        %Client{} = client,
+        instance_id,
+        event_source_name \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        publish_status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(publish_status) do
+        [{"publishStatus", publish_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(event_source_name) do
+        [{"eventSourceName", event_source_name} | query_params]
       else
         query_params
       end
@@ -4385,6 +4500,19 @@ defmodule AWS.Connect do
       options,
       nil
     )
+  end
+
+  @doc """
+  Updates a rule for the specified Amazon Connect instance.
+  """
+  def update_rule(%Client{} = client, instance_id, rule_id, input, options \\ []) do
+    url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(rule_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """

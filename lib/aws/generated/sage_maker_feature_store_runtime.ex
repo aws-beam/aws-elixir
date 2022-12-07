@@ -65,8 +65,9 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   @doc """
   Deletes a `Record` from a `FeatureGroup`.
 
-  A new record will show up in the `OfflineStore` when the `DeleteRecord` API is
-  called. This record will have a value of `True` in the `is_deleted` column.
+  When the `DeleteRecord` API is called a new record will be added to the
+  `OfflineStore` and the `Record` will be removed from the `OnlineStore`. This
+  record will have a value of `True` in the `is_deleted` column.
   """
   def delete_record(%Client{} = client, feature_group_name, input, options \\ []) do
     url_path = "/FeatureGroup/#{AWS.Util.encode_uri(feature_group_name)}"
@@ -75,7 +76,8 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
     {query_params, input} =
       [
         {"EventTime", "EventTime"},
-        {"RecordIdentifierValueAsString", "RecordIdentifierValueAsString"}
+        {"RecordIdentifierValueAsString", "RecordIdentifierValueAsString"},
+        {"TargetStores", "TargetStores"}
       ]
       |> Request.build_params(input)
 

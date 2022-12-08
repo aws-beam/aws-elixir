@@ -434,6 +434,33 @@ defmodule AWS.EKS do
   end
 
   @doc """
+  Returns configuration options.
+  """
+  def describe_addon_configuration(%Client{} = client, addon_name, addon_version, options \\ []) do
+    url_path = "/addons/configuration-schemas"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(addon_version) do
+        [{"addonVersion", addon_version} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(addon_name) do
+        [{"addonName", addon_name} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Describes the versions for an add-on.
 
   Information such as the Kubernetes versions that you can use the add-on with,

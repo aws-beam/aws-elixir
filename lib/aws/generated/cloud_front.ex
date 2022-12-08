@@ -3139,6 +3139,49 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Copies the staging distribution's configuration to its corresponding primary
+  distribution.
+
+  The primary distribution retains its `Aliases` (also known as alternate domain
+  names or CNAMEs) and `ContinuousDeploymentPolicyId` value, but otherwise its
+  configuration is overwritten to match the staging distribution.
+
+  You can use this operation in a continuous deployment workflow after you have
+  tested configuration changes on the staging distribution. After using a
+  continuous deployment policy to move a portion of your domain name’s traffic to
+  the staging distribution and verifying that it works as intended, you can use
+  this operation to copy the staging distribution’s configuration to the primary
+  distribution. This action will disable the continuous deployment policy and move
+  your domain’s traffic back to the primary distribution.
+  """
+  def update_distribution_with_staging_config(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}/promote-staging-config"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    {query_params, input} =
+      [
+        {"StagingDistributionId", "StagingDistributionId"}
+      ]
+      |> Request.build_params(input)
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
   Update a field-level encryption configuration.
   """
   def update_field_level_encryption_config(%Client{} = client, id, input, options \\ []) do

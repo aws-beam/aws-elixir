@@ -132,6 +132,31 @@ defmodule AWS.IoTTwinMaker do
   end
 
   @doc """
+  This action creates a SyncJob.
+  """
+  def create_sync_job(%Client{} = client, sync_source, workspace_id, input, options \\ []) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/sync-jobs/#{AWS.Util.encode_uri(sync_source)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a workplace.
   """
   def create_workspace(%Client{} = client, workspace_id, input, options \\ []) do
@@ -221,6 +246,31 @@ defmodule AWS.IoTTwinMaker do
   def delete_scene(%Client{} = client, scene_id, workspace_id, input, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/scenes/#{AWS.Util.encode_uri(scene_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Delete the SyncJob.
+  """
+  def delete_sync_job(%Client{} = client, sync_source, workspace_id, input, options \\ []) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/sync-jobs/#{AWS.Util.encode_uri(sync_source)}"
 
     headers = []
     query_params = []
@@ -400,6 +450,26 @@ defmodule AWS.IoTTwinMaker do
   end
 
   @doc """
+  Gets the SyncJob.
+  """
+  def get_sync_job(%Client{} = client, sync_source, workspace_id \\ nil, options \\ []) do
+    url_path = "/sync-jobs/#{AWS.Util.encode_uri(sync_source)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(workspace_id) do
+        [{"workspace", workspace_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves information about a workspace.
   """
   def get_workspace(%Client{} = client, workspace_id, options \\ []) do
@@ -463,6 +533,54 @@ defmodule AWS.IoTTwinMaker do
   """
   def list_scenes(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/scenes-list"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  List all SyncJobs.
+  """
+  def list_sync_jobs(%Client{} = client, workspace_id, input, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/sync-jobs-list"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the sync resources.
+  """
+  def list_sync_resources(%Client{} = client, sync_source, workspace_id, input, options \\ []) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/sync-jobs/#{AWS.Util.encode_uri(sync_source)}/resources-list"
+
     headers = []
     query_params = []
 

@@ -102,6 +102,19 @@ defmodule AWS.MigrationHubStrategy do
   end
 
   @doc """
+  Retrieve the latest ID of a specific assessment task.
+  """
+  def get_latest_assessment_id(%Client{} = client, options \\ []) do
+    url_path = "/get-latest-assessment-id"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves your migration and modernization preferences.
   """
   def get_portfolio_preferences(%Client{} = client, options \\ []) do

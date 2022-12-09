@@ -110,6 +110,28 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+  ## Reserved for use with Amazon VPC Lattice, which is in preview and subject to
+  change.
+
+  Do not use this API for production workloads. This API is also subject to
+  change.
+
+  Attaches one or more traffic sources to the specified Auto Scaling group.
+
+  To describe the traffic sources for an Auto Scaling group, call the
+  `DescribeTrafficSources` API. To detach a traffic source from the Auto Scaling
+  group, call the `DetachTrafficSources` API.
+
+  This operation is additive and does not detach existing traffic sources from the
+  Auto Scaling group.
+  """
+  def attach_traffic_sources(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AttachTrafficSources", input, options)
+  end
+
+  @doc """
   Deletes one or more scheduled actions for the specified Auto Scaling group.
   """
   def batch_delete_scheduled_action(%Client{} = client, input, options \\ []) do
@@ -525,6 +547,10 @@ defmodule AWS.AutoScaling do
   Scaling
   group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
+
+  You can use this operation to describe target groups that were attached by using
+  `AttachLoadBalancerTargetGroups`, but not for target groups that were attached
+  by using `AttachTrafficSources`.
   """
   def describe_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -674,6 +700,21 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+  ## Reserved for use with Amazon VPC Lattice, which is in preview and subject to
+  change.
+
+  Do not use this API for production workloads. This API is also subject to
+  change.
+
+  Gets information about the traffic sources for the specified Auto Scaling group.
+  """
+  def describe_traffic_sources(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTrafficSources", input, options)
+  end
+
+  @doc """
   Gets information about a warm pool and its instances.
 
   For more information, see [Warm pools for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
@@ -715,6 +756,10 @@ defmodule AWS.AutoScaling do
   deregistering the instances in the group. When all instances are deregistered,
   then you can no longer describe the target group using the
   `DescribeLoadBalancerTargetGroups` API call. The instances remain running.
+
+  You can use this operation to detach target groups that were attached by using
+  `AttachLoadBalancerTargetGroups`, but not for target groups that were attached
+  by using `AttachTrafficSources`.
   """
   def detach_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -739,6 +784,21 @@ defmodule AWS.AutoScaling do
     meta = metadata()
 
     Request.request_post(client, meta, "DetachLoadBalancers", input, options)
+  end
+
+  @doc """
+  ## Reserved for use with Amazon VPC Lattice, which is in preview and subject to
+  change.
+
+  Do not use this API for production workloads. This API is also subject to
+  change.
+
+  Detaches one or more traffic sources from the specified Auto Scaling group.
+  """
+  def detach_traffic_sources(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetachTrafficSources", input, options)
   end
 
   @doc """

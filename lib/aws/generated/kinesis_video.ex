@@ -139,6 +139,33 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
+  Describes a stream’s edge configuration that was set using the
+  `StartEdgeConfigurationUpdate` API.
+
+  Use this API to get the status of the configuration if the configuration is in
+  sync with the Edge Agent.
+  """
+  def describe_edge_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/describeEdgeConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Gets the `ImageGenerationConfiguration` for a given Kinesis video stream.
   """
   def describe_image_generation_configuration(%Client{} = client, input, options \\ []) do
@@ -386,6 +413,45 @@ defmodule AWS.KinesisVideo do
   """
   def list_tags_for_stream(%Client{} = client, input, options \\ []) do
     url_path = "/listTagsForStream"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  An asynchronous API that updates a stream’s existing edge configuration.
+
+  If this API is invoked for the first time, a new edge configuration will be
+  created for the stream, and the sync status will be set to `SYNCING`.
+
+  The Kinesis Video Stream will sync the stream’s edge configuration with the Edge
+  Agent IoT Greengrass component that runs on an IoT Hub Device setup at your
+  premise. The time to sync can vary and depends on the connectivity of the Hub
+  Device. The `SyncStatus` will be updated as the edge configuration is
+  acknowledged, and synced with the Edge Agent. You will have to wait for the sync
+  status to reach a terminal state such as: `IN_SYNC` and `SYNC_FAILED`, before
+  using this API again.
+
+  If you invoke this API during the syncing process, a `ResourceInUseException`
+  will be thrown. The connectivity of the stream's edge configuration and the Edge
+  Agent will be retried for 15 minutes. After 15 minutes, the status will
+  transition into the `SYNC_FAILED` state.
+  """
+  def start_edge_configuration_update(%Client{} = client, input, options \\ []) do
+    url_path = "/startEdgeConfigurationUpdate"
     headers = []
     query_params = []
 

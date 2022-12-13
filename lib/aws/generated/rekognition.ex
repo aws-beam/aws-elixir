@@ -748,7 +748,7 @@ defmodule AWS.Rekognition do
     * Aliases - Possible Aliases for the label.
 
     * Categories - The label categories that the detected label belongs
-  to. A given label can belong to more than one category.
+  to.
 
     * BoundingBox — Bounding boxes are described for all instances of
   detected common object labels, returned in an array of Instance objects. An
@@ -765,11 +765,11 @@ defmodule AWS.Rekognition do
 
     * Dominant Color - An array of the dominant colors in the image.
 
-    * Foreground - Information about the Sharpness and Brightness of the
-  input image’s foreground.
+    * Foreground - Information about the sharpness, brightness, and
+  dominant colors of the input image’s foreground.
 
-    * Background - Information about the Sharpness and Brightness of the
-  input image’s background.
+    * Background - Information about the sharpness, brightness, and
+  dominant colors of the input image’s background.
 
   The list of returned labels will include at least one label for every detected
   object, along with information about that label. In the following example,
@@ -1152,24 +1152,65 @@ defmodule AWS.Rekognition do
   which returns a job identifier (`JobId`). When the label detection operation
   finishes, Amazon Rekognition publishes a completion status to the Amazon Simple
   Notification Service topic registered in the initial call to
-  `StartlabelDetection`. To get the results of the label detection operation,
-  first check that the status value published to the Amazon SNS topic is
-  `SUCCEEDED`. If so, call `GetLabelDetection` and pass the job identifier
-  (`JobId`) from the initial call to `StartLabelDetection`.
+  `StartlabelDetection`.
+
+  To get the results of the label detection operation, first check that the status
+  value published to the Amazon SNS topic is `SUCCEEDED`. If so, call
+  `GetLabelDetection` and pass the job identifier (`JobId`) from the initial call
+  to `StartLabelDetection`.
 
   `GetLabelDetection` returns an array of detected labels (`Labels`) sorted by the
   time the labels were detected. You can also sort by the label name by specifying
-  `NAME` for the `SortBy` input parameter.
+  `NAME` for the `SortBy` input parameter. If there is no `NAME` specified, the
+  default sort is by timestamp.
 
-  The labels returned include the label name, the percentage confidence in the
-  accuracy of the detected label, and the time the label was detected in the
-  video.
+  You can select how results are aggregated by using the `AggregateBy` input
+  parameter. The default aggregation method is `TIMESTAMPS`. You can also
+  aggregate by `SEGMENTS`, which aggregates all instances of labels detected in a
+  given segment.
 
-  The returned labels also include bounding box information for common objects, a
-  hierarchical taxonomy of detected labels, and the version of the label model
-  used for detection.
+  The returned Labels array may include the following attributes:
 
-  Use MaxResults parameter to limit the number of labels returned. If there are
+    * Name - The name of the detected label.
+
+    * Confidence - The level of confidence in the label assigned to a
+  detected object.
+
+    * Parents - The ancestor labels for a detected label.
+  GetLabelDetection returns a hierarchical taxonomy of detected labels. For
+  example, a detected car might be assigned the label car. The label car has two
+  parent labels: Vehicle (its parent) and Transportation (its grandparent). The
+  response includes the all ancestors for a label, where every ancestor is a
+  unique label. In the previous example, Car, Vehicle, and Transportation are
+  returned as unique labels in the response.
+
+    * Aliases - Possible Aliases for the label.
+
+    * Categories - The label categories that the detected label belongs
+  to.
+
+    * BoundingBox — Bounding boxes are described for all instances of
+  detected common object labels, returned in an array of Instance objects. An
+  Instance object contains a BoundingBox object, describing the location of the
+  label on the input image. It also includes the confidence for the accuracy of
+  the detected bounding box.
+
+    * Timestamp - Time, in milliseconds from the start of the video,
+  that the label was detected. For aggregation by `SEGMENTS`, the
+  `StartTimestampMillis`, `EndTimestampMillis`, and `DurationMillis` structures
+  are what define a segment. Although the “Timestamp” structure is still returned
+  with each label, its value is set to be the same as `StartTimestampMillis`.
+
+  Timestamp and Bounding box information are returned for detected Instances, only
+  if aggregation is done by `TIMESTAMPS`. If aggregating by `SEGMENTS`,
+  information about detected instances isn’t returned.
+
+  The version of the label model used for the detection is also returned.
+
+  ## Note `DominantColors` isn't returned for `Instances`, although it is shown as
+  part of the response in the sample seen below.
+
+  Use `MaxResults` parameter to limit the number of labels returned. If there are
   more results than specified in `MaxResults`, the value of `NextToken` in the
   operation response contains a pagination token for getting the next set of
   results. To get the next page of results, call `GetlabelDetection` and populate
@@ -1775,6 +1816,17 @@ defmodule AWS.Rekognition do
   value published to the Amazon SNS topic is `SUCCEEDED`. If so, call
   `GetLabelDetection` and pass the job identifier (`JobId`) from the initial call
   to `StartLabelDetection`.
+
+  *Optional Parameters*
+
+  `StartLabelDetection` has the `GENERAL_LABELS` Feature applied by default. This
+  feature allows you to provide filtering criteria to the `Settings` parameter.
+  You can filter with sets of individual labels or with label categories. You can
+  specify inclusive filters, exclusive filters, or a combination of inclusive and
+  exclusive filters. For more information on filtering, see [Detecting labels in a video](https://docs.aws.amazon.com/rekognition/latest/dg/labels-detecting-labels-video.html).
+
+  You can specify `MinConfidence` to control the confidence threshold for the
+  labels returned. The default is 50.
   """
   def start_label_detection(%Client{} = client, input, options \\ []) do
     meta = metadata()

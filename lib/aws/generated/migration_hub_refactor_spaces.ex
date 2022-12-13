@@ -5,7 +5,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @moduledoc """
   Amazon Web Services Migration Hub Refactor Spaces
 
-  ` This API reference provides descriptions, syntax, and other details about each
+  This API reference provides descriptions, syntax, and other details about each
   of the actions and data types for Amazon Web Services Migration Hub Refactor
   Spaces (Refactor Spaces).
 
@@ -19,8 +19,6 @@ defmodule AWS.MigrationHubRefactorSpaces do
   `CreateResourceShare` API. See
   [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html)
   in the *Amazon Web Services RAM API Reference*.
-
-  `
   """
 
   alias AWS.Client
@@ -144,6 +142,12 @@ defmodule AWS.MigrationHubRefactorSpaces do
   with the specified ARN exists. If it does not exist, the health check fails. For
   public URLs, a connection is opened to the public endpoint. If the URL is not
   reachable, the health check fails.
+
+  Refactor Spaces automatically resolves the public Domain Name System (DNS) names
+  that are set in `CreateServiceRequest$UrlEndpoint` when you create a service.
+  The DNS names resolve when the DNS time-to-live (TTL) expires, or every 60
+  seconds for TTLs less than 60 seconds. This periodic DNS resolution ensures that
+  the route configuration remains up-to-date.
 
   For private URLS, a target group is created on the Elastic Load Balancing and
   the target group health check is run. The `HealthCheckProtocol`,

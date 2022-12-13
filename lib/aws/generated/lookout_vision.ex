@@ -688,6 +688,8 @@ defmodule AWS.LookoutVision do
 
     * `s3:GetBucketLocation`
 
+    * `kms:GenerateDataKey`
+
     * `greengrass:CreateComponentVersion`
 
     * `greengrass:DescribeComponent`

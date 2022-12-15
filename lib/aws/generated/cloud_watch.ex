@@ -670,7 +670,10 @@ defmodule AWS.CloudWatch do
 
   @doc """
   Creates or updates an alarm and associates it with the specified metric, metric
-  math expression, or anomaly detection model.
+  math expression, anomaly detection model, or Metrics Insights query.
+
+  For more information about using a Metrics Insights query for an alarm, see
+  [Create alarms on Metrics Insights queries](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html).
 
   Alarms based on anomaly detection models cannot have Auto Scaling actions.
 

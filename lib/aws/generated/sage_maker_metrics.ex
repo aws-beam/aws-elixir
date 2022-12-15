@@ -32,8 +32,10 @@ defmodule AWS.SageMakerMetrics do
   end
 
   @doc """
-  Used to ingest training metrics into SageMaker which can be visualized in
-  SageMaker Studio and retrieved with the `GetMetrics` API.
+  Used to ingest training metrics into SageMaker.
+
+  These metrics can be visualized in SageMaker Studio and retrieved with the
+  `GetMetrics` API.
   """
   def batch_put_metrics(%Client{} = client, input, options \\ []) do
     url_path = "/BatchPutMetrics"

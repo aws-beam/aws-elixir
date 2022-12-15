@@ -10,7 +10,7 @@ defmodule AWS.RedshiftData do
 
   For more information about the Amazon Redshift Data API and CLI usage examples,
   see [Using the Amazon Redshift Data API](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html) in the
-  *Amazon Redshift Cluster Management Guide*.
+  *Amazon Redshift Management Guide*.
   """
 
   alias AWS.Client
@@ -51,6 +51,10 @@ defmodule AWS.RedshiftData do
   When connecting to a serverless workgroup, specify the workgroup name and
   database name. Also, permission to call the `redshift-serverless:GetCredentials`
   operation is required.
+
+  For more information about the Amazon Redshift Data API and CLI usage examples,
+  see [Using the Amazon Redshift Data API](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html) in the
+  *Amazon Redshift Management Guide*.
   """
   def batch_execute_statement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -62,6 +66,10 @@ defmodule AWS.RedshiftData do
   Cancels a running query.
 
   To be canceled, a query must be running.
+
+  For more information about the Amazon Redshift Data API and CLI usage examples,
+  see [Using the Amazon Redshift Data API](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html) in the
+  *Amazon Redshift Management Guide*.
   """
   def cancel_statement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -75,6 +83,10 @@ defmodule AWS.RedshiftData do
 
   The information includes when the query started, when it finished, the query
   status, the number of rows returned, and the SQL statement.
+
+  For more information about the Amazon Redshift Data API and CLI usage examples,
+  see [Using the Amazon Redshift Data API](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html) in the
+  *Amazon Redshift Management Guide*.
   """
   def describe_statement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -101,6 +113,10 @@ defmodule AWS.RedshiftData do
   When connecting to a serverless workgroup, specify the workgroup name and
   database name. Also, permission to call the `redshift-serverless:GetCredentials`
   operation is required.
+
+  For more information about the Amazon Redshift Data API and CLI usage examples,
+  see [Using the Amazon Redshift Data API](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html) in the
+  *Amazon Redshift Management Guide*.
   """
   def describe_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -127,6 +143,10 @@ defmodule AWS.RedshiftData do
   When connecting to a serverless workgroup, specify the workgroup name and
   database name. Also, permission to call the `redshift-serverless:GetCredentials`
   operation is required.
+
+  For more information about the Amazon Redshift Data API and CLI usage examples,
+  see [Using the Amazon Redshift Data API](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html) in the
+  *Amazon Redshift Management Guide*.
   """
   def execute_statement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -138,6 +158,10 @@ defmodule AWS.RedshiftData do
   Fetches the temporarily cached result of an SQL statement.
 
   A token is returned to page through the statement results.
+
+  For more information about the Amazon Redshift Data API and CLI usage examples,
+  see [Using the Amazon Redshift Data API](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html) in the
+  *Amazon Redshift Management Guide*.
   """
   def get_statement_result(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -164,6 +188,10 @@ defmodule AWS.RedshiftData do
   When connecting to a serverless workgroup, specify the workgroup name and
   database name. Also, permission to call the `redshift-serverless:GetCredentials`
   operation is required.
+
+  For more information about the Amazon Redshift Data API and CLI usage examples,
+  see [Using the Amazon Redshift Data API](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html) in the
+  *Amazon Redshift Management Guide*.
   """
   def list_databases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -190,6 +218,10 @@ defmodule AWS.RedshiftData do
   When connecting to a serverless workgroup, specify the workgroup name and
   database name. Also, permission to call the `redshift-serverless:GetCredentials`
   operation is required.
+
+  For more information about the Amazon Redshift Data API and CLI usage examples,
+  see [Using the Amazon Redshift Data API](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html) in the
+  *Amazon Redshift Management Guide*.
   """
   def list_schemas(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -202,6 +234,10 @@ defmodule AWS.RedshiftData do
 
   By default, only finished statements are shown. A token is returned to page
   through the statement list.
+
+  For more information about the Amazon Redshift Data API and CLI usage examples,
+  see [Using the Amazon Redshift Data API](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html) in the
+  *Amazon Redshift Management Guide*.
   """
   def list_statements(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -229,6 +265,10 @@ defmodule AWS.RedshiftData do
   When connecting to a serverless workgroup, specify the workgroup name and
   database name. Also, permission to call the `redshift-serverless:GetCredentials`
   operation is required.
+
+  For more information about the Amazon Redshift Data API and CLI usage examples,
+  see [Using the Amazon Redshift Data API](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html) in the
+  *Amazon Redshift Management Guide*.
   """
   def list_tables(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -51,11 +51,11 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
-  Adds a subscription to a cost anomaly detection monitor.
+  Adds an alert subscription to a cost anomaly detection monitor.
 
   You can use each subscription to define subscribers with email or SNS
-  notifications. Email subscribers can set a dollar threshold and a time frequency
-  for receiving notifications.
+  notifications. Email subscribers can set an absolute or percentage threshold and
+  a time frequency for receiving notifications.
   """
   def create_anomaly_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -120,6 +120,8 @@ defmodule AWS.CostExplorer do
   @doc """
   Retrieves all of the cost anomalies detected on your account during the time
   period that's specified by the `DateInterval` object.
+
+  Anomalies are available for up to 90 days.
   """
   def get_anomalies(%Client{} = client, input, options \\ []) do
     meta = metadata()

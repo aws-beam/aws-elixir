@@ -94,12 +94,51 @@ defmodule AWS.BackupGateway do
   end
 
   @doc """
+  Retrieves the bandwidth rate limit schedule for a specified gateway.
+
+  By default, gateways do not have bandwidth rate limit schedules, which means no
+  bandwidth rate limiting is in effect. Use this to get a gateway's bandwidth rate
+  limit schedule.
+  """
+  def get_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetBandwidthRateLimitSchedule", input, options)
+  end
+
+  @doc """
   By providing the ARN (Amazon Resource Name), this API returns the gateway.
   """
   def get_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "GetGateway", input, options)
+  end
+
+  @doc """
+  This action requests information about the specified hypervisor to which the
+  gateway will connect.
+
+  A hypervisor is hardware, software, or firmware that creates and manages virtual
+  machines, and allocates resources to them.
+  """
+  def get_hypervisor(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetHypervisor", input, options)
+  end
+
+  @doc """
+  This action retrieves the property mappings for the specified hypervisor.
+
+  A hypervisor property mapping displays the relationship of entity properties
+  available from the on-premises hypervisor to the properties available in Amazon
+  Web Services.
+  """
+  def get_hypervisor_property_mappings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetHypervisorPropertyMappings", input, options)
   end
 
   @doc """
@@ -162,12 +201,48 @@ defmodule AWS.BackupGateway do
   end
 
   @doc """
+  This action sets the bandwidth rate limit schedule for a specified gateway.
+
+  By default, gateways do not have a bandwidth rate limit schedule, which means no
+  bandwidth rate limiting is in effect. Use this to initiate a gateway's bandwidth
+  rate limit schedule.
+  """
+  def put_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutBandwidthRateLimitSchedule", input, options)
+  end
+
+  @doc """
+  This action sets the property mappings for the specified hypervisor.
+
+  A hypervisor property mapping displays the relationship of entity properties
+  available from the on-premises hypervisor to the properties available in Amazon
+  Web Services.
+  """
+  def put_hypervisor_property_mappings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutHypervisorPropertyMappings", input, options)
+  end
+
+  @doc """
   Set the maintenance start time for a gateway.
   """
   def put_maintenance_start_time(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "PutMaintenanceStartTime", input, options)
+  end
+
+  @doc """
+  This action sends a request to sync metadata across the specified virtual
+  machines.
+  """
+  def start_virtual_machines_metadata_sync(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartVirtualMachinesMetadataSync", input, options)
   end
 
   @doc """

@@ -18,8 +18,6 @@ defmodule AWS.Connect do
 
   You can connect programmatically to an Amazon Web Services service by using an
   endpoint. For a list of Amazon Connect endpoints, see [Amazon Connect Endpoints](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
-
-  Working with flows? Check out the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
   """
 
   alias AWS.Client
@@ -313,7 +311,7 @@ defmodule AWS.Connect do
   @doc """
   Creates a flow for the specified Amazon Connect instance.
 
-  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
+  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
   """
   def create_contact_flow(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/contact-flows/#{AWS.Util.encode_uri(instance_id)}"
@@ -446,6 +444,9 @@ defmodule AWS.Connect do
 
   @doc """
   Creates a rule for the specified Amazon Connect instance.
+
+  Use the [Rules Function language](https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html)
+  to code conditions for the rule.
   """
   def create_rule(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}"
@@ -1055,7 +1056,7 @@ defmodule AWS.Connect do
   @doc """
   Describes the specified flow.
 
-  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
+  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
   """
   def describe_contact_flow(%Client{} = client, contact_flow_id, instance_id, options \\ []) do
     url_path =
@@ -2011,7 +2012,7 @@ defmodule AWS.Connect do
   @doc """
   Provides information about the flows for the specified Amazon Connect instance.
 
-  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
+  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
 
   For more information about flows, see
   [Flows](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html)
@@ -3846,7 +3847,7 @@ defmodule AWS.Connect do
   @doc """
   Updates the specified flow.
 
-  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
+  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
   """
   def update_contact_flow_content(
         %Client{} = client,
@@ -3972,7 +3973,7 @@ defmodule AWS.Connect do
   @doc """
   The name of the flow.
 
-  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
+  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
   """
   def update_contact_flow_name(
         %Client{} = client,
@@ -4504,6 +4505,9 @@ defmodule AWS.Connect do
 
   @doc """
   Updates a rule for the specified Amazon Connect instance.
+
+  Use the [Rules Function language](https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html)
+  to code conditions for the rule.
   """
   def update_rule(%Client{} = client, instance_id, rule_id, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(rule_id)}"

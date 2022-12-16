@@ -238,9 +238,11 @@ defmodule AWS.EKS do
 
   An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and
   associated Amazon EC2 instances that are managed by Amazon Web Services for an
-  Amazon EKS cluster. Each node group uses a version of the Amazon EKS optimized
-  Amazon Linux 2 AMI. For more information, see [Managed Node Groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html)
+  Amazon EKS cluster. For more information, see [Managed node groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html)
   in the *Amazon EKS User Guide*.
+
+  Windows AMI types are only supported for commercial Regions that support Windows
+  Amazon EKS.
   """
   def create_nodegroup(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups"
@@ -1183,8 +1185,10 @@ defmodule AWS.EKS do
   available AMI version of a node group's current Kubernetes version by not
   specifying a Kubernetes version in the request. You can update to the latest AMI
   version of your cluster's current Kubernetes version by specifying your
-  cluster's Kubernetes version in the request. For more information, see [Amazon EKS optimized Amazon Linux 2 AMI
-  versions](https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html)
+  cluster's Kubernetes version in the request. For information about Linux
+  versions, see [Amazon EKS optimized Amazon Linux AMI versions](https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html)
+  in the *Amazon EKS User Guide*. For information about Windows versions, see
+  [Amazon EKS optimized Windows AMI versions](https://docs.aws.amazon.com/eks/latest/userguide/eks-ami-versions-windows.html)
   in the *Amazon EKS User Guide*.
 
   You cannot roll back a node group to an earlier Kubernetes version or AMI

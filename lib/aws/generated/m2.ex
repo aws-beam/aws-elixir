@@ -66,7 +66,7 @@ defmodule AWS.M2 do
   @doc """
   Creates a new application with given parameters.
 
-  Requires an existing environment and application definition file.
+  Requires an existing runtime environment and application definition file.
   """
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
@@ -112,7 +112,8 @@ defmodule AWS.M2 do
   end
 
   @doc """
-  Creates and starts a deployment to deploy an application into an environment.
+  Creates and starts a deployment to deploy an application into a runtime
+  environment.
   """
   def create_deployment(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/deployments"
@@ -183,12 +184,13 @@ defmodule AWS.M2 do
   end
 
   @doc """
-  Deletes a specific application from a specified environment where it has been
-  previously deployed.
+  Deletes a specific application from the specific runtime environment where it
+  was previously deployed.
 
-  You cannot delete an environment using DeleteEnvironment, if any application has
-  ever been deployed to it. This API removes the association of the application
-  with the environment so you can delete the environment smoothly.
+  You cannot delete a runtime environment using DeleteEnvironment if any
+  application has ever been deployed to it. This API removes the association of
+  the application with the runtime environment so you can delete the environment
+  smoothly.
   """
   def delete_application_from_environment(
         %Client{} = client,
@@ -219,7 +221,7 @@ defmodule AWS.M2 do
   end
 
   @doc """
-  Deletes a specific environment.
+  Deletes a specific runtime environment.
 
   The environment cannot contain deployed applications. If it does, you must
   delete those applications before you delete the environment.
@@ -387,8 +389,8 @@ defmodule AWS.M2 do
   @doc """
   Lists the applications associated with a specific Amazon Web Services account.
 
-  You can provide the unique identifier of a specific environment in a query
-  parameter to see all applications associated with that environment.
+  You can provide the unique identifier of a specific runtime environment in a
+  query parameter to see all applications associated with that environment.
   """
   def list_applications(
         %Client{} = client,
@@ -439,7 +441,7 @@ defmodule AWS.M2 do
   Lists all the available batch job definitions based on the batch job resources
   uploaded during the application creation.
 
-  The listed batch job definitions can then be used to start a batch job.
+  You can use the batch job definitions in the list to start a batch job.
   """
   def list_batch_job_definitions(
         %Client{} = client,
@@ -590,9 +592,9 @@ defmodule AWS.M2 do
   Lists the data sets imported for a specific application.
 
   In Amazon Web Services Mainframe Modernization, data sets are associated with
-  applications deployed on environments. This is known as importing data sets.
-  Currently, Amazon Web Services Mainframe Modernization can import data sets into
-  catalogs using
+  applications deployed on runtime environments. This is known as importing data
+  sets. Currently, Amazon Web Services Mainframe Modernization can import data
+  sets into catalogs using
   [CreateDataSetImportTask](https://docs.aws.amazon.com/m2/latest/APIReference/API_CreateDataSetImportTask.html).
   """
   def list_data_sets(
@@ -918,7 +920,7 @@ defmodule AWS.M2 do
   end
 
   @doc """
-  Updates the configuration details for a specific environment.
+  Updates the configuration details for a specific runtime environment.
   """
   def update_environment(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_id)}"

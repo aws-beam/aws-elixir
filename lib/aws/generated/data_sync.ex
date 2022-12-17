@@ -199,16 +199,6 @@ defmodule AWS.DataSync do
   A task includes a source location, a destination location, and the preferences
   for how and when you want to transfer your data (such as bandwidth limits,
   scheduling, among other options).
-
-  When you create a task that transfers data between Amazon Web Services services
-  in different Amazon Web Services Regions, one of your locations must reside in
-  the Region where you're using DataSync.
-
-  For more information, see the following topics:
-
-    * [Working with DataSync locations](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html)
-
-    * [Configure DataSync task settings](https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html)
   """
   def create_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -240,7 +230,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Deletes a task.
+  Deletes an DataSync task.
   """
   def delete_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -415,7 +405,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Returns all the tags associated with a specified resource.
+  Returns all the tags associated with an Amazon Web Services resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -442,16 +432,12 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Starts a specific invocation of a task.
+  Starts an DataSync task.
 
-  A `TaskExecution` value represents an individual run of a task. Each task can
-  have at most one `TaskExecution` at a time.
+  For each task, you can only run one task execution at a time.
 
-  `TaskExecution` has the following transition phases: INITIALIZING | PREPARING |
-  TRANSFERRING | VERIFYING | SUCCESS/FAILURE.
-
-  For detailed information, see the Task Execution section in the Components and
-  Terminology topic in the *DataSync User Guide*.
+  There are several phases to a task execution. For more information, see [Task execution
+  statuses](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses).
   """
   def start_task_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -460,7 +446,12 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Applies a key-value pair to an Amazon Web Services resource.
+  Applies a *tag* to an Amazon Web Services resource.
+
+  Tags are key-value pairs that can help you manage, filter, and search for your
+  resources.
+
+  These include DataSync resources, such as locations, tasks, and task executions.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -469,7 +460,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Removes a tag from an Amazon Web Services resource.
+  Removes tags from an Amazon Web Services resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

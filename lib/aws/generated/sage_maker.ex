@@ -2412,6 +2412,15 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Lists the aliases of a specified image or image version.
+  """
+  def list_aliases(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAliases", input, options)
+  end
+
+  @doc """
   Lists the AppImageConfigs in your account and their properties.
 
   The list can be filtered by creation time or modified time, and whether the
@@ -3599,6 +3608,15 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateImage", input, options)
+  end
+
+  @doc """
+  Updates the properties of a SageMaker image version.
+  """
+  def update_image_version(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateImageVersion", input, options)
   end
 
   @doc """

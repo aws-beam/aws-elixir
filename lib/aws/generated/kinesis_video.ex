@@ -189,6 +189,59 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
+  Returns the most current information about the stream.
+
+  Either streamName or streamARN should be provided in the input.
+
+  Returns the most current information about the stream. The `streamName` or
+  `streamARN` should be provided in the input.
+  """
+  def describe_mapped_resource_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/describeMappedResourceConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns the most current information about the channel.
+
+  Specify the `ChannelName` or `ChannelARN` in the input.
+  """
+  def describe_media_storage_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/describeMediaStorageConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Gets the `NotificationConfiguration` for a given Kinesis video stream.
   """
   def describe_notification_configuration(%Client{} = client, input, options \\ []) do
@@ -434,21 +487,20 @@ defmodule AWS.KinesisVideo do
   @doc """
   An asynchronous API that updates a stream’s existing edge configuration.
 
-  If this API is invoked for the first time, a new edge configuration will be
-  created for the stream, and the sync status will be set to `SYNCING`.
-
   The Kinesis Video Stream will sync the stream’s edge configuration with the Edge
-  Agent IoT Greengrass component that runs on an IoT Hub Device setup at your
+  Agent IoT Greengrass component that runs on an IoT Hub Device, setup at your
   premise. The time to sync can vary and depends on the connectivity of the Hub
   Device. The `SyncStatus` will be updated as the edge configuration is
-  acknowledged, and synced with the Edge Agent. You will have to wait for the sync
-  status to reach a terminal state such as: `IN_SYNC` and `SYNC_FAILED`, before
-  using this API again.
+  acknowledged, and synced with the Edge Agent.
 
-  If you invoke this API during the syncing process, a `ResourceInUseException`
-  will be thrown. The connectivity of the stream's edge configuration and the Edge
-  Agent will be retried for 15 minutes. After 15 minutes, the status will
-  transition into the `SYNC_FAILED` state.
+  If this API is invoked for the first time, a new edge configuration will be
+  created for the stream, and the sync status will be set to `SYNCING`. You will
+  have to wait for the sync status to reach a terminal state such as: `IN_SYNC`,
+  or `SYNC_FAILED`, before using this API again. If you invoke this API during the
+  syncing process, a `ResourceInUseException` will be thrown. The connectivity of
+  the stream’s edge configuration and the Edge Agent will be retried for 15
+  minutes. After 15 minutes, the status will transition into the `SYNC_FAILED`
+  state.
   """
   def start_edge_configuration_update(%Client{} = client, input, options \\ []) do
     url_path = "/startEdgeConfigurationUpdate"
@@ -638,6 +690,37 @@ defmodule AWS.KinesisVideo do
   """
   def update_image_generation_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/updateImageGenerationConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Associates a `SignalingChannel` to a stream to store the media.
+
+  There are two signaling modes that can specified :
+
+    * If the `StorageStatus` is disabled, no data will be stored, and
+  the `StreamARN` parameter will not be needed.
+
+    * If the `StorageStatus` is enabled, the data will be stored in the
+  `StreamARN` provided.
+  """
+  def update_media_storage_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/updateMediaStorageConfiguration"
     headers = []
     query_params = []
 

@@ -16,13 +16,13 @@ defmodule AWS.ResourceExplorer2 do
 
   Resource Explorer scans the resources in each of the Amazon Web Services Regions
   in your Amazon Web Services account in which you turn on Resource Explorer.
-  Resource Explorer [creates and maintains an index](https://docs.aws.amazon.com/arexug/mainline/getting-started-terms-and-concepts.html#term-index)
+  Resource Explorer [creates and maintains an index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/getting-started-terms-and-concepts.html#term-index)
   in each Region, with the details of that Region's resources.
 
-  You can [search across all of the indexed Regions in your account](https://docs.aws.amazon.com/arexug/mainline/manage-aggregator-region.html)
+  You can [search across all of the indexed Regions in your account](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html)
   by designating one of your Amazon Web Services Regions to contain the aggregator
   index for the account. When you [promote a local index in a Region to become the aggregator index for the
-  account](https://docs.aws.amazon.com/arexug/mainline/manage-aggregator-region-turn-on.html),
+  account](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region-turn-on.html),
   Resource Explorer automatically replicates the index information from all local
   indexes in the other Regions to the aggregator index. Therefore, the Region with
   the aggregator index has a copy of all resource information for all Regions in
@@ -129,7 +129,7 @@ defmodule AWS.ResourceExplorer2 do
   in the *Amazon Web Services Resource Explorer User Guide*.
 
   If this is the first Amazon Web Services Region in which you've created an index
-  for Resource Explorer, then this operation also [creates a service-linked role](https://docs.aws.amazon.com/arexug/mainline/security_iam_service-linked-roles.html)
+  for Resource Explorer, then this operation also [creates a service-linked role](https://docs.aws.amazon.com/resource-explorer/latest/userguide/security_iam_service-linked-roles.html)
   in your Amazon Web Services account that allows Resource Explorer to enumerate
   your resources to populate the index.
 
@@ -182,8 +182,8 @@ defmodule AWS.ResourceExplorer2 do
 
   Results from queries that you make using this view include only resources that
   match the view's `Filters`. For more information about Amazon Web Services
-  Resource Explorer views, see [Managing views](https://docs.aws.amazon.com/arexug/mainline/manage-views.html) in the
-  *Amazon Web Services Resource Explorer User Guide*.
+  Resource Explorer views, see [Managing views](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views.html)
+  in the *Amazon Web Services Resource Explorer User Guide*.
 
   Only the principals with an IAM identity-based policy that grants `Allow` to the
   `Search` action on a `Resource` with the [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
@@ -218,6 +218,11 @@ defmodule AWS.ResourceExplorer2 do
   Region. These actions occur as asynchronous background tasks. You can check to
   see when the actions are complete by using the `GetIndex` operation and checking
   the `Status` response value.
+
+  If the index you delete is the aggregator index for the Amazon Web Services
+  account, you must wait 24 hours before you can promote another local index to be
+  the aggregator index for the account. Users can't perform account-wide searches
+  using Resource Explorer until another aggregator index is configured.
   """
   def delete_index(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteIndex"
@@ -560,7 +565,7 @@ defmodule AWS.ResourceExplorer2 do
 
   For more information about indexes and the role they perform in Amazon Web
   Services Resource Explorer, see [Turning on cross-Region search by creating an aggregator
-  index](https://docs.aws.amazon.com/arexug/mainline/manage-aggregator-region.html)
+  index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html)
   in the *Amazon Web Services Resource Explorer User Guide*.
 
     * ##  `AGGREGATOR` index type

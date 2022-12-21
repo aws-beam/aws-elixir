@@ -57,6 +57,22 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+  Creates a delegation signer (DS) record in the registry zone for this domain
+  name.
+
+  Note that creating DS record at the registry impacts DNSSEC validation of your
+  DNS records. This action may render your domain name unavailable on the internet
+  if the steps are completed in the wrong order, or with incorrect timing. For
+  more information about DNSSEC signing, see [Configuring DNSSEC signing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html)
+  in the *Route 53 developer guide*.
+  """
+  def associate_delegation_signer_to_domain(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateDelegationSignerToDomain", input, options)
+  end
+
+  @doc """
   Cancels the transfer of a domain from the current Amazon Web Services account to
   another Amazon Web Services account.
 
@@ -162,6 +178,16 @@ defmodule AWS.Route53Domains do
     meta = metadata()
 
     Request.request_post(client, meta, "DisableDomainTransferLock", input, options)
+  end
+
+  @doc """
+  Deletes a delegation signer (DS) record in the registry zone for this domain
+  name.
+  """
+  def disassociate_delegation_signer_from_domain(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateDelegationSignerFromDomain", input, options)
   end
 
   @doc """
@@ -299,6 +325,20 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
+  Moves a domain from Amazon Web Services to another registrar.
+
+  Supported actions:
+
+    * Changes the IPS tags of a .uk domain, and pushes it to transit.
+  Transit means that the domain is ready to be transferred to another registrar.
+  """
+  def push_domain(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PushDomain", input, options)
+  end
+
+  @doc """
   This operation registers a domain.
 
   Domains are registered either by Amazon Registrar (for .com, .net, and .org
@@ -311,7 +351,7 @@ defmodule AWS.Route53Domains do
   domain. Route 53 assigns four name servers to your hosted zone and automatically
   updates your domain registration with the names of these name servers.
 
-    * Enables autorenew, so your domain registration will renew
+    * Enables auto renew, so your domain registration will renew
   automatically each year. We'll notify you in advance of the renewal date so you
   can choose whether to renew the registration.
 
@@ -392,7 +432,16 @@ defmodule AWS.Route53Domains do
   end
 
   @doc """
-  This operation returns the AuthCode for the domain.
+  Resend the form of authorization email for this operation.
+  """
+  def resend_operation_authorization(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ResendOperationAuthorization", input, options)
+  end
+
+  @doc """
+  This operation returns the authorization code for the domain.
 
   To transfer a domain to another registrar, you provide this value to the new
   registrar.
@@ -491,7 +540,7 @@ defmodule AWS.Route53Domains do
   administrator, or technical.
 
   If the update is successful, this method returns an operation ID that you can
-  use to track the progress and completion of the action. If the request is not
+  use to track the progress and completion of the operation. If the request is not
   completed successfully, the domain registrant will be notified by email.
   """
   def update_domain_contact(%Client{} = client, input, options \\ []) do

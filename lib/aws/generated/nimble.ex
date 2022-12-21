@@ -123,7 +123,7 @@ defmodule AWS.Nimble do
   Creates a streaming session in a studio.
 
   After invoking this operation, you must poll GetStreamingSession until the
-  streaming session is in state READY.
+  streaming session is in the `READY` state.
   """
   def create_streaming_session(%Client{} = client, studio_id, input, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions"
@@ -155,7 +155,7 @@ defmodule AWS.Nimble do
   Creates a streaming session stream for a streaming session.
 
   After invoking this API, invoke GetStreamingSessionStream with the returned
-  streamId to poll the resource until it is in state READY.
+  streamId to poll the resource until it is in the `READY` state.
   """
   def create_streaming_session_stream(
         %Client{} = client,
@@ -191,25 +191,25 @@ defmodule AWS.Nimble do
   end
 
   @doc """
-  Create a new Studio.
+  Create a new studio.
 
-  When creating a Studio, two IAM roles must be provided: the admin role and the
-  user Role. These roles are assumed by your users when they log in to the Nimble
+  When creating a studio, two IAM roles must be provided: the admin role and the
+  user role. These roles are assumed by your users when they log in to the Nimble
   Studio portal.
 
-  The user role must have the AmazonNimbleStudio-StudioUser managed policy
+  The user role must have the `AmazonNimbleStudio-StudioUser` managed policy
   attached for the portal to function properly.
 
-  The Admin Role must have the AmazonNimbleStudio-StudioAdmin managed policy
+  The admin role must have the `AmazonNimbleStudio-StudioAdmin` managed policy
   attached for the portal to function properly.
 
-  You may optionally specify a KMS key in the StudioEncryptionConfiguration.
+  You may optionally specify a KMS key in the `StudioEncryptionConfiguration`.
 
   In Nimble Studio, resource names, descriptions, initialization scripts, and
   other data you provide are always encrypted at rest using an KMS key. By
   default, this key is owned by Amazon Web Services and managed on your behalf.
-  You may provide your own KMS key when calling CreateStudio to encrypt this data
-  using a key you own and manage.
+  You may provide your own KMS key when calling `CreateStudio` to encrypt this
+  data using a key you own and manage.
 
   When providing an KMS key during studio creation, Nimble Studio creates KMS
   grants in your account to provide your studio user and admin roles access to
@@ -388,10 +388,10 @@ defmodule AWS.Nimble do
   Deletes streaming session resource.
 
   After invoking this operation, use GetStreamingSession to poll the resource
-  until it transitions to a DELETED state.
+  until it transitions to a `DELETED` state.
 
   A streaming session will count against your streaming session quota until it is
-  marked DELETED.
+  marked `DELETED`.
   """
   def delete_streaming_session(%Client{} = client, session_id, studio_id, input, options \\ []) do
     url_path =
@@ -516,7 +516,7 @@ defmodule AWS.Nimble do
   end
 
   @doc """
-  Get Eula.
+  Get EULA.
   """
   def get_eula(%Client{} = client, eula_id, options \\ []) do
     url_path = "/2020-08-01/eulas/#{AWS.Util.encode_uri(eula_id)}"
@@ -662,13 +662,31 @@ defmodule AWS.Nimble do
   end
 
   @doc """
+  Gets `StreamingSessionBackup` resource.
+
+  Invoke this operation to poll for a streaming session backup while stopping a
+  streaming session.
+  """
+  def get_streaming_session_backup(%Client{} = client, backup_id, studio_id, options \\ []) do
+    url_path =
+      "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-session-backups/#{AWS.Util.encode_uri(backup_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets a StreamingSessionStream for a streaming session.
 
   Invoke this operation to poll the resource after invoking
-  CreateStreamingSessionStream.
+  `CreateStreamingSessionStream`.
 
-  After the StreamingSessionStream changes to the state READY, the url property
-  will contain a stream to be used with the DCV streaming client.
+  After the `StreamingSessionStream` changes to the `READY` state, the url
+  property will contain a stream to be used with the DCV streaming client.
   """
   def get_streaming_session_stream(
         %Client{} = client,
@@ -689,7 +707,7 @@ defmodule AWS.Nimble do
   end
 
   @doc """
-  Get a Studio resource.
+  Get a studio resource.
   """
   def get_studio(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}"
@@ -732,7 +750,7 @@ defmodule AWS.Nimble do
   end
 
   @doc """
-  List Eula Acceptances.
+  List EULA acceptances.
   """
   def list_eula_acceptances(
         %Client{} = client,
@@ -765,7 +783,7 @@ defmodule AWS.Nimble do
   end
 
   @doc """
-  List Eulas.
+  List EULAs.
   """
   def list_eulas(%Client{} = client, eula_ids \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/2020-08-01/eulas"
@@ -913,6 +931,39 @@ defmodule AWS.Nimble do
   end
 
   @doc """
+  Lists the backups of a streaming session in a studio.
+  """
+  def list_streaming_session_backups(
+        %Client{} = client,
+        studio_id,
+        next_token \\ nil,
+        owned_by \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-session-backups"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(owned_by) do
+        [{"ownedBy", owned_by} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the streaming sessions in a studio.
   """
   def list_streaming_sessions(
@@ -962,7 +1013,7 @@ defmodule AWS.Nimble do
   end
 
   @doc """
-  Lists the StudioComponents in a studio.
+  Lists the `StudioComponents` in a studio.
   """
   def list_studio_components(
         %Client{} = client,
@@ -1046,7 +1097,7 @@ defmodule AWS.Nimble do
   end
 
   @doc """
-  List studios in your Amazon Web Services account in the requested Amazon Web
+  List studios in your Amazon Web Services accounts in the requested Amazon Web
   Services Region.
   """
   def list_studios(%Client{} = client, next_token \\ nil, options \\ []) do
@@ -1150,10 +1201,10 @@ defmodule AWS.Nimble do
   end
 
   @doc """
-  Transitions sessions from the STOPPED state into the READY state.
+  Transitions sessions from the `STOPPED` state into the `READY` state.
 
-  The START_IN_PROGRESS state is the intermediate state between the STOPPED and
-  READY states.
+  The `START_IN_PROGRESS` state is the intermediate state between the `STOPPED`
+  and `READY` states.
   """
   def start_streaming_session(%Client{} = client, session_id, studio_id, input, options \\ []) do
     url_path =
@@ -1190,7 +1241,7 @@ defmodule AWS.Nimble do
 
   If the studio does not have a valid IAM Identity Center configuration currently
   associated with it, then a new IAM Identity Center application is created for
-  the studio and the studio is changed to the READY state.
+  the studio and the studio is changed to the `READY` state.
 
   After the IAM Identity Center application is repaired, you must use the Amazon
   Nimble Studio console to add administrators and users to your studio.
@@ -1212,10 +1263,10 @@ defmodule AWS.Nimble do
   end
 
   @doc """
-  Transitions sessions from the READY state into the STOPPED state.
+  Transitions sessions from the `READY` state into the `STOPPED` state.
 
-  The STOP_IN_PROGRESS state is the intermediate state between the READY and
-  STOPPED states.
+  The `STOP_IN_PROGRESS` state is the intermediate state between the `READY` and
+  `STOPPED` states.
   """
   def stop_streaming_session(%Client{} = client, session_id, studio_id, input, options \\ []) do
     url_path =

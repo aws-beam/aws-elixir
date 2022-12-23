@@ -5,8 +5,8 @@ defmodule AWS.ComputeOptimizer do
   @moduledoc """
   Compute Optimizer is a service that analyzes the configuration and utilization
   metrics of your Amazon Web Services compute resources, such as Amazon EC2
-  instances, Amazon EC2 Auto Scaling groups, Lambda functions, and Amazon EBS
-  volumes.
+  instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes,
+  and Amazon ECS services on Fargate.
 
   It reports whether your resources are optimal, and generates optimization
   recommendations to reduce the cost and improve the performance of your
@@ -83,6 +83,23 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+  Exports optimization recommendations for Amazon ECS services on Fargate.
+
+  Recommendations are exported in a CSV file, and its metadata in a JSON file, to
+  an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify.
+  For more information, see [Exporting Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
+  in the *Compute Optimizer User Guide*.
+
+  You can only have one Amazon ECS service export job in progress per Amazon Web
+  Services Region.
+  """
+  def export_e_c_s_service_recommendations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExportECSServiceRecommendations", input, options)
+  end
+
+  @doc """
   Exports optimization recommendations for Amazon EBS volumes.
 
   Recommendations are exported in a comma-separated values (.csv) file, and its
@@ -148,6 +165,35 @@ defmodule AWS.ComputeOptimizer do
     meta = metadata()
 
     Request.request_post(client, meta, "GetAutoScalingGroupRecommendations", input, options)
+  end
+
+  @doc """
+  Returns the projected metrics of Amazon ECS service recommendations.
+  """
+  def get_e_c_s_service_recommendation_projected_metrics(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "GetECSServiceRecommendationProjectedMetrics",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Returns Amazon ECS service recommendations.
+
+  Compute Optimizer generates recommendations for Amazon ECS services on Fargate
+  that meet a specific set of requirements. For more information, see the
+  [Supported resources and requirements](https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html)
+  in the *Compute Optimizer User Guide*.
+  """
+  def get_e_c_s_service_recommendations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetECSServiceRecommendations", input, options)
   end
 
   @doc """
@@ -284,6 +330,9 @@ defmodule AWS.ComputeOptimizer do
 
     * Lambda functions in an account that are `NotOptimized`, or
   `Optimized`.
+
+    * Amazon ECS services in an account that are `Underprovisioned`,
+  `Overprovisioned`, or `Optimized`.
   """
   def get_recommendation_summaries(%Client{} = client, input, options \\ []) do
     meta = metadata()

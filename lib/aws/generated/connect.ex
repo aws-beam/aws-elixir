@@ -3088,7 +3088,7 @@ defmodule AWS.Connect do
   Initiates silent monitoring of a contact.
 
   The Contact Control Panel (CCP) of the user specified by *userId* will be set to
-  silent monitoring mode on the contact.
+  silent monitoring mode on the contact. Supports voice and chat contacts.
   """
   def monitor_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/monitor"
@@ -4128,6 +4128,41 @@ defmodule AWS.Connect do
       options,
       nil
     )
+  end
+
+  @doc """
+  Updates timeouts for when human chat participants are to be considered idle, and
+  when agents are automatically disconnected from a chat due to idleness.
+
+  You can set four timers:
+
+    * Customer idle timeout
+
+    * Customer auto-disconnect timeout
+
+    * Agent idle timeout
+
+    * Agent auto-disconnect timeout
+
+  For more information about how chat timeouts work, see [Set up chat timeouts for human
+  participants](https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html).
+  """
+  def update_participant_role_config(
+        %Client{} = client,
+        contact_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact/participant-role-config/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """

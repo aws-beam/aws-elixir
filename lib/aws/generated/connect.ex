@@ -3088,7 +3088,7 @@ defmodule AWS.Connect do
   Initiates silent monitoring of a contact.
 
   The Contact Control Panel (CCP) of the user specified by *userId* will be set to
-  silent monitoring mode on the contact. Supports voice and chat contacts.
+  silent monitoring mode on the contact.
   """
   def monitor_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/monitor"

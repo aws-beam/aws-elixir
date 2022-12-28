@@ -258,6 +258,25 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
+  Returns information about reserved nodes for this account, or about a specified
+  reserved node.
+  """
+  def describe_reserved_nodes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReservedNodes", input, options)
+  end
+
+  @doc """
+  Lists available reserved node offerings.
+  """
+  def describe_reserved_nodes_offerings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReservedNodesOfferings", input, options)
+  end
+
+  @doc """
   Returns details of the service updates
   """
   def describe_service_updates(%Client{} = client, input, options \\ []) do
@@ -339,6 +358,17 @@ defmodule AWS.MemoryDB do
     meta = metadata()
 
     Request.request_post(client, meta, "ListTags", input, options)
+  end
+
+  @doc """
+  Allows you to purchase a reserved node offering.
+
+  Reserved nodes are not eligible for cancellation and are non-refundable.
+  """
+  def purchase_reserved_nodes_offering(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PurchaseReservedNodesOffering", input, options)
   end
 
   @doc """

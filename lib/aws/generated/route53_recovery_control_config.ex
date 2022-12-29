@@ -125,7 +125,7 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   Assertion rule: An assertion rule enforces that, when you change a routing
   control state, that a certain criteria is met. For example, the criteria might
-  be that at least one routing control state is On after the transation so that
+  be that at least one routing control state is On after the transaction so that
   traffic continues to flow to at least one cell for the application. This ensures
   that you avoid a fail-open scenario.
 

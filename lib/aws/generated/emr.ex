@@ -60,9 +60,7 @@ defmodule AWS.EMR do
   may require more than 256 steps to process your data. You can bypass the
   256-step limitation in various ways, including using SSH to connect to the
   master node and submitting queries directly to the software running on the
-  master node, such as Hive and Hadoop. For more information on how to do this,
-  see [Add More than 256 Steps to a Cluster](https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html)
-  in the *Amazon EMR Management Guide*.
+  master node, such as Hive and Hadoop.
 
   A step specifies the location of a JAR file stored either on the master node of
   the cluster or in Amazon S3. Each step is performed by the main function of the
@@ -138,8 +136,8 @@ defmodule AWS.EMR do
   Maps a user or group to the Amazon EMR Studio specified by `StudioId`, and
   applies a session policy to refine Studio permissions for that user or group.
 
-  Use `CreateStudioSessionMapping` to assign users to a Studio when you use Amazon
-  Web Services SSO authentication. For instructions on how to assign users to a
+  Use `CreateStudioSessionMapping` to assign users to a Studio when you use IAM
+  Identity Center authentication. For instructions on how to assign users to a
   Studio when you use IAM authentication, see [Assign a user or group to your EMR Studio](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-manage-users.html#emr-studio-assign-users-groups).
   """
   def create_studio_session_mapping(%Client{} = client, input, options \\ []) do
@@ -285,6 +283,20 @@ defmodule AWS.EMR do
     meta = metadata()
 
     Request.request_post(client, meta, "GetBlockPublicAccessConfiguration", input, options)
+  end
+
+  @doc """
+  Provides Temporary, basic HTTP credentials that are associated with a given
+  runtime IAM role and used by a cluster with fine-grained access control
+  activated.
+
+  You can use these credentials to connect to cluster endpoints that support
+  username-based and password-based authentication.
+  """
+  def get_cluster_session_credentials(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetClusterSessionCredentials", input, options)
   end
 
   @doc """
@@ -598,11 +610,9 @@ defmodule AWS.EMR do
   may require more than 256 steps to process your data. You can bypass the
   256-step limitation in various ways, including using the SSH shell to connect to
   the master node and submitting queries directly to the software running on the
-  master node, such as Hive and Hadoop. For more information on how to do this,
-  see [Add More than 256 Steps to a Cluster](https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html)
-  in the *Amazon EMR Management Guide*.
+  master node, such as Hive and Hadoop.
 
-  For long running clusters, we recommend that you periodically store your
+  For long-running clusters, we recommend that you periodically store your
   results.
 
   The instance fleets configuration is available only in Amazon EMR versions 4.8.0

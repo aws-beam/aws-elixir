@@ -658,15 +658,19 @@ defmodule AWS.CloudFront do
   @doc """
   Creates a response headers policy.
 
-  A response headers policy contains information about a set of HTTP response
-  headers and their values. To create a response headers policy, you provide some
-  metadata about the policy, and a set of configurations that specify the response
-  headers.
+  A response headers policy contains information about a set of HTTP headers. To
+  create a response headers policy, you provide some metadata about the policy and
+  a set of configurations that specify the headers.
 
   After you create a response headers policy, you can use its ID to attach it to
   one or more cache behaviors in a CloudFront distribution. When it's attached to
-  a cache behavior, CloudFront adds the headers in the policy to HTTP responses
-  that it sends for requests that match the cache behavior.
+  a cache behavior, the response headers policy affects the HTTP headers that
+  CloudFront includes in HTTP responses to requests that match the cache behavior.
+  CloudFront adds or removes response headers according to the configuration of
+  the response headers policy.
+
+  For more information, see [Adding or removing HTTP headers in CloudFront responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/modifying-response-headers.html)
+  in the *Amazon CloudFront Developer Guide*.
   """
   def create_response_headers_policy(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/response-headers-policy"

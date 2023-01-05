@@ -145,6 +145,9 @@ defmodule AWS.ApplicationAutoScaling do
   namespace from the previous six weeks.
 
   You can filter the results using `ResourceId` and `ScalableDimension`.
+
+  For information about viewing scaling activities using the Amazon Web Services
+  CLI, see [Scaling activities for Application Auto Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html).
   """
   def describe_scaling_activities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -258,16 +261,22 @@ defmodule AWS.ApplicationAutoScaling do
   end
 
   @doc """
-  Registers or updates a scalable target.
+  Registers or updates a scalable target, the resource that you want to scale.
 
-  A scalable target is a resource that Application Auto Scaling can scale out and
-  scale in. Scalable targets are uniquely identified by the combination of
-  resource ID, scalable dimension, and namespace.
+  Scalable targets are uniquely identified by the combination of resource ID,
+  scalable dimension, and namespace, which represents some capacity dimension of
+  the underlying service.
 
-  When you register a new scalable target, you must specify values for minimum and
-  maximum capacity. Current capacity will be adjusted within the specified range
-  when scaling starts. Application Auto Scaling scaling policies will not scale
-  capacity to values that are outside of this range.
+  When you register a new scalable target, you must specify values for the minimum
+  and maximum capacity. If the specified resource is not active in the target
+  service, this operation does not change the resource's current capacity.
+  Otherwise, it changes the resource's current capacity to a value that is inside
+  of this range.
+
+  If you choose to add a scaling policy, current capacity is adjustable within the
+  specified range when scaling starts. Application Auto Scaling scaling policies
+  will not scale capacity to values that are outside of the minimum and maximum
+  range.
 
   After you register a scalable target, you do not need to register it again to
   use other Application Auto Scaling operations. To see which resources have been

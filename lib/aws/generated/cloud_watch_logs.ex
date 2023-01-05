@@ -641,11 +641,6 @@ defmodule AWS.CloudWatchLogs do
   An access policy is an [IAM policy document](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html)
   that is used to authorize claims to register a subscription filter against a
   given destination.
-
-  If multiple Amazon Web Services accounts are sending logs to this destination,
-  each sender account must be listed separately in the policy. The policy does not
-  support specifying `*` as the Principal or the use of the `aws:PrincipalOrgId`
-  global key.
   """
   def put_destination_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -656,12 +651,10 @@ defmodule AWS.CloudWatchLogs do
   @doc """
   Uploads a batch of log events to the specified log stream.
 
-  You must include the sequence token obtained from the response of the previous
-  call. An upload in a newly created log stream does not require a sequence token.
-  You can also get the sequence token in the `expectedSequenceToken` field from
-  `InvalidSequenceTokenException`. If you call `PutLogEvents` twice within a
-  narrow time period using the same value for `sequenceToken`, both calls might be
-  successful or one might be rejected.
+  The sequence token is now ignored in `PutLogEvents` actions. `PutLogEvents`
+  actions are always accepted and never return `InvalidSequenceTokenException` or
+  `DataAlreadyAcceptedException` even if the sequence token is not valid. You can
+  use parallel `PutLogEvents` actions on the same log stream.
 
   The batch of events must satisfy the following constraints:
 
@@ -687,8 +680,10 @@ defmodule AWS.CloudWatchLogs do
 
     * The maximum number of log events in a batch is 10,000.
 
-    * There is a quota of five requests per second per log stream.
-  Additional requests are throttled. This quota can't be changed.
+    * The quota of five requests per second per log stream has been
+  removed. Instead, `PutLogEvents` actions are throttled based on a per-second
+  per-account quota. You can request an increase to the per-second throttling
+  quota by using the Service Quotas service.
 
   If a call to `PutLogEvents` returns "UnrecognizedClientException" the most
   likely cause is a non-valid Amazon Web Services access key ID or secret key.

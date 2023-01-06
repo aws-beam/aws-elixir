@@ -414,7 +414,7 @@ defmodule AWS.AmplifyBackend do
   end
 
   @doc """
-  Generates a model schema for existing backend API resource.
+  Gets a model introspection schema for an existing backend API resource.
   """
   def get_backend_api_models(
         %Client{} = client,

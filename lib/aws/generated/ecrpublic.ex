@@ -5,15 +5,15 @@ defmodule AWS.ECRPUBLIC do
   @moduledoc """
   Amazon Elastic Container Registry Public
 
-  Amazon Elastic Container Registry (Amazon ECR) is a managed container image
-  registry service.
+  Amazon Elastic Container Registry Public (Amazon ECR Public) is a managed
+  container image registry service.
 
   Amazon ECR provides both public and private registries to host your container
-  images. You can use the familiar Docker CLI, or their preferred client, to push,
-  pull, and manage images. Amazon ECR provides a secure, scalable, and reliable
-  registry for your Docker or Open Container Initiative (OCI) images. Amazon ECR
-  supports public repositories with this API. For information about the Amazon ECR
-  API for private repositories, see [Amazon Elastic Container Registry API Reference](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/Welcome.html).
+  images. You can use the Docker CLI or your preferred client to push, pull, and
+  manage images. Amazon ECR provides a secure, scalable, and reliable registry for
+  your Docker or Open Container Initiative (OCI) images. Amazon ECR supports
+  public repositories with this API. For information about the Amazon ECR API for
+  private repositories, see [Amazon Elastic Container Registry API Reference](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/Welcome.html).
   """
 
   alias AWS.Client
@@ -36,8 +36,8 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
-  Checks the availability of one or more image layers within a repository in a
-  public registry.
+  Checks the availability of one or more image layers that are within a repository
+  in a public registry.
 
   When an image is pushed to a repository, each image layer is checked to verify
   if it has been uploaded before. If it has been uploaded, then the image layer is
@@ -54,7 +54,8 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
-  Deletes a list of specified images within a repository in a public registry.
+  Deletes a list of specified images that are within a repository in a public
+  registry.
 
   Images are specified with either an `imageTag` or `imageDigest`.
 
@@ -63,7 +64,7 @@ defmodule AWS.ECRPUBLIC do
   your repository.
 
   You can completely delete an image (and all of its tags) by specifying the
-  image's digest in your request.
+  digest of the image in your request.
   """
   def batch_delete_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -72,14 +73,14 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
-  Informs Amazon ECR that the image layer upload has completed for a specified
+  Informs Amazon ECR that the image layer upload is complete for a specified
   public registry, repository name, and upload ID.
 
   You can optionally provide a `sha256` digest of the image layer for data
   validation purposes.
 
-  When an image is pushed, the CompleteLayerUpload API is called once per each new
-  image layer to verify that the upload has completed.
+  When an image is pushed, the CompleteLayerUpload API is called once for each new
+  image layer to verify that the upload is complete.
 
   This operation is used by the Amazon ECR proxy and is not generally used by
   customers for pulling and pushing images. In most cases, you should use the
@@ -106,9 +107,9 @@ defmodule AWS.ECRPUBLIC do
   @doc """
   Deletes a repository in a public registry.
 
-  If the repository contains images, you must either delete all images in the
-  repository or use the `force` option which deletes all images on your behalf
-  before deleting the repository.
+  If the repository contains images, you must either manually delete all images in
+  the repository or use the `force` option. This option deletes all images on your
+  behalf before deleting the repository.
   """
   def delete_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -117,7 +118,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
-  Deletes the repository policy associated with the specified repository.
+  Deletes the repository policy that's associated with the specified repository.
   """
   def delete_repository_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -135,12 +136,13 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
-  Returns metadata about the images in a repository in a public registry.
+  Returns metadata that's related to the images in a repository in a public
+  registry.
 
   Beginning with Docker version 1.9, the Docker client compresses image layers
   before pushing them to a V2 Docker registry. The output of the `docker images`
-  command shows the uncompressed image size, so it may return a larger image size
-  than the image sizes returned by `DescribeImages`.
+  command shows the uncompressed image size. Therefore, it might return a larger
+  image size than the image sizes that are returned by `DescribeImages`.
   """
   def describe_images(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -158,7 +160,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
-  Describes repositories in a public registry.
+  Describes repositories that are in a public registry.
   """
   def describe_repositories(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -169,8 +171,8 @@ defmodule AWS.ECRPUBLIC do
   @doc """
   Retrieves an authorization token.
 
-  An authorization token represents your IAM authentication credentials and can be
-  used to access any Amazon ECR registry that your IAM principal has access to.
+  An authorization token represents your IAM authentication credentials. You can
+  use it to access any Amazon ECR registry that your IAM principal has access to.
   The authorization token is valid for 12 hours. This API requires the
   `ecr-public:GetAuthorizationToken` and `sts:GetServiceBearerToken` permissions.
   """
@@ -212,9 +214,9 @@ defmodule AWS.ECRPUBLIC do
   @doc """
   Notifies Amazon ECR that you intend to upload an image layer.
 
-  When an image is pushed, the InitiateLayerUpload API is called once per image
-  layer that has not already been uploaded. Whether or not an image layer has been
-  uploaded is determined by the BatchCheckLayerAvailability API action.
+  When an image is pushed, the InitiateLayerUpload API is called once for each
+  image layer that hasn't already been uploaded. Whether an image layer uploads is
+  determined by the BatchCheckLayerAvailability API action.
 
   This operation is used by the Amazon ECR proxy and is not generally used by
   customers for pulling and pushing images. In most cases, you should use the
@@ -236,11 +238,12 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
-  Creates or updates the image manifest and tags associated with an image.
+  Creates or updates the image manifest and tags that are associated with an
+  image.
 
   When an image is pushed and all new image layers have been uploaded, the
   PutImage API is called once to create or update the image manifest and the tags
-  associated with the image.
+  that are associated with the image.
 
   This operation is used by the Amazon ECR proxy and is not generally used by
   customers for pulling and pushing images. In most cases, you should use the
@@ -253,7 +256,7 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
-  Create or updates the catalog data for a public registry.
+  Create or update the catalog data for a public registry.
   """
   def put_registry_catalog_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -286,9 +289,9 @@ defmodule AWS.ECRPUBLIC do
   @doc """
   Associates the specified tags to a resource with the specified `resourceArn`.
 
-  If existing tags on a resource are not specified in the request parameters, they
-  are not changed. When a resource is deleted, the tags associated with that
-  resource are deleted as well.
+  If existing tags on a resource aren't specified in the request parameters, they
+  aren't changed. When a resource is deleted, the tags associated with that
+  resource are also deleted.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -309,8 +312,8 @@ defmodule AWS.ECRPUBLIC do
   Uploads an image layer part to Amazon ECR.
 
   When an image is pushed, each new image layer is uploaded in parts. The maximum
-  size of each image layer part can be 20971520 bytes (or about 20MB). The
-  UploadLayerPart API is called once per each new image layer part.
+  size of each image layer part can be 20971520 bytes (about 20MB). The
+  UploadLayerPart API is called once for each new image layer part.
 
   This operation is used by the Amazon ECR proxy and is not generally used by
   customers for pulling and pushing images. In most cases, you should use the

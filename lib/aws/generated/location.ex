@@ -377,7 +377,7 @@ defmodule AWS.Location do
   different styles sourced from global location data providers.
 
   If your application is tracking or routing assets you use in your business, such
-  as delivery vehicles or employees, you may only use HERE as your geolocation
+  as delivery vehicles or employees, you must not use Esri as your geolocation
   provider. See section 82 of the [AWS service terms](http://aws.amazon.com/service-terms) for more details.
   """
   def create_map(%Client{} = client, input, options \\ []) do
@@ -409,7 +409,7 @@ defmodule AWS.Location do
   using the `SearchPlaceIndexForSuggestions` operation.
 
   If your application is tracking or routing assets you use in your business, such
-  as delivery vehicles or employees, you may only use HERE as your geolocation
+  as delivery vehicles or employees, you must not use Esri as your geolocation
   provider. See section 82 of the [AWS service terms](http://aws.amazon.com/service-terms) for more details.
   """
   def create_place_index(%Client{} = client, input, options \\ []) do
@@ -440,7 +440,7 @@ defmodule AWS.Location do
   network data from your chosen data provider.
 
   If your application is tracking or routing assets you use in your business, such
-  as delivery vehicles or employees, you may only use HERE as your geolocation
+  as delivery vehicles or employees, you must not use Esri as your geolocation
   provider. See section 82 of the [AWS service terms](http://aws.amazon.com/service-terms) for more details.
   """
   def create_route_calculator(%Client{} = client, input, options \\ []) do
@@ -1225,9 +1225,9 @@ defmodule AWS.Location do
   Assigns one or more tags (key-value pairs) to the specified Amazon Location
   Service resource.
 
-  ` Tags can help you organize and categorize your resources. You can also use
-  them to scope user permissions, by granting a user permission to access or
-  change only resources with certain tag values.
+  Tags can help you organize and categorize your resources. You can also use them
+  to scope user permissions, by granting a user permission to access or change
+  only resources with certain tag values.
 
   You can use the `TagResource` operation with an Amazon Location Service resource
   that already has tags. If you specify a new tag key for the resource, this tag
@@ -1236,8 +1236,6 @@ defmodule AWS.Location do
   specify replaces the previous value for that tag.
 
   You can associate up to 50 tags with a resource.
-
-  `
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

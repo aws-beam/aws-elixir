@@ -2267,8 +2267,10 @@ defmodule AWS.RDS do
   @doc """
   Starts a database activity stream to monitor activity on the database.
 
-  For more information, see [Database Activity Streams](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html)
-  in the *Amazon Aurora User Guide*.
+  For more information, see [ Monitoring Amazon Aurora with Database Activity Streams](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html)
+  in the *Amazon Aurora User Guide* or [ Monitoring Amazon RDS with Database Activity
+  Streams](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.html)
+  in the *Amazon RDS User Guide*.
   """
   def start_activity_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2348,8 +2350,10 @@ defmodule AWS.RDS do
   console, the `start-activity-stream` CLI command, or the `StartActivityStream`
   action.
 
-  For more information, see [Database Activity Streams](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html)
-  in the *Amazon Aurora User Guide*.
+  For more information, see [ Monitoring Amazon Aurora with Database Activity Streams](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html)
+  in the *Amazon Aurora User Guide* or [ Monitoring Amazon RDS with Database Activity
+  Streams](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.html)
+  in the *Amazon RDS User Guide*.
   """
   def stop_activity_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()

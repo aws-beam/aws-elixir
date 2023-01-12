@@ -722,7 +722,7 @@ defmodule AWS.Kendra do
     * Relevant documents
 
   You can specify that the query return only one type of result using the
-  `QueryResultTypeConfig` parameter.
+  `QueryResultTypeFilter` parameter.
 
   Each query returns the 100 most relevant results.
   """

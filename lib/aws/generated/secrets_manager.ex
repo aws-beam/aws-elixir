@@ -17,6 +17,8 @@ defmodule AWS.SecretsManager do
   This version of the Secrets Manager API Reference documents the Secrets Manager
   API version 2017-10-17.
 
+  For a list of endpoints, see [Amazon Web Services Secrets Manager endpoints](https://docs.aws.amazon.com/secretsmanager/latest/userguide/asm_access.html#endpoints).
+
   ## Support and Feedback for Amazon Web Services Secrets Manager
 
   We welcome your feedback. Send your comments to
@@ -96,6 +98,10 @@ defmodule AWS.SecretsManager do
   information to access a database or other service, which Secrets Manager doesn't
   encrypt. A secret in Secrets Manager consists of both the protected secret data
   and the important information needed to manage the secret.
+
+  For secrets that use *managed rotation*, you need to create the secret through
+  the managing service. For more information, see [Secrets Manager secrets managed by other Amazon Web Services
+  services](https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html).
 
   For information about creating a secret in the console, see [Create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html).
 
@@ -475,39 +481,19 @@ defmodule AWS.SecretsManager do
   @doc """
   Configures and starts the asynchronous process of rotating the secret.
 
-  For more information about rotation, see [Rotate secrets](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html).
-
-  If you include the configuration parameters, the operation sets the values for
-  the secret and then immediately starts a rotation. If you don't include the
-  configuration parameters, the operation starts a rotation with the values
-  already stored in the secret.
-
-  For database credentials you want to rotate, for Secrets Manager to be able to
-  rotate the secret, you must make sure the secret value is in the [ JSON structure of a database
-  secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_secret_json_structure.html).
-  In particular, if you want to use the [ alternating users strategy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html#rotating-secrets-two-users),
-  your secret must contain the ARN of a superuser secret.
-
-  To configure rotation, you also need the ARN of an Amazon Web Services Lambda
-  function and the schedule for the rotation. The Lambda rotation function creates
-  a new version of the secret and creates or updates the credentials on the
-  database or service to match. After testing the new credentials, the function
-  marks the new secret version with the staging label `AWSCURRENT`. Then anyone
-  who retrieves the secret gets the new version. For more information, see [How rotation
-  works](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html).
-
-  You can create the Lambda rotation function based on the [rotation function templates](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-rotation-templates.html)
-  that Secrets Manager provides. Choose a template that matches your [Rotation strategy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html).
+  For information about rotation, see [Rotate secrets](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html)
+  in the *Secrets Manager User Guide*. If you include the configuration
+  parameters, the operation sets the values for the secret and then immediately
+  starts a rotation. If you don't include the configuration parameters, the
+  operation starts a rotation with the values already stored in the secret.
 
   When rotation is successful, the `AWSPENDING` staging label might be attached to
   the same version as the `AWSCURRENT` version, or it might not be attached to any
   version. If the `AWSPENDING` staging label is present but not attached to the
   same version as `AWSCURRENT`, then any later invocation of `RotateSecret`
   assumes that a previous rotation request is still in progress and returns an
-  error.
-
-  When rotation is unsuccessful, the `AWSPENDING` staging label might be attached
-  to an empty secret version. For more information, see [Troubleshoot rotation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot_rotation.html)
+  error. When rotation is unsuccessful, the `AWSPENDING` staging label might be
+  attached to an empty secret version. For more information, see [Troubleshoot rotation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot_rotation.html)
   in the *Secrets Manager User Guide*.
 
   Secrets Manager generates a CloudTrail log entry when you call this action. Do
@@ -624,6 +610,10 @@ defmodule AWS.SecretsManager do
   To change the secret value, you can also use `PutSecretValue`.
 
   To change the rotation configuration of a secret, use `RotateSecret` instead.
+
+  To change a secret so that it is managed by another service, you need to
+  recreate the secret in that service. See [Secrets Manager secrets managed by other Amazon Web Services
+  services](https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html).
 
   We recommend you avoid calling `UpdateSecret` at a sustained rate of more than
   once every 10 minutes. When you call `UpdateSecret` to update the secret value,

@@ -3,29 +3,28 @@
 
 defmodule AWS.ResourceGroups do
   @moduledoc """
-  AWS Resource Groups
-
-  AWS Resource Groups lets you organize AWS resources such as Amazon EC2
-  instances, Amazon Relational Database Service databases, and Amazon S3 buckets
-  into groups using criteria that you define as tags.
+  Resource Groups lets you organize Amazon Web Services resources such as Amazon
+  Elastic Compute Cloud instances, Amazon Relational Database Service databases,
+  and Amazon Simple Storage Service buckets into groups using criteria that you
+  define as tags.
 
   A resource group is a collection of resources that match the resource types
   specified in a query, and share one or more tags or portions of tags. You can
   create a group of resources based on their roles in your cloud infrastructure,
   lifecycle stages, regions, application layers, or virtually any criteria.
-  Resource Groups enable you to automate management tasks, such as those in AWS
-  Systems Manager Automation documents, on tag-related resources in AWS Systems
-  Manager. Groups of tagged resources also let you quickly view a custom console
-  in AWS Systems Manager that shows AWS Config compliance and other monitoring
-  data about member resources.
+  Resource Groups enable you to automate management tasks, such as those in Amazon
+  Web Services Systems Manager Automation documents, on tag-related resources in
+  Amazon Web Services Systems Manager. Groups of tagged resources also let you
+  quickly view a custom console in Amazon Web Services Systems Manager that shows
+  Config compliance and other monitoring data about member resources.
 
   To create a resource group, build a resource query, and specify tags that
   identify the criteria that members of the group have in common. Tags are
   key-value pairs.
 
-  For more information about Resource Groups, see the [AWS Resource Groups User Guide](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html).
+  For more information about Resource Groups, see the [Resource Groups User Guide](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html).
 
-  AWS Resource Groups uses a REST-compliant API that you can use to perform the
+  Resource Groups uses a REST-compliant API that you can use to perform the
   following types of operations.
 
     * Create, Read, Update, and Delete (CRUD) operations on resource
@@ -38,7 +37,7 @@ defmodule AWS.ResourceGroups do
 
     * Getting data about resources that are members of a group
 
-    * Searching AWS resources based on a resource query
+    * Searching Amazon Web Services resources based on a resource query
   """
 
   alias AWS.Client
@@ -63,11 +62,11 @@ defmodule AWS.ResourceGroups do
   @doc """
   Creates a resource group with the specified name and description.
 
-  You can optionally include a resource query, or a service configuration. For
-  more information about constructing a resource query, see [Create a tag-based group in Resource
-  Groups](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag).
-  For more information about service configurations, see [Service configurations for resource
-  groups](https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html).
+  You can optionally include either a resource query or a service configuration.
+  For more information about constructing a resource query, see [Build queries and groups in Resource
+  Groups](https://docs.aws.amazon.com/ARG/latest/userguide/getting_started-query.html)
+  in the *Resource Groups User Guide*. For more information about service-linked
+  groups and service configurations, see [Service configurations for Resource Groups](https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html).
 
   ## Minimum permissions
 
@@ -128,6 +127,29 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
+  Retrieves the current status of optional features in Resource Groups.
+  """
+  def get_account_settings(%Client{} = client, input, options \\ []) do
+    url_path = "/get-account-settings"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns information about a specified resource group.
 
   ## Minimum permissions
@@ -157,10 +179,11 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
-  Returns the service configuration associated with the specified resource group.
+  Retrieves the service configuration associated with the specified resource
+  group.
 
-  For details about the service configuration syntax, see [Service configurations for resource
-  groups](https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html).
+  For details about the service configuration syntax, see [Service configurations for Resource
+  Groups](https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html).
 
   ## Minimum permissions
 
@@ -243,6 +266,16 @@ defmodule AWS.ResourceGroups do
   @doc """
   Adds the specified resources to the specified group.
 
+  You can use this operation with only resource groups that are configured with
+  the following types:
+
+     `AWS::EC2::HostManagement`
+
+     `AWS::EC2::CapacityReservationPool`
+
+  Other resource group type and resource types aren't currently supported by this
+  operation.
+
   ## Minimum permissions
 
   To run this command, you must have the following permissions:
@@ -306,7 +339,7 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
-  Returns a list of existing resource groups in your account.
+  Returns a list of existing Resource Groups in your account.
 
   ## Minimum permissions
 
@@ -373,10 +406,11 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
-  Returns a list of AWS resource identifiers that matches the specified query.
+  Returns a list of Amazon Web Services resource identifiers that matches the
+  specified query.
 
-  The query uses the same format as a resource query in a CreateGroup or
-  UpdateGroupQuery operation.
+  The query uses the same format as a resource query in a `CreateGroup` or
+  `UpdateGroupQuery` operation.
 
   ## Minimum permissions
 
@@ -440,6 +474,10 @@ defmodule AWS.ResourceGroups do
   @doc """
   Removes the specified resources from the specified group.
 
+  This operation works only with static groups that you populated using the
+  `GroupResources` operation. It doesn't work with any resource groups that are
+  automatically populated by tag-based or CloudFormation stack-based queries.
+
   ## Minimum permissions
 
   To run this command, you must have the following permissions:
@@ -486,6 +524,33 @@ defmodule AWS.ResourceGroups do
       client,
       meta,
       :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Turns on or turns off optional features in Resource Groups.
+
+  The preceding example shows that the request to turn on group lifecycle events
+  is `IN_PROGRESS`. You can call the `GetAccountSettings` operation to check for
+  completion by looking for `GroupLifecycleEventsStatus` to change to `ACTIVE`.
+  """
+  def update_account_settings(%Client{} = client, input, options \\ []) do
+    url_path = "/update-account-settings"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       headers,

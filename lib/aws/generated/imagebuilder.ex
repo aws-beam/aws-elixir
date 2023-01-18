@@ -664,7 +664,11 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Returns the list of component build versions for the specified semantic version.
+  Returns the list of components that can be filtered by name, or by using the
+  listed `filters` to streamline results.
+
+  Newly created components can take up to two minutes to appear in the
+  ListComponents API Results.
 
   The semantic version has four nodes: <major>.<minor>.<patch>/<build>. You can
   assign values for the first three, and can filter on all of them.
@@ -858,6 +862,9 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Returns the list of images that you have access to.
+
+  Newly created images can take up to two minutes to appear in the ListImages API
+  Results.
   """
   def list_images(%Client{} = client, input, options \\ []) do
     url_path = "/ListImages"

@@ -55,8 +55,8 @@ defmodule AWS.OpenSearch do
   @doc """
   Attaches tags to an existing Amazon OpenSearch Service domain.
 
-  Tags are a set of case-sensitive key-value pairs. An domain can have up to 10
-  tags. For more information, see [ Tagging Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging).
+  Tags are a set of case-sensitive key-value pairs. A domain can have up to 10
+  tags. For more information, see [Tagging Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html).
   """
   def add_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/tags"
@@ -478,6 +478,42 @@ defmodule AWS.OpenSearch do
       options,
       nil
     )
+  end
+
+  @doc """
+  Describes the progress of a pre-update dry run analysis on an Amazon OpenSearch
+  Service domain.
+
+  For more information, see [Determining whether a change will cause a blue/green deployment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun).
+  """
+  def describe_dry_run_progress(
+        %Client{} = client,
+        domain_name,
+        dry_run_id \\ nil,
+        load_dry_run_config \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dryRun"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(load_dry_run_config) do
+        [{"loadDryRunConfig", load_dry_run_config} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(dry_run_id) do
+        [{"dryRunId", dry_run_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """

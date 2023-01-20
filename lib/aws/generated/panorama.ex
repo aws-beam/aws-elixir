@@ -56,7 +56,7 @@ defmodule AWS.Panorama do
   end
 
   @doc """
-  Creates a job to run on one or more devices.
+  Creates a job to run on a device.
 
   A job can update a device's software or reboot it.
   """

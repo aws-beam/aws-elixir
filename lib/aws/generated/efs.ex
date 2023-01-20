@@ -47,7 +47,7 @@ defmodule AWS.EFS do
   subdirectories. To learn more, see [Mounting a file system using EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html).
 
   If multiple requests to create access points on the same file system are sent in
-  quick succession, and the file system is near the limit of 120 access points,
+  quick succession, and the file system is near the limit of 1000 access points,
   you may experience a throttling response for these requests. This is to ensure
   that the file system does not exceed the stated access point limit.
 
@@ -737,11 +737,11 @@ defmodule AWS.EFS do
   that you're calling.
 
   When retrieving all file system descriptions, you can optionally specify the
-  `MaxItems` parameter to limit the number of descriptions in a response.
-  Currently, this number is automatically set to 10. If more file system
-  descriptions remain, Amazon EFS returns a `NextMarker`, an opaque token, in the
-  response. In this case, you should send a subsequent request with the `Marker`
-  request parameter set to the value of `NextMarker`.
+  `MaxItems` parameter to limit the number of descriptions in a response. This
+  number is automatically set to 100. If more file system descriptions remain,
+  Amazon EFS returns a `NextMarker`, an opaque token, in the response. In this
+  case, you should send a subsequent request with the `Marker` request parameter
+  set to the value of `NextMarker`.
 
   To retrieve a list of your file system descriptions, this operation is used in
   an iterative process, where `DescribeFileSystems` is called first without the

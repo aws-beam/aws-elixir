@@ -419,7 +419,7 @@ defmodule AWS.Codeartifact do
   remove a package version from your repository and be able to restore it later,
   set its status to `Archived`. Archived packages cannot be downloaded from a
   repository and don't show up with list package APIs (for example,
-  [ListackageVersions](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html)), but you can restore them using
+  [ListPackageVersions](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html)), but you can restore them using
   [UpdatePackageVersionsStatus](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html).
   """
   def delete_package_versions(%Client{} = client, input, options \\ []) do
@@ -1000,10 +1000,6 @@ defmodule AWS.Codeartifact do
 
   @doc """
   Gets the readme file or descriptive text for a package version.
-
-  For packages that do not contain a readme file, CodeArtifact extracts a
-  description from a metadata file. For example, from the `<description>` element
-  in the `pom.xml` file of a Maven package.
 
   The returned text might contain formatting. For example, it might contain
   formatting for Markdown or reStructuredText.

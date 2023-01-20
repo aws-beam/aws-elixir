@@ -611,6 +611,18 @@ defmodule AWS.WAFV2 do
   Enables the specified `LoggingConfiguration`, to start logging from a web ACL,
   according to the configuration provided.
 
+  This operation completely replaces any mutable specifications that you already
+  have for a logging configuration with the ones that you provide to this call.
+
+  To modify an existing logging configuration, do the following:
+
+     Retrieve it by calling `GetLoggingConfiguration`
+
+     Update its settings as needed
+
+     Provide the complete logging configuration specification to this
+  call
+
   You can define one logging destination per web ACL.
 
   You can access information about the traffic that WAF inspects using the
@@ -639,12 +651,6 @@ defmodule AWS.WAFV2 do
 
   For additional information about web ACL logging, see [Logging web ACL traffic information](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html)
   in the *WAF Developer Guide*.
-
-  This operation completely replaces the mutable specifications that you already
-  have for the logging configuration with the ones that you provide to this call.
-  To modify the logging configuration, retrieve it by calling
-  `GetLoggingConfiguration`, update the settings as needed, and then provide the
-  complete logging configuration specification to this call.
   """
   def put_logging_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -742,9 +748,15 @@ defmodule AWS.WAFV2 do
   Updates the specified `IPSet`.
 
   This operation completely replaces the mutable specifications that you already
-  have for the IP set with the ones that you provide to this call. To modify the
-  IP set, retrieve it by calling `GetIPSet`, update the settings as needed, and
-  then provide the complete IP set specification to this call.
+  have for the IP set with the ones that you provide to this call.
+
+  To modify an IP set, do the following:
+
+     Retrieve it by calling `GetIPSet`
+
+     Update its settings as needed
+
+     Provide the complete IP set specification to this call
 
   When you make changes to web ACLs or web ACL components, like rules and rule
   groups, WAF propagates the changes everywhere that the web ACL and its
@@ -790,10 +802,15 @@ defmodule AWS.WAFV2 do
   Updates the specified `RegexPatternSet`.
 
   This operation completely replaces the mutable specifications that you already
-  have for the regex pattern set with the ones that you provide to this call. To
-  modify the regex pattern set, retrieve it by calling `GetRegexPatternSet`,
-  update the settings as needed, and then provide the complete regex pattern set
-  specification to this call.
+  have for the regex pattern set with the ones that you provide to this call.
+
+  To modify a regex pattern set, do the following:
+
+     Retrieve it by calling `GetRegexPatternSet`
+
+     Update its settings as needed
+
+     Provide the complete regex pattern set specification to this call
 
   When you make changes to web ACLs or web ACL components, like rules and rule
   groups, WAF propagates the changes everywhere that the web ACL and its
@@ -818,9 +835,15 @@ defmodule AWS.WAFV2 do
   Updates the specified `RuleGroup`.
 
   This operation completely replaces the mutable specifications that you already
-  have for the rule group with the ones that you provide to this call. To modify
-  the rule group, retrieve it by calling `GetRuleGroup`, update the settings as
-  needed, and then provide the complete rule group specification to this call.
+  have for the rule group with the ones that you provide to this call.
+
+  To modify a rule group, do the following:
+
+     Retrieve it by calling `GetRuleGroup`
+
+     Update its settings as needed
+
+     Provide the complete rule group specification to this call
 
   When you make changes to web ACLs or web ACL components, like rules and rule
   groups, WAF propagates the changes everywhere that the web ACL and its
@@ -853,6 +876,17 @@ defmodule AWS.WAFV2 do
   While updating a web ACL, WAF provides continuous coverage to the resources that
   you have associated with the web ACL.
 
+  This operation completely replaces the mutable specifications that you already
+  have for the web ACL with the ones that you provide to this call.
+
+  To modify a web ACL, do the following:
+
+     Retrieve it by calling `GetWebACL`
+
+     Update its settings as needed
+
+     Provide the complete web ACL specification to this call
+
   When you make changes to web ACLs or web ACL components, like rules and rule
   groups, WAF propagates the changes everywhere that the web ACL and its
   components are stored and used. Your changes are applied within seconds, but
@@ -865,11 +899,6 @@ defmodule AWS.WAFV2 do
   ACL with an Amazon Web Services resource and when you change a web ACL that is
   already associated with a resource. Generally, any inconsistencies of this type
   last only a few seconds.
-
-  This operation completely replaces the mutable specifications that you already
-  have for the web ACL with the ones that you provide to this call. To modify the
-  web ACL, retrieve it by calling `GetWebACL`, update the settings as needed, and
-  then provide the complete web ACL specification to this call.
 
   A web ACL defines a collection of rules to use to inspect and control web
   requests. Each rule has an action defined (allow, block, or count) for requests

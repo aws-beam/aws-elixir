@@ -187,7 +187,7 @@ defmodule AWS.Lambda do
 
   @doc """
   Creates an
-  [alias](https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html)
+  [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html)
   for a Lambda function version.
 
   Use aliases to provide clients with a function identifier that you can update to
@@ -432,7 +432,7 @@ defmodule AWS.Lambda do
 
   @doc """
   Deletes a Lambda function
-  [alias](https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
+  [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html).
   """
   def delete_alias(%Client{} = client, function_name, name, input, options \\ []) do
     url_path =
@@ -741,7 +741,7 @@ defmodule AWS.Lambda do
 
   @doc """
   Returns details about a Lambda function
-  [alias](https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
+  [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html).
   """
   def get_alias(%Client{} = client, function_name, name, options \\ []) do
     url_path =
@@ -1020,6 +1020,38 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Retrieves the runtime management configuration for a function's version.
+
+  If the runtime update mode is **Manual**, this includes the ARN of the runtime
+  version and the runtime update mode. If the runtime update mode is **Auto** or
+  **Function update**, this includes the runtime update mode and `null` is
+  returned for the ARN. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
+  """
+  def get_runtime_management_config(
+        %Client{} = client,
+        function_name,
+        qualifier \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/2021-07-20/functions/#{AWS.Util.encode_uri(function_name)}/runtime-management-config"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(qualifier) do
+        [{"Qualifier", qualifier} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Invokes a Lambda function.
 
   You can invoke a function synchronously (and wait for the response), or
@@ -1133,7 +1165,7 @@ defmodule AWS.Lambda do
 
   @doc """
   Returns a list of
-  [aliases](https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html)
+  [aliases](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html)
   for a Lambda function.
   """
   def list_aliases(
@@ -1342,8 +1374,8 @@ defmodule AWS.Lambda do
 
   The `ListFunctions` operation returns a subset of the `FunctionConfiguration`
   fields. To get the additional fields (State, StateReasonCode, StateReason,
-  LastUpdateStatus, LastUpdateStatusReason, LastUpdateStatusReasonCode) for a
-  function or version, use `GetFunction`.
+  LastUpdateStatus, LastUpdateStatusReason, LastUpdateStatusReasonCode,
+  RuntimeVersionConfig) for a function or version, use `GetFunction`.
   """
   def list_functions(
         %Client{} = client,
@@ -1789,6 +1821,28 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Sets the runtime management configuration for a function's version.
+
+  For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
+  """
+  def put_runtime_management_config(%Client{} = client, function_name, input, options \\ []) do
+    url_path =
+      "/2021-07-20/functions/#{AWS.Util.encode_uri(function_name)}/runtime-management-config"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"Qualifier", "Qualifier"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Removes a statement from the permissions policy for a version of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
 
   For more information, see `AddLayerVersionPermission`.
@@ -1916,7 +1970,7 @@ defmodule AWS.Lambda do
 
   @doc """
   Updates the configuration of a Lambda function
-  [alias](https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
+  [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html).
   """
   def update_alias(%Client{} = client, function_name, name, input, options \\ []) do
     url_path =

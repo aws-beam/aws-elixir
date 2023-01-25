@@ -267,6 +267,29 @@ defmodule AWS.SsmSap do
   end
 
   @doc """
+  Lists the operations performed by AWS Systems Manager for SAP.
+  """
+  def list_operations(%Client{} = client, input, options \\ []) do
+    url_path = "/list-operations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists all tags on an SAP HANA application and/or database registered with AWS
   Systems Manager for SAP.
   """
@@ -388,6 +411,10 @@ defmodule AWS.SsmSap do
     )
   end
 
+  @doc """
+  Updates the settings of an application registered with AWS Systems Manager for
+  SAP.
+  """
   def update_application_settings(%Client{} = client, input, options \\ []) do
     url_path = "/update-application-settings"
     headers = []

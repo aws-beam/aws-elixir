@@ -354,6 +354,8 @@ defmodule AWS.RedshiftServerless do
 
   @doc """
   Restores a table from a snapshot to your Amazon Redshift Serverless instance.
+
+  You can't use this operation to restore tables with [interleaved sort keys](https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved).
   """
   def restore_table_from_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -390,6 +392,11 @@ defmodule AWS.RedshiftServerless do
 
   @doc """
   Updates a namespace with the specified settings.
+
+  Unless required, you can't update multiple parameters in one request. For
+  example, you must specify both `adminUsername` and `adminUserPassword` to update
+  either field, but you can't update both `kmsKeyId` and `logExports` in a single
+  request.
   """
   def update_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -419,6 +426,10 @@ defmodule AWS.RedshiftServerless do
 
   @doc """
   Updates a workgroup with the specified configuration settings.
+
+  You can't update multiple parameters in one request. For example, you can update
+  `baseCapacity` or `port` in a single request, but you can't update both in the
+  same request.
   """
   def update_workgroup(%Client{} = client, input, options \\ []) do
     meta = metadata()

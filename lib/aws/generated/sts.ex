@@ -34,7 +34,7 @@ defmodule AWS.STS do
 
   @doc """
   Returns a set of temporary security credentials that you can use to access
-  Amazon Web Services resources that you might not normally have access to.
+  Amazon Web Services resources.
 
   These temporary credentials consist of an access key ID, a secret access key,
   and a security token. Typically, you use `AssumeRole` within your account or for
@@ -549,12 +549,14 @@ defmodule AWS.STS do
   ## Permissions
 
   You can use the temporary credentials created by `GetFederationToken` in any
-  Amazon Web Services service except the following:
+  Amazon Web Services service with the following exceptions:
 
     * You cannot call any IAM operations using the CLI or the Amazon Web
-  Services API.
+  Services API. This limitation does not apply to console sessions.
 
     * You cannot call any STS operations except `GetCallerIdentity`.
+
+  You can use temporary credentials for single sign-on (SSO) to the console.
 
   You must pass an inline or managed [session policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session)
   to this operation. You can pass a single JSON policy document to use as an

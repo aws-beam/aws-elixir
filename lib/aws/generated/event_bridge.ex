@@ -750,6 +750,8 @@ defmodule AWS.EventBridge do
 
     * Redshift cluster
 
+    * Redshift Serverless workgroup
+
     * SageMaker Pipeline
 
     * SNS topic
@@ -778,7 +780,7 @@ defmodule AWS.EventBridge do
   To be able to make API calls against the resources that you own, Amazon
   EventBridge needs the appropriate permissions. For Lambda and Amazon SNS
   resources, EventBridge relies on resource-based policies. For EC2 instances,
-  Kinesis Data Streams, Step Functions state machines and API Gateway REST APIs,
+  Kinesis Data Streams, Step Functions state machines and API Gateway APIs,
   EventBridge relies on IAM roles that you specify in the `RoleARN` argument in
   `PutTargets`. For more information, see [Authentication and Access Control](https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html)
   in the *Amazon EventBridge User Guide*.

@@ -114,7 +114,7 @@ defmodule AWS.SageMakerRuntime do
   hosted at the specified endpoint in an asynchronous manner.
 
   Inference requests sent to this API are enqueued for asynchronous processing.
-  The processing of the inference request may or may not complete before the you
+  The processing of the inference request may or may not complete before you
   receive a response from this API. The response from this API will not contain
   the result of the inference request but contain information about where you can
   locate it.
@@ -125,7 +125,7 @@ defmodule AWS.SageMakerRuntime do
 
   Calls to `InvokeEndpointAsync` are authenticated by using Amazon Web Services
   Signature Version 4. For information, see [Authenticating Requests (Amazon Web Services Signature Version
-  4)](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html)
+  4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html)
   in the *Amazon S3 API Reference*.
   """
   def invoke_endpoint_async(%Client{} = client, endpoint_name, input, options \\ []) do
@@ -138,6 +138,7 @@ defmodule AWS.SageMakerRuntime do
         {"CustomAttributes", "X-Amzn-SageMaker-Custom-Attributes"},
         {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
         {"InputLocation", "X-Amzn-SageMaker-InputLocation"},
+        {"InvocationTimeoutSeconds", "X-Amzn-SageMaker-InvocationTimeoutSeconds"},
         {"RequestTTLSeconds", "X-Amzn-SageMaker-RequestTTLSeconds"}
       ]
       |> Request.build_params(input)

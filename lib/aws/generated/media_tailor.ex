@@ -38,6 +38,19 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
+  Configures Amazon CloudWatch log settings for a channel.
+  """
+  def configure_logs_for_channel(%Client{} = client, input, options \\ []) do
+    url_path = "/configureLogs/channel"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Amazon CloudWatch log settings for a playback configuration.
   """
   def configure_logs_for_playback_configuration(%Client{} = client, input, options \\ []) do

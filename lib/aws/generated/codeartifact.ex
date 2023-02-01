@@ -413,13 +413,51 @@ defmodule AWS.Codeartifact do
   end
 
   @doc """
+  Deletes a package and all associated package versions.
+
+  A deleted package cannot be restored. To delete one or more package versions,
+  use the
+  [DeletePackageVersions](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DeletePackageVersions.html)
+  API.
+  """
+  def delete_package(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/package"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"domain", "domain"},
+        {"domainOwner", "domain-owner"},
+        {"format", "format"},
+        {"namespace", "namespace"},
+        {"package", "package"},
+        {"repository", "repository"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes one or more versions of a package.
 
   A deleted package version cannot be restored in your repository. If you want to
   remove a package version from your repository and be able to restore it later,
   set its status to `Archived`. Archived packages cannot be downloaded from a
   repository and don't show up with list package APIs (for example,
-  [ListPackageVersions](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html)), but you can restore them using
+  [ListackageVersions](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html)), but you can restore them using
   [UpdatePackageVersionsStatus](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html).
   """
   def delete_package_versions(%Client{} = client, input, options \\ []) do
@@ -1283,6 +1321,9 @@ defmodule AWS.Codeartifact do
   Returns a list of
   [PackageVersionSummary](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html)
   objects for package versions in a repository that match the request parameters.
+
+  Package versions of all statuses will be returned by default when calling
+  `list-package-versions` with no `--status` parameter.
   """
   def list_package_versions(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/versions"

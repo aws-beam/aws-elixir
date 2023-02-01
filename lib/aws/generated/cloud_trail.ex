@@ -49,15 +49,16 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
-  Adds one or more tags to a trail or event data store, up to a limit of 50.
+  Adds one or more tags to a trail, event data store, or channel, up to a limit of
+  50.
 
   Overwrites an existing tag's value when a new value is specified for an existing
-  tag key. Tag key names must be unique for a trail; you cannot have two keys with
-  the same name but different values. If you specify a key without a value, the
-  tag will be created with the specified key and a value of null. You can tag a
-  trail or event data store that applies to all Amazon Web Services Regions only
-  from the Region in which the trail or event data store was created (also known
-  as its home region).
+  tag key. Tag key names must be unique; you cannot have two keys with the same
+  name but different values. If you specify a key without a value, the tag will be
+  created with the specified key and a value of null. You can tag a trail or event
+  data store that applies to all Amazon Web Services Regions only from the Region
+  in which the trail or event data store was created (also known as its home
+  region).
   """
   def add_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -80,6 +81,19 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+  Creates a channel for CloudTrail to ingest events from a partner or external
+  source.
+
+  After you create a channel, a CloudTrail Lake event data store can log events
+  from the partner or source that you specify.
+  """
+  def create_channel(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateChannel", input, options)
+  end
+
+  @doc """
   Creates a new event data store.
   """
   def create_event_data_store(%Client{} = client, input, options \\ []) do
@@ -96,6 +110,15 @@ defmodule AWS.CloudTrail do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateTrail", input, options)
+  end
+
+  @doc """
+  Deletes a channel.
+  """
+  def delete_channel(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteChannel", input, options)
   end
 
   @doc """
@@ -117,6 +140,15 @@ defmodule AWS.CloudTrail do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteEventDataStore", input, options)
+  end
+
+  @doc """
+  Deletes the resource-based policy attached to the CloudTrail channel.
+  """
+  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
 
   @doc """
@@ -166,11 +198,6 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Returns information about a specific channel.
-
-  Amazon Web Services services create service-linked channels to get information
-  about CloudTrail events on your behalf. For more information about
-  service-linked channels, see [Viewing service-linked channels for CloudTrail by using the
-  CLI](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html).
   """
   def get_channel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -258,6 +285,16 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+  Retrieves the JSON text of the resource-based policy document attached to the
+  CloudTrail channel.
+  """
+  def get_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResourcePolicy", input, options)
+  end
+
+  @doc """
   Returns settings information for a specified trail.
   """
   def get_trail(%Client{} = client, input, options \\ []) do
@@ -282,11 +319,6 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Lists the channels in the current account, and their source names.
-
-  Amazon Web Services services create service-linked channels get information
-  about CloudTrail events on your behalf. For more information about
-  service-linked channels, see [Viewing service-linked channels for CloudTrail by using the
-  CLI](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html).
   """
   def list_channels(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -357,7 +389,8 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
-  Lists the tags for the trail or event data store in the current region.
+  Lists the tags for the trail, event data store, or channel in the current
+  region.
   """
   def list_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -490,6 +523,20 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+  Attaches a resource-based permission policy to a CloudTrail channel that is used
+  for an integration with an event source outside of Amazon Web Services.
+
+  For more information about resource-based policies, see [CloudTrail resource-based policy
+  examples](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html)
+  in the *CloudTrail User Guide*.
+  """
+  def put_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutResourcePolicy", input, options)
+  end
+
+  @doc """
   Registers an organization’s member account as the CloudTrail delegated
   administrator.
   """
@@ -500,7 +547,7 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
-  Removes the specified tags from a trail or event data store.
+  Removes the specified tags from a trail, event data store, or channel.
   """
   def remove_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -538,6 +585,10 @@ defmodule AWS.CloudTrail do
   bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html).
 
   When you retry an import, the `ImportID` parameter is required.
+
+  If the destination event data store is for an organization, you must use the
+  management account to import trail events. You cannot use the delegated
+  administrator account for the organization.
   """
   def start_import(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -600,16 +651,31 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+  Updates a channel specified by a required channel ARN or UUID.
+  """
+  def update_channel(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateChannel", input, options)
+  end
+
+  @doc """
   Updates an event data store.
 
   The required `EventDataStore` value is an ARN or the ID portion of the ARN.
   Other parameters are optional, but at least one optional parameter must be
   specified, or CloudTrail throws an error. `RetentionPeriod` is in days, and
   valid values are integers between 90 and 2557. By default,
-  `TerminationProtection` is enabled. `AdvancedEventSelectors` includes or
-  excludes management and data events in your event data store; for more
+  `TerminationProtection` is enabled.
+
+  For event data stores for CloudTrail events, `AdvancedEventSelectors` includes
+  or excludes management and data events in your event data store. For more
   information about `AdvancedEventSelectors`, see
   `PutEventSelectorsRequest$AdvancedEventSelectors`.
+
+  For event data stores for Config configuration items, Audit Manager evidence, or
+  non-Amazon Web Services events, `AdvancedEventSelectors` includes events of that
+  type in your event data store.
   """
   def update_event_data_store(%Client{} = client, input, options \\ []) do
     meta = metadata()

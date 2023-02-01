@@ -281,6 +281,19 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
+  Gets the latest configuration information for a registered agent.
+  """
+  def get_agent_configuration(%Client{} = client, agent_id, options \\ []) do
+    url_path = "/agent/#{AWS.Util.encode_uri(agent_id)}/configuration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns `Config` information.
 
   Only one `Config` response can be returned.
@@ -584,6 +597,29 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
+  Registers a new agent with AWS Groundstation.
+  """
+  def register_agent(%Client{} = client, input, options \\ []) do
+    url_path = "/agent"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Reserves a contact using specified parameters.
   """
   def reserve_contact(%Client{} = client, input, options \\ []) do
@@ -655,6 +691,19 @@ defmodule AWS.GroundStation do
       options,
       200
     )
+  end
+
+  @doc """
+  Update the status of the agent.
+  """
+  def update_agent_status(%Client{} = client, agent_id, input, options \\ []) do
+    url_path = "/agent/#{AWS.Util.encode_uri(agent_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """

@@ -1063,6 +1063,21 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
+  Updates a program within a channel.
+  """
+  def update_program(%Client{} = client, channel_name, program_name, input, options \\ []) do
+    url_path =
+      "/channel/#{AWS.Util.encode_uri(channel_name)}/program/#{AWS.Util.encode_uri(program_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Updates a source location.
 
   A source location is a container for sources. For more information about source

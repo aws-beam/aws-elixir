@@ -141,10 +141,10 @@ defmodule AWS.Forecast do
   that you want to import the data to.
 
   You must specify a
-  [DataSource](https://docs.aws.amazon.com/forecast/latest/dg/API_DataSource.html) object that includes an AWS Identity and Access Management (IAM) role that
-  Amazon Forecast can assume to access the data, as Amazon Forecast makes a copy
-  of your data and processes it in an internal AWS system. For more information,
-  see [Set up
+  [DataSource](https://docs.aws.amazon.com/forecast/latest/dg/API_DataSource.html) object that includes an Identity and Access Management (IAM) role that Amazon
+  Forecast can assume to access the data, as Amazon Forecast makes a copy of your
+  data and processes it in an internal Amazon Web Services system. For more
+  information, see [Set up
   permissions](https://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-iam-roles.html).
 
   The training data must be in CSV or Parquet format. The delimiter must be a
@@ -263,8 +263,8 @@ defmodule AWS.Forecast do
   bucket.
 
   You must specify a `DataDestination` object that includes an Amazon S3 bucket
-  and an AWS Identity and Access Management (IAM) role that Amazon Forecast can
-  assume to access the Amazon S3 bucket. For more information, see
+  and an Identity and Access Management (IAM) role that Amazon Forecast can assume
+  to access the Amazon S3 bucket. For more information, see
   `aws-forecast-iam-roles`.
 
   The `Status` of the export job must be `ACTIVE` before you can access the export
@@ -324,9 +324,9 @@ defmodule AWS.Forecast do
   where the <ExportTimestamp> component is in Java SimpleDateFormat
   (yyyy-MM-ddTHH-mm-ssZ).
 
-  You must specify a `DataDestination` object that includes an AWS Identity and
-  Access Management (IAM) role that Amazon Forecast can assume to access the
-  Amazon S3 bucket. For more information, see `aws-forecast-iam-roles`.
+  You must specify a `DataDestination` object that includes an Identity and Access
+  Management (IAM) role that Amazon Forecast can assume to access the Amazon S3
+  bucket. For more information, see `aws-forecast-iam-roles`.
 
   For more information, see `howitworks-forecast`.
 
@@ -433,8 +433,8 @@ defmodule AWS.Forecast do
   (yyyy-MM-ddTHH-mm-ssZ).
 
   You must specify a `DataDestination` object that includes an Amazon S3 bucket
-  and an AWS Identity and Access Management (IAM) role that Amazon Forecast can
-  assume to access the Amazon S3 bucket. For more information, see
+  and an Identity and Access Management (IAM) role that Amazon Forecast can assume
+  to access the Amazon S3 bucket. For more information, see
   `aws-forecast-iam-roles`.
 
   The `Status` of the export job must be `ACTIVE` before you can access the export
@@ -459,11 +459,13 @@ defmodule AWS.Forecast do
   For example, imagine you are a clothing retailer who is considering an end of
   season sale to clear space for new styles. After creating a baseline forecast,
   you can use a what-if analysis to investigate how different sales tactics might
-  affect your goals. You could create a scenario where everything is given a 25%
-  markdown and another where everything is given a fixed dollar markdown. You can
-  create a scenario where the sale lasts for 1 week and another where the sale
-  lasts for 1 month. Your what-if analysis enables you to compare many different
-  scenarios against each other.
+  affect your goals.
+
+  You could create a scenario where everything is given a 25% markdown, and
+  another where everything is given a fixed dollar markdown. You could create a
+  scenario where the sale lasts for one week and another where the sale lasts for
+  one month. With a what-if analysis, you can compare many different scenarios
+  against each other.
 
   Note that a what-if analysis is meant to display what the forecasting model has
   learned and how it will behave in the scenarios that you are evaluating. Do not
@@ -504,9 +506,9 @@ defmodule AWS.Forecast do
   The <ExportTimestamp> component is in Java SimpleDateFormat
   (yyyy-MM-ddTHH-mm-ssZ).
 
-  You must specify a `DataDestination` object that includes an AWS Identity and
-  Access Management (IAM) role that Amazon Forecast can assume to access the
-  Amazon S3 bucket. For more information, see `aws-forecast-iam-roles`.
+  You must specify a `DataDestination` object that includes an Identity and Access
+  Management (IAM) role that Amazon Forecast can assume to access the Amazon S3
+  bucket. For more information, see `aws-forecast-iam-roles`.
 
   For more information, see `howitworks-forecast`.
 

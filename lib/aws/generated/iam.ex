@@ -283,9 +283,9 @@ defmodule AWS.IAM do
   Amazon Web Services secures communication with some OIDC identity providers
   (IdPs) through our library of trusted certificate authorities (CAs) instead of
   using a certificate thumbprint to verify your IdP server certificate. These OIDC
-  IdPs include Google, and those that use an Amazon S3 bucket to host a JSON Web
-  Key Set (JWKS) endpoint. In these cases, your legacy thumbprint remains in your
-  configuration, but is no longer used for validation.
+  IdPs include Google, Auth0, and those that use an Amazon S3 bucket to host a
+  JSON Web Key Set (JWKS) endpoint. In these cases, your legacy thumbprint remains
+  in your configuration, but is no longer used for validation.
 
   The trust for the OIDC provider is derived from the IAM provider that this
   operation creates. Therefore, it is best to limit access to the
@@ -649,8 +649,19 @@ defmodule AWS.IAM do
   @doc """
   Deletes the specified role.
 
-  The role must not have any policies attached. For more information about roles,
-  see [Working with roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
+  Unlike the Amazon Web Services Management Console, when you delete a role
+  programmatically, you must delete the items attached to the role manually, or
+  the deletion fails. For more information, see [Deleting an IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_delete.html#roles-managingrole-deleting-cli).
+  Before attempting to delete a role, remove the following attached items:
+
+    * Inline policies (`DeleteRolePolicy`)
+
+    * Attached managed policies (`DetachRolePolicy`)
+
+    * Instance profile (`RemoveRoleFromInstanceProfile`)
+
+    * Optional – Delete instance profile after detaching from role for
+  resource clean up (`DeleteInstanceProfile`)
 
   Make sure that you do not have any Amazon EC2 instances running with the role
   you are about to delete. Deleting a role or instance profile that is associated
@@ -2506,6 +2517,11 @@ defmodule AWS.IAM do
   If the output is long, you can use `MaxItems` and `Marker` parameters to
   paginate the results.
 
+  The IAM policy simulator evaluates statements in the identity-based policy and
+  the inputs that you provide during simulation. The policy simulator results can
+  differ from your live Amazon Web Services environment. We recommend that you
+  check your policies against your live Amazon Web Services environment after
+  testing using the policy simulator to confirm that you have the desired results.
   For more information about using the policy simulator, see [Testing IAM policies with the IAM policy simulator
   ](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html)in
   the *IAM User Guide*.
@@ -2531,7 +2547,7 @@ defmodule AWS.IAM do
   specified as strings, use `SimulateCustomPolicy` instead.
 
   You can also optionally include one resource-based policy to be evaluated with
-  each of the resources included in the simulation.
+  each of the resources included in the simulation for IAM users only.
 
   The simulation does not perform the API operations; it only checks the
   authorization to determine if the simulated policies allow or deny the
@@ -2550,6 +2566,11 @@ defmodule AWS.IAM do
   If the output is long, you can use the `MaxItems` and `Marker` parameters to
   paginate the results.
 
+  The IAM policy simulator evaluates statements in the identity-based policy and
+  the inputs that you provide during simulation. The policy simulator results can
+  differ from your live Amazon Web Services environment. We recommend that you
+  check your policies against your live Amazon Web Services environment after
+  testing using the policy simulator to confirm that you have the desired results.
   For more information about using the policy simulator, see [Testing IAM policies with the IAM policy simulator
   ](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html)in
   the *IAM User Guide*.
@@ -3083,9 +3104,9 @@ defmodule AWS.IAM do
   Amazon Web Services secures communication with some OIDC identity providers
   (IdPs) through our library of trusted certificate authorities (CAs) instead of
   using a certificate thumbprint to verify your IdP server certificate. These OIDC
-  IdPs include Google, and those that use an Amazon S3 bucket to host a JSON Web
-  Key Set (JWKS) endpoint. In these cases, your legacy thumbprint remains in your
-  configuration, but is no longer used for validation.
+  IdPs include Google, Auth0, and those that use an Amazon S3 bucket to host a
+  JSON Web Key Set (JWKS) endpoint. In these cases, your legacy thumbprint remains
+  in your configuration, but is no longer used for validation.
 
   Trust for the OIDC provider is derived from the provider certificate and is
   validated by the thumbprint. Therefore, it is best to limit access to the

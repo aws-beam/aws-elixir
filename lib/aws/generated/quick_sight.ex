@@ -168,6 +168,8 @@ defmodule AWS.QuickSight do
 
   @doc """
   Creates an analysis in Amazon QuickSight.
+
+  Analyses can be created either from a template or from an `AnalysisDefinition`.
   """
   def create_analysis(%Client{} = client, analysis_id, aws_account_id, input, options \\ []) do
     url_path =
@@ -192,7 +194,8 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Creates a dashboard from a template.
+  Creates a dashboard from either a template or directly with a
+  `DashboardDefinition`.
 
   To first create a template, see the `
   [CreateTemplate](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html)
@@ -483,9 +486,11 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Creates a template from an existing Amazon QuickSight analysis or template.
+  Creates a template either from a `TemplateDefinition` or from an existing Amazon
+  QuickSight analysis or template.
 
-  You can use the resulting template to create a dashboard.
+  You can use the resulting template to create additional dashboards, templates,
+  or analyses.
 
   A *template* is an entity in Amazon QuickSight that encapsulates the metadata
   required to create an analysis and that you can use to create s dashboard. A

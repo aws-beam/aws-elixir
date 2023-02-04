@@ -1658,6 +1658,8 @@ defmodule AWS.Redshift do
   table as the `NewTableName` parameter value in the call to
   `RestoreTableFromClusterSnapshot`. This way, you can replace the original table
   with the table created from the snapshot.
+
+  You can't use this operation to restore tables with [interleaved sort keys](https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved).
   """
   def restore_table_from_cluster_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()

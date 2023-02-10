@@ -2,6 +2,11 @@
 # See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.LexRuntimeV2 do
+  @moduledoc """
+  This section contains documentation for the Amazon Lex V2 Runtime V2 API
+  operations.
+  """
+
   alias AWS.Client
   alias AWS.Request
 
@@ -284,6 +289,7 @@ defmodule AWS.LexRuntimeV2 do
           {"x-amz-lex-input-transcript", "inputTranscript"},
           {"x-amz-lex-interpretations", "interpretations"},
           {"x-amz-lex-messages", "messages"},
+          {"x-amz-lex-recognized-bot-member", "recognizedBotMember"},
           {"x-amz-lex-request-attributes", "requestAttributes"},
           {"x-amz-lex-session-id", "sessionId"},
           {"x-amz-lex-session-state", "sessionState"}

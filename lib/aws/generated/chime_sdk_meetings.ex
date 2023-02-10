@@ -332,6 +332,14 @@ defmodule AWS.ChimeSDKMeetings do
 
   @doc """
   Starts transcription for the specified `meetingId`.
+
+  For more information, refer to [ Using Amazon Chime SDK live transcription
+  ](https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html) in
+  the *Amazon Chime SDK Developer Guide*.
+
+  Amazon Chime SDK live transcription is powered by Amazon Transcribe. Use of
+  Amazon Transcribe is subject to the [AWS Service Terms](https://aws.amazon.com/service-terms/), including the terms specific to
+  the AWS Machine Learning and Artificial Intelligence Services.
   """
   def start_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=start"
@@ -355,6 +363,14 @@ defmodule AWS.ChimeSDKMeetings do
 
   @doc """
   Stops transcription for the specified `meetingId`.
+
+  For more information, refer to [ Using Amazon Chime SDK live transcription
+  ](https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html) in
+  the *Amazon Chime SDK Developer Guide*.
+
+  Amazon Chime SDK live transcription is powered by Amazon Transcribe. Use of
+  Amazon Transcribe is subject to the [AWS Service Terms](https://aws.amazon.com/service-terms/), including the terms specific to
+  the AWS Machine Learning and Artificial Intelligence Services.
   """
   def stop_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=stop"

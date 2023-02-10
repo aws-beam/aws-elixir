@@ -226,14 +226,12 @@ defmodule AWS.Evidently do
   allows you to define different traffic splits for the different audience
   segments.
 
-  ` For more information about segment pattern syntax, see [ Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
+  For more information about segment pattern syntax, see [ Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
 
   The pattern that you define for a segment is matched against the value of
   `evaluationContext`, which is passed into Evidently in the
   [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html)
   operation, when Evidently assigns a feature variation to a user.
-
-  `
   """
   def create_segment(%Client{} = client, input, options \\ []) do
     url_path = "/segments"
@@ -401,9 +399,9 @@ defmodule AWS.Evidently do
   `entityID` matches an override rule, the user is served the variation specified
   by that rule.
 
-  ` If there is a current launch with this feature that uses segment overrides,
-  and if the user session's `evaluationContext` matches a segment rule defined in
-  a segment override, the configuration in the segment overrides is used. For more
+  If there is a current launch with this feature that uses segment overrides, and
+  if the user session's `evaluationContext` matches a segment rule defined in a
+  segment override, the configuration in the segment overrides is used. For more
   information about segments, see
   [CreateSegment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html) and [Use segments to focus your
   audience](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html).
@@ -428,8 +426,6 @@ defmodule AWS.Evidently do
 
   If the user is not assigned to a launch or experiment, they are served the
   default variation.
-
-  `
   """
   def evaluate_feature(%Client{} = client, feature, project, input, options \\ []) do
     url_path =

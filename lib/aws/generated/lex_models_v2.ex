@@ -22,8 +22,8 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
-  Batch create custom vocabulary item for the specified locale in the specified
-  bot.
+  Create a batch of custom vocabulary items for a given bot locale's custom
+  vocabulary.
   """
   def batch_create_custom_vocabulary_item(
         %Client{} = client,
@@ -45,8 +45,8 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
-  Batch delete custom vocabulary item for the specified locale in the specified
-  bot.
+  Delete a batch of custom vocabulary items for a given bot locale's custom
+  vocabulary.
   """
   def batch_delete_custom_vocabulary_item(
         %Client{} = client,
@@ -78,8 +78,8 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
-  Batch update custom vocabulary item for the specified locale in the specified
-  bot.
+  Update a batch of custom vocabulary items for a given bot locale's custom
+  vocabulary.
   """
   def batch_update_custom_vocabulary_item(
         %Client{} = client,
@@ -490,8 +490,8 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Deletes a specific version of a bot.
 
-  To delete all version of a bot, use the
-  [DeleteBot](https://docs.aws.amazon.com/lexv2/latest/dg/API_DeleteBot.html)
+  To delete all versions of a bot, use the
+  [DeleteBot](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DeleteBot.html)
   operation.
   """
   def delete_bot_version(%Client{} = client, bot_id, bot_version, input, options \\ []) do
@@ -785,7 +785,7 @@ defmodule AWS.LexModelsV2 do
 
   Amazon Lex stores the utterances that users send to your bot. Utterances are
   stored for 15 days for use with the
-  [ListAggregatedUtterances](https://docs.aws.amazon.com/lexv2/latest/dg/API_ListAggregatedUtterances.html)
+  [ListAggregatedUtterances](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListAggregatedUtterances.html)
   operation, and then stored indefinitely for use in improving the ability of your
   bot to respond to user input..
 
@@ -1217,7 +1217,7 @@ defmodule AWS.LexModelsV2 do
   To use a built-in intent as a the base for your own intent, include the built-in
   intent signature in the `parentIntentSignature` parameter when you call the
   `CreateIntent` operation. For more information, see
-  [CreateIntent](https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateIntent.html).
+  [CreateIntent](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateIntent.html).
   """
   def list_built_in_intents(%Client{} = client, locale_id, input, options \\ []) do
     url_path = "/builtins/locales/#{AWS.Util.encode_uri(locale_id)}/intents/"
@@ -1263,7 +1263,8 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
-  List custom vocabulary items for the specified locale in the specified bot.
+  Paginated list of custom vocabulary items for a given bot locale's custom
+  vocabulary.
   """
   def list_custom_vocabulary_items(
         %Client{} = client,
@@ -1696,7 +1697,7 @@ defmodule AWS.LexModelsV2 do
   The password is not required. If you don't supply a password, Amazon Lex
   generates a zip file that is not protected by a password. This is the archive
   that is available at the pre-signed S3 URL provided by the
-  [DescribeExport](https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html)
+  [DescribeExport](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html)
   operation.
   """
   def update_export(%Client{} = client, export_id, input, options \\ []) do

@@ -136,7 +136,7 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Allows the specified Amazon Connect instance to access the specified Amazon Lex
-  bot.
+  V1 bot. This API only supports the association of Amazon Lex V1 bots.
   """
   def associate_lex_bot(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lex-bot"

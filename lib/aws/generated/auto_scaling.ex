@@ -151,14 +151,17 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
-  Cancels an instance refresh operation in progress.
+  Cancels an instance refresh or rollback that is in progress.
 
-  Cancellation does not roll back any replacements that have already been
-  completed, but it prevents new replacements from being started.
+  If an instance refresh or rollback is not in progress, an
+  `ActiveInstanceRefreshNotFound` error occurs.
 
   This operation is part of the [instance refresh feature](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
   in Amazon EC2 Auto Scaling, which helps you update instances in your Auto
   Scaling group after you make configuration changes.
+
+  When you cancel an instance refresh, this does not roll back any changes that it
+  made. Use the `RollbackInstanceRefresh` API to roll back instead.
   """
   def cancel_instance_refresh(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -458,29 +461,13 @@ defmodule AWS.AutoScaling do
   in Amazon EC2 Auto Scaling, which helps you update instances in your Auto
   Scaling group after you make configuration changes.
 
-  To help you determine the status of an instance refresh, this operation returns
-  information about the instance refreshes you previously initiated, including
-  their status, end time, the percentage of the instance refresh that is complete,
-  and the number of instances remaining to update before the instance refresh is
-  complete.
-
-  The following are the possible statuses:
-
-    * `Pending` - The request was created, but the operation has not
-  started.
-
-    * `InProgress` - The operation is in progress.
-
-    * `Successful` - The operation completed successfully.
-
-    * `Failed` - The operation failed to complete. You can troubleshoot
-  using the status reason and the scaling activities.
-
-    * `Cancelling` - An ongoing operation is being cancelled.
-  Cancellation does not roll back any replacements that have already been
-  completed, but it prevents new replacements from being started.
-
-    * `Cancelled` - The operation is cancelled.
+  To help you determine the status of an instance refresh, Amazon EC2 Auto Scaling
+  returns information about the instance refreshes you previously initiated,
+  including their status, start time, end time, the percentage of the instance
+  refresh that is complete, and the number of instances remaining to update before
+  the instance refresh is complete. If a rollback is initiated while an instance
+  refresh is in progress, Amazon EC2 Auto Scaling also returns information about
+  the rollback of the instance refresh.
   """
   def describe_instance_refreshes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1085,6 +1072,40 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+  Cancels an instance refresh that is in progress and rolls back any changes that
+  it made.
+
+  Amazon EC2 Auto Scaling replaces any instances that were replaced during the
+  instance refresh. This restores your Auto Scaling group to the configuration
+  that it was using before the start of the instance refresh.
+
+  This operation is part of the [instance refresh feature](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
+  in Amazon EC2 Auto Scaling, which helps you update instances in your Auto
+  Scaling group after you make configuration changes.
+
+  A rollback is not supported in the following situations:
+
+    * There is no desired configuration specified for the instance
+  refresh.
+
+    * The Auto Scaling group has a launch template that uses an Amazon
+  Web Services Systems Manager parameter instead of an AMI ID for the `ImageId`
+  property.
+
+    * The Auto Scaling group uses the launch template's `$Latest` or
+  `$Default` version.
+
+  When you receive a successful response from this operation, Amazon EC2 Auto
+  Scaling immediately begins replacing instances. You can check the status of this
+  operation through the `DescribeInstanceRefreshes` API operation.
+  """
+  def rollback_instance_refresh(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RollbackInstanceRefresh", input, options)
+  end
+
+  @doc """
   Sets the size of the specified Auto Scaling group.
 
   If a scale-in activity occurs as a result of a new `DesiredCapacity` value that
@@ -1131,11 +1152,12 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
-  Starts a new instance refresh operation.
+  Starts an instance refresh.
 
-  An instance refresh performs a rolling replacement of all or some instances in
-  an Auto Scaling group. Each instance is terminated first and then replaced,
-  which temporarily reduces the capacity available within your Auto Scaling group.
+  During an instance refresh, Amazon EC2 Auto Scaling performs a rolling update of
+  instances in an Auto Scaling group. Instances are terminated first and then
+  replaced, which temporarily reduces the capacity available within your Auto
+  Scaling group.
 
   This operation is part of the [instance refresh feature](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
   in Amazon EC2 Auto Scaling, which helps you update instances in your Auto
@@ -1144,11 +1166,23 @@ defmodule AWS.AutoScaling do
   specifies the new AMI or user data script. Then start an instance refresh to
   immediately begin the process of updating instances in the group.
 
-  If the call succeeds, it creates a new instance refresh request with a unique ID
-  that you can use to track its progress. To query its status, call the
+  If successful, the request's response contains a unique ID that you can use to
+  track the progress of the instance refresh. To query its status, call the
   `DescribeInstanceRefreshes` API. To describe the instance refreshes that have
   already run, call the `DescribeInstanceRefreshes` API. To cancel an instance
-  refresh operation in progress, use the `CancelInstanceRefresh` API.
+  refresh that is in progress, use the `CancelInstanceRefresh` API.
+
+  An instance refresh might fail for several reasons, such as EC2 launch failures,
+  misconfigured health checks, or not ignoring or allowing the termination of
+  instances that are in `Standby` state or protected from scale in. You can
+  monitor for failed EC2 launches using the scaling activities. To find the
+  scaling activities, call the `DescribeScalingActivities` API.
+
+  If you enable auto rollback, your Auto Scaling group will be rolled back
+  automatically when the instance refresh fails. You can enable this feature
+  before starting an instance refresh by specifying the `AutoRollback` property in
+  the instance refresh preferences. Otherwise, to roll back an instance refresh
+  before it finishes, use the `RollbackInstanceRefresh` API.
   """
   def start_instance_refresh(%Client{} = client, input, options \\ []) do
     meta = metadata()

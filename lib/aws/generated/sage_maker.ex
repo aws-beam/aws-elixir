@@ -270,9 +270,8 @@ defmodule AWS.SageMaker do
 
   A domain consists of an associated Amazon Elastic File System (EFS) volume, a
   list of authorized users, and a variety of security, application, policy, and
-  Amazon Virtual Private Cloud (VPC) configurations. An Amazon Web Services
-  account is limited to one domain per region. Users within a domain can share
-  notebook files and other artifacts with each other.
+  Amazon Virtual Private Cloud (VPC) configurations. Users within a domain can
+  share notebook files and other artifacts with each other.
 
   ## EFS storage
 
@@ -391,9 +390,9 @@ defmodule AWS.SageMaker do
   If any of the models hosted at this endpoint get model data from an Amazon S3
   location, SageMaker uses Amazon Web Services Security Token Service to download
   model artifacts from the S3 path you provided. Amazon Web Services STS is
-  activated in your IAM user account by default. If you previously deactivated
-  Amazon Web Services STS for a region, you need to reactivate Amazon Web Services
-  STS for that region. For more information, see [Activating and Deactivating Amazon Web Services STS in an Amazon Web Services
+  activated in your Amazon Web Services account by default. If you previously
+  deactivated Amazon Web Services STS for a region, you need to reactivate Amazon
+  Web Services STS for that region. For more information, see [Activating and Deactivating Amazon Web Services STS in an Amazon Web Services
   Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
   in the *Amazon Web Services Identity and Access Management User Guide*.
 
@@ -535,6 +534,8 @@ defmodule AWS.SageMaker do
 
   @doc """
   Create a hub.
+
+  Hub APIs are only callable through SageMaker Studio.
   """
   def create_hub(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1409,6 +1410,8 @@ defmodule AWS.SageMaker do
 
   @doc """
   Delete a hub.
+
+  Hub APIs are only callable through SageMaker Studio.
   """
   def delete_hub(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1418,6 +1421,8 @@ defmodule AWS.SageMaker do
 
   @doc """
   Delete the contents of a hub.
+
+  Hub APIs are only callable through SageMaker Studio.
   """
   def delete_hub_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1927,6 +1932,8 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describe a hub.
+
+  Hub APIs are only callable through SageMaker Studio.
   """
   def describe_hub(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1936,6 +1943,8 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describe the content of a hub.
+
+  Hub APIs are only callable through SageMaker Studio.
   """
   def describe_hub_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2389,6 +2398,8 @@ defmodule AWS.SageMaker do
 
   @doc """
   Import hub content.
+
+  Hub APIs are only callable through SageMaker Studio.
   """
   def import_hub_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2615,6 +2626,8 @@ defmodule AWS.SageMaker do
 
   @doc """
   List hub content versions.
+
+  Hub APIs are only callable through SageMaker Studio.
   """
   def list_hub_content_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2624,6 +2637,8 @@ defmodule AWS.SageMaker do
 
   @doc """
   List the contents of a hub.
+
+  Hub APIs are only callable through SageMaker Studio.
   """
   def list_hub_contents(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2633,6 +2648,8 @@ defmodule AWS.SageMaker do
 
   @doc """
   List all existing hubs.
+
+  Hub APIs are only callable through SageMaker Studio.
   """
   def list_hubs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3264,7 +3281,7 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  A method for forcing the termination of a running job.
+  A method for forcing a running job to shut down.
   """
   def stop_auto_ml_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3595,6 +3612,8 @@ defmodule AWS.SageMaker do
 
   @doc """
   Update a hub.
+
+  Hub APIs are only callable through SageMaker Studio.
   """
   def update_hub(%Client{} = client, input, options \\ []) do
     meta = metadata()

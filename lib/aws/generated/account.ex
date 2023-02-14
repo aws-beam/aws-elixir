@@ -58,6 +58,52 @@ defmodule AWS.Account do
   end
 
   @doc """
+  Disables (opts-out) a particular Region for an account.
+  """
+  def disable_region(%Client{} = client, input, options \\ []) do
+    url_path = "/disableRegion"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Enables (opts-in) a particular Region for an account.
+  """
+  def enable_region(%Client{} = client, input, options \\ []) do
+    url_path = "/enableRegion"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves the specified alternate contact attached to an Amazon Web Services
   account.
 
@@ -98,6 +144,55 @@ defmodule AWS.Account do
   """
   def get_contact_information(%Client{} = client, input, options \\ []) do
     url_path = "/getContactInformation"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves the opt-in status of a particular Region.
+  """
+  def get_region_opt_status(%Client{} = client, input, options \\ []) do
+    url_path = "/getRegionOptStatus"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all the Regions for a given account and their respective opt-in statuses.
+
+  Optionally, this list can be filtered by the `region-opt-status-contains`
+  parameter.
+  """
+  def list_regions(%Client{} = client, input, options \\ []) do
+    url_path = "/listRegions"
     headers = []
     query_params = []
 

@@ -142,13 +142,6 @@ defmodule AWS.Snowball do
       * Description: Snowball Edge Storage Optimized with EC2
   Compute
 
-    * Device type: ## V3_5C
-
-      * Capacity: T32
-
-      * Description: Snowball Edge Compute Optimized without
-  GPU
-
     * Device type: ## STANDARD
 
       * Capacity: T50
@@ -385,6 +378,18 @@ defmodule AWS.Snowball do
     meta = metadata()
 
     Request.request_post(client, meta, "ListLongTermPricing", input, options)
+  end
+
+  @doc """
+  Lists all supported versions for Snow on-device services.
+
+  Returns an array of `ServiceVersion` object containing the supported versions
+  for a particular service.
+  """
+  def list_service_versions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListServiceVersions", input, options)
   end
 
   @doc """

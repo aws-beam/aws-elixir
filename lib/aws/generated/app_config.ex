@@ -298,7 +298,8 @@ defmodule AWS.AppConfig do
       [
         {"ContentType", "Content-Type"},
         {"Description", "Description"},
-        {"LatestVersionNumber", "Latest-Version-Number"}
+        {"LatestVersionNumber", "Latest-Version-Number"},
+        {"VersionLabel", "VersionLabel"}
       ]
       |> Request.build_params(input)
 
@@ -313,6 +314,7 @@ defmodule AWS.AppConfig do
           {"Configuration-Profile-Id", "ConfigurationProfileId"},
           {"Content-Type", "ContentType"},
           {"Description", "Description"},
+          {"VersionLabel", "VersionLabel"},
           {"Version-Number", "VersionNumber"}
         ]
       )
@@ -755,6 +757,7 @@ defmodule AWS.AppConfig do
           {"Configuration-Profile-Id", "ConfigurationProfileId"},
           {"Content-Type", "ContentType"},
           {"Description", "Description"},
+          {"VersionLabel", "VersionLabel"},
           {"Version-Number", "VersionNumber"}
         ]
       )
@@ -1047,6 +1050,7 @@ defmodule AWS.AppConfig do
         configuration_profile_id,
         max_results \\ nil,
         next_token \\ nil,
+        version_label \\ nil,
         options \\ []
       ) do
     url_path =
@@ -1054,6 +1058,13 @@ defmodule AWS.AppConfig do
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(version_label) do
+        [{"version_label", version_label} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do

@@ -172,7 +172,8 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Cancels an export task in progress that is exporting a snapshot to Amazon S3.
+  Cancels an export task in progress that is exporting a snapshot or cluster to
+  Amazon S3.
 
   Any data that has already been written to the S3 bucket isn't removed.
   """
@@ -228,8 +229,7 @@ defmodule AWS.RDS do
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
-  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide*.
   """
   def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
@@ -319,13 +319,14 @@ defmodule AWS.RDS do
 
   You can use the `ReplicationSourceIdentifier` parameter to create an Amazon
   Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or
-  PostgreSQL DB instance.
-
-  For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+  PostgreSQL DB instance. For more information about Amazon Aurora, see [What is Amazon
+  Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
-  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  You can also use the `ReplicationSourceIdentifier` parameter to create a
+  Multi-AZ DB cluster read replica with an RDS for PostgreSQL DB instance as the
+  source. For more information about Multi-AZ DB clusters, see [Multi-AZ DB cluster
+  deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide*.
   """
   def create_db_cluster(%Client{} = client, input, options \\ []) do
@@ -381,8 +382,7 @@ defmodule AWS.RDS do
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
-  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide*.
   """
   def create_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
@@ -397,8 +397,7 @@ defmodule AWS.RDS do
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
-  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide*.
   """
   def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
@@ -660,7 +659,7 @@ defmodule AWS.RDS do
   your Amazon S3 bucket. These calls originate from the MediaImport service for
   the `DeleteCustomDbEngineVersion` event.
 
-  For more information, see [ Deleting a CEV](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.delete)
+  For more information, see [Deleting a CEV](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.delete)
   in the *Amazon RDS User Guide*.
   """
   def delete_custom_db_engine_version(%Client{} = client, input, options \\ []) do
@@ -679,8 +678,7 @@ defmodule AWS.RDS do
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
-  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide*.
   """
   def delete_db_cluster(%Client{} = client, input, options \\ []) do
@@ -709,8 +707,7 @@ defmodule AWS.RDS do
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
-  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide*.
   """
   def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
@@ -729,8 +726,7 @@ defmodule AWS.RDS do
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
-  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide*.
   """
   def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
@@ -981,8 +977,7 @@ defmodule AWS.RDS do
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
-  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide*.
   """
   def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
@@ -997,8 +992,7 @@ defmodule AWS.RDS do
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
-  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide*.
   """
   def describe_db_cluster_parameters(%Client{} = client, input, options \\ []) do
@@ -1036,8 +1030,7 @@ defmodule AWS.RDS do
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
-  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide*.
   """
   def describe_db_cluster_snapshots(%Client{} = client, input, options \\ []) do
@@ -1054,8 +1047,7 @@ defmodule AWS.RDS do
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
-  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide*.
 
   This operation can also return information for Amazon Neptune DB instances and
@@ -1319,7 +1311,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Returns information about a snapshot export to Amazon S3.
+  Returns information about a snapshot or cluster export to Amazon S3.
 
   This API operation supports pagination.
   """
@@ -1472,8 +1464,7 @@ defmodule AWS.RDS do
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
-  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide*.
   """
   def failover_db_cluster(%Client{} = client, input, options \\ []) do
@@ -1529,7 +1520,7 @@ defmodule AWS.RDS do
   required. For more information, see [ Modifying a database activity stream](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.Modifying.html)
   in the *Amazon RDS User Guide*.
 
-  This operation is supported for RDS for Oracle only.
+  This operation is supported for RDS for Oracle and Microsoft SQL Server.
   """
   def modify_activity_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1632,8 +1623,7 @@ defmodule AWS.RDS do
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
-  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide*.
   """
   def modify_db_cluster(%Client{} = client, input, options \\ []) do
@@ -1680,8 +1670,7 @@ defmodule AWS.RDS do
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
-  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
   """
   def modify_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
@@ -1936,8 +1925,7 @@ defmodule AWS.RDS do
 
   Use this operation only for a non-Aurora Multi-AZ DB cluster.
 
-  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
-  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
   """
   def reboot_db_cluster(%Client{} = client, input, options \\ []) do
@@ -2002,8 +1990,7 @@ defmodule AWS.RDS do
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
-  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
   """
   def remove_role_from_db_cluster(%Client{} = client, input, options \\ []) do
@@ -2060,8 +2047,7 @@ defmodule AWS.RDS do
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
-  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
   """
   def reset_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
@@ -2131,8 +2117,7 @@ defmodule AWS.RDS do
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
-  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
   """
   def restore_db_cluster_from_snapshot(%Client{} = client, input, options \\ []) do
@@ -2159,8 +2144,7 @@ defmodule AWS.RDS do
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  For more information on Multi-AZ DB clusters, see [ Multi-AZ deployments with two readable standby DB
-  instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+  For more information on Multi-AZ DB clusters, see [ Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide.*
   """
   def restore_db_cluster_to_point_in_time(%Client{} = client, input, options \\ []) do
@@ -2333,11 +2317,22 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Starts an export of a snapshot to Amazon S3.
+  Starts an export of DB snapshot or DB cluster data to Amazon S3.
 
   The provided IAM role must have access to the S3 bucket.
 
-  This command doesn't apply to RDS Custom.
+  You can't export snapshot data from RDS Custom DB instances.
+
+  You can't export cluster data from Multi-AZ DB clusters.
+
+  For more information on exporting DB snapshot data, see [Exporting DB snapshot data to Amazon
+  S3](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ExportSnapshot.html)
+  in the *Amazon RDS User Guide* or [Exporting DB cluster snapshot data to Amazon S3](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-export-snapshot.html)
+  in the *Amazon Aurora User Guide*.
+
+  For more information on exporting DB cluster data, see [Exporting DB cluster data to Amazon
+  S3](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/export-cluster-data.html)
+  in the *Amazon Aurora User Guide*.
   """
   def start_export_task(%Client{} = client, input, options \\ []) do
     meta = metadata()

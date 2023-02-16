@@ -107,6 +107,19 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+  Creates a list.
+
+  List is a set of input data for a variable in your event dataset. You use the
+  input data in a rule that's associated with your detector. For more information,
+  see [Lists](https://docs.aws.amazon.com/frauddetector/latest/ug/lists.html).
+  """
+  def create_list(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateList", input, options)
+  end
+
+  @doc """
   Creates a model using the specified model type.
   """
   def create_model(%Client{} = client, input, options \\ []) do
@@ -269,6 +282,18 @@ defmodule AWS.FraudDetector do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteLabel", input, options)
+  end
+
+  @doc """
+  Deletes the list, provided it is not used in a rule.
+
+  When you delete a list, Amazon Fraud Detector permanently deletes that list and
+  the elements in the list.
+  """
+  def delete_list(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteList", input, options)
   end
 
   @doc """
@@ -535,6 +560,25 @@ defmodule AWS.FraudDetector do
     meta = metadata()
 
     Request.request_post(client, meta, "GetLabels", input, options)
+  end
+
+  @doc """
+  Gets all the elements in the specified list.
+  """
+  def get_list_elements(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetListElements", input, options)
+  end
+
+  @doc """
+  Gets the metadata of either all the lists under the account or the specified
+  list.
+  """
+  def get_lists_metadata(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetListsMetadata", input, options)
   end
 
   @doc """
@@ -808,6 +852,15 @@ defmodule AWS.FraudDetector do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateEventLabel", input, options)
+  end
+
+  @doc """
+  Updates a list.
+  """
+  def update_list(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateList", input, options)
   end
 
   @doc """

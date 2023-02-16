@@ -334,9 +334,7 @@ defmodule AWS.PrivateNetworks do
   filters to match the Amazon Resource Name (ARN) of an order, the status of
   device identifiers, or the ARN of the traffic group.
 
-  ` If you specify multiple filters, filters are joined with an OR, and the
-  request `
-
+  If you specify multiple filters, filters are joined with an OR, and the request
   returns results that match all of the specified filters.
   """
   def list_device_identifiers(%Client{} = client, input, options \\ []) do
@@ -495,6 +493,35 @@ defmodule AWS.PrivateNetworks do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Starts an update of the specified network resource.
+
+  After you submit a request to replace or return a network resource, the status
+  of the network resource is `CREATING_SHIPPING_LABEL`. The shipping label is
+  available when the status of the network resource is `PENDING_RETURN`. After the
+  network resource is successfully returned, its status is `DELETED`. For more
+  information, see [Return a radio unit](https://docs.aws.amazon.com/private-networks/latest/userguide/radio-units.html#return-radio-unit).
+  """
+  def start_network_resource_update(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/network-resources/update"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

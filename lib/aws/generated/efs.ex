@@ -325,9 +325,9 @@ defmodule AWS.EFS do
   uses EFS One Zone storage. In that case, the General Purpose performance mode is
   used. The performance mode cannot be changed.
 
-    * **Throughput mode** - The destination file system uses the
-  Bursting Throughput mode by default. After the file system is created, you can
-  modify the throughput mode.
+    * **Throughput mode** - The destination file system's throughput
+  mode matches that of the source file system. After the file system is created,
+  you can modify the throughput mode.
 
   The following properties are turned off by default:
 

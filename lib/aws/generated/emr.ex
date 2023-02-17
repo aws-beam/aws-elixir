@@ -286,12 +286,12 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  Provides Temporary, basic HTTP credentials that are associated with a given
+  Provides temporary, HTTP basic credentials that are associated with a given
   runtime IAM role and used by a cluster with fine-grained access control
   activated.
 
   You can use these credentials to connect to cluster endpoints that support
-  username-based and password-based authentication.
+  username and password authentication.
   """
   def get_cluster_session_credentials(%Client{} = client, input, options \\ []) do
     meta = metadata()

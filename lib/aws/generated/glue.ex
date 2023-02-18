@@ -1357,18 +1357,39 @@ defmodule AWS.Glue do
     Request.request_post(client, meta, "GetTriggers", input, options)
   end
 
+  @doc """
+  Retrieves partition metadata from the Data Catalog that contains unfiltered
+  metadata.
+
+  For IAM authorization, the public IAM action associated with this API is
+  `glue:GetPartition`.
+  """
   def get_unfiltered_partition_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "GetUnfilteredPartitionMetadata", input, options)
   end
 
+  @doc """
+  Retrieves partition metadata from the Data Catalog that contains unfiltered
+  metadata.
+
+  For IAM authorization, the public IAM action associated with this API is
+  `glue:GetPartitions`.
+  """
   def get_unfiltered_partitions_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "GetUnfilteredPartitionsMetadata", input, options)
   end
 
+  @doc """
+  Retrieves table metadata from the Data Catalog that contains unfiltered
+  metadata.
+
+  For IAM authorization, the public IAM action associated with this API is
+  `glue:GetTable`.
+  """
   def get_unfiltered_table_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

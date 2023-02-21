@@ -1303,9 +1303,9 @@ defmodule AWS.Connect do
   @doc """
   Describes the specified user account.
 
-  You can find the instance ID in the console (it’s the final part of the ARN).
-  The console does not display the user IDs. Instead, list the users and note the
-  IDs provided in the output.
+  You can [find the instance ID in the Amazon Connect console](https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html)
+  (it’s the final part of the ARN). The console does not display the user IDs.
+  Instead, list the users and note the IDs provided in the output.
   """
   def describe_user(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}"

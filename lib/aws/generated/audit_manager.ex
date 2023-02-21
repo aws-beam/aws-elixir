@@ -1692,7 +1692,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Updates Audit Manager settings for the current user account.
+  Updates Audit Manager settings for the current account.
   """
   def update_settings(%Client{} = client, input, options \\ []) do
     url_path = "/settings"

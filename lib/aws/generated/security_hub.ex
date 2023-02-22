@@ -1051,17 +1051,17 @@ defmodule AWS.SecurityHub do
   Security Hub.
 
   When you use the `EnableSecurityHub` operation to enable Security Hub, you also
-  automatically enable the following standards.
+  automatically enable the following standards:
 
-    * CIS Amazon Web Services Foundations
+    * Center for Internet Security (CIS) Amazon Web Services Foundations
+  Benchmark v1.2.0
 
     * Amazon Web Services Foundational Security Best Practices
 
-  You do not enable the Payment Card Industry Data Security Standard (PCI DSS)
-  standard.
+  Other standards are not automatically enabled.
 
-  To not enable the automatically enabled standards, set `EnableDefaultStandards`
-  to `false`.
+  To opt out of automatically enabled standards, set `EnableDefaultStandards` to
+  `false`.
 
   After you enable Security Hub, to enable a standard, use the
   `BatchEnableStandards` operation. To disable a standard, use the

@@ -1136,7 +1136,7 @@ defmodule AWS.IoTWireless do
   Get the position information for a given wireless device or a wireless gateway
   resource.
 
-  The postion information uses the [ World Geodetic System (WGS84)](https://gisgeography.com/wgs84-world-geodetic-system/).
+  The position information uses the [ World Geodetic System (WGS84)](https://gisgeography.com/wgs84-world-geodetic-system/).
   """
   def get_resource_position(%Client{} = client, resource_identifier, resource_type, options \\ []) do
     url_path = "/resource-positions/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -2402,7 +2402,7 @@ defmodule AWS.IoTWireless do
   Update the position information of a given wireless device or a wireless gateway
   resource.
 
-  The postion coordinates are based on the [ World Geodetic System (WGS84)](https://gisgeography.com/wgs84-world-geodetic-system/).
+  The position coordinates are based on the [ World Geodetic System (WGS84)](https://gisgeography.com/wgs84-world-geodetic-system/).
   """
   def update_resource_position(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/resource-positions/#{AWS.Util.encode_uri(resource_identifier)}"

@@ -373,12 +373,40 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Creates a map resource in your AWS account, which provides map tiles of
-  different styles sourced from global location data providers.
+  Creates an API key resource in your Amazon Web Services account, which lets you
+  grant `geo:GetMap*` actions for Amazon Location Map resources to the API key
+  bearer.
+
+  The API keys feature is in preview. We may add, change, or remove features
+  before announcing general availability. For more information, see [Using API keys](https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html).
+  """
+  def create_key(%Client{} = client, input, options \\ []) do
+    url_path = "/metadata/v0/keys"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "metadata.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a map resource in your Amazon Web Services account, which provides map
+  tiles of different styles sourced from global location data providers.
 
   If your application is tracking or routing assets you use in your business, such
   as delivery vehicles or employees, you must not use Esri as your geolocation
-  provider. See section 82 of the [AWS service terms](http://aws.amazon.com/service-terms) for more details.
+  provider. See section 82 of the [Amazon Web Services service terms](http://aws.amazon.com/service-terms) for more details.
   """
   def create_map(%Client{} = client, input, options \\ []) do
     url_path = "/maps/v0/maps"
@@ -401,7 +429,7 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Creates a place index resource in your AWS account.
+  Creates a place index resource in your Amazon Web Services account.
 
   Use a place index resource to geocode addresses and other text queries by using
   the `SearchPlaceIndexForText` operation, and reverse geocode coordinates by
@@ -410,7 +438,7 @@ defmodule AWS.Location do
 
   If your application is tracking or routing assets you use in your business, such
   as delivery vehicles or employees, you must not use Esri as your geolocation
-  provider. See section 82 of the [AWS service terms](http://aws.amazon.com/service-terms) for more details.
+  provider. See section 82 of the [Amazon Web Services service terms](http://aws.amazon.com/service-terms) for more details.
   """
   def create_place_index(%Client{} = client, input, options \\ []) do
     url_path = "/places/v0/indexes"
@@ -433,7 +461,7 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Creates a route calculator resource in your AWS account.
+  Creates a route calculator resource in your Amazon Web Services account.
 
   You can send requests to a route calculator resource to estimate travel time,
   distance, and get directions. A route calculator sources traffic and road
@@ -441,7 +469,7 @@ defmodule AWS.Location do
 
   If your application is tracking or routing assets you use in your business, such
   as delivery vehicles or employees, you must not use Esri as your geolocation
-  provider. See section 82 of the [AWS service terms](http://aws.amazon.com/service-terms) for more details.
+  provider. See section 82 of the [Amazon Web Services service terms](http://aws.amazon.com/service-terms) for more details.
   """
   def create_route_calculator(%Client{} = client, input, options \\ []) do
     url_path = "/routes/v0/calculators"
@@ -464,8 +492,8 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Creates a tracker resource in your AWS account, which lets you retrieve current
-  and historical location of devices.
+  Creates a tracker resource in your Amazon Web Services account, which lets you
+  retrieve current and historical location of devices.
   """
   def create_tracker(%Client{} = client, input, options \\ []) do
     url_path = "/tracking/v0/trackers"
@@ -488,7 +516,7 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Deletes a geofence collection from your AWS account.
+  Deletes a geofence collection from your Amazon Web Services account.
 
   This operation deletes the resource permanently. If the geofence collection is
   the target of a tracker resource, the devices will no longer be monitored.
@@ -514,7 +542,32 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Deletes a map resource from your AWS account.
+  Deletes the specified API key.
+
+  The API key must have been deactivated more than 90 days previously.
+  """
+  def delete_key(%Client{} = client, key_name, input, options \\ []) do
+    url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "metadata.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a map resource from your Amazon Web Services account.
 
   This operation deletes the resource permanently. If the map is being used in an
   application, the map may not render.
@@ -540,7 +593,7 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Deletes a place index resource from your AWS account.
+  Deletes a place index resource from your Amazon Web Services account.
 
   This operation deletes the resource permanently.
   """
@@ -565,7 +618,7 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Deletes a route calculator resource from your AWS account.
+  Deletes a route calculator resource from your Amazon Web Services account.
 
   This operation deletes the resource permanently.
   """
@@ -590,7 +643,7 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Deletes a tracker resource from your AWS account.
+  Deletes a tracker resource from your Amazon Web Services account.
 
   This operation deletes the resource permanently. If the tracker resource is in
   use, you may encounter an error. Make sure that the target resource isn't a
@@ -625,6 +678,22 @@ defmodule AWS.Location do
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "geofencing.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the API key resource details.
+
+  The API keys feature is in preview. We may add, change, or remove features
+  before announcing general availability. For more information, see [Using API keys](https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html).
+  """
+  def describe_key(%Client{} = client, key_name, options \\ []) do
+    url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "metadata.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -784,18 +853,32 @@ defmodule AWS.Location do
   @doc """
   Retrieves glyphs used to display labels on a map.
   """
-  def get_map_glyphs(%Client{} = client, font_stack, font_unicode_range, map_name, options \\ []) do
+  def get_map_glyphs(
+        %Client{} = client,
+        font_stack,
+        font_unicode_range,
+        map_name,
+        key \\ nil,
+        options \\ []
+      ) do
     url_path =
       "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/glyphs/#{AWS.Util.encode_uri(font_stack)}/#{AWS.Util.encode_uri(font_unicode_range)}"
 
     headers = []
     query_params = []
 
+    query_params =
+      if !is_nil(key) do
+        [{"key", key} | query_params]
+      else
+        query_params
+      end
+
     options =
       Keyword.put(
         options,
         :response_header_parameters,
-        [{"Content-Type", "ContentType"}]
+        [{"Cache-Control", "CacheControl"}, {"Content-Type", "ContentType"}]
       )
 
     meta = metadata() |> Map.put_new(:host_prefix, "maps.")
@@ -809,18 +892,25 @@ defmodule AWS.Location do
   The sprite sheet is a PNG image paired with a JSON document describing the
   offsets of individual icons that will be displayed on a rendered map.
   """
-  def get_map_sprites(%Client{} = client, file_name, map_name, options \\ []) do
+  def get_map_sprites(%Client{} = client, file_name, map_name, key \\ nil, options \\ []) do
     url_path =
       "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/sprites/#{AWS.Util.encode_uri(file_name)}"
 
     headers = []
     query_params = []
 
+    query_params =
+      if !is_nil(key) do
+        [{"key", key} | query_params]
+      else
+        query_params
+      end
+
     options =
       Keyword.put(
         options,
         :response_header_parameters,
-        [{"Content-Type", "ContentType"}]
+        [{"Cache-Control", "CacheControl"}, {"Content-Type", "ContentType"}]
       )
 
     meta = metadata() |> Map.put_new(:host_prefix, "maps.")
@@ -835,16 +925,23 @@ defmodule AWS.Location do
   example, what data to display, what order to display the data in, and the style
   for the data. Style descriptors follow the Mapbox Style Specification.
   """
-  def get_map_style_descriptor(%Client{} = client, map_name, options \\ []) do
+  def get_map_style_descriptor(%Client{} = client, map_name, key \\ nil, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/style-descriptor"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(key) do
+        [{"key", key} | query_params]
+      else
+        query_params
+      end
 
     options =
       Keyword.put(
         options,
         :response_header_parameters,
-        [{"Content-Type", "ContentType"}]
+        [{"Cache-Control", "CacheControl"}, {"Content-Type", "ContentType"}]
       )
 
     meta = metadata() |> Map.put_new(:host_prefix, "maps.")
@@ -863,18 +960,25 @@ defmodule AWS.Location do
   world at (0/0/0) will be split into 4 tiles at zoom 1 (1/0/0, 1/0/1, 1/1/0,
   1/1/1).
   """
-  def get_map_tile(%Client{} = client, map_name, x, y, z, options \\ []) do
+  def get_map_tile(%Client{} = client, map_name, x, y, z, key \\ nil, options \\ []) do
     url_path =
       "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/tiles/#{AWS.Util.encode_uri(z)}/#{AWS.Util.encode_uri(x)}/#{AWS.Util.encode_uri(y)}"
 
     headers = []
     query_params = []
 
+    query_params =
+      if !is_nil(key) do
+        [{"key", key} | query_params]
+      else
+        query_params
+      end
+
     options =
       Keyword.put(
         options,
         :response_header_parameters,
-        [{"Content-Type", "ContentType"}]
+        [{"Cache-Control", "CacheControl"}, {"Content-Type", "ContentType"}]
       )
 
     meta = metadata() |> Map.put_new(:host_prefix, "maps.")
@@ -890,9 +994,9 @@ defmodule AWS.Location do
   A PlaceId is valid only if all of the following are the same in the original
   search request and the call to `GetPlace`.
 
-     Customer AWS account
+     Customer Amazon Web Services account
 
-     AWS Region
+     Amazon Web Services Region
 
      Data provider specified in the place index resource
   """
@@ -939,7 +1043,7 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Lists geofence collections in your AWS account.
+  Lists geofence collections in your Amazon Web Services account.
   """
   def list_geofence_collections(%Client{} = client, input, options \\ []) do
     url_path = "/geofencing/v0/list-collections"
@@ -985,7 +1089,33 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Lists map resources in your AWS account.
+  Lists API key resources in your Amazon Web Services account.
+
+  The API keys feature is in preview. We may add, change, or remove features
+  before announcing general availability. For more information, see [Using API keys](https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html).
+  """
+  def list_keys(%Client{} = client, input, options \\ []) do
+    url_path = "/metadata/v0/list-keys"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "metadata.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists map resources in your Amazon Web Services account.
   """
   def list_maps(%Client{} = client, input, options \\ []) do
     url_path = "/maps/v0/list-maps"
@@ -1008,7 +1138,7 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Lists place index resources in your AWS account.
+  Lists place index resources in your Amazon Web Services account.
   """
   def list_place_indexes(%Client{} = client, input, options \\ []) do
     url_path = "/places/v0/list-indexes"
@@ -1031,7 +1161,7 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Lists route calculator resources in your AWS account.
+  Lists route calculator resources in your Amazon Web Services account.
   """
   def list_route_calculators(%Client{} = client, input, options \\ []) do
     url_path = "/routes/v0/list-calculators"
@@ -1091,7 +1221,7 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Lists tracker resources in your AWS account.
+  Lists tracker resources in your Amazon Web Services account.
   """
   def list_trackers(%Client{} = client, input, options \\ []) do
     url_path = "/tracking/v0/list-trackers"
@@ -1294,6 +1424,32 @@ defmodule AWS.Location do
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "geofencing.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the specified properties of a given API key resource.
+
+  The API keys feature is in preview. We may add, change, or remove features
+  before announcing general availability. For more information, see [Using API keys](https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html).
+  """
+  def update_key(%Client{} = client, key_name, input, options \\ []) do
+    url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "metadata.")
 
     Request.request_rest(
       client,

@@ -457,6 +457,9 @@ defmodule AWS.Grafana do
   You can also map SAML assertion attributes to workspace user information and
   define which groups in the assertion attribute are to have the `Admin` and
   `Editor` roles in the workspace.
+
+  Changes to the authentication method for a workspace may take a few minutes to
+  take effect.
   """
   def update_workspace_authentication(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/authentication"

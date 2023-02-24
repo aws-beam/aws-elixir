@@ -22,13 +22,13 @@ defmodule AWS.WAFV2 do
 
   WAF is a web application firewall that lets you monitor the HTTP and HTTPS
   requests that are forwarded to an Amazon CloudFront distribution, Amazon API
-  Gateway REST API, Application Load Balancer, AppSync GraphQL API, or Amazon
-  Cognito user pool. WAF also lets you control access to your content, to protect
-  the Amazon Web Services resource that WAF is monitoring. Based on conditions
-  that you specify, such as the IP addresses that requests originate from or the
-  values of query strings, the protected resource responds to requests with either
-  the requested content, an HTTP 403 status code (Forbidden), or with a custom
-  response.
+  Gateway REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito
+  user pool, or App Runner service. WAF also lets you control access to your
+  content, to protect the Amazon Web Services resource that WAF is monitoring.
+  Based on conditions that you specify, such as the IP addresses that requests
+  originate from or the values of query strings, the protected resource responds
+  to requests with either the requested content, an HTTP 403 status code
+  (Forbidden), or with a custom response.
 
   This API guide is for developers who need detailed information about WAF API
   actions, data types, and errors. For detailed information about WAF features and
@@ -38,8 +38,8 @@ defmodule AWS.WAFV2 do
 
     * For regional applications, you can use any of the endpoints in the
   list. A regional application can be an Application Load Balancer (ALB), an
-  Amazon API Gateway REST API, an AppSync GraphQL API, or an Amazon Cognito user
-  pool.
+  Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool,
+  or an App Runner service.
 
     * For Amazon CloudFront applications, you must use the API endpoint
   listed for US East (N. Virginia): us-east-1.
@@ -89,7 +89,8 @@ defmodule AWS.WAFV2 do
   resource.
 
   A regional application can be an Application Load Balancer (ALB), an Amazon API
-  Gateway REST API, an AppSync GraphQL API, or an Amazon Cognito user pool.
+  Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App
+  Runner service.
 
   For Amazon CloudFront, don't use this call. Instead, use your CloudFront
   distribution configuration. To associate a web ACL, in the CloudFront call
@@ -188,7 +189,8 @@ defmodule AWS.WAFV2 do
   `RuleGroup`, and managed rule group. You can associate a web ACL with one or
   more Amazon Web Services resources to protect. The resources can be an Amazon
   CloudFront distribution, an Amazon API Gateway REST API, an Application Load
-  Balancer, an AppSync GraphQL API, or an Amazon Cognito user pool.
+  Balancer, an AppSync GraphQL API, Amazon Cognito user pool, or an App Runner
+  service.
   """
   def create_web_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -301,7 +303,7 @@ defmodule AWS.WAFV2 do
 
   A resource can have at most one web ACL association. A regional application can
   be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an
-  AppSync GraphQL API, or an Amazon Cognito user pool.
+  AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.
 
   For Amazon CloudFront, don't use this call. Instead, use your CloudFront
   distribution configuration. To disassociate a web ACL, provide an empty web ACL
@@ -907,7 +909,8 @@ defmodule AWS.WAFV2 do
   `RuleGroup`, and managed rule group. You can associate a web ACL with one or
   more Amazon Web Services resources to protect. The resources can be an Amazon
   CloudFront distribution, an Amazon API Gateway REST API, an Application Load
-  Balancer, an AppSync GraphQL API, or an Amazon Cognito user pool.
+  Balancer, an AppSync GraphQL API, Amazon Cognito user pool, or an App Runner
+  service.
   """
   def update_web_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()

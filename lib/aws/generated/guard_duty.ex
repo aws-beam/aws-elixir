@@ -128,6 +128,10 @@ defmodule AWS.GuardDuty do
   GuardDuty, you must create a detector in each Region where you enable the
   service. You can have only one detector per account per Region. All data sources
   are enabled in a new detector by default.
+
+  There might be regional differences because some data sources might not be
+  available in all the Amazon Web Services Regions where GuardDuty is presently
+  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def create_detector(%Client{} = client, input, options \\ []) do
     url_path = "/detector"
@@ -213,9 +217,9 @@ defmodule AWS.GuardDuty do
   the organization delegated administrator account, which must enable GuardDuty
   prior to being added as a member.
 
-  If you are adding accounts by invitation use this action after GuardDuty has
-  been enabled in potential member accounts and before using [ `Invite Members`
-  ](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html).
+  If you are adding accounts by invitation, use this action after GuardDuty has
+  bee enabled in potential member accounts and before using
+  [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html).
   """
   def create_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member"
@@ -263,9 +267,9 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Generates example findings of types specified by the list of finding types.
+  Generates sample findings of types specified by the list of finding types.
 
-  If 'NULL' is specified for `findingTypes`, the API generates example findings of
+  If 'NULL' is specified for `findingTypes`, the API generates sample findings of
   all supported finding types.
   """
   def create_sample_findings(%Client{} = client, detector_id, input, options \\ []) do
@@ -529,6 +533,10 @@ defmodule AWS.GuardDuty do
 
   Each member account can view the malware scans for their own accounts. An
   administrator can view the malware scans for all the member accounts.
+
+  There might be regional differences because some data sources might not be
+  available in all the Amazon Web Services Regions where GuardDuty is presently
+  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def describe_malware_scans(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scans"
@@ -553,6 +561,10 @@ defmodule AWS.GuardDuty do
   @doc """
   Returns information about the account selected as the delegated administrator
   for GuardDuty.
+
+  There might be regional differences because some data sources might not be
+  available in all the Amazon Web Services Regions where GuardDuty is presently
+  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def describe_organization_configuration(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/admin"
@@ -726,6 +738,10 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Retrieves an Amazon GuardDuty detector specified by the detectorId.
+
+  There might be regional differences because some data sources might not be
+  available in all the Amazon Web Services Regions where GuardDuty is presently
+  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def get_detector(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}"
@@ -829,6 +845,10 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Returns the details of the malware scan settings.
+
+  There might be regional differences because some data sources might not be
+  available in all the Amazon Web Services Regions where GuardDuty is presently
+  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def get_malware_scan_settings(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scan-settings"
@@ -856,6 +876,10 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Describes which data sources are enabled for the member account's detector.
+
+  There might be regional differences because some data sources might not be
+  available in all the Amazon Web Services Regions where GuardDuty is presently
+  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def get_member_detectors(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/detector/get"
@@ -1431,6 +1455,10 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Updates the Amazon GuardDuty detector specified by the detectorId.
+
+  There might be regional differences because some data sources might not be
+  available in all the Amazon Web Services Regions where GuardDuty is presently
+  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def update_detector(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}"
@@ -1527,6 +1555,10 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Updates the malware scan settings.
+
+  There might be regional differences because some data sources might not be
+  available in all the Amazon Web Services Regions where GuardDuty is presently
+  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def update_malware_scan_settings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scan-settings"
@@ -1550,6 +1582,10 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Contains information on member accounts to be updated.
+
+  There might be regional differences because some data sources might not be
+  available in all the Amazon Web Services Regions where GuardDuty is presently
+  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def update_member_detectors(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/detector/update"
@@ -1573,6 +1609,10 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Updates the delegated administrator account with the values provided.
+
+  There might be regional differences because some data sources might not be
+  available in all the Amazon Web Services Regions where GuardDuty is presently
+  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def update_organization_configuration(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/admin"

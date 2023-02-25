@@ -3,16 +3,14 @@
 
 defmodule AWS.ConnectCases do
   @moduledoc """
-  Welcome to the Amazon Connect Cases API Reference.
+  With Amazon Connect Cases, your agents can track and manage customer issues that
+  require multiple interactions, follow-up tasks, and teams in your contact
+  center.
 
-  This guide provides information about the Amazon Connect Cases API, which you
-  can use to create, update, get, and list Cases domains, fields, field options,
-  layouts, templates, cases, related items, and tags.
-
-  ` For more information about Amazon Connect Cases, see [Amazon Connect Cases](https://docs.aws.amazon.com/connect/latest/adminguide/cases.html) in the
+  A case represents a customer issue. It records the issue, the steps and
+  interactions taken to resolve the issue, and the outcome. For more information,
+  see [Amazon Connect Cases](https://docs.aws.amazon.com/connect/latest/adminguide/cases.html) in the
   *Amazon Connect Administrator Guide*.
-
-  `
   """
 
   alias AWS.Client
@@ -79,7 +77,15 @@ defmodule AWS.ConnectCases do
   Case system and custom fields are taken as an array id/value pairs with a
   declared data types.
 
-  `customer_id` is a required field when creating a case.
+  The following fields are required when creating a case:
+
+  `   * `customer_id` - You must provide the full customer profile ARN
+  in this format: `arn:aws:profile:your AWS Region:your AWS account
+  ID:domains/profiles domain name/profiles/profile ID`
+
+    * `title`
+
+  `
   """
   def create_case(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases"
@@ -109,8 +115,9 @@ defmodule AWS.ConnectCases do
 
   This will not associate your connect instance to Cases domain. Instead, use the
   Amazon Connect
-  [CreateIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html)
-  API.
+  [CreateIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html) API. You need specific IAM permissions to successfully associate the Cases
+  domain. For more information, see [Onboard to
+  Cases](https://docs.aws.amazon.com/connect/latest/adminguide/required-permissions-iam-cases.html#onboard-cases-iam).
   """
   def create_domain(%Client{} = client, input, options \\ []) do
     url_path = "/domains"
@@ -243,6 +250,29 @@ defmodule AWS.ConnectCases do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a domain.
+  """
+  def delete_domain(%Client{} = client, domain_id, input, options \\ []) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       headers,
@@ -579,6 +609,10 @@ defmodule AWS.ConnectCases do
   Searches for cases within their associated Cases domain.
 
   Search results are returned as a paginated list of abridged case documents.
+
+  For `customer_id` you must provide the full customer profile ARN in this format:
+  ` arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles domain
+  name/profiles/profile ID`.
   """
   def search_cases(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases-search"

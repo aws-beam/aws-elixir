@@ -43,15 +43,10 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  The token based access feature is in preview release for Ethereum on Amazon
-  Managed Blockchain and is subject to change.
+  Creates a new accessor for use with Managed Blockchain Ethereum nodes.
 
-  We recommend that you use this feature only with test scenarios, and not in
-  production environments.
-
-  Creates a new accessor for use with Managed Blockchain Ethereum nodes. An
-  accessor object is a container that has the information required for token based
-  access to your Ethereum nodes.
+  An accessor contains information required for token based access to your
+  Ethereum nodes.
   """
   def create_accessor(%Client{} = client, input, options \\ []) do
     url_path = "/accessors"
@@ -177,16 +172,11 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  The token based access feature is in preview release for Ethereum on Amazon
-  Managed Blockchain and is subject to change.
+  Deletes an accessor that your Amazon Web Services account owns.
 
-  We recommend that you use this feature only with test scenarios, and not in
-  production environments.
-
-  Deletes an accessor that your Amazon Web Services account owns. An accessor
-  object is a container that has the information required for token based access
-  to your Ethereum nodes including, the `BILLING_TOKEN`. After an accessor is
-  deleted, the status of the accessor changes from `AVAILABLE` to
+  An accessor object is a container that has the information required for token
+  based access to your Ethereum nodes including, the `BILLING_TOKEN`. After an
+  accessor is deleted, the status of the accessor changes from `AVAILABLE` to
   `PENDING_DELETION`. An accessor in the `PENDING_DELETION` state can’t be used
   for new WebSocket requests or HTTP requests. However, WebSocket connections that
   were initiated while the accessor was in the `AVAILABLE` state remain open until
@@ -282,15 +272,10 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  The token based access feature is in preview release for Ethereum on Amazon
-  Managed Blockchain and is subject to change.
+  Returns detailed information about an accessor.
 
-  We recommend that you use this feature only with test scenarios, and not in
-  production environments.
-
-  Returns detailed information about an accessor. An accessor object is a
-  container that has the information required for token based access to your
-  Ethereum nodes.
+  An accessor object is a container that has the information required for token
+  based access to your Ethereum nodes.
   """
   def get_accessor(%Client{} = client, accessor_id, options \\ []) do
     url_path = "/accessors/#{AWS.Util.encode_uri(accessor_id)}"
@@ -376,15 +361,10 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  The token based access feature is in preview release for Ethereum on Amazon
-  Managed Blockchain and is subject to change.
+  Returns a list of the accessors and their properties.
 
-  We recommend that you use this feature only with test scenarios, and not in
-  production environments.
-
-  Returns a list of the accessors and their properties. Accessor objects are
-  containers that have the information required for token based access to your
-  Ethereum nodes.
+  Accessor objects are containers that have the information required for token
+  based access to your Ethereum nodes.
   """
   def list_accessors(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/accessors"

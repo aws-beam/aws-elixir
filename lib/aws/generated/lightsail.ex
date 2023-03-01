@@ -429,6 +429,22 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
+  Creates two URLs that are used to access a virtual computer’s graphical user
+  interface (GUI) session.
+
+  The primary URL initiates a web-based NICE DCV session to the virtual computer's
+  application. The secondary URL initiates a web-based NICE DCV session to the
+  virtual computer's operating session.
+
+  Use `StartGUISession` to open the session.
+  """
+  def create_g_ui_session_access_details(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateGUISessionAccessDetails", input, options)
+  end
+
+  @doc """
   Creates a snapshot of a specific virtual private server, or *instance*.
 
   You can use a snapshot to create a new instance that is based on that snapshot.
@@ -1255,6 +1271,17 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
+  Retrieves information about the cost estimate for a specified resource.
+
+  A cost estimate will not generate for a resource that has been deleted.
+  """
+  def get_cost_estimate(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCostEstimate", input, options)
+  end
+
+  @doc """
   Returns information about a specific block storage disk.
   """
   def get_disk(%Client{} = client, input, options \\ []) do
@@ -1937,6 +1964,19 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
+  Initiates a graphical user interface (GUI) session that’s used to access a
+  virtual computer’s operating system and application.
+
+  The session will be active for 1 hour. Use this action to resume the session
+  after it expires.
+  """
+  def start_g_ui_session(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartGUISession", input, options)
+  end
+
+  @doc """
   Starts a specific Amazon Lightsail instance from a stopped state.
 
   To restart an instance, use the `reboot instance` operation.
@@ -1969,6 +2009,18 @@ defmodule AWS.Lightsail do
     meta = metadata()
 
     Request.request_post(client, meta, "StartRelationalDatabase", input, options)
+  end
+
+  @doc """
+  Terminates a web-based NICE DCV session that’s used to access a virtual
+  computer’s operating system or application.
+
+  The session will close and any unsaved data will be lost.
+  """
+  def stop_g_ui_session(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopGUISession", input, options)
   end
 
   @doc """

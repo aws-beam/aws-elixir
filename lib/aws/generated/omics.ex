@@ -1338,7 +1338,9 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Starts a read set activation job.
+  Activates an archived read set.
+
+  To reduce storage charges, Amazon Omics archives unused read sets after 30 days.
   """
   def start_read_set_activation_job(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/activationjob"
@@ -1361,7 +1363,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Starts a read set export job.
+  Exports a read set to Amazon S3.
   """
   def start_read_set_export_job(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/exportjob"

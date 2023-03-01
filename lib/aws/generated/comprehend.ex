@@ -134,6 +134,19 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+  Creates a dataset to upload training or test data for a model associated with a
+  flywheel.
+
+  For more information about datasets, see [ Flywheel overview](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html)
+  in the *Amazon Comprehend Developer Guide*.
+  """
+  def create_dataset(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDataset", input, options)
+  end
+
+  @doc """
   Creates a new document classifier that you can use to categorize documents.
 
   To create a classifier, you provide a set of training documents that labeled
@@ -162,12 +175,39 @@ defmodule AWS.Comprehend do
   Creates an entity recognizer using submitted files.
 
   After your `CreateEntityRecognizer` request is submitted, you can check job
-  status using the API.
+  status using the `DescribeEntityRecognizer` API.
   """
   def create_entity_recognizer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateEntityRecognizer", input, options)
+  end
+
+  @doc """
+  A flywheel is an AWS resource that orchestrates the ongoing training of a model
+  for custom classification or custom entity recognition.
+
+  You can create a flywheel to start with an existing trained model, or Comprehend
+  can create and train a new model.
+
+  When you create the flywheel, Comprehend creates a data lake in your account.
+  The data lake holds the training data and test data for all versions of the
+  model.
+
+  To use a flywheel with an existing trained model, you specify the active model
+  version. Comprehend copies the model's training data and test data into the
+  flywheel's data lake.
+
+  To use the flywheel with a new model, you need to provide a dataset for training
+  data (and optional test data) when you create the flywheel.
+
+  For more information about flywheels, see [ Flywheel overview](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html)
+  in the *Amazon Comprehend Developer Guide*.
+  """
+  def create_flywheel(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFlywheel", input, options)
   end
 
   @doc """
@@ -219,12 +259,39 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+  Deletes a flywheel.
+
+  When you delete the flywheel, Amazon Comprehend does not delete the data lake or
+  the model associated with the flywheel.
+
+  For more information about flywheels, see [ Flywheel overview](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html)
+  in the *Amazon Comprehend Developer Guide*.
+  """
+  def delete_flywheel(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFlywheel", input, options)
+  end
+
+  @doc """
   Deletes a resource-based policy that is attached to a custom model.
   """
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
+  end
+
+  @doc """
+  Returns information about the dataset that you specify.
+
+  For more information about datasets, see [ Flywheel overview](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html)
+  in the *Amazon Comprehend Developer Guide*.
+  """
+  def describe_dataset(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDataset", input, options)
   end
 
   @doc """
@@ -298,6 +365,30 @@ defmodule AWS.Comprehend do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeEventsDetectionJob", input, options)
+  end
+
+  @doc """
+  Provides configuration information about the flywheel.
+
+  For more information about flywheels, see [ Flywheel overview](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html)
+  in the *Amazon Comprehend Developer Guide*.
+  """
+  def describe_flywheel(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFlywheel", input, options)
+  end
+
+  @doc """
+  Retrieve the configuration properties of a flywheel iteration.
+
+  For more information about flywheels, see [ Flywheel overview](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html)
+  in the *Amazon Comprehend Developer Guide*.
+  """
+  def describe_flywheel_iteration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFlywheelIteration", input, options)
   end
 
   @doc """
@@ -477,6 +568,18 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+  List the datasets that you have configured in this region.
+
+  For more information about datasets, see [ Flywheel overview](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html)
+  in the *Amazon Comprehend Developer Guide*.
+  """
+  def list_datasets(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDatasets", input, options)
+  end
+
+  @doc """
   Gets a list of the documentation classification jobs that you have submitted.
   """
   def list_document_classification_jobs(%Client{} = client, input, options \\ []) do
@@ -568,6 +671,27 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+  Information about the history of a flywheel iteration.
+
+  For more information about flywheels, see [ Flywheel overview](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html)
+  in the *Amazon Comprehend Developer Guide*.
+  """
+  def list_flywheel_iteration_history(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFlywheelIterationHistory", input, options)
+  end
+
+  @doc """
+  Gets a list of the flywheels that you have created.
+  """
+  def list_flywheels(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFlywheels", input, options)
+  end
+
+  @doc """
   Get a list of key phrase detection jobs that you have submitted.
   """
   def list_key_phrases_detection_jobs(%Client{} = client, input, options \\ []) do
@@ -636,7 +760,8 @@ defmodule AWS.Comprehend do
   @doc """
   Starts an asynchronous document classification job.
 
-  Use the operation to track the progress of the job.
+  Use the `DescribeDocumentClassificationJob` operation to track the progress of
+  the job.
   """
   def start_document_classification_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -682,6 +807,19 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+  Start the flywheel iteration.This operation uses any new datasets to train a new
+  model version.
+
+  For more information about flywheels, see [ Flywheel overview](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html)
+  in the *Amazon Comprehend Developer Guide*.
+  """
+  def start_flywheel_iteration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartFlywheelIteration", input, options)
+  end
+
+  @doc """
   Starts an asynchronous key phrase detection job for a collection of documents.
 
   Use the operation to track the status of a job.
@@ -716,7 +854,8 @@ defmodule AWS.Comprehend do
   Starts an asynchronous targeted sentiment detection job for a collection of
   documents.
 
-  Use the operation to track the status of a job.
+  Use the `DescribeTargetedSentimentDetectionJob` operation to track the status of
+  a job.
   """
   def start_targeted_sentiment_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -919,5 +1058,14 @@ defmodule AWS.Comprehend do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateEndpoint", input, options)
+  end
+
+  @doc """
+  Update the configuration information for an existing flywheel.
+  """
+  def update_flywheel(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFlywheel", input, options)
   end
 end

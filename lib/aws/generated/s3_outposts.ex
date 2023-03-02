@@ -127,6 +127,42 @@ defmodule AWS.S3Outposts do
   end
 
   @doc """
+  Lists the Outposts with S3 on Outposts capacity for your Amazon Web Services
+  account.
+
+  Includes S3 on Outposts that you have access to as the Outposts owner, or as a
+  shared user from Resource Access Manager (RAM).
+  """
+  def list_outposts_with_s3(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/S3Outposts/ListOutpostsWithS3"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Lists all endpoints associated with an Outpost that has been shared by Amazon
   Web Services Resource Access Manager (RAM).
 

@@ -311,10 +311,8 @@ defmodule AWS.Pipes do
   Parameters objects, that field will be set to its system-default value after the
   update.
 
-  ` For more information about pipes, see [ Amazon EventBridge Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html)
+  For more information about pipes, see [ Amazon EventBridge Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html)
   in the Amazon EventBridge User Guide.
-
-  `
   """
   def update_pipe(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/pipes/#{AWS.Util.encode_uri(name)}"

@@ -809,7 +809,7 @@ defmodule AWS.SageMaker do
 
   @doc """
   Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to
-  monitor the data captured for an Amazon SageMaker Endoint.
+  monitor the data captured for an Amazon SageMaker Endpoint.
   """
   def create_monitoring_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2383,8 +2383,7 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  An auto-complete API for the search functionality in the Amazon SageMaker
-  console.
+  An auto-complete API for the search functionality in the SageMaker console.
 
   It returns suggestions of possible matches for the property name to use in
   `Search` queries. Provides suggestions for `HyperParameters`, `Tags`, and
@@ -3184,7 +3183,7 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Finds Amazon SageMaker resources that match a search query.
+  Finds SageMaker resources that match a search query.
 
   Matching resources are returned as a list of `SearchRecord` objects in the
   response. You can sort the search results by any resource property in a
@@ -3192,6 +3191,10 @@ defmodule AWS.SageMaker do
 
   You can query against the following value types: numeric, text, Boolean, and
   timestamp.
+
+  The Search API may provide access to otherwise restricted data. See [Amazon SageMaker API Permissions: Actions, Permissions, and Resources
+  Reference](https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html)
+  for more information.
   """
   def search(%Client{} = client, input, options \\ []) do
     meta = metadata()

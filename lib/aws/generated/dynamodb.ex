@@ -263,8 +263,13 @@ defmodule AWS.DynamoDB do
   A global table creates a replication relationship between two or more DynamoDB
   tables with the same table name in the provided Regions.
 
-  This operation only applies to [Version 2017.11.29](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html)
-  of global tables.
+  This operation only applies to [Version 2017.11.29 (Legacy)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html)
+  of global tables. We recommend using [Version 2019.11.21 (Current)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
+  when creating new global tables, as it provides greater flexibility, higher
+  efficiency and consumes less write capacity than 2017.11.29 (Legacy). To
+  determine which version you are using, see [Determining the version](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html).
+  To update existing global tables from version 2017.11.29 (Legacy) to version
+  2019.11.21 (Current), see [ Updating global tables](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html).
 
   If you want to add a new replica table to a global table, each of the following
   conditions must be true:
@@ -381,6 +386,9 @@ defmodule AWS.DynamoDB do
   exist, DynamoDB returns a `ResourceNotFoundException`. If table is already in
   the `DELETING` state, no error is returned.
 
+  This operation only applies to [Version 2019.11.21 (Current)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
+  of global tables.
+
   DynamoDB might continue to accept data read and write operations, such as
   `GetItem` and `PutItem`, on a table in the `DELETING` state until the table
   deletion is complete.
@@ -434,7 +442,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
-  Returns information about contributor insights, for a given table or global
+  Returns information about contributor insights for a given table or global
   secondary index.
   """
   def describe_contributor_insights(%Client{} = client, input, options \\ []) do
@@ -445,6 +453,10 @@ defmodule AWS.DynamoDB do
 
   @doc """
   Returns the regional endpoint information.
+
+  This action must be included in your VPC endpoint policies, or access to the
+  DescribeEndpoints API will be denied. For more information on policy
+  permissions, please see [Internetwork traffic privacy](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/inter-network-traffic-privacy.html#inter-network-traffic-DescribeEndpoints).
   """
   def describe_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -464,11 +476,13 @@ defmodule AWS.DynamoDB do
   @doc """
   Returns information about the specified global table.
 
-  This operation only applies to [Version 2017.11.29](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html)
-  of global tables. If you are using global tables [Version 2019.11.21](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
-  you can use
-  [DescribeTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html)
-  instead.
+  This operation only applies to [Version 2017.11.29 (Legacy)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html)
+  of global tables. We recommend using [Version 2019.11.21 (Current)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
+  when creating new global tables, as it provides greater flexibility, higher
+  efficiency and consumes less write capacity than 2017.11.29 (Legacy). To
+  determine which version you are using, see [Determining the version](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html).
+  To update existing global tables from version 2017.11.29 (Legacy) to version
+  2019.11.21 (Current), see [ Updating global tables](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html).
   """
   def describe_global_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -479,8 +493,13 @@ defmodule AWS.DynamoDB do
   @doc """
   Describes Region-specific settings for a global table.
 
-  This operation only applies to [Version 2017.11.29](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html)
-  of global tables.
+  This operation only applies to [Version 2017.11.29 (Legacy)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html)
+  of global tables. We recommend using [Version 2019.11.21 (Current)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
+  when creating new global tables, as it provides greater flexibility, higher
+  efficiency and consumes less write capacity than 2017.11.29 (Legacy). To
+  determine which version you are using, see [Determining the version](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html).
+  To update existing global tables from version 2017.11.29 (Legacy) to version
+  2019.11.21 (Current), see [ Updating global tables](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html).
   """
   def describe_global_table_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -579,6 +598,9 @@ defmodule AWS.DynamoDB do
   Returns information about the table, including the current status of the table,
   when it was created, the primary key schema, and any indexes on the table.
 
+  This operation only applies to [Version 2019.11.21 (Current)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
+  of global tables.
+
   If you issue a `DescribeTable` request immediately after a `CreateTable`
   request, DynamoDB might return a `ResourceNotFoundException`. This is because
   `DescribeTable` uses an eventually consistent query, and the metadata for your
@@ -594,7 +616,7 @@ defmodule AWS.DynamoDB do
   @doc """
   Describes auto scaling settings across replicas of the global table at once.
 
-  This operation only applies to [Version 2019.11.21](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
+  This operation only applies to [Version 2019.11.21 (Current)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
   of global tables.
   """
   def describe_table_replica_auto_scaling(%Client{} = client, input, options \\ []) do
@@ -650,7 +672,8 @@ defmodule AWS.DynamoDB do
   A single `SELECT` statement response can return up to the maximum number of
   items (if using the Limit parameter) or a maximum of 1 MB of data (and then
   apply any filtering to the results using `WHERE` clause). If `LastEvaluatedKey`
-  is present in the response, you need to paginate the result set.
+  is present in the response, you need to paginate the result set. If `NextToken`
+  is present, you need to paginate the result set and include `NextToken`.
   """
   def execute_statement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -754,8 +777,13 @@ defmodule AWS.DynamoDB do
   @doc """
   Lists all global tables that have a replica in the specified Region.
 
-  This operation only applies to [Version 2017.11.29](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html)
-  of global tables.
+  This operation only applies to [Version 2017.11.29 (Legacy)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html)
+  of global tables. We recommend using [Version 2019.11.21 (Current)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
+  when creating new global tables, as it provides greater flexibility, higher
+  efficiency and consumes less write capacity than 2017.11.29 (Legacy). To
+  determine which version you are using, see [Determining the version](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html).
+  To update existing global tables from version 2017.11.29 (Legacy) to version
+  2019.11.21 (Current), see [ Updating global tables](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html).
   """
   def list_global_tables(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1046,8 +1074,7 @@ defmodule AWS.DynamoDB do
 
     * There is a user error, such as an invalid data format.
 
-    * The aggregate size of the items in the transaction cannot exceed 4
-  MB.
+    * The aggregate size of the items in the transaction exceeded 4 MB.
   """
   def transact_get_items(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1179,6 +1206,20 @@ defmodule AWS.DynamoDB do
   the same key schema, have DynamoDB Streams enabled, and have the same
   provisioned and maximum write capacity units.
 
+  This operation only applies to [Version 2017.11.29 (Legacy)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html)
+  of global tables. We recommend using [Version 2019.11.21 (Current)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
+  when creating new global tables, as it provides greater flexibility, higher
+  efficiency and consumes less write capacity than 2017.11.29 (Legacy). To
+  determine which version you are using, see [Determining the version](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html).
+  To update existing global tables from version 2017.11.29 (Legacy) to version
+  2019.11.21 (Current), see [ Updating global tables](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html).
+
+  This operation only applies to [Version 2017.11.29](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html)
+  of global tables. If you are using global tables [Version 2019.11.21](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
+  you can use
+  [DescribeTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html)
+  instead.
+
   Although you can use `UpdateGlobalTable` to add replicas and remove replicas in
   a single request, for simplicity we recommend that you issue separate requests
   for adding or removing replicas.
@@ -1202,6 +1243,14 @@ defmodule AWS.DynamoDB do
 
   @doc """
   Updates settings for a global table.
+
+  This operation only applies to [Version 2017.11.29 (Legacy)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html)
+  of global tables. We recommend using [Version 2019.11.21 (Current)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
+  when creating new global tables, as it provides greater flexibility, higher
+  efficiency and consumes less write capacity than 2017.11.29 (Legacy). To
+  determine which version you are using, see [Determining the version](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html).
+  To update existing global tables from version 2017.11.29 (Legacy) to version
+  2019.11.21 (Current), see [ Updating global tables](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html).
   """
   def update_global_table_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1231,6 +1280,9 @@ defmodule AWS.DynamoDB do
   Modifies the provisioned throughput settings, global secondary indexes, or
   DynamoDB Streams settings for a given table.
 
+  This operation only applies to [Version 2019.11.21 (Current)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
+  of global tables.
+
   You can only perform one of the following operations at once:
 
     * Modify the provisioned throughput settings of the table.
@@ -1254,7 +1306,7 @@ defmodule AWS.DynamoDB do
   @doc """
   Updates auto scaling settings on your global tables at once.
 
-  This operation only applies to [Version 2019.11.21](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
+  This operation only applies to [Version 2019.11.21 (Current)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
   of global tables.
   """
   def update_table_replica_auto_scaling(%Client{} = client, input, options \\ []) do

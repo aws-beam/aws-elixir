@@ -87,8 +87,7 @@ defmodule AWS.Request do
         metadata.content_type
       end
 
-    additional_headers = [{"Host", host}, {"Content-Type", default_content_type}]
-    headers = add_headers(additional_headers, headers)
+    static_additional_headers = [{"Host", host}, {"Content-Type", default_content_type}]
 
     payload =
       cond do
@@ -101,6 +100,19 @@ defmodule AWS.Request do
         true ->
           encode!(client, metadata.protocol, input)
       end
+
+    {append_sha256_content_hash, options} =
+      Keyword.pop(options, :append_sha256_content_hash, false)
+
+    additional_headers =
+      if append_sha256_content_hash do
+        checksum_header = {"X-Amz-CheckSum-SHA256", Base.encode64(:crypto.hash(:sha256, payload))}
+        [checksum_header | static_additional_headers]
+      else
+        static_additional_headers
+      end
+
+    headers = add_headers(additional_headers, headers)
 
     headers = Signature.sign_v4(client, now(), http_method, url, headers, payload)
 

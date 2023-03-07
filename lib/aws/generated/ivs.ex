@@ -385,8 +385,7 @@ defmodule AWS.Ivs do
   If you try to delete a live channel, you will get an error (409
   ConflictException). To delete a channel that is live, call `StopStream`, wait
   for the Amazon EventBridge "Stream End" event (to verify that the stream's state
-  was changed from Live to Offline), then call DeleteChannel. (See [ Using EventBridge with Amazon
-  IVS](https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html).)
+  is no longer Live), then call DeleteChannel. (See [ Using EventBridge with Amazon IVS](https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html).)
   """
   def delete_channel(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteChannel"

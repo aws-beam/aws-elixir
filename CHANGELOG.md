@@ -2,7 +2,8 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased][unreleased]
+## [v0.13.2] - 2023-03-08
+- Fix AWS.S3.delete_objects which requires a content md5 header
 
 ## [v0.13.1] - 2022-09-07
 

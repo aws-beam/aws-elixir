@@ -39,7 +39,7 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Adds metadata tags to an DMS resource, including replication instance, endpoint,
-  security group, and migration task.
+  subnet group, and migration task.
 
   These tags can also be used with cost allocation reporting to track cost
   associated with DMS resources, or used in a Condition statement in an IAM policy
@@ -61,6 +61,24 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "ApplyPendingMaintenanceAction", input, options)
+  end
+
+  @doc """
+  Starts the analysis of up to 20 source databases to recommend target engines for
+  each source database.
+
+  This is a batch version of
+  [StartRecommendations](https://docs.aws.amazon.com/dms/latest/APIReference/API_StartRecommendations.html).
+
+  The result of analysis of each source database is reported individually in the
+  response. Because the batch request can result in a combination of successful
+  and unsuccessful actions, you should check for batch errors even when the call
+  returns an HTTP status code of `200`.
+  """
+  def batch_start_recommendations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchStartRecommendations", input, options)
   end
 
   @doc """
@@ -466,6 +484,26 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+  Returns a paginated list of limitations for recommendations of target Amazon Web
+  Services engines.
+  """
+  def describe_recommendation_limitations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRecommendationLimitations", input, options)
+  end
+
+  @doc """
+  Returns a paginated list of target engine recommendations for your source
+  databases.
+  """
+  def describe_recommendations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRecommendations", input, options)
+  end
+
+  @doc """
   Returns the status of the RefreshSchemas operation.
   """
   def describe_refresh_schemas_status(%Client{} = client, input, options \\ []) do
@@ -595,7 +633,7 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Lists all metadata tags attached to an DMS resource, including replication
-  instance, endpoint, security group, and migration task.
+  instance, endpoint, subnet group, and migration task.
 
   For more information, see [ `Tag`
   ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data type
@@ -722,7 +760,7 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Removes metadata tags from an DMS resource, including replication instance,
-  endpoint, security group, and migration task.
+  endpoint, subnet group, and migration task.
 
   For more information, see [ `Tag`
   ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data type
@@ -742,6 +780,19 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "RunFleetAdvisorLsaAnalysis", input, options)
+  end
+
+  @doc """
+  Starts the analysis of your source database to provide recommendations of target
+  engines.
+
+  You can create recommendations for multiple source databases using
+  [BatchStartRecommendations](https://docs.aws.amazon.com/dms/latest/APIReference/API_BatchStartRecommendations.html).
+  """
+  def start_recommendations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartRecommendations", input, options)
   end
 
   @doc """

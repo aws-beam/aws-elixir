@@ -1716,6 +1716,13 @@ defmodule AWS.S3 do
         [{"x-amz-request-charged", "RequestCharged"}]
       )
 
+    options =
+      Keyword.put(
+        options,
+        :append_sha256_content_hash,
+        true
+      )
+
     meta = metadata()
 
     Request.request_rest(
@@ -5081,6 +5088,13 @@ defmodule AWS.S3 do
 
     query_params = []
 
+    options =
+      Keyword.put(
+        options,
+        :append_sha256_content_hash,
+        true
+      )
+
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
@@ -5364,6 +5378,13 @@ defmodule AWS.S3 do
       |> Request.build_params(input)
 
     query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :append_sha256_content_hash,
+        true
+      )
 
     meta = metadata()
 
@@ -5948,6 +5969,13 @@ defmodule AWS.S3 do
       |> Request.build_params(input)
 
     query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :append_sha256_content_hash,
+        true
+      )
 
     meta = metadata()
 

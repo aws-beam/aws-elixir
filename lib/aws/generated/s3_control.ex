@@ -2381,6 +2381,13 @@ defmodule AWS.S3Control do
 
     query_params = []
 
+    options =
+      Keyword.put(
+        options,
+        :append_sha256_content_hash,
+        true
+      )
+
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)

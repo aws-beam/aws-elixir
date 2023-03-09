@@ -3815,7 +3815,7 @@ defmodule AWS.SageMaker do
   the worker portal.
 
   To restrict access to all the workers in public internet, add the
-  `SourceIpConfig` CIDR value as "0.0.0.0/0".
+  `SourceIpConfig` CIDR value as "10.0.0.0/16".
 
   Amazon SageMaker does not support Source Ip restriction for worker portals in
   VPC.

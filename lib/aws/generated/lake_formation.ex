@@ -417,6 +417,29 @@ defmodule AWS.LakeFormation do
   end
 
   @doc """
+  Returns a data cells filter.
+  """
+  def get_data_cells_filter(%Client{} = client, input, options \\ []) do
+    url_path = "/GetDataCellsFilter"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Retrieves the list of the data lake administrators of a Lake Formation-managed
   data lake.
   """
@@ -696,7 +719,7 @@ defmodule AWS.LakeFormation do
   data organized in underlying data storage such as Amazon S3.
 
   For information about permissions, see [Security and Access Control to Metadata and
-  Data](https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
+  Data](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
   """
   def grant_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/GrantPermissions"
@@ -1083,6 +1106,29 @@ defmodule AWS.LakeFormation do
   """
   def start_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/StartTransaction"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates a data cell filter.
+  """
+  def update_data_cells_filter(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateDataCellsFilter"
     headers = []
     query_params = []
 

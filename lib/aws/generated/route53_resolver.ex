@@ -400,7 +400,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
-  Retrieves the behavior configuration of Route 53 Resolver behavior for a single
+  Retrieves the behavior configuration of Route 53 Resolver behavior for a single
   VPC from Amazon Virtual Private Cloud.
   """
   def get_resolver_config(%Client{} = client, input, options \\ []) do
@@ -611,7 +611,7 @@ defmodule AWS.Route53Resolver do
   @doc """
   Retrieves the Resolver configurations that you have defined.
 
-  Route 53 Resolver uses the configurations to manage DNS resolution behavior for
+  Route 53 Resolver uses the configurations to manage DNS resolution behavior for
   your VPCs.
   """
   def list_resolver_configs(%Client{} = client, input, options \\ []) do
@@ -794,7 +794,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
-  Updates the behavior configuration of Route 53 Resolver behavior for a single
+  Updates the behavior configuration of Route 53 Resolver behavior for a single
   VPC from Amazon Virtual Private Cloud.
   """
   def update_resolver_config(%Client{} = client, input, options \\ []) do
@@ -815,7 +815,11 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
-  Updates the name of an inbound or an outbound Resolver endpoint.
+  Updates the name, or enpoint type for an inbound or an outbound Resolver
+  endpoint.
+
+  You can only update between IPV4 and DUALSTACK, IPV6 endpoint type can't be
+  updated to other type.
   """
   def update_resolver_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()

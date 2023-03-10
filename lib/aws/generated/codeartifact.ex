@@ -96,6 +96,9 @@ defmodule AWS.Codeartifact do
     * `DeleteDomainPermissionsPolicy`: Deletes the resource policy that
   is set on a domain.
 
+    * `DeletePackage`: Deletes a package and all associated package
+  versions.
+
     * `DeletePackageVersions`: Deletes versions of a package. After a
   package has been deleted, it can be republished, but its assets and metadata
   cannot be restored because they have been permanently removed from storage.
@@ -173,6 +176,9 @@ defmodule AWS.Codeartifact do
 
     * `ListRepositoriesInDomain`: Returns a list of the repositories in
   a domain.
+
+    * `PublishPackageVersion`: Creates a new package version containing
+  one or more assets.
 
     * `PutDomainPermissionsPolicy`: Attaches a resource policy to a
   domain.
@@ -457,7 +463,7 @@ defmodule AWS.Codeartifact do
   remove a package version from your repository and be able to restore it later,
   set its status to `Archived`. Archived packages cannot be downloaded from a
   repository and don't show up with list package APIs (for example,
-  [ListackageVersions](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html)), but you can restore them using
+  [ListPackageVersions](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html)), but you can restore them using
   [UpdatePackageVersionsStatus](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html).
   """
   def delete_package_versions(%Client{} = client, input, options \\ []) do
@@ -1483,6 +1489,59 @@ defmodule AWS.Codeartifact do
     {query_params, input} =
       [
         {"resourceArn", "resourceArn"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates a new package version containing one or more assets (or files).
+
+  The `unfinished` flag can be used to keep the package version in the
+  `Unfinished` state until all of it’s assets have been uploaded (see [Package version
+  status](https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status)
+  in the *CodeArtifact user guide*). To set the package version’s status to
+  `Published`, omit the `unfinished` flag when uploading the final asset, or set
+  the status using
+  [UpdatePackageVersionStatus](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html).
+  Once a package version’s status is set to `Published`, it cannot change back to
+  `Unfinished`.
+
+  Only generic packages can be published using this API.
+  """
+  def publish_package_version(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/package/version/publish"
+
+    {headers, input} =
+      [
+        {"assetSHA256", "x-amz-content-sha256"}
+      ]
+      |> Request.build_params(input)
+
+    {query_params, input} =
+      [
+        {"assetName", "asset"},
+        {"domain", "domain"},
+        {"domainOwner", "domain-owner"},
+        {"format", "format"},
+        {"namespace", "namespace"},
+        {"package", "package"},
+        {"packageVersion", "version"},
+        {"repository", "repository"},
+        {"unfinished", "unfinished"}
       ]
       |> Request.build_params(input)
 

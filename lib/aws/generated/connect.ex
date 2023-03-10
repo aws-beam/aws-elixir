@@ -1802,6 +1802,42 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Gets metric data from the specified Amazon Connect instance.
+
+  `GetMetricDataV2` offers more features than
+  [GetMetricData](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html), the previous version of this API. It has new metrics, offers filtering at a
+  metric level, and offers the ability to filter and group data by channels,
+  queues, routing profiles, agents, and agent hierarchy levels. It can retrieve
+  historical data for last the 14 days, in 24-hour intervals.
+
+  For a description of the historical metrics that are supported by
+  `GetMetricDataV2` and `GetMetricData`, see [Historical metrics
+  definitions](https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html)
+  in the *Amazon Connect Administrator's Guide*.
+
+  This API is not available in the Amazon Web Services GovCloud (US) Regions.
+  """
+  def get_metric_data_v2(%Client{} = client, input, options \\ []) do
+    url_path = "/metrics/data"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Gets details about a specific task template in the specified Amazon Connect
   instance.
   """

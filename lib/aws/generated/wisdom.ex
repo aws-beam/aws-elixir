@@ -7,9 +7,8 @@ defmodule AWS.Wisdom do
   customer issues as they're actively speaking with customers.
 
   Agents can search across connected repositories from within their agent desktop
-  to find answers quickly. Use the Amazon Connect Wisdom APIs to create an
-  assistant and a knowledge base, for example, or manage content by uploading
-  custom files.
+  to find answers quickly. Use Amazon Connect Wisdom to create an assistant and a
+  knowledge base, for example, or manage content by uploading custom files.
   """
 
   alias AWS.Client
@@ -115,21 +114,19 @@ defmodule AWS.Wisdom do
   DataIntegrations with external knowledge bases such as Salesforce and
   ServiceNow. If you do, you'll get an `InvalidRequestException` error.
 
-  ` For example, you're programmatically managing your external knowledge base,
-  and you want to add or remove one of the fields that is being ingested from
+  For example, you're programmatically managing your external knowledge base, and
+  you want to add or remove one of the fields that is being ingested from
   Salesforce. Do the following:
 
-    1. Call
-  [DeleteKnowledgeBase](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteKnowledgeBase.html).     2. Call
+     Call
+  [DeleteKnowledgeBase](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteKnowledgeBase.html).     Call
   [DeleteDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html).
 
-    3. Call
+     Call
   [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
   to recreate the DataIntegration or a create different one.
 
-    4. Call CreateKnowledgeBase.
-
-  `
+     Call CreateKnowledgeBase.
   """
   def create_knowledge_base(%Client{} = client, input, options \\ []) do
     url_path = "/knowledgeBases"

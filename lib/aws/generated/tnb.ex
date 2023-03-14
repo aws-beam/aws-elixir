@@ -70,7 +70,7 @@ defmodule AWS.Tnb do
   This request creates an empty container with an ID. The next step is to upload
   the actual CSAR zip file into that empty container. To upload function package
   content, see
-  [PutSolFunctionPackageContent](https://docs.aws.amazon.com/TNB/latest/APIReference/API_PutSolFunctionPackageContent.html).
+  [PutSolFunctionPackageContent](https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolFunctionPackageContent.html).
   """
   def create_sol_function_package(%Client{} = client, input, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages"
@@ -104,7 +104,7 @@ defmodule AWS.Tnb do
 
   Once you create a network instance, you can instantiate it. To instantiate a
   network, see
-  [InstantiateSolNetworkInstance](https://docs.aws.amazon.com/TNB/latest/APIReference/API_InstantiateSolNetworkInstance.html).
+  [InstantiateSolNetworkInstance](https://docs.aws.amazon.com/tnb/latest/APIReference/API_InstantiateSolNetworkInstance.html).
   """
   def create_sol_network_instance(%Client{} = client, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances"
@@ -142,7 +142,7 @@ defmodule AWS.Tnb do
 
   This request creates an empty network package container with an ID. Once you
   create a network package, you can upload the network package content using
-  [PutSolNetworkPackageContent](https://docs.aws.amazon.com/TNB/latest/APIReference/API_PutSolNetworkPackageContent.html).
+  [PutSolNetworkPackageContent](https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html).
   """
   def create_sol_network_package(%Client{} = client, input, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors"
@@ -174,7 +174,7 @@ defmodule AWS.Tnb do
 
   To delete a function package, the package must be in a disabled state. To
   disable a function package, see
-  [UpdateSolFunctionPackage](https://docs.aws.amazon.com/TNB/latest/APIReference/API_UpdateSolFunctionPackage.html).
+  [UpdateSolFunctionPackage](https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolFunctionPackage.html).
   """
   def delete_sol_function_package(%Client{} = client, vnf_pkg_id, input, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}"
@@ -205,7 +205,7 @@ defmodule AWS.Tnb do
 
   To delete a network instance, the instance must be in a stopped or terminated
   state. To terminate a network instance, see
-  [TerminateSolNetworkInstance](https://docs.aws.amazon.com/TNB/latest/APIReference/API_TerminateSolNetworkInstance.html).
+  [TerminateSolNetworkInstance](https://docs.aws.amazon.com/tnb/latest/APIReference/API_TerminateSolNetworkInstance.html).
   """
   def delete_sol_network_instance(%Client{} = client, ns_instance_id, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}"
@@ -236,7 +236,7 @@ defmodule AWS.Tnb do
 
   To delete a network package, the package must be in a disable state. To disable
   a network package, see
-  [UpdateSolNetworkPackage](https://docs.aws.amazon.com/TNB/latest/APIReference/API_UpdateSolNetworkPackage.html).
+  [UpdateSolNetworkPackage](https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolNetworkPackage.html).
   """
   def delete_sol_network_package(%Client{} = client, nsd_info_id, input, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}"
@@ -480,7 +480,7 @@ defmodule AWS.Tnb do
 
   Before you can instantiate a network instance, you have to create a network
   instance. For more information, see
-  [CreateSolNetworkInstance](https://docs.aws.amazon.com/TNB/latest/APIReference/API_CreateSolNetworkInstance.html).
+  [CreateSolNetworkInstance](https://docs.aws.amazon.com/tnb/latest/APIReference/API_CreateSolNetworkInstance.html).
   """
   def instantiate_sol_network_instance(%Client{} = client, ns_instance_id, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}/instantiate"
@@ -924,7 +924,7 @@ defmodule AWS.Tnb do
   Validates function package content.
 
   This can be used as a dry run before uploading function package content with
-  [PutSolFunctionPackageContent](https://docs.aws.amazon.com/TNB/latest/APIReference/API_PutSolFunctionPackageContent.html).
+  [PutSolFunctionPackageContent](https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolFunctionPackageContent.html).
 
   A function package is a .zip file in CSAR (Cloud Service Archive) format that
   contains a network function (an ETSI standard telecommunication application) and
@@ -952,7 +952,7 @@ defmodule AWS.Tnb do
   Validates network package content.
 
   This can be used as a dry run before uploading network package content with
-  [PutSolNetworkPackageContent](https://docs.aws.amazon.com/TNB/latest/APIReference/API_PutSolNetworkPackageContent.html).
+  [PutSolNetworkPackageContent](https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html).
 
   A network package is a .zip file in CSAR (Cloud Service Archive) format defines
   the function packages you want to deploy and the Amazon Web Services

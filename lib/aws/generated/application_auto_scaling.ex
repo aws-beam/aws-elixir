@@ -36,6 +36,9 @@ defmodule AWS.ApplicationAutoScaling do
 
     * Custom resources provided by your own applications or services
 
+  To learn more about Application Auto Scaling, see the [Application Auto Scaling User
+  Guide](https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html).
+
   ## API Summary
 
   The Application Auto Scaling service API includes three key sets of actions:
@@ -52,15 +55,11 @@ defmodule AWS.ApplicationAutoScaling do
 
     * Suspend and resume scaling - Temporarily suspend and later resume
   automatic scaling by calling the
-  [RegisterScalableTarget](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html) API action for any Application Auto Scaling scalable target. You can suspend and
+  [RegisterScalableTarget](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
+  API action for any Application Auto Scaling scalable target. You can suspend and
   resume (individually or in combination) scale-out activities that are triggered
   by a scaling policy, scale-in activities that are triggered by a scaling policy,
   and scheduled scaling.
-
-  To learn more about Application Auto Scaling, including information about
-  granting IAM users required permissions for Application Auto Scaling actions,
-  see the [Application Auto Scaling User
-  Guide](https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html).
   """
 
   alias AWS.Client

@@ -15,8 +15,9 @@ defmodule AWS.Keyspaces do
   In addition to supporting Cassandra Query Language (CQL) requests via
   open-source Cassandra drivers, Amazon Keyspaces supports data definition
   language (DDL) operations to manage keyspaces and tables using the Amazon Web
-  Services SDK and CLI. This API reference describes the supported DDL operations
-  in detail.
+  Services SDK and CLI, as well as infrastructure as code (IaC) services and tools
+  such as CloudFormation and Terraform. This API reference describes the supported
+  DDL operations in detail.
 
   For the list of all supported CQL APIs, see [Supported Cassandra APIs, operations, and data types in Amazon
   Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cassandra-apis.html)
@@ -188,13 +189,13 @@ defmodule AWS.Keyspaces do
 
   You can also overwrite these settings during restore:
 
-  • Read/write capacity mode
+    * Read/write capacity mode
 
-  • Provisioned throughput capacity settings
+    * Provisioned throughput capacity settings
 
-  • Point-in-time (PITR) settings
+    * Point-in-time (PITR) settings
 
-  • Tags
+    * Tags
 
   For more information, see [PITR restore settings](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery_HowItWorks.html#howitworks_backup_settings)
   in the *Amazon Keyspaces Developer Guide*.
@@ -202,11 +203,12 @@ defmodule AWS.Keyspaces do
   Note that the following settings are not restored, and you must configure them
   manually for the new table:
 
-  • Automatic scaling policies (for tables that use provisioned capacity mode)
+    * Automatic scaling policies (for tables that use provisioned
+  capacity mode)
 
-  • Identity and Access Management (IAM) policies
+    * Identity and Access Management (IAM) policies
 
-  • Amazon CloudWatch metrics and alarms
+    * Amazon CloudWatch metrics and alarms
   """
   def restore_table(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -305,6 +305,13 @@ defmodule AWS.DirectConnect do
   IPv6 addresses are automatically assigned from the Amazon pool of IPv6
   addresses; you cannot specify custom IPv6 addresses.
 
+  If you let Amazon Web Services auto-assign IPv4 addresses, a /30 CIDR will be
+  allocated from 169.254.0.0/16. Amazon Web Services does not recommend this
+  option if you intend to use the customer router peer IP address as the source
+  and destination for traffic. Instead you should use RFC 1918 or other
+  addressing, and specify the address yourself. For more information about RFC
+  1918 see [ Address Allocation for Private Internets](https://datatracker.ietf.org/doc/html/rfc1918).
+
   For a public virtual interface, the Autonomous System Number (ASN) must be
   private or already on the allow list for the virtual interface.
   """
@@ -506,6 +513,7 @@ defmodule AWS.DirectConnect do
   for both your the transit gateway and Direct Connect gateway, the association
   request fails.
 
+  A jumbo MTU value must be either 1500 or 8500. No other values will be accepted.
   Setting the MTU of a virtual interface to 8500 (jumbo frames) can cause an
   update to the underlying physical connection if it wasn't updated to support
   jumbo frames. Updating the connection disrupts network connectivity for all

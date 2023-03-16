@@ -5,7 +5,7 @@ defmodule AWS.MigrationHubStrategy do
   @moduledoc """
   Migration Hub Strategy Recommendations
 
-  ` This API reference provides descriptions, syntax, and other details about each
+  This API reference provides descriptions, syntax, and other details about each
   of the actions and data types for Migration Hub Strategy Recommendations
   (Strategy Recommendations).
 
@@ -13,8 +13,6 @@ defmodule AWS.MigrationHubStrategy do
   Alternatively, you can use one of the AWS SDKs to access an API that is tailored
   to the programming language or platform that you're using. For more information,
   see [AWS SDKs](http://aws.amazon.com/tools/#SDKs).
-
-  `
   """
 
   alias AWS.Client

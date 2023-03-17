@@ -155,6 +155,9 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Creates a filter using the specified finding criteria.
+
+  The maximum number of saved filters per Amazon Web Services account per Region
+  is 100. For more information, see [Quotas for GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_limits.html).
   """
   def create_filter(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/filter"
@@ -566,10 +569,30 @@ defmodule AWS.GuardDuty do
   available in all the Amazon Web Services Regions where GuardDuty is presently
   supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
-  def describe_organization_configuration(%Client{} = client, detector_id, options \\ []) do
+  def describe_organization_configuration(
+        %Client{} = client,
+        detector_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/admin"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 

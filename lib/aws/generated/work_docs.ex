@@ -1680,6 +1680,36 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
+  Searches metadata and the content of folders, documents, document versions, and
+  comments.
+  """
+  def search_resources(%Client{} = client, input, options \\ []) do
+    url_path = "/api/v1/search"
+
+    {headers, input} =
+      [
+        {"AuthenticationToken", "Authentication"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates the specified attributes of a document.
 
   The user must have access to both the document and its parent folder, if

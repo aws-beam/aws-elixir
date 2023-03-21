@@ -189,6 +189,19 @@ defmodule AWS.ApplicationAutoScaling do
   end
 
   @doc """
+  Returns all the tags on the specified Application Auto Scaling scalable target.
+
+  For general information about tags, including the format and syntax, see
+  [Tagging Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in
+  the *Amazon Web Services General Reference*.
+  """
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
+  end
+
+  @doc """
   Creates or updates a scaling policy for an Application Auto Scaling scalable
   target.
 
@@ -221,7 +234,7 @@ defmodule AWS.ApplicationAutoScaling do
   in the *Application Auto Scaling User Guide*.
 
   If a scalable target is deregistered, the scalable target is no longer available
-  to execute scaling policies. Any scaling policies that were specified for the
+  to use scaling policies. Any scaling policies that were specified for the
   scalable target are deleted.
   """
   def put_scaling_policy(%Client{} = client, input, options \\ []) do
@@ -239,7 +252,7 @@ defmodule AWS.ApplicationAutoScaling do
   by those three attributes. You cannot create a scheduled action until you have
   registered the resource as a scalable target.
 
-  When start and end times are specified with a recurring schedule using a cron
+  When you specify start and end times with a recurring schedule using a cron
   expression or rates, they form the boundaries for when the recurring action
   starts and stops.
 
@@ -260,7 +273,8 @@ defmodule AWS.ApplicationAutoScaling do
   end
 
   @doc """
-  Registers or updates a scalable target, the resource that you want to scale.
+  Registers or updates a scalable target, which is the resource that you want to
+  scale.
 
   Scalable targets are uniquely identified by the combination of resource ID,
   scalable dimension, and namespace, which represents some capacity dimension of
@@ -272,10 +286,9 @@ defmodule AWS.ApplicationAutoScaling do
   Otherwise, it changes the resource's current capacity to a value that is inside
   of this range.
 
-  If you choose to add a scaling policy, current capacity is adjustable within the
-  specified range when scaling starts. Application Auto Scaling scaling policies
-  will not scale capacity to values that are outside of the minimum and maximum
-  range.
+  If you add a scaling policy, current capacity is adjustable within the specified
+  range when scaling starts. Application Auto Scaling scaling policies will not
+  scale capacity to values that are outside of the minimum and maximum range.
 
   After you register a scalable target, you do not need to register it again to
   use other Application Auto Scaling operations. To see which resources have been
@@ -283,23 +296,67 @@ defmodule AWS.ApplicationAutoScaling do
   [DescribeScalableTargets](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html). You can also view the scaling policies for a service namespace by using
   [DescribeScalableTargets](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html).
   If you no longer need a scalable target, you can deregister it by using
-  [DeregisterScalableTarget](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DeregisterScalableTarget.html).
-
-  To update a scalable target, specify the parameters that you want to change.
+  [DeregisterScalableTarget](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DeregisterScalableTarget.html).  To update a scalable target, specify the parameters that you want to change.
   Include the parameters that identify the scalable target: resource ID, scalable
   dimension, and namespace. Any parameters that you don't specify are not changed
   by this update request.
 
-  If you call the `RegisterScalableTarget` API to update an existing scalable
-  target, Application Auto Scaling retrieves the current capacity of the resource.
-  If it is below the minimum capacity or above the maximum capacity, Application
-  Auto Scaling adjusts the capacity of the scalable target to place it within
-  these bounds, even if you don't include the `MinCapacity` or `MaxCapacity`
-  request parameters.
+  If you call the `RegisterScalableTarget` API operation to create a scalable
+  target, there might be a brief delay until the operation achieves [eventual
+  consistency](https://en.wikipedia.org/wiki/Eventual_consistency). You might
+  become aware of this brief delay if you get unexpected errors when performing
+  sequential operations. The typical strategy is to retry the request, and some
+  Amazon Web Services SDKs include automatic backoff and retry logic.
+
+  If you call the `RegisterScalableTarget` API operation to update an existing
+  scalable target, Application Auto Scaling retrieves the current capacity of the
+  resource. If it's below the minimum capacity or above the maximum capacity,
+  Application Auto Scaling adjusts the capacity of the scalable target to place it
+  within these bounds, even if you don't include the `MinCapacity` or
+  `MaxCapacity` request parameters.
   """
   def register_scalable_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "RegisterScalableTarget", input, options)
+  end
+
+  @doc """
+  Adds or edits tags on an Application Auto Scaling scalable target.
+
+  Each tag consists of a tag key and a tag value, which are both case-sensitive
+  strings. To add a tag, specify a new tag key and a tag value. To edit a tag,
+  specify an existing tag key and a new tag value.
+
+  You can use this operation to tag an Application Auto Scaling scalable target,
+  but you cannot tag a scaling policy or scheduled action.
+
+  You can also add tags to an Application Auto Scaling scalable target while
+  creating it (`RegisterScalableTarget`).
+
+  For general information about tags, including the format and syntax, see
+  [Tagging Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in
+  the *Amazon Web Services General Reference*.
+
+  Use tags to control access to a scalable target. For more information, see
+  [Tagging support for Application Auto Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/resource-tagging-support.html)
+  in the *Application Auto Scaling User Guide*.
+  """
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
+  end
+
+  @doc """
+  Deletes tags from an Application Auto Scaling scalable target.
+
+  To delete a tag, specify the tag key and the Application Auto Scaling scalable
+  target.
+  """
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 end

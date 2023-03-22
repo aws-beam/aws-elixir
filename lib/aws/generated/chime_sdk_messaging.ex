@@ -555,6 +555,37 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
+  Deletes the streaming configurations for an `AppInstance`.
+
+  For more information, see [Streaming messaging data](https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html) in
+  the *Amazon Chime SDK Developer Guide*.
+  """
+  def delete_messaging_streaming_configurations(
+        %Client{} = client,
+        app_instance_arn,
+        input,
+        options \\ []
+      ) do
+    url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/streaming-configurations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Returns the full details of a channel in an Amazon Chime `AppInstance`.
 
   The `x-amz-chime-bearer` request header is mandatory. Use the
@@ -976,6 +1007,22 @@ defmodule AWS.ChimeSDKMessaging do
   """
   def get_messaging_session_endpoint(%Client{} = client, options \\ []) do
     url_path = "/endpoints/messaging-session"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the data streaming configuration for an `AppInstance`.
+
+  For more information, see [Streaming messaging data](https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html) in
+  the *Amazon Chime SDK Developer Guide*.
+  """
+  def get_messaging_streaming_configurations(%Client{} = client, app_instance_arn, options \\ []) do
+    url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/streaming-configurations"
     headers = []
     query_params = []
 
@@ -1584,6 +1631,27 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Sets the data streaming configuration for an `AppInstance`.
+
+  For more information, see [Streaming messaging data](https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html) in
+  the *Amazon Chime SDK Developer Guide*.
+  """
+  def put_messaging_streaming_configurations(
+        %Client{} = client,
+        app_instance_arn,
+        input,
+        options \\ []
+      ) do
+    url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/streaming-configurations"
+    headers = []
     query_params = []
 
     meta = metadata()

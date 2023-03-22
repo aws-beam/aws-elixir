@@ -3,14 +3,12 @@
 
 defmodule AWS.CleanRooms do
   @moduledoc """
-  AWS Clean Rooms is in preview release and is subject to change.
-
   Welcome to the *AWS Clean Rooms API Reference*.
 
   AWS Clean Rooms is an AWS service that helps multiple parties to join their data
   together in a secure collaboration workspace. In the collaboration, members who
-  can query and receive results can get insights into the combined data without
-  either party getting access to the other party's raw data.
+  can query and receive results can get insights into the collective datasets
+  without either party getting access to the other party's raw data.
 
   To learn more about AWS Clean Rooms concepts, procedures, and best practices,
   see the [AWS Clean Rooms User Guide](https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html).
@@ -765,6 +763,19 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Lists all of the tags that have been added to a resource.
+  """
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Creates a protected query that is started by AWS Clean Rooms.
   """
   def start_protected_query(%Client{} = client, membership_identifier, input, options \\ []) do
@@ -778,6 +789,57 @@ defmodule AWS.CleanRooms do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Tags a resource.
+  """
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes a tag or list of tags from a resource.
+  """
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"tagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       headers,

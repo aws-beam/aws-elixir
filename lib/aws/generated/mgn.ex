@@ -761,6 +761,98 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  List export errors.
+  """
+  def list_export_errors(%Client{} = client, input, options \\ []) do
+    url_path = "/ListExportErrors"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  List exports.
+  """
+  def list_exports(%Client{} = client, input, options \\ []) do
+    url_path = "/ListExports"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  List import errors.
+  """
+  def list_import_errors(%Client{} = client, input, options \\ []) do
+    url_path = "/ListImportErrors"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  List imports.
+  """
+  def list_imports(%Client{} = client, input, options \\ []) do
+    url_path = "/ListImports"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   List source server post migration custom actions.
   """
   def list_source_server_actions(%Client{} = client, input, options \\ []) do
@@ -997,6 +1089,52 @@ defmodule AWS.Mgn do
   """
   def start_cutover(%Client{} = client, input, options \\ []) do
     url_path = "/StartCutover"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Start export.
+  """
+  def start_export(%Client{} = client, input, options \\ []) do
+    url_path = "/StartExport"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Start import.
+  """
+  def start_import(%Client{} = client, input, options \\ []) do
+    url_path = "/StartImport"
     headers = []
     query_params = []
 

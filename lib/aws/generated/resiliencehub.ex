@@ -3,14 +3,14 @@
 
 defmodule AWS.Resiliencehub do
   @moduledoc """
-  AWS Resilience Hub helps you proactively prepare and protect your Amazon Web
+  Resilience Hub helps you proactively prepare and protect your Amazon Web
   Services applications from disruptions.
 
-  Resilience Hub offers continuous resiliency assessment and validation that
-  integrates into your software development lifecycle. This enables you to uncover
-  resiliency weaknesses, ensure recovery time objective (RTO) and recovery point
-  objective (RPO) targets for your applications are met, and resolve issues before
-  they are released into production.
+  It offers continual resiliency assessment and validation that integrates into
+  your software development lifecycle. This enables you to uncover resiliency
+  weaknesses, ensure recovery time objective (RTO) and recovery point objective
+  (RPO) targets for your applications are met, and resolve issues before they are
+  released into production.
   """
 
   alias AWS.Client
@@ -58,16 +58,16 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Creates an AWS Resilience Hub application.
+  Creates an Resilience Hub application.
 
-  An AWS Resilience Hub application is a collection of Amazon Web Services
-  resources structured to prevent and recover Amazon Web Services application
-  disruptions. To describe a AWS Resilience Hub application, you provide an
-  application name, resources from one or more–up to five–CloudFormation stacks,
-  and an appropriate resiliency policy.
+  An Resilience Hub application is a collection of Amazon Web Services resources
+  structured to prevent and recover Amazon Web Services application disruptions.
+  To describe a Resilience Hub application, you provide an application name,
+  resources from one or more–up to five–CloudFormation stacks, and an appropriate
+  resiliency policy.
 
-  After you create an AWS Resilience Hub application, you publish it so that you
-  can run a resiliency assessment on it. You can then use recommendations from the
+  After you create an Resilience Hub application, you publish it so that you can
+  run a resiliency assessment on it. You can then use recommendations from the
   assessment to improve resiliency by running another assessment, comparing
   results, and then iterating the process until you achieve your goals for
   recovery time objective (RTO) and recovery point objective (RPO).
@@ -93,11 +93,11 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Creates a new Application Component in the AWS Resilience Hub application.
+  Creates a new Application Component in the Resilience Hub application.
 
-  This API updates the AWS Resilience Hub application draft version. To use this
-  Application Component for running assessments, you must publish the AWS
-  Resilience Hub application using the `PublishAppVersion` API.
+  This API updates the Resilience Hub application draft version. To use this
+  Application Component for running assessments, you must publish the Resilience
+  Hub application using the `PublishAppVersion` API.
   """
   def create_app_version_app_component(%Client{} = client, input, options \\ []) do
     url_path = "/create-app-version-app-component"
@@ -120,17 +120,17 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Adds a resource to the AWS Resilience Hub applicationand assigns it to the
+  Adds a resource to the Resilience Hub application and assigns it to the
   specified Application Components.
 
-  If you specify a new Application Component, AWS Resilience Hub will
-  automatically create the Application Component.
+  If you specify a new Application Component, Resilience Hub will automatically
+  create the Application Component.
 
-     This action has no effect outside AWS Resilience Hub.
+     This action has no effect outside Resilience Hub.
 
-     This API updates the AWS Resilience Hub application draft version.
-  To use this resource for running resiliency assessments, you must publish the
-  AWS Resilience Hub application using the `PublishAppVersion` API.
+     This API updates the Resilience Hub application draft version. To
+  use this resource for running resiliency assessments, you must publish the
+  Resilience Hub application using the `PublishAppVersion` API.
 
      To update application version with new `physicalResourceID`, you
   must call `ResolveAppVersionResources` API.
@@ -156,7 +156,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Creates a new recommendation template for the AWS Resilience Hub application.
+  Creates a new recommendation template for the Resilience Hub application.
   """
   def create_recommendation_template(%Client{} = client, input, options \\ []) do
     url_path = "/create-recommendation-template"
@@ -202,7 +202,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Deletes an AWS Resilience Hub application.
+  Deletes an Resilience Hub application.
 
   This is a destructive action that can't be undone.
   """
@@ -227,7 +227,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Deletes an AWS Resilience Hub application assessment.
+  Deletes an Resilience Hub application assessment.
 
   This is a destructive action that can't be undone.
   """
@@ -252,8 +252,8 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Deletes the input source and all of its imported resources from the AWS
-  Resilience Hub application.
+  Deletes the input source and all of its imported resources from the Resilience
+  Hub application.
   """
   def delete_app_input_source(%Client{} = client, input, options \\ []) do
     url_path = "/delete-app-input-source"
@@ -276,11 +276,11 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Deletes an Application Component from the AWS Resilience Hub application.
+  Deletes an Application Component from the Resilience Hub application.
 
-     This API updates the AWS Resilience Hub application draft version.
-  To use this Application Component for running assessments, you must publish the
-  AWS Resilience Hub application using the `PublishAppVersion` API.
+     This API updates the Resilience Hub application draft version. To
+  use this Application Component for running assessments, you must publish the
+  Resilience Hub application using the `PublishAppVersion` API.
 
      You will not be able to delete an Application Component if it has
   resources associated with it.
@@ -306,16 +306,16 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Deletes a resource from the AWS Resilience Hub application.
+  Deletes a resource from the Resilience Hub application.
 
      You can only delete a manually added resource. To exclude
   non-manually added resources, use the `UpdateAppVersionResource` API.
 
-     This action has no effect outside AWS Resilience Hub.
+     This action has no effect outside Resilience Hub.
 
-     This API updates the AWS Resilience Hub application draft version.
-  To use this resource for running resiliency assessments, you must publish the
-  AWS Resilience Hub application using the `PublishAppVersion` API.
+     This API updates the Resilience Hub application draft version. To
+  use this resource for running resiliency assessments, you must publish the
+  Resilience Hub application using the `PublishAppVersion` API.
   """
   def delete_app_version_resource(%Client{} = client, input, options \\ []) do
     url_path = "/delete-app-version-resource"
@@ -388,7 +388,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Describes an AWS Resilience Hub application.
+  Describes an Resilience Hub application.
   """
   def describe_app(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app"
@@ -411,7 +411,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Describes an assessment for an AWS Resilience Hub application.
+  Describes an assessment for an Resilience Hub application.
   """
   def describe_app_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-assessment"
@@ -434,7 +434,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Describes the AWS Resilience Hub application version.
+  Describes the Resilience Hub application version.
   """
   def describe_app_version(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-version"
@@ -457,7 +457,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Describes an Application Component in the AWS Resilience Hub application.
+  Describes an Application Component in the Resilience Hub application.
   """
   def describe_app_version_app_component(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-version-app-component"
@@ -480,7 +480,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Describes a resource of the AWS Resilience Hub application.
+  Describes a resource of the Resilience Hub application.
 
   This API accepts only one of the following parameters to descibe the resource:
 
@@ -538,7 +538,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Describes details about an AWS Resilience Hub application.
+  Describes details about an Resilience Hub application.
   """
   def describe_app_version_template(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-version-template"
@@ -589,7 +589,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Describes a specified resiliency policy for an AWS Resilience Hub application.
+  Describes a specified resiliency policy for an Resilience Hub application.
 
   The returned policy object includes creation time, data location constraints,
   the Amazon Resource Name (ARN) for the policy, tags, tier, and more.
@@ -615,11 +615,11 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Imports resources to AWS Resilience Hub application draft version from different
+  Imports resources to Resilience Hub application draft version from different
   input sources.
 
-  For more information about the input sources supported by AWS Resilience Hub,
-  see [Discover the structure and describe your Resilience Hub application](https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html).
+  For more information about the input sources supported by Resilience Hub, see
+  [Discover the structure and describe your Resilience Hub application](https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html).
   """
   def import_resources_to_draft_app_version(%Client{} = client, input, options \\ []) do
     url_path = "/import-resources-to-draft-app-version"
@@ -642,7 +642,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists the alarm recommendations for an AWS Resilience Hub application.
+  Lists the alarm recommendations for an Resilience Hub application.
   """
   def list_alarm_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/list-alarm-recommendations"
@@ -665,7 +665,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists the assessments for an AWS Resilience Hub application.
+  Lists the assessments for an Resilience Hub application.
 
   You can use request parameters to refine the results for the response object.
   """
@@ -747,7 +747,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists the compliances for an AWS Resilience Hub Application Component.
+  Lists the compliances for an Resilience Hub Application Component.
   """
   def list_app_component_compliances(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-component-compliances"
@@ -770,7 +770,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists the recommendations for an AWS Resilience Hub Application Component.
+  Lists the recommendations for an Resilience Hub Application Component.
   """
   def list_app_component_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-component-recommendations"
@@ -793,10 +793,10 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists all the input sources of the AWS Resilience Hub application.
+  Lists all the input sources of the Resilience Hub application.
 
-  For more information about the input sources supported by AWS Resilience Hub,
-  see [Discover the structure and describe your Resilience Hub application](https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html).
+  For more information about the input sources supported by Resilience Hub, see
+  [Discover the structure and describe your Resilience Hub application](https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html).
   """
   def list_app_input_sources(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-input-sources"
@@ -819,7 +819,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists all the Application Components in the AWS Resilience Hub application.
+  Lists all the Application Components in the Resilience Hub application.
   """
   def list_app_version_app_components(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-version-app-components"
@@ -868,7 +868,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists all the resources in an AWS Resilience Hub application.
+  Lists all the resources in an Resilience Hub application.
   """
   def list_app_version_resources(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-version-resources"
@@ -891,7 +891,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists the different versions for the AWS Resilience Hub applications.
+  Lists the different versions for the Resilience Hub applications.
   """
   def list_app_versions(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-versions"
@@ -914,7 +914,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists your AWS Resilience Hub applications.
+  Lists your Resilience Hub applications.
 
   You can filter applications using only one filter at a time or without using any
   filter. If you try to filter applications using multiple filters, you will get
@@ -969,7 +969,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists the recommendation templates for the AWS Resilience Hub applications.
+  Lists the recommendation templates for the Resilience Hub applications.
   """
   def list_recommendation_templates(
         %Client{} = client,
@@ -1041,7 +1041,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists the resiliency policies for the AWS Resilience Hub applications.
+  Lists the resiliency policies for the Resilience Hub applications.
   """
   def list_resiliency_policies(
         %Client{} = client,
@@ -1081,8 +1081,8 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists the standard operating procedure (SOP) recommendations for the AWS
-  Resilience Hub applications.
+  Lists the standard operating procedure (SOP) recommendations for the Resilience
+  Hub applications.
   """
   def list_sop_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/list-sop-recommendations"
@@ -1105,7 +1105,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists the suggested resiliency policies for the AWS Resilience Hub applications.
+  Lists the suggested resiliency policies for the Resilience Hub applications.
   """
   def list_suggested_resiliency_policies(
         %Client{} = client,
@@ -1137,7 +1137,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists the tags for your resources in your AWS Resilience Hub applications.
+  Lists the tags for your resources in your Resilience Hub applications.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1150,7 +1150,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists the test recommendations for the AWS Resilience Hub application.
+  Lists the test recommendations for the Resilience Hub application.
   """
   def list_test_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/list-test-recommendations"
@@ -1173,10 +1173,10 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists the resources that are not currently supported in AWS Resilience Hub.
+  Lists the resources that are not currently supported in Resilience Hub.
 
   An unsupported resource is a resource that exists in the object that was used to
-  create an app, but is not supported by AWS Resilience Hub.
+  create an app, but is not supported by Resilience Hub.
   """
   def list_unsupported_app_version_resources(%Client{} = client, input, options \\ []) do
     url_path = "/list-unsupported-app-version-resources"
@@ -1199,7 +1199,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Publishes a new version of a specific AWS Resilience Hub application.
+  Publishes a new version of a specific Resilience Hub application.
   """
   def publish_app_version(%Client{} = client, input, options \\ []) do
     url_path = "/publish-app-version"
@@ -1222,7 +1222,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Adds or updates the app template for an AWS Resilience Hub application draft
+  Adds or updates the app template for an Resilience Hub application draft
   version.
   """
   def put_draft_app_version_template(%Client{} = client, input, options \\ []) do
@@ -1389,11 +1389,11 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Updates the AWS Resilience Hub application version.
+  Updates the Resilience Hub application version.
 
-  This API updates the AWS Resilience Hub application draft version. To use this
-  information for running resiliency assessments, you must publish the AWS
-  Resilience Hub application using the `PublishAppVersion` API.
+  This API updates the Resilience Hub application draft version. To use this
+  information for running resiliency assessments, you must publish the Resilience
+  Hub application using the `PublishAppVersion` API.
   """
   def update_app_version(%Client{} = client, input, options \\ []) do
     url_path = "/update-app-version"
@@ -1416,11 +1416,11 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Updates an existing Application Component in the AWS Resilience Hub application.
+  Updates an existing Application Component in the Resilience Hub application.
 
-  This API updates the AWS Resilience Hub application draft version. To use this
-  Application Component for running assessments, you must publish the AWS
-  Resilience Hub application using the `PublishAppVersion` API.
+  This API updates the Resilience Hub application draft version. To use this
+  Application Component for running assessments, you must publish the Resilience
+  Hub application using the `PublishAppVersion` API.
   """
   def update_app_version_app_component(%Client{} = client, input, options \\ []) do
     url_path = "/update-app-version-app-component"
@@ -1443,13 +1443,13 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Updates the resource details in the AWS Resilience Hub application.
+  Updates the resource details in the Resilience Hub application.
 
-     This action has no effect outside AWS Resilience Hub.
+     This action has no effect outside Resilience Hub.
 
-     This API updates the AWS Resilience Hub application draft version.
-  To use this resource for running resiliency assessments, you must publish the
-  AWS Resilience Hub application using the `PublishAppVersion` API.
+     This API updates the Resilience Hub application draft version. To
+  use this resource for running resiliency assessments, you must publish the
+  Resilience Hub application using the `PublishAppVersion` API.
 
      To update application version with new `physicalResourceID`, you
   must call `ResolveAppVersionResources` API.

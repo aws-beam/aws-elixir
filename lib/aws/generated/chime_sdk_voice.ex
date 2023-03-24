@@ -260,6 +260,46 @@ defmodule AWS.ChimeSDKVoice do
     )
   end
 
+  def create_voice_profile(%Client{} = client, input, options \\ []) do
+    url_path = "/voice-profiles"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  def create_voice_profile_domain(%Client{} = client, input, options \\ []) do
+    url_path = "/voice-profile-domains"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
   def delete_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
     headers = []
@@ -551,6 +591,51 @@ defmodule AWS.ChimeSDKVoice do
     )
   end
 
+  def delete_voice_profile(%Client{} = client, voice_profile_id, input, options \\ []) do
+    url_path = "/voice-profiles/#{AWS.Util.encode_uri(voice_profile_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  def delete_voice_profile_domain(
+        %Client{} = client,
+        voice_profile_domain_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/voice-profile-domains/#{AWS.Util.encode_uri(voice_profile_domain_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
   def disassociate_phone_numbers_from_voice_connector(
         %Client{} = client,
         voice_connector_id,
@@ -709,6 +794,23 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
+  def get_speaker_search_task(
+        %Client{} = client,
+        speaker_search_task_id,
+        voice_connector_id,
+        options \\ []
+      ) do
+    url_path =
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/speaker-search-tasks/#{AWS.Util.encode_uri(speaker_search_task_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
   def get_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
     headers = []
@@ -817,6 +919,51 @@ defmodule AWS.ChimeSDKVoice do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination/health"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  def get_voice_profile(%Client{} = client, voice_profile_id, options \\ []) do
+    url_path = "/voice-profiles/#{AWS.Util.encode_uri(voice_profile_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  def get_voice_profile_domain(%Client{} = client, voice_profile_domain_id, options \\ []) do
+    url_path = "/voice-profile-domains/#{AWS.Util.encode_uri(voice_profile_domain_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  def get_voice_tone_analysis_task(
+        %Client{} = client,
+        voice_connector_id,
+        voice_tone_analysis_task_id,
+        is_caller,
+        options \\ []
+      ) do
+    url_path =
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/voice-tone-analysis-tasks/#{AWS.Util.encode_uri(voice_tone_analysis_task_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(is_caller) do
+        [{"isCaller", is_caller} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -1044,6 +1191,23 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_arn) do
+        [{"arn", resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
   def list_voice_connector_groups(
         %Client{} = client,
         max_results \\ nil,
@@ -1098,6 +1262,72 @@ defmodule AWS.ChimeSDKVoice do
     url_path = "/voice-connectors"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  def list_voice_profile_domains(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/voice-profile-domains"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  def list_voice_profiles(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        voice_profile_domain_id,
+        options \\ []
+      ) do
+    url_path = "/voice-profiles"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(voice_profile_domain_id) do
+        [{"voice-profile-domain-id", voice_profile_domain_id} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do
@@ -1369,6 +1599,144 @@ defmodule AWS.ChimeSDKVoice do
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
+  def start_speaker_search_task(%Client{} = client, voice_connector_id, input, options \\ []) do
+    url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/speaker-search-tasks"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  def start_voice_tone_analysis_task(%Client{} = client, voice_connector_id, input, options \\ []) do
+    url_path =
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/voice-tone-analysis-tasks"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  def stop_speaker_search_task(
+        %Client{} = client,
+        speaker_search_task_id,
+        voice_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/speaker-search-tasks/#{AWS.Util.encode_uri(speaker_search_task_id)}?operation=stop"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  def stop_voice_tone_analysis_task(
+        %Client{} = client,
+        voice_connector_id,
+        voice_tone_analysis_task_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/voice-tone-analysis-tasks/#{AWS.Util.encode_uri(voice_tone_analysis_task_id)}?operation=stop"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/tags?operation=tag-resource"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/tags?operation=untag-resource"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
   def update_global_settings(%Client{} = client, input, options \\ []) do
     url_path = "/settings"
     headers = []
@@ -1513,6 +1881,31 @@ defmodule AWS.ChimeSDKVoice do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+  end
+
+  def update_voice_profile(%Client{} = client, voice_profile_id, input, options \\ []) do
+    url_path = "/voice-profiles/#{AWS.Util.encode_uri(voice_profile_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  def update_voice_profile_domain(
+        %Client{} = client,
+        voice_profile_domain_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/voice-profile-domains/#{AWS.Util.encode_uri(voice_profile_domain_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   def validate_e911_address(%Client{} = client, input, options \\ []) do

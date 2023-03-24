@@ -36,8 +36,9 @@ defmodule AWS.ChimeSDKMessaging do
   processors. To stop processing, use the `DisassociateChannelFlow` API.
 
   Only administrators or channel moderators can associate a channel flow. The
-  `x-amz-chime-bearer` request header is mandatory. Use the `AppInstanceUserArn`
-  of the user that makes the API call as the value in the header.
+  `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def associate_channel_flow(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/channel-flow"
@@ -56,7 +57,7 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Adds a specified number of users to a channel.
+  Adds a specified number of users and bots to a channel.
   """
   def batch_create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships?operation=batch-create"
@@ -122,9 +123,9 @@ defmodule AWS.ChimeSDKMessaging do
 
   **Restriction**: You can't change a channel's privacy.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def create_channel(%Client{} = client, input, options \\ []) do
     url_path = "/channels"
@@ -162,9 +163,9 @@ defmodule AWS.ChimeSDKMessaging do
   If you ban a user who is already part of a channel, that user is automatically
   kicked from the channel.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def create_channel_ban(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans"
@@ -233,7 +234,7 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Adds a user to a channel.
+  Adds a member to a channel.
 
   The `InvitedBy` field in `ChannelMembership` is derived from the request header.
   A channel member can:
@@ -255,9 +256,9 @@ defmodule AWS.ChimeSDKMessaging do
 
     * Private Channels: You must be a member to list or send messages.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUserArn` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships"
@@ -300,9 +301,9 @@ defmodule AWS.ChimeSDKMessaging do
 
     * List messages in the channel.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot`of the user that makes the API call as the
+  value in the header.
   """
   def create_channel_moderator(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators"
@@ -336,9 +337,9 @@ defmodule AWS.ChimeSDKMessaging do
 
   This is an irreversible process.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUserArn` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def delete_channel(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
@@ -371,11 +372,11 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Removes a user from a channel's ban list.
+  Removes a member from a channel's ban list.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def delete_channel_ban(%Client{} = client, channel_arn, member_arn, input, options \\ []) do
     url_path =
@@ -479,9 +480,9 @@ defmodule AWS.ChimeSDKMessaging do
   immediately. A background process deletes any revisions created by
   `UpdateChannelMessage`.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def delete_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
@@ -517,9 +518,9 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Deletes a channel moderator.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def delete_channel_moderator(
         %Client{} = client,
@@ -588,9 +589,9 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Returns the full details of a channel in an Amazon Chime `AppInstance`.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def describe_channel(%Client{} = client, channel_arn, chime_bearer, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
@@ -613,9 +614,9 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Returns the full details of a channel ban.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def describe_channel_ban(
         %Client{} = client,
@@ -661,9 +662,9 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Returns the full details of a user's channel membership.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def describe_channel_membership(
         %Client{} = client,
@@ -701,11 +702,11 @@ defmodule AWS.ChimeSDKMessaging do
 
   @doc """
   Returns the details of a channel based on the membership of the specified
-  `AppInstanceUser`.
+  `AppInstanceUser` or `AppInstanceBot`.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def describe_channel_membership_for_app_instance_user(
         %Client{} = client,
@@ -740,11 +741,11 @@ defmodule AWS.ChimeSDKMessaging do
 
   @doc """
   Returns the full details of a channel moderated by the specified
-  `AppInstanceUser`.
+  `AppInstanceUser` or `AppInstanceBot`.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def describe_channel_moderated_by_app_instance_user(
         %Client{} = client,
@@ -818,9 +819,11 @@ defmodule AWS.ChimeSDKMessaging do
   Once disassociated, all messages to that channel stop going through the channel
   flow processor.
 
-  Only administrators or channel moderators can disassociate a channel flow. The
-  `x-amz-chime-bearer` request header is mandatory. Use the `AppInstanceUserArn`
-  of the user that makes the API call as the value in the header.
+  Only administrators or channel moderators can disassociate a channel flow.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def disassociate_channel_flow(
         %Client{} = client,
@@ -856,14 +859,18 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Gets the membership preferences of an `AppInstanceUser` for the specified
-  channel.
+  Gets the membership preferences of an `AppInstanceUser` or `AppInstanceBot` for
+  the specified channel.
 
-  The `AppInstanceUser` must be a member of the channel. Only the
-  `AppInstanceUser` who owns the membership can retrieve preferences. Users in the
-  `AppInstanceAdmin` and channel moderator roles can't retrieve preferences for
-  other users. Banned users can't retrieve membership preferences for the channel
-  from which they are banned.
+  A user or a bot must be a member of the channel and own the membership to be
+  able to retrieve membership preferences. Users or bots in the `AppInstanceAdmin`
+  and channel moderator roles can't retrieve preferences for other users or bots.
+  Banned users or bots can't retrieve membership preferences for the channel from
+  which they are banned.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def get_channel_membership_preferences(
         %Client{} = client,
@@ -894,8 +901,9 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Gets the full details of a channel message.
 
-  The x-amz-chime-bearer request header is mandatory. Use the `AppInstanceUserArn`
-  of the user that makes the API call as the value in the header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def get_channel_message(
         %Client{} = client,
@@ -964,9 +972,9 @@ defmodule AWS.ChimeSDKMessaging do
 
      Only the message sender can invoke this API.
 
-     The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header
+     The `x-amz-chime-bearer` request header is mandatory. Use the ARN
+  of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
+  value in the header.
   """
   def get_channel_message_status(
         %Client{} = client,
@@ -1032,11 +1040,11 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Lists all the users banned from a particular channel.
+  Lists all the users and bots banned from a particular channel.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def list_channel_bans(
         %Client{} = client,
@@ -1122,9 +1130,9 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Lists all channel memberships in a channel.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
 
   If you want to list the channels to which a specific app instance user belongs,
   see the
@@ -1187,14 +1195,14 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Lists all channels that a particular `AppInstanceUser` is a part of.
+  Lists all channels that anr `AppInstanceUser` or `AppInstanceBot` is a part of.
 
   Only an `AppInstanceAdmin` can call the API with a user ARN that is not their
   own.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def list_channel_memberships_for_app_instance_user(
         %Client{} = client,
@@ -1252,9 +1260,9 @@ defmodule AWS.ChimeSDKMessaging do
   not deleted. Deleted messages do not appear in the results. This action always
   returns the latest version of an edited message.
 
-  Also, the x-amz-chime-bearer request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  Also, the `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def list_channel_messages(
         %Client{} = client,
@@ -1330,9 +1338,9 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Lists all the moderators for a channel.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def list_channel_moderators(
         %Client{} = client,
@@ -1386,9 +1394,9 @@ defmodule AWS.ChimeSDKMessaging do
     * Only an `AppInstanceAdmin` can set privacy = `PRIVATE` to list the
   private channels in an account.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def list_channels(
         %Client{} = client,
@@ -1490,9 +1498,9 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   A list of the channels moderated by an `AppInstanceUser`.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def list_channels_moderated_by_app_instance_user(
         %Client{} = client,
@@ -1606,14 +1614,48 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Sets the membership preferences of an `AppInstanceUser` for the specified
-  channel.
+  Sets the number of days before the channel is automatically deleted.
 
-  The `AppInstanceUser` must be a member of the channel. Only the
-  `AppInstanceUser` who owns the membership can set preferences. Users in the
-  `AppInstanceAdmin` and channel moderator roles can't set preferences for other
-  users. Banned users can't set membership preferences for the channel from which
-  they are banned.
+     A background process deletes expired channels within 6 hours of
+  expiration. Actual deletion times may vary.
+
+     Expired channels that have not yet been deleted appear as active,
+  and you can update their expiration settings. The system honors the new
+  settings.
+
+     The `x-amz-chime-bearer` request header is mandatory. Use the ARN
+  of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
+  value in the header.
+  """
+  def put_channel_expiration_settings(%Client{} = client, channel_arn, input, options \\ []) do
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/expiration-settings"
+
+    {headers, input} =
+      [
+        {"ChimeBearer", "x-amz-chime-bearer"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Sets the membership preferences of an `AppInstanceUser` or `AppIntanceBot` for
+  the specified channel.
+
+  The user or bot must be a member of the channel. Only the user or bot who owns
+  the membership can set preferences. Users or bots in the `AppInstanceAdmin` and
+  channel moderator roles can't set preferences for other users or users. Banned
+  users or bots can't set membership preferences for the channel from which they
+  are banned.
+
+  The x-amz-chime-bearer request header is mandatory. Use the ARN of an
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def put_channel_membership_preferences(
         %Client{} = client,
@@ -1665,9 +1707,9 @@ defmodule AWS.ChimeSDKMessaging do
   The message exists in the back end, but the action returns null content, and the
   state shows as redacted.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def redact_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
@@ -1697,10 +1739,14 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Allows `ChimeBearer` to search channels by channel members.
+  Allows the `ChimeBearer` to search channels by channel members.
 
-  AppInstanceUsers can search across the channels that they belong to.
-  AppInstanceAdmins can search across all channels.
+  Users or bots can search across the channels that they belong to. Users in the
+  `AppInstanceAdmin` role can search across all channels.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def search_channels(%Client{} = client, input, options \\ []) do
     url_path = "/channels?operation=search"
@@ -1736,9 +1782,9 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Sends a message to a particular channel that the member is a part of.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
 
   Also, `STANDARD` messages can contain 4KB of data and the 1KB of metadata.
   `CONTROL` messages can contain 30 bytes of data and no metadata.
@@ -1821,9 +1867,9 @@ defmodule AWS.ChimeSDKMessaging do
 
   **Restriction**: You can't change a channel's privacy.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def update_channel(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
@@ -1859,9 +1905,9 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Updates the content of a message.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def update_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
@@ -1883,9 +1929,9 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   The details of the time when a user last read messages in a channel.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in the
-  header.
+  The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
+  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
+  the header.
   """
   def update_channel_read_marker(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/readMarker"

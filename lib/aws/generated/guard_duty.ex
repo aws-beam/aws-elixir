@@ -448,6 +448,10 @@ defmodule AWS.GuardDuty do
   @doc """
   Deletes GuardDuty member accounts (to the current GuardDuty administrator
   account) specified by the account IDs.
+
+  With `autoEnableOrganizationMembers` configuration for your organization set to
+  `ALL`, you'll receive an error if you attempt to disable GuardDuty for a member
+  account in your organization.
   """
   def delete_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/delete"
@@ -647,6 +651,10 @@ defmodule AWS.GuardDuty do
   @doc """
   Disassociates the current GuardDuty member account from its administrator
   account.
+
+  With `autoEnableOrganizationMembers` configuration for your organization set to
+  `ALL`, you'll receive an error if you attempt to disable GuardDuty in a member
+  account.
   """
   def disassociate_from_administrator_account(
         %Client{} = client,
@@ -700,6 +708,10 @@ defmodule AWS.GuardDuty do
   @doc """
   Disassociates GuardDuty member accounts (to the current administrator account)
   specified by the account IDs.
+
+  With `autoEnableOrganizationMembers` configuration for your organization set to
+  `ALL`, you'll receive an error if you attempt to disassociate a member account
+  before removing them from your Amazon Web Services organization.
   """
   def disassociate_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/disassociate"
@@ -1354,7 +1366,9 @@ defmodule AWS.GuardDuty do
   Turns on GuardDuty monitoring of the specified member accounts.
 
   Use this operation to restart monitoring of accounts that you stopped monitoring
-  with the `StopMonitoringMembers` operation.
+  with the
+  [StopMonitoringMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StopMonitoringMembers.html)
+  operation.
   """
   def start_monitoring_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/start"
@@ -1381,6 +1395,10 @@ defmodule AWS.GuardDuty do
 
   Use the `StartMonitoringMembers` operation to restart monitoring for those
   accounts.
+
+  With `autoEnableOrganizationMembers` configuration for your organization set to
+  `ALL`, you'll receive an error if you attempt to stop monitoring the member
+  accounts in your organization.
   """
   def stop_monitoring_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/stop"
@@ -1631,7 +1649,10 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Updates the delegated administrator account with the values provided.
+  Configures the delegated administrator account with the provided values.
+
+  You must provide the value for either `autoEnableOrganizationMembers` or
+  `autoEnable`.
 
   There might be regional differences because some data sources might not be
   available in all the Amazon Web Services Regions where GuardDuty is presently

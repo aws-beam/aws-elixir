@@ -46,7 +46,10 @@ defmodule AWS.Batch do
   @doc """
   Cancels a job in an Batch job queue.
 
-  Jobs that are in the `SUBMITTED`, `PENDING`, or `RUNNABLE` state are canceled.
+  Jobs that are in the `SUBMITTED` or `PENDING` are canceled. A job in`RUNNABLE`
+  remains in `RUNNABLE` until it reaches the head of the job queue. Then the job
+  status is updated to `FAILED`.
+
   Jobs that progressed to the `STARTING` or `RUNNING` state aren't canceled.
   However, the API operation still succeeds, even if no job is canceled. These
   jobs must be terminated with the `TerminateJob` operation.

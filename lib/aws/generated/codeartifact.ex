@@ -1511,16 +1511,18 @@ defmodule AWS.Codeartifact do
   Creates a new package version containing one or more assets (or files).
 
   The `unfinished` flag can be used to keep the package version in the
-  `Unfinished` state until all of it’s assets have been uploaded (see [Package version
+  `Unfinished` state until all of its assets have been uploaded (see [Package version
   status](https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status)
   in the *CodeArtifact user guide*). To set the package version’s status to
   `Published`, omit the `unfinished` flag when uploading the final asset, or set
   the status using
-  [UpdatePackageVersionStatus](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html).
-  Once a package version’s status is set to `Published`, it cannot change back to
+  [UpdatePackageVersionStatus](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html). Once a package version’s status is set to `Published`, it cannot change back to
   `Unfinished`.
 
-  Only generic packages can be published using this API.
+  Only generic packages can be published using this API. For more information, see
+  [Using generic
+  packages](https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic.html)
+  in the *CodeArtifact User Guide*.
   """
   def publish_package_version(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/version/publish"

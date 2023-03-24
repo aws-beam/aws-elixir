@@ -7,7 +7,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   developers to create Amazon Chime SDK media pipelines that capture, concatenate,
   or stream your Amazon Chime SDK meetings.
 
-  For more information about media pipleines, see [Amazon Chime SDK media pipelines](http://amazonaws.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Media_Pipelines.html).
+  For more information about media pipelines, see [Amazon Chime SDK media pipelines](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Media_Pipelines.html).
   """
 
   alias AWS.Client
@@ -76,7 +76,54 @@ defmodule AWS.ChimeSDKMediaPipelines do
   end
 
   @doc """
-  Creates a streaming media pipeline in an Amazon Chime SDK meeting.
+  Creates a media insights pipeline.
+  """
+  def create_media_insights_pipeline(%Client{} = client, input, options \\ []) do
+    url_path = "/media-insights-pipelines"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  A structure that contains the static configurations for a media insights
+  pipeline.
+  """
+  def create_media_insights_pipeline_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/media-insights-pipeline-configurations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a media live connector pipeline in an Amazon Chime SDK meeting.
   """
   def create_media_live_connector_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/sdk-media-live-connector-pipelines"
@@ -103,6 +150,34 @@ defmodule AWS.ChimeSDKMediaPipelines do
   """
   def delete_media_capture_pipeline(%Client{} = client, media_pipeline_id, input, options \\ []) do
     url_path = "/sdk-media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes the specified configuration settings.
+  """
+  def delete_media_insights_pipeline_configuration(
+        %Client{} = client,
+        identifier,
+        input,
+        options \\ []
+      ) do
+    url_path = "/media-insights-pipeline-configurations/#{AWS.Util.encode_uri(identifier)}"
     headers = []
     query_params = []
 
@@ -158,6 +233,19 @@ defmodule AWS.ChimeSDKMediaPipelines do
   end
 
   @doc """
+  Gets the configuration settings for a media insights pipeline.
+  """
+  def get_media_insights_pipeline_configuration(%Client{} = client, identifier, options \\ []) do
+    url_path = "/media-insights-pipeline-configurations/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets an existing media pipeline.
   """
   def get_media_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
@@ -180,6 +268,38 @@ defmodule AWS.ChimeSDKMediaPipelines do
         options \\ []
       ) do
     url_path = "/sdk-media-capture-pipelines"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the available media insights pipeline configurations.
+  """
+  def list_media_insights_pipeline_configurations(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/media-insights-pipeline-configurations"
     headers = []
     query_params = []
 
@@ -257,7 +377,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   The ARN of the media pipeline that you want to tag.
 
-  Consists of he pipeline's endpoint region, resource ID, and pipeline ID.
+  Consists of the pipeline's endpoint region, resource ID, and pipeline ID.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=tag-resource"
@@ -300,5 +420,36 @@ defmodule AWS.ChimeSDKMediaPipelines do
       options,
       204
     )
+  end
+
+  @doc """
+  Updates the media insights pipeline's configuration settings.
+  """
+  def update_media_insights_pipeline_configuration(
+        %Client{} = client,
+        identifier,
+        input,
+        options \\ []
+      ) do
+    url_path = "/media-insights-pipeline-configurations/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates the status of a media insights pipeline.
+  """
+  def update_media_insights_pipeline_status(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/media-insights-pipeline-status/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 end

@@ -58,19 +58,45 @@ defmodule AWS.ChimeSDKIdentity do
   end
 
   @doc """
-  Promotes an `AppInstanceUser` to an `AppInstanceAdmin`.
+  Promotes an `AppInstanceUser` or `AppInstanceBot` to an `AppInstanceAdmin`.
 
-  The promoted user can perform the following actions.
+  The promoted entity can perform the following actions.
 
     * `ChannelModerator` actions across all channels in the
   `AppInstance`.
 
     * `DeleteChannelMessage` actions.
 
-  Only an `AppInstanceUser` can be promoted to an `AppInstanceAdmin` role.
+  Only an `AppInstanceUser` and `AppInstanceBot` can be promoted to an
+  `AppInstanceAdmin` role.
   """
   def create_app_instance_admin(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a bot under an Amazon Chime `AppInstance`.
+
+  The request consists of a unique `Configuration` and `Name` for that bot.
+  """
+  def create_app_instance_bot(%Client{} = client, input, options \\ []) do
+    url_path = "/app-instance-bots"
     headers = []
     query_params = []
 
@@ -138,7 +164,7 @@ defmodule AWS.ChimeSDKIdentity do
   end
 
   @doc """
-  Demotes an `AppInstanceAdmin` to an `AppInstanceUser`.
+  Demotes an `AppInstanceAdmin` to an `AppInstanceUser` or `AppInstanceBot`.
 
   This action does not delete the user.
   """
@@ -152,6 +178,29 @@ defmodule AWS.ChimeSDKIdentity do
     url_path =
       "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins/#{AWS.Util.encode_uri(app_instance_admin_arn)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes an `AppInstanceBot`.
+  """
+  def delete_app_instance_bot(%Client{} = client, app_instance_bot_arn, input, options \\ []) do
+    url_path = "/app-instance-bots/#{AWS.Util.encode_uri(app_instance_bot_arn)}"
     headers = []
     query_params = []
 
@@ -258,6 +307,19 @@ defmodule AWS.ChimeSDKIdentity do
   end
 
   @doc """
+  The `AppInstanceBot's` information.
+  """
+  def describe_app_instance_bot(%Client{} = client, app_instance_bot_arn, options \\ []) do
+    url_path = "/app-instance-bots/#{AWS.Util.encode_uri(app_instance_bot_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Returns the full details of an `AppInstanceUser`.
   """
   def describe_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
@@ -334,6 +396,46 @@ defmodule AWS.ChimeSDKIdentity do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all `AppInstanceBots` created under a single `AppInstance`.
+  """
+  def list_app_instance_bots(
+        %Client{} = client,
+        app_instance_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/app-instance-bots"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(app_instance_arn) do
+        [{"app-instance-arn", app_instance_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -476,6 +578,32 @@ defmodule AWS.ChimeSDKIdentity do
   end
 
   @doc """
+  Sets the number of days before the `AppInstanceUser` is automatically deleted.
+
+  A background process deletes expired `AppInstanceUsers` within 6 hours of
+  expiration. Actual deletion times may vary.
+
+  Expired `AppInstanceUsers` that have not yet been deleted appear as active, and
+  you can update their expiration settings. The system honors the new settings.
+  """
+  def put_app_instance_user_expiration_settings(
+        %Client{} = client,
+        app_instance_user_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}/expiration-settings"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Registers an endpoint under an Amazon Chime `AppInstanceUser`.
 
   The endpoint receives messages for a user. For push notifications, the endpoint
@@ -558,6 +686,19 @@ defmodule AWS.ChimeSDKIdentity do
   """
   def update_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates the name and metadata of an `AppInstanceBot`.
+  """
+  def update_app_instance_bot(%Client{} = client, app_instance_bot_arn, input, options \\ []) do
+    url_path = "/app-instance-bots/#{AWS.Util.encode_uri(app_instance_bot_arn)}"
     headers = []
     query_params = []
 

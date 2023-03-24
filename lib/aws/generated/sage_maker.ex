@@ -177,6 +177,23 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Creates an Amazon SageMaker AutoML job that uses non-tabular data such as images
+  or text for Computer Vision or Natural Language Processing problems.
+
+  Find the resulting model after you run an AutoML job V2 by calling .
+
+  To create an `AutoMLJob` using tabular data, see .
+
+  This API action is callable through SageMaker Canvas only. Calling it directly
+  from the CLI or an SDK results in an error.
+  """
+  def create_auto_ml_job_v2(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAutoMLJobV2", input, options)
+  end
+
+  @doc """
   Creates a Git repository as a resource in your SageMaker account.
 
   You can associate the repository with notebook instances so that you can use Git
@@ -1786,6 +1803,18 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeAutoMLJob", input, options)
+  end
+
+  @doc """
+  Returns information about an Amazon SageMaker AutoML V2 job.
+
+  This API action is callable through SageMaker Canvas only. Calling it directly
+  from the CLI or an SDK results in an error.
+  """
+  def describe_auto_ml_job_v2(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAutoMLJobV2", input, options)
   end
 
   @doc """

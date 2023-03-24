@@ -102,7 +102,7 @@ defmodule AWS.Textract do
   Analyzes identity documents for relevant information.
 
   This information is extracted and returned as `IdentityDocumentFields`, which
-  records both the normalized field and value of the extracted text.Unlike other
+  records both the normalized field and value of the extracted text. Unlike other
   Amazon Textract operations, `AnalyzeID` doesn't return any Geometry data.
   """
   def analyze_id(%Client{} = client, input, options \\ []) do

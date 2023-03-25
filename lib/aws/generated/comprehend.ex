@@ -3,8 +3,8 @@
 
 defmodule AWS.Comprehend do
   @moduledoc """
-  Amazon Comprehend is an AWS service for gaining insight into the content of
-  documents.
+  Amazon Comprehend is an Amazon Web Services service for gaining insight into the
+  content of documents.
 
   Use these actions to determine the topics contained in your documents, the
   topics they discuss, the predominant sentiment expressed in them, the
@@ -184,8 +184,8 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
-  A flywheel is an AWS resource that orchestrates the ongoing training of a model
-  for custom classification or custom entity recognition.
+  A flywheel is an Amazon Web Services resource that orchestrates the ongoing
+  training of a model for custom classification or custom entity recognition.
 
   You can create a flywheel to start with an existing trained model, or Comprehend
   can create and train a new model.
@@ -553,13 +553,13 @@ defmodule AWS.Comprehend do
   Creates a new custom model that replicates a source custom model that you
   import.
 
-  The source model can be in your AWS account or another one.
+  The source model can be in your Amazon Web Services account or another one.
 
-  If the source model is in another AWS account, then it must have a
-  resource-based policy that authorizes you to import it.
+  If the source model is in another Amazon Web Services account, then it must have
+  a resource-based policy that authorizes you to import it.
 
-  The source model must be in the same AWS region that you're using when you
-  import. You can't import a model that's in a different region.
+  The source model must be in the same Amazon Web Services Region that you're
+  using when you import. You can't import a model that's in a different Region.
   """
   def import_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -568,7 +568,7 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
-  List the datasets that you have configured in this region.
+  List the datasets that you have configured in this Region.
 
   For more information about datasets, see [ Flywheel overview](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html)
   in the *Amazon Comprehend Developer Guide*.
@@ -748,8 +748,9 @@ defmodule AWS.Comprehend do
   @doc """
   Attaches a resource-based policy to a custom model.
 
-  You can use this policy to authorize an entity in another AWS account to import
-  the custom model, which replicates it in Amazon Comprehend in their account.
+  You can use this policy to authorize an entity in another Amazon Web Services
+  account to import the custom model, which replicates it in Amazon Comprehend in
+  their account.
   """
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()

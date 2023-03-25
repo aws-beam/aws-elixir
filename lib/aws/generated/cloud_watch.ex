@@ -49,7 +49,11 @@ defmodule AWS.CloudWatch do
   metric alarms and one composite alarms with one operation, but you can't delete
   two composite alarms with one operation.
 
-  In the event of an error, no alarms are deleted.
+  If you specify an incorrect alarm name or make any other error in the operation,
+  no alarms are deleted. To confirm that alarms were deleted successfully, you can
+  use the
+  [DescribeAlarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html)
+  operation after using `DeleteAlarms`.
 
   It is possible to create a loop or cycle of composite alarms, where composite
   alarm A depends on composite alarm B, and composite alarm B also depends on
@@ -687,10 +691,11 @@ defmodule AWS.CloudWatch do
   If you are an IAM user, you must have Amazon EC2 permissions for some alarm
   operations:
 
-    * The `iam:CreateServiceLinkedRole` for all alarms with EC2 actions
+    * The `iam:CreateServiceLinkedRole` permission for all alarms with
+  EC2 actions
 
-    * The `iam:CreateServiceLinkedRole` to create an alarm with Systems
-  Manager OpsItem actions.
+    * The `iam:CreateServiceLinkedRole` permissions to create an alarm
+  with Systems Manager OpsItem or response plan actions.
 
   The first time you create an alarm in the Amazon Web Services Management
   Console, the CLI, or by using the PutMetricAlarm API, CloudWatch creates the

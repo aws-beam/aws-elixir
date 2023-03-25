@@ -317,9 +317,15 @@ defmodule AWS.RDS do
   @doc """
   Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster.
 
+  If you create an Aurora DB cluster, the request creates an empty cluster. You
+  must explicitly create the writer instance for your DB cluster using the
+  [CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) operation. If you create a Multi-AZ DB cluster, the request creates a writer and
+  two reader DB instances for you, each in a different Availability Zone.
+
   You can use the `ReplicationSourceIdentifier` parameter to create an Amazon
   Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or
-  PostgreSQL DB instance. For more information about Amazon Aurora, see [What is Amazon
+  PostgreSQL DB instance. For more information about Amazon Aurora, see [What is
+  Amazon
   Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
@@ -2327,11 +2333,11 @@ defmodule AWS.RDS do
 
   For more information on exporting DB snapshot data, see [Exporting DB snapshot data to Amazon
   S3](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ExportSnapshot.html)
-  in the *Amazon RDS User Guide* or [Exporting DB cluster snapshot data to Amazon S3](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-export-snapshot.html)
+  in the *Amazon RDS User Guide* or [Exporting DB cluster snapshot data to Amazon S3](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-export-snapshot.html)
   in the *Amazon Aurora User Guide*.
 
   For more information on exporting DB cluster data, see [Exporting DB cluster data to Amazon
-  S3](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/export-cluster-data.html)
+  S3](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/export-cluster-data.html)
   in the *Amazon Aurora User Guide*.
   """
   def start_export_task(%Client{} = client, input, options \\ []) do

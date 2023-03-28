@@ -3,10 +3,9 @@
 
 defmodule AWS.VoiceID do
   @moduledoc """
-  Amazon Connect Voice ID provides real-time caller authentication and fraud
-  screening.
-
-  This guide describes the APIs used for this service.
+  Amazon Connect Voice ID provides real-time caller authentication and fraud risk
+  detection, which make voice interactions in contact centers more secure and
+  efficient.
   """
 
   alias AWS.Client
@@ -29,13 +28,34 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+  Associates the fraudsters with the watchlist specified in the same domain.
+  """
+  def associate_fraudster(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateFraudster", input, options)
+  end
+
+  @doc """
   Creates a domain that contains all Amazon Connect Voice ID data, such as
   speakers, fraudsters, customer audio, and voiceprints.
+
+  Every domain is created with a default watchlist that fraudsters can be a part
+  of.
   """
   def create_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateDomain", input, options)
+  end
+
+  @doc """
+  Creates a watchlist that fraudsters can be a part of.
+  """
+  def create_watchlist(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateWatchlist", input, options)
   end
 
   @doc """
@@ -49,6 +69,8 @@ defmodule AWS.VoiceID do
 
   @doc """
   Deletes the specified fraudster from Voice ID.
+
+  This action disassociates the fraudster from any watchlists it is a part of.
   """
   def delete_fraudster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -63,6 +85,19 @@ defmodule AWS.VoiceID do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteSpeaker", input, options)
+  end
+
+  @doc """
+  Deletes the specified watchlist from Voice ID.
+
+  This API throws an exception when there are fraudsters in the watchlist that you
+  are trying to delete. You must delete the fraudsters, and then delete the
+  watchlist. Every domain has a default watchlist which cannot be deleted.
+  """
+  def delete_watchlist(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteWatchlist", input, options)
   end
 
   @doc """
@@ -111,6 +146,28 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+  Describes the specified watchlist.
+  """
+  def describe_watchlist(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeWatchlist", input, options)
+  end
+
+  @doc """
+  Disassociates the fraudsters from the watchlist specified.
+
+  Voice ID always expects a fraudster to be a part of at least one watchlist. If
+  you try to disassociate a fraudster from its only watchlist, a
+  `ValidationException` is thrown.
+  """
+  def disassociate_fraudster(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateFraudster", input, options)
+  end
+
+  @doc """
   Evaluates a specified session based on audio data accumulated during a streaming
   Amazon Connect Voice ID call.
   """
@@ -143,6 +200,15 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
+  Lists all fraudsters in a specified watchlist or domain.
+  """
+  def list_fraudsters(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFraudsters", input, options)
+  end
+
+  @doc """
   Lists all the speaker enrollment jobs in the domain with the specified
   `JobStatus`.
 
@@ -171,6 +237,15 @@ defmodule AWS.VoiceID do
     meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Lists all watchlists in a specified domain.
+  """
+  def list_watchlists(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListWatchlists", input, options)
   end
 
   @doc """
@@ -236,5 +311,16 @@ defmodule AWS.VoiceID do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateDomain", input, options)
+  end
+
+  @doc """
+  Updates the specified watchlist.
+
+  Every domain has a default watchlist which cannot be updated.
+  """
+  def update_watchlist(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateWatchlist", input, options)
   end
 end

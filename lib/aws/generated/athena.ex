@@ -138,7 +138,8 @@ defmodule AWS.Athena do
   Gets an authentication token and the URL at which the notebook can be accessed.
 
   During programmatic access, `CreatePresignedNotebookUrl` must be called every 10
-  minutes to refresh the authentication token.
+  minutes to refresh the authentication token. For information about granting
+  programmatic access, see [Grant programmatic access](https://docs.aws.amazon.com/athena/latest/ug/setting-up.html#setting-up-grant-programmatic-access).
   """
   def create_presigned_notebook_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -149,9 +150,7 @@ defmodule AWS.Athena do
   @doc """
   Creates a workgroup with the specified name.
 
-  Only one of `Configurations` or `Configuration` can be specified;
-  `Configurations` for a workgroup with multi engine support (for example, an
-  Apache Spark enabled workgroup) or `Configuration` for an Athena SQL workgroup.
+  A workgroup can be an Apache Spark enabled workgroup or an Athena SQL workgroup.
   """
   def create_work_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -230,8 +229,7 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Retrieves a pre-signed URL to a copy of the code that was executed for the
-  calculation.
+  Retrieves the unencrypted code that was executed for the calculation.
   """
   def get_calculation_execution_code(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -313,7 +311,7 @@ defmodule AWS.Athena do
   Streams the results of a single query execution specified by `QueryExecutionId`
   from the Athena query results location in Amazon S3.
 
-  For more information, see [Query Results](https://docs.aws.amazon.com/athena/latest/ug/querying.html) in the
+  For more information, see [Working with query results, recent queries, and output files](https://docs.aws.amazon.com/athena/latest/ug/querying.html) in the
   *Amazon Athena User Guide*. This request does not execute the query but returns
   results. Use `StartQueryExecution` to run a query.
 
@@ -399,7 +397,7 @@ defmodule AWS.Athena do
 
   @doc """
   Returns the supported DPU sizes for the supported application runtimes (for
-  example, `Jupyter 1.0`).
+  example, `Athena notebook version 1`).
   """
   def list_application_d_p_u_sizes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -451,7 +449,7 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Lists, in descending order, the executors that have been submitted to a session.
+  Lists, in descending order, the executors that joined a session.
 
   Newer executors are listed first; older executors are listed later. The result
   can be optionally filtered by state.
@@ -567,8 +565,7 @@ defmodule AWS.Athena do
   @doc """
   Submits calculations for execution within a session.
 
-  You can supply the code to run as an inline code block within the request or as
-  an Amazon S3 URL.
+  You can supply the code to run as an inline code block within the request.
   """
   def start_calculation_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -642,7 +639,7 @@ defmodule AWS.Athena do
   both of which you define. For example, you can use tags to categorize Athena
   workgroups or data catalogs by purpose, owner, or environment. Use a consistent
   set of tag keys to make it easier to search and filter workgroups or data
-  catalogs in your account. For best practices, see [Tagging Best Practices](https://aws.amazon.com/answers/account-management/aws-tagging-strategies/).
+  catalogs in your account. For best practices, see [Tagging Best Practices](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html).
   Tag keys can be from 1 to 128 UTF-8 Unicode characters, and tag values can be
   from 0 to 256 UTF-8 Unicode characters. Tags can use letters and numbers
   representable in UTF-8, and the following characters: + - = . _ : / @. Tag keys
@@ -728,10 +725,8 @@ defmodule AWS.Athena do
   @doc """
   Updates the workgroup with the specified name.
 
-  The workgroup's name cannot be changed. Only one of `ConfigurationsUpdates` or
-  `ConfigurationUpdates` can be specified; `ConfigurationsUpdates` for a workgroup
-  with multi engine support (for example, an Apache Spark enabled workgroup) or
-  `ConfigurationUpdates` for an Athena SQL workgroup.
+  The workgroup's name cannot be changed. Only `ConfigurationUpdates` can be
+  specified.
   """
   def update_work_group(%Client{} = client, input, options \\ []) do
     meta = metadata()

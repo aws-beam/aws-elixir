@@ -541,8 +541,11 @@ defmodule AWS.SecurityHub do
   @doc """
   Declines invitations to become a member account.
 
-  This operation is only used by accounts that are not part of an organization.
-  Organization accounts do not receive invitations.
+  A prospective member account uses this operation to decline an invitation to
+  become a member.
+
+  This operation is only called by member accounts that aren't part of an
+  organization. Organization accounts don't receive invitations.
   """
   def decline_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitations/decline"
@@ -648,8 +651,12 @@ defmodule AWS.SecurityHub do
   Deletes invitations received by the Amazon Web Services account to become a
   member account.
 
-  This operation is only used by accounts that are not part of an organization.
-  Organization accounts do not receive invitations.
+  A Security Hub administrator account can use this operation to delete
+  invitations sent to one or more member accounts.
+
+  This operation is only used to delete invitations that are sent to member
+  accounts that aren't part of an organization. Organization accounts don't
+  receive invitations.
   """
   def delete_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitations/delete"

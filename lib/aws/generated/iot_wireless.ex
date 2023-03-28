@@ -591,6 +591,29 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
+  Delete an import task.
+  """
+  def delete_wireless_device_import_task(%Client{} = client, id, input, options \\ []) do
+    url_path = "/wireless_device_import_task/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes a wireless gateway.
   """
   def delete_wireless_gateway(%Client{} = client, id, input, options \\ []) do
@@ -659,6 +682,34 @@ defmodule AWS.IoTWireless do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Deregister a wireless device from AWS IoT Wireless.
+  """
+  def deregister_wireless_device(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/wireless-devices/#{AWS.Util.encode_uri(identifier)}/deregister"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"WirelessDeviceType", "WirelessDeviceType"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
     )
   end
 
@@ -1210,6 +1261,20 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
+  Get information about an import task and count of device onboarding summary
+  information for the import task.
+  """
+  def get_wireless_device_import_task(%Client{} = client, id, options \\ []) do
+    url_path = "/wireless_device_import_task/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Gets operating information about a wireless device.
   """
   def get_wireless_device_statistics(%Client{} = client, wireless_device_id, options \\ []) do
@@ -1340,6 +1405,7 @@ defmodule AWS.IoTWireless do
   """
   def list_device_profiles(
         %Client{} = client,
+        device_profile_type \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         options \\ []
@@ -1358,6 +1424,61 @@ defmodule AWS.IoTWireless do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(device_profile_type) do
+        [{"deviceProfileType", device_profile_type} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  List the Sidewalk devices in an import task and their onboarding status.
+  """
+  def list_devices_for_wireless_device_import_task(
+        %Client{} = client,
+        id,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/wireless_device_import_task"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(id) do
+        [{"id", id} | query_params]
       else
         query_params
       end
@@ -1692,6 +1813,38 @@ defmodule AWS.IoTWireless do
     query_params =
       if !is_nil(resource_arn) do
         [{"resourceArn", resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  List wireless devices that have been added to an import task.
+  """
+  def list_wireless_device_import_tasks(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/wireless_device_import_tasks"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -2083,6 +2236,53 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
+  Start import task for a single wireless device.
+  """
+  def start_single_wireless_device_import_task(%Client{} = client, input, options \\ []) do
+    url_path = "/wireless_single_device_import_task"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Start import task for provisioning Sidewalk devices in bulk using an S3 CSV
+  file.
+  """
+  def start_wireless_device_import_task(%Client{} = client, input, options \\ []) do
+    url_path = "/wireless_device_import_task"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Adds a tag to a resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
@@ -2434,6 +2634,29 @@ defmodule AWS.IoTWireless do
   """
   def update_wireless_device(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Update an import task to add more devices to the task.
+  """
+  def update_wireless_device_import_task(%Client{} = client, id, input, options \\ []) do
+    url_path = "/wireless_device_import_task/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 

@@ -165,9 +165,11 @@ defmodule AWS.SageMaker do
   @doc """
   Creates an Autopilot job.
 
-  Find the best-performing model after you run an Autopilot job by calling .
+  Find the best-performing model after you run an Autopilot job by calling `
+  [DescribeAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html) `.
 
-  For information about how to use Autopilot, see [Automate Model Development with Amazon SageMaker
+  For information about how to use Autopilot, see [Automate Model Development with
+  Amazon SageMaker
   Autopilot](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html).
   """
   def create_auto_ml_job(%Client{} = client, input, options \\ []) do
@@ -180,9 +182,12 @@ defmodule AWS.SageMaker do
   Creates an Amazon SageMaker AutoML job that uses non-tabular data such as images
   or text for Computer Vision or Natural Language Processing problems.
 
-  Find the resulting model after you run an AutoML job V2 by calling .
+  Find the resulting model after you run an AutoML job V2 by calling `
+  [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html) `.
 
-  To create an `AutoMLJob` using tabular data, see .
+  To create an `AutoMLJob` using tabular data, see `
+  [CreateAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html)
+  `.
 
   This API action is callable through SageMaker Canvas only. Calling it directly
   from the CLI or an SDK results in an error.

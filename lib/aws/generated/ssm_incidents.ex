@@ -89,9 +89,9 @@ defmodule AWS.SSMIncidents do
   Creates a custom timeline event on the incident details page of an incident
   record.
 
-  Timeline events are automatically created by Incident Manager, marking key
-  moment during an incident. You can create custom timeline events to mark
-  important events that are automatically detected by Incident Manager.
+  Incident Manager automatically creates timeline events that mark key moments
+  during an incident. You can create custom timeline events to mark important
+  events that Incident Manager can detect automatically.
   """
   def create_timeline_event(%Client{} = client, input, options \\ []) do
     url_path = "/createTimelineEvent"

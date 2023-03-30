@@ -334,8 +334,7 @@ defmodule AWS.OpenSearchServerless do
   Update the OpenSearch Serverless settings for the current Amazon Web Services
   account.
 
-  For more information, see
-  [Autoscaling](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-scaling).
+  For more information, see [Managing capacity limits for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html).
   """
   def update_account_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()

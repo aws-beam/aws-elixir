@@ -323,15 +323,15 @@ defmodule AWS.RDS do
   two reader DB instances for you, each in a different Availability Zone.
 
   You can use the `ReplicationSourceIdentifier` parameter to create an Amazon
-  Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or
-  PostgreSQL DB instance. For more information about Amazon Aurora, see [What is
-  Amazon
+  Aurora DB cluster as a read replica of another DB cluster or Amazon RDS for
+  MySQL or PostgreSQL DB instance. For more information about Amazon Aurora, see
+  [What is Amazon
   Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
   You can also use the `ReplicationSourceIdentifier` parameter to create a
-  Multi-AZ DB cluster read replica with an RDS for PostgreSQL DB instance as the
-  source. For more information about Multi-AZ DB clusters, see [Multi-AZ DB cluster
+  Multi-AZ DB cluster read replica with an RDS for MySQL or PostgreSQL DB instance
+  as the source. For more information about Multi-AZ DB clusters, see [Multi-AZ DB cluster
   deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide*.
   """
@@ -436,20 +436,23 @@ defmodule AWS.RDS do
 
   @doc """
   Creates a new DB instance that acts as a read replica for an existing source DB
-  instance.
+  instance or Multi-AZ DB cluster.
 
   You can create a read replica for a DB instance running MySQL, MariaDB, Oracle,
-  PostgreSQL, or SQL Server. For more information, see [Working with Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
+  PostgreSQL, or SQL Server. You can create a read replica for a Multi-AZ DB
+  cluster running MySQL or PostgreSQL. For more information, see [Working with read
+  replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
+  and [Migrating from a Multi-AZ DB cluster to a DB instance using a read replica](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html#multi-az-db-clusters-migrating-to-instance-with-read-replica)
   in the *Amazon RDS User Guide*.
 
   Amazon Aurora doesn't support this operation. Call the `CreateDBInstance`
   operation to create a DB instance for an Aurora DB cluster.
 
-  All read replica DB instances are created with backups disabled. All other DB
-  instance attributes (including DB security groups and DB parameter groups) are
-  inherited from the source DB instance, except as specified.
+  All read replica DB instances are created with backups disabled. All other
+  attributes (including DB security groups and DB parameter groups) are inherited
+  from the source DB instance or cluster, except as specified.
 
-  Your source DB instance must have backup retention enabled.
+  Your source DB instance or cluster must have backup retention enabled.
   """
   def create_db_instance_read_replica(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -680,6 +683,9 @@ defmodule AWS.RDS do
   When you delete a DB cluster, all automated backups for that DB cluster are
   deleted and can't be recovered. Manual DB cluster snapshots of the specified DB
   cluster are not deleted.
+
+  If you're deleting a Multi-AZ DB cluster with read replicas, all cluster members
+  are terminated and read replicas are promoted to standalone instances.
 
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.

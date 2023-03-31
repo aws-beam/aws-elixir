@@ -73,7 +73,7 @@ defmodule AWS.SageMakerGeospatial do
 
   @doc """
   Use this operation to export results of an Earth Observation job and optionally
-  source images used as input to the EOJ to an S3 location.
+  source images used as input to the EOJ to an Amazon S3 location.
   """
   def export_earth_observation_job(%Client{} = client, input, options \\ []) do
     url_path = "/export-earth-observation-job"
@@ -96,7 +96,8 @@ defmodule AWS.SageMakerGeospatial do
   end
 
   @doc """
-  Use this operation to copy results of a Vector Enrichment job to an S3 location.
+  Use this operation to copy results of a Vector Enrichment job to an Amazon S3
+  location.
   """
   def export_vector_enrichment_job(%Client{} = client, input, options \\ []) do
     url_path = "/export-vector-enrichment-jobs"
@@ -153,6 +154,7 @@ defmodule AWS.SageMakerGeospatial do
         y,
         z,
         arn,
+        execution_role_arn \\ nil,
         image_assets,
         image_mask \\ nil,
         output_data_type \\ nil,
@@ -213,6 +215,13 @@ defmodule AWS.SageMakerGeospatial do
     query_params =
       if !is_nil(image_assets) do
         [{"ImageAssets", image_assets} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(execution_role_arn) do
+        [{"ExecutionRoleArn", execution_role_arn} | query_params]
       else
         query_params
       end

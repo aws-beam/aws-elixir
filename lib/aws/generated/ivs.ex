@@ -33,22 +33,22 @@ defmodule AWS.Ivs do
   Getting Started with Amazon
   IVS](https://docs.aws.amazon.com/ivs/latest/userguide/getting-started.html)):
 
-    * Channel — Stores configuration data related to your live stream.
-  You first create a channel and then use the channel’s stream key to start your
-  live stream. See the Channel endpoints for more information.
+    * **Channel** — Stores configuration data related to your live
+  stream. You first create a channel and then use the channel’s stream key to
+  start your live stream. See the Channel endpoints for more information.
 
-    * Stream key — An identifier assigned by Amazon IVS when you create
-  a channel, which is then used to authorize streaming. See the StreamKey
+    * **Stream key** — An identifier assigned by Amazon IVS when you
+  create a channel, which is then used to authorize streaming. See the StreamKey
   endpoints for more information. * **Treat the stream key like a secret, since it
   allows anyone to stream to the channel.** *
 
-    * Playback key pair — Video playback may be restricted using
+    * **Playback key pair** — Video playback may be restricted using
   playback-authorization tokens, which use public-key encryption. A playback key
   pair is the public-private pair of keys used to sign and validate the
   playback-authorization token. See the PlaybackKeyPair endpoints for more
   information.
 
-    * Recording configuration — Stores configuration related to
+    * **Recording configuration** — Stores configuration related to
   recording a live stream and where to store the recorded content. Multiple
   channels can reference the same recording configuration. See the Recording
   Configuration endpoints for more information.

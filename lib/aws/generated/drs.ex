@@ -550,12 +550,12 @@ defmodule AWS.Drs do
   end
 
   @doc """
+  WARNING: RetryDataReplication is deprecated.
+
   Causes the data replication initiation sequence to begin immediately upon next
   Handshake for the specified Source Server ID, regardless of when the previous
-  initiation started.
-
-  This command will work only if the Source Server is stalled or is in a
-  DISCONNECTED or STOPPED state.
+  initiation started. This command will work only if the Source Server is stalled
+  or is in a DISCONNECTED or STOPPED state.
   """
   def retry_data_replication(%Client{} = client, input, options \\ []) do
     url_path = "/RetryDataReplication"

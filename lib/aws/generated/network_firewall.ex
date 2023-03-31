@@ -178,6 +178,35 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+  Creates an Network Firewall TLS inspection configuration.
+
+  A TLS inspection configuration contains the Certificate Manager certificate
+  references that Network Firewall uses to decrypt and re-encrypt inbound traffic.
+
+  After you create a TLS inspection configuration, you associate it with a
+  firewall policy.
+
+  To update the settings for a TLS inspection configuration, use
+  `UpdateTLSInspectionConfiguration`.
+
+  To manage a TLS inspection configuration's tags, use the standard Amazon Web
+  Services resource tagging operations, `ListTagsForResource`, `TagResource`, and
+  `UntagResource`.
+
+  To retrieve information about TLS inspection configurations, use
+  `ListTLSInspectionConfigurations` and `DescribeTLSInspectionConfiguration`.
+
+  For more information about TLS inspection configurations, see [Decrypting SSL/TLS traffic with TLS inspection
+  configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html)
+  in the *Network Firewall Developer Guide*.
+  """
+  def create_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTLSInspectionConfiguration", input, options)
+  end
+
+  @doc """
   Deletes the specified `Firewall` and its `FirewallStatus`.
 
   This operation requires the firewall's `DeleteProtection` flag to be `FALSE`.
@@ -225,6 +254,15 @@ defmodule AWS.NetworkFirewall do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteRuleGroup", input, options)
+  end
+
+  @doc """
+  Deletes the specified `TLSInspectionConfiguration`.
+  """
+  def delete_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTLSInspectionConfiguration", input, options)
   end
 
   @doc """
@@ -287,6 +325,15 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+  Returns the data objects for the specified TLS inspection configuration.
+  """
+  def describe_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTLSInspectionConfiguration", input, options)
+  end
+
+  @doc """
   Removes the specified subnet associations from the firewall.
 
   This removes the firewall endpoints from the subnets and removes any network
@@ -335,6 +382,19 @@ defmodule AWS.NetworkFirewall do
     meta = metadata()
 
     Request.request_post(client, meta, "ListRuleGroups", input, options)
+  end
+
+  @doc """
+  Retrieves the metadata for the TLS inspection configurations that you have
+  defined.
+
+  Depending on your setting for max results and the number of TLS inspection
+  configurations, a single call might not return the full list.
+  """
+  def list_t_l_s_inspection_configurations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTLSInspectionConfigurations", input, options)
   end
 
   @doc """
@@ -528,5 +588,24 @@ defmodule AWS.NetworkFirewall do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateSubnetChangeProtection", input, options)
+  end
+
+  @doc """
+  Updates the TLS inspection configuration settings for the specified TLS
+  inspection configuration.
+
+  You use a TLS inspection configuration by reference in one or more firewall
+  policies. When you modify a TLS inspection configuration, you modify all
+  firewall policies that use the TLS inspection configuration.
+
+  To update a TLS inspection configuration, first call
+  `DescribeTLSInspectionConfiguration` to retrieve the current
+  `TLSInspectionConfiguration` object, update the object as needed, and then
+  provide the updated object to this call.
+  """
+  def update_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateTLSInspectionConfiguration", input, options)
   end
 end

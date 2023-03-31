@@ -597,6 +597,48 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
+  Get the runtime information that was logged for a specific runtime instance of
+  the workflow.
+  """
+  def get_workflow_execution(%Client{} = client, workflow_execution_id, options \\ []) do
+    url_path = "/GetWorkflowExecution"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(workflow_execution_id) do
+        [{"workflowExecutionId", workflow_execution_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Get the runtime information that was logged for a specific runtime instance of
+  the workflow step.
+  """
+  def get_workflow_step_execution(%Client{} = client, step_execution_id, options \\ []) do
+    url_path = "/GetWorkflowStepExecution"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(step_execution_id) do
+        [{"stepExecutionId", step_execution_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Imports a component and transforms its data into a component document.
   """
   def import_component(%Client{} = client, input, options \\ []) do
@@ -861,6 +903,68 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
+  Returns a list of image scan aggregations for your account.
+
+  You can filter by the type of key that Image Builder uses to group results. For
+  example, if you want to get a list of findings by severity level for one of your
+  pipelines, you might specify your pipeline with the `imagePipelineArn` filter.
+  If you don't specify a filter, Image Builder returns an aggregation for your
+  account.
+
+  To streamline results, you can use the following filters in your request:
+
+    * `accountId`
+
+    * `imageBuildVersionArn`
+
+    * `imagePipelineArn`
+
+    * `vulnerabilityId`
+  """
+  def list_image_scan_finding_aggregations(%Client{} = client, input, options \\ []) do
+    url_path = "/ListImageScanFindingAggregations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns a list of image scan findings for your account.
+  """
+  def list_image_scan_findings(%Client{} = client, input, options \\ []) do
+    url_path = "/ListImageScanFindings"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns the list of images that you have access to.
 
   Newly created images can take up to two minutes to appear in the ListImages API
@@ -920,6 +1024,54 @@ defmodule AWS.Imagebuilder do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Returns a list of workflow runtime instance metadata objects for a specific
+  image build version.
+  """
+  def list_workflow_executions(%Client{} = client, input, options \\ []) do
+    url_path = "/ListWorkflowExecutions"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Shows runtime data for each step in a runtime instance of the workflow that you
+  specify in the request.
+  """
+  def list_workflow_step_executions(%Client{} = client, input, options \\ []) do
+    url_path = "/ListWorkflowStepExecutions"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """

@@ -772,6 +772,34 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
+  Retrieves aggregated statistics for your account.
+
+  If you are a GuardDuty administrator, you can retrieve the statistics for all
+  the resources associated with the active member accounts in your organization
+  who have enabled EKS Runtime Monitoring and have the GuardDuty agent running on
+  their EKS nodes.
+  """
+  def get_coverage_statistics(%Client{} = client, detector_id, input, options \\ []) do
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/coverage/statistics"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves an Amazon GuardDuty detector specified by the detectorId.
 
   There might be regional differences because some data sources might not be
@@ -1036,6 +1064,35 @@ defmodule AWS.GuardDuty do
   """
   def invite_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/invite"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists coverage details for your GuardDuty account.
+
+  If you're a GuardDuty administrator, you can retrieve all resources associated
+  with the active member accounts in your organization.
+
+  Make sure the accounts have EKS Runtime Monitoring enabled and GuardDuty agent
+  running on their EKS nodes.
+  """
+  def list_coverage(%Client{} = client, detector_id, input, options \\ []) do
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/coverage"
     headers = []
     query_params = []
 

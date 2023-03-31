@@ -69,6 +69,19 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+  Removes one or more sets of featured results.
+
+  Features results are placed above all other results for certain queries. If
+  there's an exact match of a query, then one or more specific documents are
+  featured in the search results.
+  """
+  def batch_delete_featured_results_set(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchDeleteFeaturedResultsSet", input, options)
+  end
+
+  @doc """
   Returns the indexing status for one or more documents submitted with the [
   BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html)
   API.
@@ -171,13 +184,8 @@ defmodule AWS.Kendra do
   `CreateDataSource` is a synchronous operation. The operation returns 200 if the
   data source was successfully created. Otherwise, an exception is raised.
 
-  Amazon S3 and
-  [custom](https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html) data sources are the only supported data sources in the Amazon Web Services
-  GovCloud (US-West) region.
-
   For an example of creating an index and data source using the Python SDK, see
-  [Getting started with Python
-  SDK](https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html). For an
+  [Getting started with Python SDK](https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html). For an
   example of creating an index and data source using the Java SDK, see [Getting started with Java
   SDK](https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html).
   """
@@ -200,7 +208,8 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Creates an new set of frequently asked question (FAQ) questions and answers.
+  Creates a set of frequently ask questions (FAQs) using a specified FAQ file
+  stored in an Amazon S3 bucket.
 
   Adding FAQs to an index is an asynchronous operation.
 
@@ -211,6 +220,24 @@ defmodule AWS.Kendra do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateFaq", input, options)
+  end
+
+  @doc """
+  Creates a set of featured results to display at the top of the search results
+  page.
+
+  Featured results are placed above all other results for certain queries. You map
+  specific queries to specific documents for featuring in the results. If a query
+  contains an exact match, then one or more specific documents are featured in the
+  search results.
+
+  You can create up to 50 sets of featured results per index. You can request to
+  increase this limit by contacting [Support](http://aws.amazon.com/contact-us/).
+  """
+  def create_featured_results_set(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFeaturedResultsSet", input, options)
   end
 
   @doc """
@@ -428,6 +455,19 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+  Gets information about a set of featured results.
+
+  Features results are placed above all other results for certain queries. If
+  there's an exact match of a query, then one or more specific documents are
+  featured in the search results.
+  """
+  def describe_featured_results_set(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFeaturedResultsSet", input, options)
+  end
+
+  @doc """
   Gets information about an existing Amazon Kendra index.
   """
   def describe_index(%Client{} = client, input, options \\ []) do
@@ -621,6 +661,19 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+  Lists all your sets of featured results for a given index.
+
+  Features results are placed above all other results for certain queries. If
+  there's an exact match of a query, then one or more specific documents are
+  featured in the search results.
+  """
+  def list_featured_results_sets(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFeaturedResultsSets", input, options)
+  end
+
+  @doc """
   Provides a list of groups that are mapped to users before a given ordering or
   timestamp identifier.
 
@@ -693,9 +746,6 @@ defmodule AWS.Kendra do
 
   If more than five `PUT` actions for a group are currently processing, a
   validation exception is thrown.
-
-  `PutPrincipalMapping` is currently not supported in the Amazon Web Services
-  GovCloud (US-West) region.
   """
   def put_principal_mapping(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -839,6 +889,20 @@ defmodule AWS.Kendra do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateExperience", input, options)
+  end
+
+  @doc """
+  Updates a set of featured results.
+
+  Features results are placed above all other results for certain queries. You map
+  specific queries to specific documents for featuring in the results. If a query
+  contains an exact match of a query, then one or more specific documents are
+  featured in the search results.
+  """
+  def update_featured_results_set(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFeaturedResultsSet", input, options)
   end
 
   @doc """

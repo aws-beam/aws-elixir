@@ -66,10 +66,18 @@ defmodule AWS.WellArchitected do
   @doc """
   Create a lens share.
 
-  The owner of a lens can share it with other Amazon Web Services accounts, IAM
-  users, an organization, and organizational units (OUs) in the same Amazon Web
-  Services Region. Shared access to a lens is not removed until the lens
-  invitation is deleted.
+  The owner of a lens can share it with other Amazon Web Services accounts, users,
+  an organization, and organizational units (OUs) in the same Amazon Web Services
+  Region. Lenses provided by Amazon Web Services (Amazon Web Services Official
+  Content) cannot be shared.
+
+  Shared access to a lens is not removed until the lens invitation is deleted.
+
+  If you share a lens with an organization or OU, all accounts in the organization
+  or OU are granted access to the lens.
+
+  For more information, see [Sharing a custom lens](https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-sharing.html)
+  in the *Well-Architected Tool User Guide*.
 
   ## Disclaimer
 
@@ -104,10 +112,10 @@ defmodule AWS.WellArchitected do
 
   A lens can have up to 100 versions.
 
-  After a lens has been imported, create a new lens version to publish it. The
-  owner of a lens can share the lens with other Amazon Web Services accounts and
-  IAM users in the same Amazon Web Services Region. Only the owner of a lens can
-  delete it.
+  Use this operation to publish a new lens version after you have imported a lens.
+  The `LensAlias` is used to identify the lens to be published. The owner of a
+  lens can share the lens with other Amazon Web Services accounts and users in the
+  same Amazon Web Services Region. Only the owner of a lens can delete it.
   """
   def create_lens_version(%Client{} = client, lens_alias, input, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/versions"
@@ -156,11 +164,17 @@ defmodule AWS.WellArchitected do
   Create a new workload.
 
   The owner of a workload can share the workload with other Amazon Web Services
-  accounts, IAM users, an organization, and organizational units (OUs) in the same
+  accounts, users, an organization, and organizational units (OUs) in the same
   Amazon Web Services Region. Only the owner of a workload can delete it.
 
   For more information, see [Defining a Workload](https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html)
   in the *Well-Architected Tool User Guide*.
+
+  Either `AwsRegions`, `NonAwsRegions`, or both must be specified when creating a
+  workload.
+
+  You also must specify `ReviewOwner`, even though the parameter is listed as not
+  being required in the following section.
   """
   def create_workload(%Client{} = client, input, options \\ []) do
     url_path = "/workloads"
@@ -186,10 +200,13 @@ defmodule AWS.WellArchitected do
   Create a workload share.
 
   The owner of a workload can share it with other Amazon Web Services accounts and
-  IAM users in the same Amazon Web Services Region. Shared access to a workload is
-  not removed until the workload invitation is deleted.
+  users in the same Amazon Web Services Region. Shared access to a workload is not
+  removed until the workload invitation is deleted.
 
-  For more information, see [Sharing a Workload](https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-sharing.html)
+  If you share a workload with an organization or OU, all accounts in the
+  organization or OU are granted access to the workload.
+
+  For more information, see [Sharing a workload](https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-sharing.html)
   in the *Well-Architected Tool User Guide*.
   """
   def create_workload_share(%Client{} = client, workload_id, input, options \\ []) do
@@ -216,8 +233,8 @@ defmodule AWS.WellArchitected do
   Delete an existing lens.
 
   Only the owner of a lens can delete it. After the lens is deleted, Amazon Web
-  Services accounts and IAM users that you shared the lens with can continue to
-  use it, but they will no longer be able to apply it to new workloads.
+  Services accounts and users that you shared the lens with can continue to use
+  it, but they will no longer be able to apply it to new workloads.
 
   ## Disclaimer
 
@@ -256,7 +273,7 @@ defmodule AWS.WellArchitected do
   @doc """
   Delete a lens share.
 
-  After the lens share is deleted, Amazon Web Services accounts, IAM users,
+  After the lens share is deleted, Amazon Web Services accounts, users,
   organizations, and organizational units (OUs) that you shared the lens with can
   continue to use it, but they will no longer be able to apply it to new
   workloads.
@@ -385,9 +402,11 @@ defmodule AWS.WellArchitected do
   @doc """
   Export an existing lens.
 
+  Only the owner of a lens can export it. Lenses provided by Amazon Web Services
+  (Amazon Web Services Official Content) cannot be exported.
+
   Lenses are defined in JSON. For more information, see [JSON format specification](https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html)
-  in the *Well-Architected Tool User Guide*. Only the owner of a lens can export
-  it.
+  in the *Well-Architected Tool User Guide*.
 
   ## Disclaimer
 
@@ -435,6 +454,56 @@ defmodule AWS.WellArchitected do
     query_params =
       if !is_nil(milestone_number) do
         [{"MilestoneNumber", milestone_number} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Get a consolidated report of your workloads.
+
+  You can optionally choose to include workloads that have been shared with you.
+  """
+  def get_consolidated_report(
+        %Client{} = client,
+        format,
+        include_shared_resources \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/consolidatedReport"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include_shared_resources) do
+        [{"IncludeSharedResources", include_shared_resources} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(format) do
+        [{"Format", format} | query_params]
       else
         query_params
       end
@@ -582,10 +651,14 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Import a new lens.
+  Import a new custom lens or update an existing custom lens.
 
-  The lens cannot be applied to workloads or shared with other Amazon Web Services
-  accounts until it's published with `CreateLensVersion`
+  To update an existing custom lens, specify its ARN as the `LensAlias`. If no ARN
+  is specified, a new custom lens is created.
+
+  The new or updated lens will have a status of `DRAFT`. The lens cannot be
+  applied to workloads or shared with other Amazon Web Services accounts until
+  it's published with `CreateLensVersion`.
 
   Lenses are defined in JSON. For more information, see [JSON format specification](https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html)
   in the *Well-Architected Tool User Guide*.
@@ -612,7 +685,7 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  List of answers.
+  List of answers for a particular workload and lens.
   """
   def list_answers(
         %Client{} = client,
@@ -763,7 +836,7 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  List lens reviews.
+  List lens reviews for a particular workload.
   """
   def list_lens_reviews(
         %Client{} = client,
@@ -1075,9 +1148,7 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  List workloads.
-
-  Paginated.
+  Paginated list of workloads.
   """
   def list_workloads(%Client{} = client, input, options \\ []) do
     url_path = "/workloadsSummaries"
@@ -1215,7 +1286,7 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Update lens review.
+  Update lens review for a particular workload.
   """
   def update_lens_review(%Client{} = client, lens_alias, workload_id, input, options \\ []) do
     url_path =
@@ -1314,7 +1385,7 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Upgrade lens review.
+  Upgrade lens review for a particular workload.
   """
   def upgrade_lens_review(%Client{} = client, lens_alias, workload_id, input, options \\ []) do
     url_path =

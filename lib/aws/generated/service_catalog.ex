@@ -993,6 +993,59 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+  Notifies the result of the provisioning engine execution.
+  """
+  def notify_provision_product_engine_workflow_result(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "NotifyProvisionProductEngineWorkflowResult",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Notifies the result of the terminate engine execution.
+  """
+  def notify_terminate_provisioned_product_engine_workflow_result(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "NotifyTerminateProvisionedProductEngineWorkflowResult",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Notifies the result of the update engine execution.
+  """
+  def notify_update_provisioned_product_engine_workflow_result(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "NotifyUpdateProvisionedProductEngineWorkflowResult",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Provisions the specified product.
 
   A provisioned product is a resourced instance of a product. For example,

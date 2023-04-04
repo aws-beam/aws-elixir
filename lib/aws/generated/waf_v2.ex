@@ -38,8 +38,8 @@ defmodule AWS.WAFV2 do
 
     * For regional applications, you can use any of the endpoints in the
   list. A regional application can be an Application Load Balancer (ALB), an
-  Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool,
-  or an App Runner service.
+  Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user
+  pool, or an App Runner service.
 
     * For Amazon CloudFront applications, you must use the API endpoint
   listed for US East (N. Virginia): us-east-1.
@@ -89,14 +89,15 @@ defmodule AWS.WAFV2 do
   resource.
 
   A regional application can be an Application Load Balancer (ALB), an Amazon API
-  Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App
+  Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App
   Runner service.
 
   For Amazon CloudFront, don't use this call. Instead, use your CloudFront
   distribution configuration. To associate a web ACL, in the CloudFront call
   `UpdateDistribution`, set the web ACL ID to the Amazon Resource Name (ARN) of
   the web ACL. For information, see
-  [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html).
+  [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html)
+  in the *Amazon CloudFront Developer Guide*.
 
   When you make changes to web ACLs or web ACL components, like rules and rule
   groups, WAF propagates the changes everywhere that the web ACL and its
@@ -129,8 +130,9 @@ defmodule AWS.WAFV2 do
   for each rule type, to reflect the relative cost of each rule. Simple rules that
   cost little to run use fewer WCUs than more complex rules that use more
   processing power. Rule group capacity is fixed at creation, which helps users
-  plan their web ACL WCU usage when they use a rule group. The WCU limit for web
-  ACLs is 1,500.
+  plan their web ACL WCU usage when they use a rule group. For more information,
+  see [WAF web ACL capacity units (WCU)](https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html)
+  in the *WAF Developer Guide*.
   """
   def check_capacity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -189,7 +191,7 @@ defmodule AWS.WAFV2 do
   `RuleGroup`, and managed rule group. You can associate a web ACL with one or
   more Amazon Web Services resources to protect. The resources can be an Amazon
   CloudFront distribution, an Amazon API Gateway REST API, an Application Load
-  Balancer, an AppSync GraphQL API, Amazon Cognito user pool, or an App Runner
+  Balancer, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner
   service.
   """
   def create_web_acl(%Client{} = client, input, options \\ []) do
@@ -273,13 +275,16 @@ defmodule AWS.WAFV2 do
 
        For Amazon CloudFront distributions, use the CloudFront
   call `ListDistributionsByWebACLId`. For information, see
-  [ListDistributionsByWebACLId](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html).     To disassociate a resource from a web ACL, use the following calls:
+  [ListDistributionsByWebACLId](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html) in the *Amazon CloudFront API Reference*.
+
+     To disassociate a resource from a web ACL, use the following calls:
 
        For regional resources, call `DisassociateWebACL`.
 
        For Amazon CloudFront distributions, provide an empty
   web ACL ID in the CloudFront call `UpdateDistribution`. For information, see
-  [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html).
+  [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html)
+  in the *Amazon CloudFront API Reference*.
   """
   def delete_web_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -303,12 +308,13 @@ defmodule AWS.WAFV2 do
 
   A resource can have at most one web ACL association. A regional application can
   be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an
-  AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.
+  AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.
 
   For Amazon CloudFront, don't use this call. Instead, use your CloudFront
   distribution configuration. To disassociate a web ACL, provide an empty web ACL
   ID in the CloudFront call `UpdateDistribution`. For information, see
-  [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html).
+  [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html)
+  in the *Amazon CloudFront API Reference*.
   """
   def disassociate_web_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -909,7 +915,7 @@ defmodule AWS.WAFV2 do
   `RuleGroup`, and managed rule group. You can associate a web ACL with one or
   more Amazon Web Services resources to protect. The resources can be an Amazon
   CloudFront distribution, an Amazon API Gateway REST API, an Application Load
-  Balancer, an AppSync GraphQL API, Amazon Cognito user pool, or an App Runner
+  Balancer, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner
   service.
   """
   def update_web_acl(%Client{} = client, input, options \\ []) do

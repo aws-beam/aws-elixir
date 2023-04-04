@@ -70,8 +70,10 @@ defmodule AWS.LicenseManager do
   @doc """
   Creates a grant for the specified license.
 
-  A grant shares the use of license entitlements with specific Amazon Web Services
-  accounts.
+  A grant shares the use of license entitlements with a specific Amazon Web
+  Services account, an organization, or an organizational unit (OU). For more
+  information, see [Granted licenses in License Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html)
+  in the *License Manager User Guide*.
   """
   def create_grant(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -81,6 +83,9 @@ defmodule AWS.LicenseManager do
 
   @doc """
   Creates a new version of the specified grant.
+
+  For more information, see [Granted licenses in License Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html)
+  in the *License Manager User Guide*.
   """
   def create_grant_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -381,7 +386,11 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
-  Lists grants that are received but not accepted.
+  Lists grants that are received.
+
+  Received grants are grants created while specifying the recipient as this Amazon
+  Web Services account, your organization, or an organizational unit (OU) to which
+  this member account belongs.
   """
   def list_received_grants(%Client{} = client, input, options \\ []) do
     meta = metadata()

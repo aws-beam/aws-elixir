@@ -55,14 +55,13 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
-  This API call has been replaced with a new "traffic sources" API call
-  (`AttachTrafficSources`) that can attach multiple traffic sources types.
+  This API operation is superseded by `AttachTrafficSources`, which can attach
+  multiple traffic sources types.
 
-  While we continue to support `AttachLoadBalancerTargetGroups`, and you can use
-  both the original `AttachLoadBalancerTargetGroups` API call and the new
-  `AttachTrafficSources` API call on the same Auto Scaling group, we recommend
-  using the new "traffic sources" API call to simplify how you manage traffic
-  sources.
+  We recommend using `AttachTrafficSources` to simplify how you manage traffic
+  sources. However, we continue to support `AttachLoadBalancerTargetGroups`. You
+  can use both the original `AttachLoadBalancerTargetGroups` API operation and
+  `AttachTrafficSources` on the same Auto Scaling group.
 
   Attaches one or more target groups to the specified Auto Scaling group.
 
@@ -94,13 +93,13 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
-  This API call has been replaced with a new "traffic sources" API call
-  (`AttachTrafficSources`) that can attach multiple traffic sources types.
+  This API operation is superseded by `AttachTrafficSources`, which can attach
+  multiple traffic sources types.
 
-  While we continue to support `AttachLoadBalancers`, and you can use both the
-  original `AttachLoadBalancers` API call and the new `AttachTrafficSources` API
-  call on the same Auto Scaling group, we recommend using the new "traffic
-  sources" API call to simplify how you manage traffic sources.
+  We recommend using `AttachTrafficSources` to simplify how you manage traffic
+  sources. However, we continue to support `AttachLoadBalancers`. You can use both
+  the original `AttachLoadBalancers` API operation and `AttachTrafficSources` on
+  the same Auto Scaling group.
 
   Attaches one or more Classic Load Balancers to the specified Auto Scaling group.
   Amazon EC2 Auto Scaling registers the running instances with these Classic Load
@@ -132,9 +131,9 @@ defmodule AWS.AutoScaling do
 
     * Classic Load Balancer
 
-    * Network Load Balancer
-
     * Gateway Load Balancer
+
+    * Network Load Balancer
 
     * VPC Lattice
 
@@ -530,14 +529,13 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
-  This API call has been replaced with a new "traffic sources" API call
-  (`DescribeTrafficSources`) that can describe multiple traffic sources types.
+  This API operation is superseded by `DescribeTrafficSources`, which can describe
+  multiple traffic sources types.
 
-  While we continue to support `DescribeLoadBalancerTargetGroups`, and you can use
-  both the original `DescribeLoadBalancerTargetGroups` API call and the new
-  `DescribeTrafficSources` API call on the same Auto Scaling group, we recommend
-  using the new "traffic sources" API call to simplify how you manage traffic
-  sources.
+  We recommend using `DetachTrafficSources` to simplify how you manage traffic
+  sources. However, we continue to support `DescribeLoadBalancerTargetGroups`. You
+  can use both the original `DescribeLoadBalancerTargetGroups` API operation and
+  `DescribeTrafficSources` on the same Auto Scaling group.
 
   Gets information about the Elastic Load Balancing target groups for the
   specified Auto Scaling group.
@@ -576,13 +574,13 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
-  This API call has been replaced with a new "traffic sources" API call
-  (`DescribeTrafficSources`) that can describe multiple traffic sources types.
+  This API operation is superseded by `DescribeTrafficSources`, which can describe
+  multiple traffic sources types.
 
-  While we continue to support `DescribeLoadBalancers`, and you can use both the
-  original `DescribeLoadBalancers` API call and the new `DescribeTrafficSources`
-  API call on the same Auto Scaling group, we recommend using the new "traffic
-  sources" API call to simplify how you manage traffic sources.
+  We recommend using `DescribeTrafficSources` to simplify how you manage traffic
+  sources. However, we continue to support `DescribeLoadBalancers`. You can use
+  both the original `DescribeLoadBalancers` API operation and
+  `DescribeTrafficSources` on the same Auto Scaling group.
 
   Gets information about the load balancers for the specified Auto Scaling group.
 
@@ -775,14 +773,13 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
-  This API call has been replaced with a new "traffic sources" API call
-  (`DetachTrafficSources`) that can detach multiple traffic sources types.
+  This API operation is superseded by `DetachTrafficSources`, which can detach
+  multiple traffic sources types.
 
-  While we continue to support `DetachLoadBalancerTargetGroups`, and you can use
-  both the original `DetachLoadBalancerTargetGroups` API call and the new
-  `DetachTrafficSources` API call on the same Auto Scaling group, we recommend
-  using the new "traffic sources" API call to simplify how you manage traffic
-  sources.
+  We recommend using `DetachTrafficSources` to simplify how you manage traffic
+  sources. However, we continue to support `DetachLoadBalancerTargetGroups`. You
+  can use both the original `DetachLoadBalancerTargetGroups` API operation and
+  `DetachTrafficSources` on the same Auto Scaling group.
 
   Detaches one or more target groups from the specified Auto Scaling group.
 
@@ -802,13 +799,13 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
-  This API call has been replaced with a new "traffic sources" API call
-  (`DetachTrafficSources`) that can detach multiple traffic sources types.
+  This API operation is superseded by `DetachTrafficSources`, which can detach
+  multiple traffic sources types.
 
-  While we continue to support `DetachLoadBalancers`, and you can use both the
-  original `DetachLoadBalancers` API call and the new `DetachTrafficSources` API
-  call on the same Auto Scaling group, we recommend using the new "traffic
-  sources" API call to simplify how you manage traffic sources.
+  We recommend using `DetachTrafficSources` to simplify how you manage traffic
+  sources. However, we continue to support `DetachLoadBalancers`. You can use both
+  the original `DetachLoadBalancers` API operation and `DetachTrafficSources` on
+  the same Auto Scaling group.
 
   Detaches one or more Classic Load Balancers from the specified Auto Scaling
   group.

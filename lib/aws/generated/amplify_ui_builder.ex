@@ -478,7 +478,7 @@ defmodule AWS.AmplifyUIBuilder do
   end
 
   @doc """
-  Stores the metadata information about a feature on a form or view.
+  Stores the metadata information about a feature on a form.
   """
   def put_metadata_flag(
         %Client{} = client,

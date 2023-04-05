@@ -149,7 +149,10 @@ defmodule AWS.SageMakerRuntime do
       Keyword.put(
         options,
         :response_header_parameters,
-        [{"X-Amzn-SageMaker-OutputLocation", "OutputLocation"}]
+        [
+          {"X-Amzn-SageMaker-FailureLocation", "FailureLocation"},
+          {"X-Amzn-SageMaker-OutputLocation", "OutputLocation"}
+        ]
       )
 
     meta = metadata()

@@ -268,10 +268,10 @@ defmodule AWS.VPCLattice do
   As a result of this operation, the association gets created in the service
   network account and the VPC owner account.
 
-  Once a security group is added to the VPC association it cannot be removed. You
-  can add or update the security groups being used for the VPC association once a
-  security group is attached. To remove all security groups you must reassociate
-  the VPC.
+  If you add a security group to the service network and VPC association, the
+  association must continue to always have at least one security group. You can
+  add or edit security groups at any time. However, to remove all security groups,
+  you must first delete the association and recreate it without security groups.
   """
   def create_service_network_vpc_association(%Client{} = client, input, options \\ []) do
     url_path = "/servicenetworkvpcassociations"
@@ -355,10 +355,10 @@ defmodule AWS.VPCLattice do
   @doc """
   Deletes the specified auth policy.
 
-  If an auth is set to `Amazon Web Services_IAM` and the auth policy is deleted,
-  all requests will be denied by default. If you are trying to remove the auth
-  policy completely, you must set the auth_type to `NONE`. If auth is enabled on
-  the resource, but no auth policy is set, all requests will be denied.
+  If an auth is set to `AWS_IAM` and the auth policy is deleted, all requests will
+  be denied by default. If you are trying to remove the auth policy completely,
+  you must set the auth_type to `NONE`. If auth is enabled on the resource, but no
+  auth policy is set, all requests will be denied.
   """
   def delete_auth_policy(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/authpolicy/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -698,8 +698,8 @@ defmodule AWS.VPCLattice do
   @doc """
   Retrieves information about the resource policy.
 
-  The resource policy is an IAM policy created by AWS RAM on behalf of the
-  resource owner when they share a resource.
+  The resource policy is an IAM policy created on behalf of the resource owner
+  when they share a resource.
   """
   def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1192,6 +1192,8 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Creates or updates the auth policy.
+
+  The policy string in JSON must not contain newlines or blank lines.
   """
   def put_auth_policy(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/authpolicy/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -1441,7 +1443,10 @@ defmodule AWS.VPCLattice do
   @doc """
   Updates the service network and VPC association.
 
-  Once you add a security group, it cannot be removed.
+  If you add a security group to the service network and VPC association, the
+  association must continue to always have at least one security group. You can
+  add or edit security groups at any time. However, to remove all security groups,
+  you must first delete the association and recreate it without security groups.
   """
   def update_service_network_vpc_association(
         %Client{} = client,

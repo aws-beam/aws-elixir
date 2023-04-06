@@ -90,6 +90,14 @@ defmodule AWS.ECS do
   Amazon ECS runs another copy of the task in the specified cluster. To update an
   existing service, see the `UpdateService` action.
 
+  Starting April 15, 2023, Amazon Web Services will not onboard new customers to
+  Amazon Elastic Inference (EI), and will help current customers migrate their
+  workloads to options that offer better price and performance. After April 15,
+  2023, new customers will not be able to launch instances with Amazon EI
+  accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers
+  who have used Amazon EI at least once during the past 30-day period are
+  considered current customers and will be able to continue using the service.
+
   In addition to maintaining the desired count of tasks in your service, you can
   optionally run your service behind one or more load balancers. The load
   balancers distribute traffic across the tasks that are associated with the
@@ -766,6 +774,14 @@ defmodule AWS.ECS do
   Alternatively, you can use `StartTask` to use your own scheduler or place tasks
   manually on specific container instances.
 
+  Starting April 15, 2023, Amazon Web Services will not onboard new customers to
+  Amazon Elastic Inference (EI), and will help current customers migrate their
+  workloads to options that offer better price and performance. After April 15,
+  2023, new customers will not be able to launch instances with Amazon EI
+  accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers
+  who have used Amazon EI at least once during the past 30-day period are
+  considered current customers and will be able to continue using the service.
+
   The Amazon ECS API follows an eventual consistency model. This is because of the
   distributed nature of the system supporting the API. This means that the result
   of an API command you run that affects your Amazon ECS resources might not be
@@ -795,6 +811,14 @@ defmodule AWS.ECS do
   @doc """
   Starts a new task from the specified task definition on the specified container
   instance or instances.
+
+  Starting April 15, 2023, Amazon Web Services will not onboard new customers to
+  Amazon Elastic Inference (EI), and will help current customers migrate their
+  workloads to options that offer better price and performance. After April 15,
+  2023, new customers will not be able to launch instances with Amazon EI
+  accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers
+  who have used Amazon EI at least once during the past 30-day period are
+  considered current customers and will be able to continue using the service.
 
   Alternatively, you can use `RunTask` to place tasks for you. For more
   information, see [Scheduling Tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html)

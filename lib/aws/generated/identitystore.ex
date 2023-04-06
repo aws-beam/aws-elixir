@@ -14,7 +14,7 @@ defmodule AWS.Identitystore do
   compatibility purposes. For more information, see [IAM Identity Center rename](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed).
 
   This reference guide describes the identity store operations that you can call
-  programatically and includes detailed information on data types and errors.
+  programatically and includes detailed information about data types and errors.
 
   `
   """
@@ -60,7 +60,7 @@ defmodule AWS.Identitystore do
   end
 
   @doc """
-  Creates a new user within the specified identity store.
+  Creates a user within the specified identity store.
   """
   def create_user(%Client{} = client, input, options \\ []) do
     meta = metadata()

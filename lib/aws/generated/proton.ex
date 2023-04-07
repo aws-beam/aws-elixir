@@ -408,6 +408,24 @@ defmodule AWS.Proton do
   end
 
   @doc """
+  Create a service instance.
+  """
+  def create_service_instance(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateServiceInstance", input, options)
+  end
+
+  @doc """
+  Create the Proton Ops configuration file.
+  """
+  def create_service_sync_config(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateServiceSyncConfig", input, options)
+  end
+
+  @doc """
   Create a service template.
 
   The administrator creates a service template to define standardized
@@ -549,6 +567,15 @@ defmodule AWS.Proton do
   end
 
   @doc """
+  Delete the Proton Ops file.
+  """
+  def delete_service_sync_config(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteServiceSyncConfig", input, options)
+  end
+
+  @doc """
   If no other major or minor versions of the service template exist, delete the
   service template.
   """
@@ -687,9 +714,9 @@ defmodule AWS.Proton do
   The action returns staleness counts (counts of resources that are up-to-date,
   behind a template major version, or behind a template minor version), the total
   number of resources, and the number of resources that are in a failed state,
-  grouped by resource type. Components, environments, and service templates are
-  exceptions—see the `components`, `environments`, and `serviceTemplates` field
-  descriptions.
+  grouped by resource type. Components, environments, and service templates return
+  less information - see the `components`, `environments`, and `serviceTemplates`
+  field descriptions.
 
   For context, the action also returns the total number of each type of Proton
   template in the Amazon Web Services account.
@@ -722,6 +749,33 @@ defmodule AWS.Proton do
     meta = metadata()
 
     Request.request_post(client, meta, "GetServiceInstance", input, options)
+  end
+
+  @doc """
+  Get the status of the synced service instance.
+  """
+  def get_service_instance_sync_status(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetServiceInstanceSyncStatus", input, options)
+  end
+
+  @doc """
+  Get detailed data for the service sync blocker summary.
+  """
+  def get_service_sync_blocker_summary(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetServiceSyncBlockerSummary", input, options)
+  end
+
+  @doc """
+  Get detailed information for the service sync configuration.
+  """
+  def get_service_sync_config(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetServiceSyncConfig", input, options)
   end
 
   @doc """
@@ -1242,6 +1296,24 @@ defmodule AWS.Proton do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateServicePipeline", input, options)
+  end
+
+  @doc """
+  Update the service sync blocker by resolving it.
+  """
+  def update_service_sync_blocker(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateServiceSyncBlocker", input, options)
+  end
+
+  @doc """
+  Update the Proton Ops config file.
+  """
+  def update_service_sync_config(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateServiceSyncConfig", input, options)
   end
 
   @doc """

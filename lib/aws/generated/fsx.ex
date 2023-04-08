@@ -164,8 +164,8 @@ defmodule AWS.FSx do
 
   A data repository association is a link between a directory on the file system
   and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository
-  associations on a file system. Data repository associations are supported only
-  for file systems with the `Persistent_2` deployment type.
+  associations on a file system. Data repository associations are supported for
+  all file systems except for `Scratch_1` deployment type.
 
   Each data repository association must have a unique Amazon FSx file system
   directory and a unique S3 bucket or prefix associated with it. You can configure
@@ -404,8 +404,8 @@ defmodule AWS.FSx do
   Deleting the data repository association unlinks the file system from the Amazon
   S3 bucket. When deleting a data repository association, you have the option of
   deleting the data in the file system that corresponds to the data repository
-  association. Data repository associations are supported only for file systems
-  with the `Persistent_2` deployment type.
+  association. Data repository associations are supported for all file systems
+  except for `Scratch_1` deployment type.
   """
   def delete_data_repository_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -541,9 +541,8 @@ defmodule AWS.FSx do
   data repository associations, if one or more `AssociationIds` values are
   provided in the request, or if filters are used in the request.
 
-  Data repository associations are supported only for Amazon FSx for Lustre file
-  systems with the `Persistent_2` deployment type and for Amazon File Cache
-  resources.
+  Data repository associations are supported on Amazon File Cache resources and
+  all Amazon FSx for Lustre file systems excluding `Scratch_1` deployment types.
 
   You can use filters to narrow the response to include just data repository
   associations for specific file systems (use the `file-system-id` filter with the
@@ -815,8 +814,8 @@ defmodule AWS.FSx do
   Updates the configuration of an existing data repository association on an
   Amazon FSx for Lustre file system.
 
-  Data repository associations are supported only for file systems with the
-  `Persistent_2` deployment type.
+  Data repository associations are supported for all file systems except for
+  `Scratch_1` deployment type.
   """
   def update_data_repository_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -841,8 +840,8 @@ defmodule AWS.FSx do
 
   You can update multiple properties in a single request.
 
-  For Amazon FSx for Windows File Server file systems, you can update the
-  following properties:
+  For FSx for Windows File Server file systems, you can update the following
+  properties:
 
     * `AuditLogConfiguration`
 
@@ -858,7 +857,7 @@ defmodule AWS.FSx do
 
     * `WeeklyMaintenanceStartTime`
 
-  For Amazon FSx for Lustre file systems, you can update the following properties:
+  For FSx for Lustre file systems, you can update the following properties:
 
     * `AutoImportPolicy`
 
@@ -874,8 +873,9 @@ defmodule AWS.FSx do
 
     * `WeeklyMaintenanceStartTime`
 
-  For Amazon FSx for NetApp ONTAP file systems, you can update the following
-  properties:
+  For FSx for ONTAP file systems, you can update the following properties:
+
+    * `AddRouteTableIds`
 
     * `AutomaticBackupRetentionDays`
 
@@ -885,14 +885,15 @@ defmodule AWS.FSx do
 
     * `FsxAdminPassword`
 
+    * `RemoveRouteTableIds`
+
     * `StorageCapacity`
 
     * `ThroughputCapacity`
 
     * `WeeklyMaintenanceStartTime`
 
-  For the Amazon FSx for OpenZFS file systems, you can update the following
-  properties:
+  For FSx for OpenZFS file systems, you can update the following properties:
 
     * `AutomaticBackupRetentionDays`
 
@@ -901,6 +902,10 @@ defmodule AWS.FSx do
     * `CopyTagsToVolumes`
 
     * `DailyAutomaticBackupStartTime`
+
+    * `DiskIopsConfiguration`
+
+    * `StorageCapacity`
 
     * `ThroughputCapacity`
 

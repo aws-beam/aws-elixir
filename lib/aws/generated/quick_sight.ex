@@ -486,6 +486,39 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Creates a refresh schedule for a dataset.
+
+  You can create up to 5 different schedules for a single dataset.
+  """
+  def create_refresh_schedule(
+        %Client{} = client,
+        aws_account_id,
+        data_set_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates a template either from a `TemplateDefinition` or from an existing Amazon
   QuickSight analysis or template.
 
@@ -775,6 +808,37 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Deletes the dataset refresh properties of the dataset.
+  """
+  def delete_data_set_refresh_properties(
+        %Client{} = client,
+        aws_account_id,
+        data_set_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-properties"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes the data source permanently.
 
   This operation breaks all the datasets that reference the deleted data source.
@@ -967,6 +1031,38 @@ defmodule AWS.QuickSight do
   def delete_namespace(%Client{} = client, aws_account_id, namespace, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes a refresh schedule from a dataset.
+  """
+  def delete_refresh_schedule(
+        %Client{} = client,
+        aws_account_id,
+        data_set_id,
+        schedule_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules/#{AWS.Util.encode_uri(schedule_id)}"
 
     headers = []
     query_params = []
@@ -1484,6 +1580,26 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Describes the refresh properties of a dataset.
+  """
+  def describe_data_set_refresh_properties(
+        %Client{} = client,
+        aws_account_id,
+        data_set_id,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-properties"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Describes a data source.
   """
   def describe_data_source(%Client{} = client, aws_account_id, data_source_id, options \\ []) do
@@ -1674,6 +1790,27 @@ defmodule AWS.QuickSight do
   def describe_namespace(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Provides a summary of a refresh schedule.
+  """
+  def describe_refresh_schedule(
+        %Client{} = client,
+        aws_account_id,
+        data_set_id,
+        schedule_id,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules/#{AWS.Util.encode_uri(schedule_id)}"
 
     headers = []
     query_params = []
@@ -2632,6 +2769,23 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Lists the refresh schedules of a dataset.
+
+  Each dataset can have up to 5 schedules.
+  """
+  def list_refresh_schedules(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Lists the tags assigned to a resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
@@ -2935,6 +3089,27 @@ defmodule AWS.QuickSight do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Creates or updates the dataset refresh properties for the dataset.
+  """
+  def put_data_set_refresh_properties(
+        %Client{} = client,
+        aws_account_id,
+        data_set_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-properties"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -3588,6 +3763,27 @@ defmodule AWS.QuickSight do
   """
   def update_public_sharing_settings(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/public-sharing-settings"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates a refresh schedule for a dataset.
+  """
+  def update_refresh_schedule(
+        %Client{} = client,
+        aws_account_id,
+        data_set_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules"
+
     headers = []
     query_params = []
 

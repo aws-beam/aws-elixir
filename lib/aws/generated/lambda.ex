@@ -264,6 +264,8 @@ defmodule AWS.Lambda do
 
     * [ Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
 
+    * [ Amazon DocumentDB](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
+
   The following error handling options are available only for stream sources
   (DynamoDB and Kinesis):
 
@@ -298,6 +300,8 @@ defmodule AWS.Lambda do
     * [ Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms)
 
     * [ Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms)
+
+    * [ Amazon DocumentDB](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration)
   """
   def create_event_source_mapping(%Client{} = client, input, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings/"
@@ -1164,6 +1168,54 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Configure your Lambda functions to stream response payloads back to clients.
+
+  For more information, see [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+  """
+  def invoke_with_response_stream(%Client{} = client, function_name, input, options \\ []) do
+    url_path =
+      "/2021-11-15/functions/#{AWS.Util.encode_uri(function_name)}/response-streaming-invocations"
+
+    {headers, input} =
+      [
+        {"ClientContext", "X-Amz-Client-Context"},
+        {"InvocationType", "X-Amz-Invocation-Type"},
+        {"LogType", "X-Amz-Log-Type"}
+      ]
+      |> Request.build_params(input)
+
+    {query_params, input} =
+      [
+        {"Qualifier", "Qualifier"}
+      ]
+      |> Request.build_params(input)
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"X-Amz-Executed-Version", "ExecutedVersion"},
+          {"Content-Type", "ResponseStreamContentType"}
+        ]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns a list of
   [aliases](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html)
   for a Lambda function.
@@ -2026,6 +2078,8 @@ defmodule AWS.Lambda do
 
     * [ Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
 
+    * [ Amazon DocumentDB](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
+
   The following error handling options are available only for stream sources
   (DynamoDB and Kinesis):
 
@@ -2060,6 +2114,8 @@ defmodule AWS.Lambda do
     * [ Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms)
 
     * [ Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms)
+
+    * [ Amazon DocumentDB](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration)
   """
   def update_event_source_mapping(%Client{} = client, uuid, input, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings/#{AWS.Util.encode_uri(uuid)}"

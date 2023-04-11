@@ -256,6 +256,9 @@ defmodule AWS.Rekognition do
   call `DescribeProjectVersions` and check the value of `Status` in the
   `ProjectVersionDescription` object. The copy operation has finished when the
   value of `Status` is `COPYING_COMPLETED`.
+
+  This operation requires permissions to perform the
+  `rekognition:CopyProjectVersion` action.
   """
   def copy_project_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -320,6 +323,23 @@ defmodule AWS.Rekognition do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateDataset", input, options)
+  end
+
+  @doc """
+  This API operation initiates a Face Liveness session.
+
+  It returns a `SessionId`, which you can use to start streaming Face Liveness
+  video and get the results for a Face Liveness session. You can use the
+  `OutputConfig` option in the Settings parameter to provide an Amazon S3 bucket
+  location. The Amazon S3 bucket stores reference images and audit images. You can
+  use `AuditImagesLimit` to limit of audit images returned. This number is between
+  0 and 4. By default, it is set to 0. The limit is best effort and based on the
+  duration of the selfie-video.
+  """
+  def create_face_liveness_session(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFaceLivenessSession", input, options)
   end
 
   @doc """
@@ -394,21 +414,21 @@ defmodule AWS.Rekognition do
 
     * If you are creating a stream processor for detecting faces, you
   provide as input a Kinesis video stream (`Input`) and a Kinesis data stream
-  (`Output`) stream. You also specify the face recognition criteria in `Settings`.
-  For example, the collection containing faces that you want to recognize. After
-  you have finished analyzing a streaming video, use `StopStreamProcessor` to stop
-  processing.
+  (`Output`) stream for receiving the output. You must use the `FaceSearch` option
+  in `Settings`, specifying the collection that contains the faces you want to
+  recognize. After you have finished analyzing a streaming video, use
+  `StopStreamProcessor` to stop processing.
 
     * If you are creating a stream processor to detect labels, you
   provide as input a Kinesis video stream (`Input`), Amazon S3 bucket information
   (`Output`), and an Amazon SNS topic ARN (`NotificationChannel`). You can also
   provide a KMS key ID to encrypt the data sent to your Amazon S3 bucket. You
-  specify what you want to detect in `ConnectedHomeSettings`, such as people,
-  packages and people, or pets, people, and packages. You can also specify where
-  in the frame you want Amazon Rekognition to monitor with `RegionsOfInterest`.
-  When you run the `StartStreamProcessor` operation on a label detection stream
-  processor, you input start and stop information to determine the length of the
-  processing time.
+  specify what you want to detect by using the `ConnectedHome` option in settings,
+  and selecting one of the following: `PERSON`, `PET`, `PACKAGE`, `ALL` You can
+  also specify where in the frame you want Amazon Rekognition to monitor with
+  `RegionsOfInterest`. When you run the `StartStreamProcessor` operation on a
+  label detection stream processor, you input start and stop information to
+  determine the length of the processing time.
 
   Use `Name` to assign an identifier for the stream processor. You use `Name` to
   manage the stream processor. For example, you can start processing the source
@@ -502,6 +522,9 @@ defmodule AWS.Rekognition do
   To get a list of project policies attached to a project, call
   `ListProjectPolicies`. To attach a project policy to a project, call
   `PutProjectPolicy`.
+
+  This operation requires permissions to perform the
+  `rekognition:DeleteProjectPolicy` action.
   """
   def delete_project_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -730,7 +753,7 @@ defmodule AWS.Rekognition do
   ## Response Elements
 
   For each object, scene, and concept the API returns one or more labels. The API
-  returns the following types of information regarding labels:
+  returns the following types of information about labels:
 
     * Name - The name of the detected label.
 
@@ -799,8 +822,7 @@ defmodule AWS.Rekognition do
   If the object detected is a person, the operation doesn't provide the same
   facial details that the `DetectFaces` operation provides.
 
-  This is a stateless API operation. That is, the operation does not persist any
-  data.
+  This is a stateless API operation that doesn't return any data.
 
   This operation requires permissions to perform the `rekognition:DetectLabels`
   action.
@@ -1101,6 +1123,21 @@ defmodule AWS.Rekognition do
     meta = metadata()
 
     Request.request_post(client, meta, "GetFaceDetection", input, options)
+  end
+
+  @doc """
+  Retrieves the results of a specific Face Liveness session.
+
+  It requires the `sessionId` as input, which was created using
+  `CreateFaceLivenessSession`. Returns the corresponding Face Liveness confidence
+  score, a reference image that includes a face bounding box, and audit images
+  that also contain face bounding boxes. The Face Liveness confidence score ranges
+  from 0 to 100. The reference image can optionally be returned.
+  """
+  def get_face_liveness_session_results(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetFaceLivenessSessionResults", input, options)
   end
 
   @doc """
@@ -1523,6 +1560,9 @@ defmodule AWS.Rekognition do
 
   To attach a project policy to a project, call `PutProjectPolicy`. To remove a
   project policy from a project, call `DeleteProjectPolicy`.
+
+  This operation requires permissions to perform the
+  `rekognition:ListProjectPolicies` action.
   """
   def list_project_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1574,6 +1614,9 @@ defmodule AWS.Rekognition do
   list of project policies attached to a project, call `ListProjectPolicies`.
 
   You copy a model version by calling `CopyProjectVersion`.
+
+  This operation requires permissions to perform the
+  `rekognition:PutProjectPolicy` action.
   """
   def put_project_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1952,6 +1995,9 @@ defmodule AWS.Rekognition do
 
   The operation might take a while to complete. To check the current status, call
   `DescribeProjectVersions`.
+
+  This operation requires permissions to perform the
+  `rekognition:StopProjectVersion` action.
   """
   def stop_project_version(%Client{} = client, input, options \\ []) do
     meta = metadata()

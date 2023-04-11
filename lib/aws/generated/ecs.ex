@@ -481,7 +481,7 @@ defmodule AWS.ECS do
   condition key value and the corresponding parameter value.
 
   For information about required permissions and considerations, see [Using Amazon ECS Exec for
-  debugging](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.htm)
+  debugging](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html)
   in the *Amazon ECS Developer Guide*.
   """
   def execute_command(%Client{} = client, input, options \\ []) do
@@ -633,9 +633,9 @@ defmodule AWS.ECS do
 
   Account settings are set on a per-Region basis.
 
-  If you change the account setting for the root user, the default settings for
-  all of the users and roles that no individual account setting was specified are
-  reset for. For more information, see [Account Settings](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html)
+  If you change the root user account setting, the default settings are reset for
+  users and roles that do not have specified individual account settings. For more
+  information, see [Account Settings](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
   When `serviceLongArnFormat`, `taskLongArnFormat`, or
@@ -649,16 +649,16 @@ defmodule AWS.ECS do
 
   When `awsvpcTrunking` is specified, the elastic network interface (ENI) limit
   for any new container instances that support the feature is changed. If
-  `awsvpcTrunking` is enabled, any new container instances that support the
+  `awsvpcTrunking` is turned on, any new container instances that support the
   feature are launched have the increased ENI limits available to them. For more
   information, see [Elastic Network Interface Trunking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-eni.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
   When `containerInsights` is specified, the default setting indicating whether
-  CloudWatch Container Insights is enabled for your clusters is changed. If
-  `containerInsights` is enabled, any new clusters that are created will have
-  Container Insights enabled unless you disable it during cluster creation. For
-  more information, see [CloudWatch Container Insights](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html)
+  Amazon Web Services CloudWatch Container Insights is turned on for your clusters
+  is changed. If `containerInsights` is turned on, any new clusters that are
+  created will have Container Insights turned on unless you disable it during
+  cluster creation. For more information, see [CloudWatch Container Insights](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html)
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def put_account_setting(%Client{} = client, input, options \\ []) do
@@ -1162,7 +1162,7 @@ defmodule AWS.ECS do
   during scale-in events from [Service Autoscaling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html)
   or
   [deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).  Task-protection, by default, expires after 2 hours at which point Amazon ECS
-  unsets the `protectionEnabled` property making the task eligible for termination
+  clears the `protectionEnabled` property making the task eligible for termination
   by a subsequent scale-in event.
 
   You can specify a custom expiration period for task protection from 1 minute to

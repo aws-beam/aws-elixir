@@ -344,11 +344,12 @@ defmodule AWS.EMRServerless do
   @doc """
   Assigns tags to resources.
 
-  A tag is a label that you assign to an AWS resource. Each tag consists of a key
-  and an optional value, both of which you define. Tags enable you to categorize
-  your AWS resources by attributes such as purpose, owner, or environment. When
-  you have many resources of the same type, you can quickly identify a specific
-  resource based on the tags you've assigned to it.
+  A tag is a label that you assign to an Amazon Web Services resource. Each tag
+  consists of a key and an optional value, both of which you define. Tags enable
+  you to categorize your Amazon Web Services resources by attributes such as
+  purpose, owner, or environment. When you have many resources of the same type,
+  you can quickly identify a specific resource based on the tags you've assigned
+  to it.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

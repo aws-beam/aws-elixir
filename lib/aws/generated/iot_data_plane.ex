@@ -80,7 +80,7 @@ defmodule AWS.IoTDataPlane do
 
   This action returns the message payload of the retained message, which can incur
   messaging costs. To list only the topic names of the retained messages, call
-  [ListRetainedMessages](/iot/latest/developerguide/API_iotdata_ListRetainedMessages.html).  Requires permission to access the
+  [ListRetainedMessages](https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_ListRetainedMessages.html).  Requires permission to access the
   [GetRetainedMessage](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions)
   action.
 
@@ -168,7 +168,7 @@ defmodule AWS.IoTDataPlane do
   payload, it can still incur messaging costs.
 
   To get the message payload of a retained message, call
-  [GetRetainedMessage](https://docs.aws.amazon.com/iot/latest/developerguide/API_iotdata_GetRetainedMessage.html) with the topic name of the retained message.
+  [GetRetainedMessage](https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_GetRetainedMessage.html) with the topic name of the retained message.
 
   Requires permission to access the
   [ListRetainedMessages](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions)

@@ -281,6 +281,8 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
+  For use by AWS Ground Station Agent and shouldn't be called directly.
+
   Gets the latest configuration information for a registered agent.
   """
   def get_agent_configuration(%Client{} = client, agent_id, options \\ []) do
@@ -597,7 +599,9 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
-  Registers a new agent with AWS Groundstation.
+  For use by AWS Ground Station Agent and shouldn't be called directly.
+
+  Registers a new agent with AWS Ground Station.
   """
   def register_agent(%Client{} = client, input, options \\ []) do
     url_path = "/agent"
@@ -694,6 +698,8 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
+  For use by AWS Ground Station Agent and shouldn't be called directly.
+
   Update the status of the agent.
   """
   def update_agent_status(%Client{} = client, agent_id, input, options \\ []) do

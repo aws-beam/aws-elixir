@@ -26,6 +26,52 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
+  Adds outputs to an existing bridge.
+  """
+  def add_bridge_outputs(%Client{} = client, bridge_arn, input, options \\ []) do
+    url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/outputs"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Adds sources to an existing bridge.
+  """
+  def add_bridge_sources(%Client{} = client, bridge_arn, input, options \\ []) do
+    url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/sources"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Adds media streams to an existing flow.
 
   After you add a media stream to a flow, you can associate it with a source
@@ -123,6 +169,31 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
+  Creates a new bridge.
+
+  The request must include one source.
+  """
+  def create_bridge(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/bridges"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a new flow.
 
   The request must include one source. The request optionally can include outputs
@@ -145,6 +216,56 @@ defmodule AWS.MediaConnect do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Creates a new gateway.
+
+  The request must include at least one network (up to 4).
+  """
+  def create_gateway(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/gateways"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Deletes a bridge.
+
+  Before you can delete a bridge, you must stop the bridge.
+  """
+  def delete_bridge(%Client{} = client, bridge_arn, input, options \\ []) do
+    url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -174,6 +295,77 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
+  Deletes a gateway.
+
+  Before you can delete a gateway, you must deregister its instances and delete
+  its bridges.
+  """
+  def delete_gateway(%Client{} = client, gateway_arn, input, options \\ []) do
+    url_path = "/v1/gateways/#{AWS.Util.encode_uri(gateway_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deregisters an instance.
+
+  Before you deregister an instance, all bridges running on the instance must be
+  stopped. If you want to deregister an instance without stopping the bridges, you
+  must use the --force option.
+  """
+  def deregister_gateway_instance(%Client{} = client, gateway_instance_arn, input, options \\ []) do
+    url_path = "/v1/gateway-instances/#{AWS.Util.encode_uri(gateway_instance_arn)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"Force", "force"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Displays the details of a bridge.
+  """
+  def describe_bridge(%Client{} = client, bridge_arn, options \\ []) do
+    url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Displays the details of a flow.
 
   The response includes the flow ARN, name, and Availability Zone, as well as
@@ -181,6 +373,35 @@ defmodule AWS.MediaConnect do
   """
   def describe_flow(%Client{} = client, flow_arn, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Displays the details of a gateway.
+
+  The response includes the gateway ARN, name, and CIDR blocks, as well as details
+  about the networks.
+  """
+  def describe_gateway(%Client{} = client, gateway_arn, options \\ []) do
+    url_path = "/v1/gateways/#{AWS.Util.encode_uri(gateway_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Displays the details of an instance.
+  """
+  def describe_gateway_instance(%Client{} = client, gateway_instance_arn, options \\ []) do
+    url_path = "/v1/gateway-instances/#{AWS.Util.encode_uri(gateway_instance_arn)}"
     headers = []
     query_params = []
 
@@ -246,6 +467,49 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
+  Displays a list of bridges that are associated with this account and an
+  optionally specified Arn.
+
+  This request returns a paginated result.
+  """
+  def list_bridges(
+        %Client{} = client,
+        filter_arn \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/bridges"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(filter_arn) do
+        [{"filterArn", filter_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Displays a list of all entitlements that have been granted to this account.
 
   This request returns 20 results per page.
@@ -281,6 +545,79 @@ defmodule AWS.MediaConnect do
   """
   def list_flows(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v1/flows"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Displays a list of instances associated with the AWS account.
+
+  This request returns a paginated result. You can use the filterArn property to
+  display only the instances associated with the selected Gateway Amazon Resource
+  Name (ARN).
+  """
+  def list_gateway_instances(
+        %Client{} = client,
+        filter_arn \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/gateway-instances"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(filter_arn) do
+        [{"filterArn", filter_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Displays a list of gateways that are associated with this account.
+
+  This request returns a paginated result.
+  """
+  def list_gateways(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/v1/gateways"
     headers = []
     query_params = []
 
@@ -400,6 +737,56 @@ defmodule AWS.MediaConnect do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Removes an output from a bridge.
+  """
+  def remove_bridge_output(%Client{} = client, bridge_arn, output_name, input, options \\ []) do
+    url_path =
+      "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/outputs/#{AWS.Util.encode_uri(output_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Removes a source from a bridge.
+  """
+  def remove_bridge_source(%Client{} = client, bridge_arn, source_name, input, options \\ []) do
+    url_path =
+      "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/sources/#{AWS.Util.encode_uri(source_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -660,6 +1047,62 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
+  Updates the bridge
+  """
+  def update_bridge(%Client{} = client, bridge_arn, input, options \\ []) do
+    url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+  end
+
+  @doc """
+  Updates an existing bridge output.
+  """
+  def update_bridge_output(%Client{} = client, bridge_arn, output_name, input, options \\ []) do
+    url_path =
+      "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/outputs/#{AWS.Util.encode_uri(output_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+  end
+
+  @doc """
+  Updates an existing bridge source.
+  """
+  def update_bridge_source(%Client{} = client, bridge_arn, source_name, input, options \\ []) do
+    url_path =
+      "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/sources/#{AWS.Util.encode_uri(source_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+  end
+
+  @doc """
+  Updates the bridge state
+  """
+  def update_bridge_state(%Client{} = client, bridge_arn, input, options \\ []) do
+    url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/state"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+  end
+
+  @doc """
   Updates flow
   """
   def update_flow(%Client{} = client, flow_arn, input, options \\ []) do
@@ -739,5 +1182,18 @@ defmodule AWS.MediaConnect do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+  end
+
+  @doc """
+  Updates the configuration of an existing Gateway Instance.
+  """
+  def update_gateway_instance(%Client{} = client, gateway_instance_arn, input, options \\ []) do
+    url_path = "/v1/gateway-instances/#{AWS.Util.encode_uri(gateway_instance_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 end

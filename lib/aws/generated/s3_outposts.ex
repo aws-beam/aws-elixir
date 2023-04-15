@@ -46,6 +46,7 @@ defmodule AWS.S3Outposts do
     Request.request_rest(
       client,
       meta,
+      "CreateEndpoint",
       :post,
       url_path,
       query_params,
@@ -83,6 +84,7 @@ defmodule AWS.S3Outposts do
     Request.request_rest(
       client,
       meta,
+      "DeleteEndpoint",
       :delete,
       url_path,
       query_params,
@@ -123,7 +125,18 @@ defmodule AWS.S3Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListEndpoints",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -206,6 +219,17 @@ defmodule AWS.S3Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSharedEndpoints",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 end

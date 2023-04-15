@@ -44,7 +44,18 @@ defmodule AWS.IoT1ClickProjects do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateDeviceWithPlacement",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -60,6 +71,7 @@ defmodule AWS.IoT1ClickProjects do
     Request.request_rest(
       client,
       meta,
+      "CreatePlacement",
       :post,
       url_path,
       query_params,
@@ -86,6 +98,7 @@ defmodule AWS.IoT1ClickProjects do
     Request.request_rest(
       client,
       meta,
+      "CreateProject",
       :post,
       url_path,
       query_params,
@@ -115,6 +128,7 @@ defmodule AWS.IoT1ClickProjects do
     Request.request_rest(
       client,
       meta,
+      "DeletePlacement",
       :delete,
       url_path,
       query_params,
@@ -142,6 +156,7 @@ defmodule AWS.IoT1ClickProjects do
     Request.request_rest(
       client,
       meta,
+      "DeleteProject",
       :delete,
       url_path,
       query_params,
@@ -164,7 +179,18 @@ defmodule AWS.IoT1ClickProjects do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribePlacement",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -177,7 +203,18 @@ defmodule AWS.IoT1ClickProjects do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeProject",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -202,6 +239,7 @@ defmodule AWS.IoT1ClickProjects do
     Request.request_rest(
       client,
       meta,
+      "DisassociateDeviceFromPlacement",
       :delete,
       url_path,
       query_params,
@@ -224,7 +262,18 @@ defmodule AWS.IoT1ClickProjects do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDevicesInPlacement",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -257,7 +306,18 @@ defmodule AWS.IoT1ClickProjects do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPlacements",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -285,7 +345,18 @@ defmodule AWS.IoT1ClickProjects do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProjects",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -299,7 +370,18 @@ defmodule AWS.IoT1ClickProjects do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -318,6 +400,7 @@ defmodule AWS.IoT1ClickProjects do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -346,6 +429,7 @@ defmodule AWS.IoT1ClickProjects do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -370,7 +454,18 @@ defmodule AWS.IoT1ClickProjects do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdatePlacement",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -387,6 +482,17 @@ defmodule AWS.IoT1ClickProjects do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateProject",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

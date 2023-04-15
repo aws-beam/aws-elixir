@@ -44,6 +44,7 @@ defmodule AWS.ApiGatewayManagementApi do
     Request.request_rest(
       client,
       meta,
+      "DeleteConnection",
       :delete,
       url_path,
       query_params,
@@ -64,7 +65,18 @@ defmodule AWS.ApiGatewayManagementApi do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetConnection",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -80,6 +92,7 @@ defmodule AWS.ApiGatewayManagementApi do
     Request.request_rest(
       client,
       meta,
+      "PostToConnection",
       :post,
       url_path,
       query_params,

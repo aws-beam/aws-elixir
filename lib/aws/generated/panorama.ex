@@ -45,6 +45,7 @@ defmodule AWS.Panorama do
     Request.request_rest(
       client,
       meta,
+      "CreateApplicationInstance",
       :post,
       url_path,
       query_params,
@@ -70,6 +71,7 @@ defmodule AWS.Panorama do
     Request.request_rest(
       client,
       meta,
+      "CreateJobForDevices",
       :post,
       url_path,
       query_params,
@@ -93,6 +95,7 @@ defmodule AWS.Panorama do
     Request.request_rest(
       client,
       meta,
+      "CreateNodeFromTemplateJob",
       :post,
       url_path,
       query_params,
@@ -116,6 +119,7 @@ defmodule AWS.Panorama do
     Request.request_rest(
       client,
       meta,
+      "CreatePackage",
       :post,
       url_path,
       query_params,
@@ -139,6 +143,7 @@ defmodule AWS.Panorama do
     Request.request_rest(
       client,
       meta,
+      "CreatePackageImportJob",
       :post,
       url_path,
       query_params,
@@ -162,6 +167,7 @@ defmodule AWS.Panorama do
     Request.request_rest(
       client,
       meta,
+      "DeleteDevice",
       :delete,
       url_path,
       query_params,
@@ -193,6 +199,7 @@ defmodule AWS.Panorama do
     Request.request_rest(
       client,
       meta,
+      "DeletePackage",
       :delete,
       url_path,
       query_params,
@@ -231,6 +238,7 @@ defmodule AWS.Panorama do
     Request.request_rest(
       client,
       meta,
+      "DeregisterPackageVersion",
       :delete,
       url_path,
       query_params,
@@ -251,7 +259,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeApplicationInstance",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -268,7 +287,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeApplicationInstanceDetails",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -281,7 +311,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDevice",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -294,7 +335,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDeviceJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -314,7 +366,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeNode",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -327,7 +390,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeNodeFromTemplateJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -340,7 +414,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribePackage",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -353,7 +438,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribePackageImportJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -389,7 +485,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribePackageVersion",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -424,7 +531,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListApplicationInstanceDependencies",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -459,7 +577,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListApplicationInstanceNodeInstances",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -507,7 +636,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListApplicationInstances",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -571,7 +711,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDevices",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -611,7 +762,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDevicesJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -643,7 +805,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListNodeFromTemplateJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -715,7 +888,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListNodes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -747,7 +931,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPackageImportJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -774,7 +969,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPackages",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -787,7 +993,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -809,6 +1026,7 @@ defmodule AWS.Panorama do
     Request.request_rest(
       client,
       meta,
+      "ProvisionDevice",
       :post,
       url_path,
       query_params,
@@ -838,7 +1056,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "RegisterPackageVersion",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -859,6 +1088,7 @@ defmodule AWS.Panorama do
     Request.request_rest(
       client,
       meta,
+      "RemoveApplicationInstance",
       :delete,
       url_path,
       query_params,
@@ -886,7 +1116,18 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "SignalApplicationInstanceNodeInstances",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -902,6 +1143,7 @@ defmodule AWS.Panorama do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -930,6 +1172,7 @@ defmodule AWS.Panorama do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -950,6 +1193,17 @@ defmodule AWS.Panorama do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDeviceMetadata",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

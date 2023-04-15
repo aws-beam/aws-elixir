@@ -63,6 +63,7 @@ defmodule AWS.LexRuntimeV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteSession",
       :delete,
       url_path,
       query_params,
@@ -92,7 +93,18 @@ defmodule AWS.LexRuntimeV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSession",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -138,6 +150,7 @@ defmodule AWS.LexRuntimeV2 do
     Request.request_rest(
       client,
       meta,
+      "PutSession",
       :post,
       url_path,
       query_params,
@@ -196,6 +209,7 @@ defmodule AWS.LexRuntimeV2 do
     Request.request_rest(
       client,
       meta,
+      "RecognizeText",
       :post,
       url_path,
       query_params,
@@ -301,6 +315,7 @@ defmodule AWS.LexRuntimeV2 do
     Request.request_rest(
       client,
       meta,
+      "RecognizeUtterance",
       :post,
       url_path,
       query_params,
@@ -381,6 +396,7 @@ defmodule AWS.LexRuntimeV2 do
     Request.request_rest(
       client,
       meta,
+      "StartConversation",
       :post,
       url_path,
       query_params,

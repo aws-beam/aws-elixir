@@ -50,6 +50,7 @@ defmodule AWS.MobileAnalytics do
     Request.request_rest(
       client,
       meta,
+      "PutEvents",
       :post,
       url_path,
       query_params,

@@ -62,6 +62,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "AcceptAdministratorInvitation",
       :post,
       url_path,
       query_params,
@@ -85,6 +86,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "AcceptInvitation",
       :post,
       url_path,
       query_params,
@@ -111,6 +113,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "ArchiveFindings",
       :post,
       url_path,
       query_params,
@@ -143,6 +146,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "CreateDetector",
       :post,
       url_path,
       query_params,
@@ -169,6 +173,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "CreateFilter",
       :post,
       url_path,
       query_params,
@@ -198,6 +203,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "CreateIPSet",
       :post,
       url_path,
       query_params,
@@ -234,6 +240,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "CreateMembers",
       :post,
       url_path,
       query_params,
@@ -259,6 +266,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "CreatePublishingDestination",
       :post,
       url_path,
       query_params,
@@ -285,6 +293,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "CreateSampleFindings",
       :post,
       url_path,
       query_params,
@@ -312,6 +321,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "CreateThreatIntelSet",
       :post,
       url_path,
       query_params,
@@ -336,6 +346,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "DeclineInvitations",
       :post,
       url_path,
       query_params,
@@ -359,6 +370,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "DeleteDetector",
       :delete,
       url_path,
       query_params,
@@ -384,6 +396,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "DeleteFilter",
       :delete,
       url_path,
       query_params,
@@ -408,6 +421,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "DeleteInvitations",
       :post,
       url_path,
       query_params,
@@ -435,6 +449,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "DeleteIPSet",
       :delete,
       url_path,
       query_params,
@@ -463,6 +478,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "DeleteMembers",
       :post,
       url_path,
       query_params,
@@ -494,6 +510,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "DeletePublishingDestination",
       :delete,
       url_path,
       query_params,
@@ -525,6 +542,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "DeleteThreatIntelSet",
       :delete,
       url_path,
       query_params,
@@ -555,6 +573,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "DescribeMalwareScans",
       :post,
       url_path,
       query_params,
@@ -600,7 +619,18 @@ defmodule AWS.GuardDuty do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeOrganizationConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -621,7 +651,18 @@ defmodule AWS.GuardDuty do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribePublishingDestination",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -638,6 +679,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "DisableOrganizationAdminAccount",
       :post,
       url_path,
       query_params,
@@ -671,6 +713,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "DisassociateFromAdministratorAccount",
       :post,
       url_path,
       query_params,
@@ -695,6 +738,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "DisassociateFromMasterAccount",
       :post,
       url_path,
       query_params,
@@ -723,6 +767,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "DisassociateMembers",
       :post,
       url_path,
       query_params,
@@ -747,6 +792,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "EnableOrganizationAdminAccount",
       :post,
       url_path,
       query_params,
@@ -768,7 +814,18 @@ defmodule AWS.GuardDuty do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAdministratorAccount",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -813,7 +870,18 @@ defmodule AWS.GuardDuty do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDetector",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -828,7 +896,18 @@ defmodule AWS.GuardDuty do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFilter",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -844,6 +923,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "GetFindings",
       :post,
       url_path,
       query_params,
@@ -867,6 +947,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "GetFindingsStatistics",
       :post,
       url_path,
       query_params,
@@ -888,7 +969,18 @@ defmodule AWS.GuardDuty do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetInvitationsCount",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -903,7 +995,18 @@ defmodule AWS.GuardDuty do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetIPSet",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -920,7 +1023,18 @@ defmodule AWS.GuardDuty do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMalwareScanSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -934,7 +1048,18 @@ defmodule AWS.GuardDuty do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMasterAccount",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -954,6 +1079,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "GetMemberDetectors",
       :post,
       url_path,
       query_params,
@@ -978,6 +1104,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "GetMembers",
       :post,
       url_path,
       query_params,
@@ -1002,6 +1129,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "GetRemainingFreeTrialDays",
       :post,
       url_path,
       query_params,
@@ -1024,7 +1152,18 @@ defmodule AWS.GuardDuty do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetThreatIntelSet",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1046,6 +1185,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "GetUsageStatistics",
       :post,
       url_path,
       query_params,
@@ -1072,6 +1212,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "InviteMembers",
       :post,
       url_path,
       query_params,
@@ -1135,7 +1276,18 @@ defmodule AWS.GuardDuty do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDetectors",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1168,7 +1320,18 @@ defmodule AWS.GuardDuty do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFilters",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1184,6 +1347,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "ListFindings",
       :post,
       url_path,
       query_params,
@@ -1219,7 +1383,18 @@ defmodule AWS.GuardDuty do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListInvitations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1255,7 +1430,18 @@ defmodule AWS.GuardDuty do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListIPSets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1297,7 +1483,18 @@ defmodule AWS.GuardDuty do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListMembers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1329,7 +1526,18 @@ defmodule AWS.GuardDuty do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListOrganizationAdminAccounts",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1363,7 +1571,18 @@ defmodule AWS.GuardDuty do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPublishingDestinations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1380,7 +1599,18 @@ defmodule AWS.GuardDuty do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1416,7 +1646,18 @@ defmodule AWS.GuardDuty do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListThreatIntelSets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1437,6 +1678,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "StartMonitoringMembers",
       :post,
       url_path,
       query_params,
@@ -1467,6 +1709,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "StopMonitoringMembers",
       :post,
       url_path,
       query_params,
@@ -1490,6 +1733,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1513,6 +1757,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "UnarchiveFindings",
       :post,
       url_path,
       query_params,
@@ -1541,6 +1786,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1568,6 +1814,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "UpdateDetector",
       :post,
       url_path,
       query_params,
@@ -1593,6 +1840,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "UpdateFilter",
       :post,
       url_path,
       query_params,
@@ -1616,6 +1864,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "UpdateFindingsFeedback",
       :post,
       url_path,
       query_params,
@@ -1641,6 +1890,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "UpdateIPSet",
       :post,
       url_path,
       query_params,
@@ -1668,6 +1918,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "UpdateMalwareScanSettings",
       :post,
       url_path,
       query_params,
@@ -1695,6 +1946,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "UpdateMemberDetectors",
       :post,
       url_path,
       query_params,
@@ -1725,6 +1977,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "UpdateOrganizationConfiguration",
       :post,
       url_path,
       query_params,
@@ -1757,6 +2010,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "UpdatePublishingDestination",
       :post,
       url_path,
       query_params,
@@ -1788,6 +2042,7 @@ defmodule AWS.GuardDuty do
     Request.request_rest(
       client,
       meta,
+      "UpdateThreatIntelSet",
       :post,
       url_path,
       query_params,

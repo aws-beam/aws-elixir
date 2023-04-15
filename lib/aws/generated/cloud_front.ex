@@ -61,7 +61,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateAlias",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -100,6 +111,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "CopyDistribution",
       :post,
       url_path,
       query_params,
@@ -150,6 +162,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "CreateCachePolicy",
       :post,
       url_path,
       query_params,
@@ -186,6 +199,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "CreateCloudFrontOriginAccessIdentity",
       :post,
       url_path,
       query_params,
@@ -226,6 +240,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "CreateContinuousDeploymentPolicy",
       :post,
       url_path,
       query_params,
@@ -256,6 +271,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "CreateDistribution",
       :post,
       url_path,
       query_params,
@@ -286,6 +302,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "CreateDistributionWithTags",
       :post,
       url_path,
       query_params,
@@ -316,6 +333,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "CreateFieldLevelEncryptionConfig",
       :post,
       url_path,
       query_params,
@@ -346,6 +364,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "CreateFieldLevelEncryptionProfile",
       :post,
       url_path,
       query_params,
@@ -388,6 +407,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "CreateFunction",
       :post,
       url_path,
       query_params,
@@ -418,6 +438,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "CreateInvalidation",
       :post,
       url_path,
       query_params,
@@ -458,6 +479,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "CreateKeyGroup",
       :post,
       url_path,
       query_params,
@@ -488,6 +510,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "CreateMonitoringSubscription",
       :post,
       url_path,
       query_params,
@@ -529,6 +552,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "CreateOriginAccessControl",
       :post,
       url_path,
       query_params,
@@ -583,6 +607,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "CreateOriginRequestPolicy",
       :post,
       url_path,
       query_params,
@@ -614,6 +639,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "CreatePublicKey",
       :post,
       url_path,
       query_params,
@@ -644,6 +670,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "CreateRealtimeLogConfig",
       :post,
       url_path,
       query_params,
@@ -688,6 +715,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "CreateResponseHeadersPolicy",
       :post,
       url_path,
       query_params,
@@ -722,6 +750,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "CreateStreamingDistribution",
       :post,
       url_path,
       query_params,
@@ -756,6 +785,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "CreateStreamingDistributionWithTags",
       :post,
       url_path,
       query_params,
@@ -792,6 +822,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "DeleteCachePolicy",
       :delete,
       url_path,
       query_params,
@@ -821,6 +852,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "DeleteCloudFrontOriginAccessIdentity",
       :delete,
       url_path,
       query_params,
@@ -854,6 +886,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "DeleteContinuousDeploymentPolicy",
       :delete,
       url_path,
       query_params,
@@ -883,6 +916,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "DeleteDistribution",
       :delete,
       url_path,
       query_params,
@@ -912,6 +946,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "DeleteFieldLevelEncryptionConfig",
       :delete,
       url_path,
       query_params,
@@ -941,6 +976,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "DeleteFieldLevelEncryptionProfile",
       :delete,
       url_path,
       query_params,
@@ -977,6 +1013,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "DeleteFunction",
       :delete,
       url_path,
       query_params,
@@ -1014,6 +1051,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "DeleteKeyGroup",
       :delete,
       url_path,
       query_params,
@@ -1040,6 +1078,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "DeleteMonitoringSubscription",
       :delete,
       url_path,
       query_params,
@@ -1073,6 +1112,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "DeleteOriginAccessControl",
       :delete,
       url_path,
       query_params,
@@ -1110,6 +1150,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "DeleteOriginRequestPolicy",
       :delete,
       url_path,
       query_params,
@@ -1139,6 +1180,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "DeletePublicKey",
       :delete,
       url_path,
       query_params,
@@ -1172,6 +1214,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "DeleteRealtimeLogConfig",
       :post,
       url_path,
       query_params,
@@ -1209,6 +1252,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "DeleteResponseHeadersPolicy",
       :delete,
       url_path,
       query_params,
@@ -1277,6 +1321,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "DeleteStreamingDistribution",
       :delete,
       url_path,
       query_params,
@@ -1317,7 +1362,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeFunction",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1347,7 +1403,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCachePolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1373,7 +1440,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCachePolicyConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1393,7 +1471,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCloudFrontOriginAccessIdentity",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1413,7 +1502,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCloudFrontOriginAccessIdentityConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1434,7 +1534,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetContinuousDeploymentPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1454,7 +1565,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetContinuousDeploymentPolicyConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1474,7 +1596,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDistribution",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1494,7 +1627,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDistributionConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1514,7 +1658,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFieldLevelEncryption",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1534,7 +1689,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFieldLevelEncryptionConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1554,7 +1720,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFieldLevelEncryptionProfile",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1574,7 +1751,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFieldLevelEncryptionProfileConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1607,7 +1795,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFunction",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1622,7 +1821,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetInvalidation",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1649,7 +1859,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetKeyGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1675,7 +1896,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetKeyGroupConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1691,7 +1923,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMonitoringSubscription",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1711,7 +1954,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetOriginAccessControl",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1731,7 +1985,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetOriginAccessControlConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1761,7 +2026,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetOriginRequestPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1787,7 +2063,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetOriginRequestPolicyConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1807,7 +2094,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPublicKey",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1827,7 +2125,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPublicKeyConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1848,6 +2157,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "GetRealtimeLogConfig",
       :post,
       url_path,
       query_params,
@@ -1882,7 +2192,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetResponseHeadersPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1908,7 +2229,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetResponseHeadersPolicyConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1929,7 +2261,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetStreamingDistribution",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1949,7 +2292,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetStreamingDistributionConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1999,7 +2353,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCachePolicies",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2031,7 +2396,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCloudFrontOriginAccessIdentities",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2107,7 +2483,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListConflictingAliases",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2146,7 +2533,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListContinuousDeploymentPolicies",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2173,7 +2571,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDistributions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2213,7 +2622,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDistributionsByCachePolicyId",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2253,7 +2673,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDistributionsByKeyGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2295,7 +2726,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDistributionsByOriginRequestPolicyId",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2323,6 +2765,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "ListDistributionsByRealtimeLogConfig",
       :post,
       url_path,
       query_params,
@@ -2372,7 +2815,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDistributionsByResponseHeadersPolicyId",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2405,7 +2859,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDistributionsByWebACLId",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2438,7 +2903,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFieldLevelEncryptionConfigs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2471,7 +2947,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFieldLevelEncryptionProfiles",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2520,7 +3007,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFunctions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2553,7 +3051,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListInvalidations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2586,7 +3095,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListKeyGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2625,7 +3145,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListOriginAccessControls",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2675,7 +3206,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListOriginRequestPolicies",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2702,7 +3244,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPublicKeys",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2740,7 +3293,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRealtimeLogConfigs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2790,7 +3354,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListResponseHeadersPolicies",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2822,7 +3397,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListStreamingDistributions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2842,7 +3428,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2875,6 +3472,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "PublishFunction",
       :post,
       url_path,
       query_params,
@@ -2903,6 +3501,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -2944,6 +3543,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "TestFunction",
       :post,
       url_path,
       query_params,
@@ -2972,6 +3572,7 @@ defmodule AWS.CloudFront do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :post,
       url_path,
       query_params,
@@ -3017,7 +3618,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateCachePolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3043,7 +3655,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateCloudFrontOriginAccessIdentity",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3088,7 +3711,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateContinuousDeploymentPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3138,7 +3772,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDistribution",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3207,7 +3852,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateFieldLevelEncryptionConfig",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3233,7 +3889,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateFieldLevelEncryptionProfile",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3266,7 +3933,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateFunction",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3305,7 +3983,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateKeyGroup",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3331,7 +4020,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateOriginAccessControl",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3371,7 +4071,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateOriginRequestPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3399,7 +4110,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdatePublicKey",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3428,7 +4150,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateRealtimeLogConfig",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3468,7 +4201,18 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateResponseHeadersPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3494,6 +4238,17 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateStreamingDistribution",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

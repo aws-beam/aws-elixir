@@ -68,6 +68,7 @@ defmodule AWS.ProtocolTests.RestJSONTest do
         Request.request_rest(
           client,
           metadata,
+          "OperationName",
           :post,
           path,
           query_params,
@@ -127,6 +128,7 @@ defmodule AWS.ProtocolTests.RestJSONTest do
         Request.request_rest(
           client,
           metadata,
+          "OperationName",
           :post,
           path,
           %{},

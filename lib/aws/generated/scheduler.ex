@@ -44,6 +44,7 @@ defmodule AWS.Scheduler do
     Request.request_rest(
       client,
       meta,
+      "CreateSchedule",
       :post,
       url_path,
       query_params,
@@ -67,6 +68,7 @@ defmodule AWS.Scheduler do
     Request.request_rest(
       client,
       meta,
+      "CreateScheduleGroup",
       :post,
       url_path,
       query_params,
@@ -96,6 +98,7 @@ defmodule AWS.Scheduler do
     Request.request_rest(
       client,
       meta,
+      "DeleteSchedule",
       :delete,
       url_path,
       query_params,
@@ -133,6 +136,7 @@ defmodule AWS.Scheduler do
     Request.request_rest(
       client,
       meta,
+      "DeleteScheduleGroup",
       :delete,
       url_path,
       query_params,
@@ -160,7 +164,18 @@ defmodule AWS.Scheduler do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSchedule",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -173,7 +188,18 @@ defmodule AWS.Scheduler do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetScheduleGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -213,7 +239,18 @@ defmodule AWS.Scheduler do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListScheduleGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -269,7 +306,18 @@ defmodule AWS.Scheduler do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSchedules",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -282,7 +330,18 @@ defmodule AWS.Scheduler do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -301,6 +360,7 @@ defmodule AWS.Scheduler do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -330,6 +390,7 @@ defmodule AWS.Scheduler do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -359,6 +420,17 @@ defmodule AWS.Scheduler do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateSchedule",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

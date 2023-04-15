@@ -71,7 +71,18 @@ defmodule AWS.DevOpsGuru do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "AddNotificationChannel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -88,6 +99,7 @@ defmodule AWS.DevOpsGuru do
     Request.request_rest(
       client,
       meta,
+      "DeleteInsight",
       :delete,
       url_path,
       query_params,
@@ -113,7 +125,18 @@ defmodule AWS.DevOpsGuru do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAccountHealth",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -131,6 +154,7 @@ defmodule AWS.DevOpsGuru do
     Request.request_rest(
       client,
       meta,
+      "DescribeAccountOverview",
       :post,
       url_path,
       query_params,
@@ -158,7 +182,18 @@ defmodule AWS.DevOpsGuru do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAnomaly",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -179,6 +214,7 @@ defmodule AWS.DevOpsGuru do
     Request.request_rest(
       client,
       meta,
+      "DescribeEventSourcesConfig",
       :post,
       url_path,
       query_params,
@@ -203,6 +239,7 @@ defmodule AWS.DevOpsGuru do
     Request.request_rest(
       client,
       meta,
+      "DescribeFeedback",
       :post,
       url_path,
       query_params,
@@ -230,7 +267,18 @@ defmodule AWS.DevOpsGuru do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeInsight",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -247,6 +295,7 @@ defmodule AWS.DevOpsGuru do
     Request.request_rest(
       client,
       meta,
+      "DescribeOrganizationHealth",
       :post,
       url_path,
       query_params,
@@ -273,6 +322,7 @@ defmodule AWS.DevOpsGuru do
     Request.request_rest(
       client,
       meta,
+      "DescribeOrganizationOverview",
       :post,
       url_path,
       query_params,
@@ -299,6 +349,7 @@ defmodule AWS.DevOpsGuru do
     Request.request_rest(
       client,
       meta,
+      "DescribeOrganizationResourceCollectionHealth",
       :post,
       url_path,
       query_params,
@@ -343,7 +394,18 @@ defmodule AWS.DevOpsGuru do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeResourceCollectionHealth",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -360,7 +422,18 @@ defmodule AWS.DevOpsGuru do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeServiceIntegration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -384,7 +457,18 @@ defmodule AWS.DevOpsGuru do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCostEstimation",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -417,7 +501,18 @@ defmodule AWS.DevOpsGuru do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetResourceCollection",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -434,6 +529,7 @@ defmodule AWS.DevOpsGuru do
     Request.request_rest(
       client,
       meta,
+      "ListAnomaliesForInsight",
       :post,
       url_path,
       query_params,
@@ -457,6 +553,7 @@ defmodule AWS.DevOpsGuru do
     Request.request_rest(
       client,
       meta,
+      "ListAnomalousLogGroups",
       :post,
       url_path,
       query_params,
@@ -483,6 +580,7 @@ defmodule AWS.DevOpsGuru do
     Request.request_rest(
       client,
       meta,
+      "ListEvents",
       :post,
       url_path,
       query_params,
@@ -509,6 +607,7 @@ defmodule AWS.DevOpsGuru do
     Request.request_rest(
       client,
       meta,
+      "ListInsights",
       :post,
       url_path,
       query_params,
@@ -533,6 +632,7 @@ defmodule AWS.DevOpsGuru do
     Request.request_rest(
       client,
       meta,
+      "ListMonitoredResources",
       :post,
       url_path,
       query_params,
@@ -561,6 +661,7 @@ defmodule AWS.DevOpsGuru do
     Request.request_rest(
       client,
       meta,
+      "ListNotificationChannels",
       :post,
       url_path,
       query_params,
@@ -584,6 +685,7 @@ defmodule AWS.DevOpsGuru do
     Request.request_rest(
       client,
       meta,
+      "ListOrganizationInsights",
       :post,
       url_path,
       query_params,
@@ -610,6 +712,7 @@ defmodule AWS.DevOpsGuru do
     Request.request_rest(
       client,
       meta,
+      "ListRecommendations",
       :post,
       url_path,
       query_params,
@@ -630,7 +733,18 @@ defmodule AWS.DevOpsGuru do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutFeedback",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -649,6 +763,7 @@ defmodule AWS.DevOpsGuru do
     Request.request_rest(
       client,
       meta,
+      "RemoveNotificationChannel",
       :delete,
       url_path,
       query_params,
@@ -679,6 +794,7 @@ defmodule AWS.DevOpsGuru do
     Request.request_rest(
       client,
       meta,
+      "SearchInsights",
       :post,
       url_path,
       query_params,
@@ -709,6 +825,7 @@ defmodule AWS.DevOpsGuru do
     Request.request_rest(
       client,
       meta,
+      "SearchOrganizationInsights",
       :post,
       url_path,
       query_params,
@@ -730,7 +847,18 @@ defmodule AWS.DevOpsGuru do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "StartCostEstimation",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -748,7 +876,18 @@ defmodule AWS.DevOpsGuru do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateEventSourcesConfig",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -769,7 +908,18 @@ defmodule AWS.DevOpsGuru do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateResourceCollection",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -787,6 +937,17 @@ defmodule AWS.DevOpsGuru do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateServiceIntegration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

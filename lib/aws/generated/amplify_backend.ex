@@ -40,6 +40,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "CloneBackend",
       :post,
       url_path,
       query_params,
@@ -65,6 +66,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "CreateBackend",
       :post,
       url_path,
       query_params,
@@ -88,6 +90,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "CreateBackendAPI",
       :post,
       url_path,
       query_params,
@@ -111,6 +114,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "CreateBackendAuth",
       :post,
       url_path,
       query_params,
@@ -134,6 +138,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "CreateBackendConfig",
       :post,
       url_path,
       query_params,
@@ -157,6 +162,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "CreateBackendStorage",
       :post,
       url_path,
       query_params,
@@ -181,6 +187,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "CreateToken",
       :post,
       url_path,
       query_params,
@@ -206,6 +213,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "DeleteBackend",
       :post,
       url_path,
       query_params,
@@ -237,6 +245,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "DeleteBackendAPI",
       :post,
       url_path,
       query_params,
@@ -268,6 +277,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "DeleteBackendAuth",
       :post,
       url_path,
       query_params,
@@ -299,6 +309,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "DeleteBackendStorage",
       :post,
       url_path,
       query_params,
@@ -324,6 +335,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "DeleteToken",
       :post,
       url_path,
       query_params,
@@ -355,6 +367,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "GenerateBackendAPIModels",
       :post,
       url_path,
       query_params,
@@ -378,6 +391,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "GetBackend",
       :post,
       url_path,
       query_params,
@@ -403,6 +417,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "GetBackendAPI",
       :post,
       url_path,
       query_params,
@@ -434,6 +449,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "GetBackendAPIModels",
       :post,
       url_path,
       query_params,
@@ -459,6 +475,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "GetBackendAuth",
       :post,
       url_path,
       query_params,
@@ -481,7 +498,18 @@ defmodule AWS.AmplifyBackend do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBackendJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -505,6 +533,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "GetBackendStorage",
       :post,
       url_path,
       query_params,
@@ -527,7 +556,18 @@ defmodule AWS.AmplifyBackend do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetToken",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -551,6 +591,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "ImportBackendAuth",
       :post,
       url_path,
       query_params,
@@ -582,6 +623,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "ImportBackendStorage",
       :post,
       url_path,
       query_params,
@@ -613,6 +655,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "ListBackendJobs",
       :post,
       url_path,
       query_params,
@@ -636,6 +679,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "ListS3Buckets",
       :post,
       url_path,
       query_params,
@@ -659,6 +703,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "RemoveAllBackends",
       :post,
       url_path,
       query_params,
@@ -682,6 +727,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "RemoveBackendConfig",
       :post,
       url_path,
       query_params,
@@ -713,6 +759,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "UpdateBackendAPI",
       :post,
       url_path,
       query_params,
@@ -744,6 +791,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "UpdateBackendAuth",
       :post,
       url_path,
       query_params,
@@ -767,6 +815,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "UpdateBackendConfig",
       :post,
       url_path,
       query_params,
@@ -799,6 +848,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "UpdateBackendJob",
       :post,
       url_path,
       query_params,
@@ -830,6 +880,7 @@ defmodule AWS.AmplifyBackend do
     Request.request_rest(
       client,
       meta,
+      "UpdateBackendStorage",
       :post,
       url_path,
       query_params,

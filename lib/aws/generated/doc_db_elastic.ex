@@ -38,6 +38,7 @@ defmodule AWS.DocDBElastic do
     Request.request_rest(
       client,
       meta,
+      "CreateCluster",
       :post,
       url_path,
       query_params,
@@ -61,6 +62,7 @@ defmodule AWS.DocDBElastic do
     Request.request_rest(
       client,
       meta,
+      "CreateClusterSnapshot",
       :post,
       url_path,
       query_params,
@@ -84,6 +86,7 @@ defmodule AWS.DocDBElastic do
     Request.request_rest(
       client,
       meta,
+      "DeleteCluster",
       :delete,
       url_path,
       query_params,
@@ -107,6 +110,7 @@ defmodule AWS.DocDBElastic do
     Request.request_rest(
       client,
       meta,
+      "DeleteClusterSnapshot",
       :delete,
       url_path,
       query_params,
@@ -127,7 +131,18 @@ defmodule AWS.DocDBElastic do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCluster",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -140,7 +155,18 @@ defmodule AWS.DocDBElastic do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetClusterSnapshot",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -180,7 +206,18 @@ defmodule AWS.DocDBElastic do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListClusterSnapshots",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -207,7 +244,18 @@ defmodule AWS.DocDBElastic do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListClusters",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -220,7 +268,18 @@ defmodule AWS.DocDBElastic do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -236,6 +295,7 @@ defmodule AWS.DocDBElastic do
     Request.request_rest(
       client,
       meta,
+      "RestoreClusterFromSnapshot",
       :post,
       url_path,
       query_params,
@@ -259,6 +319,7 @@ defmodule AWS.DocDBElastic do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -287,6 +348,7 @@ defmodule AWS.DocDBElastic do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -310,6 +372,17 @@ defmodule AWS.DocDBElastic do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateCluster",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

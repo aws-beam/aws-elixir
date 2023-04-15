@@ -64,6 +64,7 @@ defmodule AWS.EFS do
     Request.request_rest(
       client,
       meta,
+      "CreateAccessPoint",
       :post,
       url_path,
       query_params,
@@ -140,6 +141,7 @@ defmodule AWS.EFS do
     Request.request_rest(
       client,
       meta,
+      "CreateFileSystem",
       :post,
       url_path,
       query_params,
@@ -272,6 +274,7 @@ defmodule AWS.EFS do
     Request.request_rest(
       client,
       meta,
+      "CreateMountTarget",
       :post,
       url_path,
       query_params,
@@ -360,6 +363,7 @@ defmodule AWS.EFS do
     Request.request_rest(
       client,
       meta,
+      "CreateReplicationConfiguration",
       :post,
       url_path,
       query_params,
@@ -394,6 +398,7 @@ defmodule AWS.EFS do
     Request.request_rest(
       client,
       meta,
+      "CreateTags",
       :post,
       url_path,
       query_params,
@@ -424,6 +429,7 @@ defmodule AWS.EFS do
     Request.request_rest(
       client,
       meta,
+      "DeleteAccessPoint",
       :delete,
       url_path,
       query_params,
@@ -470,6 +476,7 @@ defmodule AWS.EFS do
     Request.request_rest(
       client,
       meta,
+      "DeleteFileSystem",
       :delete,
       url_path,
       query_params,
@@ -500,6 +507,7 @@ defmodule AWS.EFS do
     Request.request_rest(
       client,
       meta,
+      "DeleteFileSystemPolicy",
       :delete,
       url_path,
       query_params,
@@ -546,6 +554,7 @@ defmodule AWS.EFS do
     Request.request_rest(
       client,
       meta,
+      "DeleteMountTarget",
       :delete,
       url_path,
       query_params,
@@ -583,6 +592,7 @@ defmodule AWS.EFS do
     Request.request_rest(
       client,
       meta,
+      "DeleteReplicationConfiguration",
       :delete,
       url_path,
       query_params,
@@ -616,6 +626,7 @@ defmodule AWS.EFS do
     Request.request_rest(
       client,
       meta,
+      "DeleteTags",
       :post,
       url_path,
       query_params,
@@ -679,7 +690,18 @@ defmodule AWS.EFS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAccessPoints",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -696,7 +718,18 @@ defmodule AWS.EFS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAccountPreferences",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -709,7 +742,18 @@ defmodule AWS.EFS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeBackupPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -725,7 +769,18 @@ defmodule AWS.EFS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeFileSystemPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -798,7 +853,18 @@ defmodule AWS.EFS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeFileSystems",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -825,7 +891,18 @@ defmodule AWS.EFS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeLifecycleConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -849,7 +926,18 @@ defmodule AWS.EFS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeMountTargetSecurityGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -914,7 +1002,18 @@ defmodule AWS.EFS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeMountTargets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -957,7 +1056,18 @@ defmodule AWS.EFS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeReplicationConfigurations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1001,7 +1111,18 @@ defmodule AWS.EFS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeTags",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1039,7 +1160,18 @@ defmodule AWS.EFS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1072,7 +1204,18 @@ defmodule AWS.EFS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "ModifyMountTargetSecurityGroups",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -1096,7 +1239,18 @@ defmodule AWS.EFS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutAccountPreferences",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1111,7 +1265,18 @@ defmodule AWS.EFS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutBackupPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1136,7 +1301,18 @@ defmodule AWS.EFS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutFileSystemPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1199,7 +1375,18 @@ defmodule AWS.EFS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutLifecycleConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1221,6 +1408,7 @@ defmodule AWS.EFS do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1255,6 +1443,7 @@ defmodule AWS.EFS do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1276,6 +1465,17 @@ defmodule AWS.EFS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateFileSystem",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 end

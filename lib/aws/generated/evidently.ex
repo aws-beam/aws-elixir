@@ -73,6 +73,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "BatchEvaluateFeature",
       :post,
       url_path,
       query_params,
@@ -111,6 +112,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "CreateExperiment",
       :post,
       url_path,
       query_params,
@@ -140,6 +142,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "CreateFeature",
       :post,
       url_path,
       query_params,
@@ -174,6 +177,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "CreateLaunch",
       :post,
       url_path,
       query_params,
@@ -203,6 +207,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "CreateProject",
       :post,
       url_path,
       query_params,
@@ -243,6 +248,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "CreateSegment",
       :post,
       url_path,
       query_params,
@@ -273,6 +279,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "DeleteExperiment",
       :delete,
       url_path,
       query_params,
@@ -298,6 +305,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "DeleteFeature",
       :delete,
       url_path,
       query_params,
@@ -326,6 +334,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "DeleteLaunch",
       :delete,
       url_path,
       query_params,
@@ -353,6 +362,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "DeleteProject",
       :delete,
       url_path,
       query_params,
@@ -379,6 +389,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "DeleteSegment",
       :delete,
       url_path,
       query_params,
@@ -439,6 +450,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "EvaluateFeature",
       :post,
       url_path,
       query_params,
@@ -465,7 +477,18 @@ defmodule AWS.Evidently do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetExperiment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -494,6 +517,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "GetExperimentResults",
       :post,
       url_path,
       query_params,
@@ -520,7 +544,18 @@ defmodule AWS.Evidently do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFeature",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -537,7 +572,18 @@ defmodule AWS.Evidently do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLaunch",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -554,7 +600,18 @@ defmodule AWS.Evidently do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetProject",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -569,7 +626,18 @@ defmodule AWS.Evidently do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSegment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -611,7 +679,18 @@ defmodule AWS.Evidently do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListExperiments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -644,7 +723,18 @@ defmodule AWS.Evidently do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFeatures",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -685,7 +775,18 @@ defmodule AWS.Evidently do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListLaunches",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -713,7 +814,18 @@ defmodule AWS.Evidently do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProjects",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -755,7 +867,18 @@ defmodule AWS.Evidently do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSegmentReferences",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -783,7 +906,18 @@ defmodule AWS.Evidently do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSegments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -796,7 +930,18 @@ defmodule AWS.Evidently do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -814,6 +959,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "PutProjectEvents",
       :post,
       url_path,
       query_params,
@@ -842,6 +988,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "StartExperiment",
       :post,
       url_path,
       query_params,
@@ -870,6 +1017,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "StartLaunch",
       :post,
       url_path,
       query_params,
@@ -897,6 +1045,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "StopExperiment",
       :post,
       url_path,
       query_params,
@@ -928,6 +1077,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "StopLaunch",
       :post,
       url_path,
       query_params,
@@ -971,6 +1121,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -998,6 +1149,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "TestSegmentPattern",
       :post,
       url_path,
       query_params,
@@ -1026,6 +1178,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1054,6 +1207,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "UpdateExperiment",
       :patch,
       url_path,
       query_params,
@@ -1083,6 +1237,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "UpdateFeature",
       :patch,
       url_path,
       query_params,
@@ -1109,6 +1264,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "UpdateLaunch",
       :patch,
       url_path,
       query_params,
@@ -1140,6 +1296,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "UpdateProject",
       :patch,
       url_path,
       query_params,
@@ -1170,6 +1327,7 @@ defmodule AWS.Evidently do
     Request.request_rest(
       client,
       meta,
+      "UpdateProjectDataDelivery",
       :patch,
       url_path,
       query_params,

@@ -64,6 +64,7 @@ defmodule AWS.EMRcontainers do
     Request.request_rest(
       client,
       meta,
+      "CancelJobRun",
       :delete,
       url_path,
       query_params,
@@ -92,6 +93,7 @@ defmodule AWS.EMRcontainers do
     Request.request_rest(
       client,
       meta,
+      "CreateJobTemplate",
       :post,
       url_path,
       query_params,
@@ -118,6 +120,7 @@ defmodule AWS.EMRcontainers do
     Request.request_rest(
       client,
       meta,
+      "CreateManagedEndpoint",
       :post,
       url_path,
       query_params,
@@ -147,6 +150,7 @@ defmodule AWS.EMRcontainers do
     Request.request_rest(
       client,
       meta,
+      "CreateVirtualCluster",
       :post,
       url_path,
       query_params,
@@ -175,6 +179,7 @@ defmodule AWS.EMRcontainers do
     Request.request_rest(
       client,
       meta,
+      "DeleteJobTemplate",
       :delete,
       url_path,
       query_params,
@@ -203,6 +208,7 @@ defmodule AWS.EMRcontainers do
     Request.request_rest(
       client,
       meta,
+      "DeleteManagedEndpoint",
       :delete,
       url_path,
       query_params,
@@ -232,6 +238,7 @@ defmodule AWS.EMRcontainers do
     Request.request_rest(
       client,
       meta,
+      "DeleteVirtualCluster",
       :delete,
       url_path,
       query_params,
@@ -257,7 +264,18 @@ defmodule AWS.EMRcontainers do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeJobRun",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -275,7 +293,18 @@ defmodule AWS.EMRcontainers do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeJobTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -293,7 +322,18 @@ defmodule AWS.EMRcontainers do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeManagedEndpoint",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -312,7 +352,18 @@ defmodule AWS.EMRcontainers do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeVirtualCluster",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -380,7 +431,18 @@ defmodule AWS.EMRcontainers do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJobRuns",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -433,7 +495,18 @@ defmodule AWS.EMRcontainers do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJobTemplates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -501,7 +574,18 @@ defmodule AWS.EMRcontainers do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListManagedEndpoints",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -514,7 +598,18 @@ defmodule AWS.EMRcontainers do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -592,7 +687,18 @@ defmodule AWS.EMRcontainers do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListVirtualClusters",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -611,6 +717,7 @@ defmodule AWS.EMRcontainers do
     Request.request_rest(
       client,
       meta,
+      "StartJobRun",
       :post,
       url_path,
       query_params,
@@ -644,6 +751,7 @@ defmodule AWS.EMRcontainers do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -672,6 +780,7 @@ defmodule AWS.EMRcontainers do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,

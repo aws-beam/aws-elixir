@@ -40,6 +40,7 @@ defmodule AWS.BackupStorage do
     Request.request_rest(
       client,
       meta,
+      "DeleteObject",
       :delete,
       url_path,
       query_params,
@@ -73,7 +74,18 @@ defmodule AWS.BackupStorage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetChunk",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -100,7 +112,18 @@ defmodule AWS.BackupStorage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetObjectMetadata",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -136,7 +159,18 @@ defmodule AWS.BackupStorage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChunks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -201,7 +235,18 @@ defmodule AWS.BackupStorage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListObjects",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -226,7 +271,18 @@ defmodule AWS.BackupStorage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "NotifyObjectComplete",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -248,7 +304,18 @@ defmodule AWS.BackupStorage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutChunk",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -275,7 +342,18 @@ defmodule AWS.BackupStorage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutObject",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -290,6 +368,17 @@ defmodule AWS.BackupStorage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "StartObject",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

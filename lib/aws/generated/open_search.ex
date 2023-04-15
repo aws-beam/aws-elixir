@@ -49,7 +49,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AcceptInboundConnection",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -68,6 +79,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "AddTags",
       :post,
       url_path,
       query_params,
@@ -95,6 +107,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "AssociatePackage",
       :post,
       url_path,
       query_params,
@@ -121,6 +134,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "AuthorizeVpcEndpointAccess",
       :post,
       url_path,
       query_params,
@@ -149,6 +163,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "CancelServiceSoftwareUpdate",
       :post,
       url_path,
       query_params,
@@ -174,6 +189,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "CreateDomain",
       :post,
       url_path,
       query_params,
@@ -200,6 +216,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "CreateOutboundConnection",
       :post,
       url_path,
       query_params,
@@ -225,6 +242,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "CreatePackage",
       :post,
       url_path,
       query_params,
@@ -248,6 +266,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "CreateVpcEndpoint",
       :post,
       url_path,
       query_params,
@@ -273,6 +292,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "DeleteDomain",
       :delete,
       url_path,
       query_params,
@@ -299,6 +319,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "DeleteInboundConnection",
       :delete,
       url_path,
       query_params,
@@ -327,6 +348,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "DeleteOutboundConnection",
       :delete,
       url_path,
       query_params,
@@ -352,6 +374,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "DeletePackage",
       :delete,
       url_path,
       query_params,
@@ -375,6 +398,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "DeleteVpcEndpoint",
       :delete,
       url_path,
       query_params,
@@ -396,7 +420,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDomain",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -412,7 +447,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDomainAutoTunes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -440,7 +486,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDomainChangeProgress",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -453,7 +510,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDomainConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -470,6 +538,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "DescribeDomains",
       :post,
       url_path,
       query_params,
@@ -532,6 +601,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "DescribeInboundConnections",
       :post,
       url_path,
       query_params,
@@ -568,7 +638,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeInstanceTypeLimits",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -587,6 +668,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "DescribeOutboundConnections",
       :post,
       url_path,
       query_params,
@@ -612,6 +694,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "DescribePackages",
       :post,
       url_path,
       query_params,
@@ -662,7 +745,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeReservedInstanceOfferings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -705,7 +799,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeReservedInstances",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -721,6 +826,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "DescribeVpcEndpoints",
       :post,
       url_path,
       query_params,
@@ -750,6 +856,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "DissociatePackage",
       :post,
       url_path,
       query_params,
@@ -778,7 +885,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCompatibleVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -814,7 +932,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPackageVersionHistory",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -848,7 +977,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetUpgradeHistory",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -862,7 +1002,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetUpgradeStatus",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -883,7 +1034,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDomainNames",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -918,7 +1080,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDomainsForPackage",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -960,7 +1133,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListInstanceTypeDetails",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -995,7 +1179,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPackagesForDomain",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1055,7 +1250,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTags",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1083,7 +1289,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1107,7 +1324,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListVpcEndpointAccess",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1128,7 +1356,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListVpcEndpoints",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1154,7 +1393,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListVpcEndpointsForDomain",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1170,6 +1420,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "PurchaseReservedInstanceOffering",
       :post,
       url_path,
       query_params,
@@ -1193,7 +1444,18 @@ defmodule AWS.OpenSearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "RejectInboundConnection",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1211,6 +1473,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "RemoveTags",
       :post,
       url_path,
       query_params,
@@ -1237,6 +1500,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "RevokeVpcEndpointAccess",
       :post,
       url_path,
       query_params,
@@ -1262,6 +1526,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "StartServiceSoftwareUpdate",
       :post,
       url_path,
       query_params,
@@ -1286,6 +1551,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "UpdateDomainConfig",
       :post,
       url_path,
       query_params,
@@ -1311,6 +1577,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "UpdatePackage",
       :post,
       url_path,
       query_params,
@@ -1352,6 +1619,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "UpdateVpcEndpoint",
       :post,
       url_path,
       query_params,
@@ -1377,6 +1645,7 @@ defmodule AWS.OpenSearch do
     Request.request_rest(
       client,
       meta,
+      "UpgradeDomain",
       :post,
       url_path,
       query_params,

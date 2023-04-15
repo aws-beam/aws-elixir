@@ -4,7 +4,7 @@ defmodule AWS.RequestTest do
   alias AWS.Client
   alias AWS.Request
 
-  describe "request_rest/9" do
+  describe "request_rest/10" do
     defmodule TestClient do
       @behaviour AWS.HTTPClient
 
@@ -41,6 +41,7 @@ defmodule AWS.RequestTest do
                Request.request_rest(
                  client,
                  metadata,
+                 "OperationName",
                  :get,
                  "/foo/bar",
                  [{"q", "x&y="}, {"size", 5}],
@@ -60,6 +61,7 @@ defmodule AWS.RequestTest do
                Request.request_rest(
                  client,
                  metadata,
+                 "OperationName",
                  :get,
                  "/foo/bar?format=sdk&pretty=true",
                  [{"q", "x&y="}, {"size", 5}],
@@ -82,6 +84,7 @@ defmodule AWS.RequestTest do
                Request.request_rest(
                  client,
                  metadata,
+                 "OperationName",
                  :post,
                  "/foo/bar",
                  [],
@@ -123,6 +126,7 @@ defmodule AWS.RequestTest do
                Request.request_rest(
                  client,
                  metadata,
+                 "OperationName",
                  :post,
                  "/foo/bar",
                  [],
@@ -145,6 +149,7 @@ defmodule AWS.RequestTest do
                Request.request_rest(
                  client,
                  metadata,
+                 "OperationName",
                  :post,
                  "/foo/bar",
                  [],
@@ -168,6 +173,7 @@ defmodule AWS.RequestTest do
                Request.request_rest(
                  client,
                  metadata,
+                 "OperationName",
                  :post,
                  "/foo/bar",
                  [],
@@ -184,6 +190,7 @@ defmodule AWS.RequestTest do
                Request.request_rest(
                  client,
                  metadata,
+                 "OperationName",
                  :post,
                  "/foo/bar",
                  [],
@@ -198,6 +205,7 @@ defmodule AWS.RequestTest do
                Request.request_rest(
                  client,
                  metadata,
+                 "OperationName",
                  :post,
                  "/foo/bar",
                  [],
@@ -216,6 +224,7 @@ defmodule AWS.RequestTest do
                Request.request_rest(
                  client,
                  Map.put(metadata, :host_prefix, "my-prefix."),
+                 "OperationName",
                  :get,
                  "/foo/bar",
                  [{"q", "x&y="}, {"size", 5}],
@@ -241,6 +250,7 @@ defmodule AWS.RequestTest do
                Request.request_rest(
                  client,
                  Map.put(metadata, :host_prefix, "{AccountId}-foo."),
+                 "OperationName",
                  :get,
                  "/foo/bar",
                  [{"q", "x&y="}, {"size", 5}],

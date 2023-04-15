@@ -49,6 +49,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "CreateReplicationSet",
       :post,
       url_path,
       query_params,
@@ -75,6 +76,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "CreateResponsePlan",
       :post,
       url_path,
       query_params,
@@ -103,6 +105,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "CreateTimelineEvent",
       :post,
       url_path,
       query_params,
@@ -126,6 +129,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "DeleteIncidentRecord",
       :post,
       url_path,
       query_params,
@@ -156,6 +160,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "DeleteReplicationSet",
       :post,
       url_path,
       query_params,
@@ -180,6 +185,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "DeleteResourcePolicy",
       :post,
       url_path,
       query_params,
@@ -206,6 +212,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "DeleteResponsePlan",
       :post,
       url_path,
       query_params,
@@ -229,6 +236,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "DeleteTimelineEvent",
       :post,
       url_path,
       query_params,
@@ -256,7 +264,18 @@ defmodule AWS.SSMIncidents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetIncidentRecord",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -276,7 +295,18 @@ defmodule AWS.SSMIncidents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetReplicationSet",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -297,6 +327,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "GetResourcePolicies",
       :post,
       url_path,
       query_params,
@@ -324,7 +355,18 @@ defmodule AWS.SSMIncidents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetResponsePlan",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -351,7 +393,18 @@ defmodule AWS.SSMIncidents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTimelineEvent",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -370,6 +423,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "ListIncidentRecords",
       :post,
       url_path,
       query_params,
@@ -393,6 +447,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "ListRelatedItems",
       :post,
       url_path,
       query_params,
@@ -416,6 +471,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "ListReplicationSets",
       :post,
       url_path,
       query_params,
@@ -439,6 +495,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "ListResponsePlans",
       :post,
       url_path,
       query_params,
@@ -459,7 +516,18 @@ defmodule AWS.SSMIncidents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -475,6 +543,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "ListTimelineEvents",
       :post,
       url_path,
       query_params,
@@ -502,6 +571,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "PutResourcePolicy",
       :post,
       url_path,
       query_params,
@@ -526,6 +596,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "StartIncident",
       :post,
       url_path,
       query_params,
@@ -549,6 +620,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -577,6 +649,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -601,6 +674,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "UpdateDeletionProtection",
       :post,
       url_path,
       query_params,
@@ -628,6 +702,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "UpdateIncidentRecord",
       :post,
       url_path,
       query_params,
@@ -651,6 +726,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "UpdateRelatedItems",
       :post,
       url_path,
       query_params,
@@ -674,6 +750,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "UpdateReplicationSet",
       :post,
       url_path,
       query_params,
@@ -697,6 +774,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "UpdateResponsePlan",
       :post,
       url_path,
       query_params,
@@ -722,6 +800,7 @@ defmodule AWS.SSMIncidents do
     Request.request_rest(
       client,
       meta,
+      "UpdateTimelineEvent",
       :post,
       url_path,
       query_params,

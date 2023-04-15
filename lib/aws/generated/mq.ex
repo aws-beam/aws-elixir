@@ -81,6 +81,7 @@ defmodule AWS.Mq do
     Request.request_rest(
       client,
       meta,
+      "CreateBroker",
       :post,
       url_path,
       query_params,
@@ -106,6 +107,7 @@ defmodule AWS.Mq do
     Request.request_rest(
       client,
       meta,
+      "CreateConfiguration",
       :post,
       url_path,
       query_params,
@@ -129,6 +131,7 @@ defmodule AWS.Mq do
     Request.request_rest(
       client,
       meta,
+      "CreateTags",
       :post,
       url_path,
       query_params,
@@ -154,6 +157,7 @@ defmodule AWS.Mq do
     Request.request_rest(
       client,
       meta,
+      "CreateUser",
       :post,
       url_path,
       query_params,
@@ -179,6 +183,7 @@ defmodule AWS.Mq do
     Request.request_rest(
       client,
       meta,
+      "DeleteBroker",
       :delete,
       url_path,
       query_params,
@@ -207,6 +212,7 @@ defmodule AWS.Mq do
     Request.request_rest(
       client,
       meta,
+      "DeleteTags",
       :delete,
       url_path,
       query_params,
@@ -232,6 +238,7 @@ defmodule AWS.Mq do
     Request.request_rest(
       client,
       meta,
+      "DeleteUser",
       :delete,
       url_path,
       query_params,
@@ -252,7 +259,18 @@ defmodule AWS.Mq do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeBroker",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -292,7 +310,18 @@ defmodule AWS.Mq do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeBrokerEngineTypes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -348,7 +377,18 @@ defmodule AWS.Mq do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeBrokerInstanceOptions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -361,7 +401,18 @@ defmodule AWS.Mq do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -381,7 +432,18 @@ defmodule AWS.Mq do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeConfigurationRevision",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -396,7 +458,18 @@ defmodule AWS.Mq do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeUser",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -423,7 +496,18 @@ defmodule AWS.Mq do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListBrokers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -456,7 +540,18 @@ defmodule AWS.Mq do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListConfigurationRevisions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -488,7 +583,18 @@ defmodule AWS.Mq do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListConfigurations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -501,7 +607,18 @@ defmodule AWS.Mq do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTags",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -534,7 +651,18 @@ defmodule AWS.Mq do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListUsers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -552,6 +680,7 @@ defmodule AWS.Mq do
     Request.request_rest(
       client,
       meta,
+      "RebootBroker",
       :post,
       url_path,
       query_params,
@@ -572,7 +701,18 @@ defmodule AWS.Mq do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateBroker",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -585,7 +725,18 @@ defmodule AWS.Mq do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -600,6 +751,17 @@ defmodule AWS.Mq do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateUser",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

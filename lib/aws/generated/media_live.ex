@@ -40,6 +40,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "AcceptInputDeviceTransfer",
       :post,
       url_path,
       query_params,
@@ -63,6 +64,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "BatchDelete",
       :post,
       url_path,
       query_params,
@@ -86,6 +88,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "BatchStart",
       :post,
       url_path,
       query_params,
@@ -109,6 +112,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "BatchStop",
       :post,
       url_path,
       query_params,
@@ -129,7 +133,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "BatchUpdateSchedule",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -145,6 +160,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "CancelInputDeviceTransfer",
       :post,
       url_path,
       query_params,
@@ -171,6 +187,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "ClaimDevice",
       :post,
       url_path,
       query_params,
@@ -194,6 +211,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "CreateChannel",
       :post,
       url_path,
       query_params,
@@ -217,6 +235,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "CreateInput",
       :post,
       url_path,
       query_params,
@@ -240,6 +259,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "CreateInputSecurityGroup",
       :post,
       url_path,
       query_params,
@@ -263,6 +283,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "CreateMultiplex",
       :post,
       url_path,
       query_params,
@@ -286,6 +307,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "CreateMultiplexProgram",
       :post,
       url_path,
       query_params,
@@ -309,6 +331,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "CreatePartnerInput",
       :post,
       url_path,
       query_params,
@@ -332,6 +355,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "CreateTags",
       :post,
       url_path,
       query_params,
@@ -357,6 +381,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "DeleteChannel",
       :delete,
       url_path,
       query_params,
@@ -380,6 +405,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "DeleteInput",
       :delete,
       url_path,
       query_params,
@@ -408,6 +434,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "DeleteInputSecurityGroup",
       :delete,
       url_path,
       query_params,
@@ -433,6 +460,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "DeleteMultiplex",
       :delete,
       url_path,
       query_params,
@@ -464,6 +492,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "DeleteMultiplexProgram",
       :delete,
       url_path,
       query_params,
@@ -487,6 +516,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "DeleteReservation",
       :delete,
       url_path,
       query_params,
@@ -510,6 +540,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "DeleteSchedule",
       :delete,
       url_path,
       query_params,
@@ -538,6 +569,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "DeleteTags",
       :delete,
       url_path,
       query_params,
@@ -558,7 +590,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeChannel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -571,7 +614,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeInput",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -584,7 +638,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeInputDevice",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -624,7 +689,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeInputDeviceThumbnail",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -637,7 +713,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeInputSecurityGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -650,7 +737,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeMultiplex",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -665,7 +763,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeMultiplexProgram",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -678,7 +787,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeOffering",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -691,7 +811,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeReservation",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -724,7 +855,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeSchedule",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -751,7 +893,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChannels",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -794,7 +947,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListInputDeviceTransfers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -821,7 +985,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListInputDevices",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -853,7 +1028,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListInputSecurityGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -880,7 +1066,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListInputs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -913,7 +1110,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListMultiplexPrograms",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -940,7 +1148,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListMultiplexes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1052,7 +1271,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListOfferings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1148,7 +1378,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListReservations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1161,7 +1402,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1177,6 +1429,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "PurchaseOffering",
       :post,
       url_path,
       query_params,
@@ -1204,6 +1457,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "RebootInputDevice",
       :post,
       url_path,
       query_params,
@@ -1227,6 +1481,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "RejectInputDeviceTransfer",
       :post,
       url_path,
       query_params,
@@ -1250,6 +1505,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "StartChannel",
       :post,
       url_path,
       query_params,
@@ -1288,6 +1544,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "StartInputDeviceMaintenanceWindow",
       :post,
       url_path,
       query_params,
@@ -1314,6 +1571,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "StartMultiplex",
       :post,
       url_path,
       query_params,
@@ -1337,6 +1595,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "StopChannel",
       :post,
       url_path,
       query_params,
@@ -1362,6 +1621,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "StopMultiplex",
       :post,
       url_path,
       query_params,
@@ -1388,6 +1648,7 @@ defmodule AWS.MediaLive do
     Request.request_rest(
       client,
       meta,
+      "TransferInputDevice",
       :post,
       url_path,
       query_params,
@@ -1408,7 +1669,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateChannel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1421,7 +1693,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateChannelClass",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1434,7 +1717,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateInput",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1447,7 +1741,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateInputDevice",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1465,7 +1770,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateInputSecurityGroup",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1478,7 +1794,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateMultiplex",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1499,7 +1826,18 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateMultiplexProgram",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1512,6 +1850,17 @@ defmodule AWS.MediaLive do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateReservation",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

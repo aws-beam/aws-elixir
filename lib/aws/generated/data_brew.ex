@@ -70,6 +70,7 @@ defmodule AWS.DataBrew do
     Request.request_rest(
       client,
       meta,
+      "BatchDeleteRecipeVersion",
       :post,
       url_path,
       query_params,
@@ -93,6 +94,7 @@ defmodule AWS.DataBrew do
     Request.request_rest(
       client,
       meta,
+      "CreateDataset",
       :post,
       url_path,
       query_params,
@@ -116,6 +118,7 @@ defmodule AWS.DataBrew do
     Request.request_rest(
       client,
       meta,
+      "CreateProfileJob",
       :post,
       url_path,
       query_params,
@@ -139,6 +142,7 @@ defmodule AWS.DataBrew do
     Request.request_rest(
       client,
       meta,
+      "CreateProject",
       :post,
       url_path,
       query_params,
@@ -162,6 +166,7 @@ defmodule AWS.DataBrew do
     Request.request_rest(
       client,
       meta,
+      "CreateRecipe",
       :post,
       url_path,
       query_params,
@@ -186,6 +191,7 @@ defmodule AWS.DataBrew do
     Request.request_rest(
       client,
       meta,
+      "CreateRecipeJob",
       :post,
       url_path,
       query_params,
@@ -210,6 +216,7 @@ defmodule AWS.DataBrew do
     Request.request_rest(
       client,
       meta,
+      "CreateRuleset",
       :post,
       url_path,
       query_params,
@@ -235,6 +242,7 @@ defmodule AWS.DataBrew do
     Request.request_rest(
       client,
       meta,
+      "CreateSchedule",
       :post,
       url_path,
       query_params,
@@ -258,6 +266,7 @@ defmodule AWS.DataBrew do
     Request.request_rest(
       client,
       meta,
+      "DeleteDataset",
       :delete,
       url_path,
       query_params,
@@ -281,6 +290,7 @@ defmodule AWS.DataBrew do
     Request.request_rest(
       client,
       meta,
+      "DeleteJob",
       :delete,
       url_path,
       query_params,
@@ -304,6 +314,7 @@ defmodule AWS.DataBrew do
     Request.request_rest(
       client,
       meta,
+      "DeleteProject",
       :delete,
       url_path,
       query_params,
@@ -329,6 +340,7 @@ defmodule AWS.DataBrew do
     Request.request_rest(
       client,
       meta,
+      "DeleteRecipeVersion",
       :delete,
       url_path,
       query_params,
@@ -352,6 +364,7 @@ defmodule AWS.DataBrew do
     Request.request_rest(
       client,
       meta,
+      "DeleteRuleset",
       :delete,
       url_path,
       query_params,
@@ -375,6 +388,7 @@ defmodule AWS.DataBrew do
     Request.request_rest(
       client,
       meta,
+      "DeleteSchedule",
       :delete,
       url_path,
       query_params,
@@ -395,7 +409,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDataset",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -408,7 +433,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -421,7 +457,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeJobRun",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -434,7 +481,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeProject",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -455,7 +513,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeRecipe",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -468,7 +537,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeRuleset",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -481,7 +561,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeSchedule",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -508,7 +599,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDatasets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -541,7 +643,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJobRuns",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -589,7 +702,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -616,7 +740,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProjects",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -656,7 +791,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRecipeVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -696,7 +842,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRecipes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -737,7 +894,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRulesets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -777,7 +945,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSchedules",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -790,7 +969,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -806,6 +996,7 @@ defmodule AWS.DataBrew do
     Request.request_rest(
       client,
       meta,
+      "PublishRecipe",
       :post,
       url_path,
       query_params,
@@ -827,7 +1018,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "SendProjectSessionAction",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -843,6 +1045,7 @@ defmodule AWS.DataBrew do
     Request.request_rest(
       client,
       meta,
+      "StartJobRun",
       :post,
       url_path,
       query_params,
@@ -864,7 +1067,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "StartProjectSession",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -882,6 +1096,7 @@ defmodule AWS.DataBrew do
     Request.request_rest(
       client,
       meta,
+      "StopJobRun",
       :post,
       url_path,
       query_params,
@@ -906,6 +1121,7 @@ defmodule AWS.DataBrew do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -934,6 +1150,7 @@ defmodule AWS.DataBrew do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -954,7 +1171,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDataset",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -967,7 +1195,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateProfileJob",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -980,7 +1219,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateProject",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -993,7 +1243,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateRecipe",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1006,7 +1267,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateRecipeJob",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1019,7 +1291,18 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateRuleset",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1032,6 +1315,17 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateSchedule",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

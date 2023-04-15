@@ -38,6 +38,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "CreateApp",
       :post,
       url_path,
       query_params,
@@ -62,6 +63,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "CreateCampaign",
       :post,
       url_path,
       query_params,
@@ -85,6 +87,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "CreateEmailTemplate",
       :post,
       url_path,
       query_params,
@@ -108,6 +111,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "CreateExportJob",
       :post,
       url_path,
       query_params,
@@ -131,6 +135,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "CreateImportJob",
       :post,
       url_path,
       query_params,
@@ -154,6 +159,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "CreateInAppTemplate",
       :post,
       url_path,
       query_params,
@@ -177,6 +183,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "CreateJourney",
       :post,
       url_path,
       query_params,
@@ -201,6 +208,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "CreatePushTemplate",
       :post,
       url_path,
       query_params,
@@ -224,6 +232,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "CreateRecommenderConfiguration",
       :post,
       url_path,
       query_params,
@@ -249,6 +258,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "CreateSegment",
       :post,
       url_path,
       query_params,
@@ -272,6 +282,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "CreateSmsTemplate",
       :post,
       url_path,
       query_params,
@@ -295,6 +306,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "CreateVoiceTemplate",
       :post,
       url_path,
       query_params,
@@ -319,6 +331,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteAdmChannel",
       :delete,
       url_path,
       query_params,
@@ -343,6 +356,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteApnsChannel",
       :delete,
       url_path,
       query_params,
@@ -367,6 +381,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteApnsSandboxChannel",
       :delete,
       url_path,
       query_params,
@@ -391,6 +406,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteApnsVoipChannel",
       :delete,
       url_path,
       query_params,
@@ -415,6 +431,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteApnsVoipSandboxChannel",
       :delete,
       url_path,
       query_params,
@@ -438,6 +455,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteApp",
       :delete,
       url_path,
       query_params,
@@ -462,6 +480,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteBaiduChannel",
       :delete,
       url_path,
       query_params,
@@ -487,6 +506,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteCampaign",
       :delete,
       url_path,
       query_params,
@@ -511,6 +531,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteEmailChannel",
       :delete,
       url_path,
       query_params,
@@ -540,6 +561,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteEmailTemplate",
       :delete,
       url_path,
       query_params,
@@ -565,6 +587,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteEndpoint",
       :delete,
       url_path,
       query_params,
@@ -588,6 +611,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteEventStream",
       :delete,
       url_path,
       query_params,
@@ -612,6 +636,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteGcmChannel",
       :delete,
       url_path,
       query_params,
@@ -640,6 +665,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteInAppTemplate",
       :delete,
       url_path,
       query_params,
@@ -665,6 +691,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteJourney",
       :delete,
       url_path,
       query_params,
@@ -694,6 +721,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeletePushTemplate",
       :delete,
       url_path,
       query_params,
@@ -717,6 +745,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteRecommenderConfiguration",
       :delete,
       url_path,
       query_params,
@@ -742,6 +771,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteSegment",
       :delete,
       url_path,
       query_params,
@@ -766,6 +796,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteSmsChannel",
       :delete,
       url_path,
       query_params,
@@ -794,6 +825,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteSmsTemplate",
       :delete,
       url_path,
       query_params,
@@ -819,6 +851,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteUserEndpoints",
       :delete,
       url_path,
       query_params,
@@ -843,6 +876,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteVoiceChannel",
       :delete,
       url_path,
       query_params,
@@ -872,6 +906,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "DeleteVoiceTemplate",
       :delete,
       url_path,
       query_params,
@@ -893,7 +928,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAdmChannel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -907,7 +953,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApnsChannel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -921,7 +978,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApnsSandboxChannel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -935,7 +1003,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApnsVoipChannel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -949,7 +1028,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApnsVoipSandboxChannel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -962,7 +1052,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApp",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1015,7 +1116,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApplicationDateRangeKpi",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1028,7 +1140,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApplicationSettings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1056,7 +1179,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApps",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1070,7 +1204,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBaiduChannel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1086,7 +1231,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCampaign",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1122,7 +1278,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCampaignActivities",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1176,7 +1343,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCampaignDateRangeKpi",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1198,7 +1376,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCampaignVersion",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1235,7 +1424,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCampaignVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1269,7 +1469,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCampaigns",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1283,7 +1494,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetChannels",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1297,7 +1519,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEmailChannel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1318,7 +1551,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEmailTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1334,7 +1578,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEndpoint",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1347,7 +1602,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEventStream",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1363,7 +1629,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetExportJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1397,7 +1674,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetExportJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1411,7 +1699,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetGcmChannel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1427,7 +1726,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetImportJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1461,7 +1771,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetImportJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1476,7 +1797,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetInAppMessages",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1497,7 +1829,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetInAppTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1513,7 +1856,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetJourney",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1567,7 +1921,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetJourneyDateRangeKpi",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1605,7 +1970,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetJourneyExecutionActivityMetrics",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1642,7 +2018,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetJourneyExecutionMetrics",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1663,7 +2050,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPushTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1677,7 +2075,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRecommenderConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1710,7 +2119,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRecommenderConfigurations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1726,7 +2146,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSegment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1763,7 +2194,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSegmentExportJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1800,7 +2242,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSegmentImportJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1816,7 +2269,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSegmentVersion",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1853,7 +2317,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSegmentVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1887,7 +2362,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSegments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1901,7 +2387,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSmsChannel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1922,7 +2419,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSmsTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1938,7 +2446,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetUserEndpoints",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1952,7 +2471,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceChannel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1973,7 +2503,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVoiceTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2007,7 +2548,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJourneys",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2021,7 +2573,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2057,7 +2620,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTemplateVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2106,7 +2680,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTemplates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2122,6 +2707,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "PhoneNumberValidate",
       :post,
       url_path,
       query_params,
@@ -2146,6 +2732,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "PutEventStream",
       :post,
       url_path,
       query_params,
@@ -2170,6 +2757,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "PutEvents",
       :post,
       url_path,
       query_params,
@@ -2193,7 +2781,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "RemoveAttributes",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2209,6 +2808,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "SendMessages",
       :post,
       url_path,
       query_params,
@@ -2232,6 +2832,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "SendOTPMessage",
       :post,
       url_path,
       query_params,
@@ -2255,6 +2856,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "SendUsersMessages",
       :post,
       url_path,
       query_params,
@@ -2279,6 +2881,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -2308,6 +2911,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -2329,7 +2933,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateAdmChannel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2343,7 +2958,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateApnsChannel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2357,7 +2983,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateApnsSandboxChannel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2371,7 +3008,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateApnsVoipChannel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2385,7 +3033,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateApnsVoipSandboxChannel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2398,7 +3057,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateApplicationSettings",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2412,7 +3082,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateBaiduChannel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2427,7 +3108,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateCampaign",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2441,7 +3133,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateEmailChannel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2461,7 +3164,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateEmailTemplate",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -2481,7 +3195,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateEndpoint",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -2499,7 +3224,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateEndpointsBatch",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -2513,7 +3249,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateGcmChannel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2533,7 +3280,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateInAppTemplate",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -2548,7 +3306,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateJourney",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2563,7 +3332,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateJourneyState",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2583,7 +3363,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdatePushTemplate",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -2596,7 +3387,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateRecommenderConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2613,7 +3415,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateSegment",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2627,7 +3440,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateSmsChannel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2647,7 +3471,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateSmsTemplate",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -2668,7 +3503,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateTemplateActiveVersion",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2682,7 +3528,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateVoiceChannel",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2702,7 +3559,18 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateVoiceTemplate",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -2718,6 +3586,7 @@ defmodule AWS.Pinpoint do
     Request.request_rest(
       client,
       meta,
+      "VerifyOTPMessage",
       :post,
       url_path,
       query_params,

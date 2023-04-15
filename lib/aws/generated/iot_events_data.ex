@@ -47,6 +47,7 @@ defmodule AWS.IoTEventsData do
     Request.request_rest(
       client,
       meta,
+      "BatchAcknowledgeAlarm",
       :post,
       url_path,
       query_params,
@@ -76,6 +77,7 @@ defmodule AWS.IoTEventsData do
     Request.request_rest(
       client,
       meta,
+      "BatchDeleteDetector",
       :post,
       url_path,
       query_params,
@@ -101,6 +103,7 @@ defmodule AWS.IoTEventsData do
     Request.request_rest(
       client,
       meta,
+      "BatchDisableAlarm",
       :post,
       url_path,
       query_params,
@@ -126,6 +129,7 @@ defmodule AWS.IoTEventsData do
     Request.request_rest(
       client,
       meta,
+      "BatchEnableAlarm",
       :post,
       url_path,
       query_params,
@@ -155,6 +159,7 @@ defmodule AWS.IoTEventsData do
     Request.request_rest(
       client,
       meta,
+      "BatchPutMessage",
       :post,
       url_path,
       query_params,
@@ -180,6 +185,7 @@ defmodule AWS.IoTEventsData do
     Request.request_rest(
       client,
       meta,
+      "BatchResetAlarm",
       :post,
       url_path,
       query_params,
@@ -206,6 +212,7 @@ defmodule AWS.IoTEventsData do
     Request.request_rest(
       client,
       meta,
+      "BatchSnoozeAlarm",
       :post,
       url_path,
       query_params,
@@ -230,6 +237,7 @@ defmodule AWS.IoTEventsData do
     Request.request_rest(
       client,
       meta,
+      "BatchUpdateDetector",
       :post,
       url_path,
       query_params,
@@ -257,7 +265,18 @@ defmodule AWS.IoTEventsData do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAlarm",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -277,7 +296,18 @@ defmodule AWS.IoTEventsData do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDetector",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -312,7 +342,18 @@ defmodule AWS.IoTEventsData do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAlarms",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -353,6 +394,17 @@ defmodule AWS.IoTEventsData do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDetectors",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 end

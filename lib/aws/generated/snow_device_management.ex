@@ -44,6 +44,7 @@ defmodule AWS.SnowDeviceManagement do
     Request.request_rest(
       client,
       meta,
+      "CancelTask",
       :post,
       url_path,
       query_params,
@@ -67,6 +68,7 @@ defmodule AWS.SnowDeviceManagement do
     Request.request_rest(
       client,
       meta,
+      "CreateTask",
       :post,
       url_path,
       query_params,
@@ -91,6 +93,7 @@ defmodule AWS.SnowDeviceManagement do
     Request.request_rest(
       client,
       meta,
+      "DescribeDevice",
       :post,
       url_path,
       query_params,
@@ -118,6 +121,7 @@ defmodule AWS.SnowDeviceManagement do
     Request.request_rest(
       client,
       meta,
+      "DescribeDeviceEc2Instances",
       :post,
       url_path,
       query_params,
@@ -143,6 +147,7 @@ defmodule AWS.SnowDeviceManagement do
     Request.request_rest(
       client,
       meta,
+      "DescribeExecution",
       :post,
       url_path,
       query_params,
@@ -166,6 +171,7 @@ defmodule AWS.SnowDeviceManagement do
     Request.request_rest(
       client,
       meta,
+      "DescribeTask",
       :post,
       url_path,
       query_params,
@@ -216,7 +222,18 @@ defmodule AWS.SnowDeviceManagement do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDeviceResources",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -258,7 +275,18 @@ defmodule AWS.SnowDeviceManagement do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDevices",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -306,7 +334,18 @@ defmodule AWS.SnowDeviceManagement do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListExecutions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -319,7 +358,18 @@ defmodule AWS.SnowDeviceManagement do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -359,7 +409,18 @@ defmodule AWS.SnowDeviceManagement do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTasks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -375,6 +436,7 @@ defmodule AWS.SnowDeviceManagement do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -403,6 +465,7 @@ defmodule AWS.SnowDeviceManagement do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,

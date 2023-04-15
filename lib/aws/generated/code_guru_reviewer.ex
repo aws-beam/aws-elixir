@@ -78,6 +78,7 @@ defmodule AWS.CodeGuruReviewer do
     Request.request_rest(
       client,
       meta,
+      "AssociateRepository",
       :post,
       url_path,
       query_params,
@@ -107,6 +108,7 @@ defmodule AWS.CodeGuruReviewer do
     Request.request_rest(
       client,
       meta,
+      "CreateCodeReview",
       :post,
       url_path,
       query_params,
@@ -127,7 +129,18 @@ defmodule AWS.CodeGuruReviewer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeCodeReview",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -160,7 +173,18 @@ defmodule AWS.CodeGuruReviewer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeRecommendationFeedback",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -175,7 +199,18 @@ defmodule AWS.CodeGuruReviewer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeRepositoryAssociation",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -191,6 +226,7 @@ defmodule AWS.CodeGuruReviewer do
     Request.request_rest(
       client,
       meta,
+      "DisassociateRepository",
       :delete,
       url_path,
       query_params,
@@ -262,7 +298,18 @@ defmodule AWS.CodeGuruReviewer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCodeReviews",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -314,7 +361,18 @@ defmodule AWS.CodeGuruReviewer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRecommendationFeedback",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -347,7 +405,18 @@ defmodule AWS.CodeGuruReviewer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRecommendations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -418,7 +487,18 @@ defmodule AWS.CodeGuruReviewer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRepositoryAssociations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -431,7 +511,18 @@ defmodule AWS.CodeGuruReviewer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -447,7 +538,18 @@ defmodule AWS.CodeGuruReviewer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutRecommendationFeedback",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -463,6 +565,7 @@ defmodule AWS.CodeGuruReviewer do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -491,6 +594,7 @@ defmodule AWS.CodeGuruReviewer do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,

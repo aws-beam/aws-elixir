@@ -36,7 +36,18 @@ defmodule AWS.WorkMailMessageFlow do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRawMessageContent",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -64,6 +75,7 @@ defmodule AWS.WorkMailMessageFlow do
     Request.request_rest(
       client,
       meta,
+      "PutRawMessageContent",
       :post,
       url_path,
       query_params,

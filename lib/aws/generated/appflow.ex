@@ -79,6 +79,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "CreateConnectorProfile",
       :post,
       url_path,
       query_params,
@@ -107,6 +108,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "CreateFlow",
       :post,
       url_path,
       query_params,
@@ -130,6 +132,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "DeleteConnectorProfile",
       :post,
       url_path,
       query_params,
@@ -156,6 +159,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "DeleteFlow",
       :post,
       url_path,
       query_params,
@@ -183,6 +187,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "DescribeConnector",
       :post,
       url_path,
       query_params,
@@ -207,6 +212,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "DescribeConnectorEntity",
       :post,
       url_path,
       query_params,
@@ -236,6 +242,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "DescribeConnectorProfiles",
       :post,
       url_path,
       query_params,
@@ -265,6 +272,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "DescribeConnectors",
       :post,
       url_path,
       query_params,
@@ -288,6 +296,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "DescribeFlow",
       :post,
       url_path,
       query_params,
@@ -311,6 +320,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "DescribeFlowExecutionRecords",
       :post,
       url_path,
       query_params,
@@ -337,6 +347,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "ListConnectorEntities",
       :post,
       url_path,
       query_params,
@@ -364,6 +375,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "ListConnectors",
       :post,
       url_path,
       query_params,
@@ -387,6 +399,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "ListFlows",
       :post,
       url_path,
       query_params,
@@ -407,7 +420,18 @@ defmodule AWS.Appflow do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -426,6 +450,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "RegisterConnector",
       :post,
       url_path,
       query_params,
@@ -452,6 +477,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "StartFlow",
       :post,
       url_path,
       query_params,
@@ -479,6 +505,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "StopFlow",
       :post,
       url_path,
       query_params,
@@ -502,6 +529,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -526,6 +554,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "UnregisterConnector",
       :post,
       url_path,
       query_params,
@@ -554,6 +583,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -577,6 +607,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "UpdateConnectorProfile",
       :post,
       url_path,
       query_params,
@@ -607,6 +638,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "UpdateConnectorRegistration",
       :post,
       url_path,
       query_params,
@@ -630,6 +662,7 @@ defmodule AWS.Appflow do
     Request.request_rest(
       client,
       meta,
+      "UpdateFlow",
       :post,
       url_path,
       query_params,

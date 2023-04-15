@@ -96,6 +96,7 @@ defmodule AWS.Glacier do
     Request.request_rest(
       client,
       meta,
+      "AbortMultipartUpload",
       :delete,
       url_path,
       query_params,
@@ -137,6 +138,7 @@ defmodule AWS.Glacier do
     Request.request_rest(
       client,
       meta,
+      "AbortVaultLock",
       :delete,
       url_path,
       query_params,
@@ -168,6 +170,7 @@ defmodule AWS.Glacier do
     Request.request_rest(
       client,
       meta,
+      "AddTagsToVault",
       :post,
       url_path,
       query_params,
@@ -262,6 +265,7 @@ defmodule AWS.Glacier do
     Request.request_rest(
       client,
       meta,
+      "CompleteMultipartUpload",
       :post,
       url_path,
       query_params,
@@ -309,6 +313,7 @@ defmodule AWS.Glacier do
     Request.request_rest(
       client,
       meta,
+      "CompleteVaultLock",
       :post,
       url_path,
       query_params,
@@ -361,7 +366,18 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateVault",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -405,6 +421,7 @@ defmodule AWS.Glacier do
     Request.request_rest(
       client,
       meta,
+      "DeleteArchive",
       :delete,
       url_path,
       query_params,
@@ -451,6 +468,7 @@ defmodule AWS.Glacier do
     Request.request_rest(
       client,
       meta,
+      "DeleteVault",
       :delete,
       url_path,
       query_params,
@@ -484,6 +502,7 @@ defmodule AWS.Glacier do
     Request.request_rest(
       client,
       meta,
+      "DeleteVaultAccessPolicy",
       :delete,
       url_path,
       query_params,
@@ -525,6 +544,7 @@ defmodule AWS.Glacier do
     Request.request_rest(
       client,
       meta,
+      "DeleteVaultNotifications",
       :delete,
       url_path,
       query_params,
@@ -569,7 +589,18 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -604,7 +635,18 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeVault",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -621,7 +663,18 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDataRetrievalPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -707,7 +760,18 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetJobOutput",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -727,7 +791,18 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVaultAccessPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -763,7 +838,18 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVaultLock",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -796,7 +882,18 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVaultNotifications",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -829,6 +926,7 @@ defmodule AWS.Glacier do
     Request.request_rest(
       client,
       meta,
+      "InitiateJob",
       :post,
       url_path,
       query_params,
@@ -902,6 +1000,7 @@ defmodule AWS.Glacier do
     Request.request_rest(
       client,
       meta,
+      "InitiateMultipartUpload",
       :post,
       url_path,
       query_params,
@@ -963,6 +1062,7 @@ defmodule AWS.Glacier do
     Request.request_rest(
       client,
       meta,
+      "InitiateVaultLock",
       :post,
       url_path,
       query_params,
@@ -1058,7 +1158,18 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1124,7 +1235,18 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListMultipartUploads",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1186,7 +1308,18 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListParts",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1200,7 +1333,18 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProvisionedCapacity",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1218,7 +1362,18 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForVault",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1267,7 +1422,18 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListVaults",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1290,6 +1456,7 @@ defmodule AWS.Glacier do
     Request.request_rest(
       client,
       meta,
+      "PurchaseProvisionedCapacity",
       :post,
       url_path,
       query_params,
@@ -1320,6 +1487,7 @@ defmodule AWS.Glacier do
     Request.request_rest(
       client,
       meta,
+      "RemoveTagsFromVault",
       :post,
       url_path,
       query_params,
@@ -1348,7 +1516,18 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "SetDataRetrievalPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -1370,7 +1549,18 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "SetVaultAccessPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -1419,7 +1609,18 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "SetVaultNotifications",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -1491,6 +1692,7 @@ defmodule AWS.Glacier do
     Request.request_rest(
       client,
       meta,
+      "UploadArchive",
       :post,
       url_path,
       query_params,
@@ -1578,6 +1780,17 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "UploadMultipartPart",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 end

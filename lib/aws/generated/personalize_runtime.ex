@@ -40,6 +40,7 @@ defmodule AWS.PersonalizeRuntime do
     Request.request_rest(
       client,
       meta,
+      "GetPersonalizedRanking",
       :post,
       url_path,
       query_params,
@@ -79,6 +80,7 @@ defmodule AWS.PersonalizeRuntime do
     Request.request_rest(
       client,
       meta,
+      "GetRecommendations",
       :post,
       url_path,
       query_params,

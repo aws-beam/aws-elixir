@@ -79,6 +79,7 @@ defmodule AWS.PinpointEmail do
     Request.request_rest(
       client,
       meta,
+      "CreateConfigurationSet",
       :post,
       url_path,
       query_params,
@@ -118,6 +119,7 @@ defmodule AWS.PinpointEmail do
     Request.request_rest(
       client,
       meta,
+      "CreateConfigurationSetEventDestination",
       :post,
       url_path,
       query_params,
@@ -146,6 +148,7 @@ defmodule AWS.PinpointEmail do
     Request.request_rest(
       client,
       meta,
+      "CreateDedicatedIpPool",
       :post,
       url_path,
       query_params,
@@ -177,6 +180,7 @@ defmodule AWS.PinpointEmail do
     Request.request_rest(
       client,
       meta,
+      "CreateDeliverabilityTestReport",
       :post,
       url_path,
       query_params,
@@ -216,6 +220,7 @@ defmodule AWS.PinpointEmail do
     Request.request_rest(
       client,
       meta,
+      "CreateEmailIdentity",
       :post,
       url_path,
       query_params,
@@ -245,6 +250,7 @@ defmodule AWS.PinpointEmail do
     Request.request_rest(
       client,
       meta,
+      "DeleteConfigurationSet",
       :delete,
       url_path,
       query_params,
@@ -283,6 +289,7 @@ defmodule AWS.PinpointEmail do
     Request.request_rest(
       client,
       meta,
+      "DeleteConfigurationSetEventDestination",
       :delete,
       url_path,
       query_params,
@@ -306,6 +313,7 @@ defmodule AWS.PinpointEmail do
     Request.request_rest(
       client,
       meta,
+      "DeleteDedicatedIpPool",
       :delete,
       url_path,
       query_params,
@@ -332,6 +340,7 @@ defmodule AWS.PinpointEmail do
     Request.request_rest(
       client,
       meta,
+      "DeleteEmailIdentity",
       :delete,
       url_path,
       query_params,
@@ -353,7 +362,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAccount",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -373,7 +393,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBlacklistReports",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -394,7 +425,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetConfigurationSet",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -421,7 +463,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetConfigurationSetEventDestinations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -436,7 +489,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDedicatedIp",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -477,7 +541,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDedicatedIps",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -501,7 +576,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDeliverabilityDashboardOptions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -514,7 +600,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDeliverabilityTestReport",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -531,7 +628,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDomainDeliverabilityCampaign",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -567,7 +675,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDomainStatisticsReport",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -582,7 +701,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEmailIdentity",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -621,7 +751,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListConfigurationSets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -654,7 +795,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDedicatedIpPools",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -690,7 +842,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDeliverabilityTestReports",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -745,7 +908,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDomainDeliverabilityCampaigns",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -781,7 +955,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListEmailIdentities",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -807,7 +992,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -820,7 +1016,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutAccountDedicatedIpWarmupAttributes",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -833,7 +1040,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutAccountSendingAttributes",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -856,7 +1074,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutConfigurationSetDeliveryOptions",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -877,7 +1106,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutConfigurationSetReputationOptions",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -898,7 +1138,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutConfigurationSetSendingOptions",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -919,7 +1170,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutConfigurationSetTrackingOptions",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -938,7 +1200,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutDedicatedIpInPool",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   def put_dedicated_ip_warmup_attributes(%Client{} = client, ip, input, options \\ []) do
@@ -948,7 +1221,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutDedicatedIpWarmupAttributes",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -971,7 +1255,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutDeliverabilityDashboardOption",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -984,7 +1279,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutEmailIdentityDkimAttributes",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1017,7 +1323,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutEmailIdentityFeedbackAttributes",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1036,7 +1353,18 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutEmailIdentityMailFromAttributes",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1063,6 +1391,7 @@ defmodule AWS.PinpointEmail do
     Request.request_rest(
       client,
       meta,
+      "SendEmail",
       :post,
       url_path,
       query_params,
@@ -1095,6 +1424,7 @@ defmodule AWS.PinpointEmail do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1124,6 +1454,7 @@ defmodule AWS.PinpointEmail do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1159,6 +1490,17 @@ defmodule AWS.PinpointEmail do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateConfigurationSetEventDestination",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

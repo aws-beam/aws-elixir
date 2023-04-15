@@ -55,7 +55,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AcceptInboundCrossClusterSearchConnection",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -74,6 +85,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "AddTags",
       :post,
       url_path,
       query_params,
@@ -99,6 +111,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "AssociatePackage",
       :post,
       url_path,
       query_params,
@@ -125,6 +138,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "AuthorizeVpcEndpointAccess",
       :post,
       url_path,
       query_params,
@@ -151,6 +165,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "CancelElasticsearchServiceSoftwareUpdate",
       :post,
       url_path,
       query_params,
@@ -177,6 +192,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "CreateElasticsearchDomain",
       :post,
       url_path,
       query_params,
@@ -201,6 +217,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "CreateOutboundCrossClusterSearchConnection",
       :post,
       url_path,
       query_params,
@@ -224,6 +241,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "CreatePackage",
       :post,
       url_path,
       query_params,
@@ -247,6 +265,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "CreateVpcEndpoint",
       :post,
       url_path,
       query_params,
@@ -272,6 +291,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "DeleteElasticsearchDomain",
       :delete,
       url_path,
       query_params,
@@ -301,6 +321,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "DeleteElasticsearchServiceRole",
       :delete,
       url_path,
       query_params,
@@ -332,6 +353,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "DeleteInboundCrossClusterSearchConnection",
       :delete,
       url_path,
       query_params,
@@ -363,6 +385,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "DeleteOutboundCrossClusterSearchConnection",
       :delete,
       url_path,
       query_params,
@@ -386,6 +409,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "DeletePackage",
       :delete,
       url_path,
       query_params,
@@ -409,6 +433,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "DeleteVpcEndpoint",
       :delete,
       url_path,
       query_params,
@@ -430,7 +455,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDomainAutoTunes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -456,7 +492,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDomainChangeProgress",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -470,7 +517,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeElasticsearchDomain",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -485,7 +543,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeElasticsearchDomainConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -502,6 +571,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "DescribeElasticsearchDomains",
       :post,
       url_path,
       query_params,
@@ -540,7 +610,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeElasticsearchInstanceTypeLimits",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -556,6 +637,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "DescribeInboundCrossClusterSearchConnections",
       :post,
       url_path,
       query_params,
@@ -579,6 +661,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "DescribeOutboundCrossClusterSearchConnections",
       :post,
       url_path,
       query_params,
@@ -604,6 +687,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "DescribePackages",
       :post,
       url_path,
       query_params,
@@ -651,7 +735,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeReservedElasticsearchInstanceOfferings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -691,7 +786,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeReservedElasticsearchInstances",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -707,6 +813,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "DescribeVpcEndpoints",
       :post,
       url_path,
       query_params,
@@ -732,6 +839,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "DissociatePackage",
       :post,
       url_path,
       query_params,
@@ -762,7 +870,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCompatibleElasticsearchVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -796,7 +915,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPackageVersionHistory",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -830,7 +960,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetUpgradeHistory",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -844,7 +985,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetUpgradeStatus",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -865,7 +1017,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDomainNames",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -898,7 +1061,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDomainsForPackage",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -940,7 +1114,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListElasticsearchInstanceTypes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -972,7 +1157,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListElasticsearchVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1005,7 +1201,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPackagesForDomain",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1025,7 +1232,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTags",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1046,7 +1264,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListVpcEndpointAccess",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1067,7 +1296,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListVpcEndpoints",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1093,7 +1333,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListVpcEndpointsForDomain",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1109,6 +1360,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "PurchaseReservedElasticsearchInstanceOffering",
       :post,
       url_path,
       query_params,
@@ -1137,7 +1389,18 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "RejectInboundCrossClusterSearchConnection",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1153,6 +1416,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "RemoveTags",
       :post,
       url_path,
       query_params,
@@ -1177,6 +1441,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "RevokeVpcEndpointAccess",
       :post,
       url_path,
       query_params,
@@ -1200,6 +1465,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "StartElasticsearchServiceSoftwareUpdate",
       :post,
       url_path,
       query_params,
@@ -1224,6 +1490,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "UpdateElasticsearchDomainConfig",
       :post,
       url_path,
       query_params,
@@ -1247,6 +1514,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "UpdatePackage",
       :post,
       url_path,
       query_params,
@@ -1270,6 +1538,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "UpdateVpcEndpoint",
       :post,
       url_path,
       query_params,
@@ -1294,6 +1563,7 @@ defmodule AWS.Elasticsearch do
     Request.request_rest(
       client,
       meta,
+      "UpgradeElasticsearchDomain",
       :post,
       url_path,
       query_params,

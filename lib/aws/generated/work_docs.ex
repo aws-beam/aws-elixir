@@ -98,6 +98,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "AbortDocumentVersionUpload",
       :delete,
       url_path,
       query_params,
@@ -129,6 +130,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "ActivateUser",
       :post,
       url_path,
       query_params,
@@ -161,6 +163,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "AddResourcePermissions",
       :post,
       url_path,
       query_params,
@@ -191,6 +194,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "CreateComment",
       :post,
       url_path,
       query_params,
@@ -222,7 +226,18 @@ defmodule AWS.WorkDocs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateCustomMetadata",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -244,6 +259,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "CreateFolder",
       :post,
       url_path,
       query_params,
@@ -270,7 +286,18 @@ defmodule AWS.WorkDocs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateLabels",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -291,6 +318,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "CreateNotificationSubscription",
       :post,
       url_path,
       query_params,
@@ -323,6 +351,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "CreateUser",
       :post,
       url_path,
       query_params,
@@ -353,6 +382,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "DeactivateUser",
       :delete,
       url_path,
       query_params,
@@ -390,6 +420,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "DeleteComment",
       :delete,
       url_path,
       query_params,
@@ -425,6 +456,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "DeleteCustomMetadata",
       :delete,
       url_path,
       query_params,
@@ -454,6 +486,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "DeleteDocument",
       :delete,
       url_path,
       query_params,
@@ -488,6 +521,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "DeleteDocumentVersion",
       :delete,
       url_path,
       query_params,
@@ -517,6 +551,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "DeleteFolder",
       :delete,
       url_path,
       query_params,
@@ -546,6 +581,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "DeleteFolderContents",
       :delete,
       url_path,
       query_params,
@@ -580,6 +616,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "DeleteLabels",
       :delete,
       url_path,
       query_params,
@@ -611,6 +648,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "DeleteNotificationSubscription",
       :delete,
       url_path,
       query_params,
@@ -643,6 +681,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "DeleteUser",
       :delete,
       url_path,
       query_params,
@@ -747,7 +786,18 @@ defmodule AWS.WorkDocs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeActivities",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -792,7 +842,18 @@ defmodule AWS.WorkDocs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeComments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -852,7 +913,18 @@ defmodule AWS.WorkDocs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDocumentVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -932,7 +1004,18 @@ defmodule AWS.WorkDocs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeFolderContents",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -991,7 +1074,18 @@ defmodule AWS.WorkDocs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1024,7 +1118,18 @@ defmodule AWS.WorkDocs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeNotificationSubscriptions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1074,7 +1179,18 @@ defmodule AWS.WorkDocs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeResourcePermissions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1125,7 +1241,18 @@ defmodule AWS.WorkDocs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeRootFolders",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1229,7 +1356,18 @@ defmodule AWS.WorkDocs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeUsers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1258,7 +1396,18 @@ defmodule AWS.WorkDocs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCurrentUser",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1292,7 +1441,18 @@ defmodule AWS.WorkDocs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDocument",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1348,7 +1508,18 @@ defmodule AWS.WorkDocs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDocumentPath",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1393,7 +1564,18 @@ defmodule AWS.WorkDocs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDocumentVersion",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1427,7 +1609,18 @@ defmodule AWS.WorkDocs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFolder",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1483,7 +1676,18 @@ defmodule AWS.WorkDocs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFolderPath",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1542,7 +1746,18 @@ defmodule AWS.WorkDocs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetResources",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1571,6 +1786,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "InitiateDocumentVersionUpload",
       :post,
       url_path,
       query_params,
@@ -1600,6 +1816,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "RemoveAllResourcePermissions",
       :delete,
       url_path,
       query_params,
@@ -1640,6 +1857,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "RemoveResourcePermission",
       :delete,
       url_path,
       query_params,
@@ -1669,6 +1887,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "RestoreDocumentVersions",
       :post,
       url_path,
       query_params,
@@ -1731,6 +1950,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "UpdateDocument",
       :patch,
       url_path,
       query_params,
@@ -1765,6 +1985,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "UpdateDocumentVersion",
       :patch,
       url_path,
       query_params,
@@ -1797,6 +2018,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "UpdateFolder",
       :patch,
       url_path,
       query_params,
@@ -1827,6 +2049,7 @@ defmodule AWS.WorkDocs do
     Request.request_rest(
       client,
       meta,
+      "UpdateUser",
       :patch,
       url_path,
       query_params,

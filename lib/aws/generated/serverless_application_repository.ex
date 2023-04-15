@@ -80,6 +80,7 @@ defmodule AWS.ServerlessApplicationRepository do
     Request.request_rest(
       client,
       meta,
+      "CreateApplication",
       :post,
       url_path,
       query_params,
@@ -108,7 +109,18 @@ defmodule AWS.ServerlessApplicationRepository do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateApplicationVersion",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -124,6 +136,7 @@ defmodule AWS.ServerlessApplicationRepository do
     Request.request_rest(
       client,
       meta,
+      "CreateCloudFormationChangeSet",
       :post,
       url_path,
       query_params,
@@ -147,6 +160,7 @@ defmodule AWS.ServerlessApplicationRepository do
     Request.request_rest(
       client,
       meta,
+      "CreateCloudFormationTemplate",
       :post,
       url_path,
       query_params,
@@ -170,6 +184,7 @@ defmodule AWS.ServerlessApplicationRepository do
     Request.request_rest(
       client,
       meta,
+      "DeleteApplication",
       :delete,
       url_path,
       query_params,
@@ -197,7 +212,18 @@ defmodule AWS.ServerlessApplicationRepository do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApplication",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -210,7 +236,18 @@ defmodule AWS.ServerlessApplicationRepository do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApplicationPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -225,7 +262,18 @@ defmodule AWS.ServerlessApplicationRepository do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCloudFormationTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -266,7 +314,18 @@ defmodule AWS.ServerlessApplicationRepository do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListApplicationDependencies",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -299,7 +358,18 @@ defmodule AWS.ServerlessApplicationRepository do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListApplicationVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -326,7 +396,18 @@ defmodule AWS.ServerlessApplicationRepository do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListApplications",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -344,7 +425,18 @@ defmodule AWS.ServerlessApplicationRepository do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutApplicationPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -362,6 +454,7 @@ defmodule AWS.ServerlessApplicationRepository do
     Request.request_rest(
       client,
       meta,
+      "UnshareApplication",
       :post,
       url_path,
       query_params,
@@ -385,6 +478,7 @@ defmodule AWS.ServerlessApplicationRepository do
     Request.request_rest(
       client,
       meta,
+      "UpdateApplication",
       :patch,
       url_path,
       query_params,

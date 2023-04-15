@@ -87,6 +87,7 @@ defmodule AWS.MediaConnect do
     Request.request_rest(
       client,
       meta,
+      "AddFlowMediaStreams",
       :post,
       url_path,
       query_params,
@@ -112,6 +113,7 @@ defmodule AWS.MediaConnect do
     Request.request_rest(
       client,
       meta,
+      "AddFlowOutputs",
       :post,
       url_path,
       query_params,
@@ -135,6 +137,7 @@ defmodule AWS.MediaConnect do
     Request.request_rest(
       client,
       meta,
+      "AddFlowSources",
       :post,
       url_path,
       query_params,
@@ -158,6 +161,7 @@ defmodule AWS.MediaConnect do
     Request.request_rest(
       client,
       meta,
+      "AddFlowVpcInterfaces",
       :post,
       url_path,
       query_params,
@@ -209,6 +213,7 @@ defmodule AWS.MediaConnect do
     Request.request_rest(
       client,
       meta,
+      "CreateFlow",
       :post,
       url_path,
       query_params,
@@ -284,6 +289,7 @@ defmodule AWS.MediaConnect do
     Request.request_rest(
       client,
       meta,
+      "DeleteFlow",
       :delete,
       url_path,
       query_params,
@@ -378,7 +384,18 @@ defmodule AWS.MediaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeFlow",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -423,7 +440,18 @@ defmodule AWS.MediaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeOffering",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -440,7 +468,18 @@ defmodule AWS.MediaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeReservation",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -456,6 +495,7 @@ defmodule AWS.MediaConnect do
     Request.request_rest(
       client,
       meta,
+      "GrantFlowEntitlements",
       :post,
       url_path,
       query_params,
@@ -535,7 +575,18 @@ defmodule AWS.MediaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListEntitlements",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -564,7 +615,18 @@ defmodule AWS.MediaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListFlows",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -669,7 +731,18 @@ defmodule AWS.MediaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListOfferings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -699,7 +772,18 @@ defmodule AWS.MediaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListReservations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -712,7 +796,18 @@ defmodule AWS.MediaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -730,6 +825,7 @@ defmodule AWS.MediaConnect do
     Request.request_rest(
       client,
       meta,
+      "PurchaseOffering",
       :post,
       url_path,
       query_params,
@@ -814,6 +910,7 @@ defmodule AWS.MediaConnect do
     Request.request_rest(
       client,
       meta,
+      "RemoveFlowMediaStream",
       :delete,
       url_path,
       query_params,
@@ -844,6 +941,7 @@ defmodule AWS.MediaConnect do
     Request.request_rest(
       client,
       meta,
+      "RemoveFlowOutput",
       :delete,
       url_path,
       query_params,
@@ -871,6 +969,7 @@ defmodule AWS.MediaConnect do
     Request.request_rest(
       client,
       meta,
+      "RemoveFlowSource",
       :delete,
       url_path,
       query_params,
@@ -907,6 +1006,7 @@ defmodule AWS.MediaConnect do
     Request.request_rest(
       client,
       meta,
+      "RemoveFlowVpcInterface",
       :delete,
       url_path,
       query_params,
@@ -935,6 +1035,7 @@ defmodule AWS.MediaConnect do
     Request.request_rest(
       client,
       meta,
+      "RevokeFlowEntitlement",
       :delete,
       url_path,
       query_params,
@@ -958,6 +1059,7 @@ defmodule AWS.MediaConnect do
     Request.request_rest(
       client,
       meta,
+      "StartFlow",
       :post,
       url_path,
       query_params,
@@ -981,6 +1083,7 @@ defmodule AWS.MediaConnect do
     Request.request_rest(
       client,
       meta,
+      "StopFlow",
       :post,
       url_path,
       query_params,
@@ -1008,6 +1111,7 @@ defmodule AWS.MediaConnect do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1036,6 +1140,7 @@ defmodule AWS.MediaConnect do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1112,7 +1217,18 @@ defmodule AWS.MediaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateFlow",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -1130,7 +1246,18 @@ defmodule AWS.MediaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateFlowEntitlement",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -1151,7 +1278,18 @@ defmodule AWS.MediaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateFlowMediaStream",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -1166,7 +1304,18 @@ defmodule AWS.MediaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateFlowOutput",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -1181,7 +1330,18 @@ defmodule AWS.MediaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateFlowSource",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """

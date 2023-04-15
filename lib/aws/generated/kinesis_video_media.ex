@@ -81,6 +81,7 @@ defmodule AWS.KinesisVideoMedia do
     Request.request_rest(
       client,
       meta,
+      "GetMedia",
       :post,
       url_path,
       query_params,

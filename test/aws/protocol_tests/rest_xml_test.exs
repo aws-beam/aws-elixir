@@ -64,6 +64,7 @@ defmodule AWS.ProtocolTests.RestXMLTest do
         Request.request_rest(
           client,
           metadata,
+          "OperationName",
           :post,
           path,
           %{},

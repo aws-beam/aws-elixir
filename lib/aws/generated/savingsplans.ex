@@ -43,6 +43,7 @@ defmodule AWS.Savingsplans do
     Request.request_rest(
       client,
       meta,
+      "CreateSavingsPlan",
       :post,
       url_path,
       query_params,
@@ -66,6 +67,7 @@ defmodule AWS.Savingsplans do
     Request.request_rest(
       client,
       meta,
+      "DeleteQueuedSavingsPlan",
       :post,
       url_path,
       query_params,
@@ -89,6 +91,7 @@ defmodule AWS.Savingsplans do
     Request.request_rest(
       client,
       meta,
+      "DescribeSavingsPlanRates",
       :post,
       url_path,
       query_params,
@@ -112,6 +115,7 @@ defmodule AWS.Savingsplans do
     Request.request_rest(
       client,
       meta,
+      "DescribeSavingsPlans",
       :post,
       url_path,
       query_params,
@@ -135,6 +139,7 @@ defmodule AWS.Savingsplans do
     Request.request_rest(
       client,
       meta,
+      "DescribeSavingsPlansOfferingRates",
       :post,
       url_path,
       query_params,
@@ -158,6 +163,7 @@ defmodule AWS.Savingsplans do
     Request.request_rest(
       client,
       meta,
+      "DescribeSavingsPlansOfferings",
       :post,
       url_path,
       query_params,
@@ -181,6 +187,7 @@ defmodule AWS.Savingsplans do
     Request.request_rest(
       client,
       meta,
+      "ListTagsForResource",
       :post,
       url_path,
       query_params,
@@ -204,6 +211,7 @@ defmodule AWS.Savingsplans do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -227,6 +235,7 @@ defmodule AWS.Savingsplans do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :post,
       url_path,
       query_params,

@@ -43,6 +43,7 @@ defmodule AWS.GroundStation do
     Request.request_rest(
       client,
       meta,
+      "CancelContact",
       :delete,
       url_path,
       query_params,
@@ -68,6 +69,7 @@ defmodule AWS.GroundStation do
     Request.request_rest(
       client,
       meta,
+      "CreateConfig",
       :post,
       url_path,
       query_params,
@@ -98,6 +100,7 @@ defmodule AWS.GroundStation do
     Request.request_rest(
       client,
       meta,
+      "CreateDataflowEndpointGroup",
       :post,
       url_path,
       query_params,
@@ -121,6 +124,7 @@ defmodule AWS.GroundStation do
     Request.request_rest(
       client,
       meta,
+      "CreateEphemeris",
       :post,
       url_path,
       query_params,
@@ -147,6 +151,7 @@ defmodule AWS.GroundStation do
     Request.request_rest(
       client,
       meta,
+      "CreateMissionProfile",
       :post,
       url_path,
       query_params,
@@ -170,6 +175,7 @@ defmodule AWS.GroundStation do
     Request.request_rest(
       client,
       meta,
+      "DeleteConfig",
       :delete,
       url_path,
       query_params,
@@ -198,6 +204,7 @@ defmodule AWS.GroundStation do
     Request.request_rest(
       client,
       meta,
+      "DeleteDataflowEndpointGroup",
       :delete,
       url_path,
       query_params,
@@ -221,6 +228,7 @@ defmodule AWS.GroundStation do
     Request.request_rest(
       client,
       meta,
+      "DeleteEphemeris",
       :delete,
       url_path,
       query_params,
@@ -244,6 +252,7 @@ defmodule AWS.GroundStation do
     Request.request_rest(
       client,
       meta,
+      "DeleteMissionProfile",
       :delete,
       url_path,
       query_params,
@@ -264,7 +273,18 @@ defmodule AWS.GroundStation do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeContact",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -277,7 +297,18 @@ defmodule AWS.GroundStation do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeEphemeris",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -307,7 +338,18 @@ defmodule AWS.GroundStation do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -320,7 +362,18 @@ defmodule AWS.GroundStation do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDataflowEndpointGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -336,6 +389,7 @@ defmodule AWS.GroundStation do
     Request.request_rest(
       client,
       meta,
+      "GetMinuteUsage",
       :post,
       url_path,
       query_params,
@@ -356,7 +410,18 @@ defmodule AWS.GroundStation do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMissionProfile",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -369,7 +434,18 @@ defmodule AWS.GroundStation do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSatellite",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -396,7 +472,18 @@ defmodule AWS.GroundStation do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListConfigs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -415,6 +502,7 @@ defmodule AWS.GroundStation do
     Request.request_rest(
       client,
       meta,
+      "ListContacts",
       :post,
       url_path,
       query_params,
@@ -454,7 +542,18 @@ defmodule AWS.GroundStation do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDataflowEndpointGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -476,6 +575,7 @@ defmodule AWS.GroundStation do
     Request.request_rest(
       client,
       meta,
+      "ListEphemerides",
       :post,
       url_path,
       query_params,
@@ -523,7 +623,18 @@ defmodule AWS.GroundStation do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListGroundStations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -555,7 +666,18 @@ defmodule AWS.GroundStation do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListMissionProfiles",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -582,7 +704,18 @@ defmodule AWS.GroundStation do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSatellites",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -595,7 +728,18 @@ defmodule AWS.GroundStation do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -636,6 +780,7 @@ defmodule AWS.GroundStation do
     Request.request_rest(
       client,
       meta,
+      "ReserveContact",
       :post,
       url_path,
       query_params,
@@ -659,6 +804,7 @@ defmodule AWS.GroundStation do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -687,6 +833,7 @@ defmodule AWS.GroundStation do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -725,7 +872,18 @@ defmodule AWS.GroundStation do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateConfig",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -738,7 +896,18 @@ defmodule AWS.GroundStation do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateEphemeris",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -754,6 +923,17 @@ defmodule AWS.GroundStation do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateMissionProfile",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

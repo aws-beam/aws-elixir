@@ -38,6 +38,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "CreateApi",
       :post,
       url_path,
       query_params,
@@ -61,6 +62,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "CreateApiMapping",
       :post,
       url_path,
       query_params,
@@ -84,6 +86,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "CreateAuthorizer",
       :post,
       url_path,
       query_params,
@@ -107,6 +110,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "CreateDeployment",
       :post,
       url_path,
       query_params,
@@ -130,6 +134,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "CreateDomainName",
       :post,
       url_path,
       query_params,
@@ -153,6 +158,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "CreateIntegration",
       :post,
       url_path,
       query_params,
@@ -184,6 +190,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "CreateIntegrationResponse",
       :post,
       url_path,
       query_params,
@@ -207,6 +214,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "CreateModel",
       :post,
       url_path,
       query_params,
@@ -230,6 +238,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "CreateRoute",
       :post,
       url_path,
       query_params,
@@ -255,6 +264,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "CreateRouteResponse",
       :post,
       url_path,
       query_params,
@@ -278,6 +288,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "CreateStage",
       :post,
       url_path,
       query_params,
@@ -301,6 +312,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "CreateVpcLink",
       :post,
       url_path,
       query_params,
@@ -328,6 +340,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteAccessLogSettings",
       :delete,
       url_path,
       query_params,
@@ -351,6 +364,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteApi",
       :delete,
       url_path,
       query_params,
@@ -376,6 +390,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteApiMapping",
       :delete,
       url_path,
       query_params,
@@ -401,6 +416,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteAuthorizer",
       :delete,
       url_path,
       query_params,
@@ -424,6 +440,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteCorsConfiguration",
       :delete,
       url_path,
       query_params,
@@ -449,6 +466,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteDeployment",
       :delete,
       url_path,
       query_params,
@@ -472,6 +490,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteDomainName",
       :delete,
       url_path,
       query_params,
@@ -497,6 +516,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteIntegration",
       :delete,
       url_path,
       query_params,
@@ -529,6 +549,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteIntegrationResponse",
       :delete,
       url_path,
       query_params,
@@ -552,6 +573,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteModel",
       :delete,
       url_path,
       query_params,
@@ -575,6 +597,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteRoute",
       :delete,
       url_path,
       query_params,
@@ -607,6 +630,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteRouteRequestParameter",
       :delete,
       url_path,
       query_params,
@@ -639,6 +663,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteRouteResponse",
       :delete,
       url_path,
       query_params,
@@ -671,6 +696,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteRouteSettings",
       :delete,
       url_path,
       query_params,
@@ -694,6 +720,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteStage",
       :delete,
       url_path,
       query_params,
@@ -717,6 +744,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteVpcLink",
       :delete,
       url_path,
       query_params,
@@ -776,7 +804,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ExportApi",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -789,7 +828,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApi",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -804,7 +854,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApiMapping",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -837,7 +898,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApiMappings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -864,7 +936,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApis",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -879,7 +962,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAuthorizer",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -912,7 +1006,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAuthorizers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -927,7 +1032,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDeployment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -960,7 +1076,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDeployments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -973,7 +1100,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDomainName",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1000,7 +1138,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDomainNames",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1015,7 +1164,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetIntegration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1036,7 +1196,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetIntegrationResponse",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1072,7 +1243,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetIntegrationResponses",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1105,7 +1287,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetIntegrations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1118,7 +1311,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetModel",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1133,7 +1337,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetModelTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1160,7 +1375,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetModels",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1173,7 +1399,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRoute",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1188,7 +1425,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRouteResponse",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1224,7 +1472,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRouteResponses",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1251,7 +1510,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRoutes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1264,7 +1534,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetStage",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1291,7 +1572,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetStages",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1304,7 +1596,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTags",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1317,7 +1620,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVpcLink",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1344,7 +1658,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVpcLinks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1370,7 +1695,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      "ImportApi",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -1396,7 +1732,18 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      "ReimportApi",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -1416,6 +1763,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "ResetAuthorizersCache",
       :delete,
       url_path,
       query_params,
@@ -1439,6 +1787,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1467,6 +1816,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1490,6 +1840,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateApi",
       :patch,
       url_path,
       query_params,
@@ -1515,6 +1866,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateApiMapping",
       :patch,
       url_path,
       query_params,
@@ -1540,6 +1892,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateAuthorizer",
       :patch,
       url_path,
       query_params,
@@ -1565,6 +1918,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateDeployment",
       :patch,
       url_path,
       query_params,
@@ -1588,6 +1942,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateDomainName",
       :patch,
       url_path,
       query_params,
@@ -1613,6 +1968,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateIntegration",
       :patch,
       url_path,
       query_params,
@@ -1645,6 +2001,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateIntegrationResponse",
       :patch,
       url_path,
       query_params,
@@ -1668,6 +2025,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateModel",
       :patch,
       url_path,
       query_params,
@@ -1691,6 +2049,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateRoute",
       :patch,
       url_path,
       query_params,
@@ -1723,6 +2082,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateRouteResponse",
       :patch,
       url_path,
       query_params,
@@ -1746,6 +2106,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateStage",
       :patch,
       url_path,
       query_params,
@@ -1769,6 +2130,7 @@ defmodule AWS.ApiGatewayV2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateVpcLink",
       :patch,
       url_path,
       query_params,

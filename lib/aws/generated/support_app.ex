@@ -90,6 +90,7 @@ defmodule AWS.SupportApp do
     Request.request_rest(
       client,
       meta,
+      "CreateSlackChannelConfiguration",
       :post,
       url_path,
       query_params,
@@ -117,6 +118,7 @@ defmodule AWS.SupportApp do
     Request.request_rest(
       client,
       meta,
+      "DeleteAccountAlias",
       :post,
       url_path,
       query_params,
@@ -142,6 +144,7 @@ defmodule AWS.SupportApp do
     Request.request_rest(
       client,
       meta,
+      "DeleteSlackChannelConfiguration",
       :post,
       url_path,
       query_params,
@@ -167,6 +170,7 @@ defmodule AWS.SupportApp do
     Request.request_rest(
       client,
       meta,
+      "DeleteSlackWorkspaceConfiguration",
       :post,
       url_path,
       query_params,
@@ -194,6 +198,7 @@ defmodule AWS.SupportApp do
     Request.request_rest(
       client,
       meta,
+      "GetAccountAlias",
       :post,
       url_path,
       query_params,
@@ -217,6 +222,7 @@ defmodule AWS.SupportApp do
     Request.request_rest(
       client,
       meta,
+      "ListSlackChannelConfigurations",
       :post,
       url_path,
       query_params,
@@ -240,6 +246,7 @@ defmodule AWS.SupportApp do
     Request.request_rest(
       client,
       meta,
+      "ListSlackWorkspaceConfigurations",
       :post,
       url_path,
       query_params,
@@ -267,6 +274,7 @@ defmodule AWS.SupportApp do
     Request.request_rest(
       client,
       meta,
+      "PutAccountAlias",
       :post,
       url_path,
       query_params,
@@ -319,6 +327,7 @@ defmodule AWS.SupportApp do
     Request.request_rest(
       client,
       meta,
+      "RegisterSlackWorkspaceForOrganization",
       :post,
       url_path,
       query_params,
@@ -343,6 +352,7 @@ defmodule AWS.SupportApp do
     Request.request_rest(
       client,
       meta,
+      "UpdateSlackChannelConfiguration",
       :post,
       url_path,
       query_params,

@@ -41,6 +41,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "BatchDeleteReadSet",
       :post,
       url_path,
       query_params,
@@ -64,6 +65,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "CancelAnnotationImportJob",
       :delete,
       url_path,
       query_params,
@@ -87,6 +89,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "CancelRun",
       :post,
       url_path,
       query_params,
@@ -110,6 +113,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "CancelVariantImportJob",
       :delete,
       url_path,
       query_params,
@@ -133,6 +137,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "CreateAnnotationStore",
       :post,
       url_path,
       query_params,
@@ -156,6 +161,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "CreateReferenceStore",
       :post,
       url_path,
       query_params,
@@ -179,6 +185,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "CreateRunGroup",
       :post,
       url_path,
       query_params,
@@ -202,6 +209,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "CreateSequenceStore",
       :post,
       url_path,
       query_params,
@@ -225,6 +233,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "CreateVariantStore",
       :post,
       url_path,
       query_params,
@@ -248,6 +257,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "CreateWorkflow",
       :post,
       url_path,
       query_params,
@@ -276,6 +286,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "DeleteAnnotationStore",
       :delete,
       url_path,
       query_params,
@@ -301,6 +312,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "DeleteReference",
       :delete,
       url_path,
       query_params,
@@ -324,6 +336,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "DeleteReferenceStore",
       :delete,
       url_path,
       query_params,
@@ -347,6 +360,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "DeleteRun",
       :delete,
       url_path,
       query_params,
@@ -370,6 +384,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "DeleteRunGroup",
       :delete,
       url_path,
       query_params,
@@ -393,6 +408,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "DeleteSequenceStore",
       :delete,
       url_path,
       query_params,
@@ -421,6 +437,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "DeleteVariantStore",
       :delete,
       url_path,
       query_params,
@@ -444,6 +461,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "DeleteWorkflow",
       :delete,
       url_path,
       query_params,
@@ -464,7 +482,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAnnotationImportJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -477,7 +506,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAnnotationStore",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -513,7 +553,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "storage-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetReadSet",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -528,7 +579,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetReadSetActivationJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -543,7 +605,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetReadSetExportJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -558,7 +631,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetReadSetImportJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -573,7 +657,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetReadSetMetadata",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -618,7 +713,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "storage-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetReference",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -633,7 +739,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetReferenceImportJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -648,7 +765,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetReferenceMetadata",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -661,7 +789,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetReferenceStore",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -681,7 +820,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRun",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -694,7 +844,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRunGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -707,7 +868,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRunTask",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -720,7 +892,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSequenceStore",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -733,7 +916,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVariantImportJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -746,7 +940,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVariantStore",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -773,7 +978,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetWorkflow",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -795,6 +1011,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "ListAnnotationImportJobs",
       :post,
       url_path,
       query_params,
@@ -824,6 +1041,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "ListAnnotationStores",
       :post,
       url_path,
       query_params,
@@ -853,6 +1071,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "ListReadSetActivationJobs",
       :post,
       url_path,
       query_params,
@@ -882,6 +1101,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "ListReadSetExportJobs",
       :post,
       url_path,
       query_params,
@@ -911,6 +1131,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "ListReadSetImportJobs",
       :post,
       url_path,
       query_params,
@@ -940,6 +1161,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "ListReadSets",
       :post,
       url_path,
       query_params,
@@ -969,6 +1191,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "ListReferenceImportJobs",
       :post,
       url_path,
       query_params,
@@ -998,6 +1221,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "ListReferenceStores",
       :post,
       url_path,
       query_params,
@@ -1027,6 +1251,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "ListReferences",
       :post,
       url_path,
       query_params,
@@ -1074,7 +1299,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRunGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1115,7 +1351,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRunTasks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1163,7 +1410,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRuns",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1185,6 +1443,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "ListSequenceStores",
       :post,
       url_path,
       query_params,
@@ -1205,7 +1464,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "tags-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1227,6 +1497,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "ListVariantImportJobs",
       :post,
       url_path,
       query_params,
@@ -1256,6 +1527,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "ListVariantStores",
       :post,
       url_path,
       query_params,
@@ -1311,7 +1583,18 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListWorkflows",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1327,6 +1610,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "StartAnnotationImportJob",
       :post,
       url_path,
       query_params,
@@ -1352,6 +1636,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "StartReadSetActivationJob",
       :post,
       url_path,
       query_params,
@@ -1375,6 +1660,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "StartReadSetExportJob",
       :post,
       url_path,
       query_params,
@@ -1398,6 +1684,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "StartReadSetImportJob",
       :post,
       url_path,
       query_params,
@@ -1421,6 +1708,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "StartReferenceImportJob",
       :post,
       url_path,
       query_params,
@@ -1444,6 +1732,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "StartRun",
       :post,
       url_path,
       query_params,
@@ -1467,6 +1756,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "StartVariantImportJob",
       :post,
       url_path,
       query_params,
@@ -1490,6 +1780,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1518,6 +1809,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1541,6 +1833,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "UpdateAnnotationStore",
       :post,
       url_path,
       query_params,
@@ -1564,6 +1857,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "UpdateRunGroup",
       :post,
       url_path,
       query_params,
@@ -1587,6 +1881,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "UpdateVariantStore",
       :post,
       url_path,
       query_params,
@@ -1610,6 +1905,7 @@ defmodule AWS.Omics do
     Request.request_rest(
       client,
       meta,
+      "UpdateWorkflow",
       :post,
       url_path,
       query_params,

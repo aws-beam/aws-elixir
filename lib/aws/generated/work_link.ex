@@ -46,6 +46,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "AssociateDomain",
       :post,
       url_path,
       query_params,
@@ -72,6 +73,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "AssociateWebsiteAuthorizationProvider",
       :post,
       url_path,
       query_params,
@@ -96,6 +98,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "AssociateWebsiteCertificateAuthority",
       :post,
       url_path,
       query_params,
@@ -122,6 +125,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "CreateFleet",
       :post,
       url_path,
       query_params,
@@ -147,6 +151,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "DeleteFleet",
       :post,
       url_path,
       query_params,
@@ -171,6 +176,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "DescribeAuditStreamConfiguration",
       :post,
       url_path,
       query_params,
@@ -195,6 +201,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "DescribeCompanyNetworkConfiguration",
       :post,
       url_path,
       query_params,
@@ -218,6 +225,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "DescribeDevice",
       :post,
       url_path,
       query_params,
@@ -241,6 +249,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "DescribeDevicePolicyConfiguration",
       :post,
       url_path,
       query_params,
@@ -264,6 +273,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "DescribeDomain",
       :post,
       url_path,
       query_params,
@@ -288,6 +298,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "DescribeFleetMetadata",
       :post,
       url_path,
       query_params,
@@ -311,6 +322,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "DescribeIdentityProviderConfiguration",
       :post,
       url_path,
       query_params,
@@ -334,6 +346,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "DescribeWebsiteCertificateAuthority",
       :post,
       url_path,
       query_params,
@@ -359,6 +372,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "DisassociateDomain",
       :post,
       url_path,
       query_params,
@@ -385,6 +399,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "DisassociateWebsiteAuthorizationProvider",
       :post,
       url_path,
       query_params,
@@ -408,6 +423,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "DisassociateWebsiteCertificateAuthority",
       :post,
       url_path,
       query_params,
@@ -431,6 +447,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "ListDevices",
       :post,
       url_path,
       query_params,
@@ -454,6 +471,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "ListDomains",
       :post,
       url_path,
       query_params,
@@ -477,6 +495,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "ListFleets",
       :post,
       url_path,
       query_params,
@@ -497,7 +516,18 @@ defmodule AWS.WorkLink do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -514,6 +544,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "ListWebsiteAuthorizationProviders",
       :post,
       url_path,
       query_params,
@@ -538,6 +569,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "ListWebsiteCertificateAuthorities",
       :post,
       url_path,
       query_params,
@@ -561,6 +593,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "RestoreDomainAccess",
       :post,
       url_path,
       query_params,
@@ -584,6 +617,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "RevokeDomainAccess",
       :post,
       url_path,
       query_params,
@@ -609,6 +643,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "SignOutUser",
       :post,
       url_path,
       query_params,
@@ -635,6 +670,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -663,6 +699,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -686,6 +723,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "UpdateAuditStreamConfiguration",
       :post,
       url_path,
       query_params,
@@ -709,6 +747,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "UpdateCompanyNetworkConfiguration",
       :post,
       url_path,
       query_params,
@@ -732,6 +771,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "UpdateDevicePolicyConfiguration",
       :post,
       url_path,
       query_params,
@@ -755,6 +795,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "UpdateDomainMetadata",
       :post,
       url_path,
       query_params,
@@ -778,6 +819,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "UpdateFleetMetadata",
       :post,
       url_path,
       query_params,
@@ -801,6 +843,7 @@ defmodule AWS.WorkLink do
     Request.request_rest(
       client,
       meta,
+      "UpdateIdentityProviderConfiguration",
       :post,
       url_path,
       query_params,

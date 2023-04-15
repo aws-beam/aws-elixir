@@ -44,6 +44,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "CreateApp",
       :post,
       url_path,
       query_params,
@@ -67,6 +68,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "CreateBackendEnvironment",
       :post,
       url_path,
       query_params,
@@ -90,6 +92,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "CreateBranch",
       :post,
       url_path,
       query_params,
@@ -117,6 +120,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "CreateDeployment",
       :post,
       url_path,
       query_params,
@@ -142,6 +146,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "CreateDomainAssociation",
       :post,
       url_path,
       query_params,
@@ -165,6 +170,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "CreateWebhook",
       :post,
       url_path,
       query_params,
@@ -188,6 +194,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "DeleteApp",
       :delete,
       url_path,
       query_params,
@@ -219,6 +226,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "DeleteBackendEnvironment",
       :delete,
       url_path,
       query_params,
@@ -242,6 +250,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "DeleteBranch",
       :delete,
       url_path,
       query_params,
@@ -265,6 +274,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "DeleteDomainAssociation",
       :delete,
       url_path,
       query_params,
@@ -290,6 +300,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "DeleteJob",
       :delete,
       url_path,
       query_params,
@@ -313,6 +324,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "DeleteWebhook",
       :delete,
       url_path,
       query_params,
@@ -336,6 +348,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "GenerateAccessLogs",
       :post,
       url_path,
       query_params,
@@ -356,7 +369,18 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApp",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -369,7 +393,18 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetArtifactUrl",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -384,7 +419,18 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBackendEnvironment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -397,7 +443,18 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBranch",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -410,7 +467,18 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDomainAssociation",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -425,7 +493,18 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -438,7 +517,18 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetWebhook",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -465,7 +555,18 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListApps",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -502,7 +603,18 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListArtifacts",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -543,7 +655,18 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListBackendEnvironments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -576,7 +699,18 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListBranches",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -609,7 +743,18 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDomainAssociations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -645,7 +790,18 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -658,7 +814,18 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -691,7 +858,18 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListWebhooks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -711,6 +889,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "StartDeployment",
       :post,
       url_path,
       query_params,
@@ -736,6 +915,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "StartJob",
       :post,
       url_path,
       query_params,
@@ -761,6 +941,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "StopJob",
       :delete,
       url_path,
       query_params,
@@ -784,6 +965,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -812,6 +994,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -835,6 +1018,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "UpdateApp",
       :post,
       url_path,
       query_params,
@@ -858,6 +1042,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "UpdateBranch",
       :post,
       url_path,
       query_params,
@@ -881,6 +1066,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "UpdateDomainAssociation",
       :post,
       url_path,
       query_params,
@@ -904,6 +1090,7 @@ defmodule AWS.Amplify do
     Request.request_rest(
       client,
       meta,
+      "UpdateWebhook",
       :post,
       url_path,
       query_params,

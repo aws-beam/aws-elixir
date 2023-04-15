@@ -87,6 +87,7 @@ defmodule AWS.MWAA do
     Request.request_rest(
       client,
       meta,
+      "CreateCliToken",
       :post,
       url_path,
       query_params,
@@ -107,7 +108,18 @@ defmodule AWS.MWAA do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateEnvironment",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -125,6 +137,7 @@ defmodule AWS.MWAA do
     Request.request_rest(
       client,
       meta,
+      "CreateWebLoginToken",
       :post,
       url_path,
       query_params,
@@ -148,6 +161,7 @@ defmodule AWS.MWAA do
     Request.request_rest(
       client,
       meta,
+      "DeleteEnvironment",
       :delete,
       url_path,
       query_params,
@@ -168,7 +182,18 @@ defmodule AWS.MWAA do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEnvironment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -195,7 +220,18 @@ defmodule AWS.MWAA do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListEnvironments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -211,7 +247,18 @@ defmodule AWS.MWAA do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -229,6 +276,7 @@ defmodule AWS.MWAA do
     Request.request_rest(
       client,
       meta,
+      "PublishMetrics",
       :post,
       url_path,
       query_params,
@@ -253,6 +301,7 @@ defmodule AWS.MWAA do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -284,6 +333,7 @@ defmodule AWS.MWAA do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -307,6 +357,7 @@ defmodule AWS.MWAA do
     Request.request_rest(
       client,
       meta,
+      "UpdateEnvironment",
       :patch,
       url_path,
       query_params,

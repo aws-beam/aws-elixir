@@ -54,6 +54,7 @@ defmodule AWS.Grafana do
     Request.request_rest(
       client,
       meta,
+      "AssociateLicense",
       :post,
       url_path,
       query_params,
@@ -84,6 +85,7 @@ defmodule AWS.Grafana do
     Request.request_rest(
       client,
       meta,
+      "CreateWorkspace",
       :post,
       url_path,
       query_params,
@@ -112,6 +114,7 @@ defmodule AWS.Grafana do
     Request.request_rest(
       client,
       meta,
+      "CreateWorkspaceApiKey",
       :post,
       url_path,
       query_params,
@@ -135,6 +138,7 @@ defmodule AWS.Grafana do
     Request.request_rest(
       client,
       meta,
+      "DeleteWorkspace",
       :delete,
       url_path,
       query_params,
@@ -160,6 +164,7 @@ defmodule AWS.Grafana do
     Request.request_rest(
       client,
       meta,
+      "DeleteWorkspaceApiKey",
       :delete,
       url_path,
       query_params,
@@ -180,7 +185,18 @@ defmodule AWS.Grafana do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeWorkspace",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -194,7 +210,18 @@ defmodule AWS.Grafana do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeWorkspaceAuthentication",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -207,7 +234,18 @@ defmodule AWS.Grafana do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeWorkspaceConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -225,6 +263,7 @@ defmodule AWS.Grafana do
     Request.request_rest(
       client,
       meta,
+      "DisassociateLicense",
       :delete,
       url_path,
       query_params,
@@ -295,7 +334,18 @@ defmodule AWS.Grafana do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPermissions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -311,7 +361,18 @@ defmodule AWS.Grafana do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -342,7 +403,18 @@ defmodule AWS.Grafana do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListWorkspaces",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -366,6 +438,7 @@ defmodule AWS.Grafana do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -395,6 +468,7 @@ defmodule AWS.Grafana do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -418,6 +492,7 @@ defmodule AWS.Grafana do
     Request.request_rest(
       client,
       meta,
+      "UpdatePermissions",
       :patch,
       url_path,
       query_params,
@@ -447,7 +522,18 @@ defmodule AWS.Grafana do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateWorkspace",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -471,6 +557,7 @@ defmodule AWS.Grafana do
     Request.request_rest(
       client,
       meta,
+      "UpdateWorkspaceAuthentication",
       :post,
       url_path,
       query_params,
@@ -491,6 +578,17 @@ defmodule AWS.Grafana do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateWorkspaceConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 end

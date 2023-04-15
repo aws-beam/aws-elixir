@@ -75,6 +75,7 @@ defmodule AWS.EBS do
     Request.request_rest(
       client,
       meta,
+      "CompleteSnapshot",
       :post,
       url_path,
       query_params,
@@ -115,7 +116,18 @@ defmodule AWS.EBS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSnapshotBlock",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -165,7 +177,18 @@ defmodule AWS.EBS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChangedBlocks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -206,7 +229,18 @@ defmodule AWS.EBS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSnapshotBlocks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -244,7 +278,18 @@ defmodule AWS.EBS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      "PutSnapshotBlock",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -266,6 +311,7 @@ defmodule AWS.EBS do
     Request.request_rest(
       client,
       meta,
+      "StartSnapshot",
       :post,
       url_path,
       query_params,

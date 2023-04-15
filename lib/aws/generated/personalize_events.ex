@@ -44,6 +44,7 @@ defmodule AWS.PersonalizeEvents do
     Request.request_rest(
       client,
       meta,
+      "PutEvents",
       :post,
       url_path,
       query_params,
@@ -69,6 +70,7 @@ defmodule AWS.PersonalizeEvents do
     Request.request_rest(
       client,
       meta,
+      "PutItems",
       :post,
       url_path,
       query_params,
@@ -94,6 +96,7 @@ defmodule AWS.PersonalizeEvents do
     Request.request_rest(
       client,
       meta,
+      "PutUsers",
       :post,
       url_path,
       query_params,

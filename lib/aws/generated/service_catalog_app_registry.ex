@@ -51,7 +51,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateAttributeGroup",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -76,7 +87,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociateResource",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -93,6 +115,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
     Request.request_rest(
       client,
       meta,
+      "CreateApplication",
       :post,
       url_path,
       query_params,
@@ -120,6 +143,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
     Request.request_rest(
       client,
       meta,
+      "CreateAttributeGroup",
       :post,
       url_path,
       query_params,
@@ -147,6 +171,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
     Request.request_rest(
       client,
       meta,
+      "DeleteApplication",
       :delete,
       url_path,
       query_params,
@@ -171,6 +196,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
     Request.request_rest(
       client,
       meta,
+      "DeleteAttributeGroup",
       :delete,
       url_path,
       query_params,
@@ -205,6 +231,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
     Request.request_rest(
       client,
       meta,
+      "DisassociateAttributeGroup",
       :delete,
       url_path,
       query_params,
@@ -239,6 +266,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
     Request.request_rest(
       client,
       meta,
+      "DisassociateResource",
       :delete,
       url_path,
       query_params,
@@ -265,7 +293,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApplication",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -286,7 +325,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAssociatedResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -301,7 +351,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAttributeGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -314,7 +375,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -343,7 +415,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListApplications",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -378,7 +461,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAssociatedAttributeGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -417,7 +511,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAssociatedResources",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -451,7 +556,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAttributeGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -487,7 +603,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAttributeGroupsForApplication",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -500,7 +627,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -513,7 +651,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -534,6 +683,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
     Request.request_rest(
       client,
       meta,
+      "SyncResource",
       :post,
       url_path,
       query_params,
@@ -562,6 +712,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -592,6 +743,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -615,6 +767,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
     Request.request_rest(
       client,
       meta,
+      "UpdateApplication",
       :patch,
       url_path,
       query_params,
@@ -638,6 +791,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
     Request.request_rest(
       client,
       meta,
+      "UpdateAttributeGroup",
       :patch,
       url_path,
       query_params,

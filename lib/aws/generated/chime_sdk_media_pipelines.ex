@@ -42,6 +42,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
     Request.request_rest(
       client,
       meta,
+      "CreateMediaCapturePipeline",
       :post,
       url_path,
       query_params,
@@ -65,6 +66,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
     Request.request_rest(
       client,
       meta,
+      "CreateMediaConcatenationPipeline",
       :post,
       url_path,
       query_params,
@@ -135,6 +137,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
     Request.request_rest(
       client,
       meta,
+      "CreateMediaLiveConnectorPipeline",
       :post,
       url_path,
       query_params,
@@ -158,6 +161,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
     Request.request_rest(
       client,
       meta,
+      "DeleteMediaCapturePipeline",
       :delete,
       url_path,
       query_params,
@@ -209,6 +213,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
     Request.request_rest(
       client,
       meta,
+      "DeleteMediaPipeline",
       :delete,
       url_path,
       query_params,
@@ -229,7 +234,18 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMediaCapturePipeline",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -255,7 +271,18 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMediaPipeline",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -287,7 +314,18 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListMediaCapturePipelines",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -351,7 +389,18 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListMediaPipelines",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -371,7 +420,18 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -389,6 +449,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -412,6 +473,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :post,
       url_path,
       query_params,

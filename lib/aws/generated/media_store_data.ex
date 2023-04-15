@@ -42,6 +42,7 @@ defmodule AWS.MediaStoreData do
     Request.request_rest(
       client,
       meta,
+      "DeleteObject",
       :delete,
       url_path,
       query_params,
@@ -78,6 +79,7 @@ defmodule AWS.MediaStoreData do
     Request.request_rest(
       client,
       meta,
+      "DescribeObject",
       :head,
       url_path,
       query_params,
@@ -130,7 +132,18 @@ defmodule AWS.MediaStoreData do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetObject",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -171,7 +184,18 @@ defmodule AWS.MediaStoreData do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListItems",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -203,6 +227,17 @@ defmodule AWS.MediaStoreData do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutObject",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

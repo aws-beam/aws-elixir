@@ -52,6 +52,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
     Request.request_rest(
       client,
       meta,
+      "BatchGetRecord",
       :post,
       url_path,
       query_params,
@@ -103,6 +104,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
     Request.request_rest(
       client,
       meta,
+      "DeleteRecord",
       :delete,
       url_path,
       query_params,
@@ -146,7 +148,18 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRecord",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -164,6 +177,17 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutRecord",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

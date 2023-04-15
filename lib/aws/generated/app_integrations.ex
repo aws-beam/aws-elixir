@@ -48,6 +48,7 @@ defmodule AWS.AppIntegrations do
     Request.request_rest(
       client,
       meta,
+      "CreateDataIntegration",
       :post,
       url_path,
       query_params,
@@ -76,6 +77,7 @@ defmodule AWS.AppIntegrations do
     Request.request_rest(
       client,
       meta,
+      "CreateEventIntegration",
       :post,
       url_path,
       query_params,
@@ -114,6 +116,7 @@ defmodule AWS.AppIntegrations do
     Request.request_rest(
       client,
       meta,
+      "DeleteDataIntegration",
       :delete,
       url_path,
       query_params,
@@ -139,6 +142,7 @@ defmodule AWS.AppIntegrations do
     Request.request_rest(
       client,
       meta,
+      "DeleteEventIntegration",
       :delete,
       url_path,
       query_params,
@@ -165,7 +169,18 @@ defmodule AWS.AppIntegrations do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDataIntegration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -178,7 +193,18 @@ defmodule AWS.AppIntegrations do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEventIntegration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -219,7 +245,18 @@ defmodule AWS.AppIntegrations do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDataIntegrationAssociations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -257,7 +294,18 @@ defmodule AWS.AppIntegrations do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDataIntegrations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -290,7 +338,18 @@ defmodule AWS.AppIntegrations do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListEventIntegrationAssociations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -322,7 +381,18 @@ defmodule AWS.AppIntegrations do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListEventIntegrations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -335,7 +405,18 @@ defmodule AWS.AppIntegrations do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -351,6 +432,7 @@ defmodule AWS.AppIntegrations do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -379,6 +461,7 @@ defmodule AWS.AppIntegrations do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -408,6 +491,7 @@ defmodule AWS.AppIntegrations do
     Request.request_rest(
       client,
       meta,
+      "UpdateDataIntegration",
       :patch,
       url_path,
       query_params,
@@ -431,6 +515,7 @@ defmodule AWS.AppIntegrations do
     Request.request_rest(
       client,
       meta,
+      "UpdateEventIntegration",
       :patch,
       url_path,
       query_params,

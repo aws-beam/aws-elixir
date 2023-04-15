@@ -83,6 +83,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "CreateApplication",
       :post,
       url_path,
       query_params,
@@ -138,6 +139,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "CreateConfigurationProfile",
       :post,
       url_path,
       query_params,
@@ -166,6 +168,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "CreateDeploymentStrategy",
       :post,
       url_path,
       query_params,
@@ -197,6 +200,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "CreateEnvironment",
       :post,
       url_path,
       query_params,
@@ -236,6 +240,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "CreateExtension",
       :post,
       url_path,
       query_params,
@@ -271,6 +276,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "CreateExtensionAssociation",
       :post,
       url_path,
       query_params,
@@ -324,6 +330,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "CreateHostedConfigurationVersion",
       :post,
       url_path,
       query_params,
@@ -349,6 +356,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "DeleteApplication",
       :delete,
       url_path,
       query_params,
@@ -382,6 +390,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "DeleteConfigurationProfile",
       :delete,
       url_path,
       query_params,
@@ -407,6 +416,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "DeleteDeploymentStrategy",
       :delete,
       url_path,
       query_params,
@@ -434,6 +444,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "DeleteEnvironment",
       :delete,
       url_path,
       query_params,
@@ -465,6 +476,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "DeleteExtension",
       :delete,
       url_path,
       query_params,
@@ -495,6 +507,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "DeleteExtensionAssociation",
       :delete,
       url_path,
       query_params,
@@ -528,6 +541,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "DeleteHostedConfigurationVersion",
       :delete,
       url_path,
       query_params,
@@ -548,7 +562,18 @@ defmodule AWS.AppConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApplication",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -606,7 +631,18 @@ defmodule AWS.AppConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -626,7 +662,18 @@ defmodule AWS.AppConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetConfigurationProfile",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -647,7 +694,18 @@ defmodule AWS.AppConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDeployment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -666,7 +724,18 @@ defmodule AWS.AppConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDeploymentStrategy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -687,7 +756,18 @@ defmodule AWS.AppConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEnvironment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -712,7 +792,18 @@ defmodule AWS.AppConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetExtension",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -729,7 +820,18 @@ defmodule AWS.AppConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetExtensionAssociation",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -764,7 +866,18 @@ defmodule AWS.AppConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetHostedConfigurationVersion",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -791,7 +904,18 @@ defmodule AWS.AppConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListApplications",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -832,7 +956,18 @@ defmodule AWS.AppConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListConfigurationProfiles",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -864,7 +999,18 @@ defmodule AWS.AppConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDeploymentStrategies",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -900,7 +1046,18 @@ defmodule AWS.AppConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDeployments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -933,7 +1090,18 @@ defmodule AWS.AppConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListEnvironments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -993,7 +1161,18 @@ defmodule AWS.AppConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListExtensionAssociations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1037,7 +1216,18 @@ defmodule AWS.AppConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListExtensions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1082,7 +1272,18 @@ defmodule AWS.AppConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListHostedConfigurationVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1095,7 +1296,18 @@ defmodule AWS.AppConfig do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1113,6 +1325,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "StartDeployment",
       :post,
       url_path,
       query_params,
@@ -1148,6 +1361,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "StopDeployment",
       :delete,
       url_path,
       query_params,
@@ -1175,6 +1389,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1203,6 +1418,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1226,6 +1442,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "UpdateApplication",
       :patch,
       url_path,
       query_params,
@@ -1257,6 +1474,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "UpdateConfigurationProfile",
       :patch,
       url_path,
       query_params,
@@ -1280,6 +1498,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "UpdateDeploymentStrategy",
       :patch,
       url_path,
       query_params,
@@ -1305,6 +1524,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "UpdateEnvironment",
       :patch,
       url_path,
       query_params,
@@ -1331,6 +1551,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "UpdateExtension",
       :patch,
       url_path,
       query_params,
@@ -1363,6 +1584,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "UpdateExtensionAssociation",
       :patch,
       url_path,
       query_params,
@@ -1399,6 +1621,7 @@ defmodule AWS.AppConfig do
     Request.request_rest(
       client,
       meta,
+      "ValidateConfiguration",
       :post,
       url_path,
       query_params,

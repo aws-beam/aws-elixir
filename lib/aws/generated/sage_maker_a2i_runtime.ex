@@ -73,6 +73,7 @@ defmodule AWS.SageMakerA2IRuntime do
     Request.request_rest(
       client,
       meta,
+      "DeleteHumanLoop",
       :delete,
       url_path,
       query_params,
@@ -96,7 +97,18 @@ defmodule AWS.SageMakerA2IRuntime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeHumanLoop",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -162,7 +174,18 @@ defmodule AWS.SageMakerA2IRuntime do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListHumanLoops",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -178,6 +201,7 @@ defmodule AWS.SageMakerA2IRuntime do
     Request.request_rest(
       client,
       meta,
+      "StartHumanLoop",
       :post,
       url_path,
       query_params,
@@ -201,6 +225,7 @@ defmodule AWS.SageMakerA2IRuntime do
     Request.request_rest(
       client,
       meta,
+      "StopHumanLoop",
       :post,
       url_path,
       query_params,

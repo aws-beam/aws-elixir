@@ -56,6 +56,7 @@ defmodule AWS.KinesisVideoSignaling do
     Request.request_rest(
       client,
       meta,
+      "GetIceServerConfig",
       :post,
       url_path,
       query_params,
@@ -86,6 +87,7 @@ defmodule AWS.KinesisVideoSignaling do
     Request.request_rest(
       client,
       meta,
+      "SendAlexaOfferToMaster",
       :post,
       url_path,
       query_params,

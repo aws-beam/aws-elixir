@@ -57,6 +57,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "ActivateKeySigningKey",
       :post,
       url_path,
       query_params,
@@ -105,6 +106,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "AssociateVPCWithHostedZone",
       :post,
       url_path,
       query_params,
@@ -149,6 +151,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "ChangeCidrCollection",
       :post,
       url_path,
       query_params,
@@ -253,6 +256,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "ChangeResourceRecordSets",
       :post,
       url_path,
       query_params,
@@ -287,6 +291,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "ChangeTagsForResource",
       :post,
       url_path,
       query_params,
@@ -317,6 +322,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "CreateCidrCollection",
       :post,
       url_path,
       query_params,
@@ -379,6 +385,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "CreateHealthCheck",
       :post,
       url_path,
       query_params,
@@ -464,6 +471,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "CreateHostedZone",
       :post,
       url_path,
       query_params,
@@ -496,6 +504,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "CreateKeySigningKey",
       :post,
       url_path,
       query_params,
@@ -651,6 +660,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "CreateQueryLoggingConfig",
       :post,
       url_path,
       query_params,
@@ -727,6 +737,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "CreateReusableDelegationSet",
       :post,
       url_path,
       query_params,
@@ -759,6 +770,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "CreateTrafficPolicy",
       :post,
       url_path,
       query_params,
@@ -796,6 +808,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "CreateTrafficPolicyInstance",
       :post,
       url_path,
       query_params,
@@ -834,6 +847,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "CreateTrafficPolicyVersion",
       :post,
       url_path,
       query_params,
@@ -875,6 +889,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "CreateVPCAssociationAuthorization",
       :post,
       url_path,
       query_params,
@@ -903,6 +918,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "DeactivateKeySigningKey",
       :post,
       url_path,
       query_params,
@@ -928,6 +944,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "DeleteCidrCollection",
       :delete,
       url_path,
       query_params,
@@ -965,6 +982,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "DeleteHealthCheck",
       :delete,
       url_path,
       query_params,
@@ -1033,6 +1051,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "DeleteHostedZone",
       :delete,
       url_path,
       query_params,
@@ -1069,6 +1088,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "DeleteKeySigningKey",
       :delete,
       url_path,
       query_params,
@@ -1099,6 +1119,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "DeleteQueryLoggingConfig",
       :delete,
       url_path,
       query_params,
@@ -1131,6 +1152,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "DeleteReusableDelegationSet",
       :delete,
       url_path,
       query_params,
@@ -1167,6 +1189,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "DeleteTrafficPolicy",
       :delete,
       url_path,
       query_params,
@@ -1193,6 +1216,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "DeleteTrafficPolicyInstance",
       :delete,
       url_path,
       query_params,
@@ -1235,6 +1259,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "DeleteVPCAssociationAuthorization",
       :post,
       url_path,
       query_params,
@@ -1261,6 +1286,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "DisableHostedZoneDNSSEC",
       :post,
       url_path,
       query_params,
@@ -1323,6 +1349,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "DisassociateVPCFromHostedZone",
       :post,
       url_path,
       query_params,
@@ -1346,6 +1373,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "EnableHostedZoneDNSSEC",
       :post,
       url_path,
       query_params,
@@ -1377,7 +1405,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAccountLimit",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1399,7 +1438,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetChange",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1418,7 +1468,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCheckerIpRanges",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1432,7 +1493,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDNSSEC",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1493,7 +1565,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetGeoLocation",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1506,7 +1589,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetHealthCheck",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1520,7 +1614,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetHealthCheckCount",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1533,7 +1638,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetHealthCheckLastFailureReason",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1550,7 +1666,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetHealthCheckStatus",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1564,7 +1691,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetHostedZone",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1578,7 +1716,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetHostedZoneCount",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1598,7 +1747,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetHostedZoneLimit",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1615,7 +1775,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetQueryLoggingConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1629,7 +1800,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetReusableDelegationSet",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1654,7 +1836,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetReusableDelegationSetLimit",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1673,7 +1866,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTrafficPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1693,7 +1897,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTrafficPolicyInstance",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1707,7 +1922,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTrafficPolicyInstanceCount",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1748,7 +1974,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCidrBlocks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1781,7 +2018,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCidrCollections",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1815,7 +2063,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCidrLocations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1875,7 +2134,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListGeoLocations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1903,7 +2173,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListHealthChecks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1950,7 +2231,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListHostedZones",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2040,7 +2332,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListHostedZonesByName",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2119,7 +2422,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListHostedZonesByVPC",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2167,7 +2481,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListQueryLoggingConfigs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2284,7 +2609,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListResourceRecordSets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2317,7 +2653,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListReusableDelegationSets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2335,7 +2682,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2354,6 +2712,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "ListTagsForResources",
       :post,
       url_path,
       query_params,
@@ -2400,7 +2759,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTrafficPolicies",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2458,7 +2828,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTrafficPolicyInstances",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2516,7 +2897,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTrafficPolicyInstancesByHostedZone",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2590,7 +2982,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTrafficPolicyInstancesByPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2625,7 +3028,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTrafficPolicyVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2665,7 +3079,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListVPCAssociationAuthorizations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2735,7 +3160,18 @@ defmodule AWS.Route53 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "TestDNSAnswer",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2757,6 +3193,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "UpdateHealthCheck",
       :post,
       url_path,
       query_params,
@@ -2780,6 +3217,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "UpdateHostedZoneComment",
       :post,
       url_path,
       query_params,
@@ -2805,6 +3243,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "UpdateTrafficPolicyComment",
       :post,
       url_path,
       query_params,
@@ -2846,6 +3285,7 @@ defmodule AWS.Route53 do
     Request.request_rest(
       client,
       meta,
+      "UpdateTrafficPolicyInstance",
       :post,
       url_path,
       query_params,

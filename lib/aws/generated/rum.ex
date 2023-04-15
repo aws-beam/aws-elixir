@@ -102,6 +102,7 @@ defmodule AWS.RUM do
     Request.request_rest(
       client,
       meta,
+      "BatchCreateRumMetricDefinitions",
       :post,
       url_path,
       query_params,
@@ -145,6 +146,7 @@ defmodule AWS.RUM do
     Request.request_rest(
       client,
       meta,
+      "BatchDeleteRumMetricDefinitions",
       :delete,
       url_path,
       query_params,
@@ -202,7 +204,18 @@ defmodule AWS.RUM do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "BatchGetRumMetricDefinitions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -231,6 +244,7 @@ defmodule AWS.RUM do
     Request.request_rest(
       client,
       meta,
+      "CreateAppMonitor",
       :post,
       url_path,
       query_params,
@@ -256,6 +270,7 @@ defmodule AWS.RUM do
     Request.request_rest(
       client,
       meta,
+      "DeleteAppMonitor",
       :delete,
       url_path,
       query_params,
@@ -286,6 +301,7 @@ defmodule AWS.RUM do
     Request.request_rest(
       client,
       meta,
+      "DeleteRumMetricsDestination",
       :delete,
       url_path,
       query_params,
@@ -306,7 +322,18 @@ defmodule AWS.RUM do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAppMonitor",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -323,6 +350,7 @@ defmodule AWS.RUM do
     Request.request_rest(
       client,
       meta,
+      "GetAppMonitorData",
       :post,
       url_path,
       query_params,
@@ -352,6 +380,7 @@ defmodule AWS.RUM do
     Request.request_rest(
       client,
       meta,
+      "ListAppMonitors",
       :post,
       url_path,
       query_params,
@@ -396,7 +425,18 @@ defmodule AWS.RUM do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRumMetricsDestinations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -409,7 +449,18 @@ defmodule AWS.RUM do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -431,6 +482,7 @@ defmodule AWS.RUM do
     Request.request_rest(
       client,
       meta,
+      "PutRumEvents",
       :post,
       url_path,
       query_params,
@@ -461,6 +513,7 @@ defmodule AWS.RUM do
     Request.request_rest(
       client,
       meta,
+      "PutRumMetricsDestination",
       :post,
       url_path,
       query_params,
@@ -504,6 +557,7 @@ defmodule AWS.RUM do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -532,6 +586,7 @@ defmodule AWS.RUM do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -568,6 +623,7 @@ defmodule AWS.RUM do
     Request.request_rest(
       client,
       meta,
+      "UpdateAppMonitor",
       :patch,
       url_path,
       query_params,
@@ -594,6 +650,7 @@ defmodule AWS.RUM do
     Request.request_rest(
       client,
       meta,
+      "UpdateRumMetricDefinition",
       :patch,
       url_path,
       query_params,

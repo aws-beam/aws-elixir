@@ -47,6 +47,7 @@ defmodule AWS.Account do
     Request.request_rest(
       client,
       meta,
+      "DeleteAlternateContact",
       :post,
       url_path,
       query_params,
@@ -126,6 +127,7 @@ defmodule AWS.Account do
     Request.request_rest(
       client,
       meta,
+      "GetAlternateContact",
       :post,
       url_path,
       query_params,
@@ -152,6 +154,7 @@ defmodule AWS.Account do
     Request.request_rest(
       client,
       meta,
+      "GetContactInformation",
       :post,
       url_path,
       query_params,
@@ -234,6 +237,7 @@ defmodule AWS.Account do
     Request.request_rest(
       client,
       meta,
+      "PutAlternateContact",
       :post,
       url_path,
       query_params,
@@ -260,6 +264,7 @@ defmodule AWS.Account do
     Request.request_rest(
       client,
       meta,
+      "PutContactInformation",
       :post,
       url_path,
       query_params,

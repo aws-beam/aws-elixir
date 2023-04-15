@@ -68,7 +68,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateAccessPoint",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -99,7 +110,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateAccessPointForObjectLambda",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -170,7 +192,18 @@ defmodule AWS.S3Control do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateBucket",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -212,6 +245,7 @@ defmodule AWS.S3Control do
     Request.request_rest(
       client,
       meta,
+      "CreateJob",
       :post,
       url_path,
       query_params,
@@ -266,6 +300,7 @@ defmodule AWS.S3Control do
     Request.request_rest(
       client,
       meta,
+      "CreateMultiRegionAccessPoint",
       :post,
       url_path,
       query_params,
@@ -312,6 +347,7 @@ defmodule AWS.S3Control do
     Request.request_rest(
       client,
       meta,
+      "DeleteAccessPoint",
       :delete,
       url_path,
       query_params,
@@ -350,6 +386,7 @@ defmodule AWS.S3Control do
     Request.request_rest(
       client,
       meta,
+      "DeleteAccessPointForObjectLambda",
       :delete,
       url_path,
       query_params,
@@ -395,6 +432,7 @@ defmodule AWS.S3Control do
     Request.request_rest(
       client,
       meta,
+      "DeleteAccessPointPolicy",
       :delete,
       url_path,
       query_params,
@@ -430,6 +468,7 @@ defmodule AWS.S3Control do
     Request.request_rest(
       client,
       meta,
+      "DeleteAccessPointPolicyForObjectLambda",
       :delete,
       url_path,
       query_params,
@@ -485,6 +524,7 @@ defmodule AWS.S3Control do
     Request.request_rest(
       client,
       meta,
+      "DeleteBucket",
       :delete,
       url_path,
       query_params,
@@ -549,6 +589,7 @@ defmodule AWS.S3Control do
     Request.request_rest(
       client,
       meta,
+      "DeleteBucketLifecycleConfiguration",
       :delete,
       url_path,
       query_params,
@@ -617,6 +658,7 @@ defmodule AWS.S3Control do
     Request.request_rest(
       client,
       meta,
+      "DeleteBucketPolicy",
       :delete,
       url_path,
       query_params,
@@ -743,6 +785,7 @@ defmodule AWS.S3Control do
     Request.request_rest(
       client,
       meta,
+      "DeleteBucketTagging",
       :delete,
       url_path,
       query_params,
@@ -786,6 +829,7 @@ defmodule AWS.S3Control do
     Request.request_rest(
       client,
       meta,
+      "DeleteJobTagging",
       :delete,
       url_path,
       query_params,
@@ -838,6 +882,7 @@ defmodule AWS.S3Control do
     Request.request_rest(
       client,
       meta,
+      "DeleteMultiRegionAccessPoint",
       :post,
       url_path,
       query_params,
@@ -876,6 +921,7 @@ defmodule AWS.S3Control do
     Request.request_rest(
       client,
       meta,
+      "DeletePublicAccessBlock",
       :delete,
       url_path,
       query_params,
@@ -914,6 +960,7 @@ defmodule AWS.S3Control do
     Request.request_rest(
       client,
       meta,
+      "DeleteStorageLensConfiguration",
       :delete,
       url_path,
       query_params,
@@ -957,6 +1004,7 @@ defmodule AWS.S3Control do
     Request.request_rest(
       client,
       meta,
+      "DeleteStorageLensConfigurationTagging",
       :delete,
       url_path,
       query_params,
@@ -998,7 +1046,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1041,7 +1100,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeMultiRegionAccessPointOperation",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1079,7 +1149,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAccessPoint",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1111,7 +1192,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAccessPointConfigurationForObjectLambda",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1141,7 +1233,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAccessPointForObjectLambda",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1168,7 +1271,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAccessPointPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1200,7 +1314,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAccessPointPolicyForObjectLambda",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1226,7 +1351,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAccessPointPolicyStatus",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1253,7 +1389,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAccessPointPolicyStatusForObjectLambda",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1305,7 +1452,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBucket",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1369,7 +1527,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBucketLifecycleConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1432,7 +1601,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBucketPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1556,7 +1736,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBucketTagging",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1610,7 +1801,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBucketVersioning",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1645,7 +1847,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetJobTagging",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1681,7 +1894,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMultiRegionAccessPoint",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1713,7 +1937,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMultiRegionAccessPointPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1751,7 +1986,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMultiRegionAccessPointPolicyStatus",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1789,7 +2035,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMultiRegionAccessPointRoutes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1819,7 +2076,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPublicAccessBlock",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1851,7 +2119,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetStorageLensConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1886,7 +2165,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetStorageLensConfigurationTagging",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1958,7 +2248,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAccessPoints",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2013,7 +2314,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAccessPointsForObjectLambda",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2076,7 +2388,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2136,7 +2459,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListMultiRegionAccessPoints",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2195,7 +2529,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRegionalBuckets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2237,7 +2582,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListStorageLensConfigurations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2267,7 +2623,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutAccessPointConfigurationForObjectLambda",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2305,7 +2672,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutAccessPointPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2333,7 +2711,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutAccessPointPolicyForObjectLambda",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2375,7 +2764,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutBucketLifecycleConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2435,7 +2835,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutBucketPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2627,7 +3038,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutBucketTagging",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2700,7 +3122,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutBucketVersioning",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2767,7 +3200,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutJobTagging",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2805,6 +3249,7 @@ defmodule AWS.S3Control do
     Request.request_rest(
       client,
       meta,
+      "PutMultiRegionAccessPointPolicy",
       :post,
       url_path,
       query_params,
@@ -2841,7 +3286,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutPublicAccessBlock",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2870,7 +3326,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutStorageLensConfiguration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2898,7 +3365,18 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutStorageLensConfigurationTagging",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2950,6 +3428,7 @@ defmodule AWS.S3Control do
     Request.request_rest(
       client,
       meta,
+      "SubmitMultiRegionAccessPointRoutes",
       :patch,
       url_path,
       query_params,
@@ -2996,6 +3475,7 @@ defmodule AWS.S3Control do
     Request.request_rest(
       client,
       meta,
+      "UpdateJobPriority",
       :post,
       url_path,
       query_params,
@@ -3044,6 +3524,7 @@ defmodule AWS.S3Control do
     Request.request_rest(
       client,
       meta,
+      "UpdateJobStatus",
       :post,
       url_path,
       query_params,

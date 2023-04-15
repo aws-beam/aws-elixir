@@ -44,5 +44,22 @@ defmodule AWS do
   By default, AWS Elixir uses hackney for the HTTP client, Jason for JSON,
   and a custom module for XML that is written on top of xmlerl.
   For more details, check `AWS.Client` documentation.
+
+  ## Telemetry
+
+  The following events are published:
+
+    * `[:aws, :request, :start]` - emitted at the beginning of the request to AWS.
+      * Measurement: `%{system_time: System.system_time()}`
+      * Metadata: `%{client: AWS.Client.t(), service: AWS.ServiceMetadata.t(), action: String.t(), input: map()}`
+
+    * `[:aws, :request, :stop]` - emitted at the end of the request to AWS.
+      * Measurement: `%{duration: native_time}`
+      * Metadata: `%{client: AWS.Client.t(), service: AWS.ServiceMetadata.t(), action: String.t(), input: map()}`
+
+    * `[:aws, :request, :exception]` - emitted when an exception has been raised.
+      * Measurement: `%{system_time: System.system_time()}`
+      * Metadata: `%{client: AWS.Client.t(), service: AWS.ServiceMetadata.t(), action: String.t(), input: map(),
+        kind: Exception.kind(), reason: term(), stacktrace: Exception.stacktrace()}`
   """
 end

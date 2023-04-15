@@ -60,6 +60,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "AssociateAccounts",
       :post,
       url_path,
       query_params,
@@ -82,7 +83,18 @@ defmodule AWS.Billingconductor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "AssociatePricingRules",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -95,7 +107,18 @@ defmodule AWS.Billingconductor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "BatchAssociateResourcesToCustomLineItem",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -108,7 +131,18 @@ defmodule AWS.Billingconductor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "BatchDisassociateResourcesFromCustomLineItem",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -131,6 +165,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "CreateBillingGroup",
       :post,
       url_path,
       query_params,
@@ -164,6 +199,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "CreateCustomLineItem",
       :post,
       url_path,
       query_params,
@@ -194,6 +230,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "CreatePricingPlan",
       :post,
       url_path,
       query_params,
@@ -224,6 +261,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "CreatePricingRule",
       :post,
       url_path,
       query_params,
@@ -247,6 +285,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "DeleteBillingGroup",
       :post,
       url_path,
       query_params,
@@ -271,6 +310,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "DeleteCustomLineItem",
       :post,
       url_path,
       query_params,
@@ -297,6 +337,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "DeletePricingPlan",
       :post,
       url_path,
       query_params,
@@ -321,6 +362,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "DeletePricingRule",
       :post,
       url_path,
       query_params,
@@ -344,6 +386,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "DisassociateAccounts",
       :post,
       url_path,
       query_params,
@@ -364,7 +407,18 @@ defmodule AWS.Billingconductor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DisassociatePricingRules",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -385,6 +439,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "ListAccountAssociations",
       :post,
       url_path,
       query_params,
@@ -410,6 +465,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "ListBillingGroupCostReports",
       :post,
       url_path,
       query_params,
@@ -436,6 +492,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "ListBillingGroups",
       :post,
       url_path,
       query_params,
@@ -459,6 +516,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "ListCustomLineItemVersions",
       :post,
       url_path,
       query_params,
@@ -485,6 +543,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "ListCustomLineItems",
       :post,
       url_path,
       query_params,
@@ -510,6 +569,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "ListPricingPlans",
       :post,
       url_path,
       query_params,
@@ -533,6 +593,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "ListPricingPlansAssociatedWithPricingRule",
       :post,
       url_path,
       query_params,
@@ -557,6 +618,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "ListPricingRules",
       :post,
       url_path,
       query_params,
@@ -580,6 +642,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "ListPricingRulesAssociatedToPricingPlan",
       :post,
       url_path,
       query_params,
@@ -603,6 +666,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "ListResourcesAssociatedToCustomLineItem",
       :post,
       url_path,
       query_params,
@@ -623,7 +687,18 @@ defmodule AWS.Billingconductor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -642,6 +717,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -670,6 +746,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -693,6 +770,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "UpdateBillingGroup",
       :post,
       url_path,
       query_params,
@@ -716,6 +794,7 @@ defmodule AWS.Billingconductor do
     Request.request_rest(
       client,
       meta,
+      "UpdateCustomLineItem",
       :post,
       url_path,
       query_params,
@@ -736,7 +815,18 @@ defmodule AWS.Billingconductor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdatePricingPlan",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -749,6 +839,17 @@ defmodule AWS.Billingconductor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdatePricingRule",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

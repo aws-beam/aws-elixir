@@ -57,6 +57,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "AcceptResourceShareInvitation",
       :post,
       url_path,
       query_params,
@@ -84,6 +85,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "AssociateResourceShare",
       :post,
       url_path,
       query_params,
@@ -112,6 +114,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "AssociateResourceSharePermission",
       :post,
       url_path,
       query_params,
@@ -144,6 +147,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "CreateResourceShare",
       :post,
       url_path,
       query_params,
@@ -177,6 +181,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "DeleteResourceShare",
       :delete,
       url_path,
       query_params,
@@ -201,6 +206,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "DisassociateResourceShare",
       :post,
       url_path,
       query_params,
@@ -228,6 +234,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "DisassociateResourceSharePermission",
       :post,
       url_path,
       query_params,
@@ -261,6 +268,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "EnableSharingWithAwsOrganization",
       :post,
       url_path,
       query_params,
@@ -284,6 +292,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "GetPermission",
       :post,
       url_path,
       query_params,
@@ -308,6 +317,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "GetResourcePolicies",
       :post,
       url_path,
       query_params,
@@ -332,6 +342,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "GetResourceShareAssociations",
       :post,
       url_path,
       query_params,
@@ -355,6 +366,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "GetResourceShareInvitations",
       :post,
       url_path,
       query_params,
@@ -379,6 +391,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "GetResourceShares",
       :post,
       url_path,
       query_params,
@@ -406,6 +419,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "ListPendingInvitationResources",
       :post,
       url_path,
       query_params,
@@ -429,6 +443,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "ListPermissionVersions",
       :post,
       url_path,
       query_params,
@@ -453,6 +468,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "ListPermissions",
       :post,
       url_path,
       query_params,
@@ -477,6 +493,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "ListPrincipals",
       :post,
       url_path,
       query_params,
@@ -500,6 +517,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "ListResourceSharePermissions",
       :post,
       url_path,
       query_params,
@@ -523,6 +541,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "ListResourceTypes",
       :post,
       url_path,
       query_params,
@@ -547,6 +566,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "ListResources",
       :post,
       url_path,
       query_params,
@@ -583,6 +603,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "PromoteResourceShareCreatedFromPolicy",
       :post,
       url_path,
       query_params,
@@ -607,6 +628,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "RejectResourceShareInvitation",
       :post,
       url_path,
       query_params,
@@ -633,6 +655,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -656,6 +679,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :post,
       url_path,
       query_params,
@@ -679,6 +703,7 @@ defmodule AWS.RAM do
     Request.request_rest(
       client,
       meta,
+      "UpdateResourceShare",
       :post,
       url_path,
       query_params,

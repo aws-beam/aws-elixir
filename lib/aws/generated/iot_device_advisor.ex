@@ -53,6 +53,7 @@ defmodule AWS.IotDeviceAdvisor do
     Request.request_rest(
       client,
       meta,
+      "CreateSuiteDefinition",
       :post,
       url_path,
       query_params,
@@ -80,6 +81,7 @@ defmodule AWS.IotDeviceAdvisor do
     Request.request_rest(
       client,
       meta,
+      "DeleteSuiteDefinition",
       :delete,
       url_path,
       query_params,
@@ -114,7 +116,18 @@ defmodule AWS.IotDeviceAdvisor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEndpoint",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -143,7 +156,18 @@ defmodule AWS.IotDeviceAdvisor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSuiteDefinition",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -162,7 +186,18 @@ defmodule AWS.IotDeviceAdvisor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSuiteRun",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -182,7 +217,18 @@ defmodule AWS.IotDeviceAdvisor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSuiteRunReport",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -218,7 +264,18 @@ defmodule AWS.IotDeviceAdvisor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSuiteDefinitions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -273,7 +330,18 @@ defmodule AWS.IotDeviceAdvisor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSuiteRuns",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -290,7 +358,18 @@ defmodule AWS.IotDeviceAdvisor do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -310,6 +389,7 @@ defmodule AWS.IotDeviceAdvisor do
     Request.request_rest(
       client,
       meta,
+      "StartSuiteRun",
       :post,
       url_path,
       query_params,
@@ -339,6 +419,7 @@ defmodule AWS.IotDeviceAdvisor do
     Request.request_rest(
       client,
       meta,
+      "StopSuiteRun",
       :post,
       url_path,
       query_params,
@@ -366,6 +447,7 @@ defmodule AWS.IotDeviceAdvisor do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -398,6 +480,7 @@ defmodule AWS.IotDeviceAdvisor do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -425,6 +508,7 @@ defmodule AWS.IotDeviceAdvisor do
     Request.request_rest(
       client,
       meta,
+      "UpdateSuiteDefinition",
       :patch,
       url_path,
       query_params,

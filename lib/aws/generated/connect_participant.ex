@@ -60,6 +60,7 @@ defmodule AWS.ConnectParticipant do
     Request.request_rest(
       client,
       meta,
+      "CompleteAttachmentUpload",
       :post,
       url_path,
       query_params,
@@ -119,6 +120,7 @@ defmodule AWS.ConnectParticipant do
     Request.request_rest(
       client,
       meta,
+      "CreateParticipantConnection",
       :post,
       url_path,
       query_params,
@@ -152,6 +154,7 @@ defmodule AWS.ConnectParticipant do
     Request.request_rest(
       client,
       meta,
+      "DisconnectParticipant",
       :post,
       url_path,
       query_params,
@@ -187,6 +190,7 @@ defmodule AWS.ConnectParticipant do
     Request.request_rest(
       client,
       meta,
+      "GetAttachment",
       :post,
       url_path,
       query_params,
@@ -223,6 +227,7 @@ defmodule AWS.ConnectParticipant do
     Request.request_rest(
       client,
       meta,
+      "GetTranscript",
       :post,
       url_path,
       query_params,
@@ -256,6 +261,7 @@ defmodule AWS.ConnectParticipant do
     Request.request_rest(
       client,
       meta,
+      "SendEvent",
       :post,
       url_path,
       query_params,
@@ -289,6 +295,7 @@ defmodule AWS.ConnectParticipant do
     Request.request_rest(
       client,
       meta,
+      "SendMessage",
       :post,
       url_path,
       query_params,
@@ -323,6 +330,7 @@ defmodule AWS.ConnectParticipant do
     Request.request_rest(
       client,
       meta,
+      "StartAttachmentUpload",
       :post,
       url_path,
       query_params,

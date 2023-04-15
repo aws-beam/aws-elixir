@@ -48,6 +48,7 @@ defmodule AWS.ConnectContactLens do
     Request.request_rest(
       client,
       meta,
+      "ListRealtimeContactAnalysisSegments",
       :post,
       url_path,
       query_params,

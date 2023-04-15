@@ -55,6 +55,7 @@ defmodule AWS.ElasticInference do
     Request.request_rest(
       client,
       meta,
+      "DescribeAcceleratorOfferings",
       :post,
       url_path,
       query_params,
@@ -84,7 +85,18 @@ defmodule AWS.ElasticInference do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAcceleratorTypes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -109,6 +121,7 @@ defmodule AWS.ElasticInference do
     Request.request_rest(
       client,
       meta,
+      "DescribeAccelerators",
       :post,
       url_path,
       query_params,
@@ -137,7 +150,18 @@ defmodule AWS.ElasticInference do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -161,6 +185,7 @@ defmodule AWS.ElasticInference do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -197,6 +222,7 @@ defmodule AWS.ElasticInference do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,

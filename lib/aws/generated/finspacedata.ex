@@ -47,6 +47,7 @@ defmodule AWS.Finspacedata do
     Request.request_rest(
       client,
       meta,
+      "AssociateUserToPermissionGroup",
       :post,
       url_path,
       query_params,
@@ -70,6 +71,7 @@ defmodule AWS.Finspacedata do
     Request.request_rest(
       client,
       meta,
+      "CreateChangeset",
       :post,
       url_path,
       query_params,
@@ -93,6 +95,7 @@ defmodule AWS.Finspacedata do
     Request.request_rest(
       client,
       meta,
+      "CreateDataView",
       :post,
       url_path,
       query_params,
@@ -116,6 +119,7 @@ defmodule AWS.Finspacedata do
     Request.request_rest(
       client,
       meta,
+      "CreateDataset",
       :post,
       url_path,
       query_params,
@@ -140,6 +144,7 @@ defmodule AWS.Finspacedata do
     Request.request_rest(
       client,
       meta,
+      "CreatePermissionGroup",
       :post,
       url_path,
       query_params,
@@ -163,6 +168,7 @@ defmodule AWS.Finspacedata do
     Request.request_rest(
       client,
       meta,
+      "CreateUser",
       :post,
       url_path,
       query_params,
@@ -191,6 +197,7 @@ defmodule AWS.Finspacedata do
     Request.request_rest(
       client,
       meta,
+      "DeleteDataset",
       :delete,
       url_path,
       query_params,
@@ -221,6 +228,7 @@ defmodule AWS.Finspacedata do
     Request.request_rest(
       client,
       meta,
+      "DeletePermissionGroup",
       :delete,
       url_path,
       query_params,
@@ -244,6 +252,7 @@ defmodule AWS.Finspacedata do
     Request.request_rest(
       client,
       meta,
+      "DisableUser",
       :post,
       url_path,
       query_params,
@@ -280,6 +289,7 @@ defmodule AWS.Finspacedata do
     Request.request_rest(
       client,
       meta,
+      "DisassociateUserFromPermissionGroup",
       :delete,
       url_path,
       query_params,
@@ -303,6 +313,7 @@ defmodule AWS.Finspacedata do
     Request.request_rest(
       client,
       meta,
+      "EnableUser",
       :post,
       url_path,
       query_params,
@@ -325,7 +336,18 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetChangeset",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -340,7 +362,18 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDataView",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -353,7 +386,18 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDataset",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -384,6 +428,7 @@ defmodule AWS.Finspacedata do
     Request.request_rest(
       client,
       meta,
+      "GetExternalDataViewAccessDetails",
       :post,
       url_path,
       query_params,
@@ -404,7 +449,18 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPermissionGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -436,7 +492,18 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetProgrammaticAccessCredentials",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -449,7 +516,18 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetUser",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -466,6 +544,7 @@ defmodule AWS.Finspacedata do
     Request.request_rest(
       client,
       meta,
+      "GetWorkingLocation",
       :post,
       url_path,
       query_params,
@@ -506,7 +585,18 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListChangesets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -539,7 +629,18 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDataViews",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -566,7 +667,18 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDatasets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -593,7 +705,18 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPermissionGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -627,7 +750,18 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPermissionGroupsByUser",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -654,7 +788,18 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListUsers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -687,7 +832,18 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListUsersByPermissionGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -706,6 +862,7 @@ defmodule AWS.Finspacedata do
     Request.request_rest(
       client,
       meta,
+      "ResetUserPassword",
       :post,
       url_path,
       query_params,
@@ -728,7 +885,18 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateChangeset",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -741,7 +909,18 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDataset",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -756,7 +935,18 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdatePermissionGroup",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -771,6 +961,17 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateUser",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

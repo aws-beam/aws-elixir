@@ -57,6 +57,7 @@ defmodule AWS.LexModelBuilding do
     Request.request_rest(
       client,
       meta,
+      "CreateBotVersion",
       :post,
       url_path,
       query_params,
@@ -94,6 +95,7 @@ defmodule AWS.LexModelBuilding do
     Request.request_rest(
       client,
       meta,
+      "CreateIntentVersion",
       :post,
       url_path,
       query_params,
@@ -131,6 +133,7 @@ defmodule AWS.LexModelBuilding do
     Request.request_rest(
       client,
       meta,
+      "CreateSlotTypeVersion",
       :post,
       url_path,
       query_params,
@@ -170,6 +173,7 @@ defmodule AWS.LexModelBuilding do
     Request.request_rest(
       client,
       meta,
+      "DeleteBot",
       :delete,
       url_path,
       query_params,
@@ -201,6 +205,7 @@ defmodule AWS.LexModelBuilding do
     Request.request_rest(
       client,
       meta,
+      "DeleteBotAlias",
       :delete,
       url_path,
       query_params,
@@ -236,6 +241,7 @@ defmodule AWS.LexModelBuilding do
     Request.request_rest(
       client,
       meta,
+      "DeleteBotChannelAssociation",
       :delete,
       url_path,
       query_params,
@@ -263,6 +269,7 @@ defmodule AWS.LexModelBuilding do
     Request.request_rest(
       client,
       meta,
+      "DeleteBotVersion",
       :delete,
       url_path,
       query_params,
@@ -301,6 +308,7 @@ defmodule AWS.LexModelBuilding do
     Request.request_rest(
       client,
       meta,
+      "DeleteIntent",
       :delete,
       url_path,
       query_params,
@@ -328,6 +336,7 @@ defmodule AWS.LexModelBuilding do
     Request.request_rest(
       client,
       meta,
+      "DeleteIntentVersion",
       :delete,
       url_path,
       query_params,
@@ -367,6 +376,7 @@ defmodule AWS.LexModelBuilding do
     Request.request_rest(
       client,
       meta,
+      "DeleteSlotType",
       :delete,
       url_path,
       query_params,
@@ -394,6 +404,7 @@ defmodule AWS.LexModelBuilding do
     Request.request_rest(
       client,
       meta,
+      "DeleteSlotTypeVersion",
       :delete,
       url_path,
       query_params,
@@ -430,6 +441,7 @@ defmodule AWS.LexModelBuilding do
     Request.request_rest(
       client,
       meta,
+      "DeleteUtterances",
       :delete,
       url_path,
       query_params,
@@ -456,7 +468,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBot",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -473,7 +496,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBotAlias",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -516,7 +550,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBotAliases",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -535,7 +580,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBotChannelAssociation",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -582,7 +638,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBotChannelAssociations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -625,7 +692,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBotVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -674,7 +752,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBots",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -689,7 +778,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBuiltinIntent",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -739,7 +839,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBuiltinIntents",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -792,7 +903,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetBuiltinSlotTypes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -833,7 +955,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetExport",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -846,7 +979,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetImport",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -863,7 +1007,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetIntent",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -906,7 +1061,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetIntentVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -954,7 +1120,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetIntents",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -971,7 +1148,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMigration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1035,7 +1223,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMigrations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1053,7 +1252,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSlotType",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1096,7 +1306,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSlotTypeVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1144,7 +1365,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSlotTypes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1197,7 +1429,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetUtterancesView",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1212,7 +1455,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1246,7 +1500,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutBot",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1265,7 +1530,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutBotAlias",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1323,7 +1599,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutIntent",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1350,7 +1637,18 @@ defmodule AWS.LexModelBuilding do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutSlotType",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1366,6 +1664,7 @@ defmodule AWS.LexModelBuilding do
     Request.request_rest(
       client,
       meta,
+      "StartImport",
       :post,
       url_path,
       query_params,
@@ -1395,6 +1694,7 @@ defmodule AWS.LexModelBuilding do
     Request.request_rest(
       client,
       meta,
+      "StartMigration",
       :post,
       url_path,
       query_params,
@@ -1420,6 +1720,7 @@ defmodule AWS.LexModelBuilding do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1448,6 +1749,7 @@ defmodule AWS.LexModelBuilding do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,

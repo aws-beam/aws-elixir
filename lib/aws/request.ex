@@ -41,22 +41,29 @@ defmodule AWS.Request do
     payload = encode!(client, metadata.protocol, input)
     headers = Signature.sign_v4(client, now(), "POST", url, headers, payload)
 
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, metadata.protocol, body)
-        {:ok, body, response}
+    telemetry_metadata = %{client: client, service: metadata, action: action, input: input}
 
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
+    :telemetry.span([:aws, :request], telemetry_metadata, fn ->
+      case AWS.Client.request(client, :post, url, payload, headers, options) do
+        {:ok, %{status_code: 200, body: body} = response} ->
+          body = if body != "", do: decode!(client, metadata.protocol, body)
+          telemetry_metadata = Map.merge(telemetry_metadata, %{response: response, result: body})
+          {{:ok, body, response}, telemetry_metadata}
 
-      error = {:error, _reason} ->
-        error
-    end
+        {:ok, response} ->
+          reason = {:unexpected_response, response}
+          {{:error, reason}, Map.put(telemetry_metadata, :error, reason)}
+
+        error = {:error, reason} ->
+          {error, Map.put(telemetry_metadata, :error, reason)}
+      end
+    end)
   end
 
   def request_rest(
         %Client{} = client,
         %{} = metadata,
+        action,
         http_method,
         path,
         query,
@@ -118,49 +125,55 @@ defmodule AWS.Request do
 
     {response_header_parameters, options} = Keyword.pop(options, :response_header_parameters)
 
-    case Client.request(client, http_method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when (is_nil(success_status_code) and status_code in 200..299) or
-             status_code == success_status_code ->
-        body =
-          if body != "" do
-            {receive_body_as_binary?, _options} = Keyword.pop(options, :receive_body_as_binary?)
+    telemetry_metadata = %{client: client, service: metadata, action: action, input: input}
 
-            response_body =
-              if receive_body_as_binary? do
-                %{"Body" => body}
-              else
-                decode!(client, metadata.protocol, body)
+    :telemetry.span([:aws, :request], telemetry_metadata, fn ->
+      case Client.request(client, http_method, url, payload, headers, options) do
+        {:ok, %{status_code: status_code, body: body} = response}
+        when (is_nil(success_status_code) and status_code in 200..299) or
+               status_code == success_status_code ->
+          body =
+            if body != "" do
+              {receive_body_as_binary?, _options} = Keyword.pop(options, :receive_body_as_binary?)
+
+              response_body =
+                if receive_body_as_binary? do
+                  %{"Body" => body}
+                else
+                  decode!(client, metadata.protocol, body)
+                end
+
+              case response_header_parameters do
+                [_ | _] ->
+                  response_body =
+                    if is_binary(response_body) do
+                      %{"Body" => response_body}
+                    else
+                      response_body
+                    end
+
+                  merge_body_with_response_headers(
+                    response_body,
+                    response,
+                    response_header_parameters
+                  )
+
+                _ ->
+                  response_body
               end
-
-            case response_header_parameters do
-              [_ | _] ->
-                response_body =
-                  if is_binary(response_body) do
-                    %{"Body" => response_body}
-                  else
-                    response_body
-                  end
-
-                merge_body_with_response_headers(
-                  response_body,
-                  response,
-                  response_header_parameters
-                )
-
-              _ ->
-                response_body
             end
-          end
 
-        {:ok, body, response}
+          telemetry_metadata = Map.merge(telemetry_metadata, %{response: response, result: body})
+          {{:ok, body, response}, telemetry_metadata}
 
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
+        {:ok, response} ->
+          reason = {:unexpected_response, response}
+          {{:error, reason}, Map.put(telemetry_metadata, :error, reason)}
 
-      error = {:error, _reason} ->
-        error
-    end
+        error = {:error, reason} ->
+          {error, Map.put(telemetry_metadata, :error, reason)}
+      end
+    end)
   end
 
   defp prepare_client(client, metadata) do

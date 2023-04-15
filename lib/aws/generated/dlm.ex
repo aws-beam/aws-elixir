@@ -53,6 +53,7 @@ defmodule AWS.DLM do
     Request.request_rest(
       client,
       meta,
+      "CreateLifecyclePolicy",
       :post,
       url_path,
       query_params,
@@ -79,6 +80,7 @@ defmodule AWS.DLM do
     Request.request_rest(
       client,
       meta,
+      "DeleteLifecyclePolicy",
       :delete,
       url_path,
       query_params,
@@ -144,7 +146,18 @@ defmodule AWS.DLM do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLifecyclePolicies",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -157,7 +170,18 @@ defmodule AWS.DLM do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLifecyclePolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -170,7 +194,18 @@ defmodule AWS.DLM do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -186,6 +221,7 @@ defmodule AWS.DLM do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -214,6 +250,7 @@ defmodule AWS.DLM do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -239,6 +276,7 @@ defmodule AWS.DLM do
     Request.request_rest(
       client,
       meta,
+      "UpdateLifecyclePolicy",
       :patch,
       url_path,
       query_params,

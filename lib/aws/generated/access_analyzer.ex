@@ -51,7 +51,18 @@ defmodule AWS.AccessAnalyzer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ApplyArchiveRule",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -64,7 +75,18 @@ defmodule AWS.AccessAnalyzer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "CancelPolicyGeneration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -78,7 +100,18 @@ defmodule AWS.AccessAnalyzer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateAccessPreview",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -91,7 +124,18 @@ defmodule AWS.AccessAnalyzer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateAnalyzer",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -111,7 +155,18 @@ defmodule AWS.AccessAnalyzer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateArchiveRule",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -136,6 +191,7 @@ defmodule AWS.AccessAnalyzer do
     Request.request_rest(
       client,
       meta,
+      "DeleteAnalyzer",
       :delete,
       url_path,
       query_params,
@@ -166,6 +222,7 @@ defmodule AWS.AccessAnalyzer do
     Request.request_rest(
       client,
       meta,
+      "DeleteArchiveRule",
       :delete,
       url_path,
       query_params,
@@ -193,7 +250,18 @@ defmodule AWS.AccessAnalyzer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAccessPreview",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -220,7 +288,18 @@ defmodule AWS.AccessAnalyzer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAnalyzedResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -233,7 +312,18 @@ defmodule AWS.AccessAnalyzer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetAnalyzer",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -252,7 +342,18 @@ defmodule AWS.AccessAnalyzer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetArchiveRule",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -272,7 +373,18 @@ defmodule AWS.AccessAnalyzer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetFinding",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -305,7 +417,18 @@ defmodule AWS.AccessAnalyzer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetGeneratedPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -322,6 +445,7 @@ defmodule AWS.AccessAnalyzer do
     Request.request_rest(
       client,
       meta,
+      "ListAccessPreviewFindings",
       :post,
       url_path,
       query_params,
@@ -369,7 +493,18 @@ defmodule AWS.AccessAnalyzer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAccessPreviews",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -386,6 +521,7 @@ defmodule AWS.AccessAnalyzer do
     Request.request_rest(
       client,
       meta,
+      "ListAnalyzedResources",
       :post,
       url_path,
       query_params,
@@ -433,7 +569,18 @@ defmodule AWS.AccessAnalyzer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAnalyzers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -466,7 +613,18 @@ defmodule AWS.AccessAnalyzer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListArchiveRules",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -486,6 +644,7 @@ defmodule AWS.AccessAnalyzer do
     Request.request_rest(
       client,
       meta,
+      "ListFindings",
       :post,
       url_path,
       query_params,
@@ -533,7 +692,18 @@ defmodule AWS.AccessAnalyzer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPolicyGenerations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -546,7 +716,18 @@ defmodule AWS.AccessAnalyzer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -559,7 +740,18 @@ defmodule AWS.AccessAnalyzer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "StartPolicyGeneration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -575,6 +767,7 @@ defmodule AWS.AccessAnalyzer do
     Request.request_rest(
       client,
       meta,
+      "StartResourceScan",
       :post,
       url_path,
       query_params,
@@ -598,6 +791,7 @@ defmodule AWS.AccessAnalyzer do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -626,6 +820,7 @@ defmodule AWS.AccessAnalyzer do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -648,7 +843,18 @@ defmodule AWS.AccessAnalyzer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateArchiveRule",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -661,7 +867,18 @@ defmodule AWS.AccessAnalyzer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateFindings",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -687,6 +904,7 @@ defmodule AWS.AccessAnalyzer do
     Request.request_rest(
       client,
       meta,
+      "ValidatePolicy",
       :post,
       url_path,
       query_params,

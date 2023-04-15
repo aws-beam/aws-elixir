@@ -98,6 +98,7 @@ defmodule AWS.SageMakerRuntime do
     Request.request_rest(
       client,
       meta,
+      "InvokeEndpoint",
       :post,
       url_path,
       query_params,
@@ -160,6 +161,7 @@ defmodule AWS.SageMakerRuntime do
     Request.request_rest(
       client,
       meta,
+      "InvokeEndpointAsync",
       :post,
       url_path,
       query_params,

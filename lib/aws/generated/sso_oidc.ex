@@ -78,6 +78,7 @@ defmodule AWS.SSOOIDC do
     Request.request_rest(
       client,
       meta,
+      "CreateToken",
       :post,
       url_path,
       query_params,
@@ -104,6 +105,7 @@ defmodule AWS.SSOOIDC do
     Request.request_rest(
       client,
       meta,
+      "RegisterClient",
       :post,
       url_path,
       query_params,
@@ -128,6 +130,7 @@ defmodule AWS.SSOOIDC do
     Request.request_rest(
       client,
       meta,
+      "StartDeviceAuthorization",
       :post,
       url_path,
       query_params,

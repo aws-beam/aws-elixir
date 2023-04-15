@@ -241,6 +241,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "AssociateExternalConnection",
       :post,
       url_path,
       query_params,
@@ -278,6 +279,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "CopyPackageVersions",
       :post,
       url_path,
       query_params,
@@ -316,6 +318,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "CreateDomain",
       :post,
       url_path,
       query_params,
@@ -346,6 +349,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "CreateRepository",
       :post,
       url_path,
       query_params,
@@ -378,6 +382,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "DeleteDomain",
       :delete,
       url_path,
       query_params,
@@ -408,6 +413,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "DeleteDomainPermissionsPolicy",
       :delete,
       url_path,
       query_params,
@@ -486,6 +492,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "DeletePackageVersions",
       :post,
       url_path,
       query_params,
@@ -516,6 +523,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "DeleteRepository",
       :delete,
       url_path,
       query_params,
@@ -555,6 +563,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "DeleteRepositoryPermissionsPolicy",
       :delete,
       url_path,
       query_params,
@@ -591,7 +600,18 @@ defmodule AWS.Codeartifact do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeDomain",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -657,7 +677,18 @@ defmodule AWS.Codeartifact do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribePackage",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -731,7 +762,18 @@ defmodule AWS.Codeartifact do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribePackageVersion",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -772,7 +814,18 @@ defmodule AWS.Codeartifact do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeRepository",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -796,6 +849,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "DisassociateExternalConnection",
       :delete,
       url_path,
       query_params,
@@ -841,6 +895,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "DisposePackageVersions",
       :post,
       url_path,
       query_params,
@@ -893,6 +948,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "GetAuthorizationToken",
       :post,
       url_path,
       query_params,
@@ -937,7 +993,18 @@ defmodule AWS.Codeartifact do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDomainPermissionsPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1039,7 +1106,18 @@ defmodule AWS.Codeartifact do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPackageVersionAsset",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1114,7 +1192,18 @@ defmodule AWS.Codeartifact do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetPackageVersionReadme",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1172,7 +1261,18 @@ defmodule AWS.Codeartifact do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRepositoryEndpoint",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1212,7 +1312,18 @@ defmodule AWS.Codeartifact do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRepositoryPermissionsPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1233,6 +1344,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "ListDomains",
       :post,
       url_path,
       query_params,
@@ -1271,6 +1383,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "ListPackageVersionAssets",
       :post,
       url_path,
       query_params,
@@ -1313,6 +1426,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "ListPackageVersionDependencies",
       :post,
       url_path,
       query_params,
@@ -1356,6 +1470,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "ListPackageVersions",
       :post,
       url_path,
       query_params,
@@ -1395,6 +1510,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "ListPackages",
       :post,
       url_path,
       query_params,
@@ -1430,6 +1546,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "ListRepositories",
       :post,
       url_path,
       query_params,
@@ -1468,6 +1585,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "ListRepositoriesInDomain",
       :post,
       url_path,
       query_params,
@@ -1497,6 +1615,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "ListTagsForResource",
       :post,
       url_path,
       query_params,
@@ -1577,7 +1696,18 @@ defmodule AWS.Codeartifact do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutDomainPermissionsPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1618,6 +1748,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "PutPackageOriginConfiguration",
       :post,
       url_path,
       query_params,
@@ -1651,7 +1782,18 @@ defmodule AWS.Codeartifact do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutRepositoryPermissionsPolicy",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1672,6 +1814,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1700,6 +1843,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :post,
       url_path,
       query_params,
@@ -1738,6 +1882,7 @@ defmodule AWS.Codeartifact do
     Request.request_rest(
       client,
       meta,
+      "UpdatePackageVersionsStatus",
       :post,
       url_path,
       query_params,
@@ -1765,6 +1910,17 @@ defmodule AWS.Codeartifact do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateRepository",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

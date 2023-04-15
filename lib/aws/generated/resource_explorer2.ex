@@ -76,6 +76,7 @@ defmodule AWS.ResourceExplorer2 do
     Request.request_rest(
       client,
       meta,
+      "AssociateDefaultView",
       :post,
       url_path,
       query_params,
@@ -99,6 +100,7 @@ defmodule AWS.ResourceExplorer2 do
     Request.request_rest(
       client,
       meta,
+      "BatchGetView",
       :post,
       url_path,
       query_params,
@@ -167,6 +169,7 @@ defmodule AWS.ResourceExplorer2 do
     Request.request_rest(
       client,
       meta,
+      "CreateIndex",
       :post,
       url_path,
       query_params,
@@ -199,6 +202,7 @@ defmodule AWS.ResourceExplorer2 do
     Request.request_rest(
       client,
       meta,
+      "CreateView",
       :post,
       url_path,
       query_params,
@@ -234,6 +238,7 @@ defmodule AWS.ResourceExplorer2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteIndex",
       :post,
       url_path,
       query_params,
@@ -262,6 +267,7 @@ defmodule AWS.ResourceExplorer2 do
     Request.request_rest(
       client,
       meta,
+      "DeleteView",
       :post,
       url_path,
       query_params,
@@ -294,6 +300,7 @@ defmodule AWS.ResourceExplorer2 do
     Request.request_rest(
       client,
       meta,
+      "DisassociateDefaultView",
       :post,
       url_path,
       query_params,
@@ -320,6 +327,7 @@ defmodule AWS.ResourceExplorer2 do
     Request.request_rest(
       client,
       meta,
+      "GetDefaultView",
       :post,
       url_path,
       query_params,
@@ -344,6 +352,7 @@ defmodule AWS.ResourceExplorer2 do
     Request.request_rest(
       client,
       meta,
+      "GetIndex",
       :post,
       url_path,
       query_params,
@@ -367,6 +376,7 @@ defmodule AWS.ResourceExplorer2 do
     Request.request_rest(
       client,
       meta,
+      "GetView",
       :post,
       url_path,
       query_params,
@@ -392,6 +402,7 @@ defmodule AWS.ResourceExplorer2 do
     Request.request_rest(
       client,
       meta,
+      "ListIndexes",
       :post,
       url_path,
       query_params,
@@ -416,6 +427,7 @@ defmodule AWS.ResourceExplorer2 do
     Request.request_rest(
       client,
       meta,
+      "ListSupportedResourceTypes",
       :post,
       url_path,
       query_params,
@@ -436,7 +448,18 @@ defmodule AWS.ResourceExplorer2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -459,6 +482,7 @@ defmodule AWS.ResourceExplorer2 do
     Request.request_rest(
       client,
       meta,
+      "ListViews",
       :post,
       url_path,
       query_params,
@@ -497,6 +521,7 @@ defmodule AWS.ResourceExplorer2 do
     Request.request_rest(
       client,
       meta,
+      "Search",
       :post,
       url_path,
       query_params,
@@ -521,6 +546,7 @@ defmodule AWS.ResourceExplorer2 do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -550,6 +576,7 @@ defmodule AWS.ResourceExplorer2 do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -624,6 +651,7 @@ defmodule AWS.ResourceExplorer2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateIndexType",
       :post,
       url_path,
       query_params,
@@ -650,6 +678,7 @@ defmodule AWS.ResourceExplorer2 do
     Request.request_rest(
       client,
       meta,
+      "UpdateView",
       :post,
       url_path,
       query_params,

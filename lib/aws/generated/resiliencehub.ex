@@ -47,6 +47,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "AddDraftAppVersionResourceMappings",
       :post,
       url_path,
       query_params,
@@ -82,6 +83,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "CreateApp",
       :post,
       url_path,
       query_params,
@@ -168,6 +170,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "CreateRecommendationTemplate",
       :post,
       url_path,
       query_params,
@@ -191,6 +194,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "CreateResiliencyPolicy",
       :post,
       url_path,
       query_params,
@@ -216,6 +220,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "DeleteApp",
       :post,
       url_path,
       query_params,
@@ -241,6 +246,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "DeleteAppAssessment",
       :post,
       url_path,
       query_params,
@@ -352,6 +358,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "DeleteRecommendationTemplate",
       :post,
       url_path,
       query_params,
@@ -377,6 +384,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "DeleteResiliencyPolicy",
       :post,
       url_path,
       query_params,
@@ -400,6 +408,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "DescribeApp",
       :post,
       url_path,
       query_params,
@@ -423,6 +432,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "DescribeAppAssessment",
       :post,
       url_path,
       query_params,
@@ -527,6 +537,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "DescribeAppVersionResourcesResolutionStatus",
       :post,
       url_path,
       query_params,
@@ -550,6 +561,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "DescribeAppVersionTemplate",
       :post,
       url_path,
       query_params,
@@ -578,6 +590,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "DescribeDraftAppVersionResourcesImportStatus",
       :post,
       url_path,
       query_params,
@@ -604,6 +617,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "DescribeResiliencyPolicy",
       :post,
       url_path,
       query_params,
@@ -631,6 +645,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "ImportResourcesToDraftAppVersion",
       :post,
       url_path,
       query_params,
@@ -654,6 +669,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "ListAlarmRecommendations",
       :post,
       url_path,
       query_params,
@@ -743,7 +759,18 @@ defmodule AWS.Resiliencehub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAppAssessments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -759,6 +786,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "ListAppComponentCompliances",
       :post,
       url_path,
       query_params,
@@ -782,6 +810,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "ListAppComponentRecommendations",
       :post,
       url_path,
       query_params,
@@ -857,6 +886,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "ListAppVersionResourceMappings",
       :post,
       url_path,
       query_params,
@@ -880,6 +910,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "ListAppVersionResources",
       :post,
       url_path,
       query_params,
@@ -903,6 +934,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "ListAppVersions",
       :post,
       url_path,
       query_params,
@@ -965,7 +997,18 @@ defmodule AWS.Resiliencehub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListApps",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1037,7 +1080,18 @@ defmodule AWS.Resiliencehub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListRecommendationTemplates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1077,7 +1131,18 @@ defmodule AWS.Resiliencehub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListResiliencyPolicies",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1094,6 +1159,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "ListSopRecommendations",
       :post,
       url_path,
       query_params,
@@ -1133,7 +1199,18 @@ defmodule AWS.Resiliencehub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListSuggestedResiliencyPolicies",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1146,7 +1223,18 @@ defmodule AWS.Resiliencehub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1162,6 +1250,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "ListTestRecommendations",
       :post,
       url_path,
       query_params,
@@ -1188,6 +1277,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "ListUnsupportedAppVersionResources",
       :post,
       url_path,
       query_params,
@@ -1211,6 +1301,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "PublishAppVersion",
       :post,
       url_path,
       query_params,
@@ -1235,6 +1326,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "PutDraftAppVersionTemplate",
       :post,
       url_path,
       query_params,
@@ -1258,6 +1350,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "RemoveDraftAppVersionResourceMappings",
       :post,
       url_path,
       query_params,
@@ -1281,6 +1374,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "ResolveAppVersionResources",
       :post,
       url_path,
       query_params,
@@ -1304,6 +1398,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "StartAppAssessment",
       :post,
       url_path,
       query_params,
@@ -1327,6 +1422,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1355,6 +1451,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1378,6 +1475,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "UpdateApp",
       :post,
       url_path,
       query_params,
@@ -1487,6 +1585,7 @@ defmodule AWS.Resiliencehub do
     Request.request_rest(
       client,
       meta,
+      "UpdateResiliencyPolicy",
       :post,
       url_path,
       query_params,

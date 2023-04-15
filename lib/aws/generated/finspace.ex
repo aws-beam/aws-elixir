@@ -39,6 +39,7 @@ defmodule AWS.Finspace do
     Request.request_rest(
       client,
       meta,
+      "CreateEnvironment",
       :post,
       url_path,
       query_params,
@@ -62,6 +63,7 @@ defmodule AWS.Finspace do
     Request.request_rest(
       client,
       meta,
+      "DeleteEnvironment",
       :delete,
       url_path,
       query_params,
@@ -82,7 +84,18 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetEnvironment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -109,7 +122,18 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListEnvironments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -122,7 +146,18 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -138,6 +173,7 @@ defmodule AWS.Finspace do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -166,6 +202,7 @@ defmodule AWS.Finspace do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -186,6 +223,17 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateEnvironment",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

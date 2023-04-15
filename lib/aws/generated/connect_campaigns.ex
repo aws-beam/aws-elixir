@@ -37,7 +37,18 @@ defmodule AWS.ConnectCampaigns do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "CreateCampaign",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -53,6 +64,7 @@ defmodule AWS.ConnectCampaigns do
     Request.request_rest(
       client,
       meta,
+      "DeleteCampaign",
       :delete,
       url_path,
       query_params,
@@ -81,6 +93,7 @@ defmodule AWS.ConnectCampaigns do
     Request.request_rest(
       client,
       meta,
+      "DeleteConnectInstanceConfig",
       :delete,
       url_path,
       query_params,
@@ -110,6 +123,7 @@ defmodule AWS.ConnectCampaigns do
     Request.request_rest(
       client,
       meta,
+      "DeleteInstanceOnboardingJob",
       :delete,
       url_path,
       query_params,
@@ -130,7 +144,18 @@ defmodule AWS.ConnectCampaigns do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeCampaign",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -143,7 +168,18 @@ defmodule AWS.ConnectCampaigns do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCampaignState",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -159,6 +195,7 @@ defmodule AWS.ConnectCampaigns do
     Request.request_rest(
       client,
       meta,
+      "GetCampaignStateBatch",
       :post,
       url_path,
       query_params,
@@ -179,7 +216,18 @@ defmodule AWS.ConnectCampaigns do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetConnectInstanceConfig",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -192,7 +240,18 @@ defmodule AWS.ConnectCampaigns do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetInstanceOnboardingJobStatus",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -209,6 +268,7 @@ defmodule AWS.ConnectCampaigns do
     Request.request_rest(
       client,
       meta,
+      "ListCampaigns",
       :post,
       url_path,
       query_params,
@@ -229,7 +289,18 @@ defmodule AWS.ConnectCampaigns do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -245,6 +316,7 @@ defmodule AWS.ConnectCampaigns do
     Request.request_rest(
       client,
       meta,
+      "PauseCampaign",
       :post,
       url_path,
       query_params,
@@ -267,7 +339,18 @@ defmodule AWS.ConnectCampaigns do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "PutDialRequestBatch",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -283,6 +366,7 @@ defmodule AWS.ConnectCampaigns do
     Request.request_rest(
       client,
       meta,
+      "ResumeCampaign",
       :post,
       url_path,
       query_params,
@@ -306,6 +390,7 @@ defmodule AWS.ConnectCampaigns do
     Request.request_rest(
       client,
       meta,
+      "StartCampaign",
       :post,
       url_path,
       query_params,
@@ -326,7 +411,18 @@ defmodule AWS.ConnectCampaigns do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "StartInstanceOnboardingJob",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -342,6 +438,7 @@ defmodule AWS.ConnectCampaigns do
     Request.request_rest(
       client,
       meta,
+      "StopCampaign",
       :post,
       url_path,
       query_params,
@@ -365,6 +462,7 @@ defmodule AWS.ConnectCampaigns do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -393,6 +491,7 @@ defmodule AWS.ConnectCampaigns do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -418,6 +517,7 @@ defmodule AWS.ConnectCampaigns do
     Request.request_rest(
       client,
       meta,
+      "UpdateCampaignDialerConfig",
       :post,
       url_path,
       query_params,
@@ -443,6 +543,7 @@ defmodule AWS.ConnectCampaigns do
     Request.request_rest(
       client,
       meta,
+      "UpdateCampaignName",
       :post,
       url_path,
       query_params,
@@ -468,6 +569,7 @@ defmodule AWS.ConnectCampaigns do
     Request.request_rest(
       client,
       meta,
+      "UpdateCampaignOutboundCallConfig",
       :post,
       url_path,
       query_params,

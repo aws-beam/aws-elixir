@@ -51,6 +51,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "AddProfileKey",
       :post,
       url_path,
       query_params,
@@ -90,6 +91,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "CreateDomain",
       :post,
       url_path,
       query_params,
@@ -117,6 +119,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "CreateIntegrationWorkflow",
       :post,
       url_path,
       query_params,
@@ -143,6 +146,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "CreateProfile",
       :post,
       url_path,
       query_params,
@@ -167,6 +171,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "DeleteDomain",
       :delete,
       url_path,
       query_params,
@@ -190,6 +195,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "DeleteIntegration",
       :post,
       url_path,
       query_params,
@@ -213,6 +219,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "DeleteProfile",
       :post,
       url_path,
       query_params,
@@ -236,6 +243,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "DeleteProfileKey",
       :post,
       url_path,
       query_params,
@@ -259,6 +267,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "DeleteProfileObject",
       :post,
       url_path,
       query_params,
@@ -295,6 +304,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "DeleteProfileObjectType",
       :delete,
       url_path,
       query_params,
@@ -322,6 +332,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "DeleteWorkflow",
       :delete,
       url_path,
       query_params,
@@ -362,6 +373,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "GetAutoMergingPreview",
       :post,
       url_path,
       query_params,
@@ -382,7 +394,18 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDomain",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -400,7 +423,18 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetIdentityResolutionJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -416,6 +450,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "GetIntegration",
       :post,
       url_path,
       query_params,
@@ -499,7 +534,18 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetMatches",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -514,7 +560,18 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetProfileObjectType",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -532,7 +589,18 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetProfileObjectTypeTemplate",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -547,7 +615,18 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetWorkflow",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -583,7 +662,18 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetWorkflowSteps",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -606,6 +696,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "ListAccountIntegrations",
       :post,
       url_path,
       query_params,
@@ -640,7 +731,18 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListDomains",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -675,7 +777,18 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListIdentityResolutionJobs",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -716,7 +829,18 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListIntegrations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -748,7 +872,18 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProfileObjectTypeTemplates",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -781,7 +916,18 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListProfileObjectTypes",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -804,6 +950,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "ListProfileObjects",
       :post,
       url_path,
       query_params,
@@ -827,7 +974,18 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -849,6 +1007,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "ListWorkflows",
       :post,
       url_path,
       query_params,
@@ -904,6 +1063,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "MergeProfiles",
       :post,
       url_path,
       query_params,
@@ -931,7 +1091,18 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutIntegration",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -957,7 +1128,18 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutProfileObject",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -981,7 +1163,18 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "PutProfileObjectType",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1010,6 +1203,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "SearchProfiles",
       :post,
       url_path,
       query_params,
@@ -1050,6 +1244,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -1082,6 +1277,7 @@ defmodule AWS.CustomerProfiles do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -1117,7 +1313,18 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateDomain",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1136,6 +1343,17 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdateProfile",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

@@ -35,7 +35,18 @@ defmodule AWS.MediaPackageVod do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ConfigureLogs",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -51,6 +62,7 @@ defmodule AWS.MediaPackageVod do
     Request.request_rest(
       client,
       meta,
+      "CreateAsset",
       :post,
       url_path,
       query_params,
@@ -74,6 +86,7 @@ defmodule AWS.MediaPackageVod do
     Request.request_rest(
       client,
       meta,
+      "CreatePackagingConfiguration",
       :post,
       url_path,
       query_params,
@@ -97,6 +110,7 @@ defmodule AWS.MediaPackageVod do
     Request.request_rest(
       client,
       meta,
+      "CreatePackagingGroup",
       :post,
       url_path,
       query_params,
@@ -120,6 +134,7 @@ defmodule AWS.MediaPackageVod do
     Request.request_rest(
       client,
       meta,
+      "DeleteAsset",
       :delete,
       url_path,
       query_params,
@@ -143,6 +158,7 @@ defmodule AWS.MediaPackageVod do
     Request.request_rest(
       client,
       meta,
+      "DeletePackagingConfiguration",
       :delete,
       url_path,
       query_params,
@@ -166,6 +182,7 @@ defmodule AWS.MediaPackageVod do
     Request.request_rest(
       client,
       meta,
+      "DeletePackagingGroup",
       :delete,
       url_path,
       query_params,
@@ -186,7 +203,18 @@ defmodule AWS.MediaPackageVod do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeAsset",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -199,7 +227,18 @@ defmodule AWS.MediaPackageVod do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribePackagingConfiguration",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -212,7 +251,18 @@ defmodule AWS.MediaPackageVod do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribePackagingGroup",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -252,7 +302,18 @@ defmodule AWS.MediaPackageVod do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAssets",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -292,7 +353,18 @@ defmodule AWS.MediaPackageVod do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPackagingConfigurations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -324,7 +396,18 @@ defmodule AWS.MediaPackageVod do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPackagingGroups",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -337,7 +420,18 @@ defmodule AWS.MediaPackageVod do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -355,6 +449,7 @@ defmodule AWS.MediaPackageVod do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -385,6 +480,7 @@ defmodule AWS.MediaPackageVod do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -407,6 +503,17 @@ defmodule AWS.MediaPackageVod do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "UpdatePackagingGroup",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

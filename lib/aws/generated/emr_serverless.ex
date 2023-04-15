@@ -58,6 +58,7 @@ defmodule AWS.EMRServerless do
     Request.request_rest(
       client,
       meta,
+      "CancelJobRun",
       :delete,
       url_path,
       query_params,
@@ -81,6 +82,7 @@ defmodule AWS.EMRServerless do
     Request.request_rest(
       client,
       meta,
+      "CreateApplication",
       :post,
       url_path,
       query_params,
@@ -106,6 +108,7 @@ defmodule AWS.EMRServerless do
     Request.request_rest(
       client,
       meta,
+      "DeleteApplication",
       :delete,
       url_path,
       query_params,
@@ -126,7 +129,18 @@ defmodule AWS.EMRServerless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetApplication",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -141,7 +155,18 @@ defmodule AWS.EMRServerless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDashboardForJobRun",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -156,7 +181,18 @@ defmodule AWS.EMRServerless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetJobRun",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -196,7 +232,18 @@ defmodule AWS.EMRServerless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListApplications",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -253,7 +300,18 @@ defmodule AWS.EMRServerless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListJobRuns",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -266,7 +324,18 @@ defmodule AWS.EMRServerless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -282,6 +351,7 @@ defmodule AWS.EMRServerless do
     Request.request_rest(
       client,
       meta,
+      "StartApplication",
       :post,
       url_path,
       query_params,
@@ -305,6 +375,7 @@ defmodule AWS.EMRServerless do
     Request.request_rest(
       client,
       meta,
+      "StartJobRun",
       :post,
       url_path,
       query_params,
@@ -331,6 +402,7 @@ defmodule AWS.EMRServerless do
     Request.request_rest(
       client,
       meta,
+      "StopApplication",
       :post,
       url_path,
       query_params,
@@ -361,6 +433,7 @@ defmodule AWS.EMRServerless do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -389,6 +462,7 @@ defmodule AWS.EMRServerless do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -414,6 +488,7 @@ defmodule AWS.EMRServerless do
     Request.request_rest(
       client,
       meta,
+      "UpdateApplication",
       :patch,
       url_path,
       query_params,

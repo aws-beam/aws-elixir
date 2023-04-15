@@ -40,7 +40,18 @@ defmodule AWS.Braket do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "CancelJob",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -53,7 +64,18 @@ defmodule AWS.Braket do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "CancelQuantumTask",
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -69,6 +91,7 @@ defmodule AWS.Braket do
     Request.request_rest(
       client,
       meta,
+      "CreateJob",
       :post,
       url_path,
       query_params,
@@ -92,6 +115,7 @@ defmodule AWS.Braket do
     Request.request_rest(
       client,
       meta,
+      "CreateQuantumTask",
       :post,
       url_path,
       query_params,
@@ -121,7 +145,18 @@ defmodule AWS.Braket do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDevice",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -134,7 +169,18 @@ defmodule AWS.Braket do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetJob",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -147,7 +193,18 @@ defmodule AWS.Braket do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "GetQuantumTask",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -160,7 +217,18 @@ defmodule AWS.Braket do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -176,6 +244,7 @@ defmodule AWS.Braket do
     Request.request_rest(
       client,
       meta,
+      "SearchDevices",
       :post,
       url_path,
       query_params,
@@ -199,6 +268,7 @@ defmodule AWS.Braket do
     Request.request_rest(
       client,
       meta,
+      "SearchJobs",
       :post,
       url_path,
       query_params,
@@ -222,6 +292,7 @@ defmodule AWS.Braket do
     Request.request_rest(
       client,
       meta,
+      "SearchQuantumTasks",
       :post,
       url_path,
       query_params,
@@ -245,6 +316,7 @@ defmodule AWS.Braket do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -273,6 +345,7 @@ defmodule AWS.Braket do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,

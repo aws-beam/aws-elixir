@@ -43,6 +43,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "AcceptAttachment",
       :post,
       url_path,
       query_params,
@@ -73,6 +74,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "AssociateConnectPeer",
       :post,
       url_path,
       query_params,
@@ -110,6 +112,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "AssociateCustomerGateway",
       :post,
       url_path,
       query_params,
@@ -137,6 +140,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "AssociateLink",
       :post,
       url_path,
       query_params,
@@ -176,6 +180,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "AssociateTransitGatewayConnectPeer",
       :post,
       url_path,
       query_params,
@@ -205,6 +210,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "CreateConnectAttachment",
       :post,
       url_path,
       query_params,
@@ -232,6 +238,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "CreateConnectPeer",
       :post,
       url_path,
       query_params,
@@ -259,6 +266,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "CreateConnection",
       :post,
       url_path,
       query_params,
@@ -283,6 +291,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "CreateCoreNetwork",
       :post,
       url_path,
       query_params,
@@ -309,6 +318,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "CreateDevice",
       :post,
       url_path,
       query_params,
@@ -332,6 +342,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "CreateGlobalNetwork",
       :post,
       url_path,
       query_params,
@@ -355,6 +366,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "CreateLink",
       :post,
       url_path,
       query_params,
@@ -378,6 +390,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "CreateSite",
       :post,
       url_path,
       query_params,
@@ -402,6 +415,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "CreateSiteToSiteVpnAttachment",
       :post,
       url_path,
       query_params,
@@ -425,6 +439,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "CreateTransitGatewayPeering",
       :post,
       url_path,
       query_params,
@@ -448,6 +463,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "CreateTransitGatewayRouteTableAttachment",
       :post,
       url_path,
       query_params,
@@ -471,6 +487,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "CreateVpcAttachment",
       :post,
       url_path,
       query_params,
@@ -496,6 +513,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "DeleteAttachment",
       :delete,
       url_path,
       query_params,
@@ -519,6 +537,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "DeleteConnectPeer",
       :delete,
       url_path,
       query_params,
@@ -550,6 +569,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "DeleteConnection",
       :delete,
       url_path,
       query_params,
@@ -575,6 +595,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "DeleteCoreNetwork",
       :delete,
       url_path,
       query_params,
@@ -608,6 +629,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "DeleteCoreNetworkPolicyVersion",
       :delete,
       url_path,
       query_params,
@@ -635,6 +657,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "DeleteDevice",
       :delete,
       url_path,
       query_params,
@@ -661,6 +684,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "DeleteGlobalNetwork",
       :delete,
       url_path,
       query_params,
@@ -688,6 +712,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "DeleteLink",
       :delete,
       url_path,
       query_params,
@@ -711,6 +736,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "DeletePeering",
       :delete,
       url_path,
       query_params,
@@ -736,6 +762,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "DeleteResourcePolicy",
       :delete,
       url_path,
       query_params,
@@ -763,6 +790,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "DeleteSite",
       :delete,
       url_path,
       query_params,
@@ -797,6 +825,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "DeregisterTransitGateway",
       :delete,
       url_path,
       query_params,
@@ -849,7 +878,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "DescribeGlobalNetworks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -873,6 +913,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "DisassociateConnectPeer",
       :delete,
       url_path,
       query_params,
@@ -904,6 +945,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "DisassociateCustomerGateway",
       :delete,
       url_path,
       query_params,
@@ -936,6 +978,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "DisassociateLink",
       :delete,
       url_path,
       query_params,
@@ -967,6 +1010,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "DisassociateTransitGatewayConnectPeer",
       :delete,
       url_path,
       query_params,
@@ -1000,6 +1044,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "ExecuteCoreNetworkChangeSet",
       :post,
       url_path,
       query_params,
@@ -1020,7 +1065,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetConnectAttachment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1033,7 +1089,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetConnectPeer",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1076,7 +1143,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetConnectPeerAssociations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1125,7 +1203,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetConnections",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1138,7 +1227,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCoreNetwork",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1174,7 +1274,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCoreNetworkChangeEvents",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1211,7 +1322,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCoreNetworkChangeSet",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1247,7 +1369,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCoreNetworkPolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1291,7 +1424,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetCustomerGatewayAssociations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1340,7 +1484,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetDevices",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1391,7 +1546,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLinkAssociations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1459,7 +1625,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetLinks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1501,7 +1678,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetNetworkResourceCounts",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1584,7 +1772,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetNetworkResourceRelationships",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1668,7 +1867,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetNetworkResources",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1684,6 +1894,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "GetNetworkRoutes",
       :post,
       url_path,
       query_params,
@@ -1772,7 +1983,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetNetworkTelemetry",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1785,7 +2007,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetResourcePolicy",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1800,7 +2033,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetRouteAnalysis",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1813,7 +2057,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSiteToSiteVpnAttachment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1854,7 +2109,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetSites",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1898,7 +2164,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTransitGatewayConnectPeerAssociations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1911,7 +2188,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTransitGatewayPeering",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1955,7 +2243,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTransitGatewayRegistrations",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1968,7 +2267,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetTransitGatewayRouteTableAttachment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1981,7 +2291,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "GetVpcAttachment",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2045,7 +2366,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListAttachments",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2093,7 +2425,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListConnectPeers",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2128,7 +2471,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCoreNetworkPolicyVersions",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2155,7 +2509,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListCoreNetworks",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2188,7 +2553,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListOrganizationServiceAccessStatus",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2252,7 +2628,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListPeerings",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2265,7 +2652,18 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(
+      client,
+      meta,
+      "ListTagsForResource",
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2284,6 +2682,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "PutCoreNetworkPolicy",
       :post,
       url_path,
       query_params,
@@ -2307,6 +2706,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "PutResourcePolicy",
       :post,
       url_path,
       query_params,
@@ -2340,6 +2740,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "RegisterTransitGateway",
       :post,
       url_path,
       query_params,
@@ -2363,6 +2764,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "RejectAttachment",
       :post,
       url_path,
       query_params,
@@ -2398,6 +2800,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "RestoreCoreNetworkPolicyVersion",
       :post,
       url_path,
       query_params,
@@ -2423,6 +2826,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "StartOrganizationServiceAccessUpdate",
       :post,
       url_path,
       query_params,
@@ -2448,6 +2852,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "StartRouteAnalysis",
       :post,
       url_path,
       query_params,
@@ -2471,6 +2876,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "TagResource",
       :post,
       url_path,
       query_params,
@@ -2499,6 +2905,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "UntagResource",
       :delete,
       url_path,
       query_params,
@@ -2532,6 +2939,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "UpdateConnection",
       :patch,
       url_path,
       query_params,
@@ -2555,6 +2963,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "UpdateCoreNetwork",
       :patch,
       url_path,
       query_params,
@@ -2582,6 +2991,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "UpdateDevice",
       :patch,
       url_path,
       query_params,
@@ -2607,6 +3017,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "UpdateGlobalNetwork",
       :patch,
       url_path,
       query_params,
@@ -2634,6 +3045,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "UpdateLink",
       :patch,
       url_path,
       query_params,
@@ -2665,6 +3077,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "UpdateNetworkResourceMetadata",
       :patch,
       url_path,
       query_params,
@@ -2692,6 +3105,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "UpdateSite",
       :patch,
       url_path,
       query_params,
@@ -2715,6 +3129,7 @@ defmodule AWS.NetworkManager do
     Request.request_rest(
       client,
       meta,
+      "UpdateVpcAttachment",
       :patch,
       url_path,
       query_params,

@@ -4,43 +4,61 @@ defmodule AWS.RequestTest do
   alias AWS.Client
   alias AWS.Request
 
-  describe "request_rest/9" do
-    defmodule TestClient do
-      @behaviour AWS.HTTPClient
+  @metadata %{
+    api_version: "2014-06-05",
+    content_type: "application/x-amz-json-1.1",
+    endpoint_prefix: "mobileanalytics",
+    global?: false,
+    protocol: "rest-json",
+    signature_version: "v4",
+    signing_name: "mobileanalytics"
+  }
 
-      @impl true
-      def request(method, url, body, headers, options) do
-        send(self(), {:request, method, url, body, headers, options})
+  defmodule TestClient do
+    @behaviour AWS.HTTPClient
 
-        {status, _opts} = Keyword.pop(options, :return_status_code, 200)
+    @impl true
+    def request(method, url, body, headers, options) do
+      send(self(), {:request, method, url, body, headers, options})
 
-        {:ok, %{status_code: status, headers: [], body: "{\"Response\":\"foo\"}"}}
-      end
+      {status, _opts} = Keyword.pop(options, :return_status_code, 200)
+
+      {:ok, %{status_code: status, headers: [], body: "{\"Response\":\"foo\"}"}}
     end
+  end
 
+  describe "request_post/5" do
+    test "do not sign without access_key_id and secret_access_key" do
+      client = %Client{http_client: {TestClient, []}}
+
+      assert {:ok, _response, _http_response} =
+               Request.request_post(client, @metadata, "Action", %{}, [])
+
+      assert_receive {:request, :post, _url, _body, headers, _options}
+
+      assert nil ==
+               headers
+               |> Enum.map(fn item -> Kernel.elem(item, 0) end)
+               |> Enum.find(fn item ->
+                 item == "X-Amz-Content-SHA256" || item == "Authorization"
+               end)
+    end
+  end
+
+  describe "request_rest/9" do
     setup do
       client =
         Client.create("access-key-id", "secret-access-key", "us-east1")
         |> Map.put(:http_client, {TestClient, []})
 
-      metadata = %{
-        api_version: "2014-06-05",
-        content_type: "application/x-amz-json-1.1",
-        endpoint_prefix: "mobileanalytics",
-        global?: false,
-        protocol: "rest-json",
-        signature_version: "v4",
-        signing_name: "mobileanalytics"
-      }
-
-      [client: client, metadata: metadata]
+      [client: client]
     end
 
-    test "send get request with params", %{client: client, metadata: metadata} do
+    test "send get request with params", %{client: client} do
       assert {:ok, _response, _http_response} =
                Request.request_rest(
                  client,
-                 metadata,
+                 @metadata,
                  :get,
                  "/foo/bar",
                  [{"q", "x&y="}, {"size", 5}],
@@ -59,7 +77,7 @@ defmodule AWS.RequestTest do
       assert {:ok, _response, _http_response} =
                Request.request_rest(
                  client,
-                 metadata,
+                 @metadata,
                  :get,
                  "/foo/bar?format=sdk&pretty=true",
                  [{"q", "x&y="}, {"size", 5}],
@@ -77,11 +95,11 @@ defmodule AWS.RequestTest do
                "https://mobileanalytics.us-east1.amazonaws.com/foo/bar?format=sdk&pretty=true&q=x%26y%3D&size=5"
     end
 
-    test "send post request", %{client: client, metadata: metadata} do
+    test "send post request", %{client: client} do
       assert {:ok, response, http_response} =
                Request.request_rest(
                  client,
-                 metadata,
+                 @metadata,
                  :post,
                  "/foo/bar",
                  [],
@@ -118,11 +136,11 @@ defmodule AWS.RequestTest do
       assert options == []
     end
 
-    test "send post request with body as binary/payload", %{client: client, metadata: metadata} do
+    test "send post request with body as binary/payload", %{client: client} do
       assert {:ok, response, _http_response} =
                Request.request_rest(
                  client,
-                 metadata,
+                 @metadata,
                  :post,
                  "/foo/bar",
                  [],
@@ -140,11 +158,11 @@ defmodule AWS.RequestTest do
       assert options == []
     end
 
-    test "do not decode response when it is a binary", %{client: client, metadata: metadata} do
+    test "do not decode response when it is a binary", %{client: client} do
       assert {:ok, response, _http_response} =
                Request.request_rest(
                  client,
-                 metadata,
+                 @metadata,
                  :post,
                  "/foo/bar",
                  [],
@@ -160,14 +178,14 @@ defmodule AWS.RequestTest do
       assert options == []
     end
 
-    test "accept success code other than 200", %{client: client, metadata: metadata} do
+    test "accept success code other than 200", %{client: client} do
       {http_client, _opts} = client.http_client
       client = %{client | http_client: {http_client, [return_status_code: 206]}}
 
       assert {:ok, response, http_response} =
                Request.request_rest(
                  client,
-                 metadata,
+                 @metadata,
                  :post,
                  "/foo/bar",
                  [],
@@ -183,7 +201,7 @@ defmodule AWS.RequestTest do
       assert {:ok, _response, _http_response} =
                Request.request_rest(
                  client,
-                 metadata,
+                 @metadata,
                  :post,
                  "/foo/bar",
                  [],
@@ -197,7 +215,7 @@ defmodule AWS.RequestTest do
       assert {:error, error} =
                Request.request_rest(
                  client,
-                 metadata,
+                 @metadata,
                  :post,
                  "/foo/bar",
                  [],
@@ -211,11 +229,11 @@ defmodule AWS.RequestTest do
               %{body: "{\"Response\":\"foo\"}", headers: [], status_code: 206}} = error
     end
 
-    test "send get request with host prefix", %{client: client, metadata: metadata} do
+    test "send get request with host prefix", %{client: client} do
       assert {:ok, _response, _http_response} =
                Request.request_rest(
                  client,
-                 Map.put(metadata, :host_prefix, "my-prefix."),
+                 Map.put(@metadata, :host_prefix, "my-prefix."),
                  :get,
                  "/foo/bar",
                  [{"q", "x&y="}, {"size", 5}],
@@ -234,13 +252,12 @@ defmodule AWS.RequestTest do
     end
 
     test "send get request with host prefix with account id", %{
-      client: client,
-      metadata: metadata
+      client: client
     } do
       assert {:ok, _response, _http_response} =
                Request.request_rest(
                  client,
-                 Map.put(metadata, :host_prefix, "{AccountId}-foo."),
+                 Map.put(@metadata, :host_prefix, "{AccountId}-foo."),
                  :get,
                  "/foo/bar",
                  [{"q", "x&y="}, {"size", 5}],

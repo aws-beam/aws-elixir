@@ -112,7 +112,7 @@ defmodule AWS.DynamoDB do
   in the request. If you want strongly consistent reads instead, you can set
   `ConsistentRead` to `true` for any or all tables.
 
-  In order to minimize response latency, `BatchGetItem` retrieves items in
+  In order to minimize response latency, `BatchGetItem` may retrieve items in
   parallel.
 
   When designing your application, keep in mind that DynamoDB does not return
@@ -925,7 +925,7 @@ defmodule AWS.DynamoDB do
   @doc """
   Creates a new table from an existing backup.
 
-  Any number of users can execute up to 4 concurrent restores (any type of
+  Any number of users can execute up to 50 concurrent restores (any type of
   restore) in a given account.
 
   You can call `RestoreTableFromBackup` at a maximum rate of 10 times per second.

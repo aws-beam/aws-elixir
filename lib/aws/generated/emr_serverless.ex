@@ -131,6 +131,9 @@ defmodule AWS.EMRServerless do
 
   @doc """
   Returns a URL to access the job run dashboard.
+
+  The generated URL is valid for one hour, after which you must invoke the API
+  again to generate a new URL.
   """
   def get_dashboard_for_job_run(%Client{} = client, application_id, job_run_id, options \\ []) do
     url_path =

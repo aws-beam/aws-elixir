@@ -50,6 +50,29 @@ defmodule AWS.Drs do
   end
 
   @doc """
+  Creates a new Launch Configuration Template.
+  """
+  def create_launch_configuration_template(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateLaunchConfigurationTemplate"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a new ReplicationConfigurationTemplate.
   """
   def create_replication_configuration_template(%Client{} = client, input, options \\ []) do
@@ -77,6 +100,29 @@ defmodule AWS.Drs do
   """
   def delete_job(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteJob"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a single Launch Configuration Template by ID.
+  """
+  def delete_launch_configuration_template(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteLaunchConfigurationTemplate"
     headers = []
     query_params = []
 
@@ -204,6 +250,30 @@ defmodule AWS.Drs do
   """
   def describe_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeJobs"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all Launch Configuration Templates, filtered by Launch Configuration
+  Template IDs
+  """
+  def describe_launch_configuration_templates(%Client{} = client, input, options \\ []) do
+    url_path = "/DescribeLaunchConfigurationTemplates"
     headers = []
     query_params = []
 
@@ -847,6 +917,29 @@ defmodule AWS.Drs do
   """
   def update_launch_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLaunchConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing Launch Configuration Template by ID.
+  """
+  def update_launch_configuration_template(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateLaunchConfigurationTemplate"
     headers = []
     query_params = []
 

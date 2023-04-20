@@ -660,6 +660,15 @@ defmodule AWS.ECS do
   created will have Container Insights turned on unless you disable it during
   cluster creation. For more information, see [CloudWatch Container Insights](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html)
   in the *Amazon Elastic Container Service Developer Guide*.
+
+  Amazon ECS is introducing tagging authorization for resource creation. Users
+  must have permissions for actions that create the resource, such as
+  `ecsCreateCluster`. If tags are specified when you create a resource, Amazon Web
+  Services performs additional authorization to verify if users or roles have
+  permissions to create tags. Therefore, you must grant explicit permissions to
+  use the `ecs:TagResource` action. For more information, see [Grant permission to tag resources on
+  creation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/supported-iam-actions-tagging.html)
+  in the *Amazon ECS Developer Guide*.
   """
   def put_account_setting(%Client{} = client, input, options \\ []) do
     meta = metadata()

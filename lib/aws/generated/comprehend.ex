@@ -149,10 +149,9 @@ defmodule AWS.Comprehend do
   @doc """
   Creates a new document classifier that you can use to categorize documents.
 
-  To create a classifier, you provide a set of training documents that labeled
-  with the categories that you want to use. After the classifier is trained you
-  can use it to categorize a set of labeled documents into the categories. For
-  more information, see [Document Classification](https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html)
+  To create a classifier, you provide a set of training documents that are labeled
+  with the categories that you want to use. For more information, see [Training classifier
+  models](https://docs.aws.amazon.com/comprehend/latest/dg/training-classifier-model.html)
   in the Comprehend Developer Guide.
   """
   def create_document_classifier(%Client{} = client, input, options \\ []) do

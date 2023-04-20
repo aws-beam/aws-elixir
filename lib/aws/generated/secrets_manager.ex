@@ -709,8 +709,9 @@ defmodule AWS.SecretsManager do
   logged. For more information, see [Logging Secrets Manager events with
   CloudTrail](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html).
 
-  **Required permissions: ** `secretsmanager:ValidateResourcePolicy`. For more
-  information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
+  **Required permissions: ** `secretsmanager:ValidateResourcePolicy` and
+  `secretsmanager:PutResourcePolicy`. For more information, see [ IAM policy actions for Secrets
+  Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
   """
   def validate_resource_policy(%Client{} = client, input, options \\ []) do

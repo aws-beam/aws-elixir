@@ -39,7 +39,13 @@ defmodule AWS.Request do
       end
 
     payload = encode!(client, metadata.protocol, input)
-    headers = Signature.sign_v4(client, now(), "POST", url, headers, payload)
+
+    headers =
+      if client.access_key_id != nil && client.secret_access_key != nil do
+        Signature.sign_v4(client, now(), "POST", url, headers, payload)
+      else
+        headers
+      end
 
     case AWS.Client.request(client, :post, url, payload, headers, options) do
       {:ok, %{status_code: 200, body: body} = response} ->

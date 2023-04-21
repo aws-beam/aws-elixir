@@ -103,13 +103,13 @@ defmodule AWS.Snowball do
 
   ## Snow Family devices and their capacities.
 
-    * Snow Family device type: ## SNC1_SSD
+    * Device type: ## SNC1_SSD
 
       * Capacity: T14
 
       * Description: Snowcone
 
-    * Snow Family device type: ## SNC1_HDD
+    * Device type: ## SNC1_HDD
 
       * Capacity: T8
 
@@ -159,6 +159,19 @@ defmodule AWS.Snowball do
 
   This device is only available in the Ningxia, Beijing, and Singapore Amazon Web
   Services Region.
+
+    * Device type: ## V3_5C
+
+      * Capacity: T32
+
+      * Description: Snowball Edge Compute Optimized without
+  GPU
+
+    * Device type: ## V3_5S
+
+      * Capacity: T240
+
+      * Description: Snowball Edge Storage Optimized 210TB
   """
   def create_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -347,9 +360,11 @@ defmodule AWS.Snowball do
   (AMIs) that are owned by your Amazon Web Services accountthat would be supported
   for use on a Snow device.
 
-  Currently, supported AMIs are based on the CentOS 7 (x86_64) - with Updates HVM,
-  Ubuntu Server 14.04 LTS (HVM), and Ubuntu 16.04 LTS - Xenial (HVM) images,
-  available on the Amazon Web Services Marketplace.
+  Currently, supported AMIs are based on the Amazon Linux-2, Ubuntu 20.04 LTS -
+  Focal, or Ubuntu 22.04 LTS - Jammy images, available on the Amazon Web Services
+  Marketplace. Ubuntu 16.04 LTS - Xenial (HVM) images are no longer supported in
+  the Market, but still supported for use on devices through Amazon EC2 VM
+  Import/Export and running locally in AMIs.
   """
   def list_compatible_images(%Client{} = client, input, options \\ []) do
     meta = metadata()

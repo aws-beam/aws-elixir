@@ -62,16 +62,17 @@ defmodule AWS.SageMaker do
   a hyperparameter tuning job are also added to all training jobs that the
   hyperparameter tuning job launches, add the tags when you first create the
   tuning job by specifying them in the `Tags` parameter of
-  `CreateHyperParameterTuningJob`
-
+  [CreateHyperParameterTuningJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html) 
   Tags that you add to a SageMaker Studio Domain or User Profile by calling this
   API are also added to any Apps that the Domain or User Profile launches after
   you call this API, but not to Apps that the Domain or User Profile launched
   before you called this API. To make sure that the tags associated with a Domain
   or User Profile are also added to all Apps that the Domain or User Profile
   launches, add the tags when you first create the Domain or User Profile by
-  specifying them in the `Tags` parameter of `CreateDomain` or
-  `CreateUserProfile`.
+  specifying them in the `Tags` parameter of
+  [CreateDomain](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateDomain.html)
+  or
+  [CreateUserProfile](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateUserProfile.html).
   """
   def add_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -83,7 +84,9 @@ defmodule AWS.SageMaker do
   Associates a trial component with a trial.
 
   A trial component can be associated with multiple trials. To disassociate a
-  trial component from a trial, call the `DisassociateTrialComponent` API.
+  trial component from a trial, call the
+  [DisassociateTrialComponent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html)
+  API.
   """
   def associate_trial_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -239,9 +242,11 @@ defmodule AWS.SageMaker do
   and costs. The response body contains the `CompilationJobArn` for the compiled
   job.
 
-  To stop a model compilation job, use `StopCompilationJob`. To get information
-  about a particular model compilation job, use `DescribeCompilationJob`. To get
-  information about multiple model compilation jobs, use `ListCompilationJobs`.
+  To stop a model compilation job, use
+  [StopCompilationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopCompilationJob.html). To get information about a particular model compilation job, use
+  [DescribeCompilationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCompilationJob.html).
+  To get information about multiple model compilation jobs, use
+  [ListCompilationJobs](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCompilationJobs.html).
   """
   def create_compilation_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -369,12 +374,14 @@ defmodule AWS.SageMaker do
   Creates an endpoint using the endpoint configuration specified in the request.
 
   SageMaker uses the endpoint to provision resources and deploy models. You create
-  the endpoint configuration with the `CreateEndpointConfig` API.
+  the endpoint configuration with the
+  [CreateEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html) API.
 
   Use this API to deploy models using SageMaker hosting services.
 
   For an example that calls this method when deploying a model to SageMaker
-  hosting services, see the [Create Endpoint example notebook.](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-fundamentals/create-endpoint/create_endpoint.ipynb)
+  hosting services, see the [Create Endpoint example
+  notebook.](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-fundamentals/create-endpoint/create_endpoint.ipynb)
 
   You must not delete an `EndpointConfig` that is in use by an endpoint that is
   live or while the `UpdateEndpoint` or `CreateEndpoint` operations are being
@@ -387,36 +394,42 @@ defmodule AWS.SageMaker do
   When it receives the request, SageMaker creates the endpoint, launches the
   resources (ML compute instances), and deploys the model(s) on them.
 
-  When you call `CreateEndpoint`, a load call is made to DynamoDB to verify that
-  your endpoint configuration exists. When you read data from a DynamoDB table
-  supporting [ `Eventually Consistent Reads`
+  When you call
+  [CreateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html), a load call is made to DynamoDB to verify that your endpoint configuration
+  exists. When you read data from a DynamoDB table supporting [ `Eventually
+  Consistent Reads`
   ](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html),
   the response might not reflect the results of a recently completed write
   operation. The response might include some stale data. If the dependent entities
   are not yet in DynamoDB, this causes a validation error. If you repeat your read
   request after a short time, the response should return the latest data. So retry
   logic is recommended to handle these possible issues. We also recommend that
-  customers call `DescribeEndpointConfig` before calling `CreateEndpoint` to
-  minimize the potential impact of a DynamoDB eventually consistent read.
+  customers call
+  [DescribeEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpointConfig.html) before calling
+  [CreateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html)
+  to minimize the potential impact of a DynamoDB eventually consistent read.
 
   When SageMaker receives the request, it sets the endpoint status to `Creating`.
   After it creates the endpoint, it sets the status to `InService`. SageMaker can
   then process incoming requests for inferences. To check the status of an
-  endpoint, use the `DescribeEndpoint` API.
+  endpoint, use the
+  [DescribeEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html) API.
 
   If any of the models hosted at this endpoint get model data from an Amazon S3
   location, SageMaker uses Amazon Web Services Security Token Service to download
   model artifacts from the S3 path you provided. Amazon Web Services STS is
   activated in your Amazon Web Services account by default. If you previously
   deactivated Amazon Web Services STS for a region, you need to reactivate Amazon
-  Web Services STS for that region. For more information, see [Activating and Deactivating Amazon Web Services STS in an Amazon Web Services
+  Web Services STS for that region. For more information, see [Activating and
+  Deactivating Amazon Web Services STS in an Amazon Web Services
   Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
   in the *Amazon Web Services Identity and Access Management User Guide*.
 
   To add the IAM role policies for using this API operation, go to the [IAM console](https://console.aws.amazon.com/iam/), and choose Roles in the left
   navigation pane. Search the IAM role that you want to grant access to use the
-  `CreateEndpoint` and `CreateEndpointConfig` API operations, add the following
-  policies to the role.
+  [CreateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html) and
+  [CreateEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html)
+  API operations, add the following policies to the role.
 
      Option 1: For a full SageMaker access, search and attach the
   `AmazonSageMakerFullAccess` policy.
@@ -447,7 +460,8 @@ defmodule AWS.SageMaker do
 
   In the configuration, you identify one or more models, created using the
   `CreateModel` API, to deploy and the resources that you want SageMaker to
-  provision. Then you call the `CreateEndpoint` API.
+  provision. Then you call the
+  [CreateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html) API.
 
   Use this API if you want to use SageMaker hosting services to deploy models into
   production.
@@ -463,17 +477,20 @@ defmodule AWS.SageMaker do
   A and 1 for model B. SageMaker distributes two-thirds of the traffic to Model A,
   and one-third to model B.
 
-  When you call `CreateEndpoint`, a load call is made to DynamoDB to verify that
-  your endpoint configuration exists. When you read data from a DynamoDB table
-  supporting [ `Eventually Consistent Reads`
+  When you call
+  [CreateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html),
+  a load call is made to DynamoDB to verify that your endpoint configuration
+  exists. When you read data from a DynamoDB table supporting [ `Eventually Consistent Reads`
   ](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html),
   the response might not reflect the results of a recently completed write
   operation. The response might include some stale data. If the dependent entities
   are not yet in DynamoDB, this causes a validation error. If you repeat your read
   request after a short time, the response should return the latest data. So retry
   logic is recommended to handle these possible issues. We also recommend that
-  customers call `DescribeEndpointConfig` before calling `CreateEndpoint` to
-  minimize the potential impact of a DynamoDB eventually consistent read.
+  customers call
+  [DescribeEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpointConfig.html) before calling
+  [CreateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html)
+  to minimize the potential impact of a DynamoDB eventually consistent read.
   """
   def create_endpoint_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -502,16 +519,20 @@ defmodule AWS.SageMaker do
   logging APIs provided by the SDK.
 
   You can add tags to experiments, trials, trial components and then use the
-  `Search` API to search for the tags.
+  [Search](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html) API to search for the tags.
 
   To add a description to an experiment, specify the optional `Description`
   parameter. To add a description later, or to change the description, call the
-  `UpdateExperiment` API.
+  [UpdateExperiment](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateExperiment.html)
+  API.
 
-  To get a list of all your experiments, call the `ListExperiments` API. To view
-  an experiment's properties, call the `DescribeExperiment` API. To get a list of
-  all the trials associated with an experiment, call the `ListTrials` API. To
-  create a trial call the `CreateTrial` API.
+  To get a list of all your experiments, call the
+  [ListExperiments](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListExperiments.html) API. To view an experiment's properties, call the
+  [DescribeExperiment](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeExperiment.html)
+  API. To get a list of all the trials associated with an experiment, call the
+  [ListTrials](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTrials.html) API. To create a trial call the
+  [CreateTrial](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrial.html)
+  API.
   """
   def create_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -967,8 +988,9 @@ defmodule AWS.SageMaker do
   you want to have access to the notebook instance. For more information, see
   [Limit Access to a Notebook Instance by IP Address](https://docs.aws.amazon.com/sagemaker/latest/dg/security_iam_id-based-policy-examples.html#nbi-ip-filter).
 
-  The URL that you get from a call to `CreatePresignedNotebookInstanceUrl` is
-  valid only for 5 minutes. If you try to use the URL after the 5-minute limit
+  The URL that you get from a call to
+  [CreatePresignedNotebookInstanceUrl](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreatePresignedNotebookInstanceUrl.html)
+  is valid only for 5 minutes. If you try to use the URL after the 5-minute limit
   expires, you are directed to the Amazon Web Services console sign-in page.
   """
   def create_presigned_notebook_instance_url(%Client{} = client, input, options \\ []) do
@@ -1125,12 +1147,15 @@ defmodule AWS.SageMaker do
   When you use the Amazon Web Services SDK for Python (Boto), you must use the
   logging APIs provided by the SDK.
 
-  You can add tags to a trial and then use the `Search` API to search for the
-  tags.
+  You can add tags to a trial and then use the
+  [Search](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html) API to search for the tags.
 
-  To get a list of all your trials, call the `ListTrials` API. To view a trial's
-  properties, call the `DescribeTrial` API. To create a trial component, call the
-  `CreateTrialComponent` API.
+  To get a list of all your trials, call the
+  [ListTrials](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTrials.html)
+  API. To view a trial's properties, call the
+  [DescribeTrial](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrial.html) API. To create a trial component, call the
+  [CreateTrialComponent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrialComponent.html)
+  API.
   """
   def create_trial(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1152,8 +1177,9 @@ defmodule AWS.SageMaker do
   When you use the Amazon Web Services SDK for Python (Boto), you must use the
   logging APIs provided by the SDK.
 
-  You can add tags to a trial component and then use the `Search` API to search
-  for the tags.
+  You can add tags to a trial component and then use the
+  [Search](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html)
+  API to search for the tags.
   """
   def create_trial_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1186,12 +1212,14 @@ defmodule AWS.SageMaker do
   Amazon Web Services Region per Amazon Web Services account.
 
   If you want to create a new workforce in an Amazon Web Services Region where a
-  workforce already exists, use the API operation to delete the existing workforce
-  and then use `CreateWorkforce` to create a new workforce.
+  workforce already exists, use the
+  [DeleteWorkforce](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkforce.html) API operation to delete the existing workforce and then use `CreateWorkforce` to
+  create a new workforce.
 
   To create a private workforce using Amazon Cognito, you must specify a Cognito
   user pool in `CognitoConfig`. You can also create an Amazon Cognito workforce
-  using the Amazon SageMaker console. For more information, see [ Create a Private Workforce (Amazon
+  using the Amazon SageMaker console. For more information, see [ Create a Private
+  Workforce (Amazon
   Cognito)](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html).
 
   To create a private workforce using your own OIDC Identity Provider (IdP),
@@ -1391,7 +1419,8 @@ defmodule AWS.SageMaker do
   Deletes an SageMaker experiment.
 
   All trials associated with the experiment must be deleted first. Use the
-  `ListTrials` API to get a list of the trials associated with the experiment.
+  [ListTrials](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTrials.html)
+  API to get a list of the trials associated with the experiment.
   """
   def delete_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1451,8 +1480,10 @@ defmodule AWS.SageMaker do
   Use this operation to delete a human task user interface (worker task template).
 
   To see a list of human task user interfaces (work task templates) in your
-  account, use . When you delete a worker task template, it no longer appears when
-  you call `ListHumanTaskUis`.
+  account, use
+  [ListHumanTaskUis](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListHumanTaskUis.html).
+  When you delete a worker task template, it no longer appears when you call
+  `ListHumanTaskUis`.
   """
   def delete_human_task_ui(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1678,7 +1709,8 @@ defmodule AWS.SageMaker do
   Deletes the specified trial.
 
   All trial components that make up the trial must be deleted first. Use the
-  `DescribeTrialComponent` API to get the list of trial components.
+  [DescribeTrialComponent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrialComponent.html)
+  API to get the list of trial components.
   """
   def delete_trial(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1691,7 +1723,9 @@ defmodule AWS.SageMaker do
 
   A trial component must be disassociated from all trials before the trial
   component can be deleted. To disassociate a trial component from a trial, call
-  the `DisassociateTrialComponent` API.
+  the
+  [DisassociateTrialComponent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html)
+  API.
   """
   def delete_trial_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1716,9 +1750,11 @@ defmodule AWS.SageMaker do
 
   If you want to create a new workforce in an Amazon Web Services Region where a
   workforce already exists, use this operation to delete the existing workforce
-  and then use to create a new workforce.
+  and then use
+  [CreateWorkforce](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateWorkforce.html) to create a new workforce.
 
   If a private workforce contains one or more work teams, you must use the
+  [DeleteWorkteam](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkteam.html)
   operation to delete all work teams before you delete the workforce. If you try
   to delete a workforce that contains one or more work teams, you will recieve a
   `ResourceInUse` error.
@@ -1829,8 +1865,9 @@ defmodule AWS.SageMaker do
   @doc """
   Returns information about a model compilation job.
 
-  To create a model compilation job, use `CreateCompilationJob`. To get
-  information about multiple model compilation jobs, use `ListCompilationJobs`.
+  To create a model compilation job, use
+  [CreateCompilationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCompilationJob.html). To get information about multiple model compilation jobs, use
+  [ListCompilationJobs](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCompilationJobs.html).
   """
   def describe_compilation_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2340,9 +2377,10 @@ defmodule AWS.SageMaker do
   This doesn't effect other trials the component is associated with. Before you
   can delete a component, you must disassociate the component from all trials it
   is associated with. To associate a trial component with a trial, call the
-  `AssociateTrialComponent` API.
+  [AssociateTrialComponent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AssociateTrialComponent.html) API.
 
-  To get a list of the trials a component is associated with, use the `Search`
+  To get a list of the trials a component is associated with, use the
+  [Search](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html)
   API. Specify `ExperimentTrialComponent` for the `Resource` parameter. The list
   appears in the response under `Results.TrialComponent.Parents`.
   """
@@ -2531,9 +2569,10 @@ defmodule AWS.SageMaker do
   @doc """
   Lists model compilation jobs that satisfy various filters.
 
-  To create a model compilation job, use `CreateCompilationJob`. To get
-  information about a particular model compilation job you have created, use
-  `DescribeCompilationJob`.
+  To create a model compilation job, use
+  [CreateCompilationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCompilationJob.html). To get information about a particular model compilation job you have created,
+  use
+  [DescribeCompilationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCompilationJob.html).
   """
   def list_compilation_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2695,8 +2734,9 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Gets a list of `HyperParameterTuningJobSummary` objects that describe the
-  hyperparameter tuning jobs launched in your account.
+  Gets a list of
+  [HyperParameterTuningJobSummary](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobSummary.html)
+  objects that describe the hyperparameter tuning jobs launched in your account.
   """
   def list_hyper_parameter_tuning_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2917,7 +2957,8 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists notebook instance lifestyle configurations created with the
-  `CreateNotebookInstanceLifecycleConfig` API.
+  [CreateNotebookInstanceLifecycleConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateNotebookInstanceLifecycleConfig.html)
+  API.
   """
   def list_notebook_instance_lifecycle_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3066,8 +3107,10 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Gets a list of `TrainingJobSummary` objects that describe the training jobs that
-  a hyperparameter tuning job launched.
+  Gets a list of
+  [TrainingJobSummary](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html)
+  objects that describe the training jobs that a hyperparameter tuning job
+  launched.
   """
   def list_training_jobs_for_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3329,9 +3372,8 @@ defmodule AWS.SageMaker do
   signal.
 
   When it receives a `StopCompilationJob` request, Amazon SageMaker changes the
-  `CompilationJobSummary$CompilationJobStatus` of the job to `Stopping`. After
-  Amazon SageMaker stops the job, it sets the
-  `CompilationJobSummary$CompilationJobStatus` to `Stopped`.
+  `CompilationJobStatus` of the job to `Stopping`. After Amazon SageMaker stops
+  the job, it sets the `CompilationJobStatus` to `Stopped`.
   """
   def stop_compilation_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3583,7 +3625,9 @@ defmodule AWS.SageMaker do
 
   When SageMaker receives the request, it sets the endpoint status to `Updating`.
   After updating the endpoint, it sets the status to `InService`. To check the
-  status of an endpoint, use the `DescribeEndpoint` API.
+  status of an endpoint, use the
+  [DescribeEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html)
+  API.
 
   You must not delete an `EndpointConfig` in use by an endpoint that is live or
   while the `UpdateEndpoint` or `CreateEndpoint` operations are being performed on
@@ -3605,7 +3649,9 @@ defmodule AWS.SageMaker do
 
   When it receives the request, SageMaker sets the endpoint status to `Updating`.
   After updating the endpoint, it sets the status to `InService`. To check the
-  status of an endpoint, use the `DescribeEndpoint` API.
+  status of an endpoint, use the
+  [DescribeEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html)
+  API.
   """
   def update_endpoint_weights_and_capacities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3656,7 +3702,10 @@ defmodule AWS.SageMaker do
   @doc """
   Updates the properties of a SageMaker image.
 
-  To change the image's tags, use the `AddTags` and `DeleteTags` APIs.
+  To change the image's tags, use the
+  [AddTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html) and
+  [DeleteTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteTags.html)
+  APIs.
   """
   def update_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3678,7 +3727,7 @@ defmodule AWS.SageMaker do
 
   The status of the inference experiment has to be either `Created`, `Running`.
   For more information on the status of an inference experiment, see
-  `DescribeInferenceExperimentResponse$Status`.
+  [DescribeInferenceExperiment](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceExperiment.html).
   """
   def update_inference_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3740,7 +3789,8 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates a notebook instance lifecycle configuration created with the
-  `CreateNotebookInstanceLifecycleConfig` API.
+  [CreateNotebookInstanceLifecycleConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateNotebookInstanceLifecycleConfig.html)
+  API.
   """
   def update_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3837,8 +3887,7 @@ defmodule AWS.SageMaker do
 
   Use `SourceIpConfig` to restrict worker access to tasks to a specific range of
   IP addresses. You specify allowed IP addresses by creating a list of up to ten
-  [CIDRs](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html). By
-  default, a workforce isn't restricted to specific IP addresses. If you specify a
+  [CIDRs](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html). By default, a workforce isn't restricted to specific IP addresses. If you specify a
   range of IP addresses, workers who attempt to access tasks using any IP address
   outside the specified range are denied and get a `Not Found` error message on
   the worker portal.
@@ -3853,11 +3902,15 @@ defmodule AWS.SageMaker do
   own OIDC IdP.
 
   You can only update your OIDC IdP configuration when there are no work teams
-  associated with your workforce. You can delete work teams using the operation.
+  associated with your workforce. You can delete work teams using the
+  [DeleteWorkteam](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkteam.html)
+  operation.
 
   After restricting access to a range of IP addresses or updating your OIDC IdP
   configuration with this operation, you can view details about your update
-  workforce using the operation.
+  workforce using the
+  [DescribeWorkforce](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeWorkforce.html)
+  operation.
 
   This operation only applies to private workforces.
   """

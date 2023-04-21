@@ -41,7 +41,7 @@ defmodule AWS.IoT do
       protocol: "rest-json",
       service_id: "IoT",
       signature_version: "v4",
-      signing_name: "execute-api",
+      signing_name: "iot",
       target_prefix: nil
     }
   end

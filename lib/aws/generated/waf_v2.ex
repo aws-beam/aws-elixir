@@ -141,6 +141,25 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
+  Creates an API key for use in the integration of the CAPTCHA API in your
+  JavaScript client applications.
+
+  The integration lets you customize the placement and characteristics of the
+  CAPTCHA puzzle for your end users. For more information about the CAPTCHA
+  JavaScript integration, see [WAF client application integration](https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html)
+  in the *WAF Developer Guide*.
+
+  The CAPTCHA API requires a key that authorizes CAPTCHA use from the client
+  application domain. You can use a single key for up to 5 domains. After you
+  generate a key, you can copy it for use in your JavaScript integration.
+  """
+  def create_api_key(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAPIKey", input, options)
+  end
+
+  @doc """
   Creates an `IPSet`, which you use to identify web requests that originate from
   specific IP addresses or ranges of IP addresses.
 
@@ -338,6 +357,17 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
+  Returns your API key in decrypted form.
+
+  Use this to check the token domains that you have defined for the key.
+  """
+  def get_decrypted_api_key(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDecryptedAPIKey", input, options)
+  end
+
+  @doc """
   Retrieves the specified `IPSet`.
   """
   def get_ip_set(%Client{} = client, input, options \\ []) do
@@ -479,6 +509,15 @@ defmodule AWS.WAFV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "GetWebACLForResource", input, options)
+  end
+
+  @doc """
+  Retrieves a list of the API keys that you've defined for the specified scope.
+  """
+  def list_api_keys(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAPIKeys", input, options)
   end
 
   @doc """

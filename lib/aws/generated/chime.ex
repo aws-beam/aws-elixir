@@ -3,22 +3,18 @@
 
 defmodule AWS.Chime do
   @moduledoc """
-  The Amazon Chime API (application programming interface) is designed for
-  developers to perform key tasks, such as creating and managing Amazon Chime
+  The Amazon Chime application programming interface (API) is designed so
+  administrators can perform key tasks, such as creating and managing Amazon Chime
   accounts, users, and Voice Connectors.
 
   This guide provides detailed information about the Amazon Chime API, including
-  operations, types, inputs and outputs, and error codes. It also includes API
-  actions for use with the Amazon Chime SDK, which developers use to build their
-  own communication applications. For more information about the Amazon Chime SDK,
-  see [ Using the Amazon Chime SDK
-  ](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the *Amazon
-  Chime Developer Guide*.
+  operations, types, inputs and outputs, and error codes.
 
   You can use an AWS SDK, the AWS Command Line Interface (AWS CLI), or the REST
-  API to make API calls. We recommend using an AWS SDK or the AWS CLI. Each API
-  operation includes links to information about using it with a language-specific
-  AWS SDK or the AWS CLI.
+  API to make API calls for Amazon Chime. We recommend using an AWS SDK or the AWS
+  CLI. The page for each API action contains a *See Also* section that includes
+  links to information about using the action with a language-specific AWS SDK or
+  the AWS CLI.
 
   ## Definitions
 
@@ -39,7 +35,7 @@ defmodule AWS.Chime do
   ### Using REST APIs
 
   If you use REST to make API calls, you must authenticate your request by
-  providing a signature. Amazon Chime supports signature version 4. For more
+  providing a signature. Amazon Chime supports Signature Version 4. For more
   information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html)
   in the *Amazon Web Services General Reference*.
 
@@ -195,8 +191,8 @@ defmodule AWS.Chime do
   @doc """
   Creates up to 100 new attendees for an active Amazon Chime SDK meeting.
 
-  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide*.
+  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
+  *Amazon Chime SDK Developer Guide*.
   """
   def batch_create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees?operation=batch-create"
@@ -547,8 +543,8 @@ defmodule AWS.Chime do
   @doc """
   Creates a new attendee for an active Amazon Chime SDK meeting.
 
-  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide*.
+  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
+  *Amazon Chime SDK Developer Guide*.
   """
   def create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
@@ -793,10 +789,10 @@ defmodule AWS.Chime do
   Creates a new Amazon Chime SDK meeting in the specified media Region with no
   initial attendees.
 
-  For more information about specifying media Regions, see [Amazon Chime SDK Media Regions](https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html)
-  in the *Amazon Chime Developer Guide* . For more information about the Amazon
-  Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide* .
+  For more information about specifying media Regions, see [Amazon Chime SDK Media Regions](https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html)
+  in the *Amazon Chime SDK Developer Guide* . For more information about the
+  Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
+  *Amazon Chime SDK Developer Guide* .
   """
   def create_meeting(%Client{} = client, input, options \\ []) do
     url_path = "/meetings"
@@ -853,10 +849,10 @@ defmodule AWS.Chime do
   Creates a new Amazon Chime SDK meeting in the specified media Region, with
   attendees.
 
-  For more information about specifying media Regions, see [Amazon Chime SDK Media Regions](https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html)
-  in the *Amazon Chime Developer Guide* . For more information about the Amazon
-  Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide* .
+  For more information about specifying media Regions, see [Amazon Chime SDK Media Regions](https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html)
+  in the *Amazon Chime SDK Developer Guide* . For more information about the
+  Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
+  *Amazon Chime SDK Developer Guide* .
   """
   def create_meeting_with_attendees(%Client{} = client, input, options \\ []) do
     url_path = "/meetings?operation=create-attendees"
@@ -1291,8 +1287,8 @@ defmodule AWS.Chime do
   their `JoinToken`.
 
   Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted.
-  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide*.
+  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
+  *Amazon Chime SDK Developer Guide*.
   """
   def delete_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
     url_path =
@@ -1551,8 +1547,8 @@ defmodule AWS.Chime do
 
   The operation deletes all attendees, disconnects all clients, and prevents new
   clients from joining the meeting. For more information about the Amazon Chime
-  SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide*.
+  SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
+  *Amazon Chime SDK Developer Guide*.
   """
   def delete_meeting(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
@@ -2422,8 +2418,8 @@ defmodule AWS.Chime do
   Gets the Amazon Chime SDK attendee details for a specified meeting ID and
   attendee ID.
 
-  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide* .
+  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
+  *Amazon Chime SDK Developer Guide* .
   """
   def get_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
@@ -2529,8 +2525,8 @@ defmodule AWS.Chime do
   @doc """
   Gets the Amazon Chime SDK meeting details for the specified meeting ID.
 
-  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide* .
+  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
+  *Amazon Chime SDK Developer Guide* .
   """
   def get_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
@@ -3080,8 +3076,8 @@ defmodule AWS.Chime do
   @doc """
   Lists the attendees for the specified Amazon Chime SDK meeting.
 
-  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide*.
+  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
+  *Amazon Chime SDK Developer Guide*.
   """
   def list_attendees(
         %Client{} = client,
@@ -3598,8 +3594,8 @@ defmodule AWS.Chime do
   @doc """
   Lists up to 100 active Amazon Chime SDK meetings.
 
-  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide*.
+  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
+  *Amazon Chime SDK Developer Guide*.
   """
   def list_meetings(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/meetings"
@@ -4675,6 +4671,21 @@ defmodule AWS.Chime do
 
   @doc """
   Starts transcription for the specified `meetingId`.
+
+  For more information, refer to [ Using Amazon Chime SDK live transcription
+  ](https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html) in
+  the *Amazon Chime SDK Developer Guide*.
+
+  If you specify an invalid configuration, a `TranscriptFailed` event will be sent
+  with the contents of the `BadRequestException` generated by Amazon Transcribe.
+  For more information on each parameter and which combinations are valid, refer
+  to the
+  [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) API in the *Amazon Transcribe Developer Guide*.
+
+  Amazon Chime SDK live transcription is powered by Amazon Transcribe. Use of
+  Amazon Transcribe is subject to the [AWS Service
+  Terms](https://aws.amazon.com/service-terms/), including the terms specific to
+  the AWS Machine Learning and Artificial Intelligence Services.
   """
   def start_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=start"

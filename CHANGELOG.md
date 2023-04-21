@@ -1,6 +1,8 @@
 # Change Log
 
 All notable changes to this project will be documented in this file.
+## [v0.13.3] - 2023-04-20
+- Skip signature without access_key_id and secret_access_key
 
 ## [v0.13.2] - 2023-03-08
 - Fix AWS.S3.delete_objects which requires a content md5 header

@@ -10,7 +10,7 @@ defmodule AWS.FMS do
   Firewall Manager features, see the [Firewall Manager Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html).
 
   Some API actions require explicit resource permissions. For information, see the
-  developer guide topic [Firewall Manager required permissions for API actions](https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html).
+  developer guide topic [Service roles for Firewall Manager](https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service).
   """
 
   alias AWS.Client
@@ -33,14 +33,17 @@ defmodule AWS.FMS do
   end
 
   @doc """
-  Sets the Firewall Manager administrator account.
+  Sets a Firewall Manager default administrator account.
 
-  The account must be a member of the organization in Organizations whose
-  resources you want to protect. Firewall Manager sets the permissions that allow
-  the account to administer your Firewall Manager policies.
+  The Firewall Manager default administrator account can manage third-party
+  firewalls and has full administrative scope that allows administration of all
+  policy types, accounts, organizational units, and Regions. This account must be
+  a member account of the organization in Organizations whose resources you want
+  to protect.
 
-  The account that you associate with Firewall Manager is called the Firewall
-  Manager administrator account.
+  For information about working with Firewall Manager administrator accounts, see
+  [Managing Firewall Manager administrators](https://docs.aws.amazon.com/organizations/latest/userguide/fms-administrators.html)
+  in the *Firewall Manager Developer Guide*.
   """
   def associate_admin_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -127,11 +130,16 @@ defmodule AWS.FMS do
   end
 
   @doc """
-  Disassociates the account that has been set as the Firewall Manager
-  administrator account.
+  Disassociates an Firewall Manager administrator account.
 
-  To set a different account as the administrator account, you must submit an
-  `AssociateAdminAccount` request.
+  To set a different account as an Firewall Manager administrator, submit a
+  `PutAdminAccount` request. To set an account as a default administrator account,
+  you must submit an `AssociateAdminAccount` request.
+
+  Disassociation of the default administrator account follows the first in, last
+  out principle. If you are the default administrator, all Firewall Manager
+  administrators within the organization must first disassociate their accounts
+  before you can disassociate your account.
   """
   def disassociate_admin_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -154,12 +162,24 @@ defmodule AWS.FMS do
 
   @doc """
   Returns the Organizations account that is associated with Firewall Manager as
-  the Firewall Manager administrator.
+  the Firewall Manager default administrator.
   """
   def get_admin_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "GetAdminAccount", input, options)
+  end
+
+  @doc """
+  Returns information about the specified account's administrative scope.
+
+  The admistrative scope defines the resources that an Firewall Manager
+  administrator can manage.
+  """
+  def get_admin_scope(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAdminScope", input, options)
   end
 
   @doc """
@@ -270,6 +290,32 @@ defmodule AWS.FMS do
   end
 
   @doc """
+  Returns a `AdminAccounts` object that lists the Firewall Manager administrators
+  within the organization that are onboarded to Firewall Manager by
+  `AssociateAdminAccount`.
+
+  This operation can be called only from the organization's management account.
+  """
+  def list_admin_accounts_for_organization(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAdminAccountsForOrganization", input, options)
+  end
+
+  @doc """
+  Lists the accounts that are managing the specified Organizations member account.
+
+  This is useful for any member account so that they can view the accounts who are
+  managing their account. This operation only returns the managing administrators
+  that have the requested account within their `AdminScope`.
+  """
+  def list_admins_managing_account(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAdminsManagingAccount", input, options)
+  end
+
+  @doc """
   Returns an array of `AppsListDataSummary` objects.
   """
   def list_apps_lists(%Client{} = client, input, options \\ []) do
@@ -304,8 +350,8 @@ defmodule AWS.FMS do
   Returns a `MemberAccounts` object that lists the member accounts in the
   administrator's Amazon Web Services organization.
 
-  The `ListMemberAccounts` must be submitted by the account that is set as the
-  Firewall Manager administrator.
+  Either an Firewall Manager administrator or the organization's management
+  account can make this request.
   """
   def list_member_accounts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -369,6 +415,24 @@ defmodule AWS.FMS do
   end
 
   @doc """
+  Creates or updates an Firewall Manager administrator account.
+
+  The account must be a member of the organization that was onboarded to Firewall
+  Manager by `AssociateAdminAccount`. Only the organization's management account
+  can create an Firewall Manager administrator account. When you create an
+  Firewall Manager administrator account, the service checks to see if the account
+  is already a delegated administrator within Organizations. If the account isn't
+  a delegated administrator, Firewall Manager calls Organizations to delegate the
+  account within Organizations. For more information about administrator accounts
+  within Organizations, see [Managing the Amazon Web Services Accounts in Your Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html).
+  """
+  def put_admin_account(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutAdminAccount", input, options)
+  end
+
+  @doc """
   Creates an Firewall Manager applications list.
   """
   def put_apps_list(%Client{} = client, input, options \\ []) do
@@ -381,9 +445,13 @@ defmodule AWS.FMS do
   Designates the IAM role and Amazon Simple Notification Service (SNS) topic that
   Firewall Manager uses to record SNS logs.
 
-  To perform this action outside of the console, you must configure the SNS topic
-  to allow the Firewall Manager role `AWSServiceRoleForFMS` to publish SNS logs.
-  For more information, see [Firewall Manager required permissions for API actions](https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html)
+  To perform this action outside of the console, you must first configure the SNS
+  topic's access policy to allow the `SnsRoleName` to publish SNS logs. If the
+  `SnsRoleName` provided is a role other than the `AWSServiceRoleForFMS`
+  service-linked role, this role must have a trust relationship configured to
+  allow the Firewall Manager service principal `fms.amazonaws.com` to assume this
+  role. For information about configuring an SNS access policy, see [Service roles for Firewall
+  Manager](https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service)
   in the *Firewall Manager Developer Guide*.
   """
   def put_notification_channel(%Client{} = client, input, options \\ []) do

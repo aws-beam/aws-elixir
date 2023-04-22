@@ -390,6 +390,31 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Adds a new participant into an on-going chat contact.
+
+  For more information, see [Customize chat flow experiences by integrating custom participants](https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html).
+  """
+  def create_participant(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/create-participant"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Creates a new queue for the specified Amazon Connect instance.

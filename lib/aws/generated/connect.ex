@@ -40,6 +40,40 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Activates an evaluation form in the specified Amazon Connect instance.
+
+  After the evaluation form is activated, it is available to start new evaluations
+  based on the form.
+  """
+  def activate_evaluation_form(
+        %Client{} = client,
+        evaluation_form_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}/activate"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Associates an approved origin to an Amazon Connect instance.
@@ -337,6 +371,24 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Creates an evaluation form in the specified Amazon Connect instance.
+
+  The form can be used to define questions related to agent performance, and
+  create sections to organize such questions. An evaluation form must have a
+  unique title within an instance. Question and section identifiers cannot be
+  duplicated within the same evaluation form.
+  """
+  def create_evaluation_form(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Creates hours of operation.
@@ -618,6 +670,71 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Deactivates an evaluation form in the specified Amazon Connect instance.
+
+  After a form is deactivated, it is no longer available for users to start new
+  evaluations based on the form.
+  """
+  def deactivate_evaluation_form(
+        %Client{} = client,
+        evaluation_form_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}/deactivate"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes a contact evaluation in the specified Amazon Connect instance.
+  """
+  def delete_contact_evaluation(
+        %Client{} = client,
+        evaluation_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes a flow for the specified Amazon Connect instance.
   """
   def delete_contact_flow(%Client{} = client, contact_flow_id, instance_id, input, options \\ []) do
@@ -657,6 +774,48 @@ defmodule AWS.Connect do
 
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes an evaluation form in the specified Amazon Connect instance.
+
+    * If the version property is provided, only the specified version of
+  the evaluation form is deleted.
+
+    * If no version is provided, then the full form (all versions) is
+  deleted.
+  """
+  def delete_evaluation_form(
+        %Client{} = client,
+        evaluation_form_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"EvaluationFormVersion", "version"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -1079,6 +1238,21 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Describes a contact evaluation in the specified Amazon Connect instance.
+  """
+  def describe_contact_evaluation(%Client{} = client, evaluation_id, instance_id, options \\ []) do
+    url_path =
+      "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Describes the specified flow.
 
   You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
@@ -1109,6 +1283,37 @@ defmodule AWS.Connect do
 
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Describes an evaluation form in the specified Amazon Connect instance.
+
+  If the version property is not provided, the latest version of the evaluation
+  form is described.
+  """
+  def describe_evaluation_form(
+        %Client{} = client,
+        evaluation_form_id,
+        instance_id,
+        evaluation_form_version \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(evaluation_form_version) do
+        [{"version", evaluation_form_version} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -2029,6 +2234,39 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Lists contact evaluations in the specified Amazon Connect instance.
+  """
+  def list_contact_evaluations(
+        %Client{} = client,
+        instance_id,
+        contact_id,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(contact_id) do
+        [{"contactId", contact_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Provides information about the flow modules for the specified Amazon Connect
   instance.
   """
@@ -2177,6 +2415,75 @@ defmodule AWS.Connect do
       options,
       nil
     )
+  end
+
+  @doc """
+  Lists versions of an evaluation form in the specified Amazon Connect instance.
+  """
+  def list_evaluation_form_versions(
+        %Client{} = client,
+        evaluation_form_id,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}/versions"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists evaluation forms in the specified Amazon Connect instance.
+  """
+  def list_evaluation_forms(
+        %Client{} = client,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -3477,6 +3784,27 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Starts an empty evaluation in the specified Amazon Connect instance, using the
+  given evaluation form for the particular contact.
+
+  The evaluation form version used for the contact evaluation corresponds to the
+  currently activated version. If no version is activated for the evaluation form,
+  the contact evaluation cannot be started.
+
+  Evaluations created through the public API do not contain answer values
+  suggested from automation.
+  """
+  def start_contact_evaluation(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
   Starts recording the contact:
 
     * If the API is called *before* the agent joins the call, recording
@@ -3660,6 +3988,45 @@ defmodule AWS.Connect do
   """
   def stop_contact_streaming(%Client{} = client, input, options \\ []) do
     url_path = "/contact/stop-streaming"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Submits a contact evaluation in the specified Amazon Connect instance.
+
+  Answers included in the request are merged with existing answers for the given
+  evaluation. If no answers or notes are passed, the evaluation is submitted with
+  the existing answers and notes. You can delete an answer or note by passing an
+  empty object (`{}`) to the question identifier.
+
+  If a contact evaluation is already in submitted state, this operation will
+  trigger a resubmission.
+  """
+  def submit_contact_evaluation(
+        %Client{} = client,
+        evaluation_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_id)}/submit"
+
     headers = []
     query_params = []
 
@@ -3906,6 +4273,42 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Updates details about a contact evaluation in the specified Amazon Connect
+  instance.
+
+  A contact evaluation must be in draft state. Answers included in the request are
+  merged with existing answers for the given evaluation. An answer or note can be
+  deleted by passing an empty object (`{}`) to the question identifier.
+  """
+  def update_contact_evaluation(
+        %Client{} = client,
+        evaluation_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Updates the specified flow.
 
   You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
@@ -4085,6 +4488,34 @@ defmodule AWS.Connect do
       options,
       nil
     )
+  end
+
+  @doc """
+  Updates details about a specific evaluation form version in the specified Amazon
+  Connect instance.
+
+  An evaluation form must have a unique title within an instance. Question and
+  section identifiers cannot be duplicated within the same evaluation form.
+
+  This operation does not support partial updates. Instead it does a full update
+  of evaluation form content.
+  """
+  def update_evaluation_form(
+        %Client{} = client,
+        evaluation_form_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """

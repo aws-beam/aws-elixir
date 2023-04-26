@@ -37,6 +37,16 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+  Creates an Amazon Web Services resource for an on-premises storage system that
+  you want DataSync Discovery to collect information about.
+  """
+  def add_storage_system(%Client{} = client, input, options \\ []) do
+    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
+
+    Request.request_post(client, meta, "AddStorageSystem", input, options)
+  end
+
+  @doc """
   Stops an DataSync task execution that's in progress.
 
   The transfer of some files are abruptly interrupted. File contents that're
@@ -171,10 +181,17 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates an endpoint for an Amazon S3 bucket that DataSync can access for a
-  transfer.
+  A *location* is an endpoint for an Amazon S3 bucket.
 
-  For more information, see [Create an Amazon S3 location](https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli).
+  DataSync can use the location as a source or destination for copying data.
+
+  Before you create your location, make sure that you read the following sections:
+
+     [Storage class considerations with Amazon S3 locations](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+
+     [Evaluating S3 request costs when using DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests)
+
+  For more information, see [Creating an Amazon S3 location](https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli).
   """
   def create_location_s3(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -200,6 +217,11 @@ defmodule AWS.DataSync do
   A task includes a source location, a destination location, and the preferences
   for how and when you want to transfer your data (such as bandwidth limits,
   scheduling, among other options).
+
+  If you're planning to transfer data to or from an Amazon S3 location, review
+  [how DataSync can affect your S3 request charges](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests)
+  and the [DataSync pricing page](http://aws.amazon.com/datasync/pricing/) before
+  you begin.
   """
   def create_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -247,6 +269,15 @@ defmodule AWS.DataSync do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeAgent", input, options)
+  end
+
+  @doc """
+  Returns information about a DataSync discovery job.
+  """
+  def describe_discovery_job(%Client{} = client, input, options \\ []) do
+    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
+
+    Request.request_post(client, meta, "DescribeDiscoveryJob", input, options)
   end
 
   @doc """
@@ -351,6 +382,37 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+  Returns information about an on-premises storage system that you're using with
+  DataSync Discovery.
+  """
+  def describe_storage_system(%Client{} = client, input, options \\ []) do
+    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
+
+    Request.request_post(client, meta, "DescribeStorageSystem", input, options)
+  end
+
+  @doc """
+  Returns information, including performance data and capacity usage, which
+  DataSync Discovery collects about a specific resource in your-premises storage
+  system.
+  """
+  def describe_storage_system_resource_metrics(%Client{} = client, input, options \\ []) do
+    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
+
+    Request.request_post(client, meta, "DescribeStorageSystemResourceMetrics", input, options)
+  end
+
+  @doc """
+  Returns information that DataSync Discovery collects about resources in your
+  on-premises storage system.
+  """
+  def describe_storage_system_resources(%Client{} = client, input, options \\ []) do
+    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
+
+    Request.request_post(client, meta, "DescribeStorageSystemResources", input, options)
+  end
+
+  @doc """
   Returns metadata about a task.
   """
   def describe_task(%Client{} = client, input, options \\ []) do
@@ -366,6 +428,28 @@ defmodule AWS.DataSync do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeTaskExecution", input, options)
+  end
+
+  @doc """
+  Creates recommendations about where to migrate your data to in Amazon Web
+  Services.
+
+  Recommendations are generated based on information that DataSync Discovery
+  collects about your on-premises storage system's resources. For more
+  information, see [Recommendations provided by DataSync Discovery](https://docs.aws.amazon.com/datasync/latest/userguide/discovery-understand-recommendations.html).
+
+  Once generated, you can view your recommendations by using the
+  [DescribeStorageSystemResources](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeStorageSystemResources.html) operation.
+
+  If your [discovery job completes
+  successfully](https://docs.aws.amazon.com/datasync/latest/userguide/discovery-job-statuses.html#discovery-job-statuses-table),
+  you don't need to use this operation. DataSync Discovery generates the
+  recommendations for you automatically.
+  """
+  def generate_recommendations(%Client{} = client, input, options \\ []) do
+    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
+
+    Request.request_post(client, meta, "GenerateRecommendations", input, options)
   end
 
   @doc """
@@ -391,6 +475,16 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+  Provides a list of the existing discovery jobs in the Amazon Web Services Region
+  and Amazon Web Services account where you're using DataSync Discovery.
+  """
+  def list_discovery_jobs(%Client{} = client, input, options \\ []) do
+    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
+
+    Request.request_post(client, meta, "ListDiscoveryJobs", input, options)
+  end
+
+  @doc """
   Returns a list of source and destination locations.
 
   If you have more locations than are returned in a response (that is, the
@@ -402,6 +496,15 @@ defmodule AWS.DataSync do
     meta = metadata()
 
     Request.request_post(client, meta, "ListLocations", input, options)
+  end
+
+  @doc """
+  Lists the on-premises storage systems that you're using with DataSync Discovery.
+  """
+  def list_storage_systems(%Client{} = client, input, options \\ []) do
+    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
+
+    Request.request_post(client, meta, "ListStorageSystems", input, options)
   end
 
   @doc """
@@ -432,17 +535,61 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+  Permanently removes a storage system resource from DataSync Discovery, including
+  the associated discovery jobs, collected data, and recommendations.
+  """
+  def remove_storage_system(%Client{} = client, input, options \\ []) do
+    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
+
+    Request.request_post(client, meta, "RemoveStorageSystem", input, options)
+  end
+
+  @doc """
+  Runs a DataSync discovery job on your on-premises storage system.
+
+  If you haven't added the storage system to DataSync Discovery yet, do this first
+  by using the
+  [AddStorageSystem](https://docs.aws.amazon.com/datasync/latest/userguide/API_AddStorageSystem.html)
+  operation.
+  """
+  def start_discovery_job(%Client{} = client, input, options \\ []) do
+    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
+
+    Request.request_post(client, meta, "StartDiscoveryJob", input, options)
+  end
+
+  @doc """
   Starts an DataSync task.
 
   For each task, you can only run one task execution at a time.
 
   There are several phases to a task execution. For more information, see [Task execution
   statuses](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses).
+
+  If you're planning to transfer data to or from an Amazon S3 location, review
+  [how DataSync can affect your S3 request charges](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests)
+  and the [DataSync pricing page](http://aws.amazon.com/datasync/pricing/) before
+  you begin.
   """
   def start_task_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "StartTaskExecution", input, options)
+  end
+
+  @doc """
+  Stops a running DataSync discovery job.
+
+  You can stop a discovery job anytime. A job that's stopped before it's scheduled
+  to end likely will provide you some information about your on-premises storage
+  system resources. To get recommendations for a stopped job, you must use the
+  [GenerateRecommendations](https://docs.aws.amazon.com/datasync/latest/userguide/API_GenerateRecommendations.html)
+  operation.
+  """
+  def stop_discovery_job(%Client{} = client, input, options \\ []) do
+    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
+
+    Request.request_post(client, meta, "StopDiscoveryJob", input, options)
   end
 
   @doc """
@@ -475,6 +622,15 @@ defmodule AWS.DataSync do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateAgent", input, options)
+  end
+
+  @doc """
+  Edits a DataSync discovery job configuration.
+  """
+  def update_discovery_job(%Client{} = client, input, options \\ []) do
+    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
+
+    Request.request_post(client, meta, "UpdateDiscoveryJob", input, options)
   end
 
   @doc """
@@ -525,6 +681,16 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+  Modifies some configurations of an on-premises storage system resource that
+  you're using with DataSync Discovery.
+  """
+  def update_storage_system(%Client{} = client, input, options \\ []) do
+    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
+
+    Request.request_post(client, meta, "UpdateStorageSystem", input, options)
+  end
+
+  @doc """
   Updates the metadata associated with a task.
   """
   def update_task(%Client{} = client, input, options \\ []) do
@@ -534,14 +700,11 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Updates execution of a task.
+  Modifies a running DataSync task.
 
-  You can modify bandwidth throttling for a task execution that is running or
-  queued. For more information, see [Adjusting Bandwidth Throttling for a Task Execution](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#adjust-bandwidth-throttling).
-
-  The only `Option` that can be modified by `UpdateTaskExecution` is `
+  Currently, the only `Option` that you can modify with `UpdateTaskExecution` is `
   [BytesPerSecond](https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond)
-  `.
+  `, which throttles bandwidth for a running or queued task.
   """
   def update_task_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()

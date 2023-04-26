@@ -350,11 +350,7 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
-    {query_params, input} =
-      [
-        {"SubChannelId", "sub-channel-id"}
-      ]
-      |> Request.build_params(input)
+    query_params = []
 
     meta = metadata()
 

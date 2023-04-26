@@ -1646,6 +1646,119 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
+  Retrieves (queries) pre-aggregated data for a standard run execution metric that
+  applies to a journey activity.
+  """
+  def get_journey_run_execution_activity_metrics(
+        %Client{} = client,
+        application_id,
+        journey_activity_id,
+        journey_id,
+        run_id,
+        next_token \\ nil,
+        page_size \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys/#{AWS.Util.encode_uri(journey_id)}/runs/#{AWS.Util.encode_uri(run_id)}/activities/#{AWS.Util.encode_uri(journey_activity_id)}/execution-metrics"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(page_size) do
+        [{"page-size", page_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves (queries) pre-aggregated data for a standard run execution metric that
+  applies to a journey.
+  """
+  def get_journey_run_execution_metrics(
+        %Client{} = client,
+        application_id,
+        journey_id,
+        run_id,
+        next_token \\ nil,
+        page_size \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys/#{AWS.Util.encode_uri(journey_id)}/runs/#{AWS.Util.encode_uri(run_id)}/execution-metrics"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(page_size) do
+        [{"page-size", page_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Provides information about the runs of a journey.
+  """
+  def get_journey_runs(
+        %Client{} = client,
+        application_id,
+        journey_id,
+        page_size \\ nil,
+        token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys/#{AWS.Util.encode_uri(journey_id)}/runs"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(token) do
+        [{"token", token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(page_size) do
+        [{"page-size", page_size} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves the content and settings of a message template for messages that are
   sent through a push notification channel.
   """

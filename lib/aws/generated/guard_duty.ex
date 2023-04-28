@@ -1420,6 +1420,33 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
+  Initiates the malware scan.
+
+  Invoking this API will automatically create the [Service-linked role
+  ](https://docs.aws.amazon.com/guardduty/latest/ug/slr-permissions-malware-protection.html)
+  in the corresponding account.
+  """
+  def start_malware_scan(%Client{} = client, input, options \\ []) do
+    url_path = "/malware-scan/start"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Turns on GuardDuty monitoring of the specified member accounts.
 
   Use this operation to restart monitoring of accounts that you stopped monitoring

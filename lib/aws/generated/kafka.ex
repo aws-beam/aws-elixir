@@ -142,6 +142,29 @@ defmodule AWS.Kafka do
   end
 
   @doc """
+  Creates a new Amazon MSK VPC connection.
+  """
+  def create_vpc_connection(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/vpc-connection"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes the MSK cluster specified by the Amazon Resource Name (ARN) in the
   request.
   """
@@ -171,12 +194,59 @@ defmodule AWS.Kafka do
   end
 
   @doc """
+  Deletes the MSK cluster policy specified by the Amazon Resource Name (ARN) in
+  your request.
+  """
+  def delete_cluster_policy(%Client{} = client, cluster_arn, input, options \\ []) do
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/policy"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes the specified MSK configuration.
 
   The configuration must be in the ACTIVE or DELETE_FAILED state.
   """
   def delete_configuration(%Client{} = client, arn, input, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the Amazon MSK VPC connection specified in your request.
+  """
+  def delete_vpc_connection(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/v1/vpc-connection/#{AWS.Util.encode_uri(arn)}"
     headers = []
     query_params = []
 
@@ -265,10 +335,36 @@ defmodule AWS.Kafka do
   end
 
   @doc """
+  Displays information about the specified Amazon MSK VPC connection.
+  """
+  def describe_vpc_connection(%Client{} = client, arn, options \\ []) do
+    url_path = "/v1/vpc-connection/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   A list of brokers that a client application can use to bootstrap.
   """
   def get_bootstrap_brokers(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/bootstrap-brokers"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the contents of the specified MSK cluster policy.
+  """
+  def get_cluster_policy(%Client{} = client, cluster_arn, options \\ []) do
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/policy"
     headers = []
     query_params = []
 
@@ -288,6 +384,39 @@ defmodule AWS.Kafka do
     query_params =
       if !is_nil(cluster_arn) do
         [{"clusterArn", cluster_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Displays a list of client VPC connections.
+  """
+  def list_client_vpc_connections(
+        %Client{} = client,
+        cluster_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/client-vpc-connections"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -596,10 +725,68 @@ defmodule AWS.Kafka do
   end
 
   @doc """
+  Displays a list of Amazon MSK VPC connections.
+  """
+  def list_vpc_connections(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/vpc-connections"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Creates or updates the specified MSK cluster policy.
+
+  If updating the policy, the currentVersion field is required in the request
+  payload.
+  """
+  def put_cluster_policy(%Client{} = client, cluster_arn, input, options \\ []) do
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/policy"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Executes a reboot on a broker.
   """
   def reboot_broker(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/reboot-broker"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  def reject_client_vpc_connection(%Client{} = client, cluster_arn \\ nil, input, options \\ []) do
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/client-vpc-connection"
     headers = []
     query_params = []
 
@@ -744,7 +931,7 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Updates the connectivity configuration for the cluster.
+  Updates the connectivity configuration for the MSK cluster.
   """
   def update_connectivity(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/connectivity"

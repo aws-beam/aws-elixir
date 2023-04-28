@@ -33,7 +33,7 @@ defmodule AWS.OSIS do
   @doc """
   Creates an OpenSearch Ingestion pipeline.
 
-  For more information, see [Creating and managing OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/manage-pipeline.html).
+  For more information, see [Creating Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html).
   """
   def create_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/2022-01-01/osis/createPipeline"
@@ -58,7 +58,7 @@ defmodule AWS.OSIS do
   @doc """
   Deletes an OpenSearch Ingestion pipeline.
 
-  For more information, see [Deleting pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/manage-pipeline.html#delete-pipeline).
+  For more information, see [Deleting Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/delete-pipeline.html).
   """
   def delete_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/2022-01-01/osis/deletePipeline/#{AWS.Util.encode_uri(pipeline_name)}"
@@ -97,7 +97,7 @@ defmodule AWS.OSIS do
   Retrieves information about a specific blueprint for OpenSearch Ingestion.
 
   Blueprints are templates for the configuration needed for a `CreatePipeline`
-  request.
+  request. For more information, see [Using blueprints to create a pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint).
   """
   def get_pipeline_blueprint(%Client{} = client, blueprint_name, options \\ []) do
     url_path = "/2022-01-01/osis/getPipelineBlueprint/#{AWS.Util.encode_uri(blueprint_name)}"
@@ -116,7 +116,7 @@ defmodule AWS.OSIS do
   Currently, this operation only returns information when a pipeline is being
   created.
 
-  For more information, see [Creating and managing OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/manage-pipeline.html).
+  For more information, see [Tracking the status of pipeline creation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#get-pipeline-progress).
   """
   def get_pipeline_change_progress(%Client{} = client, pipeline_name, options \\ []) do
     url_path = "/2022-01-01/osis/getPipelineChangeProgress/#{AWS.Util.encode_uri(pipeline_name)}"
@@ -130,6 +130,8 @@ defmodule AWS.OSIS do
 
   @doc """
   Retrieves a list of all available blueprints for Data Prepper.
+
+  For more information, see [Using blueprints to create a pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint).
   """
   def list_pipeline_blueprints(%Client{} = client, input, options \\ []) do
     url_path = "/2022-01-01/osis/listPipelineBlueprints"
@@ -155,7 +157,7 @@ defmodule AWS.OSIS do
   Lists all OpenSearch Ingestion pipelines in the current Amazon Web Services
   account and Region.
 
-  For more information, see [Creating and managing OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/manage-pipeline.html).
+  For more information, see [Viewing Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/list-pipeline.html).
   """
   def list_pipelines(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/2022-01-01/osis/listPipelines"
@@ -184,7 +186,7 @@ defmodule AWS.OSIS do
   @doc """
   Lists all resource tags associated with an OpenSearch Ingestion pipeline.
 
-  For more information, see [Tagging OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
+  For more information, see [Tagging Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
   """
   def list_tags_for_resource(%Client{} = client, arn, options \\ []) do
     url_path = "/2022-01-01/osis/listTagsForResource/"
@@ -206,7 +208,7 @@ defmodule AWS.OSIS do
   @doc """
   Starts an OpenSearch Ingestion pipeline.
 
-  For more information, see [Starting pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/manage-pipeline.html#start-pipeline).
+  For more information, see [Starting an OpenSearch Ingestion pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--start).
   """
   def start_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/2022-01-01/osis/startPipeline/#{AWS.Util.encode_uri(pipeline_name)}"
@@ -221,7 +223,7 @@ defmodule AWS.OSIS do
   @doc """
   Stops an OpenSearch Ingestion pipeline.
 
-  For more information, see [Stopping pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/manage-pipeline.html#stop-pipeline).
+  For more information, see [Stopping an OpenSearch Ingestion pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--stop).
   """
   def stop_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/2022-01-01/osis/stopPipeline/#{AWS.Util.encode_uri(pipeline_name)}"
@@ -236,7 +238,7 @@ defmodule AWS.OSIS do
   @doc """
   Tags an OpenSearch Ingestion pipeline.
 
-  For more information, see [Tagging OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
+  For more information, see [Tagging Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/2022-01-01/osis/tagResource/"
@@ -266,7 +268,7 @@ defmodule AWS.OSIS do
   @doc """
   Removes one or more tags from an OpenSearch Ingestion pipeline.
 
-  For more information, see [Tagging OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
+  For more information, see [Tagging Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/2022-01-01/osis/untagResource/"
@@ -296,7 +298,7 @@ defmodule AWS.OSIS do
   @doc """
   Updates an OpenSearch Ingestion pipeline.
 
-  For more information, see [Creating and managing OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/manage-pipeline.html).
+  For more information, see [Updating Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/update-pipeline.html).
   """
   def update_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/2022-01-01/osis/updatePipeline/#{AWS.Util.encode_uri(pipeline_name)}"
@@ -312,7 +314,7 @@ defmodule AWS.OSIS do
   Checks whether an OpenSearch Ingestion pipeline configuration is valid prior to
   creation.
 
-  For more information, see [Creating and managing OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/manage-pipeline.html).
+  For more information, see [Creating Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html).
   """
   def validate_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/2022-01-01/osis/validatePipeline"

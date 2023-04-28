@@ -93,7 +93,14 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Gets information about an Device Advisor endpoint.
   """
-  def get_endpoint(%Client{} = client, certificate_arn \\ nil, thing_arn \\ nil, options \\ []) do
+  def get_endpoint(
+        %Client{} = client,
+        authentication_method \\ nil,
+        certificate_arn \\ nil,
+        device_role_arn \\ nil,
+        thing_arn \\ nil,
+        options \\ []
+      ) do
     url_path = "/endpoint"
     headers = []
     query_params = []
@@ -106,8 +113,22 @@ defmodule AWS.IotDeviceAdvisor do
       end
 
     query_params =
+      if !is_nil(device_role_arn) do
+        [{"deviceRoleArn", device_role_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(certificate_arn) do
         [{"certificateArn", certificate_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(authentication_method) do
+        [{"authenticationMethod", authentication_method} | query_params]
       else
         query_params
       end

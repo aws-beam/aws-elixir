@@ -316,6 +316,37 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
+  Generate a session token to connect to a managed endpoint.
+  """
+  def get_managed_endpoint_session_credentials(
+        %Client{} = client,
+        endpoint_identifier,
+        virtual_cluster_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_identifier)}/endpoints/#{AWS.Util.encode_uri(endpoint_identifier)}/credentials"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Lists job runs based on a set of parameters.
 
   A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL

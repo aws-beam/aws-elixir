@@ -3,7 +3,7 @@
 
 defmodule AWS.QLDB do
   @moduledoc """
-  The control plane for Amazon QLDB
+  The resource management API for Amazon QLDB
   """
 
   alias AWS.Client
@@ -92,7 +92,7 @@ defmodule AWS.QLDB do
 
   If deletion protection is enabled, you must first disable it before you can
   delete the ledger. You can disable it by calling the `UpdateLedger` operation to
-  set the flag to `false`.
+  set this parameter to `false`.
   """
   def delete_ledger(%Client{} = client, name, input, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}"
@@ -183,12 +183,6 @@ defmodule AWS.QLDB do
 
   A journal export job can write the data objects in either the text or binary
   representation of Amazon Ion format, or in *JSON Lines* text format.
-
-  In JSON Lines format, each journal block in the exported data object is a valid
-  JSON object that is delimited by a newline. You can use this format to easily
-  integrate JSON exports with analytics tools such as Glue and Amazon Athena
-  because these services can parse newline-delimited JSON automatically. For more
-  information about the format, see [JSON Lines](https://jsonlines.org/).
 
   If the ledger with the given `Name` doesn't exist, then throws
   `ResourceNotFoundException`.
@@ -309,11 +303,7 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns an array of all Amazon QLDB journal stream descriptors for a given
-  ledger.
-
-  The output of each stream descriptor includes the same details that are returned
-  by `DescribeJournalKinesisStream`.
+  Returns all Amazon QLDB journal streams for a given ledger.
 
   This action does not return any expired journal streams. For more information,
   see [Expiration for terminal streams](https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration)
@@ -354,8 +344,8 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns an array of journal export job descriptions for all ledgers that are
-  associated with the current Amazon Web Services account and Region.
+  Returns all journal export jobs for all ledgers that are associated with the
+  current Amazon Web Services account and Region.
 
   This action returns a maximum of `MaxResults` items, and is paginated so that
   you can retrieve all the items by calling `ListJournalS3Exports` multiple times.
@@ -394,7 +384,7 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns an array of journal export job descriptions for a specified ledger.
+  Returns all journal export jobs for a specified ledger.
 
   This action returns a maximum of `MaxResults` items, and is paginated so that
   you can retrieve all the items by calling `ListJournalS3ExportsForLedger`
@@ -435,11 +425,11 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns an array of ledger summaries that are associated with the current Amazon
-  Web Services account and Region.
+  Returns all ledgers that are associated with the current Amazon Web Services
+  account and Region.
 
-  This action returns a maximum of 100 items and is paginated so that you can
-  retrieve all the items by calling `ListLedgers` multiple times.
+  This action returns a maximum of `MaxResults` items and is paginated so that you
+  can retrieve all the items by calling `ListLedgers` multiple times.
   """
   def list_ledgers(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/ledgers"

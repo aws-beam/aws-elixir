@@ -23,12 +23,12 @@ defmodule AWS.WAFV2 do
   WAF is a web application firewall that lets you monitor the HTTP and HTTPS
   requests that are forwarded to an Amazon CloudFront distribution, Amazon API
   Gateway REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito
-  user pool, or App Runner service. WAF also lets you control access to your
-  content, to protect the Amazon Web Services resource that WAF is monitoring.
-  Based on conditions that you specify, such as the IP addresses that requests
-  originate from or the values of query strings, the protected resource responds
-  to requests with either the requested content, an HTTP 403 status code
-  (Forbidden), or with a custom response.
+  user pool, App Runner service, or Amazon Web Services Verified Access instance.
+  WAF also lets you control access to your content, to protect the Amazon Web
+  Services resource that WAF is monitoring. Based on conditions that you specify,
+  such as the IP addresses that requests originate from or the values of query
+  strings, the protected resource responds to requests with either the requested
+  content, an HTTP 403 status code (Forbidden), or with a custom response.
 
   This API guide is for developers who need detailed information about WAF API
   actions, data types, and errors. For detailed information about WAF features and
@@ -39,7 +39,7 @@ defmodule AWS.WAFV2 do
     * For regional applications, you can use any of the endpoints in the
   list. A regional application can be an Application Load Balancer (ALB), an
   Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user
-  pool, or an App Runner service.
+  pool, an App Runner service, or an Amazon Web Services Verified Access instance.
 
     * For Amazon CloudFront applications, you must use the API endpoint
   listed for US East (N. Virginia): us-east-1.
@@ -89,8 +89,8 @@ defmodule AWS.WAFV2 do
   resource.
 
   A regional application can be an Application Load Balancer (ALB), an Amazon API
-  Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App
-  Runner service.
+  Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App
+  Runner service, or an Amazon Web Services Verified Access instance.
 
   For Amazon CloudFront, don't use this call. Instead, use your CloudFront
   distribution configuration. To associate a web ACL, in the CloudFront call
@@ -141,17 +141,16 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  Creates an API key for use in the integration of the CAPTCHA API in your
-  JavaScript client applications.
+  Creates an API key that contains a set of token domains.
 
-  The integration lets you customize the placement and characteristics of the
-  CAPTCHA puzzle for your end users. For more information about the CAPTCHA
-  JavaScript integration, see [WAF client application integration](https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html)
+  API keys are required for the integration of the CAPTCHA API in your JavaScript
+  client applications. The API lets you customize the placement and
+  characteristics of the CAPTCHA puzzle for your end users. For more information
+  about the CAPTCHA JavaScript integration, see [WAF client application integration](https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html)
   in the *WAF Developer Guide*.
 
-  The CAPTCHA API requires a key that authorizes CAPTCHA use from the client
-  application domain. You can use a single key for up to 5 domains. After you
-  generate a key, you can copy it for use in your JavaScript integration.
+  You can use a single key for up to 5 domains. After you generate a key, you can
+  copy it for use in your JavaScript integration.
   """
   def create_api_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -210,8 +209,8 @@ defmodule AWS.WAFV2 do
   `RuleGroup`, and managed rule group. You can associate a web ACL with one or
   more Amazon Web Services resources to protect. The resources can be an Amazon
   CloudFront distribution, an Amazon API Gateway REST API, an Application Load
-  Balancer, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner
-  service.
+  Balancer, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner
+  service, or an Amazon Web Services Verified Access instance.
   """
   def create_web_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -327,7 +326,8 @@ defmodule AWS.WAFV2 do
 
   A resource can have at most one web ACL association. A regional application can
   be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an
-  AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.
+  AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an
+  Amazon Web Services Verified Access instance.
 
   For Amazon CloudFront, don't use this call. Instead, use your CloudFront
   distribution configuration. To disassociate a web ACL, provide an empty web ACL
@@ -360,6 +360,12 @@ defmodule AWS.WAFV2 do
   Returns your API key in decrypted form.
 
   Use this to check the token domains that you have defined for the key.
+
+  API keys are required for the integration of the CAPTCHA API in your JavaScript
+  client applications. The API lets you customize the placement and
+  characteristics of the CAPTCHA puzzle for your end users. For more information
+  about the CAPTCHA JavaScript integration, see [WAF client application integration](https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html)
+  in the *WAF Developer Guide*.
   """
   def get_decrypted_api_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -513,6 +519,12 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Retrieves a list of the API keys that you've defined for the specified scope.
+
+  API keys are required for the integration of the CAPTCHA API in your JavaScript
+  client applications. The API lets you customize the placement and
+  characteristics of the CAPTCHA puzzle for your end users. For more information
+  about the CAPTCHA JavaScript integration, see [WAF client application integration](https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html)
+  in the *WAF Developer Guide*.
   """
   def list_api_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -954,8 +966,8 @@ defmodule AWS.WAFV2 do
   `RuleGroup`, and managed rule group. You can associate a web ACL with one or
   more Amazon Web Services resources to protect. The resources can be an Amazon
   CloudFront distribution, an Amazon API Gateway REST API, an Application Load
-  Balancer, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner
-  service.
+  Balancer, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner
+  service, or an Amazon Web Services Verified Access instance.
   """
   def update_web_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()

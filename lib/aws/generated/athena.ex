@@ -89,6 +89,25 @@ defmodule AWS.Athena do
   end
 
   @doc """
+  Cancels the capacity reservation with the specified name.
+  """
+  def cancel_capacity_reservation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelCapacityReservation", input, options)
+  end
+
+  @doc """
+  Creates a capacity reservation with the specified name and number of requested
+  data processing units.
+  """
+  def create_capacity_reservation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCapacityReservation", input, options)
+  end
+
+  @doc """
   Creates (registers) a data catalog with the specified name and properties.
 
   Catalogs created are visible to all users of the same Amazon Web Services
@@ -244,6 +263,25 @@ defmodule AWS.Athena do
     meta = metadata()
 
     Request.request_post(client, meta, "GetCalculationExecutionStatus", input, options)
+  end
+
+  @doc """
+  Gets the capacity assignment configuration for a capacity reservation, if one
+  exists.
+  """
+  def get_capacity_assignment_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCapacityAssignmentConfiguration", input, options)
+  end
+
+  @doc """
+  Returns information about the capacity reservation with the specified name.
+  """
+  def get_capacity_reservation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCapacityReservation", input, options)
   end
 
   @doc """
@@ -418,6 +456,15 @@ defmodule AWS.Athena do
   end
 
   @doc """
+  Lists the capacity reservations for the current account.
+  """
+  def list_capacity_reservations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCapacityReservations", input, options)
+  end
+
+  @doc """
   Lists the data catalogs in the current Amazon Web Services account.
 
   In the Athena console, data catalogs are listed as "data sources" on the **Data
@@ -545,7 +592,7 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Lists the tags associated with an Athena workgroup or data catalog resource.
+  Lists the tags associated with an Athena resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -560,6 +607,19 @@ defmodule AWS.Athena do
     meta = metadata()
 
     Request.request_post(client, meta, "ListWorkGroups", input, options)
+  end
+
+  @doc """
+  Puts a new capacity assignment configuration for a specified capacity
+  reservation.
+
+  If a capacity assignment configuration already exists for the capacity
+  reservation, replaces the existing capacity assignment configuration.
+  """
+  def put_capacity_assignment_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutCapacityAssignmentConfiguration", input, options)
   end
 
   @doc """
@@ -634,12 +694,12 @@ defmodule AWS.Athena do
   @doc """
   Adds one or more tags to an Athena resource.
 
-  A tag is a label that you assign to a resource. In Athena, a resource can be a
-  workgroup or data catalog. Each tag consists of a key and an optional value,
-  both of which you define. For example, you can use tags to categorize Athena
-  workgroups or data catalogs by purpose, owner, or environment. Use a consistent
-  set of tag keys to make it easier to search and filter workgroups or data
-  catalogs in your account. For best practices, see [Tagging Best Practices](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html).
+  A tag is a label that you assign to a resource. Each tag consists of a key and
+  an optional value, both of which you define. For example, you can use tags to
+  categorize Athena workgroups, data catalogs, or capacity reservations by
+  purpose, owner, or environment. Use a consistent set of tag keys to make it
+  easier to search and filter the resources in your account. For best practices,
+  see [Tagging Best Practices](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html).
   Tag keys can be from 1 to 128 UTF-8 Unicode characters, and tag values can be
   from 0 to 256 UTF-8 Unicode characters. Tags can use letters and numbers
   representable in UTF-8, and the following characters: + - = . _ : / @. Tag keys
@@ -667,12 +727,22 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Removes one or more tags from a data catalog or workgroup resource.
+  Removes one or more tags from an Athena resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates the number of requested data processing units for the capacity
+  reservation with the specified name.
+  """
+  def update_capacity_reservation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCapacityReservation", input, options)
   end
 
   @doc """

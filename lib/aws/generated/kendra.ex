@@ -276,7 +276,7 @@ defmodule AWS.Kendra do
   Services GovCloud (US-West) region.
 
   For an example of creating a block list for query suggestions using the Python
-  SDK, see [Query suggestions block list](https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#suggestions-block-list).
+  SDK, see [Query suggestions block list](https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#query-suggestions-blocklist).
   """
   def create_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -942,8 +942,8 @@ defmodule AWS.Kendra do
   Amazon Kendra supports partial updates, so you only need to provide the fields
   you want to update.
 
-  If an update is currently processing (i.e. 'happening'), you need to wait for
-  the update to finish before making another update.
+  If an update is currently processing, you need to wait for the update to finish
+  before making another update.
 
   Updates to query suggestions settings might not take effect right away. The time
   for your updated settings to take effect depends on the updates made and the

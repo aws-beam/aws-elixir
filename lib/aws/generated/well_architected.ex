@@ -1263,7 +1263,7 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Updates whether the Amazon Web Services account is opted into organization
-  sharing features.
+  sharing and discovery integration features.
   """
   def update_global_settings(%Client{} = client, input, options \\ []) do
     url_path = "/global-settings"

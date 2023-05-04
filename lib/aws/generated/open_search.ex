@@ -457,6 +457,20 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Returns information about domain and node health, the standby Availability Zone,
+  number of nodes per Availability Zone, and shard count per node.
+  """
+  def describe_domain_health(%Client{} = client, domain_name, options \\ []) do
+    url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/health"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Returns domain configuration information about the specified Amazon OpenSearch
   Service domains.
   """
@@ -783,7 +797,8 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Returns a list of Amazon OpenSearch Service package versions, along with their
-  creation time and commit message.
+  creation time, commit message, and plugin properties (if the package is a zip
+  plugin package).
 
   For more information, see [Custom packages for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
@@ -929,13 +944,22 @@ defmodule AWS.OpenSearch do
         %Client{} = client,
         engine_version,
         domain_name \\ nil,
+        instance_type \\ nil,
         max_results \\ nil,
         next_token \\ nil,
+        retrieve_a_zs \\ nil,
         options \\ []
       ) do
     url_path = "/2021-01-01/opensearch/instanceTypeDetails/#{AWS.Util.encode_uri(engine_version)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(retrieve_a_zs) do
+        [{"retrieveAZs", retrieve_a_zs} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do
@@ -947,6 +971,13 @@ defmodule AWS.OpenSearch do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(instance_type) do
+        [{"instanceType", instance_type} | query_params]
       else
         query_params
       end

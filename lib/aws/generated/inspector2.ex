@@ -30,6 +30,13 @@ defmodule AWS.Inspector2 do
   @doc """
   Associates an Amazon Web Services account with an Amazon Inspector delegated
   administrator.
+
+  An HTTP 200 response indicates the association was successfully started, but
+  doesn’t indicate whether it was completed. You can check if the association
+  completed by using
+  [ListMembers](https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListMembers.html) for multiple accounts or
+  [GetMembers](https://docs.aws.amazon.com/inspector/v2/APIReference/API_GetMember.html)
+  for a single account.
   """
   def associate_member(%Client{} = client, input, options \\ []) do
     url_path = "/members/associate"
@@ -99,6 +106,60 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Retrieves Amazon Inspector deep inspection activation status of multiple member
+  accounts within your organization.
+
+  You must be the delegated administrator of an organization in Amazon Inspector
+  to use this API.
+  """
+  def batch_get_member_ec2_deep_inspection_status(%Client{} = client, input, options \\ []) do
+    url_path = "/ec2deepinspectionstatus/member/batch/get"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Activates or deactivates Amazon Inspector deep inspection for the provided
+  member accounts in your organization.
+
+  You must be the delegated administrator of an organization in Amazon Inspector
+  to use this API.
+  """
+  def batch_update_member_ec2_deep_inspection_status(%Client{} = client, input, options \\ []) do
+    url_path = "/ec2deepinspectionstatus/member/batch/update"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Cancels the given findings report.
   """
   def cancel_findings_report(%Client{} = client, input, options \\ []) do
@@ -146,6 +207,10 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Creates a finding report.
+
+  By default only `ACTIVE` findings are returned in the report. To see `SUPRESSED`
+  or `CLOSED` findings you must specify a value for the `findingStatus` filter
+  criteria.
   """
   def create_findings_report(%Client{} = client, input, options \\ []) do
     url_path = "/reporting/create"
@@ -361,6 +426,30 @@ defmodule AWS.Inspector2 do
   """
   def get_delegated_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/delegatedadminaccounts/get"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves the activation status of Amazon Inspector deep inspection and custom
+  paths associated with your account.
+  """
+  def get_ec2_deep_inspection_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/ec2deepinspectionconfiguration/get"
     headers = []
     query_params = []
 
@@ -726,11 +815,60 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Activates, deactivates Amazon Inspector deep inspection, or updates custom paths
+  for your account.
+  """
+  def update_ec2_deep_inspection_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/ec2deepinspectionconfiguration/update"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Specifies the action that is to be applied to the findings that match the
   filter.
   """
   def update_filter(%Client{} = client, input, options \\ []) do
     url_path = "/filters/update"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the Amazon Inspector deep inspection custom paths for your organization.
+
+  You must be an Amazon Inspector delegated administrator to use this API.
+  """
+  def update_org_ec2_deep_inspection_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/ec2deepinspectionconfiguration/org/update"
     headers = []
     query_params = []
 

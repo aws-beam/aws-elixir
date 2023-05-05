@@ -471,6 +471,21 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Returns information about domain and nodes, including data nodes, master nodes,
+  ultrawarm nodes, Availability Zone(s), standby nodes, node configurations, and
+  node states.
+  """
+  def describe_domain_nodes(%Client{} = client, domain_name, options \\ []) do
+    url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/nodes"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Returns domain configuration information about the specified Amazon OpenSearch
   Service domains.
   """
@@ -1305,7 +1320,7 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Modifies the cluster configuration of the specified Amazon OpenSearch Service
-  domain.
+  domain.sl
   """
   def update_domain_config(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/config"

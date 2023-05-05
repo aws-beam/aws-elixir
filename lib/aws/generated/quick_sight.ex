@@ -648,6 +648,83 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Creates a new Q topic.
+  """
+  def create_topic(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates a topic refresh schedule.
+  """
+  def create_topic_refresh_schedule(
+        %Client{} = client,
+        aws_account_id,
+        topic_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/schedules"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates a new VPC connection.
+  """
+  def create_vpc_connection(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/vpc-connections"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes all Amazon QuickSight customizations in this Amazon Web Services Region
   for the specified Amazon Web Services account and Amazon QuickSight namespace.
   """
@@ -1213,6 +1290,63 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Deletes a topic.
+  """
+  def delete_topic(%Client{} = client, aws_account_id, topic_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes a topic refresh schedule.
+  """
+  def delete_topic_refresh_schedule(
+        %Client{} = client,
+        aws_account_id,
+        dataset_id,
+        topic_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/schedules/#{AWS.Util.encode_uri(dataset_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes the Amazon QuickSight user that is associated with the identity of the
   IAM user or role that's making the call.
 
@@ -1253,6 +1387,37 @@ defmodule AWS.QuickSight do
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/user-principals/#{AWS.Util.encode_uri(principal_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes a VPC connection.
+  """
+  def delete_vpc_connection(
+        %Client{} = client,
+        aws_account_id,
+        vpc_connection_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/vpc-connections/#{AWS.Util.encode_uri(vpc_connection_id)}"
 
     headers = []
     query_params = []
@@ -2012,11 +2177,103 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Describes a topic.
+  """
+  def describe_topic(%Client{} = client, aws_account_id, topic_id, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Describes the permissions of a topic.
+  """
+  def describe_topic_permissions(%Client{} = client, aws_account_id, topic_id, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/permissions"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Describes the status of a topic refresh.
+  """
+  def describe_topic_refresh(
+        %Client{} = client,
+        aws_account_id,
+        refresh_id,
+        topic_id,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/refresh/#{AWS.Util.encode_uri(refresh_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Deletes a topic refresh schedule.
+  """
+  def describe_topic_refresh_schedule(
+        %Client{} = client,
+        aws_account_id,
+        dataset_id,
+        topic_id,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/schedules/#{AWS.Util.encode_uri(dataset_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Returns information about a user, given the user name.
   """
   def describe_user(%Client{} = client, aws_account_id, namespace, user_name, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Describes a VPC connection.
+  """
+  def describe_vpc_connection(
+        %Client{} = client,
+        aws_account_id,
+        vpc_connection_id,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/vpc-connections/#{AWS.Util.encode_uri(vpc_connection_id)}"
 
     headers = []
     query_params = []
@@ -2623,18 +2880,19 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Lists IAM policy assignments in the current Amazon QuickSight account.
+  Lists the IAM policy assignments in the current Amazon QuickSight account.
   """
   def list_iam_policy_assignments(
         %Client{} = client,
         aws_account_id,
         namespace,
+        assignment_status \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         options \\ []
       ) do
     url_path =
-      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/iam-policy-assignments"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/v2/iam-policy-assignments"
 
     headers = []
     query_params = []
@@ -2653,15 +2911,22 @@ defmodule AWS.QuickSight do
         query_params
       end
 
+    query_params =
+      if !is_nil(assignment_status) do
+        [{"assignment-status", assignment_status} | query_params]
+      else
+        query_params
+      end
+
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
-  Lists all the IAM policy assignments, including the Amazon Resource Names (ARNs)
-  for the IAM policies assigned to the specified user and group or groups that the
-  user belongs to.
+  Lists all of the IAM policy assignments, including the Amazon Resource Names
+  (ARNs), for the IAM policies assigned to the specified user and group, or groups
+  that the user belongs to.
   """
   def list_iam_policy_assignments_for_user(
         %Client{} = client,
@@ -3018,6 +3283,54 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Lists all of the refresh schedules for a topic.
+  """
+  def list_topic_refresh_schedules(%Client{} = client, aws_account_id, topic_id, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/schedules"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists all of the topics within an account.
+  """
+  def list_topics(
+        %Client{} = client,
+        aws_account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member
   of.
   """
@@ -3069,6 +3382,40 @@ defmodule AWS.QuickSight do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users"
 
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists all of the VPC connections in the current set Amazon Web Services Region
+  of an Amazon Web Services account.
+  """
+  def list_vpc_connections(
+        %Client{} = client,
+        aws_account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/vpc-connections"
     headers = []
     query_params = []
 
@@ -3339,7 +3686,7 @@ defmodule AWS.QuickSight do
   tag value that you specify replaces the previous value for that tag.
 
   You can associate as many as 50 tags with a resource. Amazon QuickSight supports
-  tagging on data set, data source, dashboard, and template.
+  tagging on data set, data source, dashboard, template, and topic.
 
   Tagging for Amazon QuickSight works in a similar way to tagging for other Amazon
   Web Services services, except for the following:
@@ -3725,8 +4072,8 @@ defmodule AWS.QuickSight do
   @doc """
   Updates the content and status of IP rules.
 
-  To use this operation, you need to provide the entire map of rules. You can use
-  the `DescribeIpRestriction` operation to get the current rule map.
+  To use this operation, you must provide the entire map of rules. You can use the
+  `DescribeIpRestriction` operation to get the current rule map.
   """
   def update_ip_restriction(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/ip-restriction"
@@ -3946,11 +4293,84 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Updates a topic.
+  """
+  def update_topic(%Client{} = client, aws_account_id, topic_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates the permissions of a topic.
+  """
+  def update_topic_permissions(%Client{} = client, aws_account_id, topic_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/permissions"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates a topic refresh schedule.
+  """
+  def update_topic_refresh_schedule(
+        %Client{} = client,
+        aws_account_id,
+        dataset_id,
+        topic_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/schedules/#{AWS.Util.encode_uri(dataset_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
   Updates an Amazon QuickSight user.
   """
   def update_user(%Client{} = client, aws_account_id, namespace, user_name, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates a VPC connection.
+  """
+  def update_vpc_connection(
+        %Client{} = client,
+        aws_account_id,
+        vpc_connection_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/vpc-connections/#{AWS.Util.encode_uri(vpc_connection_id)}"
 
     headers = []
     query_params = []

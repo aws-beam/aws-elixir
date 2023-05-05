@@ -49,15 +49,15 @@ defmodule AWS.SQS do
     %{
       abbreviation: "Amazon SQS",
       api_version: "2012-11-05",
-      content_type: "application/x-www-form-urlencoded",
+      content_type: "application/x-amz-json-1.0",
       credential_scope: nil,
       endpoint_prefix: "sqs",
       global?: false,
-      protocol: "query",
+      protocol: "json",
       service_id: "SQS",
       signature_version: "v4",
       signing_name: "sqs",
-      target_prefix: nil
+      target_prefix: "AmazonSQS"
     }
   end
 
@@ -77,22 +77,18 @@ defmodule AWS.SQS do
   Language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html)
   in the *Amazon SQS Developer Guide*.
 
-     An Amazon SQS policy can have a maximum of 7 actions.
+     An Amazon SQS policy can have a maximum of seven actions per
+  statement.
 
      To remove the ability to change queue permissions, you must deny
   permission to the `AddPermission`, `RemovePermission`, and `SetQueueAttributes`
   actions in your IAM policy.
 
-  Some actions take lists of parameters. These lists are specified using the
-  `param.n` notation. Values of `n` are integers starting from 1. For example, a
-  parameter list with two elements looks like this:
-
-  `&AttributeName.1=first`
-
-  `&AttributeName.2=second`
+     Amazon SQS `AddPermission` does not support adding a non-account
+  principal.
 
   Cross-account permissions don't apply to this action. For more information, see
-  [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  [Grant cross-account permissions to a role and a username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon SQS Developer Guide*.
   """
   def add_permission(%Client{} = client, input, options \\ []) do
@@ -108,11 +104,13 @@ defmodule AWS.SQS do
   seconds. The maximum is 12 hours. For more information, see [Visibility Timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html)
   in the *Amazon SQS Developer Guide*.
 
-  For example, you have a message with a visibility timeout of 5 minutes. After 3
-  minutes, you call `ChangeMessageVisibility` with a timeout of 10 minutes. You
-  can continue to call `ChangeMessageVisibility` to extend the visibility timeout
-  to the maximum allowed time. If you try to extend the visibility timeout beyond
-  the maximum, your request is rejected.
+  For example, if the default timeout for a queue is 60 seconds, 15 seconds have
+  elapsed since you received the message, and you send a ChangeMessageVisibility
+  call with `VisibilityTimeout` set to 10 seconds, the 10 seconds begin to count
+  from the time that you make the `ChangeMessageVisibility` call. Thus, any
+  attempt to change the visibility timeout or to delete that message 10 seconds
+  after you initially change the visibility timeout (a total of 25 seconds) might
+  result in an error.
 
   An Amazon SQS message has three basic states:
 
@@ -127,20 +125,20 @@ defmodule AWS.SQS do
   states 1 and 2). There is no limit to the number of stored messages. A message
   is considered to be *in flight* after it is received from a queue by a consumer,
   but not yet deleted from the queue (that is, between states 2 and 3). There is a
-  limit to the number of inflight messages.
+  limit to the number of in flight messages.
 
-  Limits that apply to inflight messages are unrelated to the *unlimited* number
+  Limits that apply to in flight messages are unrelated to the *unlimited* number
   of stored messages.
 
   For most standard queues (depending on queue traffic and message backlog), there
-  can be a maximum of approximately 120,000 inflight messages (received from a
+  can be a maximum of approximately 120,000 in flight messages (received from a
   queue by a consumer, but not yet deleted from the queue). If you reach this
   limit, Amazon SQS returns the `OverLimit` error message. To avoid reaching the
   limit, you should delete messages from the queue after they're processed. You
   can also increase the number of queues you use to process your messages. To
   request a limit increase, [file a support request](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-sqs).
 
-  For FIFO queues, there can be a maximum of 20,000 inflight messages (received
+  For FIFO queues, there can be a maximum of 20,000 in flight messages (received
   from a queue by a consumer, but not yet deleted from the queue). If you reach
   this limit, Amazon SQS returns no error messages.
 
@@ -172,14 +170,6 @@ defmodule AWS.SQS do
   Because the batch request can result in a combination of successful and
   unsuccessful actions, you should check for batch errors even when the call
   returns an HTTP status code of `200`.
-
-  Some actions take lists of parameters. These lists are specified using the
-  `param.n` notation. Values of `n` are integers starting from 1. For example, a
-  parameter list with two elements looks like this:
-
-  `&AttributeName.1=first`
-
-  `&AttributeName.2=second`
   """
   def change_message_visibility_batch(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -225,16 +215,8 @@ defmodule AWS.SQS do
     * If the queue name, attribute names, or attribute values don't
   match an existing queue, `CreateQueue` returns an error.
 
-  Some actions take lists of parameters. These lists are specified using the
-  `param.n` notation. Values of `n` are integers starting from 1. For example, a
-  parameter list with two elements looks like this:
-
-  `&AttributeName.1=first`
-
-  `&AttributeName.2=second`
-
   Cross-account permissions don't apply to this action. For more information, see
-  [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  [Grant cross-account permissions to a role and a username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon SQS Developer Guide*.
   """
   def create_queue(%Client{} = client, input, options \\ []) do
@@ -257,7 +239,7 @@ defmodule AWS.SQS do
   message. If you receive a message more than once, the `ReceiptHandle` is
   different each time you receive a message. When you use the `DeleteMessage`
   action, you must provide the most recently received `ReceiptHandle` for the
-  message (otherwise, the request succeeds, but the message might not be deleted).
+  message (otherwise, the request succeeds, but the message will not be deleted).
 
   For standard queues, it is possible to receive a message even after you delete
   it. This might happen on rare occasions if one of the servers which stores a
@@ -281,14 +263,6 @@ defmodule AWS.SQS do
   Because the batch request can result in a combination of successful and
   unsuccessful actions, you should check for batch errors even when the call
   returns an HTTP status code of `200`.
-
-  Some actions take lists of parameters. These lists are specified using the
-  `param.n` notation. Values of `n` are integers starting from 1. For example, a
-  parameter list with two elements looks like this:
-
-  `&AttributeName.1=first`
-
-  `&AttributeName.2=second`
   """
   def delete_message_batch(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -312,8 +286,10 @@ defmodule AWS.SQS do
   queue with the same name.
 
   Cross-account permissions don't apply to this action. For more information, see
-  [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  [Grant cross-account permissions to a role and a username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon SQS Developer Guide*.
+
+  The delete operation uses the HTTP `GET` verb.
   """
   def delete_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -379,7 +355,7 @@ defmodule AWS.SQS do
   in the *Amazon SQS Developer Guide*.
 
   Cross-account permissions don't apply to this action. For more information, see
-  [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  [Grant cross-account permissions to a role and a username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon SQS Developer Guide*.
   """
   def list_queue_tags(%Client{} = client, input, options \\ []) do
@@ -403,7 +379,7 @@ defmodule AWS.SQS do
   your next request to `listQueues` to receive the next page of results.
 
   Cross-account permissions don't apply to this action. For more information, see
-  [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  [Grant cross-account permissions to a role and a username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon SQS Developer Guide*.
   """
   def list_queues(%Client{} = client, input, options \\ []) do
@@ -494,7 +470,7 @@ defmodule AWS.SQS do
      Only the owner of a queue can remove permissions from it.
 
      Cross-account permissions don't apply to this action. For more
-  information, see [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  information, see [Grant cross-account permissions to a role and a username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon SQS Developer Guide*.
 
      To remove the ability to change queue permissions, you must deny
@@ -526,7 +502,9 @@ defmodule AWS.SQS do
   end
 
   @doc """
-  Delivers up to ten messages to the specified queue.
+  You can use `SendMessageBatch` to send up to 10 messages to the specified queue
+  by assigning either identical or different values to each message (or by not
+  assigning values at all).
 
   This is a batch version of ` `SendMessage`.` For a FIFO queue, multiple messages
   within a single batch are enqueued in the order they are sent.
@@ -538,7 +516,7 @@ defmodule AWS.SQS do
 
   The maximum allowed individual message size and the maximum total payload size
   (the sum of the individual lengths of all of the batched messages) are both 256
-  KB (262,144 bytes).
+  KiB (262,144 bytes).
 
   A message can include only XML, JSON, and unformatted text. The following
   Unicode characters are allowed:
@@ -551,14 +529,6 @@ defmodule AWS.SQS do
 
   If you don't specify the `DelaySeconds` parameter for an entry, Amazon SQS uses
   the default value for the queue.
-
-  Some actions take lists of parameters. These lists are specified using the
-  `param.n` notation. Values of `n` are integers starting from 1. For example, a
-  parameter list with two elements looks like this:
-
-  `&AttributeName.1=first`
-
-  `&AttributeName.2=second`
   """
   def send_message_batch(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -571,14 +541,17 @@ defmodule AWS.SQS do
 
   When you change a queue's attributes, the change can take up to 60 seconds for
   most of the attributes to propagate throughout the Amazon SQS system. Changes
-  made to the `MessageRetentionPeriod` attribute can take up to 15 minutes.
+  made to the `MessageRetentionPeriod` attribute can take up to 15 minutes and
+  will impact existing messages in the queue potentially causing them to be
+  expired and deleted if the `MessageRetentionPeriod` is reduced below the age of
+  existing messages.
 
      In the future, new attributes might be added. If you write code
   that calls this action, we recommend that you structure your code so that it can
   handle new attributes gracefully.
 
      Cross-account permissions don't apply to this action. For more
-  information, see [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  information, see [Grant cross-account permissions to a role and a username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon SQS Developer Guide*.
 
      To remove the ability to change queue permissions, you must deny
@@ -613,7 +586,7 @@ defmodule AWS.SQS do
   in the *Amazon SQS Developer Guide*.
 
   Cross-account permissions don't apply to this action. For more information, see
-  [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  [Grant cross-account permissions to a role and a username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon SQS Developer Guide*.
   """
   def tag_queue(%Client{} = client, input, options \\ []) do
@@ -629,7 +602,7 @@ defmodule AWS.SQS do
   in the *Amazon SQS Developer Guide*.
 
   Cross-account permissions don't apply to this action. For more information, see
-  [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  [Grant cross-account permissions to a role and a username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon SQS Developer Guide*.
   """
   def untag_queue(%Client{} = client, input, options \\ []) do

@@ -374,9 +374,8 @@ defmodule AWS.Connect do
   Creates an evaluation form in the specified Amazon Connect instance.
 
   The form can be used to define questions related to agent performance, and
-  create sections to organize such questions. An evaluation form must have a
-  unique title within an instance. Question and section identifiers cannot be
-  duplicated within the same evaluation form.
+  create sections to organize such questions. Question and section identifiers
+  cannot be duplicated within the same evaluation form.
   """
   def create_evaluation_form(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}"
@@ -4494,8 +4493,8 @@ defmodule AWS.Connect do
   Updates details about a specific evaluation form version in the specified Amazon
   Connect instance.
 
-  An evaluation form must have a unique title within an instance. Question and
-  section identifiers cannot be duplicated within the same evaluation form.
+  Question and section identifiers cannot be duplicated within the same evaluation
+  form.
 
   This operation does not support partial updates. Instead it does a full update
   of evaluation form content.

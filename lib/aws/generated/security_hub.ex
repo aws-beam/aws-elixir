@@ -1224,6 +1224,32 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Returns history for a Security Hub finding in the last 90 days.
+
+  The history includes changes made to any fields in the Amazon Web Services
+  Security Finding Format (ASFF).
+  """
+  def get_finding_history(%Client{} = client, input, options \\ []) do
+    url_path = "/findingHistory/get"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns a list of findings that match the specified criteria.
 
   If finding aggregation is enabled, then when you call `GetFindings` from the

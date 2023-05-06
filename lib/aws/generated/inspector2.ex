@@ -737,6 +737,29 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Lists Amazon Inspector coverage details for a specific vulnerability.
+  """
+  def search_vulnerabilities(%Client{} = client, input, options \\ []) do
+    url_path = "/vulnerabilities/search"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Adds tags to a resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do

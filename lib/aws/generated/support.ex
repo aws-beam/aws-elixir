@@ -236,6 +236,27 @@ defmodule AWS.Support do
   end
 
   @doc """
+  Returns a list of CreateCaseOption types along with the corresponding supported
+  hours and language availability.
+
+  You can specify the `language` `categoryCode`, `issueType` and `serviceCode`
+  used to retrieve the CreateCaseOptions.
+
+     You must have a Business, Enterprise On-Ramp, or Enterprise Support
+  plan to use the Amazon Web Services Support API.
+
+     If you call the Amazon Web Services Support API from an account
+  that doesn't have a Business, Enterprise On-Ramp, or Enterprise Support plan,
+  the `SubscriptionRequiredException` error message appears. For information about
+  changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
+  """
+  def describe_create_case_options(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCreateCaseOptions", input, options)
+  end
+
+  @doc """
   Returns the current list of Amazon Web Services services and a list of service
   categories for each service.
 
@@ -282,6 +303,27 @@ defmodule AWS.Support do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeSeverityLevels", input, options)
+  end
+
+  @doc """
+  Returns a list of supported languages for a specified `categoryCode`,
+  `issueType` and `serviceCode`.
+
+  The returned supported languages will include a ISO 639-1 code for the
+  `language`, and the language display name.
+
+     You must have a Business, Enterprise On-Ramp, or Enterprise Support
+  plan to use the Amazon Web Services Support API.
+
+     If you call the Amazon Web Services Support API from an account
+  that doesn't have a Business, Enterprise On-Ramp, or Enterprise Support plan,
+  the `SubscriptionRequiredException` error message appears. For information about
+  changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
+  """
+  def describe_supported_languages(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSupportedLanguages", input, options)
   end
 
   @doc """

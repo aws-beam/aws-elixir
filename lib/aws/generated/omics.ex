@@ -5,8 +5,8 @@ defmodule AWS.Omics do
   @moduledoc """
   This is the *Amazon Omics API Reference*.
 
-  For an introduction to the service, see [What is Amazon Omics?](https://docs.aws.amazon.com/omics/latest/dev/) in the *Amazon Omics
-  Developer Guide*.
+  For an introduction to the service, see [What is Amazon Omics?](https://docs.aws.amazon.com/omics/latest/dev/) in the *Amazon Omics User
+  Guide*.
   """
 
   alias AWS.Client
@@ -26,6 +26,37 @@ defmodule AWS.Omics do
       signing_name: "omics",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Stops a multipart upload.
+  """
+  def abort_multipart_read_set_upload(
+        %Client{} = client,
+        sequence_store_id,
+        upload_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/upload/#{AWS.Util.encode_uri(upload_id)}/abort"
+
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -121,6 +152,37 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Concludes a multipart upload once you have uploaded all the components.
+  """
+  def complete_multipart_read_set_upload(
+        %Client{} = client,
+        sequence_store_id,
+        upload_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/upload/#{AWS.Util.encode_uri(upload_id)}/complete"
+
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "storage-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates an annotation store.
   """
   def create_annotation_store(%Client{} = client, input, options \\ []) do
@@ -129,6 +191,34 @@ defmodule AWS.Omics do
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Begins a multipart read set upload.
+  """
+  def create_multipart_read_set_upload(
+        %Client{} = client,
+        sequence_store_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/upload"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(
       client,
@@ -835,6 +925,35 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Lists all multipart read set uploads and their statuses.
+  """
+  def list_multipart_read_set_uploads(%Client{} = client, sequence_store_id, input, options \\ []) do
+    url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/uploads"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves a list of read set activation jobs.
   """
   def list_read_set_activation_jobs(%Client{} = client, sequence_store_id, input, options \\ []) do
@@ -897,6 +1016,44 @@ defmodule AWS.Omics do
   """
   def list_read_set_import_jobs(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/importjobs"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  This operation will list all parts in a requested multipart upload for a
+  sequence store.
+  """
+  def list_read_set_upload_parts(
+        %Client{} = client,
+        sequence_store_id,
+        upload_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/upload/#{AWS.Util.encode_uri(upload_id)}/parts"
+
     headers = []
 
     {query_params, input} =
@@ -1127,11 +1284,19 @@ defmodule AWS.Omics do
         name \\ nil,
         run_group_id \\ nil,
         starting_token \\ nil,
+        status \\ nil,
         options \\ []
       ) do
     url_path = "/run"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(starting_token) do
@@ -1618,5 +1783,29 @@ defmodule AWS.Omics do
       options,
       202
     )
+  end
+
+  @doc """
+  This operation uploads a specific part of a read set.
+
+  If you upload a new part using a previously used part number, the previously
+  uploaded part will be overwritten.
+  """
+  def upload_read_set_part(%Client{} = client, sequence_store_id, upload_id, input, options \\ []) do
+    url_path =
+      "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/upload/#{AWS.Util.encode_uri(upload_id)}/part"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"partNumber", "partNumber"},
+        {"partSource", "partSource"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata() |> Map.put_new(:host_prefix, "storage-")
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 end

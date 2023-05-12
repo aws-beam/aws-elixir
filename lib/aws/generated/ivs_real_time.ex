@@ -10,7 +10,19 @@ defmodule AWS.IVSRealTime do
 
   JSON is used for both requests and responses, including errors.
 
-  Terminology: The IVS stage API sometimes is referred to as the IVS RealTime API.
+  Terminology:
+
+    * The IVS stage API sometimes is referred to as the IVS *RealTime*
+  API.
+
+    * A *participant token* is an authorization token used to
+  publish/subscribe to a stage.
+
+    * A *participant object* represents participants (people) in the
+  stage and contains information about them. When a token is created, it includes
+  a participant ID; when a participant uses that token to join a stage, the
+  participant is associated with that participant ID There is a 1:1 mapping
+  between participant tokens and participants.
 
   ## Resources
 
@@ -53,10 +65,24 @@ defmodule AWS.IVSRealTime do
     * `DisconnectParticipant` — Disconnects a specified participant and
   revokes the participant permanently from a specified stage.
 
+    * `GetParticipant` — Gets information about the specified
+  participant token.
+
     * `GetStage` — Gets information for the specified stage.
+
+    * `GetStageSession` — Gets information for the specified stage
+  session.
+
+    * `ListParticipantEvents` — Lists events for a specified participant
+  that occurred during a specified stage session.
+
+    * `ListParticipants` — Lists all participants in a specified stage
+  session.
 
     * `ListStages` — Gets summary information about all stages in your
   account, in the AWS region where the API request is processed.
+
+    * `ListStageSessions` — Gets all sessions for a specified stage.
 
     * `UpdateStage` — Updates a stage’s configuration.
 
@@ -191,10 +217,126 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
+  Gets information about the specified participant token.
+  """
+  def get_participant(%Client{} = client, input, options \\ []) do
+    url_path = "/GetParticipant"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets information for the specified stage.
   """
   def get_stage(%Client{} = client, input, options \\ []) do
     url_path = "/GetStage"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets information for the specified stage session.
+  """
+  def get_stage_session(%Client{} = client, input, options \\ []) do
+    url_path = "/GetStageSession"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists events for a specified participant that occurred during a specified stage
+  session.
+  """
+  def list_participant_events(%Client{} = client, input, options \\ []) do
+    url_path = "/ListParticipantEvents"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all participants in a specified stage session.
+  """
+  def list_participants(%Client{} = client, input, options \\ []) do
+    url_path = "/ListParticipants"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets all sessions for a specified stage.
+  """
+  def list_stage_sessions(%Client{} = client, input, options \\ []) do
+    url_path = "/ListStageSessions"
     headers = []
     query_params = []
 

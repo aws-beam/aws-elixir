@@ -785,7 +785,7 @@ defmodule AWS.Kafka do
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
-  def reject_client_vpc_connection(%Client{} = client, cluster_arn \\ nil, input, options \\ []) do
+  def reject_client_vpc_connection(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/client-vpc-connection"
     headers = []
     query_params = []

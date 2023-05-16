@@ -176,7 +176,7 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Deletes the host key that's specified in the `HoskKeyId` parameter.
+  Deletes the host key that's specified in the `HostKeyId` parameter.
   """
   def delete_host_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -280,6 +280,12 @@ defmodule AWS.Transfer do
   @doc """
   You can use `DescribeExecution` to check the details of the execution of the
   specified workflow.
+
+  This API call only returns details for in-progress workflows.
+
+  If you provide an ID for an execution that is not in progress, or if the
+  execution doesn't match the specified workflow ID, you receive a
+  `ResourceNotFound` exception.
   """
   def describe_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -374,7 +380,7 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Adds a Secure Shell (SSH) public key to a user account identified by a
+  Adds a Secure Shell (SSH) public key to a Transfer Family user identified by a
   `UserName` value assigned to the specific file transfer protocol-enabled server,
   identified by `ServerId`.
 
@@ -436,7 +442,10 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Lists all executions for the specified workflow.
+  Lists all in-progress executions for the specified workflow.
+
+  If the specified workflow ID cannot be found, `ListExecutions` returns a
+  `ResourceNotFound` exception.
   """
   def list_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -511,7 +520,8 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Lists all of your workflows.
+  Lists all workflows associated with your Amazon Web Services account for your
+  current region.
   """
   def list_workflows(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -612,8 +622,16 @@ defmodule AWS.Transfer do
   The `ServerId` and `UserName` parameters are required. The `ServerProtocol`,
   `SourceIp`, and `UserPassword` are all optional.
 
-  You cannot use `TestIdentityProvider` if the `IdentityProviderType` of your
-  server is `SERVICE_MANAGED`.
+  Note the following:
+
+    * You cannot use `TestIdentityProvider` if the
+  `IdentityProviderType` of your server is `SERVICE_MANAGED`.
+
+    * `TestIdentityProvider` does not work with keys: it only accepts
+  passwords.
+
+    * `TestIdentityProvider` can test the password operation for a
+  custom Identity Provider that handles keys and passwords.
 
     * If you provide any incorrect values for any parameters, the
   `Response` field is empty.
@@ -628,7 +646,11 @@ defmodule AWS.Transfer do
   not identify an actual Transfer server, you receive the following error:
 
   `An error occurred (ResourceNotFoundException) when calling the
-  TestIdentityProvider operation: Unknown server`
+  TestIdentityProvider operation: Unknown server`.
+
+  It is possible your sever is in a different region. You can specify a region by
+  adding the following: `--region region-code`, such as `--region us-east-2` to
+  specify a server in **US East (Ohio)**.
   """
   def test_identity_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()

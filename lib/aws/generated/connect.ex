@@ -466,6 +466,23 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Creates a prompt.
+
+  For more information about prompts, such as supported file types and maximum
+  length, see [Create prompts](https://docs.aws.amazon.com/connect/latest/adminguide/prompts.html) in
+  the *Amazon Connect Administrator's Guide*.
+  """
+  def create_prompt(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Creates a new queue for the specified Amazon Connect instance.
@@ -911,6 +928,29 @@ defmodule AWS.Connect do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations/#{AWS.Util.encode_uri(integration_association_id)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes a prompt.
+  """
+  def delete_prompt(%Client{} = client, instance_id, prompt_id, input, options \\ []) do
+    url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(prompt_id)}"
     headers = []
     query_params = []
 
@@ -1424,6 +1464,19 @@ defmodule AWS.Connect do
   """
   def describe_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Describes the prompt.
+  """
+  def describe_prompt(%Client{} = client, instance_id, prompt_id, options \\ []) do
+    url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(prompt_id)}"
     headers = []
     query_params = []
 
@@ -2064,6 +2117,21 @@ defmodule AWS.Connect do
       options,
       nil
     )
+  end
+
+  @doc """
+  Gets the prompt file.
+  """
+  def get_prompt_file(%Client{} = client, instance_id, prompt_id, options \\ []) do
+    url_path =
+      "/prompts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(prompt_id)}/file"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -4680,6 +4748,29 @@ defmodule AWS.Connect do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates a prompt.
+  """
+  def update_prompt(%Client{} = client, instance_id, prompt_id, input, options \\ []) do
+    url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(prompt_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """

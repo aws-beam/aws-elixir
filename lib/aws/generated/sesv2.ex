@@ -1762,6 +1762,26 @@ defmodule AWS.SESv2 do
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
+  @doc """
+  Used to convert a dedicated IP pool to a different scaling mode.
+
+  `MANAGED` pools cannot be converted to `STANDARD` scaling mode.
+  """
+  def put_dedicated_ip_pool_scaling_attributes(
+        %Client{} = client,
+        pool_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/v2/email/dedicated-ip-pools/#{AWS.Util.encode_uri(pool_name)}/scaling"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
   def put_dedicated_ip_warmup_attributes(%Client{} = client, ip, input, options \\ []) do
     url_path = "/v2/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/warmup"
     headers = []

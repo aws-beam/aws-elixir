@@ -194,8 +194,9 @@ defmodule AWS.Client do
     %{client | http_client: http_client}
   end
 
-  def request(client, method, url, body, headers, _opts \\ []) do
+  def request(client, method, url, body, headers, opts \\ []) do
     {mod, options} = Map.fetch!(client, :http_client)
+    options = Keyword.merge(options, opts)
     apply(mod, :request, [method, url, body, headers, options])
   end
 

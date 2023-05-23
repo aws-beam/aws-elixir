@@ -1607,6 +1607,56 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Describes an existing export job.
+
+  Poll job descriptions after a job starts to know the status of the job. When a
+  job succeeds, a URL is provided to download the exported assets' data from.
+  Download URLs are valid for five minutes after they are generated. You can call
+  the `DescribeAssetBundleExportJob` API for a new download URL as needed.
+
+  Job descriptions are available for 14 days after the job starts.
+  """
+  def describe_asset_bundle_export_job(
+        %Client{} = client,
+        asset_bundle_export_job_id,
+        aws_account_id,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-export-jobs/#{AWS.Util.encode_uri(asset_bundle_export_job_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Describes an existing import job.
+
+  Poll job descriptions after starting a job to know when it has succeeded or
+  failed. Job descriptions are available for 14 days after job starts.
+  """
+  def describe_asset_bundle_import_job(
+        %Client{} = client,
+        asset_bundle_import_job_id,
+        aws_account_id,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-import-jobs/#{AWS.Util.encode_uri(asset_bundle_import_job_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Provides a summary for a dashboard.
   """
   def describe_dashboard(
@@ -2575,6 +2625,81 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists all asset bundle export jobs that have been taken place in the last 14
+  days.
+
+  Jobs created more than 14 days ago are deleted forever and are not returned. If
+  you are using the same job ID for multiple jobs, `ListAssetBundleExportJobs`
+  only returns the most recent job that uses the repeated job ID.
+  """
+  def list_asset_bundle_export_jobs(
+        %Client{} = client,
+        aws_account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-export-jobs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists all asset bundle import jobs that have taken place in the last 14 days.
+
+  Jobs created more than 14 days ago are deleted forever and are not returned. If
+  you are using the same job ID for multiple jobs, `ListAssetBundleImportJobs`
+  only returns the most recent job that uses the repeated job ID.
+  """
+  def list_asset_bundle_import_jobs(
+        %Client{} = client,
+        aws_account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-import-jobs"
     headers = []
     query_params = []
 
@@ -3657,6 +3782,74 @@ defmodule AWS.QuickSight do
         {"NextToken", "next-token"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Starts an Asset Bundle export job.
+
+  An Asset Bundle export job exports specified Amazon QuickSight assets. You can
+  also choose to export any asset dependencies in the same job. Export jobs run
+  asynchronously and can be polled with a `DescribeAssetBundleExportJob` API call.
+  When a job is successfully completed, a download URL that contains the exported
+  assets is returned. The URL is valid for 5 minutes and can be refreshed with a
+  `DescribeAssetBundleExportJob` API call. Each Amazon QuickSight account can run
+  up to 10 export jobs concurrently.
+
+  The API caller must have the necessary permissions in their IAM role to access
+  each resource before the resources can be exported.
+  """
+  def start_asset_bundle_export_job(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-export-jobs/export"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Starts an Asset Bundle import job.
+
+  An Asset Bundle import job imports specified Amazon QuickSight assets into an
+  Amazon QuickSight account. You can also choose to import a naming prefix and
+  specified configuration overrides. The assets that are contained in the bundle
+  file that you provide are used to create or update a new or existing asset in
+  your Amazon QuickSight account. Each Amazon QuickSight account can run up to 10
+  import jobs concurrently.
+
+  The API caller must have the necessary `"create"`, `"describe"`, and `"update"`
+  permissions in their IAM role to access each resource type that is contained in
+  the bundle file before the resources can be imported.
+  """
+  def start_asset_bundle_import_job(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-import-jobs/import"
+    headers = []
+    query_params = []
 
     meta = metadata()
 

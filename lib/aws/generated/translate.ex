@@ -205,6 +205,26 @@ defmodule AWS.Translate do
   end
 
   @doc """
+  Translates the input document from the source language to the target language.
+
+  This synchronous operation supports plain text or HTML for the input document.
+  `TranslateDocument` supports translations from English to any supported
+  language, and from any supported language to English. Therefore, specify either
+  the source language code or the target language code as “en” (English).
+
+  `TranslateDocument` does not support language auto-detection.
+
+  If you set the `Formality` parameter, the request will fail if the target
+  language does not support formality. For a list of target languages that support
+  formality, see [Setting formality](https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html).
+  """
+  def translate_document(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TranslateDocument", input, options)
+  end
+
+  @doc """
   Translates input text from the source language to the target language.
 
   For a list of available languages and language codes, see [Supported languages](https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html).

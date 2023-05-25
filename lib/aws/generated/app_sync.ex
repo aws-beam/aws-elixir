@@ -50,6 +50,68 @@ defmodule AWS.AppSync do
   end
 
   @doc """
+  Creates an association between a Merged API and source API using the source
+  API's identifier.
+  """
+  def associate_merged_graphql_api(
+        %Client{} = client,
+        source_api_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/sourceApis/#{AWS.Util.encode_uri(source_api_identifier)}/mergedApiAssociations"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates an association between a Merged API and source API using the Merged
+  API's identifier.
+  """
+  def associate_source_graphql_api(
+        %Client{} = client,
+        merged_api_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/mergedApis/#{AWS.Util.encode_uri(merged_api_identifier)}/sourceApiAssociations"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates a cache for the GraphQL API.
   """
   def create_api_cache(%Client{} = client, api_id, input, options \\ []) do
@@ -453,6 +515,70 @@ defmodule AWS.AppSync do
   end
 
   @doc """
+  Deletes an association between a Merged API and source API using the source
+  API's identifier and the association ID.
+  """
+  def disassociate_merged_graphql_api(
+        %Client{} = client,
+        association_id,
+        source_api_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/sourceApis/#{AWS.Util.encode_uri(source_api_identifier)}/mergedApiAssociations/#{AWS.Util.encode_uri(association_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes an association between a Merged API and source API using the Merged
+  API's identifier and the association ID.
+  """
+  def disassociate_source_graphql_api(
+        %Client{} = client,
+        association_id,
+        merged_api_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/mergedApis/#{AWS.Util.encode_uri(merged_api_identifier)}/sourceApiAssociations/#{AWS.Util.encode_uri(association_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Evaluates the given code and returns the response.
 
   The code definition requirements depend on the specified runtime. For
@@ -679,6 +805,26 @@ defmodule AWS.AppSync do
   end
 
   @doc """
+  Retrieves a `SourceApiAssociation` object.
+  """
+  def get_source_api_association(
+        %Client{} = client,
+        association_id,
+        merged_api_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/mergedApis/#{AWS.Util.encode_uri(merged_api_identifier)}/sourceApiAssociations/#{AWS.Util.encode_uri(association_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Retrieves a `Type` object.
   """
   def get_type(%Client{} = client, api_id, type_name, format, options \\ []) do
@@ -832,10 +978,24 @@ defmodule AWS.AppSync do
   @doc """
   Lists your GraphQL APIs.
   """
-  def list_graphql_apis(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_graphql_apis(
+        %Client{} = client,
+        api_type \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        owner \\ nil,
+        options \\ []
+      ) do
     url_path = "/v1/apis"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(owner) do
+        [{"owner", owner} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do
@@ -847,6 +1007,13 @@ defmodule AWS.AppSync do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(api_type) do
+        [{"apiType", api_type} | query_params]
       else
         query_params
       end
@@ -929,6 +1096,39 @@ defmodule AWS.AppSync do
   end
 
   @doc """
+  Lists the `SourceApiAssociationSummary` data.
+  """
+  def list_source_api_associations(
+        %Client{} = client,
+        api_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/sourceApiAssociations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Lists the tags for a resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
@@ -983,12 +1183,89 @@ defmodule AWS.AppSync do
   end
 
   @doc """
+  Lists `Type` objects by the source API association ID.
+  """
+  def list_types_by_association(
+        %Client{} = client,
+        association_id,
+        merged_api_identifier,
+        format,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/mergedApis/#{AWS.Util.encode_uri(merged_api_identifier)}/sourceApiAssociations/#{AWS.Util.encode_uri(association_id)}/types"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(format) do
+        [{"format", format} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Adds a new schema to your GraphQL API.
 
   This operation is asynchronous. Use to determine when it has completed.
   """
   def start_schema_creation(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/schemacreation"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Initiates a merge operation.
+
+  Returns a status that shows the result of the merge operation.
+  """
+  def start_schema_merge(
+        %Client{} = client,
+        association_id,
+        merged_api_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/mergedApis/#{AWS.Util.encode_uri(merged_api_identifier)}/sourceApiAssociations/#{AWS.Util.encode_uri(association_id)}/merge"
+
     headers = []
     query_params = []
 
@@ -1206,6 +1483,38 @@ defmodule AWS.AppSync do
   def update_resolver(%Client{} = client, api_id, field_name, type_name, input, options \\ []) do
     url_path =
       "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}/resolvers/#{AWS.Util.encode_uri(field_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates some of the configuration choices of a particular source API
+  association.
+  """
+  def update_source_api_association(
+        %Client{} = client,
+        association_id,
+        merged_api_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/mergedApis/#{AWS.Util.encode_uri(merged_api_identifier)}/sourceApiAssociations/#{AWS.Util.encode_uri(association_id)}"
 
     headers = []
     query_params = []

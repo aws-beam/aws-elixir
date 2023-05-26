@@ -30,9 +30,9 @@ defmodule AWS.ApplicationAutoScaling do
 
     * Amazon Neptune clusters
 
-    * Amazon SageMaker Serverless endpoint provisioned concurrency
-
     * Amazon SageMaker endpoint variants
+
+    * Amazon SageMaker Serverless endpoint provisioned concurrency
 
     * Spot Fleets (Amazon EC2)
 

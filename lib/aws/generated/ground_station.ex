@@ -324,7 +324,7 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
-  Returns the number of minutes used by account.
+  Returns the number of reserved minutes used by account.
   """
   def get_minute_usage(%Client{} = client, input, options \\ []) do
     url_path = "/minute-usage"

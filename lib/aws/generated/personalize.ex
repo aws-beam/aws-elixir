@@ -60,6 +60,10 @@ defmodule AWS.Personalize do
 
   ## Minimum Provisioned TPS and Auto-Scaling
 
+  A high `minProvisionedTPS` will increase your bill. We recommend starting with 1
+  for `minProvisionedTPS` (the default). Track your usage using Amazon CloudWatch
+  metrics, and increase the `minProvisionedTPS` as necessary.
+
   A transaction is a single `GetRecommendations` or `GetPersonalizedRanking` call.
   Transactions per second (TPS) is the throughput and unit of billing for Amazon
   Personalize. The minimum provisioned TPS (`minProvisionedTPS`) specifies the
@@ -353,6 +357,11 @@ defmodule AWS.Personalize do
 
   ## Minimum recommendation requests per second
 
+  A high `minRecommendationRequestsPerSecond` will increase your bill. We
+  recommend starting with 1 for `minRecommendationRequestsPerSecond` (the
+  default). Track your usage using Amazon CloudWatch metrics, and increase the
+  `minRecommendationRequestsPerSecond` as necessary.
+
   When you create a recommender, you can configure the recommender's minimum
   recommendation requests per second. The minimum recommendation requests per
   second (`minRecommendationRequestsPerSecond`) specifies the baseline
@@ -436,8 +445,8 @@ defmodule AWS.Personalize do
   @doc """
   Creates the configuration for training a model.
 
-  A trained model is known as a solution. After the configuration is created, you
-  train the model (create a solution) by calling the
+  A trained model is known as a solution version. After the configuration is
+  created, you train the model (create a solution version) by calling the
   [CreateSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html) operation. Every time you call `CreateSolutionVersion`, a new version of the
   solution is created.
 
@@ -452,8 +461,6 @@ defmodule AWS.Personalize do
   training data comes from the dataset group that you provide in the request. A
   recipe specifies the training algorithm and a feature transformation. You can
   specify one of the predefined recipes provided by Amazon Personalize.
-  Alternatively, you can specify `performAutoML` and Amazon Personalize will
-  analyze your data and select the optimum USER_PERSONALIZATION recipe for you.
 
   Amazon Personalize doesn't support configuring the `hpoObjective` for solution
   hyperparameter optimization at this time.
@@ -1099,7 +1106,7 @@ defmodule AWS.Personalize do
 
   @doc """
   Get a list of
-  [tags](https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html)
+  [tags](https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html)
   attached to a resource.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
@@ -1166,7 +1173,7 @@ defmodule AWS.Personalize do
 
   @doc """
   Remove
-  [tags](https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html)
+  [tags](https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html)
   that are attached to a resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
@@ -1208,6 +1215,15 @@ defmodule AWS.Personalize do
 
   @doc """
   Updates the recommender to modify the recommender configuration.
+
+  If you update the recommender to modify the columns used in training, Amazon
+  Personalize automatically starts a full retraining of the models backing your
+  recommender. While the update completes, you can still get recommendations from
+  the recommender. The recommender uses the previous configuration until the
+  update completes. To track the status of this update, use the
+  `latestRecommenderUpdate` returned in the
+  [DescribeRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html)
+  operation.
   """
   def update_recommender(%Client{} = client, input, options \\ []) do
     meta = metadata()

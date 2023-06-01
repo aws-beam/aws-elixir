@@ -132,7 +132,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-  Adds a user specifed key and value tag to a Data Store.
+  Adds a user specified key and value tag to a Data Store.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

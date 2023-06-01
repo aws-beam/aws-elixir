@@ -634,6 +634,17 @@ defmodule AWS.ServiceCatalog do
   disassociating a principal, share recipient accounts will no longer be able to
   provision products in this portfolio using a role matching the name of the
   associated principal.
+
+  For more information, review
+  [associate-principal-with-portfolio](https://docs.aws.amazon.com/cli/latest/reference/servicecatalog/associate-principal-with-portfolio.html#options)
+  in the Amazon Web Services CLI Command Reference.
+
+  If you disassociate a principal from a portfolio, with PrincipalType as `IAM`,
+  the same principal will still have access to the portfolio if it matches one of
+  the associated principals of type `IAM_PATTERN`. To fully remove access for a
+  principal, verify all the associated Principals of type `IAM_PATTERN`, and then
+  ensure you disassociate any `IAM_PATTERN` principals that match the principal
+  whose access you are removing.
   """
   def disassociate_principal_from_portfolio(%Client{} = client, input, options \\ []) do
     meta = metadata()

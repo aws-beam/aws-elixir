@@ -470,9 +470,9 @@ defmodule AWS.Config do
   If a configuration recorder is not specified, this action returns the status of
   all configuration recorders associated with the account.
 
-  Currently, you can specify only one configuration recorder per region in your
-  account. For a detailed status of recording events over time, add your Config
-  events to Amazon CloudWatch metrics and use CloudWatch metrics.
+  >You can specify only one configuration recorder for each Amazon Web Services
+  Region for each account. For a detailed status of recording events over time,
+  add your Config events to Amazon CloudWatch metrics and use CloudWatch metrics.
   """
   def describe_configuration_recorder_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -486,8 +486,8 @@ defmodule AWS.Config do
   If the configuration recorder is not specified, this action returns the details
   for all configuration recorders associated with the account.
 
-  Currently, you can specify only one configuration recorder per region in your
-  account.
+  You can specify only one configuration recorder for each Amazon Web Services
+  Region for each account.
   """
   def describe_configuration_recorders(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1219,17 +1219,18 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Creates a new configuration recorder to record the selected resource
-  configurations.
+  Creates a new configuration recorder to record configuration changes for
+  specified resource types.
 
-  You can use this action to change the role `roleARN` or the `recordingGroup` of
-  an existing recorder. To change the role, call the action on the existing
-  configuration recorder and specify a role.
+  You can also use this action to change the `roleARN` or the `recordingGroup` of
+  an existing recorder. For more information, see [ ## Managing the Configuration Recorder
+  ](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html)
+  in the *Config Developer Guide*.
 
-  Currently, you can specify only one configuration recorder per region in your
-  account.
+  You can specify only one configuration recorder for each Amazon Web Services
+  Region for each account.
 
-  If `ConfigurationRecorder` does not have the **recordingGroup** parameter
+  If the configuration recorder does not have the `recordingGroup` field
   specified, the default is to record all supported resource types.
   """
   def put_configuration_recorder(%Client{} = client, input, options \\ []) do
@@ -1245,7 +1246,7 @@ defmodule AWS.Config do
   in an account and a region and across an organization. For information on how
   many conformance packs you can have per account, see [ ## Service Limits
   ](https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html) in
-  the Config Developer Guide.
+  the *Config Developer Guide*.
 
   This API creates a service-linked role `AWSServiceRoleForConfigConforms` in your
   account. The service-linked role is created only when the role does not exist in
@@ -1374,7 +1375,7 @@ defmodule AWS.Config do
   For information on how many organization conformance packs and how many Config
   rules you can have per account, see [ ## Service Limits
   ](https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html) in
-  the Config Developer Guide.
+  the *Config Developer Guide*.
 
   Only a management account and a delegated administrator can call this API. When
   calling this API with a delegated administrator, you must ensure Organizations
@@ -1463,7 +1464,7 @@ defmodule AWS.Config do
   are `NOT_APPLICABLE`, a remediation exception will not be generated. For more
   information on the conditions that initiate the possible Config evaluation
   results, see [Concepts | Config Rules](https://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html#aws-config-rules)
-  in the Config Developer Guide.
+  in the *Config Developer Guide*.
   """
   def put_remediation_exceptions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1538,7 +1539,7 @@ defmodule AWS.Config do
 
   For more information about query components, see the [ ## Query Components
   ](https://docs.aws.amazon.com/config/latest/developerguide/query-components.html)
-  section in the Config Developer Guide.
+  section in the *Config Developer Guide*.
 
   If you run an aggregation query (i.e., using `GROUP BY` or using aggregate
   functions such as `COUNT`; e.g., `SELECT resourceId, COUNT(*) WHERE resourceType

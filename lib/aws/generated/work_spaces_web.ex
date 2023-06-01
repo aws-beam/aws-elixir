@@ -52,6 +52,24 @@ defmodule AWS.WorkSpacesWeb do
   end
 
   @doc """
+  Associates an IP access settings resource with a web portal.
+  """
+  def associate_ip_access_settings(%Client{} = client, portal_arn, input, options \\ []) do
+    url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/ipAccessSettings"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"ipAccessSettingsArn", "ipAccessSettingsArn"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Associates a network settings resource with a web portal.
   """
   def associate_network_settings(%Client{} = client, portal_arn, input, options \\ []) do
@@ -156,6 +174,29 @@ defmodule AWS.WorkSpacesWeb do
   """
   def create_identity_provider(%Client{} = client, input, options \\ []) do
     url_path = "/identityProviders"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an IP access settings resource that can be associated with a web portal.
+  """
+  def create_ip_access_settings(%Client{} = client, input, options \\ []) do
+    url_path = "/ipAccessSettings"
     headers = []
     query_params = []
 
@@ -349,6 +390,29 @@ defmodule AWS.WorkSpacesWeb do
   end
 
   @doc """
+  Deletes IP access settings.
+  """
+  def delete_ip_access_settings(%Client{} = client, ip_access_settings_arn, input, options \\ []) do
+    url_path = "/ipAccessSettings/#{AWS.Util.encode_multi_segment_uri(ip_access_settings_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes network settings.
   """
   def delete_network_settings(%Client{} = client, network_settings_arn, input, options \\ []) do
@@ -494,6 +558,29 @@ defmodule AWS.WorkSpacesWeb do
   end
 
   @doc """
+  Disassociates IP access settings from a web portal.
+  """
+  def disassociate_ip_access_settings(%Client{} = client, portal_arn, input, options \\ []) do
+    url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/ipAccessSettings"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Disassociates network settings from a web portal.
   """
   def disassociate_network_settings(%Client{} = client, portal_arn, input, options \\ []) do
@@ -610,6 +697,19 @@ defmodule AWS.WorkSpacesWeb do
   """
   def get_identity_provider(%Client{} = client, identity_provider_arn, options \\ []) do
     url_path = "/identityProviders/#{AWS.Util.encode_multi_segment_uri(identity_provider_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the IP access settings.
+  """
+  def get_ip_access_settings(%Client{} = client, ip_access_settings_arn, options \\ []) do
+    url_path = "/ipAccessSettings/#{AWS.Util.encode_multi_segment_uri(ip_access_settings_arn)}"
     headers = []
     query_params = []
 
@@ -765,6 +865,38 @@ defmodule AWS.WorkSpacesWeb do
         options \\ []
       ) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/identityProviders"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a list of IP access settings.
+  """
+  def list_ip_access_settings(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/ipAccessSettings"
     headers = []
     query_params = []
 
@@ -1057,6 +1189,29 @@ defmodule AWS.WorkSpacesWeb do
   """
   def update_identity_provider(%Client{} = client, identity_provider_arn, input, options \\ []) do
     url_path = "/identityProviders/#{AWS.Util.encode_multi_segment_uri(identity_provider_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates IP access settings.
+  """
+  def update_ip_access_settings(%Client{} = client, ip_access_settings_arn, input, options \\ []) do
+    url_path = "/ipAccessSettings/#{AWS.Util.encode_multi_segment_uri(ip_access_settings_arn)}"
     headers = []
     query_params = []
 

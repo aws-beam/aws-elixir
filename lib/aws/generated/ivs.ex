@@ -938,8 +938,8 @@ defmodule AWS.Ivs do
   @doc """
   Updates a channel's configuration.
 
-  This does not affect an ongoing stream of this channel. You must stop and
-  restart the stream for the changes to take effect.
+  Live channels cannot be updated. You must stop the ongoing stream, update the
+  channel, and restart the stream for the changes to take effect.
   """
   def update_channel(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateChannel"

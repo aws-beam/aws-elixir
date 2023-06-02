@@ -62,6 +62,44 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  Creates a new calculated attribute definition.
+
+  After creation, new object data ingested into Customer Profiles will be included
+  in the calculated attribute, which can be retrieved for a profile using the
+  [GetCalculatedAttributeForProfile](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetCalculatedAttributeForProfile.html)
+  API. Defining a calculated attribute makes it available for all profiles within
+  a domain. Each calculated attribute can only reference one `ObjectType` and at
+  most, two fields from that `ObjectType`.
+  """
+  def create_calculated_attribute_definition(
+        %Client{} = client,
+        calculated_attribute_name,
+        domain_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/calculated-attributes/#{AWS.Util.encode_uri(calculated_attribute_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates a domain, which is a container for all customer data, such as customer
   profile attributes, object types, profile keys, and encryption keys.
 
@@ -144,6 +182,41 @@ defmodule AWS.CustomerProfiles do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes an existing calculated attribute definition.
+
+  Note that deleting a default calculated attribute is possible, however once
+  deleted, you will be unable to undo that action and will need to recreate it on
+  your own using the CreateCalculatedAttributeDefinition API if you want it back.
+  """
+  def delete_calculated_attribute_definition(
+        %Client{} = client,
+        calculated_attribute_name,
+        domain_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/calculated-attributes/#{AWS.Util.encode_uri(calculated_attribute_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       headers,
@@ -370,6 +443,48 @@ defmodule AWS.CustomerProfiles do
       options,
       nil
     )
+  end
+
+  @doc """
+  Provides more information on a calculated attribute definition for Customer
+  Profiles.
+  """
+  def get_calculated_attribute_definition(
+        %Client{} = client,
+        calculated_attribute_name,
+        domain_name,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/calculated-attributes/#{AWS.Util.encode_uri(calculated_attribute_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieve a calculated attribute for a customer profile.
+  """
+  def get_calculated_attribute_for_profile(
+        %Client{} = client,
+        calculated_attribute_name,
+        domain_name,
+        profile_id,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/profile/#{AWS.Util.encode_uri(profile_id)}/calculated-attributes/#{AWS.Util.encode_uri(calculated_attribute_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -614,6 +729,75 @@ defmodule AWS.CustomerProfiles do
       options,
       nil
     )
+  end
+
+  @doc """
+  Lists calculated attribute definitions for Customer Profiles
+  """
+  def list_calculated_attribute_definitions(
+        %Client{} = client,
+        domain_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/calculated-attributes"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieve a list of calculated attributes for a customer profile.
+  """
+  def list_calculated_attributes_for_profile(
+        %Client{} = client,
+        domain_name,
+        profile_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/profile/#{AWS.Util.encode_uri(profile_id)}/calculated-attributes"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -1090,6 +1274,31 @@ defmodule AWS.CustomerProfiles do
       options,
       nil
     )
+  end
+
+  @doc """
+  Updates an existing calculated attribute definition.
+
+  When updating the Conditions, note that increasing the date range of a
+  calculated attribute will not trigger inclusion of historical data greater than
+  the current date range.
+  """
+  def update_calculated_attribute_definition(
+        %Client{} = client,
+        calculated_attribute_name,
+        domain_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/calculated-attributes/#{AWS.Util.encode_uri(calculated_attribute_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """

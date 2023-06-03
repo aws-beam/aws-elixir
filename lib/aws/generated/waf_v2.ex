@@ -311,6 +311,26 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
+  Provides high-level information for the Amazon Web Services Managed Rules rule
+  groups and Amazon Web Services Marketplace managed rule groups.
+  """
+  def describe_all_managed_products(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAllManagedProducts", input, options)
+  end
+
+  @doc """
+  Provides high-level information for the managed rule groups owned by a specific
+  vendor.
+  """
+  def describe_managed_products_by_vendor(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeManagedProductsByVendor", input, options)
+  end
+
+  @doc """
   Provides high-level information for a managed rule group, including descriptions
   of the rules.
   """

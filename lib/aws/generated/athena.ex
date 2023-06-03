@@ -90,6 +90,11 @@ defmodule AWS.Athena do
 
   @doc """
   Cancels the capacity reservation with the specified name.
+
+  Cancelled reservations remain in your account and will be deleted 45 days after
+  cancellation. During the 45 days, you cannot re-purpose or reuse a reservation
+  that has been cancelled, but you can refer to its tags and view it for
+  historical reference.
   """
   def cancel_capacity_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -175,6 +180,21 @@ defmodule AWS.Athena do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateWorkGroup", input, options)
+  end
+
+  @doc """
+  Deletes a cancelled capacity reservation.
+
+  A reservation must be cancelled before it can be deleted. A deleted reservation
+  is immediately removed from your account and can no longer be referenced,
+  including by its ARN. A deleted reservation cannot be called by
+  `GetCapacityReservation`, and deleted reservations do not appear in the output
+  of `ListCapacityReservations`.
+  """
+  def delete_capacity_reservation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCapacityReservation", input, options)
   end
 
   @doc """

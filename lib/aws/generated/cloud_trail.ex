@@ -27,6 +27,125 @@ defmodule AWS.CloudTrail do
   See the [CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)
   for information about the data that is included with each Amazon Web Services
   API call listed in the log files.
+
+  ## Actions available for CloudTrail trails
+
+  The following actions are available for CloudTrail trails.
+
+    * `AddTags`
+
+    * `CreateTrail`
+
+    * `DeleteTrail`
+
+    * `DescribeTrails`
+
+    * `GetEventSelectors`
+
+    * `GetInsightSelectors`
+
+    * `GetTrail`
+
+    * `GetTrailStatus`
+
+    * `ListTags`
+
+    * `ListTrails`
+
+    * `PutEventSelectors`
+
+    * `PutInsightSelectors`
+
+    * `RemoveTags`
+
+    * `StartLogging`
+
+    * `StopLogging`
+
+    * `UpdateTrail`
+
+  ## Actions available for CloudTrail event data stores
+
+  The following actions are available for CloudTrail event data stores.
+
+    * `AddTags`
+
+    * `CancelQuery`
+
+    * `CreateEventDataStore`
+
+    * `DeleteEventDataStore`
+
+    * `DescribeQuery`
+
+    * `GetEventDataStore`
+
+    * `GetQueryResults`
+
+    * `ListEventDataStores`
+
+    * `ListTags`
+
+    * `ListQueries`
+
+    * `RemoveTags`
+
+    * `RestoreEventDataStore`
+
+    * `StartEventDataStoreIngestion`
+
+    * `StartImport`
+
+  The following additional actions are available for imports.
+
+      * `GetImport`
+
+      * `ListImportFailures`
+
+      * `ListImports`
+
+      * `StopImport`
+
+    * `StartQuery`
+
+    * `StartEventDataStoreIngestion`
+
+    * `UpdateEventDataStore`
+
+  ## Actions available for CloudTrail channels
+
+  The following actions are available for CloudTrail channels.
+
+    * `AddTags`
+
+    * `CreateChannel`
+
+    * `DeleteChannel`
+
+    * `DeleteResourcePolicy`
+
+    * `GetChannel`
+
+    * `GetResourcePolicy`
+
+    * `ListChannels`
+
+    * `ListTags`
+
+    * `PutResourcePolicy`
+
+    * `RemoveTags`
+
+    * `UpdateChannel`
+
+  ## Actions available for managing delegated administrators
+
+  The following actions are available for adding or a removing a delegated
+  administrator to manage an Organizations organization’s CloudTrail resources.
+
+    * `DeregisterOrganizationDelegatedAdmin`
+
+    * `RegisterOrganizationDelegatedAdmin`
   """
 
   alias AWS.Client
@@ -58,7 +177,7 @@ defmodule AWS.CloudTrail do
   created with the specified key and a value of null. You can tag a trail or event
   data store that applies to all Amazon Web Services Regions only from the Region
   in which the trail or event data store was created (also known as its home
-  region).
+  Region).
   """
   def add_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -154,9 +273,9 @@ defmodule AWS.CloudTrail do
   @doc """
   Deletes a trail.
 
-  This operation must be called from the region in which the trail was created.
+  This operation must be called from the Region in which the trail was created.
   `DeleteTrail` cannot be called on the shadow trails (replicated trails in other
-  regions) of a trail that is enabled in all regions.
+  Regions) of a trail that is enabled in all Regions.
   """
   def delete_trail(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -187,7 +306,7 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
-  Retrieves settings for one or more trails associated with the current region for
+  Retrieves settings for one or more trails associated with the current Region for
   your account.
   """
   def describe_trails(%Client{} = client, input, options \\ []) do
@@ -306,8 +425,8 @@ defmodule AWS.CloudTrail do
 
   Fields include information on delivery errors, Amazon SNS and Amazon S3 errors,
   and start and stop logging times for each trail. This operation returns trail
-  status from a single region. To return trail status from all regions, you must
-  call the operation on each region.
+  status from a single Region. To return trail status from all Regions, you must
+  call the operation on each Region.
   """
   def get_trail_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -326,7 +445,7 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Returns information about all event data stores in the account, in the current
-  region.
+  Region.
   """
   def list_event_data_stores(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -360,9 +479,9 @@ defmodule AWS.CloudTrail do
   The public key is needed to validate digest files that were signed with its
   corresponding private key.
 
-  CloudTrail uses different private and public key pairs per region. Each digest
-  file is signed with a private key unique to its region. When you validate a
-  digest file from a specific region, you must look in the same region for its
+  CloudTrail uses different private and public key pairs per Region. Each digest
+  file is signed with a private key unique to its Region. When you validate a
+  digest file from a specific Region, you must look in the same Region for its
   corresponding public key.
   """
   def list_public_keys(%Client{} = client, input, options \\ []) do
@@ -387,8 +506,8 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
-  Lists the tags for the trail, event data store, or channel in the current
-  region.
+  Lists the tags for the specified trails, event data stores, or channels in the
+  current Region.
   """
   def list_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -410,7 +529,7 @@ defmodule AWS.CloudTrail do
   or [CloudTrail Insights events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-insights-events)
   that are captured by CloudTrail.
 
-  You can look up events that occurred in a region within the last 90 days. Lookup
+  You can look up events that occurred in a Region within the last 90 days. Lookup
   supports the following attributes for management events:
 
     * Amazon Web Services access key
@@ -442,7 +561,7 @@ defmodule AWS.CloudTrail do
   the next page of results.
 
   The rate of lookup requests is limited to two per second, per account, per
-  region. If this limit is exceeded, a throttling error occurs.
+  Region. If this limit is exceeded, a throttling error occurs.
   """
   def lookup_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -484,7 +603,7 @@ defmodule AWS.CloudTrail do
     5. The `GetConsoleOutput` is a read-only event that doesn't match
   your event selector. The trail doesn't log the event.
 
-  The `PutEventSelectors` operation must be called from the region in which the
+  The `PutEventSelectors` operation must be called from the Region in which the
   trail was created; otherwise, an `InvalidHomeRegionException` exception is
   thrown.
 
@@ -576,6 +695,19 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+  Starts the ingestion of live events on an event data store specified as either
+  an ARN or the ID portion of the ARN.
+
+  To start ingestion, the event data store `Status` must be `STOPPED_INGESTION`
+  and the `eventCategory` must be `Management`, `Data`, or `ConfigurationItem`.
+  """
+  def start_event_data_store_ingestion(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartEventDataStoreIngestion", input, options)
+  end
+
+  @doc """
   Starts an import of logged trail events from a source S3 bucket to a destination
   event data store.
 
@@ -606,10 +738,10 @@ defmodule AWS.CloudTrail do
   Starts the recording of Amazon Web Services API calls and log file delivery for
   a trail.
 
-  For a trail that is enabled in all regions, this operation must be called from
-  the region in which the trail was created. This operation cannot be called on
-  the shadow trails (replicated trails in other regions) of a trail that is
-  enabled in all regions.
+  For a trail that is enabled in all Regions, this operation must be called from
+  the Region in which the trail was created. This operation cannot be called on
+  the shadow trails (replicated trails in other Regions) of a trail that is
+  enabled in all Regions.
   """
   def start_logging(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -631,6 +763,19 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+  Stops the ingestion of live events on an event data store specified as either an
+  ARN or the ID portion of the ARN.
+
+  To stop ingestion, the event data store `Status` must be `ENABLED` and the
+  `eventCategory` must be `Management`, `Data`, or `ConfigurationItem`.
+  """
+  def stop_event_data_store_ingestion(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopEventDataStoreIngestion", input, options)
+  end
+
+  @doc """
   Stops a specified import.
   """
   def stop_import(%Client{} = client, input, options \\ []) do
@@ -645,10 +790,10 @@ defmodule AWS.CloudTrail do
 
   Under most circumstances, there is no need to use this action. You can update a
   trail without stopping it first. This action is the only way to stop recording.
-  For a trail enabled in all regions, this operation must be called from the
-  region in which the trail was created, or an `InvalidHomeRegionException` will
+  For a trail enabled in all Regions, this operation must be called from the
+  Region in which the trail was created, or an `InvalidHomeRegionException` will
   occur. This operation cannot be called on the shadow trails (replicated trails
-  in other regions) of a trail enabled in all regions.
+  in other Regions) of a trail enabled in all Regions.
   """
   def stop_logging(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -696,7 +841,7 @@ defmodule AWS.CloudTrail do
   Changes to a trail do not require stopping the CloudTrail service. Use this
   action to designate an existing bucket for log delivery. If the existing bucket
   has previously been a target for CloudTrail log files, an IAM policy exists for
-  the bucket. `UpdateTrail` must be called from the region in which the trail was
+  the bucket. `UpdateTrail` must be called from the Region in which the trail was
   created; otherwise, an `InvalidHomeRegionException` is thrown.
   """
   def update_trail(%Client{} = client, input, options \\ []) do

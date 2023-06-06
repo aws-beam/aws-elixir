@@ -47,6 +47,19 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
+  Activate trusted access with Organizations.
+
+  With trusted access between StackSets and Organizations activated, the
+  management account has permissions to create and manage StackSets for your
+  organization.
+  """
+  def activate_organizations_access(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ActivateOrganizationsAccess", input, options)
+  end
+
+  @doc """
   Activates a public third-party extension, making it available for use in stack
   templates.
 
@@ -54,8 +67,8 @@ defmodule AWS.CloudFormation do
   in the *CloudFormation User Guide*.
 
   Once you have activated a public third-party extension in your account and
-  region, use
-  [SetTypeConfiguration](AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html) to specify configuration properties for the extension. For more information, see
+  Region, use
+  [SetTypeConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html) to specify configuration properties for the extension. For more information, see
   [Configuring extensions at the account
   level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
   in the *CloudFormation User Guide*.
@@ -68,7 +81,7 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns configuration data for the specified CloudFormation extensions, from the
-  CloudFormation registry for the account and region.
+  CloudFormation registry for the account and Region.
 
   For more information, see [Configuring extensions at the account level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
   in the *CloudFormation User Guide*.
@@ -185,8 +198,21 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
+  Deactivates trusted access with Organizations.
+
+  If trusted access is deactivated, the management account does not have
+  permissions to create and manage service-managed StackSets for your
+  organization.
+  """
+  def deactivate_organizations_access(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeactivateOrganizationsAccess", input, options)
+  end
+
+  @doc """
   Deactivates a public extension that was previously activated in this account and
-  region.
+  Region.
 
   Once deactivated, an extension can't be used in any CloudFormation operation.
   This includes stack update operations where the stack template includes the
@@ -318,6 +344,19 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
+  Retrieves information about the account's `OrganizationAccess` status.
+
+  This API can be called either by the management account or the delegated
+  administrator by using the `CallAs` parameter. This API can also be called
+  without the `CallAs` parameter by the management account.
+  """
+  def describe_organizations_access(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeOrganizationsAccess", input, options)
+  end
+
+  @doc """
   Returns information about a CloudFormation extension publisher.
 
   If you don't supply a `PublisherId`, and you have registered as an extension
@@ -341,7 +380,7 @@ defmodule AWS.CloudFormation do
   Returns information about a stack drift detection operation.
 
   A stack drift detection operation detects whether a stack's actual configuration
-  differs, or has *drifted*, from it's expected configuration, as defined in the
+  differs, or has *drifted*, from its expected configuration, as defined in the
   stack template and any values specified as template parameters. A stack is
   considered to have drifted if one or more of its resources have drifted. For
   more information about stack and resource drift, see [Detecting Unregulated Configuration Changes to Stacks and
@@ -377,10 +416,10 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns the stack instance that's associated with the specified stack set,
-  Amazon Web Services account, and Region.
+  Returns the stack instance that's associated with the specified StackSet, Amazon
+  Web Services account, and Amazon Web Services Region.
 
-  For a list of stack instances that are associated with a specific stack set, use
+  For a list of stack instances that are associated with a specific StackSet, use
   `ListStackInstances`.
   """
   def describe_stack_instance(%Client{} = client, input, options \\ []) do
@@ -452,7 +491,7 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns the description of the specified stack set.
+  Returns the description of the specified StackSet.
   """
   def describe_stack_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -461,7 +500,7 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns the description of the specified stack set operation.
+  Returns the description of the specified StackSet operation.
   """
   def describe_stack_set_operation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -513,7 +552,7 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Detects whether a stack's actual configuration differs, or has *drifted*, from
-  it's expected configuration, as defined in the stack template and any values
+  its expected configuration, as defined in the stack template and any values
   specified as template parameters.
 
   For each resource in the stack that supports drift detection, CloudFormation
@@ -547,8 +586,8 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns information about whether a resource's actual configuration differs, or
-  has *drifted*, from it's expected configuration, as defined in the stack
-  template and any values specified as template parameters.
+  has *drifted*, from its expected configuration, as defined in the stack template
+  and any values specified as template parameters.
 
   This information includes actual and expected property values for resources in
   which CloudFormation detects drift. Only resource properties explicitly defined
@@ -701,8 +740,6 @@ defmodule AWS.CloudFormation do
   Use the stack import operation to import up to 10 stacks into a new stack set in
   the same account as the source stack or in a different administrator account and
   Region, by specifying the stack ID of the stack you intend to import.
-
-  `ImportStacksToStackSet` is only supported by self-managed permissions.
   """
   def import_stacks_to_stack_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -866,7 +903,7 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Publishes the specified extension to the CloudFormation registry as a public
-  extension in this region.
+  extension in this Region.
 
   Public extensions are available for use by all CloudFormation users. For more
   information about publishing extensions, see [Publishing extensions to make them available for public
@@ -930,15 +967,15 @@ defmodule AWS.CloudFormation do
   in the *CloudFormation CLI User Guide*.
 
   You can have a maximum of 50 resource extension versions registered at a time.
-  This maximum is per account and per region. Use
-  [DeregisterType](AWSCloudFormation/latest/APIReference/API_DeregisterType.html) to deregister specific extension versions if necessary.
+  This maximum is per account and per Region. Use
+  [DeregisterType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeregisterType.html) to deregister specific extension versions if necessary.
 
   Once you have initiated a registration request using ` `RegisterType` `, you can
   use ` `DescribeTypeRegistration` ` to monitor the progress of the registration
   request.
 
-  Once you have registered a private extension in your account and region, use
-  [SetTypeConfiguration](AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html)
+  Once you have registered a private extension in your account and Region, use
+  [SetTypeConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html)
   to specify configuration properties for the extension. For more information, see
   [Configuring extensions at the account level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
   in the *CloudFormation User Guide*.
@@ -989,11 +1026,11 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Specifies the configuration data for a registered CloudFormation extension, in
-  the given account and region.
+  the given account and Region.
 
   To view the current configuration data for an extension, refer to the
   `ConfigurationSchema` element of
-  [DescribeType](AWSCloudFormation/latest/APIReference/API_DescribeType.html). For more information, see [Configuring extensions at the account
+  [DescribeType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html). For more information, see [Configuring extensions at the account
   level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
   in the *CloudFormation User Guide*.
 
@@ -1060,11 +1097,11 @@ defmodule AWS.CloudFormation do
   in the *CloudFormation CLI User Guide*.
 
   If you don't specify a version, CloudFormation uses the default version of the
-  extension in your account and region for testing.
+  extension in your account and Region for testing.
 
   To perform testing, CloudFormation assumes the execution role specified when the
   type was registered. For more information, see
-  [RegisterType](AWSCloudFormation/latest/APIReference/API_RegisterType.html).  Once you've initiated testing on an extension using `TestType`, you can pass the
+  [RegisterType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html).  Once you've initiated testing on an extension using `TestType`, you can pass the
   returned `TypeVersionArn` into
   [DescribeType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html)
   to monitor the current test status and test status description for the

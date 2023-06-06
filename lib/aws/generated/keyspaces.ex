@@ -225,7 +225,7 @@ defmodule AWS.Keyspaces do
   in the *Amazon Keyspaces Developer Guide*.
 
   For IAM policy examples that show how to control access to Amazon Keyspaces
-  resources based on tags, see [Amazon Keyspaces resource access based on tags](https://docs.aws.amazon.com/keyspaces/latest/devguide/security_iam_id-based-policy-examples-tags)
+  resources based on tags, see [Amazon Keyspaces resource access based on tags](https://docs.aws.amazon.com/keyspaces/latest/devguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-tags)
   in the *Amazon Keyspaces Developer Guide*.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do

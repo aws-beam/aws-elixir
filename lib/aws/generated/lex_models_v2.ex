@@ -368,6 +368,29 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
+  Create a report that describes the differences between the bot and the test set.
+  """
+  def create_test_set_discrepancy_report(%Client{} = client, test_set_id, input, options \\ []) do
+    url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}/testsetdiscrepancy"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Gets a pre-signed S3 write URL that you use to upload the zip archive when
   importing a bot or a bot locale.
   """
@@ -781,6 +804,29 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
+  The action to delete the selected test set.
+  """
+  def delete_test_set(%Client{} = client, test_set_id, input, options \\ []) do
+    url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes stored utterances.
 
   Amazon Lex stores the utterances that users send to your bot. Utterances are
@@ -1024,6 +1070,75 @@ defmodule AWS.LexModelsV2 do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/slottypes/#{AWS.Util.encode_uri(slot_type_id)}/"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets metadata information about the test execution.
+  """
+  def describe_test_execution(%Client{} = client, test_execution_id, options \\ []) do
+    url_path = "/testexecutions/#{AWS.Util.encode_uri(test_execution_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets metadata information about the test set.
+  """
+  def describe_test_set(%Client{} = client, test_set_id, options \\ []) do
+    url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets metadata information about the test set discrepancy report.
+  """
+  def describe_test_set_discrepancy_report(
+        %Client{} = client,
+        test_set_discrepancy_report_id,
+        options \\ []
+      ) do
+    url_path = "/testsetdiscrepancy/#{AWS.Util.encode_uri(test_set_discrepancy_report_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets metadata information about the test set generation.
+  """
+  def describe_test_set_generation(%Client{} = client, test_set_generation_id, options \\ []) do
+    url_path = "/testsetgenerations/#{AWS.Util.encode_uri(test_set_generation_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  The pre-signed Amazon S3 URL to download the test execution result artifacts.
+  """
+  def get_test_execution_artifacts_url(%Client{} = client, test_execution_id, options \\ []) do
+    url_path = "/testexecutions/#{AWS.Util.encode_uri(test_execution_id)}/artifacturl"
     headers = []
     query_params = []
 
@@ -1480,6 +1595,103 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
+  Gets a list of test execution result items.
+  """
+  def list_test_execution_result_items(
+        %Client{} = client,
+        test_execution_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/testexecutions/#{AWS.Util.encode_uri(test_execution_id)}/results"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  The list of test set executions.
+  """
+  def list_test_executions(%Client{} = client, input, options \\ []) do
+    url_path = "/testexecutions"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  The list of test set records.
+  """
+  def list_test_set_records(%Client{} = client, test_set_id, input, options \\ []) do
+    url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}/records"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  The list of the test sets
+  """
+  def list_test_sets(%Client{} = client, input, options \\ []) do
+    url_path = "/testsets"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Search for associated transcripts that meet the specified criteria.
   """
   def search_associated_transcripts(
@@ -1541,6 +1753,42 @@ defmodule AWS.LexModelsV2 do
   """
   def start_import(%Client{} = client, input, options \\ []) do
     url_path = "/imports/"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+  end
+
+  @doc """
+  The action to start test set execution.
+  """
+  def start_test_execution(%Client{} = client, test_set_id, input, options \\ []) do
+    url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}/testexecutions"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  The action to start the generation of test set.
+  """
+  def start_test_set_generation(%Client{} = client, input, options \\ []) do
+    url_path = "/testsetgenerations"
     headers = []
     query_params = []
 
@@ -1798,5 +2046,18 @@ defmodule AWS.LexModelsV2 do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+  end
+
+  @doc """
+  The action to update the test set.
+  """
+  def update_test_set(%Client{} = client, test_set_id, input, options \\ []) do
+    url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 end

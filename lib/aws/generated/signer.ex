@@ -8,18 +8,21 @@ defmodule AWS.Signer do
 
   AWS Signer supports the following applications:
 
-  With *code signing for AWS Lambda*, you can sign AWS Lambda deployment packages.
-  Integrated support is provided for Amazon S3, Amazon CloudWatch, and AWS
-  CloudTrail. In order to sign code, you create a signing profile and then use
-  Signer to sign Lambda zip files in S3.
+  With code signing for AWS Lambda, you can sign [AWS Lambda](http://docs.aws.amazon.com/lambda/latest/dg/) deployment packages.
+  Integrated support is provided for [Amazon S3](http://docs.aws.amazon.com/AmazonS3/latest/gsg/), [Amazon CloudWatch](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/), and
+  [AWS CloudTrail](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/). In order to sign code, you create a signing profile and then use Signer to sign
+  Lambda zip files in S3.
 
-  With *code signing for IoT*, you can sign code for any IoT device that is
-  supported by AWS. IoT code signing is available for [Amazon FreeRTOS](http://docs.aws.amazon.com/freertos/latest/userguide/) and [AWS IoT Device Management](http://docs.aws.amazon.com/iot/latest/developerguide/), and
+  With code signing for IoT, you can sign code for any IoT device that is
+  supported by AWS. IoT code signing is available for [Amazon
+  FreeRTOS](http://docs.aws.amazon.com/freertos/latest/userguide/) and [AWS IoT Device Management](http://docs.aws.amazon.com/iot/latest/developerguide/), and
   is integrated with [AWS Certificate Manager (ACM)](http://docs.aws.amazon.com/acm/latest/userguide/). In order to sign code,
   you import a third-party code signing certificate using ACM, and use that to
   sign updates in Amazon FreeRTOS and AWS IoT Device Management.
 
-  For more information about AWS Signer, see the [AWS Signer Developer Guide](http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html).
+  With code signing for containers …(TBD)
+
+  For more information about AWS Signer, see the [AWS Signer Developer Guide](https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html).
   """
 
   alias AWS.Client
@@ -103,6 +106,63 @@ defmodule AWS.Signer do
     query_params = []
 
     meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieves the revocation status of one or more of the signing profile, signing
+  job, and signing certificate.
+  """
+  def get_revocation_status(
+        %Client{} = client,
+        certificate_hashes,
+        job_arn,
+        platform_id,
+        profile_version_arn,
+        signature_timestamp,
+        options \\ []
+      ) do
+    url_path = "/revocations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(signature_timestamp) do
+        [{"signatureTimestamp", signature_timestamp} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(profile_version_arn) do
+        [{"profileVersionArn", profile_version_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(platform_id) do
+        [{"platformId", platform_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(job_arn) do
+        [{"jobArn", job_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(certificate_hashes) do
+        [{"certificateHashes", certificate_hashes} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "verification.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
@@ -400,8 +460,7 @@ defmodule AWS.Signer do
   Creates a signing profile.
 
   A signing profile is a code signing template that can be used to carry out a
-  pre-defined signing job. For more information, see
-  [http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html](http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html)
+  pre-defined signing job.
   """
   def put_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
@@ -481,13 +540,36 @@ defmodule AWS.Signer do
   end
 
   @doc """
+  Signs a binary payload and returns a signature envelope.
+  """
+  def sign_payload(%Client{} = client, input, options \\ []) do
+    url_path = "/signing-jobs/with-payload"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Initiates a signing job to be performed on the code provided.
 
   Signing jobs are viewable by the `ListSigningJobs` operation for two years after
   they are performed. Note the following requirements:
 
     * You must create an Amazon S3 source bucket. For more information,
-  see [Create a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in
+  see [Creating a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in
   the *Amazon S3 Getting Started Guide*.
 
     * Your S3 source bucket must be version enabled.
@@ -505,7 +587,7 @@ defmodule AWS.Signer do
   you call `StartSigningJob`.
 
   For a Java example that shows how to use this action, see
-  [http://docs.aws.amazon.com/acm/latest/userguide/](http://docs.aws.amazon.com/acm/latest/userguide/)
+  [StartSigningJob](https://docs.aws.amazon.com/signer/latest/developerguide/api-startsigningjob.html).
   """
   def start_signing_job(%Client{} = client, input, options \\ []) do
     url_path = "/signing-jobs"

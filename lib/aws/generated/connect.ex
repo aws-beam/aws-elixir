@@ -2096,8 +2096,6 @@ defmodule AWS.Connect do
   `GetMetricDataV2` and `GetMetricData`, see [Historical metrics
   definitions](https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html)
   in the *Amazon Connect Administrator's Guide*.
-
-  This API is not available in the Amazon Web Services GovCloud (US) Regions.
   """
   def get_metric_data_v2(%Client{} = client, input, options \\ []) do
     url_path = "/metrics/data"

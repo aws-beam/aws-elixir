@@ -531,8 +531,8 @@ defmodule AWS.IoT do
   [CreateCertificateFromCsr](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 
   The CSR must include a public key that is either an RSA key with a length of at
-  least 2048 bits or an ECC key from NIST P-25 or NIST P-384 curves. For supported
-  certificates, consult [ Certificate signing algorithms supported by
+  least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves. For
+  supported certificates, consult [ Certificate signing algorithms supported by
   IoT](https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms).
 
   Reusing the same certificate signing request (CSR) results in a distinct
@@ -862,6 +862,54 @@ defmodule AWS.IoT do
       options,
       nil
     )
+  end
+
+  @doc """
+  Creates an IoT software package that can be deployed to your fleet.
+
+  Requires permission to access the
+  [CreatePackage](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) and
+  [GetIndexingConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  actions.
+  """
+  def create_package(%Client{} = client, package_name, input, options \\ []) do
+    url_path = "/packages/#{AWS.Util.encode_uri(package_name)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Creates a new version for an existing IoT software package.
+
+  Requires permission to access the
+  [CreatePackageVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) and
+  [GetIndexingConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  actions.
+  """
+  def create_package_version(%Client{} = client, package_name, version_name, input, options \\ []) do
+    url_path =
+      "/packages/#{AWS.Util.encode_uri(package_name)}/versions/#{AWS.Util.encode_uri(version_name)}"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1800,6 +1848,74 @@ defmodule AWS.IoT do
       input,
       options,
       nil
+    )
+  end
+
+  @doc """
+  Deletes a specific version from a software package.
+
+  **Note:** All package versions must be deleted before deleting the software
+  package.
+
+  Requires permission to access the
+  [DeletePackageVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
+  """
+  def delete_package(%Client{} = client, package_name, input, options \\ []) do
+    url_path = "/packages/#{AWS.Util.encode_uri(package_name)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a specific version from a software package.
+
+  **Note:** If a package version is designated as default, you must remove the
+  designation from the package using the `UpdatePackage` action.
+  """
+  def delete_package_version(%Client{} = client, package_name, version_name, input, options \\ []) do
+    url_path =
+      "/packages/#{AWS.Util.encode_uri(package_name)}/versions/#{AWS.Util.encode_uri(version_name)}"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -3298,6 +3414,59 @@ defmodule AWS.IoT do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets information about the specified software package.
+
+  Requires permission to access the
+  [GetPackage](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
+  """
+  def get_package(%Client{} = client, package_name, options \\ []) do
+    url_path = "/packages/#{AWS.Util.encode_uri(package_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets information about the specified software package's configuration.
+
+  Requires permission to access the
+  [GetPackageConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
+  """
+  def get_package_configuration(%Client{} = client, options \\ []) do
+    url_path = "/package-configuration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets information about the specified package version.
+
+  Requires permission to access the
+  [GetPackageVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
+  """
+  def get_package_version(%Client{} = client, package_name, version_name, options \\ []) do
+    url_path =
+      "/packages/#{AWS.Util.encode_uri(package_name)}/versions/#{AWS.Util.encode_uri(version_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4858,6 +5027,82 @@ defmodule AWS.IoT do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists the software package versions associated to the account.
+
+  Requires permission to access the
+  [ListPackageVersions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
+  """
+  def list_package_versions(
+        %Client{} = client,
+        package_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/packages/#{AWS.Util.encode_uri(package_name)}/versions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the software packages associated to the account.
+
+  Requires permission to access the
+  [ListPackages](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
+  """
+  def list_packages(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/packages"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -7335,6 +7580,107 @@ defmodule AWS.IoT do
       input,
       options,
       nil
+    )
+  end
+
+  @doc """
+  Updates the supported fields for a specific package.
+
+  Requires permission to access the
+  [UpdatePackage](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) and
+  [GetIndexingConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  actions.
+  """
+  def update_package(%Client{} = client, package_name, input, options \\ []) do
+    url_path = "/packages/#{AWS.Util.encode_uri(package_name)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the package configuration.
+
+  Requires permission to access the
+  [UpdatePackageConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) and
+  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)
+  actions.
+  """
+  def update_package_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/package-configuration"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the supported fields for a specific package version.
+
+  Requires permission to access the
+  [UpdatePackageVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) and
+  [GetIndexingConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  actions.
+  """
+  def update_package_version(%Client{} = client, package_name, version_name, input, options \\ []) do
+    url_path =
+      "/packages/#{AWS.Util.encode_uri(package_name)}/versions/#{AWS.Util.encode_uri(version_name)}"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
     )
   end
 

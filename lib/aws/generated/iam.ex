@@ -192,9 +192,9 @@ defmodule AWS.IAM do
   @doc """
   Creates an alias for your Amazon Web Services account.
 
-  For information about using an Amazon Web Services account alias, see [Using an alias for your Amazon Web Services account
-  ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html) in the
-  *IAM User Guide*.
+  For information about using an Amazon Web Services account alias, see [Creating, deleting, and listing an Amazon Web Services account
+  alias](https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html)
+  in the *Amazon Web Services Sign-In User Guide*.
   """
   def create_account_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -501,9 +501,9 @@ defmodule AWS.IAM do
   @doc """
   Deletes the specified Amazon Web Services account alias.
 
-  For information about using an Amazon Web Services account alias, see [Using an alias for your Amazon Web Services account
-  ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html) in the
-  *IAM User Guide*.
+  For information about using an Amazon Web Services account alias, see [Creating, deleting, and listing an Amazon Web Services account
+  alias](https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html)
+  in the *Amazon Web Services Sign-In User Guide*.
   """
   def delete_account_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1680,9 +1680,9 @@ defmodule AWS.IAM do
   Lists the account alias associated with the Amazon Web Services account (Note:
   you can have only one).
 
-  For information about using an Amazon Web Services account alias, see [Using an alias for your Amazon Web Services account
-  ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html) in the
-  *IAM User Guide*.
+  For information about using an Amazon Web Services account alias, see [Creating, deleting, and listing an Amazon Web Services account
+  alias](https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html)
+  in the *Amazon Web Services Sign-In User Guide*.
   """
   def list_account_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()

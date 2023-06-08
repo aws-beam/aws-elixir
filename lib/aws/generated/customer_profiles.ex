@@ -139,6 +139,42 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  Creates an event stream, which is a subscription to real-time events, such as
+  when profiles are created and updated through Amazon Connect Customer Profiles.
+
+  Each event stream can be associated with only one Kinesis Data Stream
+  destination in the same region and Amazon Web Services account as the customer
+  profiles domain
+  """
+  def create_event_stream(
+        %Client{} = client,
+        domain_name,
+        event_stream_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/event-streams/#{AWS.Util.encode_uri(event_stream_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates an integration workflow.
 
   An integration workflow is an async process which ingests historic data and sets
@@ -232,6 +268,37 @@ defmodule AWS.CustomerProfiles do
   """
   def delete_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Disables and deletes the specified event stream.
+  """
+  def delete_event_stream(
+        %Client{} = client,
+        domain_name,
+        event_stream_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/event-streams/#{AWS.Util.encode_uri(event_stream_name)}"
+
     headers = []
     query_params = []
 
@@ -492,6 +559,21 @@ defmodule AWS.CustomerProfiles do
   """
   def get_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Returns information about the specified event stream in a specific domain.
+  """
+  def get_event_stream(%Client{} = client, domain_name, event_stream_name, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/event-streams/#{AWS.Util.encode_uri(event_stream_name)}"
+
     headers = []
     query_params = []
 
@@ -805,6 +887,39 @@ defmodule AWS.CustomerProfiles do
   """
   def list_domains(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/domains"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Returns a list of all the event streams in a specific domain.
+  """
+  def list_event_streams(
+        %Client{} = client,
+        domain_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/event-streams"
     headers = []
     query_params = []
 

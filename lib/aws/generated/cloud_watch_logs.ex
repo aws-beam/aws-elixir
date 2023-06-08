@@ -149,8 +149,8 @@ defmodule AWS.CloudWatchLogs do
   KMS key is still within CloudWatch Logs. This enables CloudWatch Logs to decrypt
   this data whenever it is requested.
 
-  If you attempt to associate a KMS key with the log group but the KMS keydoes not
-  exist or the KMS key is disabled, you receive an `InvalidParameterException`
+  If you attempt to associate a KMS key with the log group but the KMS key does
+  not exist or the KMS key is disabled, you receive an `InvalidParameterException`
   error.
 
   CloudWatch Logs supports only symmetric KMS keys. Do not associate an asymmetric
@@ -186,6 +186,18 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateLogStream", input, options)
+  end
+
+  @doc """
+  Deletes a CloudWatch Logs account policy.
+
+  To use this operation, you must be signed on with the
+  `logs:DeleteDataProtectionPolicy` and `logs:DeleteAccountPolicy` permissions.
+  """
+  def delete_account_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAccountPolicy", input, options)
   end
 
   @doc """
@@ -290,6 +302,15 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteSubscriptionFilter", input, options)
+  end
+
+  @doc """
+  Returns a list of all CloudWatch Logs account policies in the account.
+  """
+  def describe_account_policies(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAccountPolicies", input, options)
   end
 
   @doc """
@@ -443,7 +464,7 @@ defmodule AWS.CloudWatchLogs do
   You can list all the log events or filter the results using a filter pattern, a
   time range, and the name of the log stream.
 
-  You must have the `logs;FilterLogEvents` permission to perform this operation.
+  You must have the `logs:FilterLogEvents` permission to perform this operation.
 
   You can specify the log group to search by using either `logGroupIdentifier` or
   `logGroupName`. You must include one of these two parameters, but you can't
@@ -597,6 +618,54 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Creates an account-level data protection policy that applies to all log groups
+  in the account.
+
+  A data protection policy can help safeguard sensitive data that's ingested by
+  your log groups by auditing and masking the sensitive log data. Each account can
+  have only one account-level policy.
+
+  Sensitive data is detected and masked when it is ingested into a log group. When
+  you set a data protection policy, log events ingested into the log groups before
+  that time are not masked.
+
+  If you use `PutAccountPolicy` to create a data protection policy for your whole
+  account, it applies to both existing log groups and all log groups that are
+  created later in this account. The account policy is applied to existing log
+  groups with eventual consistency. It might take up to 5 minutes before sensitive
+  data in existing log groups begins to be masked.
+
+  By default, when a user views a log event that includes masked data, the
+  sensitive data is replaced by asterisks. A user who has the `logs:Unmask`
+  permission can use a
+  [GetLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html) or
+  [FilterLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.html)
+  operation with the `unmask` parameter set to `true` to view the unmasked log
+  events. Users with the `logs:Unmask` can also view unmasked data in the
+  CloudWatch Logs console by running a CloudWatch Logs Insights query with the
+  `unmask` query command.
+
+  For more information, including a list of types of data that can be audited and
+  masked, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
+
+  To use the `PutAccountPolicy` operation, you must be signed on with the
+  `logs:PutDataProtectionPolicy` and `logs:PutAccountPolicy` permissions.
+
+  The `PutAccountPolicy` operation applies to all log groups in the account. You
+  can also use
+  [PutDataProtectionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html)
+  to create a data protection policy that applies to just one log group. If a log
+  group has its own data protection policy and the account also has an
+  account-level data protection policy, then the two policies are cumulative. Any
+  sensitive term specified in either policy is masked.
+  """
+  def put_account_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutAccountPolicy", input, options)
+  end
+
+  @doc """
   Creates a data protection policy for the specified log group.
 
   A data protection policy can help safeguard sensitive data that's ingested by
@@ -618,6 +687,15 @@ defmodule AWS.CloudWatchLogs do
 
   For more information, including a list of types of data that can be audited and
   masked, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
+
+  The `PutDataProtectionPolicy` operation applies to only the specified log group.
+  You can also use
+  [PutAccountPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html)
+  to create an account-level data protection policy that applies to all log groups
+  in the account, including both existing log groups and log groups that are
+  created level. If a log group has its own data protection policy and the account
+  also has an account-level data protection policy, then the two policies are
+  cumulative. Any sensitive term specified in either policy is masked.
   """
   def put_data_protection_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -693,6 +771,8 @@ defmodule AWS.CloudWatchLogs do
 
     * A batch of log events in a single request cannot span more than 24
   hours. Otherwise, the operation fails.
+
+    * Each log event can be no larger than 256 KB.
 
     * The maximum number of log events in a batch is 10,000.
 
@@ -830,8 +910,8 @@ defmodule AWS.CloudWatchLogs do
   you are updating an existing filter, you must specify the correct name in
   `filterName`.
 
-  To perform a `PutSubscriptionFilter` operation, you must also have the
-  `iam:PassRole` permission.
+  To perform a `PutSubscriptionFilter` operation for any destination except a
+  Lambda function, you must also have the `iam:PassRole` permission.
   """
   def put_subscription_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -846,7 +926,7 @@ defmodule AWS.CloudWatchLogs do
 
   For more information, see [CloudWatch Logs Insights Query Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
 
-  Queries time out after 15 minutes of runtime. If your queries are timing out,
+  Queries time out after 60 minutes of runtime. If your queries are timing out,
   reduce the time range being searched or partition your query into a number of
   queries.
 
@@ -856,7 +936,7 @@ defmodule AWS.CloudWatchLogs do
   For a cross-account `StartQuery` operation, the query definition must be defined
   in the monitoring account.
 
-  You can have up to 20 concurrent CloudWatch Logs insights queries, including
+  You can have up to 30 concurrent CloudWatch Logs insights queries, including
   queries that have been added to dashboards.
   """
   def start_query(%Client{} = client, input, options \\ []) do

@@ -23,8 +23,8 @@ defmodule AWS.CloudFormation do
 
   CloudFormation makes use of other Amazon Web Services products. If you need
   additional technical information about a specific Amazon Web Services product,
-  you can find the product's technical documentation at [ `docs.aws.amazon.com`
-  ](https://docs.aws.amazon.com/).
+  you can find the product's technical documentation at
+  [docs.aws.amazon.com](https://docs.aws.amazon.com/).
   """
 
   alias AWS.Client
@@ -166,7 +166,7 @@ defmodule AWS.CloudFormation do
   Creates a stack as specified in the template.
 
   After the call completes successfully, the stack creation starts. You can check
-  the status of the stack through the `DescribeStacks`operation.
+  the status of the stack through the `DescribeStacks` operation.
   """
   def create_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -537,11 +537,10 @@ defmodule AWS.CloudFormation do
   Returns information about an extension's registration, including its current
   status and type and version identifiers.
 
-  When you initiate a registration request using ` `RegisterType` `, you can then
-  use ` `DescribeTypeRegistration` ` to monitor the progress of that registration
-  request.
+  When you initiate a registration request using `RegisterType`, you can then use
+  `DescribeTypeRegistration` to monitor the progress of that registration request.
 
-  Once the registration request has completed, use ` `DescribeType` ` to return
+  Once the registration request has completed, use `DescribeType` to return
   detailed information about an extension.
   """
   def describe_type_registration(%Client{} = client, input, options \\ []) do
@@ -617,26 +616,25 @@ defmodule AWS.CloudFormation do
   more information, see [How CloudFormation performs drift detection on a stack set](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html).
 
   `DetectStackSetDrift` returns the `OperationId` of the stack set drift detection
-  operation. Use this operation id with ` `DescribeStackSetOperation` ` to monitor
-  the progress of the drift detection operation. The drift detection operation may
+  operation. Use this operation id with `DescribeStackSetOperation` to monitor the
+  progress of the drift detection operation. The drift detection operation may
   take some time, depending on the number of stack instances included in the stack
   set, in addition to the number of resources included in each stack.
 
   Once the operation has completed, use the following actions to return drift
   information:
 
-    * Use ` `DescribeStackSet` ` to return detailed information about
-  the stack set, including detailed information about the last *completed* drift
+    * Use `DescribeStackSet` to return detailed information about the
+  stack set, including detailed information about the last *completed* drift
   operation performed on the stack set. (Information about drift operations that
   are in progress isn't included.)
 
-    * Use ` `ListStackInstances` ` to return a list of stack instances
+    * Use `ListStackInstances` to return a list of stack instances
   belonging to the stack set, including the drift status and last drift time
   checked of each instance.
 
-    * Use ` `DescribeStackInstance` ` to return detailed information
-  about a specific stack instance, including its drift status and last drift time
-  checked.
+    * Use `DescribeStackInstance` to return detailed information about a
+  specific stack instance, including its drift status and last drift time checked.
 
   For more information about performing a drift detection operation on a stack
   set, see [Detecting unmanaged changes in stack sets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html).
@@ -644,7 +642,7 @@ defmodule AWS.CloudFormation do
   You can only run a single drift detection operation on a given stack set at one
   time.
 
-  To stop a drift detection stack set operation, use ` `StopStackSetOperation` `.
+  To stop a drift detection stack set operation, use `StopStackSetOperation`.
   """
   def detect_stack_set_drift(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -764,8 +762,8 @@ defmodule AWS.CloudFormation do
   this action.
 
   Use this action to see the exported output values that you can import into other
-  stacks. To import values, use the [ `Fn::ImportValue`
-  ](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html)
+  stacks. To import values, use the [
+  Fn::ImportValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html)
   function.
 
   For more information, see [ CloudFormation export stack output values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html).
@@ -783,9 +781,8 @@ defmodule AWS.CloudFormation do
   stacks are using it. To see the exported output values in your account, see
   `ListExports`.
 
-  For more information about importing an exported output value, see the [
-  `Fn::ImportValue`
-  ](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html)
+  For more information about importing an exported output value, see the
+  [Fn::ImportValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html)
   function.
   """
   def list_imports(%Client{} = client, input, options \\ []) do
@@ -970,9 +967,8 @@ defmodule AWS.CloudFormation do
   This maximum is per account and per Region. Use
   [DeregisterType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeregisterType.html) to deregister specific extension versions if necessary.
 
-  Once you have initiated a registration request using ` `RegisterType` `, you can
-  use ` `DescribeTypeRegistration` ` to monitor the progress of the registration
-  request.
+  Once you have initiated a registration request using `RegisterType`, you can use
+  `DescribeTypeRegistration` to monitor the progress of the registration request.
 
   Once you have registered a private extension in your account and Region, use
   [SetTypeConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html)

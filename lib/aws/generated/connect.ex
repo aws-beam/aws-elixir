@@ -3685,12 +3685,82 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Searches the hours of operation in an Amazon Connect instance, with optional
+  filtering.
+  """
+  def search_hours_of_operations(%Client{} = client, input, options \\ []) do
+    url_path = "/search-hours-of-operations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Searches prompts in an Amazon Connect instance, with optional filtering.
+  """
+  def search_prompts(%Client{} = client, input, options \\ []) do
+    url_path = "/search-prompts"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Searches queues in an Amazon Connect instance, with optional filtering.
   """
   def search_queues(%Client{} = client, input, options \\ []) do
     url_path = "/search-queues"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Searches quick connects in an Amazon Connect instance, with optional filtering.
+  """
+  def search_quick_connects(%Client{} = client, input, options \\ []) do
+    url_path = "/search-quick-connects"
     headers = []
     query_params = []
 

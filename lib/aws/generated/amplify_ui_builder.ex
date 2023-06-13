@@ -70,7 +70,7 @@ defmodule AWS.AmplifyUIBuilder do
   end
 
   @doc """
-  Creates a new form for an Amplify app.
+  Creates a new form for an Amplify.
   """
   def create_form(%Client{} = client, app_id, environment_name, input, options \\ []) do
     url_path =
@@ -309,6 +309,21 @@ defmodule AWS.AmplifyUIBuilder do
   end
 
   @doc """
+  Returns an existing code generation job.
+  """
+  def get_codegen_job(%Client{} = client, app_id, environment_name, id, options \\ []) do
+    url_path =
+      "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/codegen-jobs/#{AWS.Util.encode_uri(id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns an existing component for an Amplify app.
   """
   def get_component(%Client{} = client, app_id, environment_name, id, options \\ []) do
@@ -362,6 +377,43 @@ defmodule AWS.AmplifyUIBuilder do
 
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a list of code generation jobs for a specified Amplify app and backend
+  environment.
+  """
+  def list_codegen_jobs(
+        %Client{} = client,
+        app_id,
+        environment_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/codegen-jobs"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -506,6 +558,37 @@ defmodule AWS.AmplifyUIBuilder do
     url_path = "/tokens/#{AWS.Util.encode_uri(provider)}/refresh"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts a code generation job for for a specified Amplify app and backend
+  environment.
+  """
+  def start_codegen_job(%Client{} = client, app_id, environment_name, input, options \\ []) do
+    url_path =
+      "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/codegen-jobs"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 

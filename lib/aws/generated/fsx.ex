@@ -164,8 +164,9 @@ defmodule AWS.FSx do
 
   A data repository association is a link between a directory on the file system
   and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository
-  associations on a file system. Data repository associations are supported for
-  all file systems except for `Scratch_1` deployment type.
+  associations on a file system. Data repository associations are supported on all
+  FSx for Lustre 2.12 and newer file systems, excluding `scratch_1` deployment
+  type.
 
   Each data repository association must have a unique Amazon FSx file system
   directory and a unique S3 bucket or prefix associated with it. You can configure
@@ -404,8 +405,8 @@ defmodule AWS.FSx do
   Deleting the data repository association unlinks the file system from the Amazon
   S3 bucket. When deleting a data repository association, you have the option of
   deleting the data in the file system that corresponds to the data repository
-  association. Data repository associations are supported for all file systems
-  except for `Scratch_1` deployment type.
+  association. Data repository associations are supported on all FSx for Lustre
+  2.12 and newer file systems, excluding `scratch_1` deployment type.
   """
   def delete_data_repository_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -542,7 +543,8 @@ defmodule AWS.FSx do
   provided in the request, or if filters are used in the request.
 
   Data repository associations are supported on Amazon File Cache resources and
-  all Amazon FSx for Lustre file systems excluding `Scratch_1` deployment types.
+  all FSx for Lustre 2.12 and newer file systems, excluding `scratch_1` deployment
+  type.
 
   You can use filters to narrow the response to include just data repository
   associations for specific file systems (use the `file-system-id` filter with the
@@ -814,8 +816,8 @@ defmodule AWS.FSx do
   Updates the configuration of an existing data repository association on an
   Amazon FSx for Lustre file system.
 
-  Data repository associations are supported for all file systems except for
-  `Scratch_1` deployment type.
+  Data repository associations are supported on all FSx for Lustre 2.12 and newer
+  file systems, excluding `scratch_1` deployment type.
   """
   def update_data_repository_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -927,7 +929,7 @@ defmodule AWS.FSx do
   end
 
   @doc """
-  Updates an Amazon FSx for ONTAP storage virtual machine (SVM).
+  Updates an FSx for ONTAP storage virtual machine (SVM).
   """
   def update_storage_virtual_machine(%Client{} = client, input, options \\ []) do
     meta = metadata()

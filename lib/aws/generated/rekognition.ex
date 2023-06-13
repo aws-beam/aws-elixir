@@ -14,24 +14,32 @@ defmodule AWS.Rekognition do
   ## Amazon Rekognition Image
 
     *
-  [CompareFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CompareFaces.html)     *
-  [CreateCollection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateCollection.html)
+  [AssociateFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_AssociateFaces.html)     *
+  [CompareFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CompareFaces.html)
+
+    *
+  [CreateCollection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateCollection.html)     *
+  [CreateUser](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateUser.html)
 
     *
   [DeleteCollection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteCollection.html)     *
   [DeleteFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteFaces.html)
 
     *
-  [DescribeCollection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeCollection.html)     *
-  [DetectFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectFaces.html)
+  [DeleteUser](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteUser.html)     *
+  [DescribeCollection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeCollection.html)
 
     *
-  [DetectLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectLabels.html)     *
-  [DetectModerationLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectModerationLabels.html)
+  [DetectFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectFaces.html)     *
+  [DetectLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectLabels.html)
 
     *
-  [DetectProtectiveEquipment](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectProtectiveEquipment.html)     *
-  [DetectText](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectText.html)
+  [DetectModerationLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectModerationLabels.html)     *
+  [DetectProtectiveEquipment](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectProtectiveEquipment.html)
+
+    *
+  [DetectText](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectText.html)     *
+  [DisassociateFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DisassociateFaces.html)
 
     *
   [GetCelebrityInfo](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetCelebrityInfo.html)     *
@@ -42,107 +50,108 @@ defmodule AWS.Rekognition do
   [ListFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListFaces.html)
 
     *
-  [RecognizeCelebrities](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_RecognizeCelebrities.html)     *
-  [SearchFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFaces.html)
+  [ListUsers](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListFaces.html)     *
+  [RecognizeCelebrities](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_RecognizeCelebrities.html)
 
     *
-  [SearchFacesByImage](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFacesByImage.html) 
+  [SearchFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFaces.html)     *
+  [SearchFacesByImage](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFacesByImage.html)
+
+    *
+  [SearchUsers](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsers.html)     *
+  [SearchUsersByImage](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsersByImage.html)
 
   ## Amazon Rekognition Custom Labels
 
     *
-  [CopyProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CopyProjectVersion.html)
+  [CopyProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CopyProjectVersion.html)     *
+  [CreateDataset](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateDataset.html)
 
     *
-  [CreateDataset](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateDataset.html)     *
-  [CreateProject](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProject.html)
+  [CreateProject](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProject.html)     *
+  [CreateProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProjectVersion.html)
 
     *
-  [CreateProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProjectVersion.html)     *
-  [DeleteDataset](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteDataset.html)
+  [DeleteDataset](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteDataset.html)     *
+  [DeleteProject](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProject.html)
 
     *
-  [DeleteProject](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProject.html)     *
-  [DeleteProjectPolicy](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProjectPolicy.html)
+  [DeleteProjectPolicy](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProjectPolicy.html)     *
+  [DeleteProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProjectVersion.html)
 
     *
-  [DeleteProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProjectVersion.html)     *
-  [DescribeDataset](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeDataset.html)
+  [DescribeDataset](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeDataset.html)     *
+  [DescribeProjects](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeProjects.html)
 
     *
-  [DescribeProjects](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeProjects.html)     *
-  [DescribeProjectVersions](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeProjectVersions.html)
+  [DescribeProjectVersions](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeProjectVersions.html)     *
+  [DetectCustomLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectCustomLabels.html)
 
     *
-  [DetectCustomLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectCustomLabels.html)     *
-  [DistributeDatasetEntries](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DistributeDatasetEntries.html)
+  [DistributeDatasetEntries](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DistributeDatasetEntries.html)     *
+  [ListDatasetEntries](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListDatasetEntries.html)
 
     *
-  [ListDatasetEntries](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListDatasetEntries.html)     *
-  [ListDatasetLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListDatasetLabels.html)
+  [ListDatasetLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListDatasetLabels.html)     *
+  [ListProjectPolicies](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListProjectPolicies.html)
 
     *
-  [ListProjectPolicies](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListProjectPolicies.html)     *
-  [PutProjectPolicy](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_PutProjectPolicy.html)
+  [PutProjectPolicy](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_PutProjectPolicy.html)     *
+  [StartProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartProjectVersion.html)
 
     *
-  [StartProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartProjectVersion.html)     *
-  [StopProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopProjectVersion.html)
-
-    *
-  [UpdateDatasetEntries](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UpdateDatasetEntries.html) 
+  [StopProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopProjectVersion.html)     *
+  [UpdateDatasetEntries](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UpdateDatasetEntries.html)
 
   ## Amazon Rekognition Video Stored Video
 
     *
-  [GetCelebrityRecognition](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetCelebrityRecognition.html)
+  [GetCelebrityRecognition](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetCelebrityRecognition.html)     *
+  [GetContentModeration](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetContentModeration.html)
 
     *
-  [GetContentModeration](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetContentModeration.html)     *
-  [GetFaceDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceDetection.html)
+  [GetFaceDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceDetection.html)     *
+  [GetFaceSearch](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceSearch.html)
 
     *
-  [GetFaceSearch](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceSearch.html)     *
-  [GetLabelDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetLabelDetection.html)
+  [GetLabelDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetLabelDetection.html)     *
+  [GetPersonTracking](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetPersonTracking.html)
 
     *
-  [GetPersonTracking](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetPersonTracking.html)     *
-  [GetSegmentDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetSegmentDetection.html)
+  [GetSegmentDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetSegmentDetection.html)     *
+  [GetTextDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetTextDetection.html)
 
     *
-  [GetTextDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetTextDetection.html)     *
-  [StartCelebrityRecognition](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartCelebrityRecognition.html)
+  [StartCelebrityRecognition](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartCelebrityRecognition.html)     *
+  [StartContentModeration](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartContentModeration.html)
 
     *
-  [StartContentModeration](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartContentModeration.html)     *
-  [StartFaceDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartFaceDetection.html)
+  [StartFaceDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartFaceDetection.html)     *
+  [StartFaceSearch](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartFaceSearch.html)
 
     *
-  [StartFaceSearch](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartFaceSearch.html)     *
-  [StartLabelDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartLabelDetection.html)
+  [StartLabelDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartLabelDetection.html)     *
+  [StartPersonTracking](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartPersonTracking.html)
 
     *
-  [StartPersonTracking](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartPersonTracking.html)     *
-  [StartSegmentDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartSegmentDetection.html)
-
-    *
-  [StartTextDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartTextDetection.html) 
+  [StartSegmentDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartSegmentDetection.html)     *
+  [StartTextDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartTextDetection.html)
 
   ## Amazon Rekognition Video Streaming Video
 
     *
-  [CreateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor.html)
+  [CreateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor.html)     *
+  [DeleteStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteStreamProcessor.html)
 
     *
-  [DeleteStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteStreamProcessor.html)     *
-  [DescribeStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeStreamProcessor.html)
+  [DescribeStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeStreamProcessor.html)     *
+  [ListStreamProcessors](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListStreamProcessors.html)
 
     *
-  [ListStreamProcessors](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListStreamProcessors.html)     *
-  [StartStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartStreamProcessor.html)
+  [StartStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartStreamProcessor.html)     *
+  [StopStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopStreamProcessor.html)
 
     *
-  [StopStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopStreamProcessor.html)     *
   [UpdateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UpdateStreamProcessor.html)
   """
 
@@ -163,6 +172,44 @@ defmodule AWS.Rekognition do
       signing_name: "rekognition",
       target_prefix: "RekognitionService"
     }
+  end
+
+  @doc """
+  Associates one or more faces with an existing UserID.
+
+  Takes an array of `FaceIds`. Each `FaceId` that are present in the `FaceIds`
+  list is associated with the provided UserID. The maximum number of total
+  `FaceIds` per UserID is 100.
+
+  The `UserMatchThreshold` parameter specifies the minimum user match confidence
+  required for the face to be associated with a UserID that has at least one
+  `FaceID` already associated. This ensures that the `FaceIds` are associated with
+  the right UserID. The value ranges from 0-100 and default value is 75.
+
+  If successful, an array of `AssociatedFace` objects containing the associated
+  `FaceIds` is returned. If a given face is already associated with the given
+  `UserID`, it will be ignored and will not be returned in the response. If a
+  given face is already associated to a different `UserID`, isn't found in the
+  collection, doesn’t meet the `UserMatchThreshold`, or there are already 100
+  faces associated with the `UserID`, it will be returned as part of an array of
+  `UnsuccessfulFaceAssociations.`
+
+  The `UserStatus` reflects the status of an operation which updates a UserID
+  representation with a list of given faces. The `UserStatus` can be:
+
+    * ACTIVE - All associations or disassociations of FaceID(s) for a
+  UserID are complete.
+
+    * CREATED - A UserID has been created, but has no FaceID(s)
+  associated with it.
+
+    * UPDATING - A UserID is being updated and there are current
+  associations or disassociations of FaceID(s) taking place.
+  """
+  def associate_faces(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateFaces", input, options)
   end
 
   @doc """
@@ -446,6 +493,24 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+  Creates a new User within a collection specified by `CollectionId`.
+
+  Takes `UserId` as a parameter, which is a user provided ID which should be
+  unique within the collection. The provided `UserId` will alias the system
+  generated UUID to make the `UserId` more user friendly.
+
+  Uses a `ClientToken`, an idempotency token that ensures a call to `CreateUser`
+  completes only once. If the value is not supplied, the AWS SDK generates an
+  idempotency token for the requests. This prevents retries after a network error
+  results from making multiple `CreateUser` calls.
+  """
+  def create_user(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateUser", input, options)
+  end
+
+  @doc """
   Deletes the specified collection.
 
   Note that this operation removes all faces in the collection. For an example,
@@ -560,6 +625,20 @@ defmodule AWS.Rekognition do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteStreamProcessor", input, options)
+  end
+
+  @doc """
+  Deletes the specified UserID within the collection.
+
+  Faces that are associated with the UserID are disassociated from the UserID
+  before deleting the specified UserID. If the specified `Collection` or `UserID`
+  is already deleted or not found, a `ResourceNotFoundException` will be thrown.
+  If the action is successful with a 200 response, an empty HTTP body is returned.
+  """
+  def delete_user(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteUser", input, options)
   end
 
   @doc """
@@ -944,6 +1023,24 @@ defmodule AWS.Rekognition do
     meta = metadata()
 
     Request.request_post(client, meta, "DetectText", input, options)
+  end
+
+  @doc """
+  Removes the association between a `Face` supplied in an array of `FaceIds` and
+  the User.
+
+  If the User is not present already, then a `ResourceNotFound` exception is
+  thrown. If successful, an array of faces that are disassociated from the User is
+  returned. If a given face is already disassociated from the given UserID, it
+  will be ignored and not be returned in the response. If a given face is already
+  associated with a different User or not found in the collection it will be
+  returned as part of `UnsuccessfulDisassociations`. You can remove 1 - 100 face
+  IDs from a user at one time.
+  """
+  def disassociate_faces(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateFaces", input, options)
   end
 
   @doc """
@@ -1596,6 +1693,20 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+  Returns metadata of the User such as `UserID` in the specified collection.
+
+  Anonymous User (to reserve faces without any identity) is not returned as part
+  of this request. The results are sorted by system generated primary key ID. If
+  the response is truncated, `NextToken` is returned in the response that can be
+  used in the subsequent request to retrieve the next set of identities.
+  """
+  def list_users(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListUsers", input, options)
+  end
+
+  @doc """
   Attaches a project policy to a Amazon Rekognition Custom Labels project in a
   trusting AWS account.
 
@@ -1746,6 +1857,41 @@ defmodule AWS.Rekognition do
     meta = metadata()
 
     Request.request_post(client, meta, "SearchFacesByImage", input, options)
+  end
+
+  @doc """
+  Searches for UserIDs within a collection based on a `FaceId` or `UserId`.
+
+  This API can be used to find the closest UserID (with a highest similarity) to
+  associate a face. The request must be provided with either `FaceId` or `UserId`.
+  The operation returns an array of UserID that match the `FaceId` or `UserId`,
+  ordered by similarity score with the highest similarity first.
+  """
+  def search_users(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SearchUsers", input, options)
+  end
+
+  @doc """
+  Searches for UserIDs using a supplied image.
+
+  It first detects the largest face in the image, and then searches a specified
+  collection for matching UserIDs.
+
+  The operation returns an array of UserIDs that match the face in the supplied
+  image, ordered by similarity score with the highest similarity first. It also
+  returns a bounding box for the face found in the input image.
+
+  Information about faces detected in the supplied image, but not used for the
+  search, is returned in an array of `UnsearchedFace` objects. If no valid face is
+  detected in the image, the response will contain an empty `UserMatches` list and
+  no `SearchedFace` object.
+  """
+  def search_users_by_image(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SearchUsersByImage", input, options)
   end
 
   @doc """

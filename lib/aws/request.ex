@@ -83,6 +83,7 @@ defmodule AWS.Request do
       |> to_string()
 
     {send_body_as_binary?, options} = Keyword.pop(options, :send_body_as_binary?)
+    {receive_body_as_binary?, options} = Keyword.pop(options, :receive_body_as_binary?)
 
     # It will assume the default as "application/octet-stream" if is sending body
     # as binary and the input does not specify the `Content-type`.
@@ -130,8 +131,6 @@ defmodule AWS.Request do
              status_code == success_status_code ->
         body =
           if body != "" do
-            {receive_body_as_binary?, _options} = Keyword.pop(options, :receive_body_as_binary?)
-
             response_body =
               if receive_body_as_binary? do
                 %{"Body" => body}

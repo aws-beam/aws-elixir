@@ -59,6 +59,21 @@ defmodule AWS.ClientTest do
       result = AWS.Client.request(client, :head, "#{url(bypass)}/head_object", "", headers)
       assert {:ok, %{status_code: 200, body: ""}} = result
     end
+
+    test "overrides config request options with call options", %{client: client, bypass: bypass} do
+      Bypass.expect_once(bypass, "GET", "/timeout", fn conn ->
+        :timer.sleep(20)
+        Plug.Conn.resp(conn, 200, "")
+      end)
+
+      result =
+        AWS.Client.request(client, :get, "#{url(bypass)}/timeout", "", [], recv_timeout: 10)
+
+      assert {:error, :timeout} = result
+
+      # Bypass should not assert on the request having been completed.
+      Bypass.pass(bypass)
+    end
   end
 
   defp url(bypass), do: "http://localhost:#{bypass.port}/"

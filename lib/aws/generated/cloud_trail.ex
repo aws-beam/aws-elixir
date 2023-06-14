@@ -27,125 +27,6 @@ defmodule AWS.CloudTrail do
   See the [CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)
   for information about the data that is included with each Amazon Web Services
   API call listed in the log files.
-
-  ## Actions available for CloudTrail trails
-
-  The following actions are available for CloudTrail trails.
-
-    * `AddTags`
-
-    * `CreateTrail`
-
-    * `DeleteTrail`
-
-    * `DescribeTrails`
-
-    * `GetEventSelectors`
-
-    * `GetInsightSelectors`
-
-    * `GetTrail`
-
-    * `GetTrailStatus`
-
-    * `ListTags`
-
-    * `ListTrails`
-
-    * `PutEventSelectors`
-
-    * `PutInsightSelectors`
-
-    * `RemoveTags`
-
-    * `StartLogging`
-
-    * `StopLogging`
-
-    * `UpdateTrail`
-
-  ## Actions available for CloudTrail event data stores
-
-  The following actions are available for CloudTrail event data stores.
-
-    * `AddTags`
-
-    * `CancelQuery`
-
-    * `CreateEventDataStore`
-
-    * `DeleteEventDataStore`
-
-    * `DescribeQuery`
-
-    * `GetEventDataStore`
-
-    * `GetQueryResults`
-
-    * `ListEventDataStores`
-
-    * `ListTags`
-
-    * `ListQueries`
-
-    * `RemoveTags`
-
-    * `RestoreEventDataStore`
-
-    * `StartEventDataStoreIngestion`
-
-    * `StartImport`
-
-  The following additional actions are available for imports.
-
-      * `GetImport`
-
-      * `ListImportFailures`
-
-      * `ListImports`
-
-      * `StopImport`
-
-    * `StartQuery`
-
-    * `StartEventDataStoreIngestion`
-
-    * `UpdateEventDataStore`
-
-  ## Actions available for CloudTrail channels
-
-  The following actions are available for CloudTrail channels.
-
-    * `AddTags`
-
-    * `CreateChannel`
-
-    * `DeleteChannel`
-
-    * `DeleteResourcePolicy`
-
-    * `GetChannel`
-
-    * `GetResourcePolicy`
-
-    * `ListChannels`
-
-    * `ListTags`
-
-    * `PutResourcePolicy`
-
-    * `RemoveTags`
-
-    * `UpdateChannel`
-
-  ## Actions available for managing delegated administrators
-
-  The following actions are available for adding or a removing a delegated
-  administrator to manage an Organizations organization’s CloudTrail resources.
-
-    * `DeregisterOrganizationDelegatedAdmin`
-
-    * `RegisterOrganizationDelegatedAdmin`
   """
 
   alias AWS.Client
@@ -297,7 +178,12 @@ defmodule AWS.CloudTrail do
   Returns metadata about a query, including query run time in milliseconds, number
   of events scanned and matched, and query status.
 
-  You must specify an ARN for `EventDataStore`, and a value for `QueryID`.
+  If the query results were delivered to an S3 bucket, the response also provides
+  the S3 URI and the delivery status.
+
+  You must specify either a `QueryID` or a `QueryAlias`. Specifying the
+  `QueryAlias` parameter returns information about the last query run for the
+  alias.
   """
   def describe_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -392,8 +278,7 @@ defmodule AWS.CloudTrail do
   @doc """
   Gets event data results of a query.
 
-  You must specify the `QueryID` value returned by the `StartQuery` operation, and
-  an ARN for `EventDataStore`.
+  You must specify the `QueryID` value returned by the `StartQuery` operation.
   """
   def get_query_results(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -752,9 +637,14 @@ defmodule AWS.CloudTrail do
   @doc """
   Starts a CloudTrail Lake query.
 
-  The required `QueryStatement` parameter provides your SQL query, enclosed in
-  single quotation marks. Use the optional `DeliveryS3Uri` parameter to deliver
-  the query results to an S3 bucket.
+  Use the `QueryStatement` parameter to provide your SQL query, enclosed in single
+  quotation marks. Use the optional `DeliveryS3Uri` parameter to deliver the query
+  results to an S3 bucket.
+
+  `StartQuery` requires you specify either the `QueryStatement` parameter, or a
+  `QueryAlias` and any `QueryParameters`. In the current release, the `QueryAlias`
+  and `QueryParameters` parameters are used only for the queries that populate the
+  CloudTrail Lake dashboards.
   """
   def start_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -822,7 +712,7 @@ defmodule AWS.CloudTrail do
   For event data stores for CloudTrail events, `AdvancedEventSelectors` includes
   or excludes management and data events in your event data store. For more
   information about `AdvancedEventSelectors`, see
-  `PutEventSelectorsRequest$AdvancedEventSelectors`.
+  [AdvancedEventSelectors](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html).
 
   For event data stores for Config configuration items, Audit Manager evidence, or
   non-Amazon Web Services events, `AdvancedEventSelectors` includes events of that

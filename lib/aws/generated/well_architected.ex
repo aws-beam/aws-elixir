@@ -64,6 +64,29 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
+  Associate a profile with a workload.
+  """
+  def associate_profiles(%Client{} = client, workload_id, input, options \\ []) do
+    url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/associateProfiles"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Create a lens share.
 
   The owner of a lens can share it with other Amazon Web Services accounts, users,
@@ -142,6 +165,52 @@ defmodule AWS.WellArchitected do
   """
   def create_milestone(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/milestones"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Create a profile.
+  """
+  def create_profile(%Client{} = client, input, options \\ []) do
+    url_path = "/profiles"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Create a profile share.
+  """
+  def create_profile_share(%Client{} = client, profile_arn, input, options \\ []) do
+    url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}/shares"
     headers = []
     query_params = []
 
@@ -314,6 +383,72 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
+  Delete a profile.
+
+  ## Disclaimer
+
+  By sharing your profile with other Amazon Web Services accounts, you acknowledge
+  that Amazon Web Services will make your profile available to those other
+  accounts. Those other accounts may continue to access and use your shared
+  profile even if you delete the profile from your own Amazon Web Services account
+  or terminate your Amazon Web Services account.
+  """
+  def delete_profile(%Client{} = client, profile_arn, input, options \\ []) do
+    url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"ClientRequestToken", "ClientRequestToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Delete a profile share.
+  """
+  def delete_profile_share(%Client{} = client, profile_arn, share_id, input, options \\ []) do
+    url_path =
+      "/profiles/#{AWS.Util.encode_uri(profile_arn)}/shares/#{AWS.Util.encode_uri(share_id)}"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"ClientRequestToken", "ClientRequestToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Delete an existing workload.
   """
   def delete_workload(%Client{} = client, workload_id, input, options \\ []) do
@@ -381,6 +516,29 @@ defmodule AWS.WellArchitected do
   """
   def disassociate_lenses(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/disassociateLenses"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Disassociate a profile from a workload.
+  """
+  def disassociate_profiles(%Client{} = client, workload_id, input, options \\ []) do
+    url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/disassociateProfiles"
     headers = []
     query_params = []
 
@@ -638,6 +796,39 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
+  Get profile information.
+  """
+  def get_profile(%Client{} = client, profile_arn, profile_version \\ nil, options \\ []) do
+    url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(profile_version) do
+        [{"ProfileVersion", profile_version} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Get profile template.
+  """
+  def get_profile_template(%Client{} = client, options \\ []) do
+    url_path = "/profileTemplate"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Get an existing workload.
   """
   def get_workload(%Client{} = client, workload_id, options \\ []) do
@@ -695,6 +886,7 @@ defmodule AWS.WellArchitected do
         milestone_number \\ nil,
         next_token \\ nil,
         pillar_id \\ nil,
+        question_priority \\ nil,
         options \\ []
       ) do
     url_path =
@@ -702,6 +894,13 @@ defmodule AWS.WellArchitected do
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(question_priority) do
+        [{"QuestionPriority", question_priority} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(pillar_id) do
@@ -794,6 +993,7 @@ defmodule AWS.WellArchitected do
         milestone_number \\ nil,
         next_token \\ nil,
         pillar_id \\ nil,
+        question_priority \\ nil,
         options \\ []
       ) do
     url_path =
@@ -801,6 +1001,13 @@ defmodule AWS.WellArchitected do
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(question_priority) do
+        [{"QuestionPriority", question_priority} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(pillar_id) do
@@ -1028,6 +1235,143 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
+  List profile notifications.
+  """
+  def list_profile_notifications(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        workload_id \\ nil,
+        options \\ []
+      ) do
+    url_path = "/profileNotifications/"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(workload_id) do
+        [{"WorkloadId", workload_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  List profile shares.
+  """
+  def list_profile_shares(
+        %Client{} = client,
+        profile_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        shared_with_prefix \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}/shares"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"Status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(shared_with_prefix) do
+        [{"SharedWithPrefix", shared_with_prefix} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  List profiles.
+  """
+  def list_profiles(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        profile_name_prefix \\ nil,
+        profile_owner_type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/profileSummaries"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(profile_owner_type) do
+        [{"ProfileOwnerType", profile_owner_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(profile_name_prefix) do
+        [{"ProfileNamePrefix", profile_name_prefix} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   List the workload invitations.
   """
   def list_share_invitations(
@@ -1035,6 +1379,7 @@ defmodule AWS.WellArchitected do
         lens_name_prefix \\ nil,
         max_results \\ nil,
         next_token \\ nil,
+        profile_name_prefix \\ nil,
         share_resource_type \\ nil,
         workload_name_prefix \\ nil,
         options \\ []
@@ -1053,6 +1398,13 @@ defmodule AWS.WellArchitected do
     query_params =
       if !is_nil(share_resource_type) do
         [{"ShareResourceType", share_resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(profile_name_prefix) do
+        [{"ProfileNamePrefix", profile_name_prefix} | query_params]
       else
         query_params
       end
@@ -1086,7 +1438,8 @@ defmodule AWS.WellArchitected do
   @doc """
   List the tags for a resource.
 
-  The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.
+  The WorkloadArn parameter can be a workload ARN, a custom lens ARN, or a profile
+  ARN.
   """
   def list_tags_for_resource(%Client{} = client, workload_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
@@ -1173,7 +1526,8 @@ defmodule AWS.WellArchitected do
   @doc """
   Adds one or more tags to the specified resource.
 
-  The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.
+  The WorkloadArn parameter can be a workload ARN, a custom lens ARN, or a profile
+  ARN.
   """
   def tag_resource(%Client{} = client, workload_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
@@ -1198,7 +1552,8 @@ defmodule AWS.WellArchitected do
   @doc """
   Deletes specified tags from a resource.
 
-  The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.
+  The WorkloadArn parameter can be a workload ARN, a custom lens ARN, or a profile
+  ARN.
 
   To specify multiple tags, use separate **tagKeys** parameters, for example:
 
@@ -1311,6 +1666,29 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
+  Update a profile.
+  """
+  def update_profile(%Client{} = client, profile_arn, input, options \\ []) do
+    url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Update a workload or custom lens share invitation.
 
   This API operation can be called independently of any resource. Previous
@@ -1390,6 +1768,21 @@ defmodule AWS.WellArchitected do
   def upgrade_lens_review(%Client{} = client, lens_alias, workload_id, input, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/upgrade"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Upgrade a profile.
+  """
+  def upgrade_profile_version(%Client{} = client, profile_arn, workload_id, input, options \\ []) do
+    url_path =
+      "/workloads/#{AWS.Util.encode_uri(workload_id)}/profiles/#{AWS.Util.encode_uri(profile_arn)}/upgrade"
 
     headers = []
     query_params = []

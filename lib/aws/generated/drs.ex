@@ -26,6 +26,32 @@ defmodule AWS.Drs do
   end
 
   @doc """
+  Associate a Source Network to an existing CloudFormation Stack and modify launch
+  templates to use this network.
+
+  Can be used for reverting to previously deployed CloudFormation stacks.
+  """
+  def associate_source_network_stack(%Client{} = client, input, options \\ []) do
+    url_path = "/AssociateSourceNetworkStack"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Create an extended source server in the target Account based on the source
   server in staging account.
   """
@@ -77,6 +103,29 @@ defmodule AWS.Drs do
   """
   def create_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/CreateReplicationConfigurationTemplate"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Create a new Source Network resource for a provided VPC ID.
+  """
+  def create_source_network(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateSourceNetwork"
     headers = []
     query_params = []
 
@@ -172,6 +221,29 @@ defmodule AWS.Drs do
   """
   def delete_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteReplicationConfigurationTemplate"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Delete Source Network resource.
+  """
+  def delete_source_network(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteSourceNetwork"
     headers = []
     query_params = []
 
@@ -362,6 +434,29 @@ defmodule AWS.Drs do
   end
 
   @doc """
+  Lists all Source Networks or multiple Source Networks filtered by ID.
+  """
+  def describe_source_networks(%Client{} = client, input, options \\ []) do
+    url_path = "/DescribeSourceNetworks"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists all Source Servers or multiple Source Servers filtered by ID.
   """
   def describe_source_servers(%Client{} = client, input, options \\ []) do
@@ -436,6 +531,29 @@ defmodule AWS.Drs do
   """
   def disconnect_source_server(%Client{} = client, input, options \\ []) do
     url_path = "/DisconnectSourceServer"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Export the Source Network CloudFormation template to an S3 bucket.
+  """
+  def export_source_network_cfn_template(%Client{} = client, input, options \\ []) do
+    url_path = "/ExportSourceNetworkCfnTemplate"
     headers = []
     query_params = []
 
@@ -755,6 +873,57 @@ defmodule AWS.Drs do
   end
 
   @doc """
+  Deploy VPC for the specified Source Network and modify launch templates to use
+  this network.
+
+  The VPC will be deployed using a dedicated CloudFormation stack.
+  """
+  def start_source_network_recovery(%Client{} = client, input, options \\ []) do
+    url_path = "/StartSourceNetworkRecovery"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Starts replication for a Source Network.
+
+  This action would make the Source Network protected.
+  """
+  def start_source_network_replication(%Client{} = client, input, options \\ []) do
+    url_path = "/StartSourceNetworkReplication"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Stops the failback process for a specified Recovery Instance.
 
   This changes the Failback State of the Recovery Instance back to
@@ -788,6 +957,31 @@ defmodule AWS.Drs do
   """
   def stop_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StopReplication"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Stops replication for a Source Network.
+
+  This action would make the Source Network unprotected.
+  """
+  def stop_source_network_replication(%Client{} = client, input, options \\ []) do
+    url_path = "/StopSourceNetworkReplication"
     headers = []
     query_params = []
 

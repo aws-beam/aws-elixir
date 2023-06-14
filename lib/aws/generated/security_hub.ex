@@ -138,6 +138,29 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Deletes one or more automation rules.
+  """
+  def batch_delete_automation_rules(%Client{} = client, input, options \\ []) do
+    url_path = "/automationrules/delete"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Disables the standards specified by the provided `StandardsSubscriptionArns`.
 
   For more information, see [Security Standards](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html)
@@ -173,6 +196,30 @@ defmodule AWS.SecurityHub do
   """
   def batch_enable_standards(%Client{} = client, input, options \\ []) do
     url_path = "/standards/register"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Retrieves a list of details for automation rules based on rule Amazon Resource
+  Names (ARNs).
+  """
+  def batch_get_automation_rules(%Client{} = client, input, options \\ []) do
+    url_path = "/automationrules/get"
     headers = []
     query_params = []
 
@@ -311,6 +358,30 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Updates one or more automation rules based on rule Amazon Resource Names (ARNs)
+  and input parameters.
+  """
+  def batch_update_automation_rules(%Client{} = client, input, options \\ []) do
+    url_path = "/automationrules/update"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Used by Security Hub customers to update information about their investigation
   into a finding.
 
@@ -399,6 +470,29 @@ defmodule AWS.SecurityHub do
   """
   def create_action_target(%Client{} = client, input, options \\ []) do
     url_path = "/actionTargets"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates an automation rule based on input parameters.
+  """
+  def create_automation_rule(%Client{} = client, input, options \\ []) do
+    url_path = "/automationrules/create"
     headers = []
     query_params = []
 
@@ -1417,6 +1511,38 @@ defmodule AWS.SecurityHub do
       options,
       nil
     )
+  end
+
+  @doc """
+  A list of automation rules and their metadata for the calling account.
+  """
+  def list_automation_rules(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/automationrules/list"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """

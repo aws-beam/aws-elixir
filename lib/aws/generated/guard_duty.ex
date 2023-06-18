@@ -215,14 +215,25 @@ defmodule AWS.GuardDuty do
   This step is a prerequisite for managing the associated member accounts either
   by invitation or through an organization.
 
-  When using `Create Members` as an organizations delegated administrator this
-  action will enable GuardDuty in the added member accounts, with the exception of
-  the organization delegated administrator account, which must enable GuardDuty
-  prior to being added as a member.
+  As a delegated administrator, using `CreateMembers` will enable GuardDuty in the
+  added member accounts, with the exception of the organization delegated
+  administrator account. A delegated administrator must enable GuardDuty prior to
+  being added as a member.
 
-  If you are adding accounts by invitation, use this action after GuardDuty has
-  bee enabled in potential member accounts and before using
-  [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html).
+  If you are adding accounts by invitation, before using
+  [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html), use `CreateMembers` after GuardDuty has been enabled in potential member
+  accounts.
+
+  If you disassociate a member from a GuardDuty delegated administrator, the
+  member account details obtained from this API, including the associated email
+  addresses, will be retained. This is done so that the delegated administrator
+  can invoke the
+  [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html)
+  API without the need to invoke the CreateMembers API again. To remove the
+  details associated with a member account, the delegated administrator must
+  invoke the
+  [DeleteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html)
+  API.
   """
   def create_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member"
@@ -652,6 +663,17 @@ defmodule AWS.GuardDuty do
   Disassociates the current GuardDuty member account from its administrator
   account.
 
+  When you disassociate an invited member from a GuardDuty delegated
+  administrator, the member account details obtained from the
+  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html) API, including the associated email addresses, are retained. This is done so
+  that the delegated administrator can invoke the
+  [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html)
+  API without the need to invoke the CreateMembers API again. To remove the
+  details associated with a member account, the delegated administrator must
+  invoke the
+  [DeleteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html)
+  API.
+
   With `autoEnableOrganizationMembers` configuration for your organization set to
   `ALL`, you'll receive an error if you attempt to disable GuardDuty in a member
   account.
@@ -684,6 +706,17 @@ defmodule AWS.GuardDuty do
   @doc """
   Disassociates the current GuardDuty member account from its administrator
   account.
+
+  When you disassociate an invited member from a GuardDuty delegated
+  administrator, the member account details obtained from the
+  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html) API, including the associated email addresses, are retained. This is done so
+  that the delegated administrator can invoke the
+  [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html)
+  API without the need to invoke the CreateMembers API again. To remove the
+  details associated with a member account, the delegated administrator must
+  invoke the
+  [DeleteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html)
+  API.
   """
   def disassociate_from_master_account(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/master/disassociate"
@@ -706,8 +739,19 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Disassociates GuardDuty member accounts (to the current administrator account)
+  Disassociates GuardDuty member accounts (from the current administrator account)
   specified by the account IDs.
+
+  When you disassociate an invited member from a GuardDuty delegated
+  administrator, the member account details obtained from the
+  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html) API, including the associated email addresses, are retained. This is done so
+  that the delegated administrator can invoke the
+  [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html)
+  API without the need to invoke the CreateMembers API again. To remove the
+  details associated with a member account, the delegated administrator must
+  invoke the
+  [DeleteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html)
+  API.
 
   With `autoEnableOrganizationMembers` configuration for your organization set to
   `ALL`, you'll receive an error if you attempt to disassociate a member account
@@ -1057,10 +1101,29 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Invites other Amazon Web Services accounts (created as members of the current
-  Amazon Web Services account by CreateMembers) to enable GuardDuty, and allow the
-  current Amazon Web Services account to view and manage these accounts' findings
-  on their behalf as the GuardDuty administrator account.
+  Invites Amazon Web Services accounts to become members of an organization
+  administered by the Amazon Web Services account that invokes this API.
+
+  If you are using Amazon Web Services Organizations to manager your GuardDuty
+  environment, this step is not needed. For more information, see [Managing accounts with Amazon Web Services
+  Organizations](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
+
+  To invite Amazon Web Services accounts, the first step is to ensure that
+  GuardDuty has been enabled in the potential member accounts. You can now invoke
+  this API to add accounts by invitation. The invited accounts can either accept
+  or decline the invitation from their GuardDuty accounts. Each invited Amazon Web
+  Services account can choose to accept the invitation from only one Amazon Web
+  Services account. For more information, see [Managing GuardDuty accounts by invitation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_invitations.html).
+
+  After the invite has been accepted and you choose to disassociate a member
+  account (by using
+  [DisassociateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DisassociateMembers.html)) from your account, the details of the member account obtained by invoking
+  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html),
+  including the associated email addresses, will be retained. This is done so that
+  you can invoke InviteMembers without the need to invoke
+  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html) again. To remove the details associated with a member account, you must also
+  invoke
+  [DeleteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html).
   """
   def invite_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/invite"

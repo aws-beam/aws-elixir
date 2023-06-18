@@ -164,19 +164,16 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Uploads one or more pieces of evidence to a control in an Audit Manager
-  assessment.
+  Adds one or more pieces of evidence to a control in an Audit Manager assessment.
 
-  You can upload manual evidence from any Amazon Simple Storage Service (Amazon
-  S3) bucket by specifying the S3 URI of the evidence.
-
-  You must upload manual evidence to your S3 bucket before you can upload it to
-  your assessment. For instructions, see
-  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html) and
-  [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
-  in the *Amazon Simple Storage Service API Reference.*
+  You can import manual evidence from any S3 bucket by specifying the S3 URI of
+  the object. You can also upload a file from your browser, or enter plain text in
+  response to a risk assessment question.
 
   The following restrictions apply to this action:
+
+    * `manualEvidence` can be only one of the following:
+  `evidenceFileName`, `s3ResourcePath`, or `textResponse`
 
     * Maximum size of an individual evidence file: 100 MB
 
@@ -438,6 +435,12 @@ defmodule AWS.AuditManager do
 
   @doc """
   Deletes a custom control in Audit Manager.
+
+  When you invoke this operation, the custom control is deleted from any
+  frameworks or assessments that it’s currently part of. As a result, Audit
+  Manager will stop collecting evidence for that custom control in all of your
+  assessments. This includes assessments that you previously created before you
+  deleted the custom control.
   """
   def delete_control(%Client{} = client, control_id, input, options \\ []) do
     url_path = "/controls/#{AWS.Util.encode_uri(control_id)}"
@@ -598,7 +601,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns the registration status of an account in Audit Manager.
+  Gets the registration status of an account in Audit Manager.
   """
   def get_account_status(%Client{} = client, options \\ []) do
     url_path = "/account/status"
@@ -611,7 +614,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns an assessment from Audit Manager.
+  Gets information about a specified assessment.
   """
   def get_assessment(%Client{} = client, assessment_id, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}"
@@ -624,7 +627,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns a framework from Audit Manager.
+  Gets information about a specified framework.
   """
   def get_assessment_framework(%Client{} = client, framework_id, options \\ []) do
     url_path = "/assessmentFrameworks/#{AWS.Util.encode_uri(framework_id)}"
@@ -637,7 +640,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns the URL of an assessment report in Audit Manager.
+  Gets the URL of an assessment report in Audit Manager.
   """
   def get_assessment_report_url(
         %Client{} = client,
@@ -657,7 +660,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns a list of changelogs from Audit Manager.
+  Gets a list of changelogs from Audit Manager.
   """
   def get_change_logs(
         %Client{} = client,
@@ -706,7 +709,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns a control from Audit Manager.
+  Gets information about a specified control.
   """
   def get_control(%Client{} = client, control_id, options \\ []) do
     url_path = "/controls/#{AWS.Util.encode_uri(control_id)}"
@@ -719,7 +722,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns a list of delegations from an audit owner to a delegate.
+  Gets a list of delegations from an audit owner to a delegate.
   """
   def get_delegations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/delegations"
@@ -746,7 +749,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns evidence from Audit Manager.
+  Gets information about a specified evidence item.
   """
   def get_evidence(
         %Client{} = client,
@@ -768,7 +771,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns all evidence from a specified evidence folder in Audit Manager.
+  Gets all evidence from a specified evidence folder in Audit Manager.
   """
   def get_evidence_by_evidence_folder(
         %Client{} = client,
@@ -805,7 +808,44 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns an evidence folder from the specified assessment in Audit Manager.
+  Creates a presigned Amazon S3 URL that can be used to upload a file as manual
+  evidence.
+
+  For instructions on how to use this operation, see [Upload a file from your browser
+  ](https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#how-to-upload-manual-evidence-files)
+  in the *Audit Manager User Guide*.
+
+  The following restrictions apply to this operation:
+
+    * Maximum size of an individual evidence file: 100 MB
+
+    * Number of daily manual evidence uploads per control: 100
+
+    * Supported file formats: See [Supported file types for manual evidence](https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files)
+  in the *Audit Manager User Guide*
+
+  For more information about Audit Manager service restrictions, see [Quotas and restrictions for Audit
+  Manager](https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
+  """
+  def get_evidence_file_upload_url(%Client{} = client, file_name, options \\ []) do
+    url_path = "/evidenceFileUploadUrl"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(file_name) do
+        [{"fileName", file_name} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets an evidence folder from a specified assessment in Audit Manager.
   """
   def get_evidence_folder(
         %Client{} = client,
@@ -826,7 +866,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns the evidence folders from a specified assessment in Audit Manager.
+  Gets the evidence folders from a specified assessment in Audit Manager.
   """
   def get_evidence_folders_by_assessment(
         %Client{} = client,
@@ -859,8 +899,8 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns a list of evidence folders that are associated with a specified control
-  in an Audit Manager assessment.
+  Gets a list of evidence folders that are associated with a specified control in
+  an Audit Manager assessment.
   """
   def get_evidence_folders_by_assessment_control(
         %Client{} = client,
@@ -923,8 +963,8 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns the name of the delegated Amazon Web Services administrator account for
-  the organization.
+  Gets the name of the delegated Amazon Web Services administrator account for a
+  specified organization.
   """
   def get_organization_admin_account(%Client{} = client, options \\ []) do
     url_path = "/account/organizationAdminAccount"
@@ -937,8 +977,8 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns a list of all of the Amazon Web Services that you can choose to include
-  in your assessment.
+  Gets a list of all of the Amazon Web Services that you can choose to include in
+  your assessment.
 
   When you [create an assessment](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessment.html),
   specify which of these services you want to include to narrow the assessment's
@@ -955,7 +995,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns the settings for the specified Amazon Web Services account.
+  Gets the settings for a specified Amazon Web Services account.
   """
   def get_settings(%Client{} = client, attribute, options \\ []) do
     url_path = "/settings/#{AWS.Util.encode_uri(attribute)}"

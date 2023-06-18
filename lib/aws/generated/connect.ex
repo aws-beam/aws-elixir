@@ -3632,9 +3632,9 @@ defmodule AWS.Connect do
 
   @doc """
   When a contact is being recorded, and the recording has been suspended using
-  SuspendContactRecording, this API resumes recording the call.
+  SuspendContactRecording, this API resumes recording the call or screen.
 
-  Only voice recordings are supported at this time.
+  Voice and screen recordings are supported.
   """
   def resume_contact_recording(%Client{} = client, input, options \\ []) do
     url_path = "/contact/resume-recording"
@@ -4181,16 +4181,17 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  When a contact is being recorded, this API suspends recording the call.
+  When a contact is being recorded, this API suspends recording the call or
+  screen.
 
-  For example, you might suspend the call recording while collecting sensitive
-  information, such as a credit card number. Then use ResumeContactRecording to
-  restart recording.
+  For example, you might suspend the call or screen recording while collecting
+  sensitive information, such as a credit card number. Then use
+  ResumeContactRecording to restart recording.
 
   The period of time that the recording is suspended is filled with silence in the
   final recording.
 
-  Only voice recordings are supported at this time.
+  Voice and screen recordings are supported.
   """
   def suspend_contact_recording(%Client{} = client, input, options \\ []) do
     url_path = "/contact/suspend-recording"

@@ -166,12 +166,20 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Creates an Autopilot job.
+  Creates an Autopilot job also referred to as Autopilot experiment or AutoML job.
 
-  Find the best-performing model after you run an Autopilot job by calling
-  [DescribeAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html).  For information about how to use Autopilot, see [Automate Model Development with
-  Amazon SageMaker
-  Autopilot](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html).
+  Find the best-performing model after you run an AutoML job by calling
+  [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html) (recommended) or
+  [DescribeAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html).
+
+  `CreateAutoMLJob` only accepts tabular input data. We recommend using
+  [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html) for all problem types. `CreateAutoMLJobV2` can process the same tabular data as
+  its previous version `CreateAutoMLJob`, as well as non-tabular data for problem
+  types such as image or text classification.
+
+  Find guidelines about how to migrate `CreateAutoMLJob` to `CreateAutoMLJobV2` in
+  [Migrate a CreateAutoMLJob to
+  CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment-api.html#autopilot-create-experiment-api-migrate-v1-v2).
   """
   def create_auto_ml_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -180,15 +188,24 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Creates an Amazon SageMaker AutoML job that uses non-tabular data such as images
-  or text for Computer Vision or Natural Language Processing problems.
+  Creates an Autopilot job also referred to as Autopilot experiment or AutoML job
+  V2.
 
-  Find the resulting model after you run an AutoML job V2 by calling
-  [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html).  To create an `AutoMLJob` using tabular data, see
-  [CreateAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html).
+  We recommend using
+  [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html) for all problem types. `CreateAutoMLJobV2` can process the same tabular data as
+  its previous version `CreateAutoMLJob`, as well as non-tabular data for problem
+  types such as image or text classification.
 
-  This API action is callable through SageMaker Canvas only. Calling it directly
-  from the CLI or an SDK results in an error.
+  Find guidelines about how to migrate `CreateAutoMLJob` to `CreateAutoMLJobV2` in
+  [Migrate a CreateAutoMLJob to
+  CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment-api.html#autopilot-create-experiment-api-migrate-v1-v2).
+
+  For the list of available problem types supported by `CreateAutoMLJobV2`, see
+  [AutoMLProblemTypeConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLProblemTypeConfig.html).  Find the best-performing model after you run an AutoML job V2 by calling
+  [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html).
+  Calling
+  [DescribeAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html)
+  on a AutoML job V2 results in an error.
   """
   def create_auto_ml_job_v2(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1833,7 +1850,8 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Returns information about an Amazon SageMaker AutoML job.
+  Returns information about an AutoML job created by calling
+  [CreateAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html).
   """
   def describe_auto_ml_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1842,10 +1860,8 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Returns information about an Amazon SageMaker AutoML V2 job.
-
-  This API action is callable through SageMaker Canvas only. Calling it directly
-  from the CLI or an SDK results in an error.
+  Returns information about an AutoML job V2 created by calling
+  [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html).
   """
   def describe_auto_ml_job_v2(%Client{} = client, input, options \\ []) do
     meta = metadata()

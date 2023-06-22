@@ -285,6 +285,18 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  Used to create a custom domain name for a cluster.
+
+  Properties include the custom domain name, the cluster the custom domain is
+  associated with, and the certificate Amazon Resource Name (ARN).
+  """
+  def create_custom_domain_association(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCustomDomainAssociation", input, options)
+  end
+
+  @doc """
   Creates a Redshift-managed VPC endpoint.
   """
   def create_endpoint_access(%Client{} = client, input, options \\ []) do
@@ -520,6 +532,15 @@ defmodule AWS.Redshift do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteClusterSubnetGroup", input, options)
+  end
+
+  @doc """
+  Contains information about deleting a custom domain association for a cluster.
+  """
+  def delete_custom_domain_association(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCustomDomainAssociation", input, options)
   end
 
   @doc """
@@ -814,6 +835,15 @@ defmodule AWS.Redshift do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeClusters", input, options)
+  end
+
+  @doc """
+  Contains information for custom domain associations for a cluster.
+  """
+  def describe_custom_domain_associations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCustomDomainAssociations", input, options)
   end
 
   @doc """
@@ -1446,6 +1476,15 @@ defmodule AWS.Redshift do
     meta = metadata()
 
     Request.request_post(client, meta, "ModifyClusterSubnetGroup", input, options)
+  end
+
+  @doc """
+  Contains information for changing a custom domain association.
+  """
+  def modify_custom_domain_association(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyCustomDomainAssociation", input, options)
   end
 
   @doc """

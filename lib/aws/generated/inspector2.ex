@@ -83,6 +83,30 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Retrieves code snippets from findings that Amazon Inspector detected code
+  vulnerabilities in.
+  """
+  def batch_get_code_snippet(%Client{} = client, input, options \\ []) do
+    url_path = "/codesnippet/batchget"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets free trial status for multiple Amazon Web Services accounts.
   """
   def batch_get_free_trial_info(%Client{} = client, input, options \\ []) do
@@ -183,6 +207,29 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Cancels a software bill of materials (SBOM) report.
+  """
+  def cancel_sbom_export(%Client{} = client, input, options \\ []) do
+    url_path = "/sbomexport/cancel"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a filter resource using specified filter criteria.
   """
   def create_filter(%Client{} = client, input, options \\ []) do
@@ -214,6 +261,29 @@ defmodule AWS.Inspector2 do
   """
   def create_findings_report(%Client{} = client, input, options \\ []) do
     url_path = "/reporting/create"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a software bill of materials (SBOM) report.
+  """
+  def create_sbom_export(%Client{} = client, input, options \\ []) do
+    url_path = "/sbomexport/create"
     headers = []
     query_params = []
 
@@ -469,6 +539,33 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Gets an encryption key.
+  """
+  def get_encryption_key(%Client{} = client, resource_type, scan_type, options \\ []) do
+    url_path = "/encryptionkey/get"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(scan_type) do
+        [{"scanType", scan_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"resourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets the status of a findings report.
   """
   def get_findings_report_status(%Client{} = client, input, options \\ []) do
@@ -496,6 +593,29 @@ defmodule AWS.Inspector2 do
   """
   def get_member(%Client{} = client, input, options \\ []) do
     url_path = "/members/get"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets details of a software bill of materials (SBOM) report.
+  """
+  def get_sbom_export(%Client{} = client, input, options \\ []) do
+    url_path = "/sbomexport/get"
     headers = []
     query_params = []
 
@@ -737,6 +857,22 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Resets an encryption key.
+
+  After the key is reset your resources will be encrypted by an Amazon Web
+  Services owned key.
+  """
+  def reset_encryption_key(%Client{} = client, input, options \\ []) do
+    url_path = "/encryptionkey/reset"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Lists Amazon Inspector coverage details for a specific vulnerability.
   """
   def search_vulnerabilities(%Client{} = client, input, options \\ []) do
@@ -859,6 +995,22 @@ defmodule AWS.Inspector2 do
       options,
       200
     )
+  end
+
+  @doc """
+  Updates an encryption key.
+
+  A `ResourceNotFoundException` means that an AWS owned key is being used for
+  encryption.
+  """
+  def update_encryption_key(%Client{} = client, input, options \\ []) do
+    url_path = "/encryptionkey/update"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """

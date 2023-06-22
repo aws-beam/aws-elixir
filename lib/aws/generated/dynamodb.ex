@@ -454,9 +454,7 @@ defmodule AWS.DynamoDB do
   @doc """
   Returns the regional endpoint information.
 
-  This action must be included in your VPC endpoint policies, or access to the
-  DescribeEndpoints API will be denied. For more information on policy
-  permissions, please see [Internetwork traffic privacy](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/inter-network-traffic-privacy.html#inter-network-traffic-DescribeEndpoints).
+  For more information on policy permissions, please see [Internetwork traffic privacy](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/inter-network-traffic-privacy.html#inter-network-traffic-DescribeEndpoints).
   """
   def describe_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -168,18 +168,21 @@ defmodule AWS.SageMaker do
   @doc """
   Creates an Autopilot job also referred to as Autopilot experiment or AutoML job.
 
-  Find the best-performing model after you run an AutoML job by calling
+  We recommend using the new versions
+  [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html) and
+  [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html),
+  which offer backward compatibility.
+
+  `CreateAutoMLJobV2` can manage tabular problem types identical to those of its
+  previous version `CreateAutoMLJob`, as well as non-tabular problem types such as
+  image or text classification.
+
+  Find guidelines about how to migrate a `CreateAutoMLJob` to `CreateAutoMLJobV2`
+  in [Migrate a CreateAutoMLJob to CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment-api.html#autopilot-create-experiment-api-migrate-v1-v2).
+
+  You can find the best-performing model after you run an AutoML job by calling
   [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html) (recommended) or
   [DescribeAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html).
-
-  `CreateAutoMLJob` only accepts tabular input data. We recommend using
-  [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html) for all problem types. `CreateAutoMLJobV2` can process the same tabular data as
-  its previous version `CreateAutoMLJob`, as well as non-tabular data for problem
-  types such as image or text classification.
-
-  Find guidelines about how to migrate `CreateAutoMLJob` to `CreateAutoMLJobV2` in
-  [Migrate a CreateAutoMLJob to
-  CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment-api.html#autopilot-create-experiment-api-migrate-v1-v2).
   """
   def create_auto_ml_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -191,21 +194,23 @@ defmodule AWS.SageMaker do
   Creates an Autopilot job also referred to as Autopilot experiment or AutoML job
   V2.
 
-  We recommend using
-  [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html) for all problem types. `CreateAutoMLJobV2` can process the same tabular data as
-  its previous version `CreateAutoMLJob`, as well as non-tabular data for problem
-  types such as image or text classification.
+  [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html) and
+  [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html)
+  are new versions of
+  [CreateAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html) and
+  [DescribeAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html)
+  which offer backward compatibility.
 
-  Find guidelines about how to migrate `CreateAutoMLJob` to `CreateAutoMLJobV2` in
-  [Migrate a CreateAutoMLJob to
-  CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment-api.html#autopilot-create-experiment-api-migrate-v1-v2).
+  `CreateAutoMLJobV2` can manage tabular problem types identical to those of its
+  previous version `CreateAutoMLJob`, as well as non-tabular problem types such as
+  image or text classification.
+
+  Find guidelines about how to migrate a `CreateAutoMLJob` to `CreateAutoMLJobV2`
+  in [Migrate a CreateAutoMLJob to CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment-api.html#autopilot-create-experiment-api-migrate-v1-v2).
 
   For the list of available problem types supported by `CreateAutoMLJobV2`, see
-  [AutoMLProblemTypeConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLProblemTypeConfig.html).  Find the best-performing model after you run an AutoML job V2 by calling
+  [AutoMLProblemTypeConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLProblemTypeConfig.html).  You can find the best-performing model after you run an AutoML job V2 by calling
   [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html).
-  Calling
-  [DescribeAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html)
-  on a AutoML job V2 results in an error.
   """
   def create_auto_ml_job_v2(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1851,7 +1856,9 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns information about an AutoML job created by calling
-  [CreateAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html).
+  [CreateAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html).   AutoML jobs created by calling
+  [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html)
+  cannot be described by `DescribeAutoMLJob`.
   """
   def describe_auto_ml_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1860,8 +1867,9 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Returns information about an AutoML job V2 created by calling
-  [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html).
+  Returns information about an AutoML job created by calling
+  [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html) or
+  [CreateAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html).
   """
   def describe_auto_ml_job_v2(%Client{} = client, input, options \\ []) do
     meta = metadata()

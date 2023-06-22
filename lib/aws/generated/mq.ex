@@ -67,8 +67,8 @@ defmodule AWS.Mq do
 
     * ec2:DescribeVpcs
 
-  For more information, see [Create an IAM User and Get Your AWS Credentials](https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/amazon-mq-setting-up.html#create-iam-user)
-  and [Never Modify or Delete the Amazon MQ Elastic Network Interface](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/connecting-to-amazon-mq.html#never-modify-delete-elastic-network-interface)
+  For more information, see [Create an IAM User and Get Your Amazon Web Services Credentials](https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/amazon-mq-setting-up.html#create-iam-user)
+  and [Never Modify or Delete the Amazon MQ Elastic Network Interface](https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/connecting-to-amazon-mq.html#never-modify-delete-elastic-network-interface)
   in the *Amazon MQ Developer Guide*.
   """
   def create_broker(%Client{} = client, input, options \\ []) do
@@ -141,6 +141,11 @@ defmodule AWS.Mq do
 
   @doc """
   Creates an ActiveMQ user.
+
+  Do not add personally identifiable information (PII) or other confidential or
+  sensitive information in broker usernames. Broker usernames are accessible to
+  other Amazon Web Services services, including CloudWatch Logs. Broker usernames
+  are not intended to be used for private or sensitive data.
   """
   def create_user(%Client{} = client, broker_id, username, input, options \\ []) do
     url_path =
@@ -535,6 +540,29 @@ defmodule AWS.Mq do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Promotes a data replication replica broker to the primary broker role.
+  """
+  def promote(%Client{} = client, broker_id, input, options \\ []) do
+    url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/promote"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

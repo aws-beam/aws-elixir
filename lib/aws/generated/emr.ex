@@ -453,6 +453,17 @@ defmodule AWS.EMR do
   end
 
   @doc """
+  A list of the instance types that Amazon EMR supports.
+
+  You can filter the list by Amazon Web Services Region and Amazon EMR release.
+  """
+  def list_supported_instance_types(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSupportedInstanceTypes", input, options)
+  end
+
+  @doc """
   Modifies the number of steps that can be executed concurrently for the cluster
   specified using ClusterID.
   """

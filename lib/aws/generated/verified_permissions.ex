@@ -54,12 +54,14 @@ defmodule AWS.VerifiedPermissions do
   sense for the same parameter in a different operation. To help you understand
   the purpose of each, the following naming convention is used for the structures:
 
-    * Parameters that end in `Detail` are used in `Get` operations.
+    * Parameter type structures that end in `Detail` are used in `Get`
+  operations.
 
-    * Parameters that end in `Item` are used in `List` operations.
+    * Parameter type structures that end in `Item` are used in `List`
+  operations.
 
-    * Parameters that use neither suffix are used in the mutating
-  (create and update) operations.
+    * Parameter type structures that use neither suffix are used in the
+  mutating (create and update) operations.
   """
 
   alias AWS.Client
@@ -144,6 +146,9 @@ defmodule AWS.VerifiedPermissions do
   Creates a policy store.
 
   A policy store is a container for policy resources.
+
+  Although [Cedar supports multiple namespaces](https://docs.cedarpolicy.com/schema.html#namespace), Verified
+  Permissions currently supports only one namespace per policy store.
   """
   def create_policy_store(%Client{} = client, input, options \\ []) do
     meta = metadata()

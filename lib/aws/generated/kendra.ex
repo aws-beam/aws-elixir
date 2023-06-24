@@ -754,32 +754,66 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Searches an active index.
+  Searches an index given an input query.
 
-  Use this API to search your documents using query. The `Query` API enables to do
-  faceted search and to filter results based on document attributes.
+  You can configure boosting or relevance tuning at the query level to override
+  boosting at the index level, filter based on document fields/attributes and
+  faceted search, and filter based on the user or their group access to documents.
+  You can also include certain fields in the response that might provide useful
+  additional information.
 
-  It also enables you to provide user context that Amazon Kendra uses to enforce
-  document access control in the search results.
+  A query response contains three types of results.
 
-  Amazon Kendra searches your index for text content and question and answer (FAQ)
-  content. By default the response contains three types of results.
+    * Relevant suggested answers. The answers can be either a text
+  excerpt or table excerpt. The answer can be highlighted in the excerpt.
 
-    * Relevant passages
+    * Matching FAQs or questions-answer from your FAQ file.
 
-    * Matching FAQs
-
-    * Relevant documents
+    * Relevant documents. This result type includes an excerpt of the
+  document with the document title. The searched terms can be highlighted in the
+  excerpt.
 
   You can specify that the query return only one type of result using the
-  `QueryResultTypeFilter` parameter.
-
-  Each query returns the 100 most relevant results.
+  `QueryResultTypeFilter` parameter. Each query returns the 100 most relevant
+  results. If you filter result type to only question-answers, a maximum of four
+  results are returned. If you filter result type to only answers, a maximum of
+  three results are returned.
   """
   def query(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "Query", input, options)
+  end
+
+  @doc """
+  Retrieves relevant passages or text excerpts given an input query.
+
+  This API is similar to the
+  [Query](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html)
+  API. However, by default, the `Query` API only returns excerpt passages of up to
+  100 token words. With the `Retrieve` API, you can retrieve longer passages of up
+  to 200 token words and up to 100 semantically relevant passages. This doesn't
+  include question-answer or FAQ type responses from your index. The passages are
+  text excerpts that can be semantically extracted from multiple documents and
+  multiple parts of the same document. If in extreme cases your documents produce
+  no relevant passages using the `Retrieve` API, you can alternatively use the
+  `Query` API.
+
+  You can also do the following:
+
+    * Override boosting at the index level
+
+    * Filter based on document fields or attributes
+
+    * Filter based on the user or their group access to documents
+
+  You can also include certain fields in the response that might provide useful
+  additional information.
+  """
+  def retrieve(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "Retrieve", input, options)
   end
 
   @doc """

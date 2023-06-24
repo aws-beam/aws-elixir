@@ -3,10 +3,10 @@
 
 defmodule AWS.ChimeSDKMessaging do
   @moduledoc """
-  The Amazon Chime SDK Messaging APIs in this section allow software developers to
+  The Amazon Chime SDK messaging APIs in this section allow software developers to
   send and receive messages in custom messaging applications.
 
-  These APIs depend on the frameworks provided by the Amazon Chime SDK Identity
+  These APIs depend on the frameworks provided by the Amazon Chime SDK identity
   APIs. For more information about the messaging APIs, see [Amazon Chime SDK messaging](https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging.html).
   """
 
@@ -86,7 +86,7 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Calls back Chime SDK Messaging with a processing response message.
+  Calls back Amazon Chime SDK messaging with a processing response message.
 
   This should be invoked from the processor Lambda. This is a developer API.
 
@@ -210,7 +210,7 @@ defmodule AWS.ChimeSDKMessaging do
     3. The Standard message type
 
   Channel flows don't process Control or System messages. For more information
-  about the message types provided by Chime SDK Messaging, refer to [Message types](https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types)
+  about the message types provided by Chime SDK messaging, refer to [Message types](https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types)
   in the *Amazon Chime developer guide*.
   """
   def create_channel_flow(%Client{} = client, input, options \\ []) do
@@ -858,9 +858,9 @@ defmodule AWS.ChimeSDKMessaging do
   Gets the membership preferences of an `AppInstanceUser` or `AppInstanceBot` for
   the specified channel.
 
-  A user or a bot must be a member of the channel and own the membership to be
-  able to retrieve membership preferences. Users or bots in the `AppInstanceAdmin`
-  and channel moderator roles can't retrieve preferences for other users or bots.
+  A user or a bot must be a member of the channel and own the membership in order
+  to retrieve membership preferences. Users or bots in the `AppInstanceAdmin` and
+  channel moderator roles can't retrieve preferences for other users or bots.
   Banned users or bots can't retrieve membership preferences for the channel from
   which they are banned.
 
@@ -961,7 +961,7 @@ defmodule AWS.ChimeSDKMessaging do
 
   ### DENIED
 
-  Messasge denied by the processor
+  Message denied by the processor
 
      This API does not return statuses for denied messages, because we
   don't store them once the processor denies them.
@@ -1191,7 +1191,7 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Lists all channels that anr `AppInstanceUser` or `AppInstanceBot` is a part of.
+  Lists all channels that an `AppInstanceUser` or `AppInstanceBot` is a part of.
 
   Only an `AppInstanceAdmin` can call the API with a user ARN that is not their
   own.
@@ -1640,14 +1640,14 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Sets the membership preferences of an `AppInstanceUser` or `AppIntanceBot` for
+  Sets the membership preferences of an `AppInstanceUser` or `AppInstanceBot` for
   the specified channel.
 
   The user or bot must be a member of the channel. Only the user or bot who owns
   the membership can set preferences. Users or bots in the `AppInstanceAdmin` and
-  channel moderator roles can't set preferences for other users or users. Banned
-  users or bots can't set membership preferences for the channel from which they
-  are banned.
+  channel moderator roles can't set preferences for other users. Banned users or
+  bots can't set membership preferences for the channel from which they are
+  banned.
 
   The x-amz-chime-bearer request header is mandatory. Use the ARN of an
   `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
@@ -1782,8 +1782,11 @@ defmodule AWS.ChimeSDKMessaging do
   `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
   the header.
 
-  Also, `STANDARD` messages can contain 4KB of data and the 1KB of metadata.
-  `CONTROL` messages can contain 30 bytes of data and no metadata.
+  Also, `STANDARD` messages can be up to 4KB in size and contain metadata.
+  Metadata is arbitrary, and you can use it in a variety of ways, such as
+  containing a link to an attachment.
+
+  `CONTROL` messages are limited to 30 bytes and do not contain metadata.
   """
   def send_channel_message(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages"

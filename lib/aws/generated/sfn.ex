@@ -80,13 +80,17 @@ defmodule AWS.SFN do
   Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html)
   in the Step Functions User Guide.
 
+  If you set the `publish` parameter of this API action to `true`, it publishes
+  version `1` as the first revision of the state machine.
+
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
 
   `CreateStateMachine` is an idempotent API. Subsequent requests won’t create a
   duplicate resource if it was already created. `CreateStateMachine`'s idempotency
   check is based on the state machine `name`, `definition`, `type`,
-  `LoggingConfiguration` and `TracingConfiguration`. If a following request has a
+  `LoggingConfiguration`, and `TracingConfiguration`. The check is also based on
+  the `publish` and `versionDescription` parameters. If a following request has a
   different `roleArn` or `tags`, Step Functions will ignore these differences and
   treat it as an idempotent request of the previous. In this case, `roleArn` and
   `tags` will not be updated, even if they are different.
@@ -95,6 +99,50 @@ defmodule AWS.SFN do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateStateMachine", input, options)
+  end
+
+  @doc """
+  Creates an
+  [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html) for a state machine that points to one or two
+  [versions](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html)
+  of the same state machine.
+
+  You can set your application to call `StartExecution` with an alias and update
+  the version the alias uses without changing the client's code.
+
+  You can also map an alias to split `StartExecution` requests between two
+  versions of a state machine. To do this, add a second `RoutingConfig` object in
+  the `routingConfiguration` parameter. You must also specify the percentage of
+  execution run requests each version should receive in both `RoutingConfig`
+  objects. Step Functions randomly chooses which version runs a given execution
+  based on the percentage you specify.
+
+  To create an alias that points to a single version, specify a single
+  `RoutingConfig` object with a `weight` set to 100.
+
+  You can create up to 100 aliases for each state machine. You must delete unused
+  aliases using the `DeleteStateMachineAlias` API action.
+
+  `CreateStateMachineAlias` is an idempotent API. Step Functions bases the
+  idempotency check on the `stateMachineArn`, `description`, `name`, and
+  `routingConfiguration` parameters. Requests that contain the same values for
+  these parameters return a successful idempotent response without creating a
+  duplicate resource.
+
+  ## Related operations:
+
+    * `DescribeStateMachineAlias`
+
+    * `ListStateMachineAliases`
+
+    * `UpdateStateMachineAlias`
+
+    * `DeleteStateMachineAlias`
+  """
+  def create_state_machine_alias(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateStateMachineAlias", input, options)
   end
 
   @doc """
@@ -112,16 +160,31 @@ defmodule AWS.SFN do
   This is an asynchronous operation: It sets the state machine's status to
   `DELETING` and begins the deletion process.
 
-  If the given state machine Amazon Resource Name (ARN) is a qualified state
-  machine ARN, it will fail with ValidationException.
+  A qualified state machine ARN can either refer to a *Distributed Map state*
+  defined within a state machine, a version ARN, or an alias ARN.
 
-  A qualified state machine ARN refers to a *Distributed Map state* defined within
-  a state machine. For example, the qualified state machine ARN
-  `arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel`
-  refers to a *Distributed Map state* with a label `mapStateLabel` in the state
-  machine named `stateMachineName`.
+  The following are some examples of qualified and unqualified state machine ARNs:
 
-  For `EXPRESS` state machines, the deletion will happen eventually (usually less
+    * The following qualified state machine ARN refers to a *Distributed
+  Map state* with a label `mapStateLabel` in a state machine named
+  `myStateMachine`.
+
+  `arn:partition:states:region:account-id:stateMachine:myStateMachine/mapStateLabel`
+
+  If you provide a qualified state machine ARN that refers to a *Distributed Map
+  state*, the request fails with `ValidationException`.
+
+    * The following unqualified state machine ARN refers to a state
+  machine named `myStateMachine`.
+
+  `arn:partition:states:region:account-id:stateMachine:myStateMachine`
+
+  This API action also deletes all
+  [versions](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html) and
+  [aliases](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html)
+  associated with a state machine.
+
+  For `EXPRESS` state machines, the deletion happens eventually (usually in less
   than a minute). Running executions may emit logs after `DeleteStateMachine` API
   is called.
   """
@@ -129,6 +192,54 @@ defmodule AWS.SFN do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteStateMachine", input, options)
+  end
+
+  @doc """
+  Deletes a state machine
+  [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html).
+
+  After you delete a state machine alias, you can't use it to start executions.
+  When you delete a state machine alias, Step Functions doesn't delete the state
+  machine versions that alias references.
+
+  ## Related operations:
+
+    * `CreateStateMachineAlias`
+
+    * `DescribeStateMachineAlias`
+
+    * `ListStateMachineAliases`
+
+    * `UpdateStateMachineAlias`
+  """
+  def delete_state_machine_alias(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteStateMachineAlias", input, options)
+  end
+
+  @doc """
+  Deletes a state machine
+  [version](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html).  After you delete a version, you can't call `StartExecution` using that version's
+  ARN or use the version with a state machine
+  [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html).
+
+  Deleting a state machine version won't terminate its in-progress executions.
+
+  You can't delete a state machine version currently referenced by one or more
+  aliases. Before you delete a version, you must either delete the aliases or
+  update them to point to another state machine version.
+
+  ## Related operations:
+
+    * `PublishStateMachineVersion`
+
+    * `ListStateMachineVersions`
+  """
+  def delete_state_machine_version(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteStateMachineVersion", input, options)
   end
 
   @doc """
@@ -144,18 +255,21 @@ defmodule AWS.SFN do
   end
 
   @doc """
-  Provides all information about a state machine execution, such as the state
-  machine associated with the execution, the execution input and output, and
-  relevant execution metadata.
+  Provides information about a state machine execution, such as the state machine
+  associated with the execution, the execution input and output, and relevant
+  execution metadata.
 
-  Use this API action to return the Map Run ARN if the execution was dispatched by
-  a Map Run.
+  Use this API action to return the Map Run Amazon Resource Name (ARN) if the
+  execution was dispatched by a Map Run.
+
+  If you specify a version or alias ARN when you call the `StartExecution` API
+  action, `DescribeExecution` returns that ARN.
 
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
 
-  This API action is not supported by `EXPRESS` state machine executions unless
-  they were dispatched by a Map Run.
+  Executions of an `EXPRESS` state machinearen't supported by `DescribeExecution`
+  unless a Map Run dispatched them.
   """
   def describe_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -179,14 +293,35 @@ defmodule AWS.SFN do
   Provides information about a state machine's definition, its IAM role Amazon
   Resource Name (ARN), and configuration.
 
-  If the state machine ARN is a qualified state machine ARN, the response returned
-  includes the `Map` state's label.
+  A qualified state machine ARN can either refer to a *Distributed Map state*
+  defined within a state machine, a version ARN, or an alias ARN.
 
-  A qualified state machine ARN refers to a *Distributed Map state* defined within
-  a state machine. For example, the qualified state machine ARN
-  `arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel`
-  refers to a *Distributed Map state* with a label `mapStateLabel` in the state
-  machine named `stateMachineName`.
+  The following are some examples of qualified and unqualified state machine ARNs:
+
+    * The following qualified state machine ARN refers to a *Distributed
+  Map state* with a label `mapStateLabel` in a state machine named
+  `myStateMachine`.
+
+  `arn:partition:states:region:account-id:stateMachine:myStateMachine/mapStateLabel`
+
+  If you provide a qualified state machine ARN that refers to a *Distributed Map
+  state*, the request fails with `ValidationException`.
+
+    * The following qualified state machine ARN refers to an alias named
+  `PROD`.
+
+  `arn:<partition>:states:<region>:<account-id>:stateMachine:<myStateMachine:PROD>`
+
+  If you provide a qualified state machine ARN that refers to a version ARN or an
+  alias ARN, the request starts execution for that version or alias.
+
+    * The following unqualified state machine ARN refers to a state
+  machine named `myStateMachine`.
+
+  `arn:<partition>:states:<region>:<account-id>:stateMachine:<myStateMachine>`
+
+  This API action returns the details for a state machine version if the
+  `stateMachineArn` you specify is a state machine version ARN.
 
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
@@ -198,12 +333,32 @@ defmodule AWS.SFN do
   end
 
   @doc """
+  Returns details about a state machine
+  [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html).
+
+  ## Related operations:
+
+    * `CreateStateMachineAlias`
+
+    * `ListStateMachineAliases`
+
+    * `UpdateStateMachineAlias`
+
+    * `DeleteStateMachineAlias`
+  """
+  def describe_state_machine_alias(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStateMachineAlias", input, options)
+  end
+
+  @doc """
   Provides information about a state machine's definition, its execution role ARN,
   and configuration.
 
-  If an execution was dispatched by a Map Run, the Map Run is returned in the
-  response. Additionally, the state machine returned will be the state machine
-  associated with the Map Run.
+  If a Map Run dispatched the execution, this action returns the Map Run Amazon
+  Resource Name (ARN) in the response. The state machine returned is the state
+  machine associated with the Map Run.
 
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
@@ -286,6 +441,11 @@ defmodule AWS.SFN do
   machine Amazon Resource Name (ARN), or those related to a Map Run by specifying
   a Map Run ARN.
 
+  You can also provide a state machine
+  [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html) ARN or
+  [version](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html)
+  ARN to list the executions associated with a specific alias or version.
+
   Results are sorted by time, with the most recent execution first.
 
   If `nextToken` is returned, there are more results available. The value of
@@ -318,6 +478,63 @@ defmodule AWS.SFN do
   end
 
   @doc """
+  Lists
+  [aliases](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html) for a specified state machine ARN.
+
+  Results are sorted by time, with the most recently created aliases listed first.
+
+  To list aliases that reference a state machine
+  [version](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html),
+  you can specify the version ARN in the `stateMachineArn` parameter.
+
+  If `nextToken` is returned, there are more results available. The value of
+  `nextToken` is a unique pagination token for each page. Make the call again
+  using the returned token to retrieve the next page. Keep all other arguments
+  unchanged. Each pagination token expires after 24 hours. Using an expired
+  pagination token will return an *HTTP 400 InvalidToken* error.
+
+  ## Related operations:
+
+    * `CreateStateMachineAlias`
+
+    * `DescribeStateMachineAlias`
+
+    * `UpdateStateMachineAlias`
+
+    * `DeleteStateMachineAlias`
+  """
+  def list_state_machine_aliases(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStateMachineAliases", input, options)
+  end
+
+  @doc """
+  Lists
+  [versions](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html)
+  for the specified state machine Amazon Resource Name (ARN).
+
+  The results are sorted in descending order of the version creation time.
+
+  If `nextToken` is returned, there are more results available. The value of
+  `nextToken` is a unique pagination token for each page. Make the call again
+  using the returned token to retrieve the next page. Keep all other arguments
+  unchanged. Each pagination token expires after 24 hours. Using an expired
+  pagination token will return an *HTTP 400 InvalidToken* error.
+
+  ## Related operations:
+
+    * `PublishStateMachineVersion`
+
+    * `DeleteStateMachineVersion`
+  """
+  def list_state_machine_versions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStateMachineVersions", input, options)
+  end
+
+  @doc """
   Lists the existing state machines.
 
   If `nextToken` is returned, there are more results available. The value of
@@ -345,6 +562,38 @@ defmodule AWS.SFN do
     meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Creates a
+  [version](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html)
+  from the current revision of a state machine.
+
+  Use versions to create immutable snapshots of your state machine. You can start
+  executions from versions either directly or with an alias. To create an alias,
+  use `CreateStateMachineAlias`.
+
+  You can publish up to 1000 versions for each state machine. You must manually
+  delete unused versions using the `DeleteStateMachineVersion` API action.
+
+  `PublishStateMachineVersion` is an idempotent API. It doesn't create a duplicate
+  state machine version if it already exists for the current revision. Step
+  Functions bases `PublishStateMachineVersion`'s idempotency check on the
+  `stateMachineArn`, `name`, and `revisionId` parameters. Requests with the same
+  parameters return a successful idempotent response. If you don't specify a
+  `revisionId`, Step Functions checks for a previously published version of the
+  state machine's current revision.
+
+  ## Related operations:
+
+    * `DeleteStateMachineVersion`
+
+    * `ListStateMachineVersions`
+  """
+  def publish_state_machine_version(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PublishStateMachineVersion", input, options)
   end
 
   @doc """
@@ -400,23 +649,48 @@ defmodule AWS.SFN do
   @doc """
   Starts a state machine execution.
 
-  If the given state machine Amazon Resource Name (ARN) is a qualified state
-  machine ARN, it will fail with ValidationException.
+  A qualified state machine ARN can either refer to a *Distributed Map state*
+  defined within a state machine, a version ARN, or an alias ARN.
 
-  A qualified state machine ARN refers to a *Distributed Map state* defined within
-  a state machine. For example, the qualified state machine ARN
-  `arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel`
-  refers to a *Distributed Map state* with a label `mapStateLabel` in the state
-  machine named `stateMachineName`.
+  The following are some examples of qualified and unqualified state machine ARNs:
+
+    * The following qualified state machine ARN refers to a *Distributed
+  Map state* with a label `mapStateLabel` in a state machine named
+  `myStateMachine`.
+
+  `arn:partition:states:region:account-id:stateMachine:myStateMachine/mapStateLabel`
+
+  If you provide a qualified state machine ARN that refers to a *Distributed Map
+  state*, the request fails with `ValidationException`.
+
+    * The following qualified state machine ARN refers to an alias named
+  `PROD`.
+
+  `arn:<partition>:states:<region>:<account-id>:stateMachine:<myStateMachine:PROD>`
+
+  If you provide a qualified state machine ARN that refers to a version ARN or an
+  alias ARN, the request starts execution for that version or alias.
+
+    * The following unqualified state machine ARN refers to a state
+  machine named `myStateMachine`.
+
+  `arn:<partition>:states:<region>:<account-id>:stateMachine:<myStateMachine>`
+
+  If you start an execution with an unqualified state machine ARN, Step Functions
+  uses the latest revision of the state machine for the execution.
+
+  To start executions of a state machine
+  [version](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html), call `StartExecution` and provide the version ARN or the ARN of an
+  [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html)
+  that points to the version.
 
   `StartExecution` is idempotent for `STANDARD` workflows. For a `STANDARD`
-  workflow, if `StartExecution` is called with the same name and input as a
-  running execution, the call will succeed and return the same response as the
-  original request. If the execution is closed or if the input is different, it
-  will return a `400 ExecutionAlreadyExists` error. Names can be reused after 90
-  days.
+  workflow, if you call `StartExecution` with the same name and input as a running
+  execution, the call succeeds and return the same response as the original
+  request. If the execution is closed or if the input is different, it returns a
+  `400 ExecutionAlreadyExists` error. You can reuse names after 90 days.
 
-  `StartExecution` is not idempotent for `EXPRESS` workflows.
+  `StartExecution` isn't idempotent for `EXPRESS` workflows.
   """
   def start_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -497,23 +771,88 @@ defmodule AWS.SFN do
   You must include at least one of `definition` or `roleArn` or you will receive a
   `MissingRequiredParameter` error.
 
-  If the given state machine Amazon Resource Name (ARN) is a qualified state
-  machine ARN, it will fail with ValidationException.
-
   A qualified state machine ARN refers to a *Distributed Map state* defined within
   a state machine. For example, the qualified state machine ARN
   `arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel`
   refers to a *Distributed Map state* with a label `mapStateLabel` in the state
   machine named `stateMachineName`.
 
-  All `StartExecution` calls within a few seconds will use the updated
-  `definition` and `roleArn`. Executions started immediately after calling
-  `UpdateStateMachine` may use the previous state machine `definition` and
-  `roleArn`.
+  A qualified state machine ARN can either refer to a *Distributed Map state*
+  defined within a state machine, a version ARN, or an alias ARN.
+
+  The following are some examples of qualified and unqualified state machine ARNs:
+
+    * The following qualified state machine ARN refers to a *Distributed
+  Map state* with a label `mapStateLabel` in a state machine named
+  `myStateMachine`.
+
+  `arn:partition:states:region:account-id:stateMachine:myStateMachine/mapStateLabel`
+
+  If you provide a qualified state machine ARN that refers to a *Distributed Map
+  state*, the request fails with `ValidationException`.
+
+    * The following qualified state machine ARN refers to an alias named
+  `PROD`.
+
+  `arn:<partition>:states:<region>:<account-id>:stateMachine:<myStateMachine:PROD>`
+
+  If you provide a qualified state machine ARN that refers to a version ARN or an
+  alias ARN, the request starts execution for that version or alias.
+
+    * The following unqualified state machine ARN refers to a state
+  machine named `myStateMachine`.
+
+  `arn:<partition>:states:<region>:<account-id>:stateMachine:<myStateMachine>`
+
+  After you update your state machine, you can set the `publish` parameter to
+  `true` in the same action to publish a new
+  [version](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html).
+  This way, you can opt-in to strict versioning of your state machine.
+
+  Step Functions assigns monotonically increasing integers for state machine
+  versions, starting at version number 1.
+
+  All `StartExecution` calls within a few seconds use the updated `definition` and
+  `roleArn`. Executions started immediately after you call `UpdateStateMachine`
+  may use the previous state machine `definition` and `roleArn`.
   """
   def update_state_machine(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateStateMachine", input, options)
+  end
+
+  @doc """
+  Updates the configuration of an existing state machine
+  [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html)
+  by modifying its `description` or `routingConfiguration`.
+
+  You must specify at least one of the `description` or `routingConfiguration`
+  parameters to update a state machine alias.
+
+  `UpdateStateMachineAlias` is an idempotent API. Step Functions bases the
+  idempotency check on the `stateMachineAliasArn`, `description`, and
+  `routingConfiguration` parameters. Requests with the same parameters return an
+  idempotent response.
+
+  This operation is eventually consistent. All `StartExecution` requests made
+  within a few seconds use the latest alias configuration. Executions started
+  immediately after calling `UpdateStateMachineAlias` may use the previous routing
+  configuration.
+
+  ## Related operations:
+
+    * `CreateStateMachineAlias`
+
+    * `DescribeStateMachineAlias`
+
+    * `ListStateMachineAliases`
+
+    * `DeleteStateMachineAlias`
+  """
+  def update_state_machine_alias(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateStateMachineAlias", input, options)
   end
 end

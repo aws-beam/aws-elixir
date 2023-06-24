@@ -1052,7 +1052,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Returns information about Amazon Aurora DB clusters and Multi-AZ DB clusters.
+  Describes existing Amazon Aurora DB clusters and Multi-AZ DB clusters.
 
   This API supports pagination.
 
@@ -1097,7 +1097,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Returns information about provisioned RDS instances.
+  Describes provisioned RDS instances.
 
   This API supports pagination.
 
@@ -1627,7 +1627,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Modify the settings for an Amazon Aurora DB cluster or a Multi-AZ DB cluster.
+  Modifies the settings of an Amazon Aurora DB cluster or a Multi-AZ DB cluster.
 
   You can change one or more settings by specifying these parameters and the new
   values in the request.

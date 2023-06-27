@@ -306,6 +306,23 @@ defmodule AWS.Connect do
   API to verify the status of a previous
   [ClaimPhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html)
   operation.
+
+  If you plan to claim and release numbers frequently during a 30 day period,
+  contact us for a service quota exception. Otherwise, it is possible you will be
+  blocked from claiming and releasing any more numbers until 30 days past the
+  oldest number released has expired.
+
+  By default you can claim and release up to 200% of your maximum number of active
+  phone numbers during any 30 day period. If you claim and release phone numbers
+  using the UI or API during a rolling 30 day cycle that exceeds 200% of your
+  phone number service level quota, you will be blocked from claiming any more
+  numbers until 30 days past the oldest number released has expired.
+
+  For example, if you already have 99 claimed numbers and a service level quota of
+  99 phone numbers, and in any 30 day period you release 99, claim 99, and then
+  release 99, you will have exceeded the 200% limit. At that point you are blocked
+  from claiming any more numbers until you open an Amazon Web Services support
+  ticket.
   """
   def claim_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number/claim"
@@ -3576,6 +3593,23 @@ defmodule AWS.Connect do
   of 30 days. It cannot be searched for or claimed again until the period has
   ended. If you accidentally release a phone number, contact Amazon Web Services
   Support.
+
+  If you plan to claim and release numbers frequently during a 30 day period,
+  contact us for a service quota exception. Otherwise, it is possible you will be
+  blocked from claiming and releasing any more numbers until 30 days past the
+  oldest number released has expired.
+
+  By default you can claim and release up to 200% of your maximum number of active
+  phone numbers during any 30 day period. If you claim and release phone numbers
+  using the UI or API during a rolling 30 day cycle that exceeds 200% of your
+  phone number service level quota, you will be blocked from claiming any more
+  numbers until 30 days past the oldest number released has expired.
+
+  For example, if you already have 99 claimed numbers and a service level quota of
+  99 phone numbers, and in any 30 day period you release 99, claim 99, and then
+  release 99, you will have exceeded the 200% limit. At that point you are blocked
+  from claiming any more numbers until you open an Amazon Web Services support
+  ticket.
   """
   def release_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
@@ -3761,6 +3795,29 @@ defmodule AWS.Connect do
   """
   def search_quick_connects(%Client{} = client, input, options \\ []) do
     url_path = "/search-quick-connects"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Searches tags used in an Amazon Connect instance using optional search criteria.
+  """
+  def search_resource_tags(%Client{} = client, input, options \\ []) do
+    url_path = "/search-resource-tags"
     headers = []
     query_params = []
 

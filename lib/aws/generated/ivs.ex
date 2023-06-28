@@ -180,7 +180,7 @@ defmodule AWS.Ivs do
   recommend batching your data into a single PutMetadata call.) At most 155
   requests per second per account are allowed.
 
-  ## PlaybackKeyPair Endpoints
+  ## Private Channel Endpoints
 
   For more information, see [Setting Up Private Channels](https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html)
   in the *Amazon IVS User Guide*.
@@ -201,6 +201,15 @@ defmodule AWS.Ivs do
     * `DeletePlaybackKeyPair` — Deletes a specified authorization key
   pair. This invalidates future viewer tokens generated using the key pair’s
   `privateKey`.
+
+    * `StartViewerSessionRevocation` — Starts the process of revoking
+  the viewer session associated with a specified channel ARN and viewer ID.
+  Optionally, you can provide a version to revoke viewer sessions less than and
+  including that version.
+
+    * `BatchStartViewerSessionRevocation` — Performs
+  `StartViewerSessionRevocation` on multiple channel ARN and viewer ID pairs
+  simultaneously.
 
   ## RecordingConfiguration Endpoints
 
@@ -276,6 +285,30 @@ defmodule AWS.Ivs do
   """
   def batch_get_stream_key(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetStreamKey"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Performs `StartViewerSessionRevocation` on multiple channel ARN and viewer ID
+  pairs simultaneously.
+  """
+  def batch_start_viewer_session_revocation(%Client{} = client, input, options \\ []) do
+    url_path = "/BatchStartViewerSessionRevocation"
     headers = []
     query_params = []
 
@@ -835,6 +868,34 @@ defmodule AWS.Ivs do
   """
   def put_metadata(%Client{} = client, input, options \\ []) do
     url_path = "/PutMetadata"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts the process of revoking the viewer session associated with a specified
+  channel ARN and viewer ID.
+
+  Optionally, you can provide a version to revoke viewer sessions less than and
+  including that version. For instructions on associating a viewer ID with a
+  viewer session, see [Setting Up Private Channels](https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html).
+  """
+  def start_viewer_session_revocation(%Client{} = client, input, options \\ []) do
+    url_path = "/StartViewerSessionRevocation"
     headers = []
     query_params = []
 

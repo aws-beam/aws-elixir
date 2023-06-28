@@ -65,9 +65,9 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   @doc """
   Deletes a `Record` from a `FeatureGroup` in the `OnlineStore`.
 
-  Feature Store supports both `SOFT_DELETE` and `HARD_DELETE`. For `SOFT_DELETE`
+  Feature Store supports both `SoftDelete` and `HardDelete`. For `SoftDelete`
   (default), feature columns are set to `null` and the record is no longer
-  retrievable by `GetRecord` or `BatchGetRecord`. For` HARD_DELETE`, the complete
+  retrievable by `GetRecord` or `BatchGetRecord`. For `HardDelete`, the complete
   `Record` is removed from the `OnlineStore`. In both cases, Feature Store appends
   the deleted record marker to the `OfflineStore` with feature values set to
   `null`, `is_deleted` value set to `True`, and `EventTime` set to the delete
@@ -77,11 +77,11 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   the `EventTime` of the existing record in the `OnlineStore` for that
   `RecordIdentifer`. If it is not, the deletion does not occur:
 
-    * For `SOFT_DELETE`, the existing (undeleted) record remains in the
+    * For `SoftDelete`, the existing (undeleted) record remains in the
   `OnlineStore`, though the delete record marker is still written to the
   `OfflineStore`.
 
-    * `HARD_DELETE` returns `EventTime`: `400 ValidationException` to
+    * `HardDelete` returns `EventTime`: `400 ValidationException` to
   indicate that the delete operation failed. No delete record marker is written to
   the `OfflineStore`.
   """
@@ -122,6 +122,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   def get_record(
         %Client{} = client,
         feature_group_name,
+        expiration_time_response \\ nil,
         feature_names \\ nil,
         record_identifier_value_as_string,
         options \\ []
@@ -140,6 +141,13 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
     query_params =
       if !is_nil(feature_names) do
         [{"FeatureName", feature_names} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(expiration_time_response) do
+        [{"ExpirationTimeResponse", expiration_time_response} | query_params]
       else
         query_params
       end

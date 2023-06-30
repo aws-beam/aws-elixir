@@ -124,9 +124,9 @@ defmodule AWS.GameLift do
   To claim a game server, identify a game server group. You can also specify a
   game server ID, although this approach bypasses Amazon GameLift FleetIQ
   placement optimization. Optionally, include game data to pass to the game server
-  at the start of a game session, such as a game map or player information. Filter
-  options may be included to further restrict how a game server is chosen, such as
-  only allowing game servers on `ACTIVE` instances to be claimed.
+  at the start of a game session, such as a game map or player information. Add
+  filter options to further restrict how a game server is chosen, such as only
+  allowing game servers on `ACTIVE` instances to be claimed.
 
   When a game server is successfully claimed, connection information is returned.
   A claimed game server's utilization status remains `AVAILABLE` while the claim
@@ -144,7 +144,7 @@ defmodule AWS.GameLift do
     * If the game server claim status is `CLAIMED`.
 
     * If the game server is running on an instance in `DRAINING` status
-  and provided filter option does not allow placing on `DRAINING` instances.
+  and the provided filter option does not allow placing on `DRAINING` instances.
 
   ## Learn more
 

@@ -3,15 +3,16 @@
 
 defmodule AWS.CleanRooms do
   @moduledoc """
-  Welcome to the *AWS Clean Rooms API Reference*.
+  Welcome to the *Clean Rooms API Reference*.
 
-  AWS Clean Rooms is an AWS service that helps multiple parties to join their data
-  together in a secure collaboration workspace. In the collaboration, members who
-  can query and receive results can get insights into the collective datasets
-  without either party getting access to the other party's raw data.
+  Clean Rooms is an Amazon Web Services service that helps multiple parties to
+  join their data together in a secure collaboration workspace. In the
+  collaboration, members who can query and receive results can get insights into
+  the collective datasets without either party getting access to the other party's
+  raw data.
 
-  To learn more about AWS Clean Rooms concepts, procedures, and best practices,
-  see the [AWS Clean Rooms User Guide](https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html).
+  To learn more about Clean Rooms concepts, procedures, and best practices, see
+  the [Clean Rooms User Guide](https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html).
   """
 
   alias AWS.Client
@@ -776,7 +777,7 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
-  Creates a protected query that is started by AWS Clean Rooms.
+  Creates a protected query that is started by Clean Rooms .
   """
   def start_protected_query(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/protectedQueries"

@@ -46,6 +46,15 @@ defmodule AWS.AppStream do
   end
 
   @doc """
+  Associates the specified app block builder with the specified app block.
+  """
+  def associate_app_block_builder_app_block(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateAppBlockBuilderAppBlock", input, options)
+  end
+
+  @doc """
   Associates the specified application with the specified fleet.
 
   This is only supported for Elastic fleets.
@@ -122,6 +131,24 @@ defmodule AWS.AppStream do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateAppBlock", input, options)
+  end
+
+  @doc """
+  Creates an app block builder.
+  """
+  def create_app_block_builder(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAppBlockBuilder", input, options)
+  end
+
+  @doc """
+  Creates a URL to start a create app block builder streaming session.
+  """
+  def create_app_block_builder_streaming_url(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAppBlockBuilderStreamingURL", input, options)
   end
 
   @doc """
@@ -273,6 +300,18 @@ defmodule AWS.AppStream do
   end
 
   @doc """
+  Deletes an app block builder.
+
+  An app block builder can only be deleted when it has no association with an app
+  block.
+  """
+  def delete_app_block_builder(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAppBlockBuilder", input, options)
+  end
+
+  @doc """
   Deletes an application.
   """
   def delete_application(%Client{} = client, input, options \\ []) do
@@ -373,6 +412,30 @@ defmodule AWS.AppStream do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
+  end
+
+  @doc """
+  Retrieves a list that describes one or more app block builder associations.
+  """
+  def describe_app_block_builder_app_block_associations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DescribeAppBlockBuilderAppBlockAssociations",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Retrieves a list that describes one or more app block builders.
+  """
+  def describe_app_block_builders(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAppBlockBuilders", input, options)
   end
 
   @doc """
@@ -549,6 +612,15 @@ defmodule AWS.AppStream do
   end
 
   @doc """
+  Disassociates a specified app block builder from a specified app block.
+  """
+  def disassociate_app_block_builder_app_block(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateAppBlockBuilderAppBlock", input, options)
+  end
+
+  @doc """
   Disassociates the specified application from the fleet.
   """
   def disassociate_application_fleet(%Client{} = client, input, options \\ []) do
@@ -638,6 +710,20 @@ defmodule AWS.AppStream do
   end
 
   @doc """
+  Starts an app block builder.
+
+  An app block builder can only be started when it's associated with an app block.
+
+  Starting an app block builder starts a new instance, which is equivalent to an
+  elastic fleet instance with application builder assistance functionality.
+  """
+  def start_app_block_builder(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartAppBlockBuilder", input, options)
+  end
+
+  @doc """
   Starts the specified fleet.
   """
   def start_fleet(%Client{} = client, input, options \\ []) do
@@ -653,6 +739,18 @@ defmodule AWS.AppStream do
     meta = metadata()
 
     Request.request_post(client, meta, "StartImageBuilder", input, options)
+  end
+
+  @doc """
+  Stops an app block builder.
+
+  Stopping an app block builder terminates the instance, and the instance state is
+  not persisted.
+  """
+  def stop_app_block_builder(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopAppBlockBuilder", input, options)
   end
 
   @doc """
@@ -706,6 +804,20 @@ defmodule AWS.AppStream do
     meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates an app block builder.
+
+  If the app block builder is in the `STARTING` or `STOPPING` state, you can't
+  update it. If the app block builder is in the `RUNNING` state, you can only
+  update the DisplayName and Description. If the app block builder is in the
+  `STOPPED` state, you can update any attribute except the Name.
+  """
+  def update_app_block_builder(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAppBlockBuilder", input, options)
   end
 
   @doc """

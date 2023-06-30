@@ -3,12 +3,19 @@
 
 defmodule AWS.Chime do
   @moduledoc """
+  **Most of these APIs are no longer supported and will not be updated.** We
+  recommend using the latest versions in the [Amazon Chime SDK API reference](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/welcome.html),
+  in the Amazon Chime SDK.
+
+  Using the latest versions requires migrating to dedicated namespaces. For more
+  information, refer to [Migrating from the Amazon Chime namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
+
   The Amazon Chime application programming interface (API) is designed so
   administrators can perform key tasks, such as creating and managing Amazon Chime
-  accounts, users, and Voice Connectors.
-
-  This guide provides detailed information about the Amazon Chime API, including
-  operations, types, inputs and outputs, and error codes.
+  accounts, users, and Voice Connectors. This guide provides detailed information
+  about the Amazon Chime API, including operations, types, inputs and outputs, and
+  error codes.
 
   You can use an AWS SDK, the AWS Command Line Interface (AWS CLI), or the REST
   API to make API calls for Amazon Chime. We recommend using an AWS SDK or the AWS
@@ -99,6 +106,15 @@ defmodule AWS.Chime do
 
   @doc """
   Associates phone numbers with the specified Amazon Chime Voice Connector.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [AssociatePhoneNumbersWithVoiceConnector](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_AssociatePhoneNumbersWithVoiceConnector.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def associate_phone_numbers_with_voice_connector(
         %Client{} = client,
@@ -129,6 +145,15 @@ defmodule AWS.Chime do
 
   @doc """
   Associates phone numbers with the specified Amazon Chime Voice Connector group.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [AssociatePhoneNumbersWithVoiceConnectorGroup](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_AssociatePhoneNumbersWithVoiceConnectorGroup.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def associate_phone_numbers_with_voice_connector_group(
         %Client{} = client,
@@ -191,6 +216,15 @@ defmodule AWS.Chime do
   @doc """
   Creates up to 100 new attendees for an active Amazon Chime SDK meeting.
 
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [BatchCreateAttendee](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_BatchCreateAttendee.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
+
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
   *Amazon Chime SDK Developer Guide*.
   """
@@ -216,6 +250,15 @@ defmodule AWS.Chime do
 
   @doc """
   Adds a specified number of users to a channel.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [BatchCreateChannelMembership](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_BatchCreateChannelMembership.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def batch_create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships?operation=batch-create"
@@ -462,6 +505,15 @@ defmodule AWS.Chime do
 
   Only SDK messaging customers use this API. `CreateAppInstance` supports
   idempotency behavior as described in the AWS API Standard.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [CreateAppInstance](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstance.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def create_app_instance(%Client{} = client, input, options \\ []) do
     url_path = "/app-instances"
@@ -487,6 +539,15 @@ defmodule AWS.Chime do
   Promotes an `AppInstanceUser` to an `AppInstanceAdmin`.
 
   The promoted user can perform the following actions.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [CreateAppInstanceAdmin](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceAdmin.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
 
     * `ChannelModerator` actions across all channels in the
   `AppInstance`.
@@ -519,6 +580,15 @@ defmodule AWS.Chime do
   Creates a user under an Amazon Chime `AppInstance`.
 
   The request consists of a unique `appInstanceUserId` and `Name` for that user.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [CreateAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceUser.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def create_app_instance_user(%Client{} = client, input, options \\ []) do
     url_path = "/app-instance-users"
@@ -545,6 +615,15 @@ defmodule AWS.Chime do
 
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
   *Amazon Chime SDK Developer Guide*.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [CreateAttendee](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateAttendee.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
@@ -597,6 +676,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [CreateChannel](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannel.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def create_channel(%Client{} = client, input, options \\ []) do
     url_path = "/channels"
@@ -637,6 +725,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [CreateChannelBan](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelBan.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def create_channel_ban(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans"
@@ -690,6 +787,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [CreateChannelMembership](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelMembership.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships"
@@ -735,6 +841,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [CreateChannelModerator](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelModerator.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def create_channel_moderator(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators"
@@ -764,6 +879,15 @@ defmodule AWS.Chime do
 
   @doc """
   Creates a media capture pipeline.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [CreateMediaCapturePipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaCapturePipeline), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def create_media_capture_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/media-capture-pipelines"
@@ -792,7 +916,16 @@ defmodule AWS.Chime do
   For more information about specifying media Regions, see [Amazon Chime SDK Media Regions](https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html)
   in the *Amazon Chime SDK Developer Guide* . For more information about the
   Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime SDK Developer Guide* .
+  *Amazon Chime SDK Developer Guide*.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [CreateMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def create_meeting(%Client{} = client, input, options \\ []) do
     url_path = "/meetings"
@@ -824,6 +957,8 @@ defmodule AWS.Chime do
   To play welcome audio or implement an interactive voice response (IVR), use the
   `CreateSipMediaApplicationCall` action with the corresponding SIP media
   application ID.
+
+  ## This API is is not available in a dedicated namespace.
   """
   def create_meeting_dial_out(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/dial-outs"
@@ -853,6 +988,15 @@ defmodule AWS.Chime do
   in the *Amazon Chime SDK Developer Guide* . For more information about the
   Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
   *Amazon Chime SDK Developer Guide* .
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [CreateMeetingWithAttendees](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeetingWithAttendees.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def create_meeting_with_attendees(%Client{} = client, input, options \\ []) do
     url_path = "/meetings?operation=create-attendees"
@@ -904,6 +1048,15 @@ defmodule AWS.Chime do
   @doc """
   Creates a proxy session on the specified Amazon Chime Voice Connector for the
   specified participant phone numbers.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [CreateProxySession](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateProxySession.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def create_proxy_session(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions"
@@ -978,6 +1131,15 @@ defmodule AWS.Chime do
 
   @doc """
   Creates a SIP media application.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [CreateSipMediaApplication](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateSipMediaApplication.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def create_sip_media_application(%Client{} = client, input, options \\ []) do
     url_path = "/sip-media-applications"
@@ -1003,6 +1165,15 @@ defmodule AWS.Chime do
   Creates an outbound call to a phone number from the phone number specified in
   the request, and it invokes the endpoint of the specified
   `sipMediaApplicationId`.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [CreateSipMediaApplicationCall](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateSipMediaApplicationCall.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def create_sip_media_application_call(
         %Client{} = client,
@@ -1032,6 +1203,15 @@ defmodule AWS.Chime do
   @doc """
   Creates a SIP rule which can be used to run a SIP media application as a target
   for a specific trigger type.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [CreateSipRule](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateSipRule.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def create_sip_rule(%Client{} = client, input, options \\ []) do
     url_path = "/sip-rules"
@@ -1086,6 +1266,15 @@ defmodule AWS.Chime do
   Chime Voice Connector to use TLS transport for SIP signaling and Secure RTP
   (SRTP) for media. Inbound calls use TLS transport, and unencrypted outbound
   calls are blocked.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [CreateVoiceConnector](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnector.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def create_voice_connector(%Client{} = client, input, options \\ []) do
     url_path = "/voice-connectors"
@@ -1117,6 +1306,15 @@ defmodule AWS.Chime do
   You can include Amazon Chime Voice Connectors from different AWS Regions in your
   group. This creates a fault tolerant mechanism for fallback in case of
   availability events.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [CreateVoiceConnectorGroup](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnectorGroup.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def create_voice_connector_group(%Client{} = client, input, options \\ []) do
     url_path = "/voice-connector-groups"
@@ -1177,6 +1375,15 @@ defmodule AWS.Chime do
 
   @doc """
   Deletes an `AppInstance` and all associated data asynchronously.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteAppInstance](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstance.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
@@ -1202,6 +1409,15 @@ defmodule AWS.Chime do
   Demotes an `AppInstanceAdmin` to an `AppInstanceUser`.
 
   This action does not delete the user.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteAppInstanceAdmin](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceAdmin.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_app_instance_admin(
         %Client{} = client,
@@ -1233,6 +1449,15 @@ defmodule AWS.Chime do
 
   @doc """
   Deletes the streaming configurations of an `AppInstance`.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteAppInstanceStreamingConfigurations](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceStreamingConfigurations.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_app_instance_streaming_configurations(
         %Client{} = client,
@@ -1261,6 +1486,15 @@ defmodule AWS.Chime do
 
   @doc """
   Deletes an `AppInstanceUser`.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceUser.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
@@ -1289,6 +1523,15 @@ defmodule AWS.Chime do
   Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted.
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
   *Amazon Chime SDK Developer Guide*.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteAttendee](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_DeleteAttendee.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
     url_path =
@@ -1321,6 +1564,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteChannel](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannel.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_channel(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
@@ -1354,6 +1606,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteChannelBan](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelBan.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_channel_ban(%Client{} = client, channel_arn, member_arn, input, options \\ []) do
     url_path =
@@ -1388,6 +1649,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteChannelMembership](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelMembership.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_channel_membership(%Client{} = client, channel_arn, member_arn, input, options \\ []) do
     url_path =
@@ -1426,6 +1696,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteChannelMessage](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelMessage.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
@@ -1460,6 +1739,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteChannelModerator](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelModerator.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_channel_moderator(
         %Client{} = client,
@@ -1521,6 +1809,15 @@ defmodule AWS.Chime do
 
   @doc """
   Deletes the media capture pipeline.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteMediaCapturePipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaCapturePipeline.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_media_capture_pipeline(%Client{} = client, media_pipeline_id, input, options \\ []) do
     url_path = "/media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
@@ -1549,6 +1846,15 @@ defmodule AWS.Chime do
   clients from joining the meeting. For more information about the Amazon Chime
   SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
   *Amazon Chime SDK Developer Guide*.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_DeleteMeeting.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_meeting(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
@@ -1602,6 +1908,15 @@ defmodule AWS.Chime do
   @doc """
   Deletes the specified proxy session from the specified Amazon Chime Voice
   Connector.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteProxySession](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteProxySession.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_proxy_session(
         %Client{} = client,
@@ -1690,6 +2005,15 @@ defmodule AWS.Chime do
 
   @doc """
   Deletes a SIP media application.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteSipMediaApplication](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteSipMediaApplication.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_sip_media_application(
         %Client{} = client,
@@ -1720,6 +2044,15 @@ defmodule AWS.Chime do
   Deletes a SIP rule.
 
   You must disable a SIP rule before you can delete it.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteSipRule](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteSipRule.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_sip_rule(%Client{} = client, sip_rule_id, input, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
@@ -1746,6 +2079,15 @@ defmodule AWS.Chime do
 
   Any phone numbers associated with the Amazon Chime Voice Connector must be
   disassociated from it before it can be deleted.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteVoiceConnector](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnector.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
@@ -1770,6 +2112,15 @@ defmodule AWS.Chime do
   @doc """
   Deletes the emergency calling configuration details from the specified Amazon
   Chime Voice Connector.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteVoiceConnectorEmergencyCallingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorEmergencyCallingConfiguration.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_voice_connector_emergency_calling_configuration(
         %Client{} = client,
@@ -1803,6 +2154,15 @@ defmodule AWS.Chime do
 
   Any `VoiceConnectorItems` and phone numbers associated with the group must be
   removed before it can be deleted.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteVoiceConnectorGroup](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorGroup.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_voice_connector_group(
         %Client{} = client,
@@ -1834,6 +2194,15 @@ defmodule AWS.Chime do
 
   If emergency calling is configured for the Amazon Chime Voice Connector, it must
   be deleted prior to deleting the origination settings.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteVoiceConnectorOrigination](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorOrigination.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_voice_connector_origination(
         %Client{} = client,
@@ -1862,6 +2231,15 @@ defmodule AWS.Chime do
 
   @doc """
   Deletes the proxy configuration from the specified Amazon Chime Voice Connector.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteVoiceProxy](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorProxy.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_voice_connector_proxy(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path =
@@ -1888,6 +2266,15 @@ defmodule AWS.Chime do
   @doc """
   Deletes the streaming configuration for the specified Amazon Chime Voice
   Connector.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteVoiceConnectorStreamingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorStreamingConfiguration.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_voice_connector_streaming_configuration(
         %Client{} = client,
@@ -1921,6 +2308,15 @@ defmodule AWS.Chime do
 
   If emergency calling is configured for the Amazon Chime Voice Connector, it must
   be deleted prior to deleting the termination settings.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteVoiceConnectorTermination](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorTermination.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_voice_connector_termination(
         %Client{} = client,
@@ -1950,6 +2346,15 @@ defmodule AWS.Chime do
   @doc """
   Deletes the specified SIP credentials used by your equipment to authenticate
   during call termination.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DeleteVoiceConnectorTerminationCredentials](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorTerminationCredentials.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def delete_voice_connector_termination_credentials(
         %Client{} = client,
@@ -1980,6 +2385,15 @@ defmodule AWS.Chime do
 
   @doc """
   Returns the full details of an `AppInstance`.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DescribeAppInstance](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstance.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def describe_app_instance(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
@@ -1993,6 +2407,15 @@ defmodule AWS.Chime do
 
   @doc """
   Returns the full details of an `AppInstanceAdmin`.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DescribeAppInstanceAdmin](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceAdmin.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def describe_app_instance_admin(
         %Client{} = client,
@@ -2013,6 +2436,15 @@ defmodule AWS.Chime do
 
   @doc """
   Returns the full details of an `AppInstanceUser`.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DescribeAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceUser.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def describe_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
@@ -2030,6 +2462,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DescribeChannel](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannel.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def describe_channel(%Client{} = client, channel_arn, chime_bearer \\ nil, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
@@ -2055,6 +2496,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DescribeChannelBan](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelBan.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def describe_channel_ban(
         %Client{} = client,
@@ -2088,6 +2538,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DescribeChannelMembership](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelMembership.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def describe_channel_membership(
         %Client{} = client,
@@ -2122,6 +2581,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DescribeChannelMembershipForAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelMembershipForAppInstanceUser.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def describe_channel_membership_for_app_instance_user(
         %Client{} = client,
@@ -2161,6 +2629,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DescribeChannelModeratedByAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelModeratedByAppInstanceUser.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def describe_channel_moderated_by_app_instance_user(
         %Client{} = client,
@@ -2201,6 +2678,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DescribeChannelModerator](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelModerator.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def describe_channel_moderator(
         %Client{} = client,
@@ -2263,6 +2749,15 @@ defmodule AWS.Chime do
   @doc """
   Disassociates the specified phone numbers from the specified Amazon Chime Voice
   Connector.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DisassociatePhoneNumbersFromVoiceConnector](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DisassociatePhoneNumbersFromVoiceConnector.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def disassociate_phone_numbers_from_voice_connector(
         %Client{} = client,
@@ -2294,6 +2789,15 @@ defmodule AWS.Chime do
   @doc """
   Disassociates the specified phone numbers from the specified Amazon Chime Voice
   Connector group.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [DisassociatePhoneNumbersFromVoiceConnectorGroup](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DisassociatePhoneNumbersFromVoiceConnectorGroup.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def disassociate_phone_numbers_from_voice_connector_group(
         %Client{} = client,
@@ -2386,6 +2890,15 @@ defmodule AWS.Chime do
 
   @doc """
   Gets the retention settings for an `AppInstance`.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetMessagingRetentionSettings](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_GetAppInstanceRetentionSettings.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def get_app_instance_retention_settings(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/retention-settings"
@@ -2399,6 +2912,15 @@ defmodule AWS.Chime do
 
   @doc """
   Gets the streaming settings for an `AppInstance`.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetMessagingStreamingConfigurations](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetMessagingStreamingConfigurations.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def get_app_instance_streaming_configurations(
         %Client{} = client,
@@ -2419,7 +2941,16 @@ defmodule AWS.Chime do
   attendee ID.
 
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime SDK Developer Guide* .
+  *Amazon Chime SDK Developer Guide*.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetAttendee](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_GetAttendee.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def get_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
@@ -2452,6 +2983,15 @@ defmodule AWS.Chime do
 
   The x-amz-chime-bearer request header is mandatory. Use the `AppInstanceUserArn`
   of the user that makes the API call as the value in the header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetChannelMessage](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetChannelMessage.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def get_channel_message(
         %Client{} = client,
@@ -2511,6 +3051,15 @@ defmodule AWS.Chime do
 
   @doc """
   Gets an existing media capture pipeline.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetMediaCapturePipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaCapturePipeline.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def get_media_capture_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
     url_path = "/media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
@@ -2523,9 +3072,17 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Gets the Amazon Chime SDK meeting details for the specified meeting ID.
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_GetMeeting.html), in the Amazon Chime SDK.
 
-  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
+
+  Gets the Amazon Chime SDK meeting details for the specified meeting ID. For more
+  information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
   *Amazon Chime SDK Developer Guide* .
   """
   def get_meeting(%Client{} = client, meeting_id, options \\ []) do
@@ -2540,6 +3097,15 @@ defmodule AWS.Chime do
 
   @doc """
   The details of the endpoint for the messaging session.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetMessagingSessionEndpoint](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetMessagingSessionEndpoint.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def get_messaging_session_endpoint(%Client{} = client, options \\ []) do
     url_path = "/endpoints/messaging-session"
@@ -2597,6 +3163,15 @@ defmodule AWS.Chime do
   @doc """
   Gets the specified proxy session details for the specified Amazon Chime Voice
   Connector.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetProxySession](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetProxySession.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def get_proxy_session(%Client{} = client, proxy_session_id, voice_connector_id, options \\ []) do
     url_path =
@@ -2645,6 +3220,15 @@ defmodule AWS.Chime do
   @doc """
   Retrieves the information for a SIP media application, including name, AWS
   Region, and endpoints.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetSipMediaApplication](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetSipMediaApplication.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def get_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
@@ -2658,6 +3242,15 @@ defmodule AWS.Chime do
 
   @doc """
   Returns the logging configuration for the specified SIP media application.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetSipMediaApplicationLoggingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetSipMediaApplicationLoggingConfiguration.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def get_sip_media_application_logging_configuration(
         %Client{} = client,
@@ -2678,6 +3271,15 @@ defmodule AWS.Chime do
   @doc """
   Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and
   target endpoints.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetSipRule](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetSipRule.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def get_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
@@ -2727,6 +3329,15 @@ defmodule AWS.Chime do
   @doc """
   Retrieves details for the specified Amazon Chime Voice Connector, such as
   timestamps,name, outbound host, and encryption requirements.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetVoiceConnector](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnector.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def get_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
@@ -2741,6 +3352,15 @@ defmodule AWS.Chime do
   @doc """
   Gets the emergency calling configuration details for the specified Amazon Chime
   Voice Connector.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetVoiceConnectorEmergencyCallingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorEmergencyCallingConfiguration.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def get_voice_connector_emergency_calling_configuration(
         %Client{} = client,
@@ -2761,6 +3381,15 @@ defmodule AWS.Chime do
   @doc """
   Retrieves details for the specified Amazon Chime Voice Connector group, such as
   timestamps,name, and associated `VoiceConnectorItems`.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetVoiceConnectorGroup](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorGroup.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def get_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
@@ -2778,6 +3407,15 @@ defmodule AWS.Chime do
 
   Shows whether SIP message logs are enabled for sending to Amazon CloudWatch
   Logs.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetVoiceConnectorLoggingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorLoggingConfiguration.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def get_voice_connector_logging_configuration(
         %Client{} = client,
@@ -2798,6 +3436,15 @@ defmodule AWS.Chime do
   @doc """
   Retrieves origination setting details for the specified Amazon Chime Voice
   Connector.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetVoiceConnectorOrigination](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorOrigination.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def get_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
@@ -2812,6 +3459,15 @@ defmodule AWS.Chime do
   @doc """
   Gets the proxy configuration details for the specified Amazon Chime Voice
   Connector.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetVoiceConnectorProxy](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorProxy.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def get_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
     url_path =
@@ -2831,6 +3487,15 @@ defmodule AWS.Chime do
 
   Shows whether media streaming is enabled for sending to Amazon Kinesis. It also
   shows the retention period, in hours, for the Amazon Kinesis data.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetVoiceConnectorStreamingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorStreamingConfiguration.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def get_voice_connector_streaming_configuration(
         %Client{} = client,
@@ -2851,6 +3516,15 @@ defmodule AWS.Chime do
   @doc """
   Retrieves termination setting details for the specified Amazon Chime Voice
   Connector.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetVoiceConnectorTermination](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorTermination.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def get_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
@@ -2863,6 +3537,15 @@ defmodule AWS.Chime do
   end
 
   @doc """
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [GetVoiceConnectorTerminationHealth](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorTerminationHealth.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
+
   Retrieves information about the last time a SIP `OPTIONS` ping was received from
   your SIP infrastructure for the specified Amazon Chime Voice Connector.
   """
@@ -2960,6 +3643,15 @@ defmodule AWS.Chime do
 
   @doc """
   Returns a list of the administrators in the `AppInstance`.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ListAppInstanceAdmins](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceAdmins.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_app_instance_admins(
         %Client{} = client,
@@ -2993,6 +3685,15 @@ defmodule AWS.Chime do
 
   @doc """
   List all `AppInstanceUsers` created under a single `AppInstance`.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ListAppInstanceUsers](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceUsers.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_app_instance_users(
         %Client{} = client,
@@ -3033,6 +3734,15 @@ defmodule AWS.Chime do
 
   @doc """
   Lists all Amazon Chime `AppInstance`s created under a single AWS account.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ListAppInstances](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstances.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_app_instances(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/app-instances"
@@ -3060,6 +3770,9 @@ defmodule AWS.Chime do
 
   @doc """
   Lists the tags applied to an Amazon Chime SDK attendee resource.
+
+  ListAttendeeTags is not supported in the Amazon Chime SDK Meetings Namespace.
+  Update your application to remove calls to this API.
   """
   def list_attendee_tags(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
@@ -3078,6 +3791,15 @@ defmodule AWS.Chime do
 
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
   *Amazon Chime SDK Developer Guide*.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ListAttendees](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_ListAttendees.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_attendees(
         %Client{} = client,
@@ -3149,6 +3871,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ListChannelBans](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelBans.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_channel_bans(
         %Client{} = client,
@@ -3195,6 +3926,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ListChannelMemberships](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMemberships.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_channel_memberships(
         %Client{} = client,
@@ -3252,6 +3992,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ListChannelMembershipsForAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_channel_memberships_for_app_instance_user(
         %Client{} = client,
@@ -3312,6 +4061,15 @@ defmodule AWS.Chime do
   Also, the x-amz-chime-bearer request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ListChannelMessages](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMessages.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_channel_messages(
         %Client{} = client,
@@ -3382,6 +4140,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ListChannelModerators](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelModerators.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_channel_moderators(
         %Client{} = client,
@@ -3438,6 +4205,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ListChannels](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannels.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_channels(
         %Client{} = client,
@@ -3499,6 +4275,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ListChannelsModeratedByAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelsModeratedByAppInstanceUser.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_channels_moderated_by_app_instance_user(
         %Client{} = client,
@@ -3548,6 +4333,15 @@ defmodule AWS.Chime do
 
   @doc """
   Returns a list of media capture pipelines.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ListMediaCapturePipelines](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaCapturePipelines.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_media_capture_pipelines(
         %Client{} = client,
@@ -3580,6 +4374,15 @@ defmodule AWS.Chime do
 
   @doc """
   Lists the tags applied to an Amazon Chime SDK meeting resource.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ListTagsForResource](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_ListTagsForResource.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_meeting_tags(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags"
@@ -3593,6 +4396,9 @@ defmodule AWS.Chime do
 
   @doc """
   Lists up to 100 active Amazon Chime SDK meetings.
+
+  ListMeetings is not supported in the Amazon Chime SDK Meetings Namespace. Update
+  your application to remove calls to this API.
 
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the
   *Amazon Chime SDK Developer Guide*.
@@ -3720,6 +4526,15 @@ defmodule AWS.Chime do
 
   @doc """
   Lists the proxy sessions for the specified Amazon Chime Voice Connector.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ListProxySessions](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListProxySessions.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_proxy_sessions(
         %Client{} = client,
@@ -3842,6 +4657,15 @@ defmodule AWS.Chime do
 
   @doc """
   Lists the SIP media applications under the administrator's AWS account.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ListSipMediaApplications](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListSipMediaApplications.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_sip_media_applications(
         %Client{} = client,
@@ -3874,6 +4698,15 @@ defmodule AWS.Chime do
 
   @doc """
   Lists the SIP rules under the administrator's AWS account.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ListSipRules](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListSipRules.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_sip_rules(
         %Client{} = client,
@@ -3933,7 +4766,18 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Lists the tags applied to an Amazon Chime SDK meeting resource.
+  Lists the tags applied to an Amazon Chime SDK meeting and messaging resources.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the applicable latest version in the Amazon Chime SDK.
+
+     For meetings:
+  [ListTagsForResource](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_ListTagsForResource.html).     For messaging:
+  [ListTagsForResource](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListTagsForResource.html).
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
@@ -4007,6 +4851,15 @@ defmodule AWS.Chime do
   @doc """
   Lists the Amazon Chime Voice Connector groups for the administrator's AWS
   account.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ListVoiceConnectorGroups](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListVoiceConnectorGroups.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_voice_connector_groups(
         %Client{} = client,
@@ -4039,6 +4892,15 @@ defmodule AWS.Chime do
 
   @doc """
   Lists the SIP credentials for the specified Amazon Chime Voice Connector.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ListVoiceConnectorTerminationCredentials](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListVoiceConnectorTerminationCredentials.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_voice_connector_termination_credentials(
         %Client{} = client,
@@ -4058,6 +4920,15 @@ defmodule AWS.Chime do
 
   @doc """
   Lists the Amazon Chime Voice Connectors for the administrator's AWS account.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ListVoiceConnectors](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListVoiceConnectors.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def list_voice_connectors(
         %Client{} = client,
@@ -4116,6 +4987,15 @@ defmodule AWS.Chime do
 
   @doc """
   Sets the amount of time in days that a given `AppInstance` retains data.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [PutAppInstanceRetentionSettings](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_PutAppInstanceRetentionSettings.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def put_app_instance_retention_settings(
         %Client{} = client,
@@ -4134,6 +5014,15 @@ defmodule AWS.Chime do
 
   @doc """
   The data streaming configurations of an `AppInstance`.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [PutMessagingStreamingConfigurations](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_PutMessagingStreamingConfigurations.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def put_app_instance_streaming_configurations(
         %Client{} = client,
@@ -4193,6 +5082,15 @@ defmodule AWS.Chime do
 
   @doc """
   Updates the logging configuration for the specified SIP media application.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [PutSipMediaApplicationLoggingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutSipMediaApplicationLoggingConfiguration.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def put_sip_media_application_logging_configuration(
         %Client{} = client,
@@ -4217,6 +5115,15 @@ defmodule AWS.Chime do
 
   Origination and termination settings must be enabled for the Amazon Chime Voice
   Connector before emergency calling can be configured.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [PutVoiceConnectorEmergencyCallingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorEmergencyCallingConfiguration.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def put_voice_connector_emergency_calling_configuration(
         %Client{} = client,
@@ -4240,6 +5147,15 @@ defmodule AWS.Chime do
 
   The logging configuration specifies whether SIP message logs are enabled for
   sending to Amazon CloudWatch Logs.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [PutVoiceConnectorLoggingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorLoggingConfiguration.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def put_voice_connector_logging_configuration(
         %Client{} = client,
@@ -4263,6 +5179,15 @@ defmodule AWS.Chime do
 
   If emergency calling is configured for the Amazon Chime Voice Connector, it must
   be deleted prior to turning off origination settings.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [PutVoiceConnectorOrigination](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorOrigination.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def put_voice_connector_origination(
         %Client{} = client,
@@ -4282,6 +5207,15 @@ defmodule AWS.Chime do
   @doc """
   Puts the specified proxy configuration to the specified Amazon Chime Voice
   Connector.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [PutVoiceConnectorProxy](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorProxy.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def put_voice_connector_proxy(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path =
@@ -4301,6 +5235,15 @@ defmodule AWS.Chime do
   The streaming configuration specifies whether media streaming is enabled for
   sending to Kinesis. It also sets the retention period, in hours, for the Amazon
   Kinesis data.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [PutVoiceConnectorStreamingConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorStreamingConfiguration.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def put_voice_connector_streaming_configuration(
         %Client{} = client,
@@ -4324,6 +5267,15 @@ defmodule AWS.Chime do
 
   If emergency calling is configured for the Amazon Chime Voice Connector, it must
   be deleted prior to turning off termination settings.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [PutVoiceConnectorTermination](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorTermination.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def put_voice_connector_termination(
         %Client{} = client,
@@ -4342,6 +5294,15 @@ defmodule AWS.Chime do
 
   @doc """
   Adds termination SIP credentials for the specified Amazon Chime Voice Connector.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [PutVoiceConnectorTerminationCredentials](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorTerminationCredentials.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def put_voice_connector_termination_credentials(
         %Client{} = client,
@@ -4379,6 +5340,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [RedactChannelMessage](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_RedactChannelMessage.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def redact_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
@@ -4642,6 +5612,15 @@ defmodule AWS.Chime do
 
   Also, `STANDARD` messages can contain 4KB of data and the 1KB of metadata.
   `CONTROL` messages can contain 30 bytes of data and no metadata.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [SendChannelMessage](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_SendChannelMessage.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def send_channel_message(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages"
@@ -4686,6 +5665,15 @@ defmodule AWS.Chime do
   Amazon Transcribe is subject to the [AWS Service
   Terms](https://aws.amazon.com/service-terms/), including the terms specific to
   the AWS Machine Learning and Artificial Intelligence Services.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [StartMeetingTranscription](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_StartMeetingTranscription.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def start_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=start"
@@ -4709,6 +5697,15 @@ defmodule AWS.Chime do
 
   @doc """
   Stops transcription for the specified `meetingId`.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [StopMeetingTranscription](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_StopMeetingTranscription.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def stop_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=stop"
@@ -4731,7 +5728,10 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Applies the specified tags to the specified Amazon Chime SDK attendee.
+  Applies the specified tags to the specified Amazon Chime attendee.
+
+  TagAttendee is not supported in the Amazon Chime SDK Meetings Namespace. Update
+  your application to remove calls to this API.
   """
   def tag_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
     url_path =
@@ -4757,6 +5757,15 @@ defmodule AWS.Chime do
 
   @doc """
   Applies the specified tags to the specified Amazon Chime SDK meeting.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [TagResource](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_TagResource.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def tag_meeting(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags?operation=add"
@@ -4780,6 +5789,15 @@ defmodule AWS.Chime do
 
   @doc """
   Applies the specified tags to the specified Amazon Chime SDK meeting resource.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [TagResource](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_TagResource.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=tag-resource"
@@ -4803,6 +5821,9 @@ defmodule AWS.Chime do
 
   @doc """
   Untags the specified tags from the specified Amazon Chime SDK attendee.
+
+  UntagAttendee is not supported in the Amazon Chime SDK Meetings Namespace.
+  Update your application to remove calls to this API.
   """
   def untag_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
     url_path =
@@ -4828,6 +5849,15 @@ defmodule AWS.Chime do
 
   @doc """
   Untags the specified tags from the specified Amazon Chime SDK meeting.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [UntagResource](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_UntagResource.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def untag_meeting(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags?operation=delete"
@@ -4851,6 +5881,17 @@ defmodule AWS.Chime do
 
   @doc """
   Untags the specified tags from the specified Amazon Chime SDK meeting resource.
+
+  Applies the specified tags to the specified Amazon Chime SDK meeting resource.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [UntagResource](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_UntagResource.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=untag-resource"
@@ -4917,6 +5958,15 @@ defmodule AWS.Chime do
 
   @doc """
   Updates `AppInstance` metadata.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [UpdateAppInstance](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstance.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def update_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
@@ -4932,6 +5982,15 @@ defmodule AWS.Chime do
   Updates the details of an `AppInstanceUser`.
 
   You can update names and metadata.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [UpdateAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstanceUser.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def update_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
@@ -4975,6 +6034,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [UpdateChannel](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannel.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def update_channel(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
@@ -4998,6 +6066,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [UpdateChannelMessage](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannelMessage.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def update_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
@@ -5022,6 +6099,15 @@ defmodule AWS.Chime do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in the
   header.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [UpdateChannelReadMarker](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannelReadMarker.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def update_channel_read_marker(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/readMarker"
@@ -5107,6 +6193,15 @@ defmodule AWS.Chime do
 
   @doc """
   Updates the specified proxy session details, such as voice or SMS capabilities.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [UpdateProxySession](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateProxySession.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def update_proxy_session(
         %Client{} = client,
@@ -5200,6 +6295,15 @@ defmodule AWS.Chime do
 
   @doc """
   Updates the details of the specified SIP media application.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [UpdateSipMediaApplication](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateSipMediaApplication.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def update_sip_media_application(
         %Client{} = client,
@@ -5221,6 +6325,15 @@ defmodule AWS.Chime do
   transaction ID in an update request.
 
   The Lambda function can then return a new set of actions.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [UpdateSipMediaApplicationCall](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateSipMediaApplicationCall.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def update_sip_media_application_call(
         %Client{} = client,
@@ -5252,6 +6365,15 @@ defmodule AWS.Chime do
 
   @doc """
   Updates the details of the specified SIP rule.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [UpdateSipRule](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateSipRule.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def update_sip_rule(%Client{} = client, sip_rule_id, input, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
@@ -5307,6 +6429,15 @@ defmodule AWS.Chime do
 
   @doc """
   Updates details for the specified Amazon Chime Voice Connector.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [UpdateVoiceConnector](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateVoiceConnector.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def update_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
@@ -5321,6 +6452,15 @@ defmodule AWS.Chime do
   @doc """
   Updates details of the specified Amazon Chime Voice Connector group, such as the
   name and Amazon Chime Voice Connector priority ranking.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [UpdateVoiceConnectorGroup](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateVoiceConnectorGroup.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def update_voice_connector_group(
         %Client{} = client,
@@ -5344,6 +6484,15 @@ defmodule AWS.Chime do
   You can use validated addresses in a Presence Information Data Format Location
   Object file that you include in SIP requests. That helps ensure that addresses
   are routed to the appropriate Public Safety Answering Point.
+
+  **This API is is no longer supported and will not be updated.** We recommend
+  using the latest version,
+  [ValidateE911Address](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ValidateE911Address.html), in the Amazon Chime SDK.
+
+  Using the latest version requires migrating to a dedicated namespace. For more
+  information, refer to [Migrating from the Amazon Chime
+  namespace](https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html)
+  in the *Amazon Chime SDK Developer Guide*.
   """
   def validate_e911_address(%Client{} = client, input, options \\ []) do
     url_path = "/emergency-calling/address"

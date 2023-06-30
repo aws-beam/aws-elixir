@@ -4399,10 +4399,10 @@ defmodule AWS.S3 do
   You can also use request parameters as selection criteria to return metadata
   about a subset of all the object versions.
 
-  To use this operation, you must have permissions to perform the
+  To use this operation, you must have permission to perform the
   `s3:ListBucketVersions` action. Be aware of the name difference.
 
-  A 200 OK response can contain valid or invalid XML. Make sure to design your
+  A `200 OK` response can contain valid or invalid XML. Make sure to design your
   application to parse the contents of the response and handle it appropriately.
 
   To use this operation, you must have READ access to the bucket.
@@ -4429,6 +4429,7 @@ defmodule AWS.S3 do
         prefix \\ nil,
         version_id_marker \\ nil,
         expected_bucket_owner \\ nil,
+        optional_object_attributes \\ nil,
         request_payer \\ nil,
         options \\ []
       ) do
@@ -4438,6 +4439,13 @@ defmodule AWS.S3 do
     headers =
       if !is_nil(expected_bucket_owner) do
         [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(optional_object_attributes) do
+        [{"x-amz-optional-object-attributes", optional_object_attributes} | headers]
       else
         headers
       end
@@ -4539,6 +4547,7 @@ defmodule AWS.S3 do
         max_keys \\ nil,
         prefix \\ nil,
         expected_bucket_owner \\ nil,
+        optional_object_attributes \\ nil,
         request_payer \\ nil,
         options \\ []
       ) do
@@ -4548,6 +4557,13 @@ defmodule AWS.S3 do
     headers =
       if !is_nil(expected_bucket_owner) do
         [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(optional_object_attributes) do
+        [{"x-amz-optional-object-attributes", optional_object_attributes} | headers]
       else
         headers
       end
@@ -4617,18 +4633,21 @@ defmodule AWS.S3 do
   handle it appropriately. Objects are returned sorted in an ascending order of
   the respective key names in the list. For more information about listing
   objects, see [Listing object keys programmatically](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ListingKeysUsingAPIs.html)
+  in the *Amazon S3 User Guide*.
 
   To use this operation, you must have READ access to the bucket.
 
   To use this action in an Identity and Access Management (IAM) policy, you must
-  have permissions to perform the `s3:ListBucket` action. The bucket owner has
-  this permission by default and can grant this permission to others. For more
+  have permission to perform the `s3:ListBucket` action. The bucket owner has this
+  permission by default and can grant this permission to others. For more
   information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html)
+  in the *Amazon S3 User Guide*.
 
   This section describes the latest revision of this action. We recommend that you
-  use this revised API for application development. For backward compatibility,
-  Amazon S3 continues to support the prior version of this API,
+  use this revised API operation for application development. For backward
+  compatibility, Amazon S3 continues to support the prior version of this API
+  operation,
   [ListObjects](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html). 
   To get a list of your buckets, see
   [ListBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html).
@@ -4653,6 +4672,7 @@ defmodule AWS.S3 do
         prefix \\ nil,
         start_after \\ nil,
         expected_bucket_owner \\ nil,
+        optional_object_attributes \\ nil,
         request_payer \\ nil,
         options \\ []
       ) do
@@ -4662,6 +4682,13 @@ defmodule AWS.S3 do
     headers =
       if !is_nil(expected_bucket_owner) do
         [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(optional_object_attributes) do
+        [{"x-amz-optional-object-attributes", optional_object_attributes} | headers]
       else
         headers
       end

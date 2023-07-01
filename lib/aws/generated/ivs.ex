@@ -492,7 +492,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      200
+      204
     )
   end
 
@@ -882,7 +882,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      200
+      204
     )
   end
 

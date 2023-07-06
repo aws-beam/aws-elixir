@@ -2558,9 +2558,9 @@ defmodule AWS.KMS do
 
   Deleting a KMS key is a destructive and potentially dangerous operation. When a
   KMS key is deleted, all data that was encrypted under the KMS key is
-  unrecoverable. (The only exception is a [multi-Region replica key](kms/latest/developerguide/multi-region-keys-delete.html), or an asymmetric
-  or HMAC KMS key with imported key material[BUGBUG-link to importing-keys-managing.html#import-delete-key.) To prevent the use of a KMS key
-  without deleting it, use `DisableKey`.
+  unrecoverable. (The only exception is a [multi-Region replica key](kms/latest/developerguide/multi-region-keys-delete.html), or an [asymmetric or HMAC KMS key with imported key
+  material](kms/latest/developerguide/importing-keys-managing.html#import-delete-key).)
+  To prevent the use of a KMS key without deleting it, use `DisableKey`.
 
   You can schedule the deletion of a multi-Region primary key and its replica keys
   at any time. However, KMS will not delete a multi-Region primary key with
@@ -2569,8 +2569,7 @@ defmodule AWS.KMS do
   replicated or used in cryptographic operations. This status can continue
   indefinitely. When the last of its replicas keys is deleted (not just
   scheduled), the key state of the primary key changes to `PendingDeletion` and
-  its waiting period (`PendingWindowInDays`) begins. For details, see [Deleting
-  multi-Region
+  its waiting period (`PendingWindowInDays`) begins. For details, see [Deleting multi-Region
   keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html)
   in the *Key Management Service Developer Guide*.
 

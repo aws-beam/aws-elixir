@@ -853,6 +853,29 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  List Managed Accounts.
+  """
+  def list_managed_accounts(%Client{} = client, input, options \\ []) do
+    url_path = "/ListManagedAccounts"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   List source server post migration custom actions.
   """
   def list_source_server_actions(%Client{} = client, input, options \\ []) do
@@ -962,6 +985,29 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  Pause Replication.
+  """
+  def pause_replication(%Client{} = client, input, options \\ []) do
+    url_path = "/PauseReplication"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Put source server post migration custom action.
   """
   def put_source_server_action(%Client{} = client, input, options \\ []) do
@@ -1050,6 +1096,29 @@ defmodule AWS.Mgn do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Resume Replication.
+  """
+  def resume_replication(%Client{} = client, input, options \\ []) do
+    url_path = "/ResumeReplication"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -1199,6 +1268,29 @@ defmodule AWS.Mgn do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Stop Replication.
+  """
+  def stop_replication(%Client{} = client, input, options \\ []) do
+    url_path = "/StopReplication"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
     )
   end
 

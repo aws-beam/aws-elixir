@@ -3,10 +3,14 @@
 
 defmodule AWS.ComprehendMedical do
   @moduledoc """
-  Comprehend Medical; extracts structured information from unstructured clinical
-  text.
+  Amazon Comprehend Medical extracts structured information from unstructured
+  clinical text.
 
-  Use these actions to gain insight in your documents.
+  Use these actions to gain insight in your documents. Amazon Comprehend Medical
+  only detects entities in English language texts. Amazon Comprehend Medical
+  places limits on the sizes of files allowed for different API operations. To
+  learn more, see [Guidelines and quotas](https://docs.aws.amazon.com/comprehend-medical/latest/dev/comprehendmedical-quotas.html)
+  in the *Amazon Comprehend Medical Developer Guide*.
   """
 
   alias AWS.Client
@@ -91,7 +95,7 @@ defmodule AWS.ComprehendMedical do
 
   Inspects the clinical text for a variety of medical entities and returns
   specific information about them such as entity category, location, and
-  confidence score on that information .
+  confidence score on that information.
   """
   def detect_entities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -191,7 +195,7 @@ defmodule AWS.ComprehendMedical do
   end
 
   @doc """
-  Gets a list of protected health information (PHI) detection jobs that you have
+  Gets a list of protected health information (PHI) detection jobs you have
   submitted.
   """
   def list_phi_detection_jobs(%Client{} = client, input, options \\ []) do

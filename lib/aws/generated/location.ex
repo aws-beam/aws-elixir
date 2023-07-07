@@ -277,7 +277,12 @@ defmodule AWS.Location do
   def calculate_route(%Client{} = client, calculator_name, input, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}/calculate/route"
     headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"Key", "key"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata() |> Map.put_new(:host_prefix, "routes.")
 
@@ -333,7 +338,12 @@ defmodule AWS.Location do
       "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}/calculate/route-matrix"
 
     headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"Key", "key"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata() |> Map.put_new(:host_prefix, "routes.")
 
@@ -375,11 +385,9 @@ defmodule AWS.Location do
 
   @doc """
   Creates an API key resource in your Amazon Web Services account, which lets you
-  grant `geo:GetMap*` actions for Amazon Location Map resources to the API key
-  bearer.
+  grant actions for Amazon Location resources to the API key bearer.
 
-  The API keys feature is in preview. We may add, change, or remove features
-  before announcing general availability. For more information, see [Using API keys](https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html).
+  For more information, see [Using API keys](https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html).
   """
   def create_key(%Client{} = client, input, options \\ []) do
     url_path = "/metadata/v0/keys"
@@ -685,9 +693,6 @@ defmodule AWS.Location do
 
   @doc """
   Retrieves the API key resource details.
-
-  The API keys feature is in preview. We may add, change, or remove features
-  before announcing general availability. For more information, see [Using API keys](https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html).
   """
   def describe_key(%Client{} = client, key_name, options \\ []) do
     url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
@@ -1001,7 +1006,14 @@ defmodule AWS.Location do
 
      Data provider specified in the place index resource
   """
-  def get_place(%Client{} = client, index_name, place_id, language \\ nil, options \\ []) do
+  def get_place(
+        %Client{} = client,
+        index_name,
+        place_id,
+        key \\ nil,
+        language \\ nil,
+        options \\ []
+      ) do
     url_path =
       "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/places/#{AWS.Util.encode_uri(place_id)}"
 
@@ -1011,6 +1023,13 @@ defmodule AWS.Location do
     query_params =
       if !is_nil(language) do
         [{"language", language} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(key) do
+        [{"key", key} | query_params]
       else
         query_params
       end
@@ -1091,9 +1110,6 @@ defmodule AWS.Location do
 
   @doc """
   Lists API key resources in your Amazon Web Services account.
-
-  The API keys feature is in preview. We may add, change, or remove features
-  before announcing general availability. For more information, see [Using API keys](https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html).
   """
   def list_keys(%Client{} = client, input, options \\ []) do
     url_path = "/metadata/v0/list-keys"
@@ -1268,7 +1284,12 @@ defmodule AWS.Location do
   def search_place_index_for_position(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/position"
     headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"Key", "key"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata() |> Map.put_new(:host_prefix, "places.")
 
@@ -1302,7 +1323,12 @@ defmodule AWS.Location do
   def search_place_index_for_suggestions(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/suggestions"
     headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"Key", "key"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata() |> Map.put_new(:host_prefix, "places.")
 
@@ -1335,7 +1361,12 @@ defmodule AWS.Location do
   def search_place_index_for_text(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/text"
     headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"Key", "key"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata() |> Map.put_new(:host_prefix, "places.")
 
@@ -1441,9 +1472,6 @@ defmodule AWS.Location do
 
   @doc """
   Updates the specified properties of a given API key resource.
-
-  The API keys feature is in preview. We may add, change, or remove features
-  before announcing general availability. For more information, see [Using API keys](https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html).
   """
   def update_key(%Client{} = client, key_name, input, options \\ []) do
     url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"

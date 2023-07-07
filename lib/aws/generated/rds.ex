@@ -613,7 +613,7 @@ defmodule AWS.RDS do
   cluster during the create operation, and this cluster becomes the primary
   cluster of the global database.
 
-  This action applies only to Aurora DB clusters.
+  This operation applies only to Aurora DB clusters.
   """
   def create_global_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()

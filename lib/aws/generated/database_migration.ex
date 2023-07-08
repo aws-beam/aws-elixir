@@ -144,6 +144,19 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+  Creates a configuration that you can later provide to configure and start an DMS
+  Serverless replication.
+
+  You can also provide options to validate the configuration inputs before you
+  start the replication.
+  """
+  def create_replication_config(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateReplicationConfig", input, options)
+  end
+
+  @doc """
   Creates the replication instance using the specified parameters.
 
   DMS requires that your account have certain roles with appropriate permissions
@@ -163,6 +176,14 @@ defmodule AWS.DatabaseMigration do
   The VPC needs to have at least one subnet in at least two availability zones in
   the Amazon Web Services Region, otherwise the service will throw a
   `ReplicationSubnetGroupDoesNotCoverEnoughAZs` exception.
+
+  If a replication subnet group exists in your Amazon Web Services account, the
+  CreateReplicationSubnetGroup action returns the following error message: The
+  Replication Subnet Group already exists. In this case, delete the existing
+  replication subnet group. To do so, use the
+  [DeleteReplicationSubnetGroup](https://docs.aws.amazon.com/en_us/dms/latest/APIReference/API_DeleteReplicationSubnetGroup.html)
+  action. Optionally, choose Subnet groups in the DMS console, then choose your
+  subnet group. Next, choose Delete from Actions.
   """
   def create_replication_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -234,6 +255,20 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteFleetAdvisorDatabases", input, options)
+  end
+
+  @doc """
+  Deletes an DMS Serverless replication configuration.
+
+  This effectively deprovisions any and all replications that use this
+  configuration. You can't delete the configuration for an DMS Serverless
+  replication that is ongoing. You can delete the configuration when the
+  replication is in a non-RUNNING and non-STARTING state.
+  """
+  def delete_replication_config(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteReplicationConfig", input, options)
   end
 
   @doc """
@@ -513,6 +548,16 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+  Returns one or more existing DMS Serverless replication configurations as a list
+  of structures.
+  """
+  def describe_replication_configs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReplicationConfigs", input, options)
+  end
+
+  @doc """
   Returns information about the task logs for the specified task.
   """
   def describe_replication_instance_task_logs(%Client{} = client, input, options \\ []) do
@@ -538,6 +583,16 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeReplicationSubnetGroups", input, options)
+  end
+
+  @doc """
+  Returns table and schema statistics for one or more provisioned replications
+  that use a given DMS Serverless replication configuration.
+  """
+  def describe_replication_table_statistics(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReplicationTableStatistics", input, options)
   end
 
   @doc """
@@ -597,6 +652,16 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeReplicationTasks", input, options)
+  end
+
+  @doc """
+  Provides details on replication progress by returning status information for one
+  or more provisioned DMS Serverless replications.
+  """
+  def describe_replications(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeReplications", input, options)
   end
 
   @doc """
@@ -668,6 +733,26 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "ModifyEventSubscription", input, options)
+  end
+
+  @doc """
+  Modifies an existing DMS Serverless replication configuration that you can use
+  to start a replication.
+
+  This command includes input validation and logic to check the state of any
+  replication that uses this configuration. You can only modify a replication
+  configuration before any replication that uses it has started. As soon as you
+  have initially started a replication with a given configuiration, you can't
+  modify that configuration, even if you stop it.
+
+  Other run statuses that allow you to run this command include FAILED and
+  CREATED. A provisioning state that allows you to run this command is
+  FAILED_PROVISION.
+  """
+  def modify_replication_config(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyReplicationConfig", input, options)
   end
 
   @doc """
@@ -747,6 +832,19 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+  Reloads the target database table with the source data for a given DMS
+  Serverless replication configuration.
+
+  You can only use this operation with a task in the RUNNING state, otherwise the
+  service will throw an `InvalidResourceStateFault` exception.
+  """
+  def reload_replication_tables(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ReloadReplicationTables", input, options)
+  end
+
+  @doc """
   Reloads the target database table with the source data.
 
   You can only use this operation with a task in the `RUNNING` state, otherwise
@@ -793,6 +891,20 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "StartRecommendations", input, options)
+  end
+
+  @doc """
+  For a given DMS Serverless replication configuration, DMS connects to the source
+  endpoint and collects the metadata to analyze the replication workload.
+
+  Using this metadata, DMS then computes and provisions the required capacity and
+  starts replicating to the target endpoint using the server resources that DMS
+  has provisioned for the DMS Serverless replication.
+  """
+  def start_replication(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartReplication", input, options)
   end
 
   @doc """
@@ -846,6 +958,18 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "StartReplicationTaskAssessmentRun", input, options)
+  end
+
+  @doc """
+  For a given DMS Serverless replication configuration, DMS stops any and all
+  ongoing DMS Serverless replications.
+
+  This command doesn't deprovision the stopped replications.
+  """
+  def stop_replication(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopReplication", input, options)
   end
 
   @doc """

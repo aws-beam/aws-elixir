@@ -549,6 +549,19 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Get account configuration
+  """
+  def describe_account_configuration(%Client{} = client, options \\ []) do
+    url_path = "/prod/accountConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets details about a channel
   """
   def describe_channel(%Client{} = client, channel_id, options \\ []) do
@@ -718,6 +731,39 @@ defmodule AWS.MediaLive do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describe the latest thumbnails data.
+  """
+  def describe_thumbnails(
+        %Client{} = client,
+        channel_id,
+        pipeline_id,
+        thumbnail_type,
+        options \\ []
+      ) do
+    url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/thumbnails"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(thumbnail_type) do
+        [{"thumbnailType", thumbnail_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(pipeline_id) do
+        [{"pipelineId", pipeline_id} | query_params]
       else
         query_params
       end
@@ -1396,6 +1442,19 @@ defmodule AWS.MediaLive do
       options,
       200
     )
+  end
+
+  @doc """
+  Update account configuration
+  """
+  def update_account_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/prod/accountConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """

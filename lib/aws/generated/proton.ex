@@ -487,6 +487,15 @@ defmodule AWS.Proton do
   end
 
   @doc """
+  Delete the deployment.
+  """
+  def delete_deployment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDeployment", input, options)
+  end
+
+  @doc """
   Delete an environment.
   """
   def delete_environment(%Client{} = client, input, options \\ []) do
@@ -632,6 +641,15 @@ defmodule AWS.Proton do
     meta = metadata()
 
     Request.request_post(client, meta, "GetComponent", input, options)
+  end
+
+  @doc """
+  Get detailed data for a deployment.
+  """
+  def get_deployment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDeployment", input, options)
   end
 
   @doc """
@@ -851,6 +869,18 @@ defmodule AWS.Proton do
     meta = metadata()
 
     Request.request_post(client, meta, "ListComponents", input, options)
+  end
+
+  @doc """
+  List deployments.
+
+  You can filter the result list by environment, service, or a single service
+  instance.
+  """
+  def list_deployments(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDeployments", input, options)
   end
 
   @doc """

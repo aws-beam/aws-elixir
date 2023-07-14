@@ -992,6 +992,29 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Deletes a queue.
+  """
+  def delete_queue(%Client{} = client, instance_id, queue_id, input, options \\ []) do
+    url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes a quick connect.
   """
   def delete_quick_connect(
@@ -1003,6 +1026,37 @@ defmodule AWS.Connect do
       ) do
     url_path =
       "/quick-connects/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(quick_connect_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes a routing profile.
+  """
+  def delete_routing_profile(
+        %Client{} = client,
+        instance_id,
+        routing_profile_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}"
 
     headers = []
     query_params = []

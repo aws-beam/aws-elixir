@@ -869,6 +869,8 @@ defmodule AWS.FSx do
 
     * `DataCompressionType`
 
+    * `LogConfiguration`
+
     * `LustreRootSquashConfiguration`
 
     * `StorageCapacity`

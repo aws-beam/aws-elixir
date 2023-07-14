@@ -1205,6 +1205,17 @@ defmodule AWS.Personalize do
   end
 
   @doc """
+  Update a dataset to replace its schema with a new or existing one.
+
+  For more information, see [Replacing a dataset's schema](https://docs.aws.amazon.com/personalize/latest/dg/updating-dataset-schema.html).
+  """
+  def update_dataset(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDataset", input, options)
+  end
+
+  @doc """
   Updates a metric attribution.
   """
   def update_metric_attribution(%Client{} = client, input, options \\ []) do

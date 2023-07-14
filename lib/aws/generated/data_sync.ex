@@ -5,12 +5,9 @@ defmodule AWS.DataSync do
   @moduledoc """
   DataSync
 
-  DataSync is a managed data transfer service that makes it simpler for you to
-  automate moving data between on-premises storage and Amazon Web Services storage
-  services.
-
-  You also can use DataSync to transfer data between other cloud providers and
-  Amazon Web Services storage services.
+  DataSync is an online data movement and discovery service that simplifies data
+  migration and helps you quickly, easily, and securely transfer your file or
+  object data to, from, and between Amazon Web Services storage services.
 
   This API interface reference includes documentation for using DataSync
   programmatically. For complete information, see the * [DataSync User Guide](https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html)
@@ -66,25 +63,19 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Activates an DataSync agent that you have deployed in your storage environment.
+  Activates an DataSync agent that you've deployed in your storage environment.
 
-  The activation process associates your agent with your account. In the
-  activation process, you specify information such as the Amazon Web Services
-  Region that you want to activate the agent in. You activate the agent in the
-  Amazon Web Services Region where your target locations (in Amazon S3 or Amazon
-  EFS) reside. Your tasks are created in this Amazon Web Services Region.
+  The activation process associates the agent with your Amazon Web Services
+  account.
 
-  You can activate the agent in a VPC (virtual private cloud) or provide the agent
-  access to a VPC endpoint so you can run tasks without going over the public
-  internet.
+  If you haven't deployed an agent yet, see the following topics to learn more:
 
-  You can use an agent for more than one location. If a task uses multiple agents,
-  all of them need to have status AVAILABLE for the task to run. If you use
-  multiple agents for a source location, the status of all the agents must be
-  AVAILABLE for the task to run.
+    * [Agent requirements](https://docs.aws.amazon.com/datasync/latest/userguide/agent-requirements.html)
 
-  Agents are automatically updated by Amazon Web Services on a regular basis,
-  using a mechanism that ensures minimal interruption to your tasks.
+    * [Create an agent](https://docs.aws.amazon.com/datasync/latest/userguide/configure-agent.html)
+
+  If you're transferring between Amazon Web Services storage services, you don't
+  need a DataSync agent.
   """
   def create_agent(%Client{} = client, input, options \\ []) do
     meta = metadata()

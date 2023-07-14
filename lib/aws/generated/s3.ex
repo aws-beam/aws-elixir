@@ -265,7 +265,9 @@ defmodule AWS.S3 do
   entire body.
 
   The copy request charge is based on the storage class and Region that you
-  specify for the destination object. For pricing information, see [Amazon S3 pricing](http://aws.amazon.com/s3/pricing/).
+  specify for the destination object. The request can also result in a data
+  retrieval charge for the source if the source storage class bills for data
+  retrieval. For pricing information, see [Amazon S3 pricing](http://aws.amazon.com/s3/pricing/).
 
   Amazon S3 transfer acceleration does not support cross-Region copies. If you
   request a cross-Region copy using a transfer acceleration endpoint, you get a

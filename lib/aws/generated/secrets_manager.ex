@@ -641,9 +641,11 @@ defmodule AWS.SecretsManager do
   **Required permissions: ** `secretsmanager:UpdateSecret`. For more information,
   see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
-  If you use a customer managed key, you must also have `kms:GenerateDataKey` and
-  `kms:Decrypt` permissions on the key. For more information, see [ Secret encryption and
-  decryption](https://docs.aws.amazon.com/secretsmanager/latest/userguide/security-encryption.html).
+  If you use a customer managed key, you must also have `kms:GenerateDataKey`,
+  `kms:Encrypt`, and `kms:Decrypt` permissions on the key. If you change the KMS
+  key and you don't have `kms:Encrypt` permission to the new key, Secrets Manager
+  does not re-ecrypt existing secret versions with the new key. For more
+  information, see [ Secret encryption and decryption](https://docs.aws.amazon.com/secretsmanager/latest/userguide/security-encryption.html).
   """
   def update_secret(%Client{} = client, input, options \\ []) do
     meta = metadata()

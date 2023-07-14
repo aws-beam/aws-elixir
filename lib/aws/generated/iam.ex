@@ -60,8 +60,10 @@ defmodule AWS.IAM do
   The caller of this operation must be granted the `PassRole` permission on the
   IAM role by a permissions policy.
 
-  For more information about roles, see [Working with roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
-  For more information about instance profiles, see [About instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
+  For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the
+  *IAM User Guide*. For more information about instance profiles, see [Using instance
+  profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html)
+  in the *IAM User Guide*.
   """
   def add_role_to_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -289,11 +291,11 @@ defmodule AWS.IAM do
   Amazon Web Services.
 
   Amazon Web Services secures communication with some OIDC identity providers
-  (IdPs) through our library of trusted certificate authorities (CAs) instead of
-  using a certificate thumbprint to verify your IdP server certificate. These OIDC
-  IdPs include Google, Auth0, and those that use an Amazon S3 bucket to host a
-  JSON Web Key Set (JWKS) endpoint. In these cases, your legacy thumbprint remains
-  in your configuration, but is no longer used for validation.
+  (IdPs) through our library of trusted root certificate authorities (CAs) instead
+  of using a certificate thumbprint to verify your IdP server certificate. These
+  OIDC IdPs include Auth0, GitHub, Google, and those that use an Amazon S3 bucket
+  to host a JSON Web Key Set (JWKS) endpoint. In these cases, your legacy
+  thumbprint remains in your configuration, but is no longer used for validation.
 
   The trust for the OIDC provider is derived from the IAM provider that this
   operation creates. Therefore, it is best to limit access to the
@@ -350,9 +352,9 @@ defmodule AWS.IAM do
   @doc """
   Creates a new role for your Amazon Web Services account.
 
-  For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
-  For information about quotas for role names and the number of roles you can
-  create, see [IAM and STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
+  For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the
+  *IAM User Guide*. For information about quotas for role names and the number of
+  roles you can create, see [IAM and STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
   """
   def create_role(%Client{} = client, input, options \\ []) do
@@ -562,7 +564,8 @@ defmodule AWS.IAM do
   that is associated with a running instance will break any applications running
   on the instance.
 
-  For more information about instance profiles, see [About instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
+  For more information about instance profiles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html)
+  in the *IAM User Guide*.
   """
   def delete_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1300,7 +1303,7 @@ defmodule AWS.IAM do
   Retrieves information about the specified instance profile, including the
   instance profile's path, GUID, ARN, and role.
 
-  For more information about instance profiles, see [About instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html)
+  For more information about instance profiles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html)
   in the *IAM User Guide*.
   """
   def get_instance_profile(%Client{} = client, input, options \\ []) do
@@ -1436,7 +1439,8 @@ defmodule AWS.IAM do
   Retrieves information about the specified role, including the role's path, GUID,
   ARN, and the role's trust policy that grants permission to assume the role.
 
-  For more information about roles, see [Working with roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
+  For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the
+  *IAM User Guide*.
 
   Policies returned by this operation are URL-encoded compliant with [RFC 3986](https://tools.ietf.org/html/rfc3986). You can use a URL decoding method to
   convert the policy back to plain JSON text. For example, if you use Java, you
@@ -1466,8 +1470,8 @@ defmodule AWS.IAM do
   For more information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
 
-  For more information about roles, see [Using roles to delegate permissions and federate
-  identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html).
+  For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the
+  *IAM User Guide*.
   """
   def get_role_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1839,7 +1843,8 @@ defmodule AWS.IAM do
   Lists the instance profiles that have the specified path prefix.
 
   If there are none, the operation returns an empty list. For more information
-  about instance profiles, see [About instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
+  about instance profiles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html)
+  in the *IAM User Guide*.
 
   IAM resource-listing operations return a subset of the available attributes for
   the resource. For example, this operation does not return tags, even though they
@@ -1858,7 +1863,8 @@ defmodule AWS.IAM do
   Lists the instance profiles that have the specified associated IAM role.
 
   If there are none, the operation returns an empty list. For more information
-  about instance profiles, go to [About instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
+  about instance profiles, go to [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html)
+  in the *IAM User Guide*.
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
@@ -2060,7 +2066,8 @@ defmodule AWS.IAM do
   Lists the IAM roles that have the specified path prefix.
 
   If there are none, the operation returns an empty list. For more information
-  about roles, see [Working with roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
+  about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the
+  *IAM User Guide*.
 
   IAM resource-listing operations return a subset of the available attributes for
   the resource. This operation does not return the following attributes, even
@@ -2348,10 +2355,10 @@ defmodule AWS.IAM do
   the role's access (permissions) policy. The role's trust policy is created at
   the same time as the role, using [ `CreateRole`
   ](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html). You
-  can update a role's trust policy using [ `UpdateAssumerolePolicy`
+  can update a role's trust policy using [ `UpdateAssumeRolePolicy`
   ](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html).
-  For more information about IAM roles, see [Using roles to delegate permissions and federate
-  identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html).
+  For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html) in
+  the *IAM User Guide*.
 
   A role can also have a managed policy attached to it. To attach a managed policy
   to a role, use [ `AttachRolePolicy`
@@ -2445,8 +2452,10 @@ defmodule AWS.IAM do
   instance profile that is associated with a running instance might break any
   applications running on the instance.
 
-  For more information about IAM roles, see [Working with roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
-  For more information about instance profiles, see [About instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
+  For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the
+  *IAM User Guide*. For more information about instance profiles, see [Using instance
+  profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html)
+  in the *IAM User Guide*.
   """
   def remove_role_from_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3145,11 +3154,11 @@ defmodule AWS.IAM do
   provider as a principal fails until the certificate thumbprint is updated.
 
   Amazon Web Services secures communication with some OIDC identity providers
-  (IdPs) through our library of trusted certificate authorities (CAs) instead of
-  using a certificate thumbprint to verify your IdP server certificate. These OIDC
-  IdPs include Google, Auth0, and those that use an Amazon S3 bucket to host a
-  JSON Web Key Set (JWKS) endpoint. In these cases, your legacy thumbprint remains
-  in your configuration, but is no longer used for validation.
+  (IdPs) through our library of trusted root certificate authorities (CAs) instead
+  of using a certificate thumbprint to verify your IdP server certificate. These
+  OIDC IdPs include Auth0, GitHub, Google, and those that use an Amazon S3 bucket
+  to host a JSON Web Key Set (JWKS) endpoint. In these cases, your legacy
+  thumbprint remains in your configuration, but is no longer used for validation.
 
   Trust for the OIDC provider is derived from the provider certificate and is
   validated by the thumbprint. Therefore, it is best to limit access to the

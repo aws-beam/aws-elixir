@@ -354,6 +354,19 @@ defmodule AWS.M2 do
   end
 
   @doc """
+  Gets a single sign-on URL that can be used to connect to AWS Blu Insights.
+  """
+  def get_signed_bluinsights_url(%Client{} = client, options \\ []) do
+    url_path = "/signed-bi-url"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of the application versions for a specific application.
   """
   def list_application_versions(

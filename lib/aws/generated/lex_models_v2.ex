@@ -1461,6 +1461,139 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
+  Retrieves summary metrics for the intents in your bot.
+
+  The following fields are required:
+
+    * `metrics` – A list of
+  [AnalyticsIntentMetric](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsIntentMetric.html)
+  objects. In each object, use the `name` field to specify the metric to
+  calculate, the `statistic` field to specify whether to calculate the `Sum`,
+  `Average`, or `Max` number, and the `order` field to specify whether to sort the
+  results in `Ascending` or `Descending` order.
+
+    * `startDateTime` and `endDateTime` – Define a time range for which
+  you want to retrieve results.
+
+  Of the optional fields, you can organize the results in the following ways:
+
+    * Use the `filters` field to filter the results, the `groupBy` field
+  to specify categories by which to group the results, and the `binBy` field to
+  specify time intervals by which to group the results.
+
+    * Use the `maxResults` field to limit the number of results to
+  return in a single response and the `nextToken` field to return the next batch
+  of results if the response does not return the full set of results.
+
+  Note that an `order` field exists in both `binBy` and `metrics`. You can specify
+  only one `order` in a given request.
+  """
+  def list_intent_metrics(%Client{} = client, bot_id, input, options \\ []) do
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/intentmetrics"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves summary statistics for a path of intents that users take over sessions
+  with your bot.
+
+  The following fields are required:
+
+    * `startDateTime` and `endDateTime` – Define a time range for which
+  you want to retrieve results.
+
+    * `intentPath` – Define an order of intents for which you want to
+  retrieve metrics. Separate intents in the path with a forward slash. For
+  example, populate the `intentPath` field with `/BookCar/BookHotel` to see
+  details about how many times users invoked the `BookCar` and `BookHotel` intents
+  in that order.
+
+  Use the optional `filters` field to filter the results.
+  """
+  def list_intent_paths(%Client{} = client, bot_id, input, options \\ []) do
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/intentpaths"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves summary metrics for the intent stages in your bot.
+
+  The following fields are required:
+
+    * `metrics` – A list of
+  [AnalyticsIntentStageMetric](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsIntentStageMetric.html)
+  objects. In each object, use the `name` field to specify the metric to
+  calculate, the `statistic` field to specify whether to calculate the `Sum`,
+  `Average`, or `Max` number, and the `order` field to specify whether to sort the
+  results in `Ascending` or `Descending` order.
+
+    * `startDateTime` and `endDateTime` – Define a time range for which
+  you want to retrieve results.
+
+  Of the optional fields, you can organize the results in the following ways:
+
+    * Use the `filters` field to filter the results, the `groupBy` field
+  to specify categories by which to group the results, and the `binBy` field to
+  specify time intervals by which to group the results.
+
+    * Use the `maxResults` field to limit the number of results to
+  return in a single response and the `nextToken` field to return the next batch
+  of results if the response does not return the full set of results.
+
+  Note that an `order` field exists in both `binBy` and `metrics`. You can only
+  specify one `order` in a given request.
+  """
+  def list_intent_stage_metrics(%Client{} = client, bot_id, input, options \\ []) do
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/intentstagemetrics"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Get a list of intents that meet the specified criteria.
   """
   def list_intents(%Client{} = client, bot_id, bot_version, locale_id, input, options \\ []) do
@@ -1503,6 +1636,88 @@ defmodule AWS.LexModelsV2 do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/botrecommendations/#{AWS.Util.encode_uri(bot_recommendation_id)}/intents"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves a list of metadata for individual user sessions with your bot.
+
+  The `startDateTime` and `endDateTime` fields are required. These fields define a
+  time range for which you want to retrieve results. Of the optional fields, you
+  can organize the results in the following ways:
+
+    * Use the `filters` field to filter the results and the `sortBy`
+  field to specify the values by which to sort the results.
+
+    * Use the `maxResults` field to limit the number of results to
+  return in a single response and the `nextToken` field to return the next batch
+  of results if the response does not return the full set of results.
+  """
+  def list_session_analytics_data(%Client{} = client, bot_id, input, options \\ []) do
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/sessions"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves summary metrics for the user sessions with your bot.
+
+  The following fields are required:
+
+    * `metrics` – A list of
+  [AnalyticsSessionMetric](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsSessionMetric.html)
+  objects. In each object, use the `name` field to specify the metric to
+  calculate, the `statistic` field to specify whether to calculate the `Sum`,
+  `Average`, or `Max` number, and the `order` field to specify whether to sort the
+  results in `Ascending` or `Descending` order.
+
+    * `startDateTime` and `endDateTime` – Define a time range for which
+  you want to retrieve results.
+
+  Of the optional fields, you can organize the results in the following ways:
+
+    * Use the `filters` field to filter the results, the `groupBy` field
+  to specify categories by which to group the results, and the `binBy` field to
+  specify time intervals by which to group the results.
+
+    * Use the `maxResults` field to limit the number of results to
+  return in a single response and the `nextToken` field to return the next batch
+  of results if the response does not return the full set of results.
+
+  Note that an `order` field exists in both `binBy` and `metrics`. Currently, you
+  can specify it in either field, but not in both.
+  """
+  def list_session_metrics(%Client{} = client, bot_id, input, options \\ []) do
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/sessionmetrics"
     headers = []
     query_params = []
 
@@ -1673,6 +1888,88 @@ defmodule AWS.LexModelsV2 do
   """
   def list_test_sets(%Client{} = client, input, options \\ []) do
     url_path = "/testsets"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves a list of metadata for individual user utterances to your bot.
+
+  The `startDateTime` and `endDateTime` fields are required. These fields define a
+  time range for which you want to retrieve results. Of the optional fields, you
+  can organize the results in the following ways:
+
+    * Use the `filters` field to filter the results and the `sortBy`
+  field to specify the values by which to sort the results.
+
+    * Use the `maxResults` field to limit the number of results to
+  return in a single response and the `nextToken` field to return the next batch
+  of results if the response does not return the full set of results.
+  """
+  def list_utterance_analytics_data(%Client{} = client, bot_id, input, options \\ []) do
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/utterances"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves summary metrics for the utterances in your bot.
+
+  The following fields are required:
+
+    * `metrics` – A list of
+  [AnalyticsUtteranceMetric](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsUtteranceMetric.html)
+  objects. In each object, use the `name` field to specify the metric to
+  calculate, the `statistic` field to specify whether to calculate the `Sum`,
+  `Average`, or `Max` number, and the `order` field to specify whether to sort the
+  results in `Ascending` or `Descending` order.
+
+    * `startDateTime` and `endDateTime` – Define a time range for which
+  you want to retrieve results.
+
+  Of the optional fields, you can organize the results in the following ways:
+
+    * Use the `filters` field to filter the results, the `groupBy` field
+  to specify categories by which to group the results, and the `binBy` field to
+  specify time intervals by which to group the results.
+
+    * Use the `maxResults` field to limit the number of results to
+  return in a single response and the `nextToken` field to return the next batch
+  of results if the response does not return the full set of results.
+
+  Note that an `order` field exists in both `binBy` and `metrics`. Currently, you
+  can specify it in either field, but not in both.
+  """
+  def list_utterance_metrics(%Client{} = client, bot_id, input, options \\ []) do
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/utterancemetrics"
     headers = []
     query_params = []
 

@@ -142,6 +142,8 @@ defmodule AWS.Snowball do
       * Description: Snowball Edge Storage Optimized with EC2
   Compute
 
+  This device is replaced with T98.
+
     * Device type: ## STANDARD
 
       * Capacity: T50
@@ -160,12 +162,11 @@ defmodule AWS.Snowball do
   This device is only available in the Ningxia, Beijing, and Singapore Amazon Web
   Services Region.
 
-    * Device type: ## V3_5C
+    * Snow Family device type: ## RACK_5U_C
 
-      * Capacity: T32
+      * Capacity: T13
 
-      * Description: Snowball Edge Compute Optimized without
-  GPU
+      * Description: Snowblade.
 
     * Device type: ## V3_5S
 
@@ -356,9 +357,9 @@ defmodule AWS.Snowball do
   end
 
   @doc """
-  This action returns a list of the different Amazon EC2 Amazon Machine Images
-  (AMIs) that are owned by your Amazon Web Services accountthat would be supported
-  for use on a Snow device.
+  This action returns a list of the different Amazon EC2-compatible Amazon Machine
+  Images (AMIs) that are owned by your Amazon Web Services accountthat would be
+  supported for use on a Snow device.
 
   Currently, supported AMIs are based on the Amazon Linux-2, Ubuntu 20.04 LTS -
   Focal, or Ubuntu 22.04 LTS - Jammy images, available on the Amazon Web Services
@@ -393,6 +394,15 @@ defmodule AWS.Snowball do
     meta = metadata()
 
     Request.request_post(client, meta, "ListLongTermPricing", input, options)
+  end
+
+  @doc """
+  A list of locations from which the customer can choose to pickup a device.
+  """
+  def list_pickup_locations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPickupLocations", input, options)
   end
 
   @doc """

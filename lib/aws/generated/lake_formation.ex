@@ -797,7 +797,7 @@ defmodule AWS.LakeFormation do
   This operation returns only those permissions that have been explicitly granted.
 
   For information about permissions, see [Security and Access Control to Metadata and
-  Data](https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
+  Data](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
   """
   def list_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/ListPermissions"

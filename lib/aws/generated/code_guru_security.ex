@@ -3,12 +3,12 @@
 
 defmodule AWS.CodeGuruSecurity do
   @moduledoc """
-  This section provides documentation for the [Amazon CodeGuru Security](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/codeguru/latest/security-ug/what-is-codeguru-security.html)
-  API operations.
+  Amazon CodeGuru Security is in preview release and is subject to change.
 
-  CodeGuru Security is a service that uses program analysis and machine learning
-  to detect security policy violations and vulnerabilities, and recommends ways to
-  address these security risks.
+  This section provides documentation for the Amazon CodeGuru Security API
+  operations. CodeGuru Security is a service that uses program analysis and
+  machine learning to detect security policy violations and vulnerabilities, and
+  recommends ways to address these security risks.
 
   By proactively detecting and providing recommendations for addressing security
   risks, CodeGuru Security improves the overall security of your application code.
@@ -252,7 +252,9 @@ defmodule AWS.CodeGuruSecurity do
   end
 
   @doc """
-  Returns a list of all the scans in an account.
+  Returns a list of all the standard scans in an account.
+
+  Does not return express scans.
   """
   def list_scans(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/scans"

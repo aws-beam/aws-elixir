@@ -638,7 +638,7 @@ defmodule AWS.RDS do
   Deletes a blue/green deployment.
 
   For more information, see [Using Amazon RDS Blue/Green Deployments for database updates](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html)
-  in the *Amazon RDS User Guide* and [ Using Amazon RDS Blue/Green Deployments for database
+  in the *Amazon RDS User Guide* and [Using Amazon RDS Blue/Green Deployments for database
   updates](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html)
   in the *Amazon Aurora User Guide*.
   """
@@ -927,7 +927,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Returns information about blue/green deployments.
+  Describes one or more blue/green deployments.
 
   For more information, see [Using Amazon RDS Blue/Green Deployments for database updates](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html)
   in the *Amazon RDS User Guide* and [ Using Amazon RDS Blue/Green Deployments for database
@@ -2435,7 +2435,7 @@ defmodule AWS.RDS do
   databases in the green environment.
 
   For more information, see [Using Amazon RDS Blue/Green Deployments for database updates](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html)
-  in the *Amazon RDS User Guide* and [ Using Amazon RDS Blue/Green Deployments for database
+  in the *Amazon RDS User Guide* and [Using Amazon RDS Blue/Green Deployments for database
   updates](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html)
   in the *Amazon Aurora User Guide*.
   """

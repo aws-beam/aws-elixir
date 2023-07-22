@@ -118,6 +118,8 @@ defmodule AWS.ConnectCases do
   [CreateIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html) API. You need specific IAM permissions to successfully associate the Cases
   domain. For more information, see [Onboard to
   Cases](https://docs.aws.amazon.com/connect/latest/adminguide/required-permissions-iam-cases.html#onboard-cases-iam).
+
+  ` `
   """
   def create_domain(%Client{} = client, input, options \\ []) do
     url_path = "/domains"
@@ -260,7 +262,14 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-  Deletes a domain.
+  Deletes a Cases domain.
+
+  ` After deleting your domain you must disassociate the deleted domain from your
+  Amazon Connect instance with another API call before being able to use Cases
+  again with this Amazon Connect instance. See
+  [DeleteIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteIntegrationAssociation.html).
+
+  `
   """
   def delete_domain(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}"

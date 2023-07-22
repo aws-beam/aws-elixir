@@ -69,7 +69,7 @@ defmodule AWS.SecurityLake do
   Regions, based on the parameters you specify. You can choose any source type in
   any Region for either accounts that are part of a trusted organization or
   standalone accounts. Once you add an Amazon Web Service as a source, Security
-  Lake starts collecting logs and events from it,
+  Lake starts collecting logs and events from it.
 
   You can use this API only to enable natively supported Amazon Web Services as a
   source. Use `CreateCustomLogSource` to enable data collection from a custom
@@ -131,10 +131,9 @@ defmodule AWS.SecurityLake do
   configuration.
 
   You can enable Security Lake in Amazon Web Services Regions with customized
-  settings before enabling log collection in Regions. By default, the
-  `CreateDataLake` Security Lake in all Regions. To specify particular Regions,
-  configure these Regions using the `configurations` parameter. If you have
-  already enabled Security Lake in a Region when you call this command, the
+  settings before enabling log collection in Regions. To specify particular
+  Regions, configure these Regions using the `configurations` parameter. If you
+  have already enabled Security Lake in a Region when you call this command, the
   command will update the Region if you provide new configuration parameters. If
   you have not already enabled Security Lake in the Region when you call this API,
   it will set up the data lake in the Region with the specified configurations.
@@ -391,13 +390,13 @@ defmodule AWS.SecurityLake do
   end
 
   @doc """
-  Removes automatic the enablement of configuration settings for new member
-  accounts (but retains the settings for the delegated administrator) from Amazon
-  Security Lake.
+  Turns off automatic enablement of Amazon Security Lake for member accounts that
+  are added to an organization in Organizations.
 
-  You must run this API using the credentials of the delegated administrator. When
-  you run this API, new member accounts that are added after the organization
-  enables Security Lake won't contribute to the data lake.
+  Only the delegated Security Lake administrator for an organization can perform
+  this operation. If the delegated Security Lake administrator performs this
+  operation, new member accounts won't automatically contribute data to the data
+  lake.
   """
   def delete_data_lake_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/organization/configuration/delete"
@@ -595,10 +594,10 @@ defmodule AWS.SecurityLake do
 
   @doc """
   Retrieves the Amazon Security Lake configuration object for the specified Amazon
-  Web Services account ID.
+  Web Services Regions.
 
-  You can use the `ListDataLakes` API to know whether Security Lake is enabled for
-  any region.
+  You can use this operation to determine whether Security Lake is enabled for a
+  Region.
   """
   def list_data_lakes(%Client{} = client, regions \\ nil, options \\ []) do
     url_path = "/v1/datalakes"
@@ -671,6 +670,21 @@ defmodule AWS.SecurityLake do
   end
 
   @doc """
+  Retrieves the tags (keys and values) that are associated with an Amazon Security
+  Lake resource: a subscriber, or the data lake configuration for your Amazon Web
+  Services account in a particular Amazon Web Services Region.
+  """
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Designates the Amazon Security Lake delegated administrator account for the
   organization.
 
@@ -688,6 +702,70 @@ defmodule AWS.SecurityLake do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Adds or updates one or more tags that are associated with an Amazon Security
+  Lake resource: a subscriber, or the data lake configuration for your Amazon Web
+  Services account in a particular Amazon Web Services Region.
+
+  A *tag* is a label that you can define and associate with Amazon Web Services
+  resources. Each tag consists of a required *tag key* and an associated *tag
+  value*. A *tag key* is a general label that acts as a category for a more
+  specific tag value. A *tag value* acts as a descriptor for a tag key. Tags can
+  help you identify, categorize, and manage resources in different ways, such as
+  by owner, environment, or other criteria. For more information, see [Tagging Amazon Security Lake
+  resources](https://docs.aws.amazon.com/security-lake/latest/userguide/tagging-resources.html)
+  in the *Amazon Security Lake User Guide*.
+  """
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes one or more tags (keys and values) from an Amazon Security Lake
+  resource: a subscriber, or the data lake configuration for your Amazon Web
+  Services account in a particular Amazon Web Services Region.
+  """
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"tagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       headers,

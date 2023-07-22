@@ -155,6 +155,15 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+  Creates an Route 53 Resolver on an Outpost.
+  """
+  def create_outpost_resolver(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateOutpostResolver", input, options)
+  end
+
+  @doc """
   Creates a Resolver endpoint.
 
   There are two types of Resolver endpoints, inbound and outbound:
@@ -230,6 +239,15 @@ defmodule AWS.Route53Resolver do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteFirewallRuleGroup", input, options)
+  end
+
+  @doc """
+  Deletes a Resolver on the Outpost.
+  """
+  def delete_outpost_resolver(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteOutpostResolver", input, options)
   end
 
   @doc """
@@ -397,6 +415,16 @@ defmodule AWS.Route53Resolver do
     meta = metadata()
 
     Request.request_post(client, meta, "GetFirewallRuleGroupPolicy", input, options)
+  end
+
+  @doc """
+  Gets information about a specified Resolver on the Outpost, such as its instance
+  count and type, name, and the current status of the Resolver.
+  """
+  def get_outpost_resolver(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetOutpostResolver", input, options)
   end
 
   @doc """
@@ -609,6 +637,16 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+  Lists all the Resolvers on Outposts that were created using the current Amazon
+  Web Services account.
+  """
+  def list_outpost_resolvers(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListOutpostResolvers", input, options)
+  end
+
+  @doc """
   Retrieves the Resolver configurations that you have defined.
 
   Route 53 Resolver uses the configurations to manage DNS resolution behavior for
@@ -791,6 +829,16 @@ defmodule AWS.Route53Resolver do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateFirewallRuleGroupAssociation", input, options)
+  end
+
+  @doc """
+  You can use `UpdateOutpostResolver` to update the instance count, type, or name
+  of a Resolver on an Outpost.
+  """
+  def update_outpost_resolver(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateOutpostResolver", input, options)
   end
 
   @doc """

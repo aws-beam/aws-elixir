@@ -361,6 +361,29 @@ defmodule AWS.SsmSap do
   end
 
   @doc """
+  Refreshes a registered application.
+  """
+  def start_application_refresh(%Client{} = client, input, options \\ []) do
+    url_path = "/start-application-refresh"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates tag for a resource by specifying the ARN.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do

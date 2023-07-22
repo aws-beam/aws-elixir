@@ -315,6 +315,49 @@ defmodule AWS.Grafana do
   end
 
   @doc """
+  Lists available versions of Grafana.
+
+  These are available when calling `CreateWorkspace`. Optionally, include a
+  workspace to list the versions to which it can be upgraded.
+  """
+  def list_versions(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        workspace_id \\ nil,
+        options \\ []
+      ) do
+    url_path = "/versions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(workspace_id) do
+        [{"workspace-id", workspace_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of Amazon Managed Grafana workspaces in the account, with some
   information about each workspace.
 

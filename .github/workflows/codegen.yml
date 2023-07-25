@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
   schedule:
     ## Scheduled nightly at 00:23
     - cron: '23 0 * * *'

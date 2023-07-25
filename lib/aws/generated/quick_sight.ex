@@ -1755,6 +1755,58 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Describes an existing snapshot job.
+
+  Poll job descriptions after a job starts to know the status of the job. For
+  information on available status codes, see `JobStatus`.
+  """
+  def describe_dashboard_snapshot_job(
+        %Client{} = client,
+        aws_account_id,
+        dashboard_id,
+        snapshot_job_id,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/snapshot-jobs/#{AWS.Util.encode_uri(snapshot_job_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Describes the result of an existing snapshot job that has finished running.
+
+  A finished snapshot job will return a `COMPLETED` or `FAILED` status when you
+  poll the job with a `DescribeDashboardSnapshotJob` API call.
+
+  If the job has not finished running, this operation returns a message that says
+  `Dashboard Snapshot Job with id <SnapshotjobId> has not reached a terminal
+  state.`.
+  """
+  def describe_dashboard_snapshot_job_result(
+        %Client{} = client,
+        aws_account_id,
+        dashboard_id,
+        snapshot_job_id,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/snapshot-jobs/#{AWS.Util.encode_uri(snapshot_job_id)}/result"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Describes a dataset.
 
   This operation doesn't support datasets that include uploaded files as a source.
@@ -3848,6 +3900,43 @@ defmodule AWS.QuickSight do
   """
   def start_asset_bundle_import_job(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-import-jobs/import"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Starts an asynchronous job that generates a dashboard snapshot.
+
+  You can request up to one paginated PDF and up to five CSVs per API call.
+
+  Poll job descriptions with a `DescribeDashboardSnapshotJob` API call. Once the
+  job succeeds, use the `DescribeDashboardSnapshotJobResult` API to obtain the
+  download URIs that the job generates.
+  """
+  def start_dashboard_snapshot_job(
+        %Client{} = client,
+        aws_account_id,
+        dashboard_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/snapshot-jobs"
+
     headers = []
     query_params = []
 

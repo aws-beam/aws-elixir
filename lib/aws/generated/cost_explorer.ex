@@ -333,6 +333,24 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+  Retrieves the details for a Savings Plan recommendation.
+
+  These details include the hourly data-points that construct the new cost,
+  coverage, and utilization charts.
+  """
+  def get_savings_plan_purchase_recommendation_details(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "GetSavingsPlanPurchaseRecommendationDetails",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Retrieves the Savings Plans covered for your account.
 
   This enables you to see how much of your cost is covered by a Savings Plan. An
@@ -564,7 +582,12 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
-  Updates an existing cost anomaly monitor subscription.
+  Updates an existing cost anomaly subscription.
+
+  Specify the fields that you want to update. Omitted fields are unchanged.
+
+  The JSON below describes the generic construct for each type. See [Request Parameters](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_UpdateAnomalySubscription.html#API_UpdateAnomalySubscription_RequestParameters)
+  for possible values as they apply to `AnomalySubscription`.
   """
   def update_anomaly_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()

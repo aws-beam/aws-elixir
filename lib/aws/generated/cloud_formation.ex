@@ -792,6 +792,19 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
+  Returns drift information for resources in a stack instance.
+
+  `ListStackInstanceResourceDrifts` returns drift information for the most recent
+  drift detection operation. If an operation is in progress, it may only return
+  partial results.
+  """
+  def list_stack_instance_resource_drifts(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStackInstanceResourceDrifts", input, options)
+  end
+
+  @doc """
   Returns summary information about stack instances that are associated with the
   specified stack set.
 

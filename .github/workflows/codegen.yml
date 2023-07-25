@@ -20,20 +20,30 @@ jobs:
       latest_tag: ${{ steps.latest-tag.outputs.LATEST_TAG }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Get tag used for generated files
         id: current-tag
         run: |
           # check if the file exist before
           [[ -f .latest-tag-aws-sdk-go ]] && CURRENT_TAG=$(<.latest-tag-aws-sdk-go) || CURRENT_TAG=''
-          echo "::set-output name=CURRENT_TAG::${CURRENT_TAG}"
+          echo "CURRENT_TAG=${CURRENT_TAG}" >> $GITHUB_OUTPUT
 
       - name: Get latest AWS SDK Go tag
+        uses: octokit/request-action@v2.x
+        id: latest-tag-request
+        with:
+          route: GET /repos/{owner}/{repo}/releases/latest
+          owner: aws
+          repo: aws-sdk-go
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set it to the output
         id: latest-tag
         run: |
-          wget https://api.github.com/repos/aws/aws-sdk-go/releases/latest
-          tag_name=$(cat latest | jq -r '.tag_name')
-          echo "::set-output name=LATEST_TAG::${tag_name}"
+          echo '${{ steps.latest-tag-request.outputs.data }}' >> latest.json
+          tag_name=$(cat latest.json | jq -r '.tag_name')
+          echo "LATEST_TAG=${tag_name}" >> $GITHUB_OUTPUT
 
   generate:
     runs-on: ubuntu-20.04
@@ -50,7 +60,7 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - uses: erlef/setup-beam@v1
         with:
@@ -58,14 +68,14 @@ jobs:
           elixir-version: ${{ env.ELIXIR_VERSION }}
 
       - name: Checkout aws/aws-sdk-go (official Go SDK)
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: aws/aws-sdk-go
           path: tmp/aws-sdk-go
           ref: ${{ env.LATEST_AWS_SDK_GO_TAG }}
 
       - name: Checkout aws-codegen
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: aws-beam/aws-codegen
           path: tmp/aws-codegen

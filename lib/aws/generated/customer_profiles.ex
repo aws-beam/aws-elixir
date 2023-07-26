@@ -733,6 +733,39 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  Returns a set of profiles that belong to the same matching group using the
+  `matchId` or `profileId`.
+
+  You can also specify the type of matching that you want for finding similar
+  profiles using either `RULE_BASED_MATCHING` or `ML_BASED_MATCHING`.
+  """
+  def get_similar_profiles(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/matches"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "max-results"},
+        {"NextToken", "next-token"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Get details of specified workflow.
   """
   def get_workflow(%Client{} = client, domain_name, workflow_id, options \\ []) do
@@ -1111,6 +1144,39 @@ defmodule AWS.CustomerProfiles do
       options,
       nil
     )
+  end
+
+  @doc """
+  Returns a set of `MatchIds` that belong to the given domain.
+  """
+  def list_rule_based_matches(
+        %Client{} = client,
+        domain_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/ruleBasedMatches"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """

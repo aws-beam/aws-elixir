@@ -73,10 +73,13 @@ defmodule AWS.Transfer do
 
   @doc """
   Creates the connector, which captures the parameters for an outbound connection
-  for the AS2 protocol.
+  for the AS2 or SFTP protocol.
 
-  The connector is required for sending files to an externally hosted AS2 server.
-  For more details about connectors, see [Create AS2 connectors](https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector).
+  The connector is required for sending files to an externally hosted AS2 or SFTP
+  server. For more details about AS2 connectors, see [Create AS2 connectors](https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector).
+
+  You must specify exactly one configuration object: either for AS2 (`As2Config`)
+  or SFTP (`SftpConfig`).
   """
   def create_connector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -167,7 +170,7 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Deletes the agreement that's specified in the provided `ConnectorId`.
+  Deletes the connector that's specified in the provided `ConnectorId`.
   """
   def delete_connector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -543,9 +546,25 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Begins an outbound file transfer to a remote AS2 server.
+  Begins a file transfer between local Amazon Web Services storage and a remote
+  AS2 or SFTP server.
 
-  You specify the `ConnectorId` and the file paths for where to send the files.
+    * For an AS2 connector, you specify the `ConnectorId` and one or
+  more `SendFilePaths` to identify the files you want to transfer.
+
+    * For an SFTP connector, the file transfer can be either outbound or
+  inbound. In both cases, you specify the `ConnectorId`. Depending on the
+  direction of the transfer, you also specify the following items:
+
+      * If you are transferring file from a partner's SFTP
+  server to a Transfer Family server, you specify one or more `RetreiveFilePaths`
+  to identify the files you want to transfer, and a `LocalDirectoryPath` to
+  specify the destination folder.
+
+      * If you are transferring file to a partner's SFTP
+  server from Amazon Web Services storage, you specify one or more `SendFilePaths`
+  to identify the files you want to transfer, and a `RemoteDirectoryPath` to
+  specify the destination folder.
   """
   def start_file_transfer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -607,6 +626,19 @@ defmodule AWS.Transfer do
     meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
+  end
+
+  @doc """
+  Tests whether your SFTP connector is set up successfully.
+
+  We highly recommend that you call this operation to test your ability to
+  transfer files between a Transfer Family server and a trading partner's SFTP
+  server.
+  """
+  def test_connection(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TestConnection", input, options)
   end
 
   @doc """

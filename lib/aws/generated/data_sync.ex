@@ -84,6 +84,22 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+  Creates an endpoint for a Microsoft Azure Blob Storage container that DataSync
+  can use as a transfer source or destination.
+
+  Before you begin, make sure you know [how DataSync accesses Azure Blob Storage](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access)
+  and works with [access tiers](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access-tiers)
+  and [blob types](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#blob-types).
+  You also need a [DataSync agent](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-creating-agent)
+  that can connect to your container.
+  """
+  def create_location_azure_blob(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLocationAzureBlob", input, options)
+  end
+
+  @doc """
   Creates an endpoint for an Amazon EFS file system that DataSync can access for a
   transfer.
 
@@ -150,8 +166,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Defines a file system on a Network File System (NFS) server that can be read
-  from or written to.
+  Creates an endpoint for an Network File System (NFS) file server that DataSync
+  can use for a data transfer.
   """
   def create_location_nfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -192,9 +208,10 @@ defmodule AWS.DataSync do
 
   @doc """
   Creates an endpoint for a Server Message Block (SMB) file server that DataSync
-  can access for a transfer.
+  can use for a data transfer.
 
-  For more information, see [Creating an SMB location](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html).
+  Before you begin, make sure that you understand how DataSync [accesses an SMB file
+  server](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html).
   """
   def create_location_smb(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -269,6 +286,16 @@ defmodule AWS.DataSync do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
 
     Request.request_post(client, meta, "DescribeDiscoveryJob", input, options)
+  end
+
+  @doc """
+  Provides details about how an DataSync transfer location for Microsoft Azure
+  Blob Storage is configured.
+  """
+  def describe_location_azure_blob(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeLocationAzureBlob", input, options)
   end
 
   @doc """
@@ -404,7 +431,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Returns metadata about a task.
+  Provides information about an DataSync transfer task.
   """
   def describe_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -413,7 +440,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Returns detailed metadata about a task that is being executed.
+  Provides information about an DataSync transfer task that's running.
   """
   def describe_task_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -622,6 +649,16 @@ defmodule AWS.DataSync do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
 
     Request.request_post(client, meta, "UpdateDiscoveryJob", input, options)
+  end
+
+  @doc """
+  Modifies some configurations of the Microsoft Azure Blob Storage transfer
+  location that you're using with DataSync.
+  """
+  def update_location_azure_blob(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLocationAzureBlob", input, options)
   end
 
   @doc """

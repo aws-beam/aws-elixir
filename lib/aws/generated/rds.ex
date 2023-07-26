@@ -608,10 +608,10 @@ defmodule AWS.RDS do
   primary cluster through high-speed replication performed by the Aurora storage
   subsystem.
 
-  You can create a global database that is initially empty, and then add a primary
-  cluster and a secondary cluster to it. Or you can specify an existing Aurora
-  cluster during the create operation, and this cluster becomes the primary
-  cluster of the global database.
+  You can create a global database that is initially empty, and then create the
+  primary and secondary DB clusters in the global database. Or you can specify an
+  existing Aurora cluster during the create operation, and this cluster becomes
+  the primary cluster of the global database.
 
   This operation applies only to Aurora DB clusters.
   """
@@ -1862,14 +1862,14 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Modify a setting for an Amazon Aurora global cluster.
+  Modifies a setting for an Amazon Aurora global cluster.
 
   You can change one or more database configuration parameters by specifying these
   parameters and the new values in the request. For more information on Amazon
   Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  This action only applies to Aurora DB clusters.
+  This operation only applies to Aurora global database clusters.
   """
   def modify_global_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()

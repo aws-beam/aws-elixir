@@ -233,10 +233,11 @@ defmodule AWS.Route53 do
   ## Change Propagation to Route 53 DNS Servers
 
   When you submit a `ChangeResourceRecordSets` request, Route 53 propagates your
-  changes to all of the Route 53 authoritative DNS servers. While your changes are
-  propagating, `GetChange` returns a status of `PENDING`. When propagation is
-  complete, `GetChange` returns a status of `INSYNC`. Changes generally propagate
-  to all Route 53 name servers within 60 seconds. For more information, see
+  changes to all of the Route 53 authoritative DNS servers managing the hosted
+  zone. While your changes are propagating, `GetChange` returns a status of
+  `PENDING`. When propagation is complete, `GetChange` returns a status of
+  `INSYNC`. Changes generally propagate to all Route 53 name servers managing the
+  hosted zone within 60 seconds. For more information, see
   [GetChange](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html).  ## Limits on ChangeResourceRecordSets Requests
 
   For information about the limits on a `ChangeResourceRecordSets` request, see
@@ -778,6 +779,13 @@ defmodule AWS.Route53 do
   www.example.com). Amazon Route 53 responds to DNS queries for the domain or
   subdomain name by using the resource record sets that
   `CreateTrafficPolicyInstance` created.
+
+  After you submit an `CreateTrafficPolicyInstance` request, there's a brief delay
+  while Amazon Route 53 creates the resource record sets that are specified in the
+  traffic policy definition. Use `GetTrafficPolicyInstance` with the `id` of new
+  traffic policy instance to confirm that the `CreateTrafficPolicyInstance`
+  request completed successfully. For more information, see the `State` response
+  element.
   """
   def create_traffic_policy_instance(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/trafficpolicyinstance"
@@ -1386,11 +1394,11 @@ defmodule AWS.Route53 do
   The status is one of the following values:
 
     * `PENDING` indicates that the changes in this request have not
-  propagated to all Amazon Route 53 DNS servers. This is the initial status of all
-  change batch requests.
+  propagated to all Amazon Route 53 DNS servers managing the hosted zone. This is
+  the initial status of all change batch requests.
 
     * `INSYNC` indicates that the changes have propagated to all Route
-  53 DNS servers.
+  53 DNS servers managing the hosted zone.
   """
   def get_change(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/change/#{AWS.Util.encode_uri(id)}"
@@ -1679,10 +1687,10 @@ defmodule AWS.Route53 do
   @doc """
   Gets information about a specified traffic policy instance.
 
-  After you submit a `CreateTrafficPolicyInstance` or an
-  `UpdateTrafficPolicyInstance` request, there's a brief delay while Amazon Route
-  53 creates the resource record sets that are specified in the traffic policy
-  definition. For more information, see the `State` response element.
+  Use `GetTrafficPolicyInstance` with the `id` of new traffic policy instance to
+  confirm that the `CreateTrafficPolicyInstance` or an
+  `UpdateTrafficPolicyInstance` request completed successfully. For more
+  information, see the `State` response element.
 
   In the Route 53 console, traffic policy instances are known as policy records.
   """
@@ -2676,6 +2684,11 @@ defmodule AWS.Route53 do
   subnet IP address, and a subnet mask.
 
   This call only supports querying public hosted zones.
+
+  The `TestDnsAnswer ` returns information similar to what you would expect from
+  the answer section of the `dig` command. Therefore, if you query for the name
+  servers of a subdomain that point to the parent name servers, those will not be
+  returned.
   """
   def test_dns_answer(
         %Client{} = client,
@@ -2816,6 +2829,14 @@ defmodule AWS.Route53 do
   end
 
   @doc """
+  After you submit a `UpdateTrafficPolicyInstance` request, there's a brief delay
+  while Route 53 creates the resource record sets that are specified in the
+  traffic policy definition.
+
+  Use `GetTrafficPolicyInstance` with the `id` of updated traffic policy instance
+  confirm that the `UpdateTrafficPolicyInstance` request completed successfully.
+  For more information, see the `State` response element.
+
   Updates the resource record sets in a specified hosted zone that were created
   based on the settings in a specified traffic policy version.
 

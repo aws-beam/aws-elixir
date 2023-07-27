@@ -3,10 +3,10 @@
 
 defmodule AWS.Omics do
   @moduledoc """
-  This is the *Amazon Omics API Reference*.
+  This is the *AWS HealthOmics API Reference*.
 
-  For an introduction to the service, see [What is Amazon Omics?](https://docs.aws.amazon.com/omics/latest/dev/) in the *Amazon Omics User
-  Guide*.
+  For an introduction to the service, see [What is AWS HealthOmics?](https://docs.aws.amazon.com/omics/latest/dev/) in the *AWS
+  HealthOmics User Guide*.
   """
 
   alias AWS.Client

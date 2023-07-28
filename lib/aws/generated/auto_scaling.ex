@@ -217,7 +217,7 @@ defmodule AWS.AutoScaling do
     6. ## If you finish before the timeout period ends, send a callback
   by using the `CompleteLifecycleAction` API call.
 
-  For more information, see [Amazon EC2 Auto Scaling lifecycle hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html)
+  For more information, see [Complete a lifecycle action](https://docs.aws.amazon.com/autoscaling/ec2/userguide/completing-lifecycle-hooks.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def complete_lifecycle_action(%Client{} = client, input, options \\ []) do
@@ -828,10 +828,10 @@ defmodule AWS.AutoScaling do
   @doc """
   Detaches one or more traffic sources from the specified Auto Scaling group.
 
-  When you detach a taffic, it enters the `Removing` state while deregistering the
-  instances in the group. When all instances are deregistered, then you can no
-  longer describe the traffic source using the `DescribeTrafficSources` API call.
-  The instances continue to run.
+  When you detach a traffic source, it enters the `Removing` state while
+  deregistering the instances in the group. When all instances are deregistered,
+  then you can no longer describe the traffic source using the
+  `DescribeTrafficSources` API call. The instances continue to run.
   """
   def detach_traffic_sources(%Client{} = client, input, options \\ []) do
     meta = metadata()

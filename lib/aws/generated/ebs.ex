@@ -55,6 +55,11 @@ defmodule AWS.EBS do
 
   Completing the snapshot changes the status to `completed`. You cannot write new
   blocks to a snapshot after it has been completed.
+
+  You should always retry requests that receive server (`5xx`) error responses,
+  and `ThrottlingException` and `RequestThrottledException` client error
+  responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html)
+  in the *Amazon Elastic Compute Cloud User Guide*.
   """
   def complete_snapshot(%Client{} = client, snapshot_id, input, options \\ []) do
     url_path = "/snapshots/completion/#{AWS.Util.encode_uri(snapshot_id)}"
@@ -87,6 +92,11 @@ defmodule AWS.EBS do
 
   @doc """
   Returns the data in a block in an Amazon Elastic Block Store snapshot.
+
+  You should always retry requests that receive server (`5xx`) error responses,
+  and `ThrottlingException` and `RequestThrottledException` client error
+  responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html)
+  in the *Amazon Elastic Compute Cloud User Guide*.
   """
   def get_snapshot_block(%Client{} = client, block_index, snapshot_id, block_token, options \\ []) do
     url_path =
@@ -121,6 +131,11 @@ defmodule AWS.EBS do
   @doc """
   Returns information about the blocks that are different between two Amazon
   Elastic Block Store snapshots of the same volume/snapshot lineage.
+
+  You should always retry requests that receive server (`5xx`) error responses,
+  and `ThrottlingException` and `RequestThrottledException` client error
+  responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html)
+  in the *Amazon Elastic Compute Cloud User Guide*.
   """
   def list_changed_blocks(
         %Client{} = client,
@@ -170,6 +185,11 @@ defmodule AWS.EBS do
 
   @doc """
   Returns information about the blocks in an Amazon Elastic Block Store snapshot.
+
+  You should always retry requests that receive server (`5xx`) error responses,
+  and `ThrottlingException` and `RequestThrottledException` client error
+  responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html)
+  in the *Amazon Elastic Compute Cloud User Guide*.
   """
   def list_snapshot_blocks(
         %Client{} = client,
@@ -216,6 +236,11 @@ defmodule AWS.EBS do
   target snapshot must be in the `pending` state.
 
   Data written to a snapshot must be aligned with 512-KiB sectors.
+
+  You should always retry requests that receive server (`5xx`) error responses,
+  and `ThrottlingException` and `RequestThrottledException` client error
+  responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html)
+  in the *Amazon Elastic Compute Cloud User Guide*.
   """
   def put_snapshot_block(%Client{} = client, block_index, snapshot_id, input, options \\ []) do
     url_path =
@@ -255,6 +280,11 @@ defmodule AWS.EBS do
   After creating the snapshot, use [
   PutSnapshotBlock](https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html)
   to write blocks of data to the snapshot.
+
+  You should always retry requests that receive server (`5xx`) error responses,
+  and `ThrottlingException` and `RequestThrottledException` client error
+  responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html)
+  in the *Amazon Elastic Compute Cloud User Guide*.
   """
   def start_snapshot(%Client{} = client, input, options \\ []) do
     url_path = "/snapshots"

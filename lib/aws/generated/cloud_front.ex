@@ -75,6 +75,15 @@ defmodule AWS.CloudFront do
   modify the staging distribution's configuration. Then you can use
   `CreateContinuousDeploymentPolicy` to incrementally move traffic to the staging
   distribution.
+
+  This API operation requires the following IAM permissions:
+
+    *
+  [GetDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistribution.html)     *
+  [CreateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html)
+
+    *
+  [CopyDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CopyDistribution.html)
   """
   def copy_distribution(%Client{} = client, primary_distribution_id, input, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(primary_distribution_id)}/copy"
@@ -268,6 +277,12 @@ defmodule AWS.CloudFront do
 
   @doc """
   Create a new distribution with tags.
+
+  This API operation requires the following IAM permissions:
+
+    *
+  [CreateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html)     *
+  [TagResource](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_TagResource.html)
   """
   def create_distribution_with_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/distribution?WithTags"
@@ -3156,6 +3171,12 @@ defmodule AWS.CloudFront do
   this operation to copy the staging distribution's configuration to the primary
   distribution. This action will disable the continuous deployment policy and move
   your domain's traffic back to the primary distribution.
+
+  This API operation requires the following IAM permissions:
+
+    *
+  [GetDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistribution.html)     *
+  [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html)
   """
   def update_distribution_with_staging_config(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}/promote-staging-config"

@@ -42,6 +42,17 @@ defmodule AWS.ApplicationInsights do
   end
 
   @doc """
+  Adds a workload to a component.
+
+  Each component can have at most five workloads.
+  """
+  def add_workload(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddWorkload", input, options)
+  end
+
+  @doc """
   Adds an application that is created from a resource group.
   """
   def create_application(%Client{} = client, input, options \\ []) do
@@ -180,6 +191,15 @@ defmodule AWS.ApplicationInsights do
   end
 
   @doc """
+  Describes a workload and its configuration.
+  """
+  def describe_workload(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeWorkload", input, options)
+  end
+
+  @doc """
   Lists the IDs of the applications that you are monitoring.
   """
   def list_applications(%Client{} = client, input, options \\ []) do
@@ -260,6 +280,24 @@ defmodule AWS.ApplicationInsights do
   end
 
   @doc """
+  Lists the workloads that are configured on a given component.
+  """
+  def list_workloads(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListWorkloads", input, options)
+  end
+
+  @doc """
+  Remove workload from a component.
+  """
+  def remove_workload(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveWorkload", input, options)
+  end
+
+  @doc """
   Add one or more tags (keys and values) to a specified application.
 
   A *tag* is a label that you optionally define and associate with an application.
@@ -324,5 +362,25 @@ defmodule AWS.ApplicationInsights do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateLogPattern", input, options)
+  end
+
+  @doc """
+  Updates the visibility of the problem or specifies the problem as `RESOLVED`.
+  """
+  def update_problem(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateProblem", input, options)
+  end
+
+  @doc """
+  Adds a workload to a component.
+
+  Each component can have at most five workloads.
+  """
+  def update_workload(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateWorkload", input, options)
   end
 end

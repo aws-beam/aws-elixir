@@ -293,6 +293,19 @@ defmodule AWS.Kafka do
   end
 
   @doc """
+  Returns a description of the cluster operation specified by the ARN.
+  """
+  def describe_cluster_operation_v2(%Client{} = client, cluster_operation_arn, options \\ []) do
+    url_path = "/api/v2/operations/#{AWS.Util.encode_uri(cluster_operation_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a description of the MSK cluster of either the provisioned or the
   serverless type whose Amazon Resource Name (ARN) is specified in the request.
   """
@@ -438,6 +451,40 @@ defmodule AWS.Kafka do
         options \\ []
       ) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/operations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of all the operations that have been performed on the specified
+  MSK cluster.
+  """
+  def list_cluster_operations_v2(
+        %Client{} = client,
+        cluster_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/api/v2/clusters/#{AWS.Util.encode_uri(cluster_arn)}/operations"
     headers = []
     query_params = []
 

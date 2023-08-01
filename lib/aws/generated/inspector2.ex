@@ -107,6 +107,29 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Gets vulnerability details for findings.
+  """
+  def batch_get_finding_details(%Client{} = client, input, options \\ []) do
+    url_path = "/findings/details/batch/get"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets free trial status for multiple Amazon Web Services accounts.
   """
   def batch_get_free_trial_info(%Client{} = client, input, options \\ []) do

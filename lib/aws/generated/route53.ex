@@ -779,13 +779,6 @@ defmodule AWS.Route53 do
   www.example.com). Amazon Route 53 responds to DNS queries for the domain or
   subdomain name by using the resource record sets that
   `CreateTrafficPolicyInstance` created.
-
-  After you submit an `CreateTrafficPolicyInstance` request, there's a brief delay
-  while Amazon Route 53 creates the resource record sets that are specified in the
-  traffic policy definition. Use `GetTrafficPolicyInstance` with the `id` of new
-  traffic policy instance to confirm that the `CreateTrafficPolicyInstance`
-  request completed successfully. For more information, see the `State` response
-  element.
   """
   def create_traffic_policy_instance(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/trafficpolicyinstance"
@@ -1687,10 +1680,10 @@ defmodule AWS.Route53 do
   @doc """
   Gets information about a specified traffic policy instance.
 
-  Use `GetTrafficPolicyInstance` with the `id` of new traffic policy instance to
-  confirm that the `CreateTrafficPolicyInstance` or an
-  `UpdateTrafficPolicyInstance` request completed successfully. For more
-  information, see the `State` response element.
+  After you submit a `CreateTrafficPolicyInstance` or an
+  `UpdateTrafficPolicyInstance` request, there's a brief delay while Amazon Route
+  53 creates the resource record sets that are specified in the traffic policy
+  definition. For more information, see the `State` response element.
 
   In the Route 53 console, traffic policy instances are known as policy records.
   """
@@ -2829,14 +2822,6 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  After you submit a `UpdateTrafficPolicyInstance` request, there's a brief delay
-  while Route 53 creates the resource record sets that are specified in the
-  traffic policy definition.
-
-  Use `GetTrafficPolicyInstance` with the `id` of updated traffic policy instance
-  confirm that the `UpdateTrafficPolicyInstance` request completed successfully.
-  For more information, see the `State` response element.
-
   Updates the resource record sets in a specified hosted zone that were created
   based on the settings in a specified traffic policy version.
 

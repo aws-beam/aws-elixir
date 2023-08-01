@@ -70,7 +70,7 @@ defmodule AWS.AmplifyUIBuilder do
   end
 
   @doc """
-  Creates a new form for an Amplify.
+  Creates a new form for an Amplify app.
   """
   def create_form(%Client{} = client, app_id, environment_name, input, options \\ []) do
     url_path =
@@ -575,7 +575,7 @@ defmodule AWS.AmplifyUIBuilder do
   end
 
   @doc """
-  Starts a code generation job for for a specified Amplify app and backend
+  Starts a code generation job for a specified Amplify app and backend
   environment.
   """
   def start_codegen_job(%Client{} = client, app_id, environment_name, input, options \\ []) do

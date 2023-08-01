@@ -31,8 +31,8 @@ defmodule AWS.LookoutEquipment do
   Creates a container for a collection of data being ingested for analysis.
 
   The dataset contains the metadata describing where the data is and what the data
-  actually looks like. In other words, it contains the location of the data
-  source, the data schema, and other information. A dataset also contains any tags
+  actually looks like. For example, it contains the location of the data source,
+  the data schema, and other information. A dataset also contains any tags
   associated with the ingested data.
   """
   def create_dataset(%Client{} = client, input, options \\ []) do
@@ -151,6 +151,15 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
+  Deletes the resource policy attached to the resource.
+  """
+  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
+  end
+
+  @doc """
   Provides information on a specific data ingestion job such as creation time,
   dataset ARN, and status.
   """
@@ -207,6 +216,42 @@ defmodule AWS.LookoutEquipment do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeModel", input, options)
+  end
+
+  @doc """
+  Retrieves information about a specific machine learning model version.
+  """
+  def describe_model_version(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeModelVersion", input, options)
+  end
+
+  @doc """
+  Provides the details of a resource policy attached to a resource.
+  """
+  def describe_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeResourcePolicy", input, options)
+  end
+
+  @doc """
+  Imports a dataset.
+  """
+  def import_dataset(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportDataset", input, options)
+  end
+
+  @doc """
+  Imports a model that has been trained successfully.
+  """
+  def import_model_version(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ImportModelVersion", input, options)
   end
 
   @doc """
@@ -278,6 +323,19 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
+  Generates a list of all model versions for a given model, including the model
+  version, model version ARN, and status.
+
+  To list a subset of versions, use the `MaxModelVersion` and `MinModelVersion`
+  fields.
+  """
+  def list_model_versions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListModelVersions", input, options)
+  end
+
+  @doc """
   Generates a list of all models in the account, including model name and ARN,
   dataset, and status.
   """
@@ -306,6 +364,15 @@ defmodule AWS.LookoutEquipment do
     meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Creates a resource control policy for a given resource.
+  """
+  def put_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
 
   @doc """
@@ -361,6 +428,15 @@ defmodule AWS.LookoutEquipment do
     meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Sets the active model version for a given machine learning model.
+  """
+  def update_active_model_version(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateActiveModelVersion", input, options)
   end
 
   @doc """

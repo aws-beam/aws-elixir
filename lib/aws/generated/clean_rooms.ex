@@ -35,10 +35,64 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Retrieves multiple analysis templates within a collaboration by their Amazon
+  Resource Names (ARNs).
+  """
+  def batch_get_collaboration_analysis_template(
+        %Client{} = client,
+        collaboration_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/batch-analysistemplates"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves multiple schemas by their identifiers.
   """
   def batch_get_schema(%Client{} = client, collaboration_identifier, input, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/batch-schema"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new analysis template.
+  """
+  def create_analysis_template(%Client{} = client, membership_identifier, input, options \\ []) do
+    url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/analysistemplates"
     headers = []
     query_params = []
 
@@ -188,6 +242,37 @@ defmodule AWS.CleanRooms do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Deletes an analysis template.
+  """
+  def delete_analysis_template(
+        %Client{} = client,
+        analysis_template_identifier,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/analysistemplates/#{AWS.Util.encode_uri(analysis_template_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
     )
   end
 
@@ -367,10 +452,50 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Retrieves an analysis template.
+  """
+  def get_analysis_template(
+        %Client{} = client,
+        analysis_template_identifier,
+        membership_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/analysistemplates/#{AWS.Util.encode_uri(analysis_template_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns metadata about a collaboration.
   """
   def get_collaboration(%Client{} = client, collaboration_identifier, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves an analysis template within a collaboration.
+  """
+  def get_collaboration_analysis_template(
+        %Client{} = client,
+        analysis_template_arn,
+        collaboration_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/analysistemplates/#{AWS.Util.encode_uri(analysis_template_arn)}"
+
     headers = []
     query_params = []
 
@@ -495,6 +620,74 @@ defmodule AWS.CleanRooms do
 
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists analysis templates that the caller owns.
+  """
+  def list_analysis_templates(
+        %Client{} = client,
+        membership_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/analysistemplates"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists analysis templates within a collaboration.
+  """
+  def list_collaboration_analysis_templates(
+        %Client{} = client,
+        collaboration_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/analysistemplates"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -841,6 +1034,37 @@ defmodule AWS.CleanRooms do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the analysis template metadata.
+  """
+  def update_analysis_template(
+        %Client{} = client,
+        analysis_template_identifier,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/analysistemplates/#{AWS.Util.encode_uri(analysis_template_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       headers,

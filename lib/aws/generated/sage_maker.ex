@@ -2478,6 +2478,18 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Starts an Amazon SageMaker Inference Recommender autoscaling recommendation job.
+
+  Returns recommendations for autoscaling policies that you can apply to your
+  SageMaker endpoint.
+  """
+  def get_scaling_configuration_recommendation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetScalingConfigurationRecommendation", input, options)
+  end
+
+  @doc """
   An auto-complete API for the search functionality in the SageMaker console.
 
   It returns suggestions of possible matches for the property name to use in

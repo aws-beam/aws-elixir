@@ -3,16 +3,49 @@
 
 defmodule AWS.CognitoIdentityProvider do
   @moduledoc """
-  Using the Amazon Cognito user pools API, you can create a user pool to manage
-  directories and users.
+  With the Amazon Cognito user pools API, you can set up user pools and app
+  clients, and authenticate users.
 
-  You can authenticate a user to obtain tokens related to user identity and access
-  policies.
+  To authenticate users from third-party identity providers (IdPs) in this API,
+  you can [link IdP users to native user profiles](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html).
+  Learn more about the authentication and authorization of federated users in the
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-userpools-server-contract-reference.html).
 
-  This API reference provides information about user pools in Amazon Cognito user
-  pools.
+  This API reference provides detailed information about API operations and object
+  types in Amazon Cognito. At the bottom of the page for each API operation and
+  object, under *See Also*, you can learn how to use it in an Amazon Web Services
+  SDK in the language of your choice.
 
-  For more information, see the [Amazon Cognito Documentation](https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html).
+  Along with resource management operations, the Amazon Cognito user pools API
+  includes classes of operations and authorization models for client-side and
+  server-side user operations. For more information, see [Using the Amazon Cognito native and OIDC
+  APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  in the *Amazon Cognito Developer Guide*.
+
+  You can also start reading about the `CognitoIdentityProvider` client in the
+  following SDK guides.
+
+    * [Amazon Web Services Command Line Interface](https://docs.aws.amazon.com/cli/latest/reference/cognito-idp/index.html#cli-aws-cognito-idp)
+
+    * [Amazon Web Services SDK for .NET](https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/CognitoIdentityProvider/TCognitoIdentityProviderClient.html)
+
+    * [Amazon Web Services SDK for C++](https://sdk.amazonaws.com/cpp/api/LATEST/aws-cpp-sdk-cognito-idp/html/class_aws_1_1_cognito_identity_provider_1_1_cognito_identity_provider_client.html)
+
+    * [Amazon Web Services SDK for Go](https://docs.aws.amazon.com/sdk-for-go/api/service/cognitoidentityprovider/#CognitoIdentityProvider)
+
+    * [Amazon Web Services SDK for Java V2](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cognitoidentityprovider/CognitoIdentityProviderClient.html)
+
+    * [Amazon Web Services SDK for JavaScript](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CognitoIdentityServiceProvider.html)
+
+    * [Amazon Web Services SDK for PHP V3](https://docs.aws.amazon.com/aws-sdk-php/v3/api/api-cognito-idp-2016-04-18.html)
+
+    * [Amazon Web Services SDK for Python](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp.html)
+
+    * [Amazon Web Services SDK for Ruby V3](https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/CognitoIdentityProvider/Client.html)
+
+  To get started with an Amazon Web Services SDK, see [Tools to Build on Amazon Web Services](http://aws.amazon.com/developer/tools/). For example actions and
+  scenarios, see [Code examples for Amazon Cognito Identity Provider using Amazon Web Services
+  SDKs](https://docs.aws.amazon.com/cognito/latest/developerguide/service_code_examples_cognito-identity-provider.html).
   """
 
   alias AWS.Client
@@ -36,6 +69,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Adds additional user attributes to the user pool schema.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def add_custom_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -46,7 +90,16 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Adds the specified user to the specified group.
 
-  Calling this action requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_add_user_to_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -59,7 +112,16 @@ defmodule AWS.CognitoIdentityProvider do
 
   Works on any user.
 
-  Calling this action requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_confirm_sign_up(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -86,7 +148,7 @@ defmodule AWS.CognitoIdentityProvider do
   SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you can
   send messages only to verified phone numbers. After you test your app while in
   the sandbox environment, you can move out of the sandbox and into production.
-  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html)
   in the *Amazon Cognito Developer Guide*.
 
   This message is based on a template that you configured in your call to create
@@ -99,7 +161,16 @@ defmodule AWS.CognitoIdentityProvider do
   In either case, the user will be in the `FORCE_CHANGE_PASSWORD` state until they
   sign in and change their password.
 
-  `AdminCreateUser` requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_create_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -112,7 +183,16 @@ defmodule AWS.CognitoIdentityProvider do
 
   Works on any user.
 
-  Calling this action requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_delete_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -125,7 +205,16 @@ defmodule AWS.CognitoIdentityProvider do
 
   Works on any user.
 
-  Calling this action requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_delete_user_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -143,11 +232,7 @@ defmodule AWS.CognitoIdentityProvider do
   existing user is removed. When the external user signs in again, and the user is
   no longer attached to the previously linked `DestinationUser`, the user must
   create a new user account. See
-  [AdminLinkProviderForUser](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html).
-
-  This action is enabled only for admin access and requires developer credentials.
-
-  The `ProviderName` must match the value specified when creating an IdP for the
+  [AdminLinkProviderForUser](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html).  The `ProviderName` must match the value specified when creating an IdP for the
   pool.
 
   To deactivate a native username + password user, the `ProviderName` value must
@@ -168,6 +253,18 @@ defmodule AWS.CognitoIdentityProvider do
   However, if the user has already signed in, the `ProviderAttributeName` must be
   `Cognito_Subject` and `ProviderAttributeValue` must be the subject of the SAML
   assertion.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API
+  Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_disable_provider_for_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -181,8 +278,16 @@ defmodule AWS.CognitoIdentityProvider do
   A deactivated user can't sign in, but still appears in the responses to
   `GetUser` and `ListUsers` API requests.
 
-  You must make this API request with Amazon Web Services credentials that have
-  `cognito-idp:AdminDisableUser` permissions.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_disable_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -195,7 +300,16 @@ defmodule AWS.CognitoIdentityProvider do
 
   Works on any user.
 
-  Calling this action requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_enable_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -206,7 +320,16 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Forgets the device, as an administrator.
 
-  Calling this action requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_forget_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -217,7 +340,16 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Gets the device, as an administrator.
 
-  Calling this action requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_get_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -230,7 +362,16 @@ defmodule AWS.CognitoIdentityProvider do
 
   Works on any user.
 
-  Calling this action requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_get_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -254,10 +395,19 @@ defmodule AWS.CognitoIdentityProvider do
   SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you can
   send messages only to verified phone numbers. After you test your app while in
   the sandbox environment, you can move out of the sandbox and into production.
-  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html)
   in the *Amazon Cognito Developer Guide*.
 
-  Calling this action requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_initiate_auth(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -285,7 +435,16 @@ defmodule AWS.CognitoIdentityProvider do
   external IdPs and provider attributes that have been trusted by the application
   owner.
 
-  This action is administrative and requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_link_provider_for_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -296,7 +455,16 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Lists devices, as an administrator.
 
-  Calling this action requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_list_devices(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -307,7 +475,16 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Lists the groups that the user belongs to.
 
-  Calling this action requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_list_groups_for_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -318,6 +495,17 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   A history of user activity and any risks detected as part of Amazon Cognito
   advanced security.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_list_user_auth_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -328,7 +516,16 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Removes the specified user from the specified group.
 
-  Calling this action requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_remove_user_from_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -340,15 +537,6 @@ defmodule AWS.CognitoIdentityProvider do
   Resets the specified user's password in a user pool as an administrator.
 
   Works on any user.
-
-  When a developer calls this API, the current password is invalidated, so it must
-  be changed. If a user tries to sign in after the API is called, the app will get
-  a PasswordResetRequiredException exception back and should direct the user down
-  the flow to reset the password, which is the same as the forgot password flow.
-  In addition, if the user pool has phone verification selected and a verified
-  phone number exists for the user, or if email verification is selected and a
-  verified email exists for the user, calling this API will also result in sending
-  a message to the end user with the code to change their password.
 
   This action might generate an SMS text message. Starting June 1, 2021, US
   telecom carriers require you to register an origination phone number before you
@@ -363,10 +551,28 @@ defmodule AWS.CognitoIdentityProvider do
   SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you can
   send messages only to verified phone numbers. After you test your app while in
   the sandbox environment, you can move out of the sandbox and into production.
-  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html)
   in the *Amazon Cognito Developer Guide*.
 
-  Calling this action requires developer credentials.
+  Deactivates a user's password, requiring them to change it. If a user tries to
+  sign in after the API is called, Amazon Cognito responds with a
+  `PasswordResetRequiredException` error. Your app must then perform the actions
+  that reset your user's password: the forgot-password flow. In addition, if the
+  user pool has phone verification selected and a verified phone number exists for
+  the user, or if email verification is selected and a verified email exists for
+  the user, calling this API will also result in sending a message to the end user
+  with the code to change their password.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_reset_user_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -390,10 +596,19 @@ defmodule AWS.CognitoIdentityProvider do
   SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you can
   send messages only to verified phone numbers. After you test your app while in
   the sandbox environment, you can move out of the sandbox and into production.
-  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html)
   in the *Amazon Cognito Developer Guide*.
 
-  Calling this action requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_respond_to_auth_challenge(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -409,6 +624,17 @@ defmodule AWS.CognitoIdentityProvider do
   to authenticate a user if multiple factors are activated. If multiple options
   are activated and no preference is set, a challenge to choose an MFA option will
   be returned during sign-in.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_set_user_mfa_preference(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -430,6 +656,28 @@ defmodule AWS.CognitoIdentityProvider do
 
   Once the user has set a new password, or the password is permanent, the user
   status is set to `Confirmed`.
+
+  `AdminSetUserPassword` can set a password for the user profile that Amazon
+  Cognito creates for third-party federated users. When you set a password, the
+  federated user's status changes from `EXTERNAL_PROVIDER` to `CONFIRMED`. A user
+  in this state can sign in as a federated user, and initiate authentication flows
+  in the API like a linked native user. They can also modify their password and
+  attributes in token-authenticated API requests like `ChangePassword` and
+  `UpdateUserAttributes`. As a best security practice and to keep users in sync
+  with your external IdP, don't set passwords on federated user profiles. To set
+  up a federated user for native sign-in with a linked native user, refer to
+  [Linking federated users to an existing user profile](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html).
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_set_user_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -442,8 +690,19 @@ defmodule AWS.CognitoIdentityProvider do
 
   You can't use it to configure time-based one-time password (TOTP) software token
   MFA. To configure either type of MFA, use
-  [AdminSetUserMFAPreference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html)
-  instead.
+  [AdminSetUserMFAPreference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html) instead.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API
+  Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_set_user_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -457,6 +716,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   This feedback is used for improving the risk evaluation decision for the user
   pool as part of Amazon Cognito advanced security.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_update_auth_event_feedback(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -467,7 +737,16 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Updates the device status as an administrator.
 
-  Calling this action requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_update_device_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -476,10 +755,26 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Updates the specified user's attributes, including developer attributes, as an
-  administrator.
+  This action might generate an SMS text message.
 
-  Works on any user.
+  Starting June 1, 2021, US telecom carriers require you to register an
+  origination phone number before you can send SMS messages to US phone numbers.
+  If you use SMS text messages in Amazon Cognito, you must register a phone number
+  with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito
+  users who must receive SMS messages might not be able to sign up, activate their
+  accounts, or sign in.
+
+  If you have never used SMS text messages with Amazon Cognito or any other Amazon
+  Web Service, Amazon Simple Notification Service might place your account in the
+  SMS sandbox. In * [sandbox
+  mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you can
+  send messages only to verified phone numbers. After you test your app while in
+  the sandbox environment, you can move out of the sandbox and into production.
+  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html)
+  in the *Amazon Cognito Developer Guide*.
+
+  Updates the specified user's attributes, including developer attributes, as an
+  administrator. Works on any user.
 
   For custom attributes, you must prepend the `custom:` prefix to the attribute
   name.
@@ -487,23 +782,16 @@ defmodule AWS.CognitoIdentityProvider do
   In addition to updating user attributes, this API can also be used to mark phone
   and email as verified.
 
-  This action might generate an SMS text message. Starting June 1, 2021, US
-  telecom carriers require you to register an origination phone number before you
-  can send SMS messages to US phone numbers. If you use SMS text messages in
-  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito uses
-  the registered number automatically. Otherwise, Amazon Cognito users who must
-  receive SMS messages might not be able to sign up, activate their accounts, or
-  sign in.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
 
-  If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service, Amazon Simple Notification Service might place your account in the
-  SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you can
-  send messages only to verified phone numbers. After you test your app while in
-  the sandbox environment, you can move out of the sandbox and into production.
-  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
-  in the *Amazon Cognito Developer Guide*.
+  ## Learn more
 
-  Calling this action requires developer credentials.
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_update_user_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -514,14 +802,26 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Signs out a user from all devices.
 
-  You must sign `AdminUserGlobalSignOut` requests with Amazon Web Services
-  credentials. It also invalidates all refresh tokens that Amazon Cognito has
-  issued to a user. The user's current access and ID tokens remain valid until
-  they expire. By default, access and ID tokens expire one hour after they're
-  issued. A user can still use a hosted UI cookie to retrieve new tokens for the
-  duration of the cookie validity period of 1 hour.
+  `AdminUserGlobalSignOut` invalidates all identity, access and refresh tokens
+  that Amazon Cognito has issued to a user. A user can still use a hosted UI
+  cookie to retrieve new tokens for the duration of the 1-hour cookie validity
+  period.
 
-  Calling this action requires developer credentials.
+  Your app isn't aware that a user's access token is revoked unless it attempts to
+  authorize a user pools API request with an access token that contains the scope
+  `aws.cognito.signin.user.admin`. Your app might otherwise accept access tokens
+  until they expire.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def admin_user_global_sign_out(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -550,6 +850,12 @@ defmodule AWS.CognitoIdentityProvider do
   After you set up software token MFA for your user, Amazon Cognito generates a
   `SOFTWARE_TOKEN_MFA` challenge when they authenticate. Respond to this challenge
   with your user's TOTP.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   def associate_software_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -559,6 +865,12 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Changes the password for a specified user in a user pool.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   def change_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -570,6 +882,12 @@ defmodule AWS.CognitoIdentityProvider do
   Confirms tracking of the device.
 
   This API call is the call that begins device tracking.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   def confirm_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -579,6 +897,12 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Allows a user to enter a confirmation code to reset a forgotten password.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   def confirm_forgot_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -588,6 +912,12 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Confirms registration of a new user.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   def confirm_sign_up(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -598,7 +928,16 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Creates a new group in the specified user pool.
 
-  Calling this action requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def create_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -608,6 +947,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Creates an IdP for a user pool.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def create_identity_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -617,6 +967,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Creates a new OAuth2.0 resource server and defines custom scopes within it.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def create_resource_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -625,7 +986,18 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Creates the user import job.
+  Creates a user import job.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def create_user_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -634,24 +1006,40 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Creates a new Amazon Cognito user pool and sets the password policy for the
-  pool.
+  This action might generate an SMS text message.
 
-  This action might generate an SMS text message. Starting June 1, 2021, US
-  telecom carriers require you to register an origination phone number before you
-  can send SMS messages to US phone numbers. If you use SMS text messages in
-  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito uses
-  the registered number automatically. Otherwise, Amazon Cognito users who must
-  receive SMS messages might not be able to sign up, activate their accounts, or
-  sign in.
+  Starting June 1, 2021, US telecom carriers require you to register an
+  origination phone number before you can send SMS messages to US phone numbers.
+  If you use SMS text messages in Amazon Cognito, you must register a phone number
+  with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito
+  users who must receive SMS messages might not be able to sign up, activate their
+  accounts, or sign in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
   Web Service, Amazon Simple Notification Service might place your account in the
-  SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you can
+  SMS sandbox. In * [sandbox
+  mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you can
   send messages only to verified phone numbers. After you test your app while in
   the sandbox environment, you can move out of the sandbox and into production.
-  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html)
   in the *Amazon Cognito Developer Guide*.
+
+  Creates a new Amazon Cognito user pool and sets the password policy for the
+  pool.
+
+  If you don't provide a value for an attribute, Amazon Cognito sets it to its
+  default value.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def create_user_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -664,7 +1052,20 @@ defmodule AWS.CognitoIdentityProvider do
 
   When you create a new user pool client, token revocation is automatically
   activated. For more information about revoking tokens, see
-  [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html).
+  [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html).  If you don't provide a value for an attribute, Amazon Cognito sets it to its
+  default value.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API
+  Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def create_user_pool_client(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -674,6 +1075,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Creates a new domain for a user pool.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def create_user_pool_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -711,7 +1123,13 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Allows a user to delete himself or herself.
+  Allows a user to delete their own user profile.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   def delete_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -721,6 +1139,12 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Deletes the attributes for a user.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   def delete_user_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -793,6 +1217,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Returns the configuration information and metadata of the specified user pool.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def describe_user_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -803,6 +1238,17 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Client method for returning the configuration information and metadata of the
   specified user pool app client.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def describe_user_pool_client(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -821,6 +1267,12 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Forgets the specified device.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   def forget_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -835,14 +1287,24 @@ defmodule AWS.CognitoIdentityProvider do
   For the `Username` parameter, you can use the username or user alias. The method
   used to send the confirmation code is sent according to the specified
   AccountRecoverySetting. For more information, see [Recovering User Accounts](https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-recover-a-user-account.html)
-  in the *Amazon Cognito Developer Guide*. If neither a verified phone number nor
-  a verified email exists, an `InvalidParameterException` is thrown. To use the
-  confirmation code for resetting the password, call
-  [ConfirmForgotPassword](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html).  This action might generate an SMS text message. Starting June 1, 2021, US
+  in the *Amazon Cognito Developer Guide*. To use the confirmation code for
+  resetting the password, call
+  [ConfirmForgotPassword](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html).  If neither a verified phone number nor a verified email exists, this API returns
+  `InvalidParameterException`. If your app client has a client secret and you
+  don't provide a `SECRET_HASH` parameter, this API returns
+  `NotAuthorizedException`.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC
+  APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
+
+  This action might generate an SMS text message. Starting June 1, 2021, US
   telecom carriers require you to register an origination phone number before you
   can send SMS messages to US phone numbers. If you use SMS text messages in
-  Amazon Cognito, you must register a phone number with [Amazon
-  Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito uses
+  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito uses
   the registered number automatically. Otherwise, Amazon Cognito users who must
   receive SMS messages might not be able to sign up, activate their accounts, or
   sign in.
@@ -852,7 +1314,7 @@ defmodule AWS.CognitoIdentityProvider do
   SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you can
   send messages only to verified phone numbers. After you test your app while in
   the sandbox environment, you can move out of the sandbox and into production.
-  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html)
   in the *Amazon Cognito Developer Guide*.
   """
   def forgot_password(%Client{} = client, input, options \\ []) do
@@ -873,6 +1335,12 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Gets the device.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   def get_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -898,6 +1366,15 @@ defmodule AWS.CognitoIdentityProvider do
     meta = metadata()
 
     Request.request_post(client, meta, "GetIdentityProviderByIdentifier", input, options)
+  end
+
+  @doc """
+  Gets the detailed activity logging configuration for a user pool.
+  """
+  def get_log_delivery_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetLogDeliveryConfiguration", input, options)
   end
 
   @doc """
@@ -931,6 +1408,12 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Gets the user attributes and metadata for a user.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   def get_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -943,6 +1426,12 @@ defmodule AWS.CognitoIdentityProvider do
 
   Sends a message to a user with a code that they must return in a
   VerifyUserAttribute request.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
 
   This action might generate an SMS text message. Starting June 1, 2021, US
   telecom carriers require you to register an origination phone number before you
@@ -957,7 +1446,7 @@ defmodule AWS.CognitoIdentityProvider do
   SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you can
   send messages only to verified phone numbers. After you test your app while in
   the sandbox environment, you can move out of the sandbox and into production.
-  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html)
   in the *Amazon Cognito Developer Guide*.
   """
   def get_user_attribute_verification_code(%Client{} = client, input, options \\ []) do
@@ -976,11 +1465,22 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Signs out users from all devices.
+  Signs out a user from all devices.
 
-  It also invalidates all refresh tokens that Amazon Cognito has issued to a user.
-  A user can still use a hosted UI cookie to retrieve new tokens for the duration
-  of the 1-hour cookie validity period.
+  `GlobalSignOut` invalidates all identity, access and refresh tokens that Amazon
+  Cognito has issued to a user. A user can still use a hosted UI cookie to
+  retrieve new tokens for the duration of the 1-hour cookie validity period.
+
+  Your app isn't aware that a user's access token is revoked unless it attempts to
+  authorize a user pools API request with an access token that contains the scope
+  `aws.cognito.signin.user.admin`. Your app might otherwise accept access tokens
+  until they expire.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   def global_sign_out(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -993,6 +1493,12 @@ defmodule AWS.CognitoIdentityProvider do
 
   You can't sign in a user with a federated IdP with `InitiateAuth`. For more
   information, see [ Adding user pool sign-in through a third party](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html).
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
 
   This action might generate an SMS text message. Starting June 1, 2021, US
   telecom carriers require you to register an origination phone number before you
@@ -1007,7 +1513,7 @@ defmodule AWS.CognitoIdentityProvider do
   SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you can
   send messages only to verified phone numbers. After you test your app while in
   the sandbox environment, you can move out of the sandbox and into production.
-  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html)
   in the *Amazon Cognito Developer Guide*.
   """
   def initiate_auth(%Client{} = client, input, options \\ []) do
@@ -1019,6 +1525,12 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Lists the sign-in devices that Amazon Cognito has registered to the current
   user.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   def list_devices(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1029,7 +1541,16 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Lists the groups associated with a user pool.
 
-  Calling this action requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def list_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1039,6 +1560,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Lists information about all IdPs for a user pool.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def list_identity_providers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1048,6 +1580,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Lists the resource servers for a user pool.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def list_resource_servers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1070,7 +1613,18 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Lists the user import jobs.
+  Lists user import jobs for a user pool.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def list_user_import_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1080,6 +1634,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Lists the clients that have been created for the specified user pool.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def list_user_pool_clients(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1089,6 +1654,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Lists the user pools associated with an Amazon Web Services account.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def list_user_pools(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1097,7 +1673,18 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Lists the users in the Amazon Cognito user pool.
+  Lists users and their basic details in a user pool.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def list_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1108,7 +1695,16 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Lists the users in the specified group.
 
-  Calling this action requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def list_users_in_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1120,6 +1716,12 @@ defmodule AWS.CognitoIdentityProvider do
   Resends the confirmation (for confirmation of registration) to a specific user
   in the user pool.
 
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
+
   This action might generate an SMS text message. Starting June 1, 2021, US
   telecom carriers require you to register an origination phone number before you
   can send SMS messages to US phone numbers. If you use SMS text messages in
@@ -1133,7 +1735,7 @@ defmodule AWS.CognitoIdentityProvider do
   SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you can
   send messages only to verified phone numbers. After you test your app while in
   the sandbox environment, you can move out of the sandbox and into production.
-  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html)
   in the *Amazon Cognito Developer Guide*.
   """
   def resend_confirmation_code(%Client{} = client, input, options \\ []) do
@@ -1145,6 +1747,12 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Responds to the authentication challenge.
 
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
+
   This action might generate an SMS text message. Starting June 1, 2021, US
   telecom carriers require you to register an origination phone number before you
   can send SMS messages to US phone numbers. If you use SMS text messages in
@@ -1158,7 +1766,7 @@ defmodule AWS.CognitoIdentityProvider do
   SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you can
   send messages only to verified phone numbers. After you test your app while in
   the sandbox environment, you can move out of the sandbox and into production.
-  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html)
   in the *Amazon Cognito Developer Guide*.
   """
   def respond_to_auth_challenge(%Client{} = client, input, options \\ []) do
@@ -1173,11 +1781,26 @@ defmodule AWS.CognitoIdentityProvider do
 
   After a token is revoked, you can't use the revoked token to access Amazon
   Cognito user APIs, or to authorize access to your resource server.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   def revoke_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "RevokeToken", input, options)
+  end
+
+  @doc """
+  Sets up or modifies the detailed activity logging configuration of a user pool.
+  """
+  def set_log_delivery_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetLogDeliveryConfiguration", input, options)
   end
 
   @doc """
@@ -1227,6 +1850,12 @@ defmodule AWS.CognitoIdentityProvider do
   turned on and the device has been trusted. If you want MFA to be applied
   selectively based on the assessed risk level of sign-in attempts, deactivate MFA
   for users and turn on Adaptive Authentication for the user pool.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   def set_user_mfa_preference(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1250,7 +1879,7 @@ defmodule AWS.CognitoIdentityProvider do
   SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you can
   send messages only to verified phone numbers. After you test your app while in
   the sandbox environment, you can move out of the sandbox and into production.
-  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html)
   in the *Amazon Cognito Developer Guide*.
   """
   def set_user_pool_mfa_config(%Client{} = client, input, options \\ []) do
@@ -1264,8 +1893,14 @@ defmodule AWS.CognitoIdentityProvider do
 
   You can't use it to configure time-based one-time password (TOTP) software token
   MFA. To configure either type of MFA, use
-  [SetUserMFAPreference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.html)
-  instead.
+  [SetUserMFAPreference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.html) instead.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC
+  APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   def set_user_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1276,6 +1911,12 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Registers the user in the specified user pool and creates a user name, password,
   and user attributes.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
 
   This action might generate an SMS text message. Starting June 1, 2021, US
   telecom carriers require you to register an origination phone number before you
@@ -1290,7 +1931,7 @@ defmodule AWS.CognitoIdentityProvider do
   SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you can
   send messages only to verified phone numbers. After you test your app while in
   the sandbox environment, you can move out of the sandbox and into production.
-  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html)
   in the *Amazon Cognito Developer Guide*.
   """
   def sign_up(%Client{} = client, input, options \\ []) do
@@ -1361,6 +2002,12 @@ defmodule AWS.CognitoIdentityProvider do
 
   This feedback is used for improving the risk evaluation decision for the user
   pool as part of Amazon Cognito advanced security.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   def update_auth_event_feedback(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1370,6 +2017,12 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Updates the device status.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   def update_device_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1380,7 +2033,16 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Updates the specified group with the specified attributes.
 
-  Calling this action requires developer credentials.
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def update_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1390,6 +2052,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Updates IdP information for a user pool.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def update_identity_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1403,6 +2076,17 @@ defmodule AWS.CognitoIdentityProvider do
   All other fields are read-only.
 
   If you don't provide a value for an attribute, it is set to the default value.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def update_resource_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1412,6 +2096,12 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Allows a user to update a specific attribute (one at a time).
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
 
   This action might generate an SMS text message. Starting June 1, 2021, US
   telecom carriers require you to register an origination phone number before you
@@ -1426,7 +2116,7 @@ defmodule AWS.CognitoIdentityProvider do
   SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you can
   send messages only to verified phone numbers. After you test your app while in
   the sandbox environment, you can move out of the sandbox and into production.
-  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html)
   in the *Amazon Cognito Developer Guide*.
   """
   def update_user_attributes(%Client{} = client, input, options \\ []) do
@@ -1436,28 +2126,40 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Updates the specified user pool with the specified attributes.
+  This action might generate an SMS text message.
 
-  You can get a list of the current user pool settings using
-  [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html). If you don't provide a value for an attribute, it will be set to the default
-  value.
-
-  This action might generate an SMS text message. Starting June 1, 2021, US
-  telecom carriers require you to register an origination phone number before you
-  can send SMS messages to US phone numbers. If you use SMS text messages in
-  Amazon Cognito, you must register a phone number with [Amazon
-  Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito uses
-  the registered number automatically. Otherwise, Amazon Cognito users who must
-  receive SMS messages might not be able to sign up, activate their accounts, or
-  sign in.
+  Starting June 1, 2021, US telecom carriers require you to register an
+  origination phone number before you can send SMS messages to US phone numbers.
+  If you use SMS text messages in Amazon Cognito, you must register a phone number
+  with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito
+  users who must receive SMS messages might not be able to sign up, activate their
+  accounts, or sign in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
   Web Service, Amazon Simple Notification Service might place your account in the
-  SMS sandbox. In * [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you can
+  SMS sandbox. In * [sandbox
+  mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) *, you can
   send messages only to verified phone numbers. After you test your app while in
   the sandbox environment, you can move out of the sandbox and into production.
-  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html)
+  For more information, see [ SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html)
   in the *Amazon Cognito Developer Guide*.
+
+  Updates the specified user pool with the specified attributes. You can get a
+  list of the current user pool settings using
+  [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html).  If you don't provide a value for an attribute, Amazon Cognito sets it to its
+  default value.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API
+  Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def update_user_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1469,12 +2171,23 @@ defmodule AWS.CognitoIdentityProvider do
   Updates the specified user pool app client with the specified attributes.
 
   You can get a list of the current user pool app client settings using
-  [DescribeUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html).  If you don't provide a value for an attribute, it will be set to the default
-  value.
+  [DescribeUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html).  If you don't provide a value for an attribute, Amazon Cognito sets it to its
+  default value.
 
   You can also use this operation to enable token revocation for user pool
   clients. For more information about revoking tokens, see
   [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html).
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def update_user_pool_client(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1512,6 +2225,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   For more information about adding a custom domain to your user pool, see [Using Your Own Domain for the Hosted
   UI](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html).
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you must use IAM
+  credentials to authorize requests, and you must grant yourself the corresponding
+  IAM permission in a policy.
+
+  ## Learn more
+
+     [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+     [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   def update_user_pool_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1524,6 +2248,12 @@ defmodule AWS.CognitoIdentityProvider do
   code and mark the user's software token MFA status as "verified" if successful.
 
   The request takes an access token or a session string, but not both.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   def verify_software_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1538,6 +2268,12 @@ defmodule AWS.CognitoIdentityProvider do
   attribute value, VerifyUserAttribute updates the affected attribute to its
   pending value. For more information, see [
   UserAttributeUpdateSettingsType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserAttributeUpdateSettingsType.html).
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For this operation, you can't use IAM
+  credentials to authorize requests, and you can't grant IAM permissions in
+  policies. For more information about authorization models in Amazon Cognito, see
+  [Using the Amazon Cognito native and OIDC APIs](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   def verify_user_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -700,6 +700,16 @@ defmodule AWS.RDS do
   end
 
   @doc """
+  Deletes automated backups using the `DbClusterResourceId` value of the source DB
+  cluster or the Amazon Resource Name (ARN) of the automated backups.
+  """
+  def delete_db_cluster_automated_backup(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDBClusterAutomatedBackup", input, options)
+  end
+
+  @doc """
   Deletes a custom endpoint and removes it from an Amazon Aurora DB cluster.
 
   This action only applies to Aurora DB clusters.
@@ -953,6 +963,21 @@ defmodule AWS.RDS do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeCertificates", input, options)
+  end
+
+  @doc """
+  Displays backups for both current and deleted DB clusters.
+
+  For example, use this operation to find details about automated backups for
+  previously deleted clusters. Current clusters are returned for both the
+  `DescribeDBClusterAutomatedBackups` and `DescribeDBClusters` operations.
+
+  All parameters are optional.
+  """
+  def describe_db_cluster_automated_backups(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDBClusterAutomatedBackups", input, options)
   end
 
   @doc """

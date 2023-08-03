@@ -411,6 +411,15 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+  Returns information about the replication instance versions used in the project.
+  """
+  def describe_engine_versions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEngineVersions", input, options)
+  end
+
+  @doc """
   Lists categories for all event source types, or, if specified, for a specified
   source type.
 

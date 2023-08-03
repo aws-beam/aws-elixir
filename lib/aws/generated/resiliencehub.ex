@@ -58,15 +58,40 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
+  Enables you to include or exclude one or more operational recommendations.
+  """
+  def batch_update_recommendation_status(%Client{} = client, input, options \\ []) do
+    url_path = "/batch-update-recommendation-status"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates an Resilience Hub application.
 
   An Resilience Hub application is a collection of Amazon Web Services resources
   structured to prevent and recover Amazon Web Services application disruptions.
-  To describe an Resilience Hub application, you provide an application name,
+  To describe a Resilience Hub application, you provide an application name,
   resources from one or more CloudFormation stacks, Resource Groups, Terraform
-  state files, AppRegistry applications, and an appropriate resiliency policy. For
-  more information about the number of resources supported per application, see
-  [Service Quotas](https://docs.aws.amazon.com/general/latest/gr/resiliencehub.html#limits_resiliencehub).
+  state files, AppRegistry applications, and an appropriate resiliency policy. In
+  addition, you can also add resources that are located on Amazon Elastic
+  Kubernetes Service (Amazon EKS) clusters as optional resources. For more
+  information about the number of resources supported per application, see
+  [Service quotas](https://docs.aws.amazon.com/general/latest/gr/resiliencehub.html#limits_resiliencehub).
 
   After you create an Resilience Hub application, you publish it so that you can
   run a resiliency assessment on it. You can then use recommendations from the
@@ -648,6 +673,29 @@ defmodule AWS.Resiliencehub do
   """
   def list_alarm_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/list-alarm-recommendations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  List of compliance drifts that were detected while running an assessment.
+  """
+  def list_app_assessment_compliance_drifts(%Client{} = client, input, options \\ []) do
+    url_path = "/list-app-assessment-compliance-drifts"
     headers = []
     query_params = []
 

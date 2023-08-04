@@ -95,6 +95,18 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+  Creates a data provider using the provided settings.
+
+  A data provider stores a data store type and location information about your
+  database.
+  """
+  def create_data_provider(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDataProvider", input, options)
+  end
+
+  @doc """
   Creates an endpoint using the provided settings.
 
   For a MySQL source or target endpoint, don't explicitly specify the database
@@ -141,6 +153,29 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateFleetAdvisorCollector", input, options)
+  end
+
+  @doc """
+  Creates the instance profile using the specified parameters.
+  """
+  def create_instance_profile(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateInstanceProfile", input, options)
+  end
+
+  @doc """
+  Creates the migration project using the specified parameters.
+
+  You can run this action only after you create an instance profile and data
+  providers using
+  [CreateInstanceProfile](https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateInstanceProfile.html) and
+  [CreateDataProvider](https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateDataProvider.html).
+  """
+  def create_migration_project(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateMigrationProject", input, options)
   end
 
   @doc """
@@ -219,6 +254,18 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+  Deletes the specified data provider.
+
+  All migration projects associated with the data provider must be deleted or
+  modified before you can delete the data provider.
+  """
+  def delete_data_provider(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDataProvider", input, options)
+  end
+
+  @doc """
   Deletes the specified endpoint.
 
   All tasks associated with the endpoint must be deleted before you can delete the
@@ -255,6 +302,29 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteFleetAdvisorDatabases", input, options)
+  end
+
+  @doc """
+  Deletes the specified instance profile.
+
+  All migration projects associated with the instance profile must be deleted or
+  modified before you can delete the instance profile.
+  """
+  def delete_instance_profile(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteInstanceProfile", input, options)
+  end
+
+  @doc """
+  Deletes the specified migration project.
+
+  The migration project must be closed before you can delete it.
+  """
+  def delete_migration_project(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteMigrationProject", input, options)
   end
 
   @doc """
@@ -383,6 +453,25 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+  Returns configuration parameters for a schema conversion project.
+  """
+  def describe_conversion_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConversionConfiguration", input, options)
+  end
+
+  @doc """
+  Returns a paginated list of data providers for your account in the current
+  region.
+  """
+  def describe_data_providers(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDataProviders", input, options)
+  end
+
+  @doc """
   Returns information about the possible endpoint settings available when you
   create an endpoint for a specific database engine.
   """
@@ -462,6 +551,20 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+  Returns a paginated list of extension pack associations for the specified
+  migration project.
+
+  An extension pack is an add-on module that emulates functions present in a
+  source database that are required when converting objects to the target
+  database.
+  """
+  def describe_extension_pack_associations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeExtensionPackAssociations", input, options)
+  end
+
+  @doc """
   Returns a list of the Fleet Advisor collectors in your account.
   """
   def describe_fleet_advisor_collectors(%Client{} = client, input, options \\ []) do
@@ -506,6 +609,72 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeFleetAdvisorSchemas", input, options)
+  end
+
+  @doc """
+  Returns a paginated list of instance profiles for your account in the current
+  region.
+  """
+  def describe_instance_profiles(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInstanceProfiles", input, options)
+  end
+
+  @doc """
+  Returns a paginated list of metadata model assessments for your account in the
+  current region.
+  """
+  def describe_metadata_model_assessments(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMetadataModelAssessments", input, options)
+  end
+
+  @doc """
+  Returns a paginated list of metadata model conversions for a migration project.
+  """
+  def describe_metadata_model_conversions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMetadataModelConversions", input, options)
+  end
+
+  @doc """
+  Returns a paginated list of metadata model exports.
+  """
+  def describe_metadata_model_exports_as_script(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMetadataModelExportsAsScript", input, options)
+  end
+
+  @doc """
+  Returns a paginated list of metadata model exports.
+  """
+  def describe_metadata_model_exports_to_target(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMetadataModelExportsToTarget", input, options)
+  end
+
+  @doc """
+  Returns a paginated list of metadata model imports.
+  """
+  def describe_metadata_model_imports(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMetadataModelImports", input, options)
+  end
+
+  @doc """
+  Returns a paginated list of migration projects for your account in the current
+  region.
+  """
+  def describe_migration_projects(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMigrationProjects", input, options)
   end
 
   @doc """
@@ -697,6 +866,18 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+  Saves a copy of a database migration assessment report to your Amazon S3 bucket.
+
+  DMS can save your assessment report as a comma-separated value (CSV) or a PDF
+  file.
+  """
+  def export_metadata_model_assessment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExportMetadataModelAssessment", input, options)
+  end
+
+  @doc """
   Uploads the specified certificate.
   """
   def import_certificate(%Client{} = client, input, options \\ []) do
@@ -717,6 +898,28 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Modifies the specified schema conversion configuration using the provided
+  parameters.
+  """
+  def modify_conversion_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyConversionConfiguration", input, options)
+  end
+
+  @doc """
+  Modifies the specified data provider using the provided settings.
+
+  You must remove the data provider from all migration projects before you can
+  modify it.
+  """
+  def modify_data_provider(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyDataProvider", input, options)
   end
 
   @doc """
@@ -742,6 +945,29 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "ModifyEventSubscription", input, options)
+  end
+
+  @doc """
+  Modifies the specified instance profile using the provided parameters.
+
+  All migration projects associated with the instance profile must be deleted or
+  modified before you can modify the instance profile.
+  """
+  def modify_instance_profile(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyInstanceProfile", input, options)
+  end
+
+  @doc """
+  Modifies the specified migration project using the provided parameters.
+
+  The migration project must be closed before you can modify it.
+  """
+  def modify_migration_project(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyMigrationProject", input, options)
   end
 
   @doc """
@@ -887,6 +1113,74 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "RunFleetAdvisorLsaAnalysis", input, options)
+  end
+
+  @doc """
+  Applies the extension pack to your target database.
+
+  An extension pack is an add-on module that emulates functions present in a
+  source database that are required when converting objects to the target
+  database.
+  """
+  def start_extension_pack_association(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartExtensionPackAssociation", input, options)
+  end
+
+  @doc """
+  Creates a database migration assessment report by assessing the migration
+  complexity for your source database.
+
+  A database migration assessment report summarizes all of the schema conversion
+  tasks. It also details the action items for database objects that can't be
+  converted to the database engine of your target database instance.
+  """
+  def start_metadata_model_assessment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartMetadataModelAssessment", input, options)
+  end
+
+  @doc """
+  Converts your source database objects to a format compatible with the target
+  database.
+  """
+  def start_metadata_model_conversion(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartMetadataModelConversion", input, options)
+  end
+
+  @doc """
+  Saves your converted code to a file as a SQL script, and stores this file on
+  your Amazon S3 bucket.
+  """
+  def start_metadata_model_export_as_script(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartMetadataModelExportAsScript", input, options)
+  end
+
+  @doc """
+  Applies converted database objects to your target database.
+  """
+  def start_metadata_model_export_to_target(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartMetadataModelExportToTarget", input, options)
+  end
+
+  @doc """
+  Loads the metadata for all the dependent database objects of the parent object.
+
+  This operation uses your project's Amazon S3 bucket as a metadata cache to
+  improve performance.
+  """
+  def start_metadata_model_import(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartMetadataModelImport", input, options)
   end
 
   @doc """

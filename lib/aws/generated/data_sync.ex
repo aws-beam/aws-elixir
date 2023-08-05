@@ -166,8 +166,14 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates an endpoint for an Network File System (NFS) file server that DataSync
+  Creates an endpoint for a Network File System (NFS) file server that DataSync
   can use for a data transfer.
+
+  For more information, see [Configuring transfers to or from an NFS file server](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html).
+
+  If you're copying data to or from an Snowcone device, you can also use
+  `CreateLocationNfs` to create your transfer location. For more information, see
+  [Configuring transfers with Snowcone](https://docs.aws.amazon.com/datasync/latest/userguide/nfs-on-snowcone.html).
   """
   def create_location_nfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -364,7 +370,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Returns metadata, such as the path information, about an NFS location.
+  Provides details about how an DataSync transfer location for a Network File
+  System (NFS) file server is configured.
   """
   def describe_location_nfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -672,10 +679,10 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Updates some of the parameters of a previously created location for Network File
-  System (NFS) access.
+  Modifies some configurations of the Network File System (NFS) transfer location
+  that you're using with DataSync.
 
-  For information about creating an NFS location, see [Creating a location for NFS](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html).
+  For more information, see [Configuring transfers to or from an NFS file server](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html).
   """
   def update_location_nfs(%Client{} = client, input, options \\ []) do
     meta = metadata()

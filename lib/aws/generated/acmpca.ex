@@ -21,7 +21,7 @@ defmodule AWS.ACMPCA do
   request because the request exceeds the operation's quota for the number of
   requests per second. When a request is throttled, Amazon Web Services Private CA
   returns a
-  [ThrottlingException](https://docs.aws.amazon.com/acm-pca/latest/APIReference/CommonErrors.html) error. Amazon Web Services Private CA does not guarantee a minimum request rate
+  [ThrottlingException](https://docs.aws.amazon.com/privateca/latest/APIReference/CommonErrors.html) error. Amazon Web Services Private CA does not guarantee a minimum request rate
   for APIs.
 
   To see an up-to-date list of your Amazon Web Services Private CA quotas, or to

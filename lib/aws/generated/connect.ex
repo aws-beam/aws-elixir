@@ -5183,6 +5183,39 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Whether agents with this routing profile will have their routing order
+  calculated based on *time since their last inbound contact* or *longest idle
+  time*.
+  """
+  def update_routing_profile_agent_availability_timer(
+        %Client{} = client,
+        instance_id,
+        routing_profile_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/agent-availability-timer"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Updates the channels that agents can handle in the Contact Control Panel (CCP)
   for a routing profile.
   """

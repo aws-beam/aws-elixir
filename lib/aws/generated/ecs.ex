@@ -460,6 +460,10 @@ defmodule AWS.ECS do
   Describes a specified task or tasks.
 
   Currently, stopped tasks appear in the returned results for at least one hour.
+
+  If you have tasks with tags, and then delete the cluster, the tagged tasks are
+  returned in the response. If you create a new cluster with the same name as the
+  deleted cluster, the tagged tasks are not included in the response.
   """
   def describe_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -626,8 +630,7 @@ defmodule AWS.ECS do
   instance, launch type, what IAM principal started the task, or by the desired
   status of the task.
 
-  Recently stopped tasks might appear in the returned results. Currently, stopped
-  tasks appear in the returned results for at least one hour.
+  Recently stopped tasks might appear in the returned results.
   """
   def list_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1140,16 +1143,15 @@ defmodule AWS.ECS do
   largest number of running tasks for this service.
 
   You must have a service-linked role when you update any of the following service
-  properties. If you specified a custom role when you created the service, Amazon
-  ECS automatically replaces the
-  [roleARN](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Service.html#ECS-Type-Service-roleArn)
-  associated with the service with the ARN of your service-linked role. For more
-  information, see [Service-linked roles](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html)
-  in the *Amazon Elastic Container Service Developer Guide*.
+  properties:
 
-     `loadBalancers,`
+     `loadBalancers`,
 
      `serviceRegistries`
+
+  For more information about the role see the `CreateService` request parameter [
+  `role`
+  ](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html#ECS-CreateService-request-role).
   """
   def update_service(%Client{} = client, input, options \\ []) do
     meta = metadata()

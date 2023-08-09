@@ -1068,4 +1068,13 @@ defmodule AWS.ElastiCache do
 
     Request.request_post(client, meta, "TestFailover", input, options)
   end
+
+  @doc """
+  Async API to test connection between source and target replication group.
+  """
+  def test_migration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TestMigration", input, options)
+  end
 end

@@ -344,8 +344,8 @@ defmodule AWS.Rekognition do
   You can create a dataset by using an Amazon Sagemaker format manifest file or by
   copying an existing Amazon Rekognition Custom Labels dataset.
 
-  To create a training dataset for a project, specify `train` for the value of
-  `DatasetType`. To create the test dataset for a project, specify `test` for the
+  To create a training dataset for a project, specify `TRAIN` for the value of
+  `DatasetType`. To create the test dataset for a project, specify `TEST` for the
   value of `DatasetType`.
 
   The response from `CreateDataset` is the Amazon Resource Name (ARN) for the
@@ -376,12 +376,16 @@ defmodule AWS.Rekognition do
   This API operation initiates a Face Liveness session.
 
   It returns a `SessionId`, which you can use to start streaming Face Liveness
-  video and get the results for a Face Liveness session. You can use the
-  `OutputConfig` option in the Settings parameter to provide an Amazon S3 bucket
-  location. The Amazon S3 bucket stores reference images and audit images. You can
-  use `AuditImagesLimit` to limit the number of audit images returned. This number
-  is between 0 and 4. By default, it is set to 0. The limit is best effort and
-  based on the duration of the selfie-video.
+  video and get the results for a Face Liveness session.
+
+  You can use the `OutputConfig` option in the Settings parameter to provide an
+  Amazon S3 bucket location. The Amazon S3 bucket stores reference images and
+  audit images. If no Amazon S3 bucket is defined, raw bytes are sent instead.
+
+  You can use `AuditImagesLimit` to limit the number of audit images returned when
+  `GetFaceLivenessSessionResults` is called. This number is between 0 and 4. By
+  default, it is set to 0. The limit is best effort and based on the duration of
+  the selfie-video.
   """
   def create_face_liveness_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -824,10 +828,11 @@ defmodule AWS.Rekognition do
   filters, or a combination of inclusive and exclusive filters. For more
   information on filtering see [Detecting Labels in an Image](https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html).
 
-  You can specify `MinConfidence` to control the confidence threshold for the
-  labels returned. The default is 55%. You can also add the `MaxLabels` parameter
-  to limit the number of labels returned. The default and upper limit is 1000
-  labels.
+  When getting labels, you can specify `MinConfidence` to control the confidence
+  threshold for the labels returned. The default is 55%. You can also add the
+  `MaxLabels` parameter to limit the number of labels returned. The default and
+  upper limit is 1000 labels. These arguments are only valid when supplying
+  GENERAL_LABELS as a feature type.
 
   ## Response Elements
 
@@ -1215,6 +1220,9 @@ defmodule AWS.Rekognition do
   results. To get the next page of results, call `GetFaceDetection` and populate
   the `NextToken` request parameter with the token value returned from the
   previous call to `GetFaceDetection`.
+
+  Note that for the `GetFaceDetection` operation, the returned values for
+  `FaceOccluded` and `EyeDirection` will always be "null".
   """
   def get_face_detection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1229,7 +1237,11 @@ defmodule AWS.Rekognition do
   `CreateFaceLivenessSession`. Returns the corresponding Face Liveness confidence
   score, a reference image that includes a face bounding box, and audit images
   that also contain face bounding boxes. The Face Liveness confidence score ranges
-  from 0 to 100. The reference image can optionally be returned.
+  from 0 to 100.
+
+  The number of audit images returned by `GetFaceLivenessSessionResults` is
+  defined by the `AuditImagesLimit` paramater when calling
+  `CreateFaceLivenessSession`. Reference images are always returned when possible.
   """
   def get_face_liveness_session_results(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1453,7 +1465,7 @@ defmodule AWS.Rekognition do
   `StartLabelDetection`.
 
   `GetTextDetection` returns an array of detected text (`TextDetections`) sorted
-  by the time the text was detected, up to 50 words per frame of video.
+  by the time the text was detected, up to 100 words per frame of video.
 
   Each element of the array includes the detected text, the precentage confidence
   in the acuracy of the detected text, the time the text was detected, bounding

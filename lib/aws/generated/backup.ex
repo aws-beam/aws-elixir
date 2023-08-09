@@ -173,6 +173,30 @@ defmodule AWS.Backup do
   end
 
   @doc """
+  This request creates a logical container where backups are stored.
+
+  This request includes a name, optionally one or more resource tags, an
+  encryption key, and a request ID.
+
+  Do not include sensitive data, such as passport numbers, in the name of a backup
+  vault.
+  """
+  def create_logically_air_gapped_backup_vault(
+        %Client{} = client,
+        backup_vault_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/logically-air-gapped-backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
   Creates a report plan.
 
   A report plan is a document that contains information about the contents of the
@@ -483,10 +507,22 @@ defmodule AWS.Backup do
   @doc """
   Returns metadata about a backup vault specified by its name.
   """
-  def describe_backup_vault(%Client{} = client, backup_vault_name, options \\ []) do
+  def describe_backup_vault(
+        %Client{} = client,
+        backup_vault_name,
+        backup_vault_account_id \\ nil,
+        options \\ []
+      ) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(backup_vault_account_id) do
+        [{"backupVaultAccountId", backup_vault_account_id} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -559,6 +595,7 @@ defmodule AWS.Backup do
         %Client{} = client,
         backup_vault_name,
         recovery_point_arn,
+        backup_vault_account_id \\ nil,
         options \\ []
       ) do
     url_path =
@@ -566,6 +603,13 @@ defmodule AWS.Backup do
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(backup_vault_account_id) do
+        [{"backupVaultAccountId", backup_vault_account_id} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -840,6 +884,7 @@ defmodule AWS.Backup do
         %Client{} = client,
         backup_vault_name,
         recovery_point_arn,
+        backup_vault_account_id \\ nil,
         options \\ []
       ) do
     url_path =
@@ -847,6 +892,13 @@ defmodule AWS.Backup do
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(backup_vault_account_id) do
+        [{"backupVaultAccountId", backup_vault_account_id} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -1130,7 +1182,14 @@ defmodule AWS.Backup do
   Returns a list of recovery point storage containers along with information about
   them.
   """
-  def list_backup_vaults(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_backup_vaults(
+        %Client{} = client,
+        by_shared \\ nil,
+        by_vault_type \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
     url_path = "/backup-vaults/"
     headers = []
     query_params = []
@@ -1145,6 +1204,20 @@ defmodule AWS.Backup do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_vault_type) do
+        [{"vaultType", by_vault_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_shared) do
+        [{"shared", by_shared} | query_params]
       else
         query_params
       end
@@ -1356,11 +1429,53 @@ defmodule AWS.Backup do
   end
 
   @doc """
+  This request lists the protected resources corresponding to each backup vault.
+  """
+  def list_protected_resources_by_backup_vault(
+        %Client{} = client,
+        backup_vault_name,
+        backup_vault_account_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/resources/"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(backup_vault_account_id) do
+        [{"backupVaultAccountId", backup_vault_account_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Returns detailed information about the recovery points stored in a backup vault.
   """
   def list_recovery_points_by_backup_vault(
         %Client{} = client,
         backup_vault_name,
+        backup_vault_account_id \\ nil,
         by_backup_plan_id \\ nil,
         by_created_after \\ nil,
         by_created_before \\ nil,
@@ -1427,6 +1542,13 @@ defmodule AWS.Backup do
     query_params =
       if !is_nil(by_backup_plan_id) do
         [{"backupPlanId", by_backup_plan_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(backup_vault_account_id) do
+        [{"backupVaultAccountId", backup_vault_account_id} | query_params]
       else
         query_params
       end

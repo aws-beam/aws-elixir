@@ -776,6 +776,11 @@ defmodule AWS.KinesisVideo do
 
     * If the `StorageStatus` is enabled, the data will be stored in the
   `StreamARN` provided.
+
+  If `StorageStatus` is enabled, direct peer-to-peer (master-viewer) connections
+  no longer occur. Peers connect directly to the storage session. You must call
+  the `JoinStorageSession` API to trigger an SDP offer send and establish a
+  connection between a peer and the storage session.
   """
   def update_media_storage_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/updateMediaStorageConfiguration"

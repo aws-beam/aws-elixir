@@ -27,7 +27,7 @@ defmodule AWS.GlobalAccelerator do
   Global Accelerator is a global service that supports endpoints in multiple
   Amazon Web Services Regions but you must specify the US West (Oregon) Region to
   create, update, or otherwise work with accelerators. That is, for example,
-  specify `--region us-west-2` on AWS CLI commands.
+  specify `--region us-west-2` on Amazon Web Services CLI commands.
 
   By default, Global Accelerator provides you with static IP addresses that you
   associate with your accelerator. The static IP addresses are anycast from the
@@ -120,14 +120,20 @@ defmodule AWS.GlobalAccelerator do
   [UpdateEndpointGroup](https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateEndpointGroup.html)
   API).
 
-  There are two advantages to using `AddEndpoints` to add endpoints:
+  There are two advantages to using `AddEndpoints` to add endpoints in Global
+  Accelerator:
 
     * It's faster, because Global Accelerator only has to resolve the
-  new endpoints that you're adding.
+  new endpoints that you're adding, rather than resolving new and existing
+  endpoints.
 
-    * It's more convenient, because you don't need to specify all of the
-  current endpoints that are already in the endpoint group in addition to the new
+    * It's more convenient, because you don't need to specify the
+  current endpoints that are already in the endpoint group, in addition to the new
   endpoints that you want to add.
+
+  For information about endpoint types and requirements for endpoints that you can
+  add to Global Accelerator, see [ Endpoints for standard accelerators](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints.html)
+  in the *Global Accelerator Developer Guide*.
   """
   def add_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -182,7 +188,7 @@ defmodule AWS.GlobalAccelerator do
   Global Accelerator is a global service that supports endpoints in multiple
   Amazon Web Services Regions but you must specify the US West (Oregon) Region to
   create, update, or otherwise work with accelerators. That is, for example,
-  specify `--region us-west-2` on AWS CLI commands.
+  specify `--region us-west-2` on Amazon Web Services CLI commands.
   """
   def create_accelerator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -206,7 +212,7 @@ defmodule AWS.GlobalAccelerator do
   Global Accelerator is a global service that supports endpoints in multiple
   Amazon Web Services Regions but you must specify the US West (Oregon) Region to
   create, update, or otherwise work with accelerators. That is, for example,
-  specify `--region us-west-2` on AWS CLI commands.
+  specify `--region us-west-2` on Amazon Web Services CLI commands.
   """
   def create_custom_routing_accelerator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -245,6 +251,10 @@ defmodule AWS.GlobalAccelerator do
 
   An endpoint group is a collection of endpoints in one Amazon Web Services
   Region. A resource must be valid and active when you add it as an endpoint.
+
+  For more information about endpoint types and requirements for endpoints that
+  you can add to Global Accelerator, see [ Endpoints for standard accelerators](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints.html)
+  in the *Global Accelerator Developer Guide*.
   """
   def create_endpoint_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -672,12 +682,28 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
-  Update an accelerator.
+  Update an accelerator to make changes, such as the following:
+
+    * Change the name of the accelerator.
+
+    * Disable the accelerator so that it no longer accepts or routes
+  traffic, or so that you can delete it.
+
+    * Enable the accelerator, if it is disabled.
+
+    * Change the IP address type to dual-stack if it is IPv4, or change
+  the IP address type to IPv4 if it's dual-stack.
+
+  Be aware that static IP addresses remain assigned to your accelerator for as
+  long as it exists, even if you disable the accelerator and it no longer accepts
+  or routes traffic. However, when you delete the accelerator, you lose the static
+  IP addresses that are assigned to it, so you can no longer route traffic by
+  using them.
 
   Global Accelerator is a global service that supports endpoints in multiple
   Amazon Web Services Regions but you must specify the US West (Oregon) Region to
   create, update, or otherwise work with accelerators. That is, for example,
-  specify `--region us-west-2` on AWS CLI commands.
+  specify `--region us-west-2` on Amazon Web Services CLI commands.
   """
   def update_accelerator(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -1433,8 +1433,9 @@ defmodule AWS.GuardDuty do
   Lists tags for a resource.
 
   Tagging is currently supported for detectors, finding filters, IP sets, threat
-  intel sets, publishing destination, with a limit of 50 tags per resource. When
-  invoked, this operation returns all assigned tags for a given resource.
+  intel sets, and publishing destination, with a limit of 50 tags per each
+  resource. When invoked, this operation returns all assigned tags for a given
+  resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

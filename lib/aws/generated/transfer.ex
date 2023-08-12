@@ -72,11 +72,14 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Creates the connector, which captures the parameters for an outbound connection
-  for the AS2 or SFTP protocol.
+  Creates the connector, which captures the parameters for a connection for the
+  AS2 or SFTP protocol.
 
-  The connector is required for sending files to an externally hosted AS2 or SFTP
-  server. For more details about AS2 connectors, see [Create AS2 connectors](https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector).
+  For AS2, the connector is required for sending files to an externally hosted AS2
+  server. For SFTP, the connector is required when sending files to an SFTP server
+  or receiving files from an SFTP server. For more details about connectors, see
+  [Create AS2 connectors](https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector)
+  and [Create SFTP connectors](https://docs.aws.amazon.com/transfer/latest/userguide/configure-sftp-connector.html).
 
   You must specify exactly one configuration object: either for AS2 (`As2Config`)
   or SFTP (`SftpConfig`).
@@ -557,9 +560,9 @@ defmodule AWS.Transfer do
   direction of the transfer, you also specify the following items:
 
       * If you are transferring file from a partner's SFTP
-  server to a Transfer Family server, you specify one or more `RetreiveFilePaths`
-  to identify the files you want to transfer, and a `LocalDirectoryPath` to
-  specify the destination folder.
+  server to Amazon Web Services storage, you specify one or more
+  `RetreiveFilePaths` to identify the files you want to transfer, and a
+  `LocalDirectoryPath` to specify the destination folder.
 
       * If you are transferring file to a partner's SFTP
   server from Amazon Web Services storage, you specify one or more `SendFilePaths`

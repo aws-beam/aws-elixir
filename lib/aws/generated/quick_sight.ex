@@ -3921,7 +3921,11 @@ defmodule AWS.QuickSight do
   @doc """
   Starts an asynchronous job that generates a dashboard snapshot.
 
-  You can request up to one paginated PDF and up to five CSVs per API call.
+  You can request one of the following format configurations per API call.
+
+    * 1 paginated PDF
+
+    * 5 CSVs
 
   Poll job descriptions with a `DescribeDashboardSnapshotJob` API call. Once the
   job succeeds, use the `DescribeDashboardSnapshotJobResult` API to obtain the

@@ -289,6 +289,26 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Associates an agent with a traffic distribution group.
+  """
+  def associate_traffic_distribution_group_user(
+        %Client{} = client,
+        traffic_distribution_group_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/traffic-distribution-group/#{AWS.Util.encode_uri(traffic_distribution_group_id)}/user"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
   Claims an available phone number to your Amazon Connect instance or traffic
   distribution group.
 
@@ -2022,6 +2042,42 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Disassociates an agent from a traffic distribution group.
+  """
+  def disassociate_traffic_distribution_group_user(
+        %Client{} = client,
+        traffic_distribution_group_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/traffic-distribution-group/#{AWS.Util.encode_uri(traffic_distribution_group_id)}/user"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"InstanceId", "InstanceId"},
+        {"UserId", "UserId"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Dismisses contacts from an agent’s CCP and returns the agent to an available
   state, which allows the agent to receive a new routed contact.
 
@@ -2964,6 +3020,12 @@ defmodule AWS.Connect do
   For more information about phone numbers, see [Set Up Phone Numbers for Your Contact
   Center](https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html)
   in the *Amazon Connect Administrator Guide*.
+
+     When given an instance ARN, `ListPhoneNumbersV2` returns only the
+  phone numbers claimed to the instance.
+
+     When given a traffic distribution group ARN `ListPhoneNumbersV2`
+  returns only the phone numbers claimed to the traffic distribution group.
   """
   def list_phone_numbers_v2(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number/list"
@@ -3430,6 +3492,41 @@ defmodule AWS.Connect do
     query_params =
       if !is_nil(name) do
         [{"name", name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists traffic distribution group users.
+  """
+  def list_traffic_distribution_group_users(
+        %Client{} = client,
+        traffic_distribution_group_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/traffic-distribution-group/#{AWS.Util.encode_uri(traffic_distribution_group_id)}/user"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5429,6 +5526,11 @@ defmodule AWS.Connect do
 
   @doc """
   Updates the traffic distribution for a given traffic distribution group.
+
+  You can change the `SignInConfig` only for a default `TrafficDistributionGroup`.
+  If you call `UpdateTrafficDistribution` with a modified `SignInConfig` and a
+  non-default `TrafficDistributionGroup`, an `InvalidRequestException` is
+  returned.
 
   For more information about updating a traffic distribution group, see [Update telephony traffic distribution across Amazon Web Services Regions
   ](https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html)

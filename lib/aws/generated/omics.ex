@@ -60,6 +60,29 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Accepts a share for an analytics store.
+  """
+  def accept_share(%Client{} = client, share_id, input, options \\ []) do
+    url_path = "/share/#{AWS.Util.encode_uri(share_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes one or more read sets.
   """
   def batch_delete_read_set(%Client{} = client, sequence_store_id, input, options \\ []) do
@@ -206,6 +229,29 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Creates a new version of an annotation store.
+  """
+  def create_annotation_store_version(%Client{} = client, name, input, options \\ []) do
+    url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}/version"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Begins a multipart read set upload.
   """
   def create_multipart_read_set_upload(
@@ -303,6 +349,31 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Creates a share offer that can be accepted outside the account by a subscriber.
+
+  The share is created by the owner and accepted by the principal subscriber.
+  """
+  def create_share(%Client{} = client, input, options \\ []) do
+    url_path = "/share"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a variant store.
   """
   def create_variant_store(%Client{} = client, input, options \\ []) do
@@ -367,6 +438,34 @@ defmodule AWS.Omics do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes one or multiple versions of an annotation store.
+  """
+  def delete_annotation_store_versions(%Client{} = client, name, input, options \\ []) do
+    url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}/versions/delete"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"force", "force"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       headers,
@@ -494,6 +593,29 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Deletes a share of an analytics store.
+  """
+  def delete_share(%Client{} = client, share_id, input, options \\ []) do
+    url_path = "/share/#{AWS.Util.encode_uri(share_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a variant store.
   """
   def delete_variant_store(%Client{} = client, name, input, options \\ []) do
@@ -562,6 +684,21 @@ defmodule AWS.Omics do
   """
   def get_annotation_store(%Client{} = client, name, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the metadata for an annotation store version.
+  """
+  def get_annotation_store_version(%Client{} = client, name, version_name, options \\ []) do
+    url_path =
+      "/annotationStore/#{AWS.Util.encode_uri(name)}/version/#{AWS.Util.encode_uri(version_name)}"
+
     headers = []
     query_params = []
 
@@ -814,6 +951,19 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Retrieves the metadata for a share.
+  """
+  def get_share(%Client{} = client, share_id, options \\ []) do
+    url_path = "/share/#{AWS.Util.encode_uri(share_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets information about a variant import job.
   """
   def get_variant_import_job(%Client{} = client, job_id, options \\ []) do
@@ -871,6 +1021,35 @@ defmodule AWS.Omics do
   """
   def list_annotation_import_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/import/annotations"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the versions of an annotation store.
+  """
+  def list_annotation_store_versions(%Client{} = client, name, input, options \\ []) do
+    url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}/versions"
     headers = []
 
     {query_params, input} =
@@ -1361,6 +1540,35 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Lists all shares associated with an account.
+  """
+  def list_shares(%Client{} = client, input, options \\ []) do
+    url_path = "/shares"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves a list of tags for a resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
@@ -1698,6 +1906,37 @@ defmodule AWS.Omics do
   """
   def update_annotation_store(%Client{} = client, name, input, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the description of an annotation store version.
+  """
+  def update_annotation_store_version(
+        %Client{} = client,
+        name,
+        version_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/annotationStore/#{AWS.Util.encode_uri(name)}/version/#{AWS.Util.encode_uri(version_name)}"
+
     headers = []
     query_params = []
 

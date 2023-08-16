@@ -401,10 +401,6 @@ defmodule AWS.SageMaker do
 
   Use this API to deploy models using SageMaker hosting services.
 
-  For an example that calls this method when deploying a model to SageMaker
-  hosting services, see the [Create Endpoint example
-  notebook.](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-fundamentals/create-endpoint/create_endpoint.ipynb)
-
   You must not delete an `EndpointConfig` that is in use by an endpoint that is
   live or while the `UpdateEndpoint` or `CreateEndpoint` operations are being
   performed on the endpoint. To update an endpoint, you must create a new
@@ -417,9 +413,9 @@ defmodule AWS.SageMaker do
   resources (ML compute instances), and deploys the model(s) on them.
 
   When you call
-  [CreateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html), a load call is made to DynamoDB to verify that your endpoint configuration
-  exists. When you read data from a DynamoDB table supporting [ `Eventually
-  Consistent Reads`
+  [CreateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html),
+  a load call is made to DynamoDB to verify that your endpoint configuration
+  exists. When you read data from a DynamoDB table supporting [ `Eventually Consistent Reads`
   ](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html),
   the response might not reflect the results of a recently completed write
   operation. The response might include some stale data. If the dependent entities

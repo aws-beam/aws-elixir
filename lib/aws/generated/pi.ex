@@ -56,6 +56,25 @@ defmodule AWS.PI do
   end
 
   @doc """
+  Creates a new performance analysis report for a specific time period for the DB
+  instance.
+  """
+  def create_performance_analysis_report(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePerformanceAnalysisReport", input, options)
+  end
+
+  @doc """
+  Deletes a performance analysis report.
+  """
+  def delete_performance_analysis_report(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePerformanceAnalysisReport", input, options)
+  end
+
+  @doc """
   For a specific time period, retrieve the top `N` dimension keys for a metric.
 
   Each response element returns a maximum of 500 bytes. For larger elements, such
@@ -80,6 +99,19 @@ defmodule AWS.PI do
     meta = metadata()
 
     Request.request_post(client, meta, "GetDimensionKeyDetails", input, options)
+  end
+
+  @doc """
+  Retrieves the report including the report ID, status, time details, and the
+  insights with recommendations.
+
+  The report status can be `RUNNING`, `SUCCEEDED`, or `FAILED`. The insights
+  include the `description` and `recommendation` fields.
+  """
+  def get_performance_analysis_report(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetPerformanceAnalysisReport", input, options)
   end
 
   @doc """
@@ -128,5 +160,44 @@ defmodule AWS.PI do
     meta = metadata()
 
     Request.request_post(client, meta, "ListAvailableResourceMetrics", input, options)
+  end
+
+  @doc """
+  Lists all the analysis reports created for the DB instance.
+
+  The reports are sorted based on the start time of each report.
+  """
+  def list_performance_analysis_reports(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPerformanceAnalysisReports", input, options)
+  end
+
+  @doc """
+  Retrieves all the metadata tags associated with Amazon RDS Performance Insights
+  resource.
+  """
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Adds metadata tags to the Amazon RDS Performance Insights resource.
+  """
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
+  end
+
+  @doc """
+  Deletes the metadata tags from the Amazon RDS Performance Insights resource.
+  """
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 end

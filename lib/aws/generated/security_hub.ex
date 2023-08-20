@@ -11,7 +11,8 @@ defmodule AWS.SecurityHub do
   from Amazon Web Services accounts, services, and integrated third-party products
   and helps you analyze security trends in your environment to identify the
   highest priority security issues. For more information about Security Hub, see
-  the [Security HubUser Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html).
+  the [ *Security Hub User Guide*
+  ](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html).
 
   When you use operations in the Security Hub API, the requests are executed only
   in the Amazon Web Services Region that is currently active or in the specific
@@ -775,8 +776,9 @@ defmodule AWS.SecurityHub do
   @doc """
   Deletes the specified member accounts from Security Hub.
 
-  Can be used to delete member accounts that belong to an organization as well as
-  member accounts that were invited manually.
+  You can invoke this API only to delete accounts that became members through
+  invitation. You can't invoke this API to delete accounts that belong to an
+  Organizations organization.
   """
   def delete_members(%Client{} = client, input, options \\ []) do
     url_path = "/members/delete"
@@ -1030,13 +1032,14 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Disables Security Hub in your account only in the current Region.
+  Disables Security Hub in your account only in the current Amazon Web Services
+  Region.
 
   To disable Security Hub in all Regions, you must submit one request per Region
   where you have enabled Security Hub.
 
-  When you disable Security Hub for an administrator account, it doesn't disable
-  Security Hub for any associated member accounts.
+  You can't disable Security Hub in an account that is currently the Security Hub
+  administrator.
 
   When you disable Security Hub, your existing findings and insights and any
   Security Hub configuration settings are deleted after 90 days and cannot be

@@ -3,29 +3,29 @@
 
 defmodule AWS.CodeCommit do
   @moduledoc """
-  AWS CodeCommit
+  CodeCommit
 
-  This is the *AWS CodeCommit API Reference*.
+  This is the *CodeCommit API Reference*.
 
-  This reference provides descriptions of the operations and data types for AWS
+  This reference provides descriptions of the operations and data types for
   CodeCommit API along with usage examples.
 
-  You can use the AWS CodeCommit API to work with the following objects:
+  You can use the CodeCommit API to work with the following objects:
 
   Repositories, by calling the following:
 
     * `BatchGetRepositories`, which returns information about one or
-  more repositories associated with your AWS account.
+  more repositories associated with your Amazon Web Services account.
 
-    * `CreateRepository`, which creates an AWS CodeCommit repository.
+    * `CreateRepository`, which creates an CodeCommit repository.
 
-    * `DeleteRepository`, which deletes an AWS CodeCommit repository.
+    * `DeleteRepository`, which deletes an CodeCommit repository.
 
     * `GetRepository`, which returns information about a specified
   repository.
 
-    * `ListRepositories`, which lists all AWS CodeCommit repositories
-  associated with your AWS account.
+    * `ListRepositories`, which lists all CodeCommit repositories
+  associated with your Amazon Web Services account.
 
     * `UpdateRepositoryDescription`, which sets or updates the
   description of the repository.
@@ -62,6 +62,9 @@ defmodule AWS.CodeCommit do
 
     * `GetFolder`, which returns the contents of a specified folder or
   directory.
+
+    * `ListFileCommitHistory`, which retrieves a list of commits and
+  changes to a specified file.
 
     * `PutFile`, which adds or modifies a single file in a specified
   repository and branch.
@@ -154,7 +157,7 @@ defmodule AWS.CodeCommit do
   branch of a pull request into the specified destination branch for that pull
   request using the squash merge option.
 
-    * `MergePullRequestByThreeWay`. which merges the source destination
+    * `MergePullRequestByThreeWay`, which merges the source destination
   branch of a pull request into the specified destination branch for that pull
   request using the three-way merge option.
 
@@ -183,14 +186,14 @@ defmodule AWS.CodeCommit do
 
     * `AssociateApprovalRuleTemplateWithRepository`, which associates a
   template with a specified repository. After the template is associated with a
-  repository, AWS CodeCommit creates approval rules that match the template
-  conditions on every pull request created in the specified repository.
+  repository, CodeCommit creates approval rules that match the template conditions
+  on every pull request created in the specified repository.
 
     * `BatchAssociateApprovalRuleTemplateWithRepositories`, which
   associates a template with one or more specified repositories. After the
-  template is associated with a repository, AWS CodeCommit creates approval rules
-  that match the template conditions on every pull request created in the
-  specified repositories.
+  template is associated with a repository, CodeCommit creates approval rules that
+  match the template conditions on every pull request created in the specified
+  repositories.
 
     * `BatchDisassociateApprovalRuleTemplateFromRepositories`, which
   removes the association between a template and specified repositories so that
@@ -199,7 +202,7 @@ defmodule AWS.CodeCommit do
 
     * `CreateApprovalRuleTemplate`, which creates a template for
   approval rules that can then be associated with one or more repositories in your
-  AWS account.
+  Amazon Web Services account.
 
     * `DeleteApprovalRuleTemplate`, which deletes the specified
   template. It does not remove approval rules on pull requests already created
@@ -214,7 +217,7 @@ defmodule AWS.CodeCommit do
   approval rule template.
 
     * `ListApprovalRuleTemplates`, which lists all approval rule
-  templates in the AWS Region in your AWS account.
+  templates in the Amazon Web Services Region in your Amazon Web Services account.
 
     * `ListAssociatedApprovalRuleTemplatesForRepository`, which lists
   all approval rule templates that are associated with a specified repository.
@@ -256,17 +259,16 @@ defmodule AWS.CodeCommit do
     * `UpdateComment`, which updates the content of a comment on a
   commit in a repository.
 
-  Tags used to tag resources in AWS CodeCommit (not Git tags), by calling the
+  Tags used to tag resources in CodeCommit (not Git tags), by calling the
   following:
 
-    * `ListTagsForResource`, which gets information about AWS tags for a
-  specified Amazon Resource Name (ARN) in AWS CodeCommit.
+    * `ListTagsForResource`, which gets information about Amazon Web
+  Servicestags for a specified Amazon Resource Name (ARN) in CodeCommit.
 
-    * `TagResource`, which adds or updates tags for a resource in AWS
+    * `TagResource`, which adds or updates tags for a resource in
   CodeCommit.
 
-    * `UntagResource`, which removes tags for a resource in AWS
-  CodeCommit.
+    * `UntagResource`, which removes tags for a resource in CodeCommit.
 
   Triggers, by calling the following:
 
@@ -279,7 +281,7 @@ defmodule AWS.CodeCommit do
     * `TestRepositoryTriggers`, which tests the functionality of a
   repository trigger by sending data to the trigger target.
 
-  For information about how to use AWS CodeCommit, see the [AWS CodeCommit User Guide](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html).
+  For information about how to use CodeCommit, see the [CodeCommit User Guide](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html).
   """
 
   alias AWS.Client
@@ -400,11 +402,11 @@ defmodule AWS.CodeCommit do
 
   @doc """
   Creates a template for approval rules that can then be associated with one or
-  more repositories in your AWS account.
+  more repositories in your Amazon Web Services account.
 
-  When you associate a template with a repository, AWS CodeCommit creates an
-  approval rule that matches the conditions of the template for all pull requests
-  that meet the conditions of the template. For more information, see
+  When you associate a template with a repository, CodeCommit creates an approval
+  rule that matches the conditions of the template for all pull requests that meet
+  the conditions of the template. For more information, see
   `AssociateApprovalRuleTemplateWithRepository`.
   """
   def create_approval_rule_template(%Client{} = client, input, options \\ []) do
@@ -817,11 +819,11 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
-  Lists all approval rule templates in the specified AWS Region in your AWS
-  account.
+  Lists all approval rule templates in the specified Amazon Web Services Region in
+  your Amazon Web Services account.
 
-  If an AWS Region is not specified, the AWS Region where you are signed in is
-  used.
+  If an Amazon Web Services Region is not specified, the Amazon Web Services
+  Region where you are signed in is used.
   """
   def list_approval_rule_templates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -859,6 +861,15 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+  Retrieves a list of commits and changes to a specified file.
+  """
+  def list_file_commit_history(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFileCommitHistory", input, options)
+  end
+
+  @doc """
   Returns a list of pull requests for a specified repository.
 
   The return list can be refined by pull request status or pull request author
@@ -889,11 +900,11 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
-  Gets information about AWS tags for a specified Amazon Resource Name (ARN) in
-  AWS CodeCommit.
+  Gets information about Amazon Web Servicestags for a specified Amazon Resource
+  Name (ARN) in CodeCommit.
 
-  For a list of valid resources in AWS CodeCommit, see [CodeCommit Resources and Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
-  in the* AWS CodeCommit User Guide*.
+  For a list of valid resources in CodeCommit, see [CodeCommit Resources and Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
+  in the* CodeCommit User Guide*.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1019,8 +1030,8 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
-  Adds or updates a file in a branch in an AWS CodeCommit repository, and
-  generates a commit for the addition in the specified branch.
+  Adds or updates a file in a branch in an CodeCommit repository, and generates a
+  commit for the addition in the specified branch.
   """
   def put_file(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1040,10 +1051,10 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
-  Adds or updates tags for a resource in AWS CodeCommit.
+  Adds or updates tags for a resource in CodeCommit.
 
-  For a list of valid resources in AWS CodeCommit, see [CodeCommit Resources and Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
-  in the *AWS CodeCommit User Guide*.
+  For a list of valid resources in CodeCommit, see [CodeCommit Resources and Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
+  in the *CodeCommit User Guide*.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1065,10 +1076,10 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
-  Removes tags for a resource in AWS CodeCommit.
+  Removes tags for a resource in CodeCommit.
 
-  For a list of valid resources in AWS CodeCommit, see [CodeCommit Resources and Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
-  in the *AWS CodeCommit User Guide*.
+  For a list of valid resources in CodeCommit, see [CodeCommit Resources and Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
+  in the *CodeCommit User Guide*.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1197,12 +1208,12 @@ defmodule AWS.CodeCommit do
   @doc """
   Renames a repository.
 
-  The repository name must be unique across the calling AWS account. Repository
-  names are limited to 100 alphanumeric, dash, and underscore characters, and
-  cannot include certain characters. The suffix .git is prohibited. For more
-  information about the limits on repository names, see
-  [Limits](https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html) in
-  the AWS CodeCommit User Guide.
+  The repository name must be unique across the calling Amazon Web Services
+  account. Repository names are limited to 100 alphanumeric, dash, and underscore
+  characters, and cannot include certain characters. The suffix .git is
+  prohibited. For more information about the limits on repository names, see
+  [Quotas](https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html) in
+  the CodeCommit User Guide.
   """
   def update_repository_name(%Client{} = client, input, options \\ []) do
     meta = metadata()

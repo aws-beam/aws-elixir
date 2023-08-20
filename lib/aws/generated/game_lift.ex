@@ -79,21 +79,25 @@ defmodule AWS.GameLift do
 
   When FlexMatch builds a match, all the matchmaking tickets involved in the
   proposed match are placed into status `REQUIRES_ACCEPTANCE`. This is a trigger
-  for your game to get acceptance from all players in the ticket. Acceptances are
-  only valid for tickets when they are in this status; all other acceptances
-  result in an error.
+  for your game to get acceptance from all players in each ticket. Calls to this
+  action are only valid for tickets that are in this status; calls for tickets not
+  in this status result in an error.
 
-  To register acceptance, specify the ticket ID, a response, and one or more
-  players. Once all players have registered acceptance, the matchmaking tickets
-  advance to status `PLACING`, where a new game session is created for the match.
+  To register acceptance, specify the ticket ID, one or more players, and an
+  acceptance response. When all players have accepted, Amazon GameLift advances
+  the matchmaking tickets to status `PLACING`, and attempts to create a new game
+  session for the match.
 
   If any player rejects the match, or if acceptances are not received before a
-  specified timeout, the proposed match is dropped. The matchmaking tickets are
-  then handled in one of two ways: For tickets where one or more players rejected
-  the match or failed to respond, the ticket status is set to `CANCELLED`, and
-  processing is terminated. For tickets where players have accepted or not yet
-  responded, the ticket status is returned to `SEARCHING` to find a new match. A
-  new matchmaking request for these players can be submitted as needed.
+  specified timeout, the proposed match is dropped. Each matchmaking ticket in the
+  failed match is handled as follows:
+
+    * If the ticket has one or more players who rejected the match or
+  failed to respond, the ticket status is set `CANCELLED` and processing is
+  terminated.
+
+    * If all players in the ticket accepted the match, the ticket status
+  is returned to `SEARCHING` to find a new match.
 
   ## Learn more
 
@@ -365,13 +369,13 @@ defmodule AWS.GameLift do
   This operation prompts an available server process to start a game session and
   retrieves connection information for the new game session. As an alternative,
   consider using the Amazon GameLift game session placement feature with
-  [StartGameSessionPlacement](https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html) , which uses FleetIQ algorithms and queues to optimize the placement process.
+  [StartGameSessionPlacement](https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html) , which uses the FleetIQ algorithm and queues to optimize the placement process.
 
   When creating a game session, you specify exactly where you want to place it and
-  provide a set of game session configuration settings. The fleet must be in
-  `ACTIVE` status before a game session can be created in it.
+  provide a set of game session configuration settings. The target fleet must be
+  in `ACTIVE` status.
 
-  This operation can be used in the following ways:
+  You can use this operation in the following ways:
 
     * To create a game session on an instance in a fleet's home Region,
   provide a fleet or alias ID along with your game session configuration.
@@ -380,17 +384,19 @@ defmodule AWS.GameLift do
   location, provide a fleet or alias ID and a location name, along with your game
   session configuration.
 
-  If successful, a workflow is initiated to start a new game session. A
-  `GameSession` object is returned containing the game session configuration and
-  status. When the status is `ACTIVE`, game session connection information is
-  provided and player sessions can be created for the game session. By default,
+    * To create a game session on an instance in an Anywhere fleet,
+  specify the fleet's custom location.
+
+  If successful, Amazon GameLift initiates a workflow to start a new game session
+  and returns a `GameSession` object containing the game session configuration and
+  status. When the game session status is `ACTIVE`, it is updated with connection
+  information and you can create player sessions for the game session. By default,
   newly created game sessions are open to new players. You can restrict new player
   access by using
   [UpdateGameSession](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html)
   to change the game session's player session creation policy.
 
-  Game session logs are retained for all active game sessions for 14 days. To
-  access the logs, call
+  Amazon GameLift retains logs for active for 14 days. To access the logs, call
   [GetGameSessionLogUrl](https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetGameSessionLogUrl.html) to download the log files.
 
   *Available in Amazon GameLift Local.*
@@ -979,9 +985,9 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Removes a compute resource from the specified fleet.
+  Removes a compute resource from an Amazon GameLift Anywhere fleet.
 
-  Deregister your compute resources before you delete the compute.
+  Deregistered computes can no longer host game sessions through Amazon GameLift.
   """
   def deregister_compute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1050,10 +1056,18 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Retrieves properties for a compute resource.
+  Retrieves properties for a compute resource in an Amazon GameLift fleet.
 
-  To request a compute resource specify the fleet ID and compute name. If
-  successful, Amazon GameLift returns an object containing the build properties.
+  Call `ListCompute` to get a list of compute resources in a fleet. You can
+  request information for computes in either managed EC2 fleets or Anywhere
+  fleets.
+
+  To request compute properties, specify the compute name and fleet ID.
+
+  If successful, this operation returns details for the requested compute
+  resource. For managed EC2 fleets, this operation returns the fleet's EC2
+  instances. For Anywhere fleets, this operation returns the fleet's registered
+  computes.
   """
   def describe_compute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1567,30 +1581,36 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Retrieves information about a fleet's instances, including instance IDs,
-  connection data, and status.
+  Retrieves information about the EC2 instances in an Amazon GameLift managed
+  fleet, including instance ID, connection data, and status.
 
-  This operation can be used in the following ways:
+  You can use this operation with a multi-location fleet to get location-specific
+  instance information. As an alternative, use the operations `ListCompute` and
+  `DescribeCompute` to retrieve information for compute resources, including EC2
+  and Anywhere fleets.
 
-    * To get information on all instances that are deployed to a fleet's
-  home Region, provide the fleet ID.
+  You can call this operation in the following ways:
 
-    * To get information on all instances that are deployed to a fleet's
-  remote location, provide the fleet ID and location name.
+    * To get information on all instances in a fleet's home Region,
+  specify the fleet ID.
 
-    * To get information on a specific instance in a fleet, provide the
+    * To get information on all instances in a fleet's remote location,
+  specify the fleet ID and location name.
+
+    * To get information on a specific instance in a fleet, specify the
   fleet ID and instance ID.
 
   Use the pagination parameters to retrieve results as a set of sequential pages.
 
-  If successful, an `Instance` object is returned for each requested instance.
-  Instances are not returned in any particular order.
+  If successful, this operation returns `Instance` objects for each requested
+  instance, listed in no particular order. If you call this operation for an
+  Anywhere fleet, you receive an InvalidRequestException.
 
   ## Learn more
 
-  [Remotely Access Fleet Instances](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html)
+  [Remotely connect to fleet instances](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html)
 
-  [Debug Fleet Issues](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html)
+  [Debug fleet issues](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html)
 
   ## Related actions
 
@@ -1686,8 +1706,10 @@ defmodule AWS.GameLift do
   player ID only.
 
   To request player sessions, specify either a player session ID, game session ID,
-  or player ID. You can filter this request by player session status. Use the
-  pagination parameters to retrieve results as a set of sequential pages.
+  or player ID. You can filter this request by player session status. If you
+  provide a specific `PlayerSessionId` or `PlayerId`, Amazon GameLift ignores the
+  filter criteria. Use the pagination parameters to retrieve results as a set of
+  sequential pages.
 
   If successful, a `PlayerSession` object is returned for each session that
   matches the request.
@@ -1804,28 +1826,28 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Requests remote access to a fleet instance.
+  Requests authorization to remotely connect to a compute resource in an Amazon
+  GameLift fleet.
 
-  Remote access is useful for debugging, gathering benchmarking data, or observing
-  activity in real time.
+  Call this action to connect to an instance in a managed EC2 fleet if the fleet's
+  game build uses Amazon GameLift server SDK 5.x or later. To connect to instances
+  with game builds that use server SDK 4.x or earlier, call `GetInstanceAccess`.
 
-  To remotely access an instance, you need credentials that match the operating
-  system of the instance. For a Windows instance, Amazon GameLift returns a user
-  name and password as strings for use with a Windows Remote Desktop client. For a
-  Linux instance, Amazon GameLift returns a user name and RSA private key, also as
-  strings, for use with an SSH client. The private key must be saved in the proper
-  format to a `.pem` file before using. If you're making this request using the
-  CLI, saving the secret can be handled as part of the `GetInstanceAccess`
-  request, as shown in one of the examples for this operation.
+  To request access to a compute, identify the specific EC2 instance and the fleet
+  it belongs to. You can retrieve instances for a managed EC2 fleet by calling
+  `ListCompute`.
 
-  To request access to a specific instance, specify the IDs of both the instance
-  and the fleet it belongs to.
+  If successful, this operation returns a set of temporary Amazon Web Services
+  credentials, including a two-part access key and a session token. Use these
+  credentials with Amazon EC2 Systems Manager (SSM) to start a session with the
+  compute. For more details, see [ Starting a session (CLI)](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html#sessions-start-cli)
+  in the *Amazon EC2 Systems Manager User Guide*.
 
   ## Learn more
 
-  [Remotely Access Fleet Instances](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html)
+  [Remotely connect to fleet instances](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html)
 
-  [Debug Fleet Issues](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html)
+  [Debug fleet issues](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html)
   """
   def get_compute_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1834,12 +1856,25 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Requests an authentication token from Amazon GameLift.
+  Requests an authentication token from Amazon GameLift for a registered compute
+  in an Anywhere fleet.
 
-  The authentication token is used by your game server to authenticate with Amazon
-  GameLift. Each authentication token has an expiration time. To continue using
-  the compute resource to host your game server, regularly retrieve a new
-  authorization token.
+  The game servers that are running on the compute use this token to authenticate
+  with the Amazon GameLift service. Each server process must provide a valid
+  authentication token in its call to the Amazon GameLift server SDK action
+  `InitSDK()`.
+
+  Authentication tokens are valid for a limited time span. Use a mechanism to
+  regularly request a fresh authentication token before the current token expires.
+
+  ## Learn more
+
+    * [Create an Anywhere fleet](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-anywhere.html)
+
+    * [Test your integration](https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-testing.html)
+
+    * [Server SDK reference guides](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk.html)
+  (for version 5.x)
   """
   def get_compute_auth_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1866,28 +1901,34 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Requests remote access to a fleet instance.
+  Requests authorization to remotely connect to an instance in an Amazon GameLift
+  managed fleet.
 
-  Remote access is useful for debugging, gathering benchmarking data, or observing
-  activity in real time.
+  Use this operation to connect to instances with game servers that use Amazon
+  GameLift server SDK 4.x or earlier. To connect to instances with game servers
+  that use server SDK 5.x or later, call `GetComputeAccess`.
 
-  To remotely access an instance, you need credentials that match the operating
-  system of the instance. For a Windows instance, Amazon GameLift returns a user
-  name and password as strings for use with a Windows Remote Desktop client. For a
-  Linux instance, Amazon GameLift returns a user name and RSA private key, also as
-  strings, for use with an SSH client. The private key must be saved in the proper
-  format to a `.pem` file before using. If you're making this request using the
-  CLI, saving the secret can be handled as part of the `GetInstanceAccess`
-  request, as shown in one of the examples for this operation.
+  To request access to an instance, specify IDs for the instance and the fleet it
+  belongs to. You can retrieve instance IDs for a fleet by calling
+  [DescribeInstances](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeInstances.html) with the fleet ID.
 
-  To request access to a specific instance, specify the IDs of both the instance
-  and the fleet it belongs to. You can retrieve a fleet's instance IDs by calling
-  [DescribeInstances](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeInstances.html).  ## Learn more
+  If successful, this operation returns an IP address and credentials. The
+  returned credentials match the operating system of the instance, as follows:
 
-  [Remotely Access Fleet
-  Instances](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html)
+    * For a Windows instance: returns a user name and secret (password)
+  for use with a Windows Remote Desktop client.
 
-  [Debug Fleet Issues](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html)
+    * For a Linux instance: returns a user name and secret (RSA private
+  key) for use with an SSH client. You must save the secret to a `.pem` file. If
+  you're using the CLI, see the example [ Get credentials for a Linux
+  instance](https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetInstanceAccess.html#API_GetInstanceAccess_Examples)
+  for tips on automatically saving the secret to a `.pem` file.
+
+  ## Learn more
+
+  [Remotely connect to fleet instances](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html)
+
+  [Debug fleet issues](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html)
 
   ## Related actions
 
@@ -1940,10 +1981,17 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Retrieves all compute resources registered to a fleet in your Amazon Web
-  Services account.
+  Retrieves the compute resources in an Amazon GameLift fleet.
 
-  You can filter the result set by location.
+  You can request information for either managed EC2 fleets or Anywhere fleets.
+
+  To request a list of computes, specify the fleet ID. You can filter the result
+  set by location. Use the pagination parameters to retrieve results in a set of
+  sequential pages.
+
+  If successful, this operation returns the compute resource for the requested
+  fleet. For managed EC2 fleets, it returns a list of EC2 instances. For Anywhere
+  fleets, it returns a list of registered compute names.
   """
   def list_compute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2149,18 +2197,31 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Registers your compute resources in a fleet you previously created.
+  Registers a compute resource to an Amazon GameLift Anywhere fleet.
 
-  After you register a compute to your fleet, you can monitor and manage your
-  compute using Amazon GameLift. The operation returns the compute resource
-  containing SDK endpoint you can use to connect your game server to Amazon
-  GameLift.
+  With Anywhere fleets you can incorporate your own computing hardware into an
+  Amazon GameLift game hosting solution.
+
+  To register a compute to a fleet, give the compute a name (must be unique within
+  the fleet) and specify the compute resource's DNS name or IP address. Provide
+  the Anywhere fleet ID and a fleet location to associate with the compute being
+  registered. You can optionally include the path to a TLS certificate on the
+  compute resource.
+
+  If successful, this operation returns the compute details, including an Amazon
+  GameLift SDK endpoint. Game server processes that run on the compute use this
+  endpoint to communicate with the Amazon GameLift service. Each server process
+  includes the SDK endpoint in its call to the Amazon GameLift server SDK action
+  `InitSDK()`.
 
   ## Learn more
 
     * [Create an Anywhere fleet](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-anywhere.html)
 
     * [Test your integration](https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-testing.html)
+
+    * [Server SDK reference guides](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk.html)
+  (for version 5.x)
   """
   def register_compute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2803,7 +2864,7 @@ defmodule AWS.GameLift do
   server groups.
 
   Updates information about a registered game server to help Amazon GameLift
-  FleetIQ to track game server availability.
+  FleetIQ track game server availability.
 
   This operation is called by a game server process that is running on an instance
   in a game server group.
@@ -2811,10 +2872,11 @@ defmodule AWS.GameLift do
   Use this operation to update the following types of game server information. You
   can make all three types of updates in the same request:
 
-    * To update the game server's utilization status, identify the game
-  server and game server group and specify the current utilization status. Use
-  this status to identify when game servers are currently hosting games and when
-  they are available to be claimed.
+    * To update the game server's utilization status from `AVAILABLE`
+  (when the game server is available to be claimed) to `UTILIZED` (when the game
+  server is currently hosting games). Identify the game server and game server
+  group and specify the new utilization status. You can't change the status from
+  to `UTILIZED` to `AVAILABLE` .
 
     * To report health status, identify the game server and game server
   group and set health check to `HEALTHY`. If a game server does not report health

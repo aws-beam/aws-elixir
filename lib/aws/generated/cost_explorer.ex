@@ -335,8 +335,8 @@ defmodule AWS.CostExplorer do
   @doc """
   Retrieves the details for a Savings Plan recommendation.
 
-  These details include the hourly data-points that construct the new cost,
-  coverage, and utilization charts.
+  These details include the hourly data-points that construct the cost, coverage,
+  and utilization charts.
   """
   def get_savings_plan_purchase_recommendation_details(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -292,12 +292,26 @@ defmodule AWS.VerifiedPermissions do
   Makes an authorization decision about a service request described in the
   parameters.
 
-  The principal in this request comes from an external identity source. The
-  information in the parameters can also define additional context that Verified
-  Permissions can include in the evaluation. The request is evaluated against all
-  matching policies in the specified policy store. The result of the decision is
-  either `Allow` or `Deny`, along with a list of the policies that resulted in the
+  The principal in this request comes from an external identity source in the form
+  of an identity token formatted as a [JSON web token (JWT)](https://wikipedia.org/wiki/JSON_Web_Token). The information in the
+  parameters can also define additional context that Verified Permissions can
+  include in the evaluation. The request is evaluated against all matching
+  policies in the specified policy store. The result of the decision is either
+  `Allow` or `Deny`, along with a list of the policies that resulted in the
   decision.
+
+  If you specify the `identityToken` parameter, then this operation derives the
+  principal from that token. You must not also include that principal in the
+  `entities` parameter or the operation fails and reports a conflict between the
+  two entity sources.
+
+  If you provide only an `accessToken`, then you can include the entity as part of
+  the `entities` parameter to provide additional attributes.
+
+  At this time, Verified Permissions accepts tokens from only Amazon Cognito.
+
+  Verified Permissions validates each token that is specified in a request by
+  checking its expiration date and its signature.
 
   If you delete a Amazon Cognito user pool or user, tokens from that deleted pool
   or that deleted user continue to be usable until they expire.
@@ -380,10 +394,32 @@ defmodule AWS.VerifiedPermissions do
   template-linked policy, you must update the template instead, using
   [UpdatePolicyTemplate](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyTemplate.html).
 
-  If policy validation is enabled in the policy store, then updating a static
-  policy causes Verified Permissions to validate the policy against the schema in
-  the policy store. If the updated static policy doesn't pass validation, the
-  operation fails and the update isn't stored.
+     If policy validation is enabled in the policy store, then updating
+  a static policy causes Verified Permissions to validate the policy against the
+  schema in the policy store. If the updated static policy doesn't pass
+  validation, the operation fails and the update isn't stored.
+
+     When you edit a static policy, You can change only certain elements
+  of a static policy:
+
+       The action referenced by the policy.
+
+       A condition clause, such as when and unless.
+
+  You can't change these elements of a static policy:
+
+       Changing a policy from a static policy to a
+  template-linked policy.
+
+       Changing the effect of a static policy from permit or
+  forbid.
+
+       The principal referenced by a static policy.
+
+       The resource referenced by a static policy.
+
+     To update a template-linked policy, you must update the template
+  instead.
   """
   def update_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()

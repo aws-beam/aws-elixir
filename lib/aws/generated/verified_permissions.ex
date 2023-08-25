@@ -89,8 +89,7 @@ defmodule AWS.VerifiedPermissions do
 
   After you create an identity source, you can use the identities provided by the
   IdP as proxies for the principal in authorization queries that use the
-  [IsAuthorizedWithToken](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html)
-  operation. These identities take the form of tokens that contain claims about
+  [IsAuthorizedWithToken](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html) operation. These identities take the form of tokens that contain claims about
   the user, such as IDs, attributes and group memberships. Amazon Cognito provides
   both identity tokens and access tokens, and Verified Permissions can use either
   or both. Any combination of identity and access tokens results in the same Cedar
@@ -111,6 +110,11 @@ defmodule AWS.VerifiedPermissions do
   Where `IdentityType` is the string that you provide to the `PrincipalEntityType`
   parameter for this operation. The `CognitoUserPoolId` and `CognitoClientId` are
   defined by the Amazon Cognito user pool.
+
+  Verified Permissions is * [eventually
+  consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
+  few seconds for a new or changed element to be propagate through the service and
+  be visible in the results of other Verified Permissions operations.
   """
   def create_identity_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -135,6 +139,10 @@ defmodule AWS.VerifiedPermissions do
   Creating a policy causes it to be validated against the schema in the policy
   store. If the policy doesn't pass validation, the operation fails and the policy
   isn't stored.
+
+  Verified Permissions is * [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
+  few seconds for a new or changed element to be propagate through the service and
+  be visible in the results of other Verified Permissions operations.
   """
   def create_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -149,6 +157,10 @@ defmodule AWS.VerifiedPermissions do
 
   Although [Cedar supports multiple namespaces](https://docs.cedarpolicy.com/schema.html#namespace), Verified
   Permissions currently supports only one namespace per policy store.
+
+  Verified Permissions is * [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
+  few seconds for a new or changed element to be propagate through the service and
+  be visible in the results of other Verified Permissions operations.
   """
   def create_policy_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -166,6 +178,10 @@ defmodule AWS.VerifiedPermissions do
   to any other policy, except that it is dynamically linked to the template. If
   the template changes, then any policies that are linked to that template are
   immediately updated as well.
+
+  Verified Permissions is * [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
+  few seconds for a new or changed element to be propagate through the service and
+  be visible in the results of other Verified Permissions operations.
   """
   def create_policy_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -368,6 +384,10 @@ defmodule AWS.VerifiedPermissions do
   templates submitted after the schema change. Existing policies and templates are
   not re-evaluated against the changed schema. If you later update a policy, then
   it is evaluated against the new schema at that time.
+
+  Verified Permissions is * [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
+  few seconds for a new or changed element to be propagate through the service and
+  be visible in the results of other Verified Permissions operations.
   """
   def put_schema(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -379,6 +399,10 @@ defmodule AWS.VerifiedPermissions do
   Updates the specified identity source to use a new identity provider (IdP)
   source, or to change the mapping of identities from the IdP to a different
   principal entity type.
+
+  Verified Permissions is * [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
+  few seconds for a new or changed element to be propagate through the service and
+  be visible in the results of other Verified Permissions operations.
   """
   def update_identity_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -420,6 +444,10 @@ defmodule AWS.VerifiedPermissions do
 
      To update a template-linked policy, you must update the template
   instead.
+
+  Verified Permissions is * [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
+  few seconds for a new or changed element to be propagate through the service and
+  be visible in the results of other Verified Permissions operations.
   """
   def update_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -429,6 +457,10 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Modifies the validation setting for a policy store.
+
+  Verified Permissions is * [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
+  few seconds for a new or changed element to be propagate through the service and
+  be visible in the results of other Verified Permissions operations.
   """
   def update_policy_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -440,11 +472,14 @@ defmodule AWS.VerifiedPermissions do
   Updates the specified policy template.
 
   You can update only the description and the some elements of the
-  [policyBody](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyTemplate.html#amazonverifiedpermissions-UpdatePolicyTemplate-request-policyBody).
-
-  Changes you make to the policy template content are immediately reflected in
+  [policyBody](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyTemplate.html#amazonverifiedpermissions-UpdatePolicyTemplate-request-policyBody).  Changes you make to the policy template content are immediately reflected in
   authorization decisions that involve all template-linked policies instantiated
   from this template.
+
+  Verified Permissions is * [eventually
+  consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
+  few seconds for a new or changed element to be propagate through the service and
+  be visible in the results of other Verified Permissions operations.
   """
   def update_policy_template(%Client{} = client, input, options \\ []) do
     meta = metadata()

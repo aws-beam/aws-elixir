@@ -320,7 +320,7 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Retrieve the JSON for a specific completed transcoding job.
+  Retrieve the JSON for a specific transcoding job.
   """
   def get_job(%Client{} = client, id, options \\ []) do
     url_path = "/2017-08-29/jobs/#{AWS.Util.encode_uri(id)}"

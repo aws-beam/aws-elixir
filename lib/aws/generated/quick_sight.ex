@@ -1919,12 +1919,41 @@ defmodule AWS.QuickSight do
   @doc """
   Describes permissions for a folder.
   """
-  def describe_folder_permissions(%Client{} = client, aws_account_id, folder_id, options \\ []) do
+  def describe_folder_permissions(
+        %Client{} = client,
+        aws_account_id,
+        folder_id,
+        max_results \\ nil,
+        namespace \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}/permissions"
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(namespace) do
+        [{"namespace", namespace} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -1941,6 +1970,9 @@ defmodule AWS.QuickSight do
         %Client{} = client,
         aws_account_id,
         folder_id,
+        max_results \\ nil,
+        namespace \\ nil,
+        next_token \\ nil,
         options \\ []
       ) do
     url_path =
@@ -1948,6 +1980,27 @@ defmodule AWS.QuickSight do
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(namespace) do
+        [{"namespace", namespace} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -3924,6 +3977,8 @@ defmodule AWS.QuickSight do
   You can request one of the following format configurations per API call.
 
     * 1 paginated PDF
+
+    * 1 Excel workbook
 
     * 5 CSVs
 

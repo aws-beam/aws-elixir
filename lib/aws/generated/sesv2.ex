@@ -60,6 +60,19 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
+  Cancels an export job.
+  """
+  def cancel_export_job(%Client{} = client, job_id, input, options \\ []) do
+    url_path = "/v2/email/export-jobs/#{AWS.Util.encode_uri(job_id)}/cancel"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
   Create a configuration set.
 
   *Configuration sets* are groups of rules that you can apply to the emails that
@@ -368,6 +381,31 @@ defmodule AWS.SESv2 do
   """
   def create_email_template(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/templates"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates an export job for a data source and destination.
+
+  You can execute this operation no more than once per second.
+  """
+  def create_export_job(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/export-jobs"
     headers = []
     query_params = []
 
@@ -1047,10 +1085,40 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
+  Provides information about an export job.
+  """
+  def get_export_job(%Client{} = client, job_id, options \\ []) do
+    url_path = "/v2/email/export-jobs/#{AWS.Util.encode_uri(job_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Provides information about an import job.
   """
   def get_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/v2/email/import-jobs/#{AWS.Util.encode_uri(job_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Provides information about a specific message, including the from address, the
+  subject, the recipient address, email tags, as well as events associated with
+  the message.
+
+  You can execute this operation no more than once per second.
+  """
+  def get_message_insights(%Client{} = client, message_id, options \\ []) do
+    url_path = "/v2/email/insights/#{AWS.Util.encode_uri(message_id)}/"
     headers = []
     query_params = []
 
@@ -1400,6 +1468,29 @@ defmodule AWS.SESv2 do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists all of the export jobs.
+  """
+  def list_export_jobs(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/list-export-jobs"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """

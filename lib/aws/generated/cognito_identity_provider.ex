@@ -774,7 +774,8 @@ defmodule AWS.CognitoIdentityProvider do
   in the *Amazon Cognito Developer Guide*.
 
   Updates the specified user's attributes, including developer attributes, as an
-  administrator. Works on any user.
+  administrator. Works on any user. To delete an attribute from your user, submit
+  the attribute in your API request with a blank value.
 
   For custom attributes, you must prepend the `custom:` prefix to the attribute
   name.

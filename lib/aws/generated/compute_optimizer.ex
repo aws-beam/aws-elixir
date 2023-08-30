@@ -154,6 +154,24 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+  Export optimization recommendations for your licenses.
+
+  Recommendations are exported in a comma-separated values (CSV) file, and its
+  metadata in a JavaScript Object Notation (JSON) file, to an existing Amazon
+  Simple Storage Service (Amazon S3) bucket that you specify. For more
+  information, see [Exporting Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
+  in the *Compute Optimizer User Guide*.
+
+  You can have only one license export job in progress per Amazon Web Services
+  Region.
+  """
+  def export_license_recommendations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExportLicenseRecommendations", input, options)
+  end
+
+  @doc """
   Returns Auto Scaling group recommendations.
 
   Compute Optimizer generates recommendations for Amazon EC2 Auto Scaling groups
@@ -295,6 +313,20 @@ defmodule AWS.ComputeOptimizer do
     meta = metadata()
 
     Request.request_post(client, meta, "GetLambdaFunctionRecommendations", input, options)
+  end
+
+  @doc """
+  Returns license recommendations for Amazon EC2 instances that run on a specific
+  license.
+
+  Compute Optimizer generates recommendations for licenses that meet a specific
+  set of requirements. For more information, see the [Supported resources and requirements](https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html)
+  in the *Compute Optimizer User Guide*.
+  """
+  def get_license_recommendations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetLicenseRecommendations", input, options)
   end
 
   @doc """

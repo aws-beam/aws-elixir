@@ -173,10 +173,11 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  This request creates a logical container where backups are stored.
+  This request creates a logical container to where backups may be copied.
 
-  This request includes a name, optionally one or more resource tags, an
-  encryption key, and a request ID.
+  This request includes a name, the Region, the maximum number of retention days,
+  the minimum number of retention days, and optionally can include tags and a
+  creator request ID.
 
   Do not include sensitive data, such as passport numbers, in the name of a backup
   vault.

@@ -64,7 +64,7 @@ defmodule AWS.Organizations do
   Amazon S3 bucket. By using information collected by CloudTrail, you can
   determine which requests the Organizations service received, who made the
   request and when, and so on. For more about Organizations and its support for
-  CloudTrail, see [Logging Organizations Events with CloudTrail](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_incident-response.html#orgs_cloudtrail-integration)
+  CloudTrail, see [Logging Organizations API calls with CloudTrail](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_incident-response.html#orgs_cloudtrail-integration)
   in the *Organizations User Guide*. To learn more about CloudTrail, including how
   to turn it on and find your log files, see the [CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html).
   """
@@ -102,8 +102,8 @@ defmodule AWS.Organizations do
   `organizations:AcceptHandshake` permission. If you enabled all features in the
   organization, the user must also have the `iam:CreateServiceLinkedRole`
   permission so that Organizations can create the required service-linked role
-  named `AWSServiceRoleForOrganizations`. For more information, see [Organizations and Service-Linked
-  Roles](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integration_services.html#orgs_integration_service-linked-roles)
+  named `AWSServiceRoleForOrganizations`. For more information, see [Organizations and service-linked
+  roles](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integration_services.html#orgs_integrate_services-using_slrs)
   in the *Organizations User Guide*.
 
     * **Enable all features final confirmation** handshake: only a
@@ -111,9 +111,9 @@ defmodule AWS.Organizations do
 
   For more information about invitations, see [Inviting an Amazon Web Services account to join your
   organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_invites.html)
-  in the *Organizations User Guide.* For more information about requests to enable
+  in the *Organizations User Guide*. For more information about requests to enable
   all features in the organization, see [Enabling all features in your organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html)
-  in the *Organizations User Guide.*
+  in the *Organizations User Guide*.
 
   After you accept a handshake, it continues to appear in the results of relevant
   APIs for only 30 days. After that, it's deleted.
@@ -139,7 +139,9 @@ defmodule AWS.Organizations do
   [SERVICE_CONTROL_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html)     *
   [TAG_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html)
 
-  This operation can be called only from the organization's management account.
+  This operation can be called only from the organization's management account or
+  by a member account that is a delegated administrator for an Amazon Web Services
+  service.
   """
   def attach_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -188,15 +190,13 @@ defmodule AWS.Organizations do
     * Check the CloudTrail log for the `CloseAccountResult` event that
   gets published after the account closes successfully. For information on using
   CloudTrail with Organizations, see [Logging and monitoring in Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html#orgs_cloudtrail-integration)
-  in the *Organizations User Guide.*
+  in the *Organizations User Guide*.
 
      You can close only 10% of member accounts, between 10 and 200,
   within a rolling 30 day period. This quota is not bound by a calendar month, but
-  starts when you close an account.
-
-  After you reach this limit, you can close additional accounts in the Billing
-  console. For more information, see [Closing an account](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/close-account.html)
-  in the Amazon Web Services Billing and Cost Management User Guide.
+  starts when you close an account. After you reach this limit, you can close
+  additional accounts. For more information, see [Closing a member account in your organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html)
+  in the *Organizations User Guide*.
 
      To reinstate a closed account, contact Amazon Web Services Support
   within the 90-day grace period while the account is in SUSPENDED status.
@@ -206,9 +206,6 @@ defmodule AWS.Organizations do
   close both accounts. To learn important pre-closure details, see [ Closing an Amazon Web Services GovCloud (US)
   account](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/Closing-govcloud-account.html)
   in the * Amazon Web Services GovCloud User Guide*.
-
-  For more information about closing accounts, see [Closing an Amazon Web Services account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html)
-  in the *Organizations User Guide.*
   """
   def close_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -233,13 +230,13 @@ defmodule AWS.Organizations do
     * Check the CloudTrail log for the `CreateAccountResult` event. For
   information on using CloudTrail with Organizations, see [Logging and monitoring in
   Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html#orgs_cloudtrail-integration)
-  in the *Organizations User Guide.*
+  in the *Organizations User Guide*.
 
   The user who calls the API to create an account must have the
   `organizations:CreateAccount` permission. If you enabled all features in the
   organization, Organizations creates the required service-linked role named
-  `AWSServiceRoleForOrganizations`. For more information, see [Organizations and Service-Linked
-  Roles](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs)
+  `AWSServiceRoleForOrganizations`. For more information, see [Organizations and service-linked
+  roles](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs)
   in the *Organizations User Guide*.
 
   If the request includes tags, then the requester must have the
@@ -254,17 +251,17 @@ defmodule AWS.Organizations do
 
   This operation can be called only from the organization's management account.
 
-  For more information about creating accounts, see [Creating an Amazon Web Services account in Your
-  Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html)
-  in the *Organizations User Guide.*
+  For more information about creating accounts, see [Creating a member account in your
+  organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html)
+  in the *Organizations User Guide*.
 
      When you create an account in an organization using the
   Organizations console, API, or CLI commands, the information required for the
   account to operate as a standalone account, such as a payment method and signing
   the end user license agreement (EULA) is *not* automatically collected. If you
   must remove an account from your organization later, you can do so only after
-  you provide the missing information. Follow the steps at [ To leave an organization as a member
-  account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info)
+  you provide the missing information. For more information, see [Considerations before removing an account from an
+  organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html)
   in the *Organizations User Guide*.
 
      If you get an exception that indicates that you exceeded your
@@ -277,8 +274,8 @@ defmodule AWS.Organizations do
      Using `CreateAccount` to create multiple temporary accounts isn't
   recommended. You can only close an account from the Billing and Cost Management
   console, and you must be signed in as the root user. For information on the
-  requirements and process for closing an account, see [Closing an Amazon Web Services
-  account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html)
+  requirements and process for closing an account, see [Closing a member account in your
+  organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html)
   in the *Organizations User Guide*.
 
   When you create a member account with this operation, you can choose whether to
@@ -286,8 +283,8 @@ defmodule AWS.Organizations do
   switch enabled. If you enable it, IAM users and roles that have appropriate
   permissions can view billing information for the account. If you disable it,
   only the account root user can access billing information. For information about
-  how to disable this switch for an account, see [Granting Access to Your Billing Information and
-  Tools](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html).
+  how to disable this switch for an account, see [Granting access to your billing information and
+  tools](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/control-access-billing.html#grantaccess).
   """
   def create_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -315,9 +312,9 @@ defmodule AWS.Organizations do
     * You have the `organizations:CreateGovCloudAccount` permission.
 
   Organizations automatically creates the required service-linked role named
-  `AWSServiceRoleForOrganizations`. For more information, see [Organizations and Service-Linked
-  Roles](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs)
-  in the *Organizations User Guide.*
+  `AWSServiceRoleForOrganizations`. For more information, see [Organizations and service-linked
+  roles](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs)
+  in the *Organizations User Guide*.
 
   Amazon Web Services automatically enables CloudTrail for Amazon Web Services
   GovCloud (US) accounts, but you should also do the following:
@@ -342,7 +339,7 @@ defmodule AWS.Organizations do
   Region can invite it to that organization. For more information on inviting
   standalone accounts in the Amazon Web Services GovCloud (US) to join an
   organization, see
-  [Organizations](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html) in the *Amazon Web Services GovCloud User Guide.*
+  [Organizations](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html) in the *Amazon Web Services GovCloud User Guide*.
 
   Calling `CreateGovCloudAccount` is an asynchronous request that Amazon Web
   Services performs in the background. Because `CreateGovCloudAccount` operates
@@ -355,10 +352,10 @@ defmodule AWS.Organizations do
   provide as a parameter to the `DescribeCreateAccountStatus` operation.
 
     * Check the CloudTrail log for the `CreateAccountResult` event. For
-  information on using CloudTrail with Organizations, see [Monitoring the Activity
-  in Your
-  Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html)
-  in the *Organizations User Guide.*
+  information on using CloudTrail with Organizations, see [Logging and monitoring
+  in
+  Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html)
+  in the *Organizations User Guide*.
 
   When you call the `CreateGovCloudAccount` action, you create two accounts: a
   standalone account in the Amazon Web Services GovCloud (US) Region and an
@@ -375,21 +372,21 @@ defmodule AWS.Organizations do
   Services GovCloud (US) account that is associated with the management account of
   the commercial organization. For more information and to view a diagram that
   explains how account access works, see
-  [Organizations](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html) in the *Amazon Web Services GovCloud User Guide.*
+  [Organizations](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html) in the *Amazon Web Services GovCloud User Guide*.
 
-  For more information about creating accounts, see [Creating an Amazon Web
-  Services account in Your
-  Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html)
-  in the *Organizations User Guide.*
+  For more information about creating accounts, see [Creating a member account in
+  your
+  organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html)
+  in the *Organizations User Guide*.
 
      When you create an account in an organization using the
   Organizations console, API, or CLI commands, the information required for the
   account to operate as a standalone account is *not* automatically collected.
   This includes a payment method and signing the end user license agreement
   (EULA). If you must remove an account from your organization later, you can do
-  so only after you provide the missing information. Follow the steps at [ To leave an organization as a member
-  account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info)
-  in the *Organizations User Guide.*
+  so only after you provide the missing information. For more information, see
+  [Considerations before removing an account from an organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html)
+  in the *Organizations User Guide*.
 
      If you get an exception that indicates that you exceeded your
   account limits for the organization, contact [Amazon Web Services Support](https://console.aws.amazon.com/support/home#/).
@@ -402,7 +399,7 @@ defmodule AWS.Organizations do
   isn't recommended. You can only close an account from the Amazon Web Services
   Billing and Cost Management console, and you must be signed in as the root user.
   For information on the requirements and process for closing an account, see
-  [Closing an Amazon Web Services account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html)
+  [Closing a member account in your organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html)
   in the *Organizations User Guide*.
 
   When you create a member account with this operation, you can choose whether to
@@ -410,8 +407,8 @@ defmodule AWS.Organizations do
   switch enabled. If you enable it, IAM users and roles that have appropriate
   permissions can view billing information for the account. If you disable it,
   only the account root user can access billing information. For information about
-  how to disable this switch for an account, see [Granting Access to Your Billing Information and
-  Tools](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html).
+  how to disable this switch for an account, see [Granting access to your billing information and
+  tools](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html).
   """
   def create_gov_cloud_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -434,8 +431,8 @@ defmodule AWS.Organizations do
   organization is created with all features enabled and service control policies
   automatically enabled in the root. If you instead choose to create the
   organization supporting only the consolidated billing features by setting the
-  `FeatureSet` parameter to `CONSOLIDATED_BILLING"`, no policy types are enabled
-  by default, and you can't use organization policies
+  `FeatureSet` parameter to `CONSOLIDATED_BILLING`, no policy types are enabled by
+  default and you can't use organization policies.
   """
   def create_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -451,8 +448,8 @@ defmodule AWS.Organizations do
   deep that you can nest OUs is dependent upon the policy types enabled for that
   root. For service control policies, the limit is five.
 
-  For more information about OUs, see [Managing Organizational Units](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html)
-  in the *Organizations User Guide.*
+  For more information about OUs, see [Managing organizational units (OUs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html)
+  in the *Organizations User Guide*.
 
   If the request includes tags, then the requester must have the
   `organizations:TagResource` permission.
@@ -469,12 +466,14 @@ defmodule AWS.Organizations do
   Creates a policy of a specified type that you can attach to a root, an
   organizational unit (OU), or an individual Amazon Web Services account.
 
-  For more information about policies and their use, see [Managing Organization Policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
+  For more information about policies and their use, see [Managing Organizations policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
 
   If the request includes tags, then the requester must have the
   `organizations:TagResource` permission.
 
-  This operation can be called only from the organization's management account.
+  This operation can be called only from the organization's management account or
+  by a member account that is a delegated administrator for an Amazon Web Services
+  service.
   """
   def create_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -534,7 +533,9 @@ defmodule AWS.Organizations do
   Before you perform this operation, you must first detach the policy from all
   organizational units (OUs), roots, and accounts.
 
-  This operation can be called only from the organization's management account.
+  This operation can be called only from the organization's management account or
+  by a member account that is a delegated administrator for an Amazon Web Services
+  service.
   """
   def delete_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -613,12 +614,11 @@ defmodule AWS.Organizations do
   This operation applies only to policy types *other* than service control
   policies (SCPs).
 
-  For more information about policy inheritance, see [How Policy Inheritance Works](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies-inheritance.html)
+  For more information about policy inheritance, see [Understanding management policy
+  inheritance](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inheritance_mgmt.html)
   in the *Organizations User Guide*.
 
-  This operation can be called only from the organization's management account or
-  by a member account that is a delegated administrator for an Amazon Web Services
-  service.
+  This operation can be called from any account in the organization.
   """
   def describe_effective_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -688,7 +688,7 @@ defmodule AWS.Organizations do
   @doc """
   Retrieves information about a resource policy.
 
-  You can only call this operation from the organization's management account or
+  This operation can be called only from the organization's management account or
   by a member account that is a delegated administrator for an Amazon Web Services
   service.
   """
@@ -714,7 +714,9 @@ defmodule AWS.Organizations do
   `"Effect": "Allow"` in the `FullAWSAccess` policy (or any other attached SCP),
   you're using the authorization strategy of a "[deny list](https://docs.aws.amazon.com/organizations/latest/userguide/SCP_strategies.html#orgs_policies_denylist)".
 
-  This operation can be called only from the organization's management account.
+  This operation can be called only from the organization's management account or
+  by a member account that is a delegated administrator for an Amazon Web Services
+  service.
   """
   def detach_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -775,9 +777,9 @@ defmodule AWS.Organizations do
   can no longer perform operations in your organization's accounts
 
   For more information about integrating other services with Organizations,
-  including the list of services that work with Organizations, see [Integrating Organizations with Other Amazon Web Services
-  Services](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
-  in the *Organizations User Guide.*
+  including the list of services that work with Organizations, see [Using Organizations with other Amazon Web Services
+  services](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
+  in the *Organizations User Guide*.
 
   This operation can be called only from the organization's management account.
   """
@@ -803,7 +805,9 @@ defmodule AWS.Organizations do
   use `ListRoots` to see the status of policy types for a specified root, and then
   use this operation.
 
-  This operation can be called only from the organization's management account.
+  This operation can be called only from the organization's management account or
+  by a member account that is a delegated administrator for an Amazon Web Services
+  service.
 
   To view the status of available policy types in the organization, use
   `DescribeOrganization`.
@@ -821,8 +825,8 @@ defmodule AWS.Organizations do
   actions that can be called in each account. Until you enable all features, you
   have access only to consolidated billing, and you can't use any of the advanced
   account administration features that Organizations supports. For more
-  information, see [Enabling All Features in Your Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html)
-  in the *Organizations User Guide.*
+  information, see [Enabling all features in your organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html)
+  in the *Organizations User Guide*.
 
   This operation is required only for organizations that were created explicitly
   with only the consolidated billing features enabled. Calling this operation
@@ -871,8 +875,8 @@ defmodule AWS.Organizations do
   service.
 
   For more information about enabling services to integrate with Organizations,
-  see [Integrating Organizations with Other Amazon Web Services Services](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
-  in the *Organizations User Guide.*
+  see [Using Organizations with other Amazon Web Services services](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
+  in the *Organizations User Guide*.
 
   You can only call this operation from the organization's management account and
   only if the organization has [enabled all features](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html).
@@ -894,7 +898,9 @@ defmodule AWS.Organizations do
   background. Amazon Web Services recommends that you first use `ListRoots` to see
   the status of policy types for a specified root, and then use this operation.
 
-  This operation can be called only from the organization's management account.
+  This operation can be called only from the organization's management account or
+  by a member account that is a delegated administrator for an Amazon Web Services
+  service.
 
   You can enable a policy type in a root only if that policy type is available in
   the organization. To view the status of available policy types in the
@@ -920,7 +926,7 @@ defmodule AWS.Organizations do
   Services seller in India, you can invite only other AISPL accounts to your
   organization. You can't combine accounts from AISPL and Amazon Web Services or
   from any other Amazon Web Services seller. For more information, see
-  [Consolidated Billing in India](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html).
+  [Consolidated billing in India](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilling-India.html).
 
      If you receive an exception that indicates that you exceeded your
   account limits for the organization or that the operation failed because your
@@ -968,9 +974,9 @@ defmodule AWS.Organizations do
 
   Amazon Web Services uses the payment method to charge for any billable (not free
   tier) Amazon Web Services activity that occurs while the account isn't attached
-  to an organization. Follow the steps at [ To leave an organization when all required account information has not yet been
-  provided](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info)
-  in the *Organizations User Guide.*
+  to an organization. For more information, see [Considerations before removing an account from an
+  organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html)
+  in the *Organizations User Guide*.
 
      The account that you want to leave must not be a delegated
   administrator account for any Amazon Web Services service enabled for your
@@ -979,9 +985,9 @@ defmodule AWS.Organizations do
   organization.
 
      You can leave an organization only after you enable IAM user access
-  to billing in your account. For more information, see [Activating Access to the Billing and Cost Management
-  Console](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate)
-  in the *Amazon Web Services Billing and Cost Management User Guide.*
+  to billing in your account. For more information, see [About IAM access to the Billing and Cost Management
+  console](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate)
+  in the *Amazon Web Services Billing and Cost Management User Guide*.
 
      After the account leaves the organization, all tags that were
   attached to the account object in the organization are deleted. Amazon Web
@@ -990,6 +996,10 @@ defmodule AWS.Organizations do
      A newly created account has a waiting period before it can be
   removed from its organization. If you get an error that indicates that a wait
   period is required, then try again in a few days.
+
+     If you are using an organization principal to call
+  `LeaveOrganization` across multiple accounts, you can only do this up to 5
+  accounts per second in a single organization.
   """
   def leave_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1051,8 +1061,8 @@ defmodule AWS.Organizations do
 
   For more information about integrating other services with Organizations,
   including the list of services that currently work with Organizations, see
-  [Integrating Organizations with Other Amazon Web Services Services](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
-  in the *Organizations User Guide.*
+  [Using Organizations with other Amazon Web Services services](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
+  in the *Organizations User Guide*.
 
   This operation can be called only from the organization's management account or
   by a member account that is a delegated administrator for an Amazon Web Services
@@ -1388,15 +1398,9 @@ defmodule AWS.Organizations do
   account is configured with the information required to operate as a standalone
   account. When you create an account in an organization using the Organizations
   console, API, or CLI commands, the information required of standalone accounts
-  is *not* automatically collected. For an account that you want to make
-  standalone, you must choose a support plan, provide and verify the required
-  contact information, and provide a current payment method. Amazon Web Services
-  uses the payment method to charge for any billable (not free tier) Amazon Web
-  Services activity that occurs while the account isn't attached to an
-  organization. To remove an account that doesn't yet have this information, you
-  must sign in as the member account and follow the steps at [ To leave an organization when all required account information has not yet been
-  provided](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info)
-  in the *Organizations User Guide.*
+  is *not* automatically collected. For more information, see [Considerations before removing an account from an
+  organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html)
+  in the *Organizations User Guide*.
 
      The account that you want to leave must not be a delegated
   administrator account for any Amazon Web Services service enabled for your
@@ -1427,7 +1431,9 @@ defmodule AWS.Organizations do
 
     * Policy (any type)
 
-  This operation can be called only from the organization's management account.
+  This operation can be called only from the organization's management account or
+  by a member account that is a delegated administrator for an Amazon Web Services
+  service.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1448,7 +1454,9 @@ defmodule AWS.Organizations do
 
     * Policy (any type)
 
-  This operation can be called only from the organization's management account.
+  This operation can be called only from the organization's management account or
+  by a member account that is a delegated administrator for an Amazon Web Services
+  service.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1476,7 +1484,9 @@ defmodule AWS.Organizations do
   If you don't supply any parameter, that value remains unchanged. You can't
   change a policy's type.
 
-  This operation can be called only from the organization's management account.
+  This operation can be called only from the organization's management account or
+  by a member account that is a delegated administrator for an Amazon Web Services
+  service.
   """
   def update_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()

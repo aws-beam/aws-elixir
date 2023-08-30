@@ -168,7 +168,7 @@ defmodule AWS.FSx do
   A data repository association is a link between a directory on the file system
   and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository
   associations on a file system. Data repository associations are supported on all
-  FSx for Lustre 2.12 and newer file systems, excluding `scratch_1` deployment
+  FSx for Lustre 2.12 and 2.15 file systems, excluding `scratch_1` deployment
   type.
 
   Each data repository association must have a unique Amazon FSx file system
@@ -200,7 +200,7 @@ defmodule AWS.FSx do
   from your FSx file system to a linked data repository.
 
   You use release data repository tasks to release data from your file system for
-  files that are archived to S3. The metadata of released files remains on the
+  files that are exported to S3. The metadata of released files remains on the
   file system so users or applications can still access released files by reading
   the files again, which will restore data from Amazon S3 to the FSx for Lustre
   file system.
@@ -418,7 +418,7 @@ defmodule AWS.FSx do
   S3 bucket. When deleting a data repository association, you have the option of
   deleting the data in the file system that corresponds to the data repository
   association. Data repository associations are supported on all FSx for Lustre
-  2.12 and newer file systems, excluding `scratch_1` deployment type.
+  2.12 and 2.15 file systems, excluding `scratch_1` deployment type.
   """
   def delete_data_repository_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -459,6 +459,21 @@ defmodule AWS.FSx do
   By default, when you delete an Amazon FSx for Windows File Server file system, a
   final backup is created upon deletion. This final backup isn't subject to the
   file system's retention policy, and must be manually deleted.
+
+  To delete an Amazon FSx for Lustre file system, first
+  [unmount](https://docs.aws.amazon.com/fsx/latest/LustreGuide/unmounting-fs.html) it from every connected Amazon EC2 instance, then provide a `FileSystemId` value
+  to the `DeleFileSystem` operation. By default, Amazon FSx will not take a final
+  backup when the `DeleteFileSystem` operation is invoked. On file systems not
+  linked to an Amazon S3 bucket, set `SkipFinalBackup` to `false` to take a final
+  backup of the file system you are deleting. Backups cannot be enabled on
+  S3-linked file systems. To ensure all of your data is written back to S3 before
+  deleting your file system, you can either monitor for the
+  [AgeOfOldestQueuedMessage](https://docs.aws.amazon.com/fsx/latest/LustreGuide/monitoring-cloudwatch.html#auto-import-export-metrics)
+  metric to be zero (if using automatic export) or you can run an [export data repository
+  task](https://docs.aws.amazon.com/fsx/latest/LustreGuide/export-data-repo-task-dra.html).
+  If you have automatic export enabled and want to use an export data repository
+  task, you have to disable automatic export before executing the export data
+  repository task.
 
   The `DeleteFileSystem` operation returns while the file system has the
   `DELETING` status. You can check the file system deletion status by calling the
@@ -555,7 +570,7 @@ defmodule AWS.FSx do
   provided in the request, or if filters are used in the request.
 
   Data repository associations are supported on Amazon File Cache resources and
-  all FSx for Lustre 2.12 and newer file systems, excluding `scratch_1` deployment
+  all FSx for Lustre 2.12 and 2,15 file systems, excluding `scratch_1` deployment
   type.
 
   You can use filters to narrow the response to include just data repository
@@ -828,7 +843,7 @@ defmodule AWS.FSx do
   Updates the configuration of an existing data repository association on an
   Amazon FSx for Lustre file system.
 
-  Data repository associations are supported on all FSx for Lustre 2.12 and newer
+  Data repository associations are supported on all FSx for Lustre 2.12 and 2.15
   file systems, excluding `scratch_1` deployment type.
   """
   def update_data_repository_association(%Client{} = client, input, options \\ []) do
@@ -915,6 +930,8 @@ defmodule AWS.FSx do
 
   For FSx for OpenZFS file systems, you can update the following properties:
 
+    * `AddRouteTableIds`
+
     * `AutomaticBackupRetentionDays`
 
     * `CopyTagsToBackups`
@@ -924,6 +941,8 @@ defmodule AWS.FSx do
     * `DailyAutomaticBackupStartTime`
 
     * `DiskIopsConfiguration`
+
+    * `RemoveRouteTableIds`
 
     * `StorageCapacity`
 

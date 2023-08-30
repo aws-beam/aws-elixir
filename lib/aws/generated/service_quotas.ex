@@ -3,11 +3,12 @@
 
 defmodule AWS.ServiceQuotas do
   @moduledoc """
-  With Service Quotas, you can view and manage your quotas easily as your AWS
-  workloads grow.
+  With Service Quotas, you can view and manage your quotas easily as your Amazon
+  Web Services workloads grow.
 
   Quotas, also referred to as limits, are the maximum number of resources that you
-  can create in your AWS account. For more information, see the [Service Quotas User Guide](https://docs.aws.amazon.com/servicequotas/latest/userguide/).
+  can create in your Amazon Web Services account. For more information, see the
+  [Service Quotas User Guide](https://docs.aws.amazon.com/servicequotas/latest/userguide/).
   """
 
   alias AWS.Client
@@ -32,9 +33,10 @@ defmodule AWS.ServiceQuotas do
   @doc """
   Associates your quota request template with your organization.
 
-  When a new account is created in your organization, the quota increase requests
-  in the template are automatically applied to the account. You can add a quota
-  increase request for any adjustable quota to your template.
+  When a new Amazon Web Services account is created in your organization, the
+  quota increase requests in the template are automatically applied to the
+  account. You can add a quota increase request for any adjustable quota to your
+  template.
   """
   def associate_service_quota_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -66,8 +68,8 @@ defmodule AWS.ServiceQuotas do
   Disables your quota request template.
 
   After a template is disabled, the quota increase requests in the template are
-  not applied to new accounts in your organization. Disabling a quota request
-  template does not apply its quota increase requests.
+  not applied to new Amazon Web Services accounts in your organization. Disabling
+  a quota request template does not apply its quota increase requests.
   """
   def disassociate_service_quota_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -133,7 +135,7 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Lists the default values for the quotas for the specified AWS service.
+  Lists the default values for the quotas for the specified Amazon Web Service.
 
   A default value does not reflect any quota increases.
   """
@@ -144,7 +146,7 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Retrieves the quota increase requests for the specified service.
+  Retrieves the quota increase requests for the specified Amazon Web Service.
   """
   def list_requested_service_quota_change_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -187,7 +189,7 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Lists the applied quota values for the specified AWS service.
+  Lists the applied quota values for the specified Amazon Web Service.
 
   For some quotas, only the default values are available. If the applied quota
   value is not available for a quota, the quota is not retrieved.
@@ -199,7 +201,8 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Lists the names and codes for the services integrated with Service Quotas.
+  Lists the names and codes for the Amazon Web Services integrated with Service
+  Quotas.
   """
   def list_services(%Client{} = client, input, options \\ []) do
     meta = metadata()

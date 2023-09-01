@@ -119,7 +119,7 @@ defmodule AWS.SageMakerRuntime do
   the result of the inference request but contain information about where you can
   locate it.
 
-  Amazon SageMaker strips all `POST` headers except those supported by the API.
+  Amazon SageMaker strips all POST headers except those supported by the API.
   Amazon SageMaker might add additional headers. You should not rely on the
   behavior of headers outside those enumerated in the request syntax.
 
@@ -167,6 +167,87 @@ defmodule AWS.SageMakerRuntime do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Invokes a model at the specified endpoint to return the inference response as a
+  stream.
+
+  The inference stream provides the response payload incrementally as a series of
+  parts. Before you can get an inference stream, you must have access to a model
+  that's deployed using Amazon SageMaker hosting services, and the container for
+  that model must support inference streaming.
+
+  For more information that can help you use this API, see the following sections
+  in the *Amazon SageMaker Developer Guide*:
+
+    * For information about how to add streaming support to a model, see
+  [How Containers Serve Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-code-how-containe-serves-requests).
+
+    * For information about how to process the streaming response, see
+  [Invoke real-time endpoints](https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-test-endpoints.html).
+
+  Amazon SageMaker strips all POST headers except those supported by the API.
+  Amazon SageMaker might add additional headers. You should not rely on the
+  behavior of headers outside those enumerated in the request syntax.
+
+  Calls to `InvokeEndpointWithResponseStream` are authenticated by using Amazon
+  Web Services Signature Version 4. For information, see [Authenticating Requests (Amazon Web Services Signature Version
+  4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html)
+  in the *Amazon S3 API Reference*.
+  """
+  def invoke_endpoint_with_response_stream(
+        %Client{} = client,
+        endpoint_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/endpoints/#{AWS.Util.encode_uri(endpoint_name)}/invocations-response-stream"
+
+    {headers, input} =
+      [
+        {"Accept", "X-Amzn-SageMaker-Accept"},
+        {"ContentType", "Content-Type"},
+        {"CustomAttributes", "X-Amzn-SageMaker-Custom-Attributes"},
+        {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
+        {"TargetContainerHostname", "X-Amzn-SageMaker-Target-Container-Hostname"},
+        {"TargetVariant", "X-Amzn-SageMaker-Target-Variant"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"X-Amzn-SageMaker-Content-Type", "ContentType"},
+          {"X-Amzn-SageMaker-Custom-Attributes", "CustomAttributes"},
+          {"x-Amzn-Invoked-Production-Variant", "InvokedProductionVariant"}
+        ]
+      )
+
+    options =
+      Keyword.put(
+        options,
+        :send_body_as_binary?,
+        true
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
     )
   end
 end

@@ -100,9 +100,9 @@ defmodule AWS.AppRunner do
   that access private repositories from certain third-party providers. You can
   share a connection across multiple services.
 
-  A connection resource is needed to access GitHub repositories. GitHub requires a
-  user interface approval process through the App Runner console before you can
-  use the connection.
+  A connection resource is needed to access GitHub and Bitbucket repositories.
+  Both require a user interface approval process through the App Runner console
+  before you can use the connection.
   """
   def create_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()

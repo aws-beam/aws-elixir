@@ -158,6 +158,16 @@ defmodule AWS.Health do
   end
 
   @doc """
+  Returns a list of entity aggregates for your Organizations that are affected by
+  each of the specified events.
+  """
+  def describe_entity_aggregates_for_organization(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEntityAggregatesForOrganization", input, options)
+  end
+
+  @doc """
   Returns the number of events of each event type (issue, scheduled change, and
   account notification).
 

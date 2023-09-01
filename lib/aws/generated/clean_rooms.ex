@@ -13,6 +13,9 @@ defmodule AWS.CleanRooms do
 
   To learn more about Clean Rooms concepts, procedures, and best practices, see
   the [Clean Rooms User Guide](https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html).
+
+  To learn more about SQL commands, functions, and conditions supported in Clean
+  Rooms, see the [Clean Rooms SQL Reference](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html).
   """
 
   alias AWS.Client
@@ -970,7 +973,7 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
-  Creates a protected query that is started by Clean Rooms .
+  Creates a protected query that is started by Clean Rooms.
   """
   def start_protected_query(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/protectedQueries"

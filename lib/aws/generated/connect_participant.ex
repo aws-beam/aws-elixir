@@ -130,6 +130,27 @@ defmodule AWS.ConnectParticipant do
   end
 
   @doc """
+  Retrieves the view for the specified view token.
+  """
+  def describe_view(%Client{} = client, view_token, connection_token, options \\ []) do
+    url_path = "/participant/views/#{AWS.Util.encode_uri(view_token)}"
+    headers = []
+
+    headers =
+      if !is_nil(connection_token) do
+        [{"X-Amz-Bearer", connection_token} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Disconnects a participant.
 
   `ConnectionToken` is used for invoking this API instead of `ParticipantToken`.

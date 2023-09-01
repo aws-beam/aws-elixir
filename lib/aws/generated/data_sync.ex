@@ -226,11 +226,12 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Configures a task, which defines where and how DataSync transfers your data.
+  Configures a transfer task, which defines where and how DataSync moves your
+  data.
 
-  A task includes a source location, a destination location, and the preferences
-  for how and when you want to transfer your data (such as bandwidth limits,
-  scheduling, among other options).
+  A task includes a source location, destination location, and the options for how
+  and when you want to transfer your data (such as bandwidth limits, scheduling,
+  among other options).
 
   If you're planning to transfer data to or from an Amazon S3 location, review
   [how DataSync can affect your S3 request charges](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests)
@@ -267,7 +268,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Deletes an DataSync task.
+  Deletes an DataSync transfer task.
   """
   def delete_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -447,7 +448,10 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Provides information about an DataSync transfer task that's running.
+  Provides information about an execution of your DataSync task.
+
+  You can use this operation to help monitor the progress of an ongoing transfer
+  or check the results of the transfer.
   """
   def describe_task_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -584,7 +588,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Starts an DataSync task.
+  Starts an DataSync transfer task.
 
   For each task, you can only run one task execution at a time.
 
@@ -726,7 +730,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Updates the metadata associated with a task.
+  Updates the configuration of a DataSync transfer task.
   """
   def update_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -735,11 +739,11 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Modifies a running DataSync task.
+  Updates the configuration of a running DataSync task execution.
 
   Currently, the only `Option` that you can modify with `UpdateTaskExecution` is `
   [BytesPerSecond](https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond)
-  `, which throttles bandwidth for a running or queued task.
+  `, which throttles bandwidth for a running or queued task execution.
   """
   def update_task_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()

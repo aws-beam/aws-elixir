@@ -524,22 +524,25 @@ defmodule AWS.Connect do
 
   Creates a new queue for the specified Amazon Connect instance.
 
-  If the number being used in the input is claimed to a traffic distribution
-  group, and you are calling this API using an instance in the Amazon Web Services
-  Region where the traffic distribution group was created, you can use either a
-  full phone number ARN or UUID value for the `OutboundCallerIdNumberId` value of
-  the
-  [OutboundCallerConfig](https://docs.aws.amazon.com/connect/latest/APIReference/API_OutboundCallerConfig) request body parameter. However, if the number is claimed to a traffic
-  distribution group and you are calling this API using an instance in the
-  alternate Amazon Web Services Region associated with the traffic distribution
-  group, you must provide a full phone number ARN. If a UUID is provided in this
-  scenario, you will receive a `ResourceNotFoundException`.
+     If the phone number is claimed to a traffic distribution group that
+  was created in the same Region as the Amazon Connect instance where you are
+  calling this API, then you can use a full phone number ARN or a UUID for
+  `OutboundCallerIdNumberId`. However, if the phone number is claimed to a traffic
+  distribution group that is in one Region, and you are calling this API from an
+  instance in another Amazon Web Services Region that is associated with the
+  traffic distribution group, you must provide a full phone number ARN. If a UUID
+  is provided in this scenario, you will receive a `ResourceNotFoundException`.
 
-  Only use the phone number ARN format that doesn't contain `instance` in the
-  path, for example, `arn:aws:connect:us-east-1:1234567890:phone-number/uuid`.
-  This is the same ARN format that is returned when you call the
-  [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html)
-  API.
+     Only use the phone number ARN format that doesn't contain
+  `instance` in the path, for example,
+  `arn:aws:connect:us-east-1:1234567890:phone-number/uuid`. This is the same ARN
+  format that is returned when you call the
+  [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) API.
+
+     If you plan to use IAM policies to allow/deny access to this API
+  for phone number resources claimed to a traffic distribution group, see [Allow
+  or Deny queue API actions for phone numbers in a replica
+  Region](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_resource-level-policy-examples.html#allow-deny-queue-actions-replica-region).
   """
   def create_queue(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}"
@@ -635,7 +638,14 @@ defmodule AWS.Connect do
   Creates a traffic distribution group given an Amazon Connect instance that has
   been replicated.
 
-  For more information about creating traffic distribution groups, see [Set up traffic distribution
+  You can change the `SignInConfig` distribution only for a default
+  `TrafficDistributionGroup` (see the `IsDefault` parameter in the
+  [TrafficDistributionGroup](https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html) data type). If you call `UpdateTrafficDistribution` with a modified
+  `SignInConfig` and a non-default `TrafficDistributionGroup`, an
+  `InvalidRequestException` is returned.
+
+  For more information about creating traffic distribution groups, see [Set up
+  traffic distribution
   groups](https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html)
   in the *Amazon Connect Administrator Guide*.
   """
@@ -692,6 +702,48 @@ defmodule AWS.Connect do
   """
   def create_user_hierarchy_group(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/user-hierarchy-groups/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Creates a new view with the possible status of `SAVED` or `PUBLISHED`.
+
+  The views will have a unique name for each connect instance.
+
+  It performs basic content validation if the status is `SAVED` or full content
+  validation if the status is set to `PUBLISHED`. An error is returned if
+  validation fails. It associates either the `$SAVED` qualifier or both of the
+  `$SAVED` and `$LATEST` qualifiers with the provided view content based on the
+  status. The view is idempotent if ClientToken is provided.
+  """
+  def create_view(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/views/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Publishes a new version of the view identifier.
+
+  Versions are immutable and monotonically increasing.
+
+  It returns the highest version if there is no change in content compared to that
+  version. An error is displayed if the supplied ViewContentSha256 is different
+  from the ViewContentSha256 of the `$LATEST` alias.
+  """
+  def create_view_version(%Client{} = client, instance_id, view_id, input, options \\ []) do
+    url_path =
+      "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}/versions"
+
     headers = []
     query_params = []
 
@@ -1311,6 +1363,63 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Deletes the view entirely.
+
+  It deletes the view and all associated qualifiers (versions and aliases).
+  """
+  def delete_view(%Client{} = client, instance_id, view_id, input, options \\ []) do
+    url_path = "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes the particular version specified in `ViewVersion` identifier.
+  """
+  def delete_view_version(
+        %Client{} = client,
+        instance_id,
+        view_id,
+        view_version,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}/versions/#{AWS.Util.encode_uri(view_version)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes the vocabulary that has the given identifier.
   """
   def delete_vocabulary(%Client{} = client, instance_id, vocabulary_id, input, options \\ []) do
@@ -1720,6 +1829,31 @@ defmodule AWS.Connect do
   """
   def describe_user_hierarchy_structure(%Client{} = client, instance_id, options \\ []) do
     url_path = "/user-hierarchy-structure/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieves the view for the specified Amazon Connect instance and view
+  identifier.
+
+  The view identifier can be supplied as a ViewId or ARN.
+
+  `$SAVED` needs to be supplied if a view is unpublished.
+
+  The view identifier can contain an optional qualifier, for example,
+  `<view-id>:$SAVED`, which is either an actual version number or an Amazon
+  Connect managed qualifier `$SAVED | $LATEST`. If it is not supplied, then
+  `$LATEST` is assumed for customer managed views and an error is returned if
+  there is no published content available. Version 1 is assumed for Amazon Web
+  Services managed views.
+  """
+  def describe_view(%Client{} = client, instance_id, view_id, options \\ []) do
+    url_path = "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}"
     headers = []
     query_params = []
 
@@ -2956,8 +3090,15 @@ defmodule AWS.Connect do
   Center](https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html)
   in the *Amazon Connect Administrator Guide*.
 
-  The phone number `Arn` value that is returned from each of the items in the
-  [PhoneNumberSummaryList](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbers.html#connect-ListPhoneNumbers-response-PhoneNumberSummaryList) cannot be used to tag phone number resources. It will fail with a
+     We recommend using
+  [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) to return phone number types. ListPhoneNumbers doesn't support number types
+  `UIFN`, `SHARED`, `THIRD_PARTY_TF`, and `THIRD_PARTY_DID`. While it returns
+  numbers of those types, it incorrectly lists them as `TOLL_FREE` or `DID`.
+
+     The phone number `Arn` value that is returned from each of the
+  items in the
+  [PhoneNumberSummaryList](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbers.html#connect-ListPhoneNumbers-response-PhoneNumberSummaryList)
+  cannot be used to tag phone number resources. It will fail with a
   `ResourceNotFoundException`. Instead, use the
   [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html)
   API. It returns the new phone number ARN that can be used to tag phone number
@@ -3691,6 +3832,88 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Returns all the available versions for the specified Amazon Connect instance and
+  view identifier.
+
+  Results will be sorted from highest to lowest.
+  """
+  def list_view_versions(
+        %Client{} = client,
+        instance_id,
+        view_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}/versions"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Returns views in the given instance.
+
+  Results are sorted primarily by type, and secondarily by name.
+  """
+  def list_views(
+        %Client{} = client,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/views/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Initiates silent monitoring of a contact.
 
   The Contact Control Panel (CCP) of the user specified by *userId* will be set to
@@ -4262,13 +4485,17 @@ defmodule AWS.Connect do
   @doc """
   Ends the specified contact.
 
-  This call does not work for the following initiation methods:
+  This call does not work for voice contacts that use the following initiation
+  methods:
 
     * DISCONNECT
 
     * TRANSFER
 
     * QUEUE_TRANSFER
+
+  Chat and task contacts, however, can be terminated in any state, regardless of
+  initiation method.
   """
   def stop_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/stop"
@@ -5142,22 +5369,25 @@ defmodule AWS.Connect do
   Updates the outbound caller ID name, number, and outbound whisper flow for a
   specified queue.
 
-  If the number being used in the input is claimed to a traffic distribution
-  group, and you are calling this API using an instance in the Amazon Web Services
-  Region where the traffic distribution group was created, you can use either a
-  full phone number ARN or UUID value for the `OutboundCallerIdNumberId` value of
-  the
-  [OutboundCallerConfig](https://docs.aws.amazon.com/connect/latest/APIReference/API_OutboundCallerConfig) request body parameter. However, if the number is claimed to a traffic
-  distribution group and you are calling this API using an instance in the
-  alternate Amazon Web Services Region associated with the traffic distribution
-  group, you must provide a full phone number ARN. If a UUID is provided in this
-  scenario, you will receive a `ResourceNotFoundException`.
+     If the phone number is claimed to a traffic distribution group that
+  was created in the same Region as the Amazon Connect instance where you are
+  calling this API, then you can use a full phone number ARN or a UUID for
+  `OutboundCallerIdNumberId`. However, if the phone number is claimed to a traffic
+  distribution group that is in one Region, and you are calling this API from an
+  instance in another Amazon Web Services Region that is associated with the
+  traffic distribution group, you must provide a full phone number ARN. If a UUID
+  is provided in this scenario, you will receive a `ResourceNotFoundException`.
 
-  Only use the phone number ARN format that doesn't contain `instance` in the
-  path, for example, `arn:aws:connect:us-east-1:1234567890:phone-number/uuid`.
-  This is the same ARN format that is returned when you call the
-  [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html)
-  API.
+     Only use the phone number ARN format that doesn't contain
+  `instance` in the path, for example,
+  `arn:aws:connect:us-east-1:1234567890:phone-number/uuid`. This is the same ARN
+  format that is returned when you call the
+  [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) API.
+
+     If you plan to use IAM policies to allow/deny access to this API
+  for phone number resources claimed to a traffic distribution group, see [Allow
+  or Deny queue API actions for phone numbers in a replica
+  Region](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_resource-level-policy-examples.html#allow-deny-queue-actions-replica-region).
   """
   def update_queue_outbound_caller_config(
         %Client{} = client,
@@ -5527,12 +5757,14 @@ defmodule AWS.Connect do
   @doc """
   Updates the traffic distribution for a given traffic distribution group.
 
-  You can change the `SignInConfig` only for a default `TrafficDistributionGroup`.
-  If you call `UpdateTrafficDistribution` with a modified `SignInConfig` and a
-  non-default `TrafficDistributionGroup`, an `InvalidRequestException` is
-  returned.
+  You can change the `SignInConfig` distribution only for a default
+  `TrafficDistributionGroup` (see the `IsDefault` parameter in the
+  [TrafficDistributionGroup](https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html) data type). If you call `UpdateTrafficDistribution` with a modified
+  `SignInConfig` and a non-default `TrafficDistributionGroup`, an
+  `InvalidRequestException` is returned.
 
-  For more information about updating a traffic distribution group, see [Update telephony traffic distribution across Amazon Web Services Regions
+  For more information about updating a traffic distribution group, see [Update
+  telephony traffic distribution across Amazon Web Services Regions
   ](https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html)
   in the *Amazon Connect Administrator Guide*.
   """
@@ -5721,6 +5953,62 @@ defmodule AWS.Connect do
       ) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/security-profiles"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates the view content of the given view identifier in the specified Amazon
+  Connect instance.
+
+  It performs content validation if `Status` is set to `SAVED` and performs full
+  content validation if `Status` is `PUBLISHED`. Note that the `$SAVED` alias'
+  content will always be updated, but the `$LATEST` alias' content will only be
+  updated if `Status` is `PUBLISHED`.
+  """
+  def update_view_content(%Client{} = client, instance_id, view_id, input, options \\ []) do
+    url_path = "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates the view metadata.
+
+  Note that either `Name` or `Description` must be provided.
+  """
+  def update_view_metadata(%Client{} = client, instance_id, view_id, input, options \\ []) do
+    url_path =
+      "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}/metadata"
 
     headers = []
     query_params = []

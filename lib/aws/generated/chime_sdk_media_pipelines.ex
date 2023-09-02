@@ -259,6 +259,46 @@ defmodule AWS.ChimeSDKMediaPipelines do
   end
 
   @doc """
+  Retrieves the details of the specified speaker search task.
+  """
+  def get_speaker_search_task(
+        %Client{} = client,
+        identifier,
+        speaker_search_task_id,
+        options \\ []
+      ) do
+    url_path =
+      "/media-insights-pipelines/#{AWS.Util.encode_uri(identifier)}/speaker-search-tasks/#{AWS.Util.encode_uri(speaker_search_task_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the details of a voice tone analysis task.
+  """
+  def get_voice_tone_analysis_task(
+        %Client{} = client,
+        identifier,
+        voice_tone_analysis_task_id,
+        options \\ []
+      ) do
+    url_path =
+      "/media-insights-pipelines/#{AWS.Util.encode_uri(identifier)}/voice-tone-analysis-tasks/#{AWS.Util.encode_uri(voice_tone_analysis_task_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of media pipelines.
   """
   def list_media_capture_pipelines(
@@ -372,6 +412,130 @@ defmodule AWS.ChimeSDKMediaPipelines do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Starts a speaker search task.
+
+  Before starting any speaker search tasks, you must provide all notices and
+  obtain all consents from the speaker as required under applicable privacy and
+  biometrics laws, and as required under the [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime SDK.
+  """
+  def start_speaker_search_task(%Client{} = client, identifier, input, options \\ []) do
+    url_path =
+      "/media-insights-pipelines/#{AWS.Util.encode_uri(identifier)}/speaker-search-tasks?operation=start"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Starts a voice tone analysis task.
+
+  For more information about voice tone analysis, see [Using Amazon Chime SDK voice
+  analytics](https://docs.aws.amazon.com/chime-sdk/latest/dg/voice-analytics.html)
+  in the *Amazon Chime SDK Developer Guide*.
+
+  Before starting any voice tone analysis tasks, you must provide all notices and
+  obtain all consents from the speaker as required under applicable privacy and
+  biometrics laws, and as required under the [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime SDK.
+  """
+  def start_voice_tone_analysis_task(%Client{} = client, identifier, input, options \\ []) do
+    url_path =
+      "/media-insights-pipelines/#{AWS.Util.encode_uri(identifier)}/voice-tone-analysis-tasks?operation=start"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Stops a speaker search task.
+  """
+  def stop_speaker_search_task(
+        %Client{} = client,
+        identifier,
+        speaker_search_task_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/media-insights-pipelines/#{AWS.Util.encode_uri(identifier)}/speaker-search-tasks/#{AWS.Util.encode_uri(speaker_search_task_id)}?operation=stop"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Stops a voice tone analysis task.
+  """
+  def stop_voice_tone_analysis_task(
+        %Client{} = client,
+        identifier,
+        voice_tone_analysis_task_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/media-insights-pipelines/#{AWS.Util.encode_uri(identifier)}/voice-tone-analysis-tasks/#{AWS.Util.encode_uri(voice_tone_analysis_task_id)}?operation=stop"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """

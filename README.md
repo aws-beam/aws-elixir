@@ -47,7 +47,7 @@ Note that you may need to specify the `ContentType` attribute when calling `AWS.
 This is because S3 will use that to store the MIME type of the file.
 
 You can also upload to S3 as multipart. If you're facing timeout issues, this strategy is
-recommended.
+recommended:
 
 ```elixir
 client = AWS.Client.create("your-access-key-id", "your-secret-access-key", "us-east-1")
@@ -56,7 +56,7 @@ filename = "./your-big-file.wav"
 # AWS minimum chunk size is 5MB
 chunk_size = 5_242_880
 
-# Create the Multipart upload
+# Create the multipart request
 {:ok,
  %{
    "InitiateMultipartUploadResult" => %{

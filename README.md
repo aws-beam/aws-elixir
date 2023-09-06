@@ -37,7 +37,7 @@ If you are using `AWS.S3`, you can upload a file with integrity check doing:
 
 ```elixir
 iex> client = AWS.Client.create("your-access-key-id", "your-secret-access-key", "us-east-1")
-iex> file =  File.read!("./tmp/your-file.txt")
+iex> file = File.read!("./tmp/your-file.txt")
 iex> md5 = :crypto.hash(:md5, file) |> Base.encode64()
 iex> AWS.S3.put_object(client, "your-bucket-name", "foo/your-file-on-s3.txt",
   %{"Body" => file, "ContentMD5" => md5})
@@ -45,6 +45,54 @@ iex> AWS.S3.put_object(client, "your-bucket-name", "foo/your-file-on-s3.txt",
 
 Note that you may need to specify the `ContentType` attribute when calling `AWS.S3.put_object/4`.
 This is because S3 will use that to store the MIME type of the file.
+
+You can also upload to S3 as multipart. If you're facing timeout issues, this strategy is
+recommended.
+
+```elixir
+client = AWS.Client.create("your-access-key-id", "your-secret-access-key", "us-east-1")
+bucket = "your-bucket-name"
+filename = "./your-big-file.wav"
+# AWS minimum chunk size is 5MB
+chunk_size = 5_242_880
+
+# Create the Multipart upload
+{:ok,
+ %{
+   "InitiateMultipartUploadResult" => %{
+     "UploadId" => upload_id
+   }
+ }, _} = AWS.S3.create_multipart_upload(client, bucket, filename, %{})
+
+file = File.read!(filename)
+
+# Send the file's binary in parts
+parts =
+  file
+  |> String.codepoints()
+  |> Stream.chunk_every(chunk_size)
+  |> Stream.with_index(1)
+  |> Enum.map(fn {chunk, i} ->
+    chunk = Enum.join(chunk)
+
+    {:ok, nil, %{headers: headers, status_code: 200}} =
+      AWS.S3.upload_part(aws_client, bucket, filename, %{
+        "Body" => chunk,
+        "PartNumber" => i,
+        "UploadId" => upload_id
+      })
+
+    {_, etag} = Enum.find(headers, fn {header, _} -> header == "ETag" end)
+
+    %{"ETag" => etag, "PartNumber" => i}
+  end)
+
+
+input = %{"CompleteMultipartUpload" => %{"Part" => parts}, "UploadId" => upload_id}
+
+# Complete the multipart request
+AWS.S3.complete_multipart_upload(aws_client, bucket, filename, input)
+```
 
 You can also list objects in a bucket:
 

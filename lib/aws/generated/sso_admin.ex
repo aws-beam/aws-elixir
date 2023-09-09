@@ -3,30 +3,30 @@
 
 defmodule AWS.SSOAdmin do
   @moduledoc """
-  AWS IAM Identity Center (successor to AWS Single Sign-On) helps you securely
-  create, or connect, your workforce identities and manage their access centrally
-  across AWS accounts and applications.
+  IAM Identity Center (successor to Single Sign-On) helps you securely create, or
+  connect, your workforce identities and manage their access centrally across
+  Amazon Web Services accounts and applications.
 
   IAM Identity Center is the recommended approach for workforce authentication and
-  authorization in AWS, for organizations of any size and type.
+  authorization in Amazon Web Services, for organizations of any size and type.
 
-  Although AWS Single Sign-On was renamed, the `sso` and `identitystore` API
-  namespaces will continue to retain their original name for backward
-  compatibility purposes. For more information, see [IAM Identity Center rename](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed).
+  IAM Identity Center uses the `sso` and `identitystore` API namespaces.
 
   This reference guide provides information on single sign-on operations which
-  could be used for access management of AWS accounts. For information about IAM
-  Identity Center features, see the [IAM Identity Center User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
+  could be used for access management of Amazon Web Services accounts. For
+  information about IAM Identity Center features, see the [IAM Identity Center User
+  Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
 
   Many operations in the IAM Identity Center APIs rely on identifiers for users
   and groups, known as principals. For more information about how to work with
   principals and principal IDs in IAM Identity Center, see the [Identity Store API Reference](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html).
 
-  AWS provides SDKs that consist of libraries and sample code for various
-  programming languages and platforms (Java, Ruby, .Net, iOS, Android, and more).
-  The SDKs provide a convenient way to create programmatic access to IAM Identity
-  Center and other AWS services. For more information about the AWS SDKs,
-  including how to download and install them, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
+  Amazon Web Services provides SDKs that consist of libraries and sample code for
+  various programming languages and platforms (Java, Ruby, .Net, iOS, Android, and
+  more). The SDKs provide a convenient way to create programmatic access to IAM
+  Identity Center and other Amazon Web Services services. For more information
+  about the Amazon Web Services SDKs, including how to download and install them,
+  see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
   """
 
   alias AWS.Client
@@ -68,7 +68,7 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Attaches an AWS managed policy ARN to a permission set.
+  Attaches an Amazon Web Services managed policy ARN to a permission set.
 
   If the permission set is already referenced by one or more account assignments,
   you will need to call ` `ProvisionPermissionSet` ` after this operation. Calling
@@ -82,8 +82,8 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Assigns access to a principal for a specified AWS account using a specified
-  permission set.
+  Assigns access to a principal for a specified Amazon Web Services account using
+  a specified permission set.
 
   The term *principal* here refers to a user or group that is defined in IAM
   Identity Center.
@@ -135,7 +135,7 @@ defmodule AWS.SSOAdmin do
   @doc """
   Creates a permission set within a specified IAM Identity Center instance.
 
-  To grant users and groups access to AWS account resources, use `
+  To grant users and groups access to Amazon Web Services account resources, use `
   `CreateAccountAssignment` `.
   """
   def create_permission_set(%Client{} = client, input, options \\ []) do
@@ -145,10 +145,10 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Deletes a principal's access from a specified AWS account using a specified
-  permission set.
+  Deletes a principal's access from a specified Amazon Web Services account using
+  a specified permission set.
 
-  After a successful response, call `DescribeAccountAssignmentCreationStatus` to
+  After a successful response, call `DescribeAccountAssignmentDeletionStatus` to
   describe the status of an assignment deletion request.
   """
   def delete_account_assignment(%Client{} = client, input, options \\ []) do
@@ -298,7 +298,8 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Detaches the attached AWS managed policy ARN from the specified permission set.
+  Detaches the attached Amazon Web Services managed policy ARN from the specified
+  permission set.
   """
   def detach_managed_policy_from_permission_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -325,8 +326,8 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Lists the status of the AWS account assignment creation requests for a specified
-  IAM Identity Center instance.
+  Lists the status of the Amazon Web Services account assignment creation requests
+  for a specified IAM Identity Center instance.
   """
   def list_account_assignment_creation_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -335,8 +336,8 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Lists the status of the AWS account assignment deletion requests for a specified
-  IAM Identity Center instance.
+  Lists the status of the Amazon Web Services account assignment deletion requests
+  for a specified IAM Identity Center instance.
   """
   def list_account_assignment_deletion_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -345,8 +346,8 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Lists the assignee of the specified AWS account with the specified permission
-  set.
+  Lists the assignee of the specified Amazon Web Services account with the
+  specified permission set.
   """
   def list_account_assignments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -355,7 +356,8 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Lists all the AWS accounts where the specified permission set is provisioned.
+  Lists all the Amazon Web Services accounts where the specified permission set is
+  provisioned.
   """
   def list_accounts_for_provisioned_permission_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -392,7 +394,8 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Lists the AWS managed policy that is attached to a specified permission set.
+  Lists the Amazon Web Services managed policy that is attached to a specified
+  permission set.
   """
   def list_managed_policies_in_permission_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -420,7 +423,8 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Lists all the permission sets that are provisioned to a specified AWS account.
+  Lists all the permission sets that are provisioned to a specified Amazon Web
+  Services account.
   """
   def list_permission_sets_provisioned_to_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -461,8 +465,8 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Attaches an AWS managed or customer managed policy to the specified
-  `PermissionSet` as a permissions boundary.
+  Attaches an Amazon Web Services managed or customer managed policy to the
+  specified `PermissionSet` as a permissions boundary.
   """
   def put_permissions_boundary_to_permission_set(%Client{} = client, input, options \\ []) do
     meta = metadata()

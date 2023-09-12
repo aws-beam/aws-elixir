@@ -1307,6 +1307,32 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Start an input device that is attached to a MediaConnect flow.
+
+  (There is no need to start a device that is attached to a MediaLive input;
+  MediaLive starts the device when the channel starts.)
+  """
+  def start_input_device(%Client{} = client, input_device_id, input, options \\ []) do
+    url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/start"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Start a maintenance window for the specified input device.
 
   Starting a maintenance window will give the device up to two hours to install
@@ -1375,6 +1401,32 @@ defmodule AWS.MediaLive do
   """
   def stop_channel(%Client{} = client, channel_id, input, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/stop"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Stop an input device that is attached to a MediaConnect flow.
+
+  (There is no need to stop a device that is attached to a MediaLive input;
+  MediaLive automatically stops the device when the channel stops.)
+  """
+  def stop_input_device(%Client{} = client, input_device_id, input, options \\ []) do
+    url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/stop"
     headers = []
     query_params = []
 

@@ -60,7 +60,12 @@ defmodule AWS.Kendra do
 
   The documents are deleted asynchronously. You can see the progress of the
   deletion by using Amazon Web Services CloudWatch. Any error messages related to
-  the processing of the batch are sent to you CloudWatch log.
+  the processing of the batch are sent to your Amazon Web Services CloudWatch log.
+  You can also use the `BatchGetDocumentStatus` API to monitor the progress of
+  deleting your documents.
+
+  Deleting documents from an index using `BatchDeleteDocument` could take up to an
+  hour or more, depending on the number of documents you want to delete.
   """
   def batch_delete_document(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -111,7 +116,9 @@ defmodule AWS.Kendra do
 
   The documents are indexed asynchronously. You can see the progress of the batch
   using Amazon Web Services CloudWatch. Any error messages related to processing
-  the batch are sent to your Amazon Web Services CloudWatch log.
+  the batch are sent to your Amazon Web Services CloudWatch log. You can also use
+  the `BatchGetDocumentStatus` API to monitor the progress of indexing your
+  documents.
 
   For an example of ingesting inline documents using Python and Java SDKs, see
   [Adding files directly to an index](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-binary-doc.html).
@@ -247,8 +254,8 @@ defmodule AWS.Kendra do
   completed, check the `Status` field returned from a call to `DescribeIndex`. The
   `Status` field is set to `ACTIVE` when the index is ready to use.
 
-  Once the index is active you can index your documents using the
-  `BatchPutDocument` API or using one of the supported data sources.
+  Once the index is active, you can index your documents using the
+  `BatchPutDocument` API or using one of the supported [data sources](https://docs.aws.amazon.com/kendra/latest/dg/data-sources.html).
 
   For an example of creating an index and data source using the Python SDK, see
   [Getting started with Python SDK](https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html). For an
@@ -319,6 +326,10 @@ defmodule AWS.Kendra do
   the data source is being deleted, the `Status` field returned by a call to the
   `DescribeDataSource` API is set to `DELETING`. For more information, see
   [Deleting Data Sources](https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html).
+
+  Deleting an entire data source or re-syncing your index after deleting specific
+  documents from a data source could take up to an hour or more, depending on the
+  number of documents you want to delete.
   """
   def delete_data_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -789,15 +800,14 @@ defmodule AWS.Kendra do
   Retrieves relevant passages or text excerpts given an input query.
 
   This API is similar to the
-  [Query](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html)
-  API. However, by default, the `Query` API only returns excerpt passages of up to
+  [Query](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html) API. However, by default, the `Query` API only returns excerpt passages of up to
   100 token words. With the `Retrieve` API, you can retrieve longer passages of up
   to 200 token words and up to 100 semantically relevant passages. This doesn't
   include question-answer or FAQ type responses from your index. The passages are
   text excerpts that can be semantically extracted from multiple documents and
   multiple parts of the same document. If in extreme cases your documents produce
-  no relevant passages using the `Retrieve` API, you can alternatively use the
-  `Query` API.
+  zero passages using the `Retrieve` API, you can alternatively use the `Query`
+  API and its types of responses.
 
   You can also do the following:
 
@@ -809,6 +819,11 @@ defmodule AWS.Kendra do
 
   You can also include certain fields in the response that might provide useful
   additional information.
+
+  The `Retrieve` API shares the number of [query capacity
+  units](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html)
+  that you set for your index. For more information on what's included in a single
+  capacity unit and the default base capacity for an index, see [Adjusting capacity](https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html).
   """
   def retrieve(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -821,6 +836,10 @@ defmodule AWS.Kendra do
 
   If a synchronization job is already in progress, Amazon Kendra returns a
   `ResourceInUseException` exception.
+
+  Re-syncing your data source with your index after modifying, adding, or deleting
+  documents from your data source respository could take up to an hour or more,
+  depending on the number of documents to sync.
   """
   def start_data_source_sync_job(%Client{} = client, input, options \\ []) do
     meta = metadata()

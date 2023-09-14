@@ -636,8 +636,9 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Disables an Amazon Web Services account within the Organization as the GuardDuty
-  delegated administrator.
+  Removes the existing GuardDuty delegated administrator of the organization.
+
+  Only the organization's management account can run this API operation.
   """
   def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/admin/disable"
@@ -755,7 +756,7 @@ defmodule AWS.GuardDuty do
 
   With `autoEnableOrganizationMembers` configuration for your organization set to
   `ALL`, you'll receive an error if you attempt to disassociate a member account
-  before removing them from your Amazon Web Services organization.
+  before removing them from your organization.
   """
   def disassociate_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/disassociate"
@@ -778,8 +779,10 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Enables an Amazon Web Services account within the organization as the GuardDuty
-  delegated administrator.
+  Designates an Amazon Web Services account within the organization as your
+  GuardDuty delegated administrator.
+
+  Only the organization's management account can run this API operation.
   """
   def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/admin/enable"
@@ -802,8 +805,11 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Provides the details for the GuardDuty administrator account associated with the
+  Provides the details of the GuardDuty administrator account associated with the
   current GuardDuty member account.
+
+  If the organization's management account or a delegated administrator runs this
+  API, it will return success (`HTTP 200`) but no content.
   """
   def get_administrator_account(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/administrator"
@@ -1104,9 +1110,8 @@ defmodule AWS.GuardDuty do
   Invites Amazon Web Services accounts to become members of an organization
   administered by the Amazon Web Services account that invokes this API.
 
-  If you are using Amazon Web Services Organizations to manager your GuardDuty
-  environment, this step is not needed. For more information, see [Managing accounts with Amazon Web Services
-  Organizations](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
+  If you are using organizations to manager your GuardDuty environment, this step
+  is not needed. For more information, see [Managing accounts with organizations](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
 
   To invite Amazon Web Services accounts, the first step is to ensure that
   GuardDuty has been enabled in the potential member accounts. You can now invoke
@@ -1365,6 +1370,8 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Lists the accounts configured as GuardDuty delegated administrators.
+
+  Only the organization's management account can run this API operation.
   """
   def list_organization_admin_accounts(
         %Client{} = client,
@@ -1433,9 +1440,8 @@ defmodule AWS.GuardDuty do
   Lists tags for a resource.
 
   Tagging is currently supported for detectors, finding filters, IP sets, threat
-  intel sets, and publishing destination, with a limit of 50 tags per each
-  resource. When invoked, this operation returns all assigned tags for a given
-  resource.
+  intel sets, and publishing destination, with a limit of 50 tags per resource.
+  When invoked, this operation returns all assigned tags for a given resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1799,8 +1805,8 @@ defmodule AWS.GuardDuty do
   @doc """
   Configures the delegated administrator account with the provided values.
 
-  You must provide the value for either `autoEnableOrganizationMembers` or
-  `autoEnable`.
+  You must provide a value for either `autoEnableOrganizationMembers` or
+  `autoEnable`, but not both.
 
   There might be regional differences because some data sources might not be
   available in all the Amazon Web Services Regions where GuardDuty is presently

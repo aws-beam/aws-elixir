@@ -168,6 +168,29 @@ defmodule AWS.Drs do
   end
 
   @doc """
+  Deletes a resource launch action.
+  """
+  def delete_launch_action(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteLaunchAction"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes a single Launch Configuration Template by ID.
   """
   def delete_launch_configuration_template(%Client{} = client, input, options \\ []) do
@@ -693,6 +716,29 @@ defmodule AWS.Drs do
   end
 
   @doc """
+  Lists resource launch actions.
+  """
+  def list_launch_actions(%Client{} = client, input, options \\ []) do
+    url_path = "/ListLaunchActions"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns an array of staging accounts for existing extended source servers.
   """
   def list_staging_accounts(
@@ -735,6 +781,29 @@ defmodule AWS.Drs do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Puts a resource launch action.
+  """
+  def put_launch_action(%Client{} = client, input, options \\ []) do
+    url_path = "/PutLaunchAction"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

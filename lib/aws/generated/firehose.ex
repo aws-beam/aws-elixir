@@ -59,11 +59,15 @@ defmodule AWS.Firehose do
   You can also invoke `StartDeliveryStreamEncryption` to turn on SSE for an
   existing delivery stream that doesn't have SSE enabled.
 
-  A delivery stream is configured with a single destination: Amazon S3, Amazon ES,
-  Amazon Redshift, or Splunk. You must specify only one of the following
-  destination configuration parameters: `ExtendedS3DestinationConfiguration`,
-  `S3DestinationConfiguration`, `ElasticsearchDestinationConfiguration`,
-  `RedshiftDestinationConfiguration`, or `SplunkDestinationConfiguration`.
+  A delivery stream is configured with a single destination, such as Amazon Simple
+  Storage Service (Amazon S3), Amazon Redshift, Amazon OpenSearch Service, Amazon
+  OpenSearch Serverless, Splunk, and any custom HTTP endpoint or HTTP endpoints
+  owned by or supported by third-party service providers, including Datadog,
+  Dynatrace, LogicMonitor, MongoDB, New Relic, and Sumo Logic. You must specify
+  only one of the following destination configuration parameters:
+  `ExtendedS3DestinationConfiguration`, `S3DestinationConfiguration`,
+  `ElasticsearchDestinationConfiguration`, `RedshiftDestinationConfiguration`, or
+  `SplunkDestinationConfiguration`.
 
   When you specify `S3DestinationConfiguration`, you can also provide the
   following optional values: BufferingHints, `EncryptionConfiguration`, and
@@ -416,8 +420,9 @@ defmodule AWS.Firehose do
   delivery stream can continue during this process. The updated configurations are
   usually effective within a few minutes.
 
-  Switching between Amazon ES and other services is not supported. For an Amazon
-  ES destination, you can only update to another Amazon ES destination.
+  Switching between Amazon OpenSearch Service and other services is not supported.
+  For an Amazon OpenSearch Service destination, you can only update to another
+  Amazon OpenSearch Service destination.
 
   If the destination type is the same, Kinesis Data Firehose merges the
   configuration parameters specified with the destination configuration that

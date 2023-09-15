@@ -75,7 +75,7 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
-  Creates an ML model for data inference.
+  Creates a machine learning model for data inference.
 
   A machine-learning (ML) model is a mathematical model that finds patterns in
   your data. In Amazon Lookout for Equipment, the model learns the patterns of
@@ -92,6 +92,15 @@ defmodule AWS.LookoutEquipment do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateModel", input, options)
+  end
+
+  @doc """
+  Creates a retraining scheduler on the specified model.
+  """
+  def create_retraining_scheduler(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRetrainingScheduler", input, options)
   end
 
   @doc """
@@ -112,7 +121,7 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Deletes an inference scheduler that has been set up.
 
-  Already processed output results are not affected.
+  Prior inference results will not be deleted.
   """
   def delete_inference_scheduler(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -139,7 +148,8 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
-  Deletes an ML model currently available for Amazon Lookout for Equipment.
+  Deletes a machine learning model currently available for Amazon Lookout for
+  Equipment.
 
   This will prevent it from being used with an inference scheduler, even one that
   is already set up.
@@ -157,6 +167,17 @@ defmodule AWS.LookoutEquipment do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
+  end
+
+  @doc """
+  Deletes a retraining scheduler from a model.
+
+  The retraining scheduler must be in the `STOPPED` status.
+  """
+  def delete_retraining_scheduler(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRetrainingScheduler", input, options)
   end
 
   @doc """
@@ -208,9 +229,9 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
-  Provides a JSON containing the overall information about a specific ML model,
-  including model name and ARN, dataset, training and evaluation information,
-  status, and so on.
+  Provides a JSON containing the overall information about a specific machine
+  learning model, including model name and ARN, dataset, training and evaluation
+  information, status, and so on.
   """
   def describe_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -234,6 +255,16 @@ defmodule AWS.LookoutEquipment do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeResourcePolicy", input, options)
+  end
+
+  @doc """
+  Provides a description of the retraining scheduler, including information such
+  as the model name and retraining parameters.
+  """
+  def describe_retraining_scheduler(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRetrainingScheduler", input, options)
   end
 
   @doc """
@@ -346,6 +377,16 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
+  Lists all retraining schedulers in your account, filtering by model name prefix
+  and status.
+  """
+  def list_retraining_schedulers(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRetrainingSchedulers", input, options)
+  end
+
+  @doc """
   Lists statistics about the data collected for each of the sensors that have been
   successfully ingested in the particular dataset.
 
@@ -396,12 +437,30 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
+  Starts a retraining scheduler.
+  """
+  def start_retraining_scheduler(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartRetrainingScheduler", input, options)
+  end
+
+  @doc """
   Stops an inference scheduler.
   """
   def stop_inference_scheduler(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "StopInferenceScheduler", input, options)
+  end
+
+  @doc """
+  Stops a retraining scheduler.
+  """
+  def stop_retraining_scheduler(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopRetrainingScheduler", input, options)
   end
 
   @doc """
@@ -455,5 +514,23 @@ defmodule AWS.LookoutEquipment do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateLabelGroup", input, options)
+  end
+
+  @doc """
+  Updates a model in the account.
+  """
+  def update_model(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateModel", input, options)
+  end
+
+  @doc """
+  Updates a retraining scheduler.
+  """
+  def update_retraining_scheduler(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateRetrainingScheduler", input, options)
   end
 end

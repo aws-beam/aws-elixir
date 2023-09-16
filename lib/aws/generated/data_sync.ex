@@ -468,12 +468,8 @@ defmodule AWS.DataSync do
   information, see [Recommendations provided by DataSync Discovery](https://docs.aws.amazon.com/datasync/latest/userguide/discovery-understand-recommendations.html).
 
   Once generated, you can view your recommendations by using the
-  [DescribeStorageSystemResources](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeStorageSystemResources.html) operation.
-
-  If your [discovery job completes
-  successfully](https://docs.aws.amazon.com/datasync/latest/userguide/discovery-job-statuses.html#discovery-job-statuses-table),
-  you don't need to use this operation. DataSync Discovery generates the
-  recommendations for you automatically.
+  [DescribeStorageSystemResources](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeStorageSystemResources.html)
+  operation.
   """
   def generate_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")

@@ -371,6 +371,15 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+  Returns basic details about an entity in WorkMail.
+  """
+  def describe_entity(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEntity", input, options)
+  end
+
+  @doc """
   Returns the data available for the group.
   """
   def describe_group(%Client{} = client, input, options \\ []) do
@@ -571,6 +580,15 @@ defmodule AWS.WorkMail do
     meta = metadata()
 
     Request.request_post(client, meta, "ListGroups", input, options)
+  end
+
+  @doc """
+  Returns all the groups to which an entity belongs.
+  """
+  def list_groups_for_entity(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListGroupsForEntity", input, options)
   end
 
   @doc """
@@ -857,6 +875,15 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+  Updates attibutes in a group.
+  """
+  def update_group(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateGroup", input, options)
+  end
+
+  @doc """
   Updates an impersonation role for the given WorkMail organization.
   """
   def update_impersonation_role(%Client{} = client, input, options \\ []) do
@@ -907,5 +934,18 @@ defmodule AWS.WorkMail do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateResource", input, options)
+  end
+
+  @doc """
+  Updates data for the user.
+
+  To have the latest information, it must be preceded by a `DescribeUser` call.
+  The dataset in the request should be the one expected when performing another
+  `DescribeUser` call.
+  """
+  def update_user(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateUser", input, options)
   end
 end

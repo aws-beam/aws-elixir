@@ -158,7 +158,7 @@ defmodule AWS.CloudWatchLogs do
   @doc """
   Creates a log group with the specified name.
 
-  You can create up to 20,000 log groups per account.
+  You can create up to 1,000,000 log groups per Region per account.
 
   You must use the following guidelines when naming a log group:
 
@@ -854,9 +854,8 @@ defmodule AWS.CloudWatchLogs do
   dimension is treated as a separate metric and accrues charges as a separate
   custom metric.
 
-  CloudWatch Logs disables a metric filter if it generates 1,000 different
-  name/value pairs for your specified dimensions within a certain amount of time.
-  This helps to prevent accidental high charges.
+  CloudWatch Logs might disable a metric filter if it generates 1,000 different
+  name/value pairs for your specified dimensions within one hour.
 
   You can also set up a billing alarm to alert you if your charges are higher than
   expected. For more information, see [ Creating a Billing Alarm to Monitor Your
@@ -920,6 +919,12 @@ defmodule AWS.CloudWatchLogs do
   permanently, keep a log group at its lower retention setting until 72 hours
   after the previous retention period ends. Alternatively, wait to change the
   retention setting until you confirm that the earlier log events are deleted.
+
+  When log events reach their retention setting they are marked for deletion.
+  After they are marked for deletion, they do not add to your archival storage
+  costs anymore, even if they are not actually deleted until later. These log
+  events marked for deletion are also not included when you use an API to retrieve
+  the `storedBytes` value to see how many bytes a log group is storing.
   """
   def put_retention_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()

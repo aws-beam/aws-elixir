@@ -179,8 +179,10 @@ defmodule AWS.AppRunner do
   @doc """
   Delete an App Runner automatic scaling configuration resource.
 
-  You can delete a specific revision or the latest active revision. You can't
-  delete a configuration that's used by one or more App Runner services.
+  You can delete a top level auto scaling configuration, a specific revision of
+  one, or all revisions associated with the top level configuration. You can't
+  delete the default auto scaling configuration or a configuration that's used by
+  one or more App Runner services.
   """
   def delete_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -397,6 +399,16 @@ defmodule AWS.AppRunner do
   end
 
   @doc """
+  Returns a list of the associated App Runner services using an auto scaling
+  configuration.
+  """
+  def list_services_for_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListServicesForAutoScalingConfiguration", input, options)
+  end
+
+  @doc """
   List tags that are associated with for an App Runner resource.
 
   The response contains a list of tag key-value pairs.
@@ -494,6 +506,18 @@ defmodule AWS.AppRunner do
     meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Update an auto scaling configuration to be the default.
+
+  The existing default auto scaling configuration will be set to non-default
+  automatically.
+  """
+  def update_default_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDefaultAutoScalingConfiguration", input, options)
   end
 
   @doc """

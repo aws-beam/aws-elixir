@@ -161,13 +161,23 @@ defmodule AWS.ServiceDiscovery do
   Discovers registered instances for a specified namespace and service.
 
   You can use `DiscoverInstances` to discover instances for any type of namespace.
-  For public and private DNS namespaces, you can also use DNS queries to discover
-  instances.
+  `DiscoverInstances` returns a randomized list of instances allowing customers to
+  distribute traffic evenly across instances. For public and private DNS
+  namespaces, you can also use DNS queries to discover instances.
   """
   def discover_instances(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "data-")
 
     Request.request_post(client, meta, "DiscoverInstances", input, options)
+  end
+
+  @doc """
+  Discovers the increasing revision associated with an instance.
+  """
+  def discover_instances_revision(%Client{} = client, input, options \\ []) do
+    meta = metadata() |> Map.put_new(:host_prefix, "data-")
+
+    Request.request_post(client, meta, "DiscoverInstancesRevision", input, options)
   end
 
   @doc """
@@ -203,7 +213,7 @@ defmodule AWS.ServiceDiscovery do
 
   @doc """
   Gets information about any operation that returns an operation ID in the
-  response, such as a `CreateService` request.
+  response, such as a `CreateHttpNamespace` request.
 
   To get a list of operations that match specified criteria, see
   [ListOperations](https://docs.aws.amazon.com/cloud-map/latest/api/API_ListOperations.html).

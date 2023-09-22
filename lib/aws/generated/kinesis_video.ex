@@ -249,9 +249,11 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
-  Returns the most current information about the channel.
+  This API is related to [WebRTC Ingestion](https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/webrtc-ingestion.html)
+  and is only available in the `us-west-2` region.
 
-  Specify the `ChannelName` or `ChannelARN` in the input.
+  Returns the most current information about the channel. Specify the
+  `ChannelName` or `ChannelARN` in the input.
   """
   def describe_media_storage_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeMediaStorageConfiguration"
@@ -559,6 +561,10 @@ defmodule AWS.KinesisVideo do
   the stream’s edge configuration and the Edge Agent will be retried for 15
   minutes. After 15 minutes, the status will transition into the `SYNC_FAILED`
   state.
+
+  To move an edge configuration from one device to another, use
+  `DeleteEdgeConfiguration` to delete the current edge configuration. You can then
+  invoke StartEdgeConfigurationUpdate with an updated Hub Device ARN.
   """
   def start_edge_configuration_update(%Client{} = client, input, options \\ []) do
     url_path = "/startEdgeConfigurationUpdate"
@@ -767,9 +773,11 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
-  Associates a `SignalingChannel` to a stream to store the media.
+  This API is related to [WebRTC Ingestion](https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/webrtc-ingestion.html)
+  and is only available in the `us-west-2` region.
 
-  There are two signaling modes that can specified :
+  Associates a `SignalingChannel` to a stream to store the media. There are two
+  signaling modes that can specified :
 
     * If the `StorageStatus` is disabled, no data will be stored, and
   the `StreamARN` parameter will not be needed.

@@ -397,8 +397,10 @@ defmodule AWS.S3 do
   more information, see [Storage Classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
   in the *Amazon S3 User Guide*.
 
-  If the source object's storage class is GLACIER, you must restore a copy of this
-  object before you can use it as a source object for the copy operation. For more
+  If the source object's storage class is GLACIER or DEEP_ARCHIVE, or the object's
+  storage class is INTELLIGENT_TIERING and it's [ S3 Intelligent-Tiering access tier](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering-overview.html#intel-tiering-tier-definition)
+  is Archive Access or Deep Archive Access, you must restore a copy of this object
+  before you can use it as a source object for the copy operation. For more
   information, see
   [RestoreObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html). For more information, see [Copying
   Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html).
@@ -510,11 +512,13 @@ defmodule AWS.S3 do
   If you want to create an Amazon S3 on Outposts bucket, see [Create Bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html).
 
   By default, the bucket is created in the US East (N. Virginia) Region. You can
-  optionally specify a Region in the request body. You might choose a Region to
-  optimize latency, minimize costs, or address regulatory requirements. For
-  example, if you reside in Europe, you will probably find it advantageous to
-  create buckets in the Europe (Ireland) Region. For more information, see
-  [Accessing a bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro).
+  optionally specify a Region in the request body. To constrain the bucket
+  creation to a specific Region, you can use [ `LocationConstraint`
+  ](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketConfiguration.html)
+  condition key. You might choose a Region to optimize latency, minimize costs, or
+  address regulatory requirements. For example, if you reside in Europe, you will
+  probably find it advantageous to create buckets in the Europe (Ireland) Region.
+  For more information, see [Accessing a bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro).
 
   If you send your create bucket request to the `s3.amazonaws.com` endpoint, the
   request goes to the `us-east-1` Region. Accordingly, the signature calculations
@@ -5278,14 +5282,12 @@ defmodule AWS.S3 do
   By default, all buckets have a default encryption configuration that uses
   server-side encryption with Amazon S3 managed keys (SSE-S3). You can optionally
   configure default encryption for a bucket by using server-side encryption with
-  Key Management Service (KMS) keys (SSE-KMS), dual-layer server-side encryption
-  with Amazon Web Services KMS keys (DSSE-KMS), or server-side encryption with
-  customer-provided keys (SSE-C). If you specify default encryption by using
-  SSE-KMS, you can also configure Amazon S3 Bucket Keys. For information about
-  bucket default encryption, see [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html)
-  in the *Amazon S3 User Guide*. For more information about S3 Bucket Keys, see
-  [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the
-  *Amazon S3 User Guide*.
+  Key Management Service (KMS) keys (SSE-KMS) or dual-layer server-side encryption
+  with Amazon Web Services KMS keys (DSSE-KMS). If you specify default encryption
+  by using SSE-KMS, you can also configure [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html). If you
+  use PutBucketEncryption to set your [default bucket encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html)
+  to SSE-KMS, you should verify that your KMS key ID is correct. Amazon S3 does
+  not validate the KMS key ID provided in PutBucketEncryption requests.
 
   This action requires Amazon Web Services Signature Version 4. For more
   information, see [ Authenticating Requests (Amazon Web Services Signature Version
@@ -5995,7 +5997,11 @@ defmodule AWS.S3 do
   Specify the replication configuration in the request body. In the replication
   configuration, you provide the name of the destination bucket or buckets where
   you want Amazon S3 to replicate objects, the IAM role that Amazon S3 can assume
-  to replicate objects on your behalf, and other relevant information.
+  to replicate objects on your behalf, and other relevant information. You can
+  invoke this request for a specific Amazon Web Services Region by using the [
+  `aws:RequestedRegion`
+  ](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requestedregion)
+  condition key.
 
   A replication configuration must include at least one rule, and can contain a
   maximum of 1,000. Each rule identifies a subset of objects to replicate by
@@ -6010,8 +6016,7 @@ defmodule AWS.S3 do
 
   If you are using an earlier version of the replication configuration, Amazon S3
   handles replication of delete markers differently. For more information, see
-  [Backward
-  Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
+  [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
 
   For information about enabling versioning on a bucket, see [Using Versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html).
 
@@ -6112,7 +6117,7 @@ defmodule AWS.S3 do
   For example, you can tag several resources with a specific application name, and
   then organize your billing information to see the total cost of that application
   across several services. For more information, see [Cost Allocation and Tagging](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
-  and [Using Cost Allocation in Amazon S3 Bucket Tags](https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html).
+  and [Using Cost Allocation in Amazon S3 Bucket Tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html).
 
   When this operation sets the tags for a bucket, it will overwrite any current
   tags the bucket already has. You cannot use this operation to add tags to an
@@ -6124,29 +6129,20 @@ defmodule AWS.S3 do
   see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
   and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
-  `PutBucketTagging` has the following special errors:
+  `PutBucketTagging` has the following special errors. For more Amazon S3 errors
+  see, [Error Responses](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html).
 
-    * Error code: `InvalidTagError`
+    * `InvalidTag` - The tag provided was not a valid tag. This error
+  can occur if the tag did not pass input validation. For more information, see
+  [Using Cost Allocation in Amazon S3 Bucket Tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html).
 
-      * Description: The tag provided was not a valid tag.
-  This error can occur if the tag did not pass input validation. For information
-  about tag restrictions, see [User-Defined Tag Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html)
-  and [Amazon Web Services-Generated Cost Allocation Tag Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tag-restrictions.html).
+    * `MalformedXML` - The XML provided does not match the schema.
 
-    * Error code: `MalformedXMLError`
+    * `OperationAborted` - A conflicting conditional action is currently
+  in progress against this resource. Please try again.
 
-      * Description: The XML provided does not match the
-  schema.
-
-    * Error code: `OperationAbortedError `
-
-      * Description: A conflicting conditional action is
-  currently in progress against this resource. Please try again.
-
-    * Error code: `InternalError`
-
-      * Description: The service was unable to apply the
-  provided tag to the bucket.
+    * `InternalError` - The service was unable to apply the provided tag
+  to the bucket.
 
   The following operations are related to `PutBucketTagging`:
 
@@ -6305,6 +6301,8 @@ defmodule AWS.S3 do
   require more than 50 routing rules, you can use object redirect. For more
   information, see [Configuring an Object Redirect](https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html)
   in the *Amazon S3 User Guide*.
+
+  The maximum request length is limited to 128 KB.
   """
   def put_bucket_website(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?website"
@@ -6801,9 +6799,11 @@ defmodule AWS.S3 do
   @doc """
   Sets the supplied tag-set to an object that already exists in a bucket.
 
-  A tag is a key-value pair. You can associate tags with an object by sending a
-  PUT request against the tagging subresource that is associated with the object.
-  You can retrieve tags by sending a GET request. For more information, see
+  A tag is a key-value pair. For more information, see [Object Tagging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
+
+  You can associate tags with an object by sending a PUT request against the
+  tagging subresource that is associated with the object. You can retrieve tags by
+  sending a GET request. For more information, see
   [GetObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html).  For tagging-related restrictions related to characters and encodings, see [Tag
   Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html).
   Note that Amazon S3 limits the maximum number of tags to 10 tags per object.
@@ -6815,29 +6815,20 @@ defmodule AWS.S3 do
   To put tags of any other version, use the `versionId` query parameter. You also
   need permission for the `s3:PutObjectVersionTagging` action.
 
-  For information about the Amazon S3 object tagging feature, see [Object Tagging](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html).
+  `PutObjectTagging` has the following special errors. For more Amazon S3 errors
+  see, [Error Responses](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html).
 
-  `PutObjectTagging` has the following special errors:
+    * `InvalidTag` - The tag provided was not a valid tag. This error
+  can occur if the tag did not pass input validation. For more information, see
+  [Object Tagging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
 
-    *     * *Code: InvalidTagError *
+    * `MalformedXML` - The XML provided does not match the schema.
 
-      * *Cause: The tag provided was not a valid tag. This
-  error can occur if the tag did not pass input validation. For more information,
-  see [Object Tagging](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html).*
+    * `OperationAborted` - A conflicting conditional action is currently
+  in progress against this resource. Please try again.
 
-    *     * *Code: MalformedXMLError *
-
-      * *Cause: The XML provided does not match the schema.*
-
-    *     * *Code: OperationAbortedError *
-
-      * *Cause: A conflicting conditional action is currently
-  in progress against this resource. Please try again.*
-
-    *     * *Code: InternalError*
-
-      * *Cause: The service was unable to apply the provided
-  tag to the object.*
+    * `InternalError` - The service was unable to apply the provided tag
+  to the object.
 
   The following operations are related to `PutObjectTagging`:
 
@@ -6887,7 +6878,7 @@ defmodule AWS.S3 do
   an object, it checks the `PublicAccessBlock` configuration for both the bucket
   (or the bucket that contains the object) and the bucket owner's account. If the
   `PublicAccessBlock` configurations are different between the bucket and the
-  account, Amazon S3 uses the most restrictive combination of the bucket-level and
+  account, S3 uses the most restrictive combination of the bucket-level and
   account-level settings.
 
   For more information about when Amazon S3 considers a bucket or an object

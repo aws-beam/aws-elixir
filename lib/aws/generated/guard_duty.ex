@@ -1110,8 +1110,9 @@ defmodule AWS.GuardDuty do
   Invites Amazon Web Services accounts to become members of an organization
   administered by the Amazon Web Services account that invokes this API.
 
-  If you are using organizations to manager your GuardDuty environment, this step
-  is not needed. For more information, see [Managing accounts with organizations](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
+  If you are using Amazon Web Services Organizations to manage your GuardDuty
+  environment, this step is not needed. For more information, see [Managing accounts with
+  organizations](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
 
   To invite Amazon Web Services accounts, the first step is to ensure that
   GuardDuty has been enabled in the potential member accounts. You can now invoke
@@ -1369,7 +1370,7 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Lists the accounts configured as GuardDuty delegated administrators.
+  Lists the accounts designated as GuardDuty delegated administrators.
 
   Only the organization's management account can run this API operation.
   """

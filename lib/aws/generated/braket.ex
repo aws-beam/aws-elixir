@@ -127,10 +127,17 @@ defmodule AWS.Braket do
   @doc """
   Retrieves the specified Amazon Braket job.
   """
-  def get_job(%Client{} = client, job_arn, options \\ []) do
+  def get_job(%Client{} = client, job_arn, additional_attribute_names \\ nil, options \\ []) do
     url_path = "/job/#{AWS.Util.encode_uri(job_arn)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(additional_attribute_names) do
+        [{"additionalAttributeNames", additional_attribute_names} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -140,10 +147,22 @@ defmodule AWS.Braket do
   @doc """
   Retrieves the specified quantum task.
   """
-  def get_quantum_task(%Client{} = client, quantum_task_arn, options \\ []) do
+  def get_quantum_task(
+        %Client{} = client,
+        quantum_task_arn,
+        additional_attribute_names \\ nil,
+        options \\ []
+      ) do
     url_path = "/quantum-task/#{AWS.Util.encode_uri(quantum_task_arn)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(additional_attribute_names) do
+        [{"additionalAttributeNames", additional_attribute_names} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 

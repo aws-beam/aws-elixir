@@ -26,8 +26,8 @@ defmodule AWS.Finspacedata do
   end
 
   @doc """
-  Adds a user account to a permission group to grant permissions for actions a
-  user can perform in FinSpace.
+  Adds a user to a permission group to grant permissions for actions a user can
+  perform in FinSpace.
   """
   def associate_user_to_permission_group(
         %Client{} = client,
@@ -255,7 +255,7 @@ defmodule AWS.Finspacedata do
   end
 
   @doc """
-  Removes a user account from a permission group.
+  Removes a user from a permission group.
   """
   def disassociate_user_from_permission_group(
         %Client{} = client,
@@ -409,6 +409,9 @@ defmodule AWS.Finspacedata do
 
   @doc """
   Request programmatic credentials to use with FinSpace SDK.
+
+  For more information, see [Step 2. Access credentials programmatically using IAM access key id and secret access
+  key](https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#accessing-credentials).
   """
   def get_programmatic_access_credentials(
         %Client{} = client,
@@ -597,8 +600,7 @@ defmodule AWS.Finspacedata do
   end
 
   @doc """
-  Lists all the permission groups that are associated with a specific user
-  account.
+  Lists all the permission groups that are associated with a specific user.
   """
   def list_permission_groups_by_user(
         %Client{} = client,
@@ -631,7 +633,7 @@ defmodule AWS.Finspacedata do
   end
 
   @doc """
-  Lists all available user accounts in FinSpace.
+  Lists all available users in FinSpace.
   """
   def list_users(%Client{} = client, max_results, next_token \\ nil, options \\ []) do
     url_path = "/user"
@@ -760,7 +762,7 @@ defmodule AWS.Finspacedata do
   end
 
   @doc """
-  Modifies the details of the specified user account.
+  Modifies the details of the specified user.
 
   You cannot update the `userId` for a user.
   """

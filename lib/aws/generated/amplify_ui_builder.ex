@@ -205,7 +205,9 @@ defmodule AWS.AmplifyUIBuilder do
   end
 
   @doc """
-  Exchanges an access code for a token.
+  This is for internal use.
+
+  Amplify uses this action to exchange an access code for a token.
   """
   def exchange_code_for_token(%Client{} = client, provider, input, options \\ []) do
     url_path = "/tokens/#{AWS.Util.encode_uri(provider)}"
@@ -552,7 +554,10 @@ defmodule AWS.AmplifyUIBuilder do
   end
 
   @doc """
-  Refreshes a previously issued access token that might have expired.
+  This is for internal use.
+
+  Amplify uses this action to refresh a previously issued access token that might
+  have expired.
   """
   def refresh_token(%Client{} = client, provider, input, options \\ []) do
     url_path = "/tokens/#{AWS.Util.encode_uri(provider)}/refresh"

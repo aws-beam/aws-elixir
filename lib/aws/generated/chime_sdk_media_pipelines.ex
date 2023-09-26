@@ -146,6 +146,52 @@ defmodule AWS.ChimeSDKMediaPipelines do
   end
 
   @doc """
+  Creates an Kinesis video stream pool for the media pipeline.
+  """
+  def create_media_pipeline_kinesis_video_stream_pool(%Client{} = client, input, options \\ []) do
+    url_path = "/media-pipeline-kinesis-video-stream-pools"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a streaming media pipeline.
+  """
+  def create_media_stream_pipeline(%Client{} = client, input, options \\ []) do
+    url_path = "/sdk-media-stream-pipelines"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Deletes the media pipeline.
   """
   def delete_media_capture_pipeline(%Client{} = client, media_pipeline_id, input, options \\ []) do
@@ -220,6 +266,34 @@ defmodule AWS.ChimeSDKMediaPipelines do
   end
 
   @doc """
+  Deletes an Kinesis video stream pool.
+  """
+  def delete_media_pipeline_kinesis_video_stream_pool(
+        %Client{} = client,
+        identifier,
+        input,
+        options \\ []
+      ) do
+    url_path = "/media-pipeline-kinesis-video-stream-pools/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Gets an existing media pipeline.
   """
   def get_media_capture_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
@@ -250,6 +324,19 @@ defmodule AWS.ChimeSDKMediaPipelines do
   """
   def get_media_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
     url_path = "/sdk-media-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets an Kinesis video stream pool.
+  """
+  def get_media_pipeline_kinesis_video_stream_pool(%Client{} = client, identifier, options \\ []) do
+    url_path = "/media-pipeline-kinesis-video-stream-pools/#{AWS.Util.encode_uri(identifier)}"
     headers = []
     query_params = []
 
@@ -340,6 +427,38 @@ defmodule AWS.ChimeSDKMediaPipelines do
         options \\ []
       ) do
     url_path = "/media-insights-pipeline-configurations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the video stream pools in the media pipeline.
+  """
+  def list_media_pipeline_kinesis_video_stream_pools(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/media-pipeline-kinesis-video-stream-pools"
     headers = []
     query_params = []
 
@@ -609,6 +728,24 @@ defmodule AWS.ChimeSDKMediaPipelines do
   """
   def update_media_insights_pipeline_status(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/media-insights-pipeline-status/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates an Kinesis video stream pool in a media pipeline.
+  """
+  def update_media_pipeline_kinesis_video_stream_pool(
+        %Client{} = client,
+        identifier,
+        input,
+        options \\ []
+      ) do
+    url_path = "/media-pipeline-kinesis-video-stream-pools/#{AWS.Util.encode_uri(identifier)}"
     headers = []
     query_params = []
 

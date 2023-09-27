@@ -290,6 +290,14 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Deletes resources linked to an external ID.
+
+  This action only applies if you have configured blue/green deployments through
+  CloudFormation.
+
+  It is not necessary to call this action directly. CloudFormation calls it on
+  your behalf when it needs to delete stack resources. This action is offered
+  publicly in case you need to delete resources to comply with General Data
+  Protection Regulation (GDPR) requirements.
   """
   def delete_resources_by_external_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -393,8 +401,7 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
-  Lists the applications registered with the IAM user or Amazon Web Services
-  account.
+  Lists the applications registered with the user or Amazon Web Services account.
   """
   def list_applications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -403,7 +410,7 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
-  Lists the deployment configurations with the IAM user or Amazon Web Services
+  Lists the deployment configurations with the user or Amazon Web Services
   account.
   """
   def list_deployment_configs(%Client{} = client, input, options \\ []) do
@@ -413,8 +420,8 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
-  Lists the deployment groups for an application registered with the IAM user or
-  Amazon Web Services account.
+  Lists the deployment groups for an application registered with the Amazon Web
+  Services user or Amazon Web Services account.
   """
   def list_deployment_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -429,7 +436,7 @@ defmodule AWS.CodeDeploy do
   `ListDeploymentInstances` throws an exception if it is used with a compute
   platform other than EC2/On-premises or Lambda.
 
-  Lists the instance for a deployment associated with the IAM user or Amazon Web
+  Lists the instance for a deployment associated with the user or Amazon Web
   Services account.
   """
   def list_deployment_instances(%Client{} = client, input, options \\ []) do
@@ -449,7 +456,7 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Lists the deployments in a deployment group for an application registered with
-  the IAM user or Amazon Web Services account.
+  the user or Amazon Web Services account.
   """
   def list_deployments(%Client{} = client, input, options \\ []) do
     meta = metadata()

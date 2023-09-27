@@ -3510,6 +3510,42 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Returns a list of third party applications in a specific security profile.
+  """
+  def list_security_profile_applications(
+        %Client{} = client,
+        instance_id,
+        security_profile_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/security-profiles-applications/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(security_profile_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Lists the permissions granted to a security profile.

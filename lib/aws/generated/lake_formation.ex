@@ -233,6 +233,30 @@ defmodule AWS.LakeFormation do
   end
 
   @doc """
+  Enforce Lake Formation permissions for the given databases, tables, and
+  principals.
+  """
+  def create_lake_formation_opt_in(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateLakeFormationOptIn"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes a data cell filter.
   """
   def delete_data_cells_filter(%Client{} = client, input, options \\ []) do
@@ -266,6 +290,30 @@ defmodule AWS.LakeFormation do
   """
   def delete_l_f_tag(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLFTag"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Remove the Lake Formation permissions enforcement of the given databases,
+  tables, and principals.
+  """
+  def delete_lake_formation_opt_in(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteLakeFormationOptIn"
     headers = []
     query_params = []
 
@@ -769,6 +817,30 @@ defmodule AWS.LakeFormation do
   """
   def list_l_f_tags(%Client{} = client, input, options \\ []) do
     url_path = "/ListLFTags"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Retrieve the current list of resources and principals that are opt in to enforce
+  Lake Formation permissions.
+  """
+  def list_lake_formation_opt_ins(%Client{} = client, input, options \\ []) do
+    url_path = "/ListLakeFormationOptIns"
     headers = []
     query_params = []
 

@@ -2294,8 +2294,11 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Removes one or more attributes, of the same attribute type, from all the
-  endpoints that are associated with an application.
+  Removes one or more custom attributes, of the same attribute type, from the
+  application.
+
+  Existing endpoints still have the attributes but Amazon Pinpoint will stop
+  capturing new or changed values for these attributes.
   """
   def remove_attributes(%Client{} = client, application_id, attribute_type, input, options \\ []) do
     url_path =

@@ -32,6 +32,31 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
+  This API is in preview release and subject to change.
+
+  Creates and persists an Application resource.
+  """
+  def create_application(%Client{} = client, input, options \\ []) do
+    url_path = "/applications"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates and persists a DataIntegration resource.
 
   You cannot create a DataIntegration association for a DataIntegration that has
@@ -150,6 +175,21 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
+  This API is in preview release and subject to change.
+
+  Get an Application resource.
+  """
+  def get_application(%Client{} = client, arn, options \\ []) do
+    url_path = "/applications/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Returns information about the DataIntegration.
 
   You cannot create a DataIntegration association for a DataIntegration that has
@@ -175,6 +215,35 @@ defmodule AWS.AppIntegrations do
     url_path = "/eventIntegrations/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  This API is in preview release and subject to change.
+
+  Lists applications in the account.
+  """
+  def list_applications(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/applications"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -380,6 +449,31 @@ defmodule AWS.AppIntegrations do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release and subject to change.
+
+  Updates and persists an Application resource.
+  """
+  def update_application(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/applications/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       headers,

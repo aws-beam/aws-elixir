@@ -277,6 +277,16 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
+  Retrieves the encryption configuration for resources and data in Amazon Web
+  Services IoT FleetWise.
+  """
+  def get_encryption_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEncryptionConfiguration", input, options)
+  end
+
+  @doc """
   Retrieves information about a fleet.
   """
   def get_fleet(%Client{} = client, input, options \\ []) do
@@ -521,6 +531,20 @@ defmodule AWS.IoTFleetWise do
     meta = metadata()
 
     Request.request_post(client, meta, "ListVehiclesInFleet", input, options)
+  end
+
+  @doc """
+  Creates or updates the encryption configuration.
+
+  Amazon Web Services IoT FleetWise can encrypt your data and resources using an
+  Amazon Web Services managed key. Or, you can use a KMS key that you own and
+  manage. For more information, see [Data encryption](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/data-encryption.html)
+  in the *Amazon Web Services IoT FleetWise Developer Guide*.
+  """
+  def put_encryption_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutEncryptionConfiguration", input, options)
   end
 
   @doc """

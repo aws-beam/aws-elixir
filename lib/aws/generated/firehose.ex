@@ -188,6 +188,12 @@ defmodule AWS.Firehose do
   each delivery stream. For more information about limits and how to request an
   increase, see [Amazon Kinesis Data Firehose Limits](https://docs.aws.amazon.com/firehose/latest/dev/limits.html).
 
+  Kinesis Data Firehose accumulates and publishes a particular metric for a
+  customer account in one minute intervals. It is possible that the bursts of
+  incoming bytes/records ingested to a delivery stream last only for a few
+  seconds. Due to this, the actual spikes in the traffic might not be fully
+  visible in the customer's 1 minute CloudWatch metrics.
+
   You must specify the name of the delivery stream and the data record when using
   `PutRecord`. The data record consists of a data blob that can be up to 1,000 KiB
   in size, and any kind of data. For example, it can be a segment from a log file,
@@ -203,9 +209,13 @@ defmodule AWS.Firehose do
   assigned to each record. Producer applications can use this ID for purposes such
   as auditability and investigation.
 
-  If the `PutRecord` operation throws a `ServiceUnavailableException`, back off
-  and retry. If the exception persists, it is possible that the throughput limits
-  have been exceeded for the delivery stream.
+  If the `PutRecord` operation throws a `ServiceUnavailableException`, the API is
+  automatically reinvoked (retried) 3 times. If the exception persists, it is
+  possible that the throughput limits have been exceeded for the delivery stream.
+
+  Re-invoking the Put API operations (for example, PutRecord and PutRecordBatch)
+  can result in data duplicates. For larger data assets, allow for a longer time
+  out before retrying Put API operations.
 
   Data records sent to Kinesis Data Firehose are stored for 24 hours from the time
   they are added to a delivery stream as it tries to send the records to the
@@ -227,6 +237,12 @@ defmodule AWS.Firehose do
 
   To write single data records into a delivery stream, use `PutRecord`.
   Applications using these operations are referred to as producers.
+
+  Kinesis Data Firehose accumulates and publishes a particular metric for a
+  customer account in one minute intervals. It is possible that the bursts of
+  incoming bytes/records ingested to a delivery stream last only for a few
+  seconds. Due to this, the actual spikes in the traffic might not be fully
+  visible in the customer's 1 minute CloudWatch metrics.
 
   For information about service quota, see [Amazon Kinesis Data Firehose Quota](https://docs.aws.amazon.com/firehose/latest/dev/limits.html).
 
@@ -271,9 +287,13 @@ defmodule AWS.Firehose do
   sent (and corresponding charges). We recommend that you handle any duplicates at
   the destination.
 
-  If `PutRecordBatch` throws `ServiceUnavailableException`, back off and retry. If
-  the exception persists, it is possible that the throughput limits have been
-  exceeded for the delivery stream.
+  If `PutRecordBatch` throws `ServiceUnavailableException`, the API is
+  automatically reinvoked (retried) 3 times. If the exception persists, it is
+  possible that the throughput limits have been exceeded for the delivery stream.
+
+  Re-invoking the Put API operations (for example, PutRecord and PutRecordBatch)
+  can result in data duplicates. For larger data assets, allow for a longer time
+  out before retrying Put API operations.
 
   Data records sent to Kinesis Data Firehose are stored for 24 hours from the time
   they are added to a delivery stream as it attempts to send the records to the
@@ -314,6 +334,10 @@ defmodule AWS.Firehose do
   old CMK for retirement. If the new CMK is of type `CUSTOMER_MANAGED_CMK`,
   Kinesis Data Firehose creates a grant that enables it to use the new CMK to
   encrypt and decrypt data and to manage the grant.
+
+  For the KMS grant creation to be successful, Kinesis Data Firehose APIs
+  `StartDeliveryStreamEncryption` and `CreateDeliveryStream` should not be called
+  with session credentials that are more than 6 hours old.
 
   If a delivery stream already has encryption enabled and then you invoke this
   operation to change the ARN of the CMK or both its type and ARN and you get

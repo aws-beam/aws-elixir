@@ -531,8 +531,9 @@ defmodule AWS.IoT do
   [CreateCertificateFromCsr](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 
   The CSR must include a public key that is either an RSA key with a length of at
-  least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves. For
-  supported certificates, consult [ Certificate signing algorithms supported by
+  least 2048 bits or an ECC key from NIST P-256, NIST P-384, or NIST P-521 curves.
+  For supported certificates, consult [ Certificate signing algorithms supported
+  by
   IoT](https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms).
 
   Reusing the same certificate signing request (CSR) results in a distinct
@@ -1890,7 +1891,7 @@ defmodule AWS.IoT do
   Deletes a specific version from a software package.
 
   **Note:** If a package version is designated as default, you must remove the
-  designation from the package using the `UpdatePackage` action.
+  designation from the software package using the `UpdatePackage` action.
   """
   def delete_package_version(%Client{} = client, package_name, version_name, input, options \\ []) do
     url_path =
@@ -7584,7 +7585,7 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates the supported fields for a specific package.
+  Updates the supported fields for a specific software package.
 
   Requires permission to access the
   [UpdatePackage](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) and
@@ -7617,7 +7618,7 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates the package configuration.
+  Updates the software package configuration.
 
   Requires permission to access the
   [UpdatePackageConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) and

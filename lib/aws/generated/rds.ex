@@ -951,8 +951,8 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Lists the set of CA certificates provided by Amazon RDS for this Amazon Web
-  Services account.
+  Lists the set of certificate authority (CA) certificates provided by Amazon RDS
+  for this Amazon Web Services account.
 
   For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html)
   in the *Amazon RDS User Guide* and [ Using SSL/TLS to encrypt a connection to a DB
@@ -2270,8 +2270,8 @@ defmodule AWS.RDS do
   Restores a DB instance to an arbitrary point in time.
 
   You can restore to any point in time before the time identified by the
-  LatestRestorableTime property. You can restore to a point up to the number of
-  days specified by the BackupRetentionPeriod property.
+  `LatestRestorableTime` property. You can restore to a point up to the number of
+  days specified by the `BackupRetentionPeriod` property.
 
   The target database is created with most of the original configuration, but in a
   system-selected Availability Zone, with the default security group, the default

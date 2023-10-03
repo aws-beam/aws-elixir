@@ -32,8 +32,8 @@ defmodule AWS.BedrockRuntime do
   You use InvokeModel to run inference for text models, image models, and
   embedding models.
 
-  For more information about invoking models, see Using the API in the [Bedrock User
-  Guide](https://d2eo22ngex1n9g.cloudfront.net/Documentation/BedrockUserGuide.pdf).
+  For more information, see [Run inference](https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html)
+  in the Bedrock User Guide.
 
   For example requests, see Examples (after the Errors section).
   """
@@ -76,8 +76,8 @@ defmodule AWS.BedrockRuntime do
 
   Return the response in a stream.
 
-  For more information about invoking models, see Using the API in the [Bedrock User
-  Guide](https://d2eo22ngex1n9g.cloudfront.net/Documentation/BedrockUserGuide.pdf).
+  For more information, see [Run inference](https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html)
+  in the Bedrock User Guide.
 
   For an example request and response, see Examples (after the Errors section).
   """

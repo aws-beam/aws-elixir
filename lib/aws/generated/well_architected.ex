@@ -230,6 +230,77 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
+  Create a review template.
+
+  ## Disclaimer
+
+  Do not include or gather personal identifiable information (PII) of end users or
+  other identifiable individuals in or via your review templates. If your review
+  template or those shared with you and used in your account do include or collect
+  PII you are responsible for: ensuring that the included PII is processed in
+  accordance with applicable law, providing adequate privacy notices, and
+  obtaining necessary consents for processing such data.
+  """
+  def create_review_template(%Client{} = client, input, options \\ []) do
+    url_path = "/reviewTemplates"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Create a review template share.
+
+  The owner of a review template can share it with other Amazon Web Services
+  accounts, users, an organization, and organizational units (OUs) in the same
+  Amazon Web Services Region.
+
+  Shared access to a review template is not removed until the review template
+  share invitation is deleted.
+
+  If you share a review template with an organization or OU, all accounts in the
+  organization or OU are granted access to the review template.
+
+  ## Disclaimer
+
+  By sharing your review template with other Amazon Web Services accounts, you
+  acknowledge that Amazon Web Services will make your review template available to
+  those other accounts.
+  """
+  def create_template_share(%Client{} = client, template_arn, input, options \\ []) do
+    url_path = "/templates/shares/#{AWS.Util.encode_uri(template_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Create a new workload.
 
   The owner of a workload can share the workload with other Amazon Web Services
@@ -244,6 +315,17 @@ defmodule AWS.WellArchitected do
 
   You also must specify `ReviewOwner`, even though the parameter is listed as not
   being required in the following section.
+
+  When creating a workload using a review template, you must have the following
+  IAM permissions:
+
+    * `wellarchitected:GetReviewTemplate`
+
+    * `wellarchitected:GetReviewTemplateAnswer`
+
+    * `wellarchitected:ListReviewTemplateAnswers`
+
+    * `wellarchitected:GetReviewTemplateLensReview`
   """
   def create_workload(%Client{} = client, input, options \\ []) do
     url_path = "/workloads"
@@ -424,6 +506,74 @@ defmodule AWS.WellArchitected do
   def delete_profile_share(%Client{} = client, profile_arn, share_id, input, options \\ []) do
     url_path =
       "/profiles/#{AWS.Util.encode_uri(profile_arn)}/shares/#{AWS.Util.encode_uri(share_id)}"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"ClientRequestToken", "ClientRequestToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Delete a review template.
+
+  Only the owner of a review template can delete it.
+
+  After the review template is deleted, Amazon Web Services accounts, users,
+  organizations, and organizational units (OUs) that you shared the review
+  template with will no longer be able to apply it to new workloads.
+  """
+  def delete_review_template(%Client{} = client, template_arn, input, options \\ []) do
+    url_path = "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"ClientRequestToken", "ClientRequestToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Delete a review template share.
+
+  After the review template share is deleted, Amazon Web Services accounts, users,
+  organizations, and organizational units (OUs) that you shared the review
+  template with will no longer be able to apply it to new workloads.
+  """
+  def delete_template_share(%Client{} = client, share_id, template_arn, input, options \\ []) do
+    url_path =
+      "/templates/shares/#{AWS.Util.encode_uri(template_arn)}/#{AWS.Util.encode_uri(share_id)}"
 
     headers = []
 
@@ -820,6 +970,55 @@ defmodule AWS.WellArchitected do
   """
   def get_profile_template(%Client{} = client, options \\ []) do
     url_path = "/profileTemplate"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Get review template.
+  """
+  def get_review_template(%Client{} = client, template_arn, options \\ []) do
+    url_path = "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Get review template answer.
+  """
+  def get_review_template_answer(
+        %Client{} = client,
+        lens_alias,
+        question_id,
+        template_arn,
+        options \\ []
+      ) do
+    url_path =
+      "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers/#{AWS.Util.encode_uri(question_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Get a lens review associated with a review template.
+  """
+  def get_review_template_lens_review(%Client{} = client, lens_alias, template_arn, options \\ []) do
+    url_path =
+      "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}"
+
     headers = []
     query_params = []
 
@@ -1372,7 +1571,87 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  List the workload invitations.
+  List the answers of a review template.
+  """
+  def list_review_template_answers(
+        %Client{} = client,
+        lens_alias,
+        template_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        pillar_id \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(pillar_id) do
+        [{"PillarId", pillar_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  List review templates.
+  """
+  def list_review_templates(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/reviewTemplates"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  List the share invitations.
+
+  `WorkloadNamePrefix`, `LensNamePrefix`, `ProfileNamePrefix`, and
+  `TemplateNamePrefix` are mutually exclusive. Use the parameter that matches your
+  `ShareResourceType`.
   """
   def list_share_invitations(
         %Client{} = client,
@@ -1381,6 +1660,7 @@ defmodule AWS.WellArchitected do
         next_token \\ nil,
         profile_name_prefix \\ nil,
         share_resource_type \\ nil,
+        template_name_prefix \\ nil,
         workload_name_prefix \\ nil,
         options \\ []
       ) do
@@ -1391,6 +1671,13 @@ defmodule AWS.WellArchitected do
     query_params =
       if !is_nil(workload_name_prefix) do
         [{"WorkloadNamePrefix", workload_name_prefix} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(template_name_prefix) do
+        [{"TemplateNamePrefix", template_name_prefix} | query_params]
       else
         query_params
       end
@@ -1438,13 +1725,62 @@ defmodule AWS.WellArchitected do
   @doc """
   List the tags for a resource.
 
-  The WorkloadArn parameter can be a workload ARN, a custom lens ARN, or a profile
-  ARN.
+  The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile
+  ARN, or review template ARN.
   """
   def list_tags_for_resource(%Client{} = client, workload_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  List review template shares.
+  """
+  def list_template_shares(
+        %Client{} = client,
+        template_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        shared_with_prefix \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/templates/shares/#{AWS.Util.encode_uri(template_arn)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"Status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(shared_with_prefix) do
+        [{"SharedWithPrefix", shared_with_prefix} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -1526,8 +1862,8 @@ defmodule AWS.WellArchitected do
   @doc """
   Adds one or more tags to the specified resource.
 
-  The WorkloadArn parameter can be a workload ARN, a custom lens ARN, or a profile
-  ARN.
+  The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile
+  ARN, or review template ARN.
   """
   def tag_resource(%Client{} = client, workload_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
@@ -1552,8 +1888,8 @@ defmodule AWS.WellArchitected do
   @doc """
   Deletes specified tags from a resource.
 
-  The WorkloadArn parameter can be a workload ARN, a custom lens ARN, or a profile
-  ARN.
+  The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile
+  ARN, or review template ARN.
 
   To specify multiple tags, use separate **tagKeys** parameters, for example:
 
@@ -1689,6 +2025,92 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
+  Update a review template.
+  """
+  def update_review_template(%Client{} = client, template_arn, input, options \\ []) do
+    url_path = "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Update a review template answer.
+  """
+  def update_review_template_answer(
+        %Client{} = client,
+        lens_alias,
+        question_id,
+        template_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers/#{AWS.Util.encode_uri(question_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Update a lens review associated with a review template.
+  """
+  def update_review_template_lens_review(
+        %Client{} = client,
+        lens_alias,
+        template_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Update a workload or custom lens share invitation.
 
   This API operation can be called independently of any resource. Previous
@@ -1783,6 +2205,27 @@ defmodule AWS.WellArchitected do
   def upgrade_profile_version(%Client{} = client, profile_arn, workload_id, input, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/profiles/#{AWS.Util.encode_uri(profile_arn)}/upgrade"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Upgrade the lens review of a review template.
+  """
+  def upgrade_review_template_lens_review(
+        %Client{} = client,
+        lens_alias,
+        template_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/upgrade"
 
     headers = []
     query_params = []

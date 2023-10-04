@@ -607,8 +607,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Creates a security profile.
   """
   def create_security_profile(%Client{} = client, instance_id, input, options \\ []) do
@@ -1172,8 +1170,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Deletes a security profile.
   """
   def delete_security_profile(
@@ -1749,8 +1745,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Gets basic information about the security profle.
   """
   def describe_security_profile(
@@ -2356,7 +2350,7 @@ defmodule AWS.Connect do
   [GetMetricData](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html), the previous version of this API. It has new metrics, offers filtering at a
   metric level, and offers the ability to filter and group data by channels,
   queues, routing profiles, agents, and agent hierarchy levels. It can retrieve
-  historical data for the last 35 days, in 24-hour intervals.
+  historical data for the last 3 months, at varying intervals.
 
   For a description of the historical metrics that are supported by
   `GetMetricDataV2` and `GetMetricData`, see [Historical metrics
@@ -3546,8 +3540,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Lists the permissions granted to a security profile.
   """
   def list_security_profile_permissions(
@@ -5723,8 +5715,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Updates a security profile.
   """
   def update_security_profile(

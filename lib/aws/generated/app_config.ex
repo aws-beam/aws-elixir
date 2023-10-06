@@ -326,6 +326,7 @@ defmodule AWS.AppConfig do
           {"Configuration-Profile-Id", "ConfigurationProfileId"},
           {"Content-Type", "ContentType"},
           {"Description", "Description"},
+          {"KmsKeyArn", "KmsKeyArn"},
           {"VersionLabel", "VersionLabel"},
           {"Version-Number", "VersionNumber"}
         ]
@@ -769,6 +770,7 @@ defmodule AWS.AppConfig do
           {"Configuration-Profile-Id", "ConfigurationProfileId"},
           {"Content-Type", "ContentType"},
           {"Description", "Description"},
+          {"KmsKeyArn", "KmsKeyArn"},
           {"VersionLabel", "VersionLabel"},
           {"Version-Number", "VersionNumber"}
         ]

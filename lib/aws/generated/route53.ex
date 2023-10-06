@@ -215,8 +215,8 @@ defmodule AWS.Route53 do
     * `DELETE`: Deletes an existing resource record set that has the
   specified values.
 
-    * `UPSERT`: If a resource set exists Route 53 updates it with the
-  values in the request.
+    * `UPSERT`: If a resource set doesn't exist, Route 53 creates it. If
+  a resource set exists Route 53 updates it with the values in the request.
 
   ## Syntaxes for Creating, Updating, and Deleting Resource Record Sets
 
@@ -779,6 +779,13 @@ defmodule AWS.Route53 do
   www.example.com). Amazon Route 53 responds to DNS queries for the domain or
   subdomain name by using the resource record sets that
   `CreateTrafficPolicyInstance` created.
+
+  After you submit an `CreateTrafficPolicyInstance` request, there's a brief delay
+  while Amazon Route 53 creates the resource record sets that are specified in the
+  traffic policy definition. Use `GetTrafficPolicyInstance` with the `id` of new
+  traffic policy instance to confirm that the `CreateTrafficPolicyInstance`
+  request completed successfully. For more information, see the `State` response
+  element.
   """
   def create_traffic_policy_instance(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/trafficpolicyinstance"
@@ -1680,10 +1687,10 @@ defmodule AWS.Route53 do
   @doc """
   Gets information about a specified traffic policy instance.
 
-  After you submit a `CreateTrafficPolicyInstance` or an
-  `UpdateTrafficPolicyInstance` request, there's a brief delay while Amazon Route
-  53 creates the resource record sets that are specified in the traffic policy
-  definition. For more information, see the `State` response element.
+  Use `GetTrafficPolicyInstance` with the `id` of new traffic policy instance to
+  confirm that the `CreateTrafficPolicyInstance` or an
+  `UpdateTrafficPolicyInstance` request completed successfully. For more
+  information, see the `State` response element.
 
   In the Route 53 console, traffic policy instances are known as policy records.
   """
@@ -1920,6 +1927,7 @@ defmodule AWS.Route53 do
   def list_hosted_zones(
         %Client{} = client,
         delegation_set_id \\ nil,
+        hosted_zone_type \\ nil,
         marker \\ nil,
         max_items \\ nil,
         options \\ []
@@ -1938,6 +1946,13 @@ defmodule AWS.Route53 do
     query_params =
       if !is_nil(marker) do
         [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(hosted_zone_type) do
+        [{"hostedzonetype", hosted_zone_type} | query_params]
       else
         query_params
       end
@@ -2822,6 +2837,14 @@ defmodule AWS.Route53 do
   end
 
   @doc """
+  After you submit a `UpdateTrafficPolicyInstance` request, there's a brief delay
+  while Route 53 creates the resource record sets that are specified in the
+  traffic policy definition.
+
+  Use `GetTrafficPolicyInstance` with the `id` of updated traffic policy instance
+  confirm that the `UpdateTrafficPolicyInstance` request completed successfully.
+  For more information, see the `State` response element.
+
   Updates the resource record sets in a specified hosted zone that were created
   based on the settings in a specified traffic policy version.
 

@@ -168,6 +168,29 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  Create Connector.
+  """
+  def create_connector(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateConnector"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a new Launch Configuration Template.
   """
   def create_launch_configuration_template(%Client{} = client, input, options \\ []) do
@@ -241,6 +264,29 @@ defmodule AWS.Mgn do
   """
   def delete_application(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteApplication"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Delete Connector.
+  """
+  def delete_connector(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteConnector"
     headers = []
     query_params = []
 
@@ -742,6 +788,29 @@ defmodule AWS.Mgn do
   """
   def list_applications(%Client{} = client, input, options \\ []) do
     url_path = "/ListApplications"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  List Connectors.
+  """
+  def list_connectors(%Client{} = client, input, options \\ []) do
+    url_path = "/ListConnectors"
     headers = []
     query_params = []
 
@@ -1447,6 +1516,29 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  Update Connector.
+  """
+  def update_connector(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateConnector"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates multiple LaunchConfigurations by Source Server ID.
   """
   def update_launch_configuration(%Client{} = client, input, options \\ []) do
@@ -1520,6 +1612,29 @@ defmodule AWS.Mgn do
   """
   def update_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateReplicationConfigurationTemplate"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Update Source Server.
+  """
+  def update_source_server(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateSourceServer"
     headers = []
     query_params = []
 

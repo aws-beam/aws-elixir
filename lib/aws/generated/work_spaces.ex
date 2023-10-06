@@ -72,6 +72,15 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
+  Associates the specified application to the specified WorkSpace.
+  """
+  def associate_workspace_application(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateWorkspaceApplication", input, options)
+  end
+
+  @doc """
   Adds one or more rules to the specified IP access control group.
 
   This action gives users permission to access their WorkSpaces from the CIDR
@@ -328,6 +337,15 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
+  Deploys associated applications to the specified WorkSpace
+  """
+  def deploy_workspace_applications(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeployWorkspaceApplications", input, options)
+  end
+
+  @doc """
   Deregisters the specified directory.
 
   This operation is asynchronous and returns before the WorkSpace directory is
@@ -368,6 +386,35 @@ defmodule AWS.WorkSpaces do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccountModifications", input, options)
+  end
+
+  @doc """
+  Describes the associations between the application and the specified associated
+  resources.
+  """
+  def describe_application_associations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeApplicationAssociations", input, options)
+  end
+
+  @doc """
+  Describes the specified applications by filtering based on their compute types,
+  license availability, operating systems, and owners.
+  """
+  def describe_applications(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeApplications", input, options)
+  end
+
+  @doc """
+  Describes the associations between the applications and the specified bundle.
+  """
+  def describe_bundle_associations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBundleAssociations", input, options)
   end
 
   @doc """
@@ -430,6 +477,15 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
+  Describes the associations between the applications and the specified image.
+  """
+  def describe_image_associations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeImageAssociations", input, options)
+  end
+
+  @doc """
   Describes one or more of your IP access control groups.
   """
   def describe_ip_groups(%Client{} = client, input, options \\ []) do
@@ -445,6 +501,15 @@ defmodule AWS.WorkSpaces do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
+  end
+
+  @doc """
+  Describes the associations betweens applications and the specified WorkSpace.
+  """
+  def describe_workspace_associations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeWorkspaceAssociations", input, options)
   end
 
   @doc """
@@ -544,6 +609,15 @@ defmodule AWS.WorkSpaces do
     meta = metadata()
 
     Request.request_post(client, meta, "DisassociateIpGroups", input, options)
+  end
+
+  @doc """
+  Disassociates the specified application from a WorkSpace.
+  """
+  def disassociate_workspace_application(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateWorkspaceApplication", input, options)
   end
 
   @doc """

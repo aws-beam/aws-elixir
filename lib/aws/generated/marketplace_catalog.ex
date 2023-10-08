@@ -67,7 +67,7 @@ defmodule AWS.MarketplaceCatalog do
   end
 
   @doc """
-  Deletes a resource-based policy on an Entity that is identified by its resource
+  Deletes a resource-based policy on an entity that is identified by its resource
   ARN.
   """
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
@@ -150,7 +150,7 @@ defmodule AWS.MarketplaceCatalog do
   end
 
   @doc """
-  Gets a resource-based policy of an Entity that is identified by its resource
+  Gets a resource-based policy of an entity that is identified by its resource
   ARN.
   """
   def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
@@ -250,7 +250,7 @@ defmodule AWS.MarketplaceCatalog do
   end
 
   @doc """
-  Attaches a resource-based policy to an Entity.
+  Attaches a resource-based policy to an entity.
 
   Examples of an entity include: `AmiProduct` and `ContainerProduct`.
   """
@@ -290,9 +290,9 @@ defmodule AWS.MarketplaceCatalog do
 
   For more information about working with change sets, see [ Working with change
   sets](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets).
-  For information on change types for single-AMI products, see [Working with single-AMI
+  For information about change types for single-AMI products, see [Working with single-AMI
   products](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products).
-  Als, for more information on change types available for container-based
+  Also, for more information about change types available for container-based
   products, see [Working with container products](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products).
   """
   def start_change_set(%Client{} = client, input, options \\ []) do

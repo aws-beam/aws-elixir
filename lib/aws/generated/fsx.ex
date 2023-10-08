@@ -822,6 +822,17 @@ defmodule AWS.FSx do
   end
 
   @doc """
+  After performing steps to repair the Active Directory configuration of an FSx
+  for Windows File Server file system, use this action to initiate the process of
+  Amazon FSx attempting to reconnect to the file system.
+  """
+  def start_misconfigured_state_recovery(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartMisconfiguredStateRecovery", input, options)
+  end
+
+  @doc """
   Tags an Amazon FSx resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do

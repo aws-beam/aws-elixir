@@ -43,7 +43,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "tracking.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
 
     Request.request_rest(
       client,
@@ -368,7 +368,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "geofencing.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.geofencing.")
 
     Request.request_rest(
       client,
@@ -394,7 +394,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "metadata.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.metadata.")
 
     Request.request_rest(
       client,
@@ -422,7 +422,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "maps.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.maps.")
 
     Request.request_rest(
       client,
@@ -454,7 +454,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "places.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.places.")
 
     Request.request_rest(
       client,
@@ -485,7 +485,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "routes.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.routes.")
 
     Request.request_rest(
       client,
@@ -509,7 +509,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "tracking.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
 
     Request.request_rest(
       client,
@@ -535,7 +535,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "geofencing.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.geofencing.")
 
     Request.request_rest(
       client,
@@ -560,7 +560,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "metadata.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.metadata.")
 
     Request.request_rest(
       client,
@@ -586,7 +586,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "maps.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.maps.")
 
     Request.request_rest(
       client,
@@ -611,7 +611,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "places.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.places.")
 
     Request.request_rest(
       client,
@@ -636,7 +636,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "routes.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.routes.")
 
     Request.request_rest(
       client,
@@ -663,7 +663,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "tracking.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
 
     Request.request_rest(
       client,
@@ -686,7 +686,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "geofencing.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.geofencing.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -699,7 +699,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "metadata.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.metadata.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -712,7 +712,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "maps.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.maps.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -725,7 +725,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "places.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.places.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -738,7 +738,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "routes.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.routes.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -751,7 +751,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "tracking.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -775,7 +775,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "tracking.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
 
     Request.request_rest(
       client,
@@ -1070,7 +1070,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "geofencing.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.geofencing.")
 
     Request.request_rest(
       client,
@@ -1116,7 +1116,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "metadata.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.metadata.")
 
     Request.request_rest(
       client,
@@ -1139,7 +1139,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "maps.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.maps.")
 
     Request.request_rest(
       client,
@@ -1162,7 +1162,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "places.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.places.")
 
     Request.request_rest(
       client,
@@ -1185,7 +1185,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "routes.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.routes.")
 
     Request.request_rest(
       client,
@@ -1209,7 +1209,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "metadata.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.metadata.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1222,7 +1222,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "tracking.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
 
     Request.request_rest(
       client,
@@ -1245,7 +1245,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "tracking.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
 
     Request.request_rest(
       client,
@@ -1404,7 +1404,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "metadata.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.metadata.")
 
     Request.request_rest(
       client,
@@ -1432,7 +1432,7 @@ defmodule AWS.Location do
       ]
       |> Request.build_params(input)
 
-    meta = metadata() |> Map.put_new(:host_prefix, "metadata.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.metadata.")
 
     Request.request_rest(
       client,
@@ -1455,7 +1455,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "geofencing.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.geofencing.")
 
     Request.request_rest(
       client,
@@ -1478,7 +1478,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "metadata.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.metadata.")
 
     Request.request_rest(
       client,
@@ -1501,7 +1501,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "maps.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.maps.")
 
     Request.request_rest(
       client,
@@ -1524,7 +1524,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "places.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.places.")
 
     Request.request_rest(
       client,
@@ -1547,7 +1547,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "routes.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.routes.")
 
     Request.request_rest(
       client,
@@ -1570,7 +1570,7 @@ defmodule AWS.Location do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "tracking.")
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
 
     Request.request_rest(
       client,

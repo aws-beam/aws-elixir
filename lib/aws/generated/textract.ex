@@ -112,6 +112,59 @@ defmodule AWS.Textract do
   end
 
   @doc """
+  Creates an adapter, which can be fine-tuned for enhanced performance on user
+  provided documents.
+
+  Takes an AdapterName and FeatureType. Currently the only supported feature type
+  is `QUERIES`. You can also provide a Description, Tags, and a
+  ClientRequestToken. You can choose whether or not the adapter should be
+  AutoUpdated with the AutoUpdate argument. By default, AutoUpdate is set to
+  DISABLED.
+  """
+  def create_adapter(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAdapter", input, options)
+  end
+
+  @doc """
+  Creates a new version of an adapter.
+
+  Operates on a provided AdapterId and a specified dataset provided via the
+  DatasetConfig argument. Requires that you specify an Amazon S3 bucket with the
+  OutputConfig argument. You can provide an optional KMSKeyId, an optional
+  ClientRequestToken, and optional tags.
+  """
+  def create_adapter_version(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAdapterVersion", input, options)
+  end
+
+  @doc """
+  Deletes an Amazon Textract adapter.
+
+  Takes an AdapterId and deletes the adapter specified by the ID.
+  """
+  def delete_adapter(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAdapter", input, options)
+  end
+
+  @doc """
+  Deletes an Amazon Textract adapter version.
+
+  Requires that you specify both an AdapterId and a AdapterVersion. Deletes the
+  adapter version specified by the AdapterId and the AdapterVersion.
+  """
+  def delete_adapter_version(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAdapterVersion", input, options)
+  end
+
+  @doc """
   Detects text in the input document.
 
   Amazon Textract can detect lines of text and the words that make up a line of
@@ -133,6 +186,28 @@ defmodule AWS.Textract do
     meta = metadata()
 
     Request.request_post(client, meta, "DetectDocumentText", input, options)
+  end
+
+  @doc """
+  Gets configuration information for an adapter specified by an AdapterId,
+  returning information on AdapterName, Description, CreationTime, AutoUpdate
+  status, and FeatureTypes.
+  """
+  def get_adapter(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAdapter", input, options)
+  end
+
+  @doc """
+  Gets configuration information for the specified adapter version, including:
+  AdapterId, AdapterVersion, FeatureTypes, Status, StatusMessage, DatasetConfig,
+  KMSKeyId, OutputConfig, Tags and EvaluationMetrics.
+  """
+  def get_adapter_version(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAdapterVersion", input, options)
   end
 
   @doc """
@@ -313,6 +388,33 @@ defmodule AWS.Textract do
   end
 
   @doc """
+  List all version of an adapter that meet the specified filtration criteria.
+  """
+  def list_adapter_versions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAdapterVersions", input, options)
+  end
+
+  @doc """
+  Lists all adapters that match the specified filtration criteria.
+  """
+  def list_adapters(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAdapters", input, options)
+  end
+
+  @doc """
+  Lists all tags for an Amazon Textract resource.
+  """
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
+  end
+
+  @doc """
   Starts the asynchronous analysis of an input document for relationships between
   detected items such as key-value pairs, tables, and selection elements.
 
@@ -424,5 +526,35 @@ defmodule AWS.Textract do
     meta = metadata()
 
     Request.request_post(client, meta, "StartLendingAnalysis", input, options)
+  end
+
+  @doc """
+  Adds one or more tags to the specified resource.
+  """
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
+  end
+
+  @doc """
+  Removes any tags with the specified keys from the specified resource.
+  """
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Update the configuration for an adapter.
+
+  FeatureTypes configurations cannot be updated. At least one new parameter must
+  be specified as an argument.
+  """
+  def update_adapter(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAdapter", input, options)
   end
 end

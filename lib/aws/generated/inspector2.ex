@@ -4,8 +4,8 @@
 defmodule AWS.Inspector2 do
   @moduledoc """
   Amazon Inspector is a vulnerability discovery service that automates continuous
-  scanning for security vulnerabilities within your Amazon EC2 and Amazon ECR
-  environments.
+  scanning for security vulnerabilities within your Amazon EC2, Amazon ECR, and
+  Amazon Web Services Lambda environments.
   """
 
   alias AWS.Client
@@ -254,6 +254,9 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Creates a filter resource using specified filter criteria.
+
+  When the filter action is set to `SUPPRESS` this action creates a suppression
+  rule.
   """
   def create_filter(%Client{} = client, input, options \\ []) do
     url_path = "/filters/create"

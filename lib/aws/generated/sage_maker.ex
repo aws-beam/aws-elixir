@@ -565,10 +565,13 @@ defmodule AWS.SageMaker do
   describe a `Record`.
 
   The `FeatureGroup` defines the schema and features contained in the
-  FeatureGroup. A `FeatureGroup` definition is composed of a list of `Features`, a
-  `RecordIdentifierFeatureName`, an `EventTimeFeatureName` and configurations for
-  its `OnlineStore` and `OfflineStore`. Check [Amazon Web Services service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)
+  `FeatureGroup`. A `FeatureGroup` definition is composed of a list of `Features`,
+  a `RecordIdentifierFeatureName`, an `EventTimeFeatureName` and configurations
+  for its `OnlineStore` and `OfflineStore`. Check [Amazon Web Services service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)
   to see the `FeatureGroup`s quota for your Amazon Web Services account.
+
+  Note that it can take approximately 10-15 minutes to provision an `OnlineStore`
+  `FeatureGroup` with the `InMemory` `StorageType`.
 
   You must include at least one of `OnlineStoreConfig` and `OfflineStoreConfig` to
   create a `FeatureGroup`.
@@ -1456,6 +1459,9 @@ defmodule AWS.SageMaker do
   Data written into the `OfflineStore` will not be deleted. The Amazon Web
   Services Glue database and tables that are automatically created for your
   `OfflineStore` are not deleted.
+
+  Note that it can take approximately 10-15 minutes to delete an `OnlineStore`
+  `FeatureGroup` with the `InMemory` `StorageType`.
   """
   def delete_feature_group(%Client{} = client, input, options \\ []) do
     meta = metadata()

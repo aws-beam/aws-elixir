@@ -35,7 +35,7 @@ defmodule AWS.ManagedBlockchainQuery do
   end
 
   @doc """
-  Gets the token balance for a batch of tokens by using the `GetTokenBalance`
+  Gets the token balance for a batch of tokens by using the `BatchGetTokenBalance`
   action for every token in the request.
 
   Only the native tokens BTC,ETH, and the ERC-20, ERC-721, and ERC 1155 token
@@ -43,6 +43,34 @@ defmodule AWS.ManagedBlockchainQuery do
   """
   def batch_get_token_balance(%Client{} = client, input, options \\ []) do
     url_path = "/batch-get-token-balance"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets the information about a specific contract deployed on the blockchain.
+
+     The Bitcoin blockchain networks do not support this operation.
+
+     Metadata is currently only available for some `ERC-20` contracts.
+  Metadata will be available for additional contracts in the future.
+  """
+  def get_asset_contract(%Client{} = client, input, options \\ []) do
+    url_path = "/get-asset-contract"
     headers = []
     query_params = []
 
@@ -112,9 +140,35 @@ defmodule AWS.ManagedBlockchainQuery do
   end
 
   @doc """
-  This action returns the following for a given a blockchain network:
+  Lists all the contracts for a given contract type deployed by an address (either
+  a contract address or a wallet address).
 
-    * Lists all token balances owned by an address (either a contact
+  The Bitcoin blockchain networks do not support this operation.
+  """
+  def list_asset_contracts(%Client{} = client, input, options \\ []) do
+    url_path = "/list-asset-contracts"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  This action returns the following for a given blockchain network:
+
+    * Lists all token balances owned by an address (either a contract
   address or a wallet address).
 
     * Lists all token balances for all tokens created by a contract.

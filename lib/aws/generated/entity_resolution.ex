@@ -41,6 +41,33 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
+  Creates an `IdMappingWorkflow` object which stores the configuration of the data
+  processing job to be run.
+
+  Each `IdMappingWorkflow` must have a unique workflow name. To modify an existing
+  workflow, use the `UpdateIdMappingWorkflow` API.
+  """
+  def create_id_mapping_workflow(%Client{} = client, input, options \\ []) do
+    url_path = "/idmappingworkflows"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a `MatchingWorkflow` object which stores the configuration of the data
   processing job to be run.
 
@@ -96,6 +123,32 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
+  Deletes the `IdMappingWorkflow` with a given name.
+
+  This operation will succeed even if a workflow with the given name does not
+  exist.
+  """
+  def delete_id_mapping_workflow(%Client{} = client, workflow_name, input, options \\ []) do
+    url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes the `MatchingWorkflow` with a given name.
 
   This operation will succeed even if a workflow with the given name does not
@@ -125,8 +178,8 @@ defmodule AWS.EntityResolution do
   Deletes the `SchemaMapping` with a given name.
 
   This operation will succeed even if a schema with the given name does not exist.
-  This operation will fail if there is a `DataIntegrationWorkflow` object that
-  references the `SchemaMapping` in the workflow's `InputSourceConfig`.
+  This operation will fail if there is a `MatchingWorkflow` object that references
+  the `SchemaMapping` in the workflow's `InputSourceConfig`.
   """
   def delete_schema_mapping(%Client{} = client, schema_name, input, options \\ []) do
     url_path = "/schemas/#{AWS.Util.encode_uri(schema_name)}"
@@ -146,6 +199,35 @@ defmodule AWS.EntityResolution do
       options,
       200
     )
+  end
+
+  @doc """
+  Gets the status, metrics, and errors (if there are any) that are associated with
+  a job.
+  """
+  def get_id_mapping_job(%Client{} = client, job_id, workflow_name, options \\ []) do
+    url_path =
+      "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the `IdMappingWorkflow` with a given name, if it exists.
+  """
+  def get_id_mapping_workflow(%Client{} = client, workflow_name, options \\ []) do
+    url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -208,6 +290,72 @@ defmodule AWS.EntityResolution do
     url_path = "/schemas/#{AWS.Util.encode_uri(schema_name)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all ID mapping jobs for a given workflow.
+  """
+  def list_id_mapping_jobs(
+        %Client{} = client,
+        workflow_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of all the `IdMappingWorkflows` that have been created for an
+  Amazon Web Services account.
+  """
+  def list_id_mapping_workflows(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/idmappingworkflows"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -281,6 +429,47 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
+  Returns a list of all the `ProviderServices` that are available in this Amazon
+  Web Services Region.
+  """
+  def list_provider_services(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        provider_name \\ nil,
+        options \\ []
+      ) do
+    url_path = "/providerservices"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(provider_name) do
+        [{"providerName", provider_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of all the `SchemaMappings` that have been created for an Amazon
   Web Services account.
   """
@@ -326,6 +515,32 @@ defmodule AWS.EntityResolution do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Starts the `IdMappingJob` of a workflow.
+
+  The workflow must have previously been created using the
+  `CreateIdMappingWorkflow` endpoint.
+  """
+  def start_id_mapping_job(%Client{} = client, workflow_name, input, options \\ []) do
+    url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -419,6 +634,23 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
+  Updates an existing `IdMappingWorkflow`.
+
+  This method is identical to `CreateIdMappingWorkflow`, except it uses an HTTP
+  `PUT` request instead of a `POST` request, and the `IdMappingWorkflow` must
+  already exist for the method to succeed.
+  """
+  def update_id_mapping_workflow(%Client{} = client, workflow_name, input, options \\ []) do
+    url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Updates an existing `MatchingWorkflow`.
 
   This method is identical to `CreateMatchingWorkflow`, except it uses an HTTP
@@ -427,6 +659,22 @@ defmodule AWS.EntityResolution do
   """
   def update_matching_workflow(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates a schema mapping.
+
+  A schema is immutable if it is being used by a workflow. Therefore, you can't
+  update a schema mapping if it's associated with a workflow.
+  """
+  def update_schema_mapping(%Client{} = client, schema_name, input, options \\ []) do
+    url_path = "/schemas/#{AWS.Util.encode_uri(schema_name)}"
     headers = []
     query_params = []
 

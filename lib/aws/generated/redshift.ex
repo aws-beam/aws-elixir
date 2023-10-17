@@ -838,7 +838,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
-  Contains information for custom domain associations for a cluster.
+  Contains information about custom domain associations for a cluster.
   """
   def describe_custom_domain_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()

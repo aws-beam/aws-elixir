@@ -1320,7 +1320,7 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Modifies the cluster configuration of the specified Amazon OpenSearch Service
-  domain.sl
+  domain.
   """
   def update_domain_config(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/config"

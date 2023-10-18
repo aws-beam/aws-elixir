@@ -314,6 +314,19 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
+  Get information about the resource policy for a cluster.
+  """
+  def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/resourcePolicy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns an array of all Amazon Route 53 health checks associated with a specific
   routing control.
   """

@@ -12,8 +12,8 @@ defmodule AWS.Route53RecoveryCluster do
   highly available cluster in Route 53 ARC. A cluster provides a set of five
   redundant Regional endpoints against which you can run API calls to get or
   update the state of routing controls. To implement failover, you set one routing
-  control On and another one Off, to reroute traffic from one Availability Zone or
-  Amazon Web Services Region to another.
+  control to ON and another one to OFF, to reroute traffic from one Availability
+  Zone or Amazon Web Services Region to another.
 
   *Be aware that you must specify a Regional endpoint for a cluster when you work
   with API cluster operations to get or update routing control states in Route 53
@@ -75,8 +75,8 @@ defmodule AWS.Route53RecoveryCluster do
   Get the state for a routing control.
 
   A routing control is a simple on/off switch that you can use to route traffic to
-  cells. When a routing control state is On, traffic flows to a cell. When the
-  state is Off, traffic does not flow.
+  cells. When a routing control state is set to ON, traffic flows to a cell. When
+  the state is set to OFF, traffic does not flow.
 
   Before you can create a routing control, you must first create a cluster, and
   then host the control in a control panel on the cluster. For more information,
@@ -114,8 +114,8 @@ defmodule AWS.Route53RecoveryCluster do
   control panel. Otherwise, it lists all the routing controls in the cluster.
 
   A routing control is a simple on/off switch in Route 53 ARC that you can use to
-  route traffic to cells. When a routing control state is On, traffic flows to a
-  cell. When the state is Off, traffic does not flow.
+  route traffic to cells. When a routing control state is set to ON, traffic flows
+  to a cell. When the state is set to OFF, traffic does not flow.
 
   Before you can create a routing control, you must first create a cluster, and
   then host the control in a control panel on the cluster. For more information,
@@ -143,8 +143,8 @@ defmodule AWS.Route53RecoveryCluster do
   @doc """
   Set the state of the routing control to reroute traffic.
 
-  You can set the value to be On or Off. When the state is On, traffic flows to a
-  cell. When the state is Off, traffic does not flow.
+  You can set the value to ON or OFF. When the state is ON, traffic flows to a
+  cell. When the state is OFF, traffic does not flow.
 
   With Route 53 ARC, you can add safety rules for routing controls, which are
   safeguards for routing control state updates that help prevent unexpected
@@ -181,8 +181,8 @@ defmodule AWS.Route53RecoveryCluster do
   @doc """
   Set multiple routing control states.
 
-  You can set the value for each state to be On or Off. When the state is On,
-  traffic flows to a cell. When it's Off, traffic does not flow.
+  You can set the value for each state to be ON or OFF. When the state is ON,
+  traffic flows to a cell. When it's OFF, traffic does not flow.
 
   With Route 53 ARC, you can add safety rules for routing controls, which are
   safeguards for routing control state updates that help prevent unexpected

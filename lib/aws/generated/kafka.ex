@@ -142,6 +142,29 @@ defmodule AWS.Kafka do
   end
 
   @doc """
+  Creates a new Kafka Replicator.
+  """
+  def create_replicator(%Client{} = client, input, options \\ []) do
+    url_path = "/replication/v1/replicators"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a new Amazon MSK VPC connection.
   """
   def create_vpc_connection(%Client{} = client, input, options \\ []) do
@@ -226,6 +249,34 @@ defmodule AWS.Kafka do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a replicator.
+  """
+  def delete_replicator(%Client{} = client, replicator_arn, input, options \\ []) do
+    url_path = "/replication/v1/replicators/#{AWS.Util.encode_uri(replicator_arn)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"CurrentVersion", "currentVersion"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -339,6 +390,20 @@ defmodule AWS.Kafka do
     url_path =
       "/v1/configurations/#{AWS.Util.encode_uri(arn)}/revisions/#{AWS.Util.encode_uri(revision)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a description of the Kafka Replicator whose Amazon Resource Name (ARN)
+  is specified in the request.
+  """
+  def describe_replicator(%Client{} = client, replicator_arn, options \\ []) do
+    url_path = "/replication/v1/replicators/#{AWS.Util.encode_uri(replicator_arn)}"
     headers = []
     query_params = []
 
@@ -726,6 +791,46 @@ defmodule AWS.Kafka do
   end
 
   @doc """
+  Lists the replicators.
+  """
+  def list_replicators(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        replicator_name_filter \\ nil,
+        options \\ []
+      ) do
+    url_path = "/replication/v1/replicators"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(replicator_name_filter) do
+        [{"replicatorNameFilter", replicator_name_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of the Scram Secrets associated with an Amazon MSK cluster.
   """
   def list_scram_secrets(
@@ -999,6 +1104,21 @@ defmodule AWS.Kafka do
   """
   def update_monitoring(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/monitoring"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates replication info of a replicator.
+  """
+  def update_replication_info(%Client{} = client, replicator_arn, input, options \\ []) do
+    url_path =
+      "/replication/v1/replicators/#{AWS.Util.encode_uri(replicator_arn)}/replication-info"
+
     headers = []
     query_params = []
 

@@ -811,6 +811,33 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Get the status of the maintenance action.
+  """
+  def get_domain_maintenance_status(
+        %Client{} = client,
+        domain_name,
+        maintenance_id,
+        options \\ []
+      ) do
+    url_path =
+      "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/domainMaintenance"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(maintenance_id) do
+        [{"maintenanceId", maintenance_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Returns a list of Amazon OpenSearch Service package versions, along with their
   creation time, commit message, and plugin properties (if the package is a zip
   plugin package).
@@ -889,6 +916,57 @@ defmodule AWS.OpenSearch do
     url_path = "/2021-01-01/opensearch/upgradeDomain/#{AWS.Util.encode_uri(domain_name)}/status"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Get the list of the maintenance action.
+  """
+  def list_domain_maintenances(
+        %Client{} = client,
+        domain_name,
+        action \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/domainMaintenances"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(action) do
+        [{"action", action} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -1274,6 +1352,32 @@ defmodule AWS.OpenSearch do
   def revoke_vpc_endpoint_access(%Client{} = client, domain_name, input, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/revokeVpcEndpointAccess"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Starts the node maintenance (Node restart, Node reboot, Opensearch/Elasticsearch
+  process restart, Dashboard/kibana restart) on the data node.
+  """
+  def start_domain_maintenance(%Client{} = client, domain_name, input, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/domainMaintenance"
 
     headers = []
     query_params = []

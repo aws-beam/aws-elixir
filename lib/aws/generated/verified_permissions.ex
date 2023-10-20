@@ -155,7 +155,7 @@ defmodule AWS.VerifiedPermissions do
 
   A policy store is a container for policy resources.
 
-  Although [Cedar supports multiple namespaces](https://docs.cedarpolicy.com/schema.html#namespace), Verified
+  Although [Cedar supports multiple namespaces](https://docs.cedarpolicy.com/schema/schema.html#namespace), Verified
   Permissions currently supports only one namespace per policy store.
 
   Verified Permissions is * [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
@@ -472,9 +472,9 @@ defmodule AWS.VerifiedPermissions do
   Updates the specified policy template.
 
   You can update only the description and the some elements of the
-  [policyBody](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyTemplate.html#amazonverifiedpermissions-UpdatePolicyTemplate-request-policyBody).  Changes you make to the policy template content are immediately reflected in
-  authorization decisions that involve all template-linked policies instantiated
-  from this template.
+  [policyBody](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyTemplate.html#amazonverifiedpermissions-UpdatePolicyTemplate-request-policyBody).  Changes you make to the policy template content are immediately (within the
+  constraints of eventual consistency) reflected in authorization decisions that
+  involve all template-linked policies instantiated from this template.
 
   Verified Permissions is * [eventually
   consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a

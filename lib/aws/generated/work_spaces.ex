@@ -236,7 +236,8 @@ defmodule AWS.WorkSpaces do
   WorkSpaces Core. Contact your account team to be allow-listed to use this value.
   For more information, see [Amazon WorkSpaces Core](http://aws.amazon.com/workspaces/core/).
 
-     PCoIP is only available for Windows bundles.
+     You don't need to specify the `PCOIP` protocol for Linux bundles
+  because `WSP` is the default protocol for those bundles.
   """
   def create_workspaces(%Client{} = client, input, options \\ []) do
     meta = metadata()

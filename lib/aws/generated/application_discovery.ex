@@ -115,6 +115,18 @@ defmodule AWS.ApplicationDiscovery do
   end
 
   @doc """
+  Deletes one or more agents or collectors as specified by ID.
+
+  Deleting an agent or collector does not delete the previously discovered data.
+  To delete the data collected, use `StartBatchDeleteConfigurationTask`.
+  """
+  def batch_delete_agents(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchDeleteAgents", input, options)
+  end
+
+  @doc """
   Deletes one or more import tasks, each identified by their import ID.
 
   Each import task has a number of records that can identify servers or
@@ -186,6 +198,16 @@ defmodule AWS.ApplicationDiscovery do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeAgents", input, options)
+  end
+
+  @doc """
+  Takes a unique deletion task identifier as input and returns metadata about a
+  configuration deletion task.
+  """
+  def describe_batch_delete_configuration_task(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeBatchDeleteConfigurationTask", input, options)
   end
 
   @doc """
@@ -348,6 +370,18 @@ defmodule AWS.ApplicationDiscovery do
     meta = metadata()
 
     Request.request_post(client, meta, "ListServerNeighbors", input, options)
+  end
+
+  @doc """
+  Takes a list of configurationId as input and starts an asynchronous deletion
+  task to remove the configurationItems.
+
+  Returns a unique deletion task identifier.
+  """
+  def start_batch_delete_configuration_task(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartBatchDeleteConfigurationTask", input, options)
   end
 
   @doc """

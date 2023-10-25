@@ -47,6 +47,29 @@ defmodule AWS.OpenSearchServerless do
   end
 
   @doc """
+  Returns a list of successful and failed retrievals for the OpenSearch Serverless
+  indexes.
+
+  For more information, see [Viewing data lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list).
+  """
+  def batch_get_effective_lifecycle_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetEffectiveLifecyclePolicy", input, options)
+  end
+
+  @doc """
+  Returns one or more configured OpenSearch Serverless lifecycle policies.
+
+  For more information, see [Viewing data lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list).
+  """
+  def batch_get_lifecycle_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetLifecyclePolicy", input, options)
+  end
+
+  @doc """
   Returns attributes for one or more VPC endpoints associated with the current
   account.
 
@@ -81,6 +104,18 @@ defmodule AWS.OpenSearchServerless do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateCollection", input, options)
+  end
+
+  @doc """
+  Creates a lifecyle policy to be applied to OpenSearch Serverless indexes.
+
+  Lifecycle policies define the number of days or hours to retain the data on an
+  OpenSearch Serverless index. For more information, see [Creating data lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-create).
+  """
+  def create_lifecycle_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLifecyclePolicy", input, options)
   end
 
   @doc """
@@ -142,6 +177,17 @@ defmodule AWS.OpenSearchServerless do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteCollection", input, options)
+  end
+
+  @doc """
+  Deletes an OpenSearch Serverless lifecycle policy.
+
+  For more information, see [Deleting data lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-delete).
+  """
+  def delete_lifecycle_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLifecyclePolicy", input, options)
   end
 
   @doc """
@@ -253,6 +299,17 @@ defmodule AWS.OpenSearchServerless do
   end
 
   @doc """
+  Returns a list of OpenSearch Serverless lifecycle policies.
+
+  For more information, see [Viewing data lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list).
+  """
+  def list_lifecycle_policies(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLifecyclePolicies", input, options)
+  end
+
+  @doc """
   Returns information about configured OpenSearch Serverless security
   configurations.
 
@@ -349,6 +406,17 @@ defmodule AWS.OpenSearchServerless do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateCollection", input, options)
+  end
+
+  @doc """
+  Updates an OpenSearch Serverless access policy.
+
+  For more information, see [Updating data lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-update).
+  """
+  def update_lifecycle_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLifecyclePolicy", input, options)
   end
 
   @doc """

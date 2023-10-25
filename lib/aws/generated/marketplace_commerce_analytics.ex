@@ -46,9 +46,9 @@ defmodule AWS.MarketplaceCommerceAnalytics do
   end
 
   @doc """
-  Given a data set type and a from date, asynchronously publishes the requested
-  customer support data to the specified S3 bucket and notifies the specified SNS
-  topic once the data is available.
+  *This target has been deprecated.* Given a data set type and a from date,
+  asynchronously publishes the requested customer support data to the specified S3
+  bucket and notifies the specified SNS topic once the data is available.
 
   Returns a unique request identifier that can be used to correlate requests with
   notifications from the SNS topic. Data sets will be published in comma-separated

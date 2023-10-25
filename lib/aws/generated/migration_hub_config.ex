@@ -55,6 +55,18 @@ defmodule AWS.MigrationHubConfig do
   end
 
   @doc """
+  This operation deletes the home region configuration for the calling account.
+
+  The operation does not delete discovery or migration tracking data in the home
+  region.
+  """
+  def delete_home_region_control(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteHomeRegionControl", input, options)
+  end
+
+  @doc """
   This API permits filtering on the `ControlId` and `HomeRegion` fields.
   """
   def describe_home_region_controls(%Client{} = client, input, options \\ []) do

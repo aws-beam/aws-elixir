@@ -199,6 +199,30 @@ defmodule AWS.MigrationHubStrategy do
   end
 
   @doc """
+  Retrieves a list of all the servers fetched from customer vCenter using Strategy
+  Recommendation Collector.
+  """
+  def list_analyzable_servers(%Client{} = client, input, options \\ []) do
+    url_path = "/list-analyzable-servers"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves a list of all the application components (processes).
   """
   def list_application_components(%Client{} = client, input, options \\ []) do

@@ -1379,6 +1379,17 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+  Retrieves the results for a given media analysis job.
+
+  Takes a `JobId` returned by StartMediaAnalysisJob.
+  """
+  def get_media_analysis_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMediaAnalysisJob", input, options)
+  end
+
+  @doc """
   Gets the path tracking results of a Amazon Rekognition Video analysis started by
   `StartPersonTracking`.
 
@@ -1674,6 +1685,17 @@ defmodule AWS.Rekognition do
     meta = metadata()
 
     Request.request_post(client, meta, "ListFaces", input, options)
+  end
+
+  @doc """
+  Returns a list of media analysis jobs.
+
+  Results are sorted by `CreationTimestamp` in descending order.
+  """
+  def list_media_analysis_jobs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMediaAnalysisJobs", input, options)
   end
 
   @doc """
@@ -2048,6 +2070,18 @@ defmodule AWS.Rekognition do
     meta = metadata()
 
     Request.request_post(client, meta, "StartLabelDetection", input, options)
+  end
+
+  @doc """
+  Initiates a new media analysis job.
+
+  Accepts a manifest file in an Amazon S3 bucket. The output is a manifest file
+  and a summary of the manifest stored in the Amazon S3 bucket.
+  """
+  def start_media_analysis_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartMediaAnalysisJob", input, options)
   end
 
   @doc """

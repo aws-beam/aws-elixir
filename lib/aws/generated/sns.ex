@@ -651,7 +651,7 @@ defmodule AWS.SNS do
   `ConfirmSubscription` action to confirm the subscription.
 
   You call the `ConfirmSubscription` action with the token from the subscription
-  response. Confirmation tokens are valid for three days.
+  response. Confirmation tokens are valid for two days.
 
   This action is throttled at 100 transactions per second (TPS).
   """

@@ -1089,6 +1089,8 @@ defmodule AWS.IAM do
   Recent activity usually appears within four hours. IAM reports activity for at
   least the last 400 days, or less if your Region began supporting this feature
   within the last year. For more information, see [Regions where data is tracked](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period).
+  For more information about services and actions for which action last accessed
+  information is displayed, see [IAM action last accessed information services and actions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor-action-last-accessed.html).
 
   The service last accessed data includes all attempts to access an Amazon Web
   Services API, not just the successful ones. This includes all attempts that were
@@ -1680,10 +1682,11 @@ defmodule AWS.IAM do
   If the `UserName` is not specified, the user name is determined implicitly based
   on the Amazon Web Services access key ID used to sign the request. If a
   temporary access key is used, then `UserName` is required. If a long-term key is
-  assigned to the user, then `UserName` is not required. This operation works for
-  access keys under the Amazon Web Services account. Consequently, you can use
-  this operation to manage Amazon Web Services account root user credentials even
-  if the Amazon Web Services account has no associated users.
+  assigned to the user, then `UserName` is not required.
+
+  This operation works for access keys under the Amazon Web Services account. If
+  the Amazon Web Services account has no associated users, the root user returns
+  it's own access key IDs by running this command.
 
   To ensure the security of your Amazon Web Services account, the secret access
   key is accessible only during key and user creation.

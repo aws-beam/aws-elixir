@@ -811,7 +811,7 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Get the status of the maintenance action.
+  The status of the maintenance action.
   """
   def get_domain_maintenance_status(
         %Client{} = client,
@@ -923,7 +923,7 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Get the list of the maintenance action.
+  A list of maintenance actions for the domain.
   """
   def list_domain_maintenances(
         %Client{} = client,
@@ -1372,8 +1372,10 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Starts the node maintenance (Node restart, Node reboot, Opensearch/Elasticsearch
-  process restart, Dashboard/kibana restart) on the data node.
+  Starts the node maintenance process on the data node.
+
+  These processes can include a node reboot, an Opensearch or Elasticsearch
+  process restart, or a Dashboard or Kibana restart.
   """
   def start_domain_maintenance(%Client{} = client, domain_name, input, options \\ []) do
     url_path =

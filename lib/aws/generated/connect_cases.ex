@@ -80,8 +80,8 @@ defmodule AWS.ConnectCases do
   The following fields are required when creating a case:
 
   `   * `customer_id` - You must provide the full customer profile ARN
-  in this format: `arn:aws:profile:your AWS Region:your AWS account
-  ID:domains/profiles domain name/profiles/profile ID`
+  in this format: `arn:aws:profile:your_AWS_Region:your_AWS_account
+  ID:domains/your_profiles_domain_name/profiles/profile_ID`
 
     * `title`
 
@@ -602,7 +602,10 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-  API for adding case event publishing configuration
+  Adds case event publishing configuration.
+
+  For a complete list of fields you can add to the event message, see [Create case fields](https://docs.aws.amazon.com/connect/latest/adminguide/case-fields.html)
+  in the *Amazon Connect Administrator Guide*
   """
   def put_case_event_configuration(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/case-event-configuration"

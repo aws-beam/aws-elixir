@@ -592,6 +592,15 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  Deletes the resource policy for a specified resource.
+  """
+  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
+  end
+
+  @doc """
   Deletes a scheduled action.
   """
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
@@ -1001,6 +1010,15 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  Returns a list of inbound integrations.
+  """
+  def describe_inbound_integrations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInboundIntegrations", input, options)
+  end
+
+  @doc """
   Describes whether information, such as queries and connection attempts, is being
   logged for the specified Amazon Redshift cluster.
   """
@@ -1356,6 +1374,15 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  Get the resource policy for a specified resource.
+  """
+  def get_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResourcePolicy", input, options)
+  end
+
+  @doc """
   This operation is retired.
 
   Calling this operation does not change AQUA configuration. Amazon Redshift
@@ -1579,6 +1606,15 @@ defmodule AWS.Redshift do
     meta = metadata()
 
     Request.request_post(client, meta, "PurchaseReservedNodeOffering", input, options)
+  end
+
+  @doc """
+  Updates the resource policy for a specified resource.
+  """
+  def put_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
 
   @doc """

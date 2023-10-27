@@ -181,9 +181,10 @@ defmodule AWS.NetworkFirewall do
   Creates an Network Firewall TLS inspection configuration.
 
   A TLS inspection configuration contains the Certificate Manager certificate
-  references that Network Firewall uses to decrypt and re-encrypt inbound traffic.
+  associations that Network Firewall uses to decrypt and re-encrypt traffic
+  traveling through your firewall.
 
-  After you create a TLS inspection configuration, you associate it with a new
+  After you create a TLS inspection configuration, you can associate it with a new
   firewall policy.
 
   To update the settings for a TLS inspection configuration, use
@@ -196,7 +197,7 @@ defmodule AWS.NetworkFirewall do
   To retrieve information about TLS inspection configurations, use
   `ListTLSInspectionConfigurations` and `DescribeTLSInspectionConfiguration`.
 
-  For more information about TLS inspection configurations, see [Decrypting SSL/TLS traffic with TLS inspection
+  For more information about TLS inspection configurations, see [Inspecting SSL/TLS traffic with TLS inspection
   configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html)
   in the *Network Firewall Developer Guide*.
   """
@@ -594,7 +595,7 @@ defmodule AWS.NetworkFirewall do
   Updates the TLS inspection configuration settings for the specified TLS
   inspection configuration.
 
-  You use a TLS inspection configuration by reference in one or more firewall
+  You use a TLS inspection configuration by referencing it in one or more firewall
   policies. When you modify a TLS inspection configuration, you modify all
   firewall policies that use the TLS inspection configuration.
 

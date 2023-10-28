@@ -34,7 +34,7 @@ defmodule AWS.EMR do
   Adds an instance fleet to a running cluster.
 
   The instance fleet configuration is available only in Amazon EMR releases 4.8.0
-  and later, excluding 5.0.x.
+  and higher, excluding 5.0.x.
   """
   def add_instance_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -99,11 +99,11 @@ defmodule AWS.EMR do
   @doc """
   Cancels a pending step or steps in a running cluster.
 
-  Available only in Amazon EMR versions 4.8.0 and later, excluding version 5.0.0.
+  Available only in Amazon EMR versions 4.8.0 and higher, excluding version 5.0.0.
   A maximum of 256 steps are allowed in each CancelSteps request. CancelSteps is
   idempotent but asynchronous; it does not guarantee that a step will be canceled,
   even if the request is successfully submitted. When you use Amazon EMR releases
-  5.28.0 and later, you can cancel steps that are in a `PENDING` or `RUNNING`
+  5.28.0 and higher, you can cancel steps that are in a `PENDING` or `RUNNING`
   state. In earlier versions of Amazon EMR, you can only cancel steps that are in
   a `PENDING` state.
   """
@@ -346,7 +346,7 @@ defmodule AWS.EMR do
   Lists all available details about the instance fleets in a cluster.
 
   The instance fleet configuration is available only in Amazon EMR releases 4.8.0
-  and later, excluding 5.0.x versions.
+  and higher, excluding 5.0.x versions.
   """
   def list_instance_fleets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -480,7 +480,7 @@ defmodule AWS.EMR do
   The call either succeeds or fails atomically.
 
   The instance fleet configuration is available only in Amazon EMR releases 4.8.0
-  and later, excluding 5.0.x versions.
+  and higher, excluding 5.0.x versions.
   """
   def modify_instance_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -515,7 +515,8 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  Auto-termination is supported in Amazon EMR releases 5.30.0 and 6.1.0 and later.
+  Auto-termination is supported in Amazon EMR releases 5.30.0 and 6.1.0 and
+  higher.
 
   For more information, see [Using an auto-termination policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-auto-termination-policy.html).
 
@@ -628,7 +629,7 @@ defmodule AWS.EMR do
   results.
 
   The instance fleets configuration is available only in Amazon EMR releases 4.8.0
-  and later, excluding 5.0.x versions. The RunJobFlow request can contain
+  and higher, excluding 5.0.x versions. The RunJobFlow request can contain
   InstanceFleets parameters or InstanceGroups parameters, but not both.
   """
   def run_job_flow(%Client{} = client, input, options \\ []) do

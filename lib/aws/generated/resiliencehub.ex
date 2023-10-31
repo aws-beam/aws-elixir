@@ -33,9 +33,13 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Adds the resource mapping for the draft application version.
+  Adds the source of resource-maps to the draft version of an application.
 
-  You can also update an existing resource mapping to a new physical resource.
+  During assessment, Resilience Hub will use these resource-maps to resolve the
+  latest physical ID for each resource in the application template. For more
+  information about different types of resources suported by Resilience Hub and
+  how to add them in your application, see [Step 2: How is your application managed?](https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html)
+  in the Resilience Hub User Guide.
   """
   def add_draft_app_version_resource_mappings(%Client{} = client, input, options \\ []) do
     url_path = "/add-draft-app-version-resource-mappings"
@@ -207,6 +211,13 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Creates a resiliency policy for an application.
+
+  Resilience Hub allows you to provide a value of zero for `rtoInSecs` and
+  `rpoInSecs` of your resiliency policy. But, while assessing your application,
+  the lowest possible assessment result is near zero. Hence, if you provide value
+  zero for `rtoInSecs` and `rpoInSecs`, the estimated workload RTO and estimated
+  workload RPO result will be near zero and the **Compliance status** for your
+  application will be set to **Policy breached**.
   """
   def create_resiliency_policy(%Client{} = client, input, options \\ []) do
     url_path = "/create-resiliency-policy"
@@ -976,14 +987,31 @@ defmodule AWS.Resiliencehub do
   def list_apps(
         %Client{} = client,
         app_arn \\ nil,
+        from_last_assessment_time \\ nil,
         max_results \\ nil,
         name \\ nil,
         next_token \\ nil,
+        reverse_order \\ nil,
+        to_last_assessment_time \\ nil,
         options \\ []
       ) do
     url_path = "/list-apps"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(to_last_assessment_time) do
+        [{"toLastAssessmentTime", to_last_assessment_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(reverse_order) do
+        [{"reverseOrder", reverse_order} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do
@@ -1002,6 +1030,13 @@ defmodule AWS.Resiliencehub do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(from_last_assessment_time) do
+        [{"fromLastAssessmentTime", from_last_assessment_time} | query_params]
       else
         query_params
       end
@@ -1526,6 +1561,13 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Updates a resiliency policy.
+
+  Resilience Hub allows you to provide a value of zero for `rtoInSecs` and
+  `rpoInSecs` of your resiliency policy. But, while assessing your application,
+  the lowest possible assessment result is near zero. Hence, if you provide value
+  zero for `rtoInSecs` and `rpoInSecs`, the estimated workload RTO and estimated
+  workload RPO result will be near zero and the **Compliance status** for your
+  application will be set to **Policy breached**.
   """
   def update_resiliency_policy(%Client{} = client, input, options \\ []) do
     url_path = "/update-resiliency-policy"

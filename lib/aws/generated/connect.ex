@@ -13,7 +13,7 @@ defmodule AWS.Connect do
 
   There are limits to the number of Amazon Connect resources that you can create.
   There are also limits to the number of requests that you can make per second.
-  For more information, seeP98941055 [Amazon Connect Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
+  For more information, see [Amazon Connect Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
   in the *Amazon Connect Administrator Guide*.
 
   You can connect programmatically to an Amazon Web Services service by using an
@@ -3526,7 +3526,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Returns a list of third party applications in a specific security profile.
+  Returns a list of third-party applications in a specific security profile.
   """
   def list_security_profile_applications(
         %Client{} = client,
@@ -4095,7 +4095,11 @@ defmodule AWS.Connect do
 
   @doc """
   When a contact is being recorded, and the recording has been suspended using
-  SuspendContactRecording, this API resumes recording the call or screen.
+  SuspendContactRecording, this API resumes recording whatever recording is
+  selected in the flow configuration: call, screen, or both.
+
+  If only call recording or only screen recording is enabled, then it would
+  resume.
 
   Voice and screen recordings are supported.
   """
@@ -4705,12 +4709,13 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  When a contact is being recorded, this API suspends recording the call or
-  screen.
+  When a contact is being recorded, this API suspends recording whatever is
+  selected in the flow configuration: call, screen, or both.
 
-  For example, you might suspend the call or screen recording while collecting
+  If only call recording or only screen recording is enabled, then it would be
+  suspended. For example, you might suspend the screen recording while collecting
   sensitive information, such as a credit card number. Then use
-  ResumeContactRecording to restart recording.
+  ResumeContactRecording to restart recording the screen.
 
   The period of time that the recording is suspended is filled with silence in the
   final recording.

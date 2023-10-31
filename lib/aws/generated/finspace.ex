@@ -750,6 +750,31 @@ defmodule AWS.Finspace do
   end
 
   @doc """
+  Allows you to update code configuration on a running cluster.
+
+  By using this API you can update the code, the initialization script path, and
+  the command line arguments for a specific cluster. The configuration that you
+  want to update will override any existing configurations on the cluster.
+  """
+  def update_kx_cluster_code_configuration(
+        %Client{} = client,
+        cluster_name,
+        environment_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/clusters/#{AWS.Util.encode_uri(cluster_name)}/configuration/code"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
   Updates the databases mounted on a kdb cluster, which includes the `changesetId`
   and all the dbPaths to be cached.
 

@@ -50,6 +50,15 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
+  Creates a custom domain association for Amazon Redshift Serverless.
+  """
+  def create_custom_domain_association(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCustomDomainAssociation", input, options)
+  end
+
+  @doc """
   Creates an Amazon Redshift Serverless managed VPC endpoint.
   """
   def create_endpoint_access(%Client{} = client, input, options \\ []) do
@@ -96,6 +105,15 @@ defmodule AWS.RedshiftServerless do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateWorkgroup", input, options)
+  end
+
+  @doc """
+  Deletes a custom domain association for Amazon Redshift Serverless.
+  """
+  def delete_custom_domain_association(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCustomDomainAssociation", input, options)
   end
 
   @doc """
@@ -179,6 +197,15 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
+  Gets information about a specific custom domain association.
+  """
+  def get_custom_domain_association(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCustomDomainAssociation", input, options)
+  end
+
+  @doc """
   Returns information, such as the name, about a VPC endpoint.
   """
   def get_endpoint_access(%Client{} = client, input, options \\ []) do
@@ -248,6 +275,15 @@ defmodule AWS.RedshiftServerless do
     meta = metadata()
 
     Request.request_post(client, meta, "GetWorkgroup", input, options)
+  end
+
+  @doc """
+  Lists custom domain associations for Amazon Redshift Serverless.
+  """
+  def list_custom_domain_associations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCustomDomainAssociations", input, options)
   end
 
   @doc """
@@ -379,6 +415,16 @@ defmodule AWS.RedshiftServerless do
     meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates an Amazon Redshift Serverless certificate associated with a custom
+  domain.
+  """
+  def update_custom_domain_association(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCustomDomainAssociation", input, options)
   end
 
   @doc """

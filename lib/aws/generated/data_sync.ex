@@ -122,9 +122,10 @@ defmodule AWS.DataSync do
 
   @doc """
   Creates an endpoint for an Amazon FSx for NetApp ONTAP file system that DataSync
-  can access for a transfer.
+  can use for a data transfer.
 
-  For more information, see [Creating a location for FSx for ONTAP](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html).
+  Before you begin, make sure that you understand how DataSync [accesses an FSx for ONTAP file
+  system](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access).
   """
   def create_location_fsx_ontap(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -148,7 +149,11 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates an endpoint for an Amazon FSx for Windows File Server file system.
+  Creates an endpoint for an Amazon FSx for Windows File Server file system that
+  DataSync can use for a data transfer.
+
+  Before you begin, make sure that you understand how DataSync [accesses an FSx for Windows File
+  Server](https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-location-access).
   """
   def create_location_fsx_windows(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -245,12 +250,12 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Deletes an agent.
+  Removes an DataSync agent resource from your Amazon Web Services account.
 
-  To specify which agent to delete, use the Amazon Resource Name (ARN) of the
-  agent in your request. The operation disassociates the agent from your Amazon
-  Web Services account. However, it doesn't delete the agent virtual machine (VM)
-  from your on-premises environment.
+  Keep in mind that this operation (which can't be undone) doesn't remove the
+  agent's virtual machine (VM) or Amazon EC2 instance from your storage
+  environment. For next steps, you can delete the VM or instance from your storage
+  environment or reuse it to [activate a new agent](https://docs.aws.amazon.com/datasync/latest/userguide/activate-agent.html).
   """
   def delete_agent(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -277,8 +282,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Returns metadata about an DataSync agent, such as its name, endpoint type, and
-  status.
+  Returns information about an DataSync agent, such as its name, service endpoint
+  type, and status.
   """
   def describe_agent(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -641,7 +646,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Updates the name of an agent.
+  Updates the name of an DataSync agent.
   """
   def update_agent(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -704,10 +709,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Updates some of the parameters of a previously created location for Server
-  Message Block (SMB) file system access.
-
-  For information about creating an SMB location, see [Creating a location for SMB](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html).
+  Updates some of the parameters of a Server Message Block (SMB) file server
+  location that you can use for DataSync transfers.
   """
   def update_location_smb(%Client{} = client, input, options \\ []) do
     meta = metadata()

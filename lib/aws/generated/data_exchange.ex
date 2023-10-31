@@ -625,6 +625,29 @@ defmodule AWS.DataExchange do
   end
 
   @doc """
+  The type of event associated with the data set.
+  """
+  def send_data_set_notification(%Client{} = client, data_set_id, input, options \\ []) do
+    url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/notification"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   This operation starts a job.
   """
   def start_job(%Client{} = client, job_id, input, options \\ []) do

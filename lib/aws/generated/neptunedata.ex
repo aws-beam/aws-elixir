@@ -559,7 +559,7 @@ defmodule AWS.Neptunedata do
   [neptune-db:ReadDataViaQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery) IAM action in that cluster.
 
   Note that the
-  [neptune-db:QueryLanguage:Opencypher](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)
+  [neptune-db:QueryLanguage:OpenCypher](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)
   IAM condition key can be used in the policy document to restrict the use of
   openCypher queries (see [Condition keys available in Neptune IAM data-access policy
   statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
@@ -762,7 +762,7 @@ defmodule AWS.Neptunedata do
   [neptune-db:GetQueryStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getquerystatus) IAM action in that cluster.
 
   Note that the
-  [neptune-db:QueryLanguage:Opencypher](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)
+  [neptune-db:QueryLanguage:OpenCypher](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)
   IAM condition key can be used in the policy document to restrict the use of
   openCypher queries (see [Condition keys available in Neptune IAM data-access policy
   statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
@@ -1183,7 +1183,7 @@ defmodule AWS.Neptunedata do
   [neptune-db:GetQueryStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getquerystatus) IAM action in that cluster.
 
   Note that the
-  [neptune-db:QueryLanguage:Opencypher](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)
+  [neptune-db:QueryLanguage:OpenCypher](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)
   IAM condition key can be used in the policy document to restrict the use of
   openCypher queries (see [Condition keys available in Neptune IAM data-access policy
   statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).

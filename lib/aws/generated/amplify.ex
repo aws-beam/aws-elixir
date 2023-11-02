@@ -6,8 +6,8 @@ defmodule AWS.Amplify do
   Amplify enables developers to develop and deploy cloud-powered mobile and web
   apps.
 
-  The Amplify Console provides a continuous delivery and hosting service for web
-  applications. For more information, see the [Amplify Console User Guide](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html). The
+  Amplify Hosting provides a continuous delivery and hosting service for web
+  applications. For more information, see the [Amplify Hosting User Guide](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html). The
   Amplify Framework is a comprehensive set of SDKs, libraries, tools, and
   documentation for client app development. For more information, see the [Amplify Framework.](https://docs.amplify.aws/)
   """
@@ -104,6 +104,10 @@ defmodule AWS.Amplify do
   Creates a deployment for a manually deployed Amplify app.
 
   Manually deployed apps are not connected to a repository.
+
+  The maximum duration between the `CreateDeployment` call and the
+  `StartDeployment` call cannot exceed 8 hours. If the duration exceeds 8 hours,
+  the `StartDeployment` call and the associated `Job` will fail.
   """
   def create_deployment(%Client{} = client, app_id, branch_name, input, options \\ []) do
     url_path =
@@ -347,7 +351,7 @@ defmodule AWS.Amplify do
   end
 
   @doc """
-  Returns an existing Amplify app by appID.
+  Returns an existing Amplify app specified by an app ID.
   """
   def get_app(%Client{} = client, app_id, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}"
@@ -698,6 +702,10 @@ defmodule AWS.Amplify do
   Starts a deployment for a manually deployed app.
 
   Manually deployed apps are not connected to a repository.
+
+  The maximum duration between the `CreateDeployment` call and the
+  `StartDeployment` call cannot exceed 8 hours. If the duration exceeds 8 hours,
+  the `StartDeployment` call and the associated `Job` will fail.
   """
   def start_deployment(%Client{} = client, app_id, branch_name, input, options \\ []) do
     url_path =

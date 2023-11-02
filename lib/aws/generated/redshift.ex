@@ -1291,6 +1291,16 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  Fails over the primary compute unit of the specified Multi-AZ cluster to another
+  Availability Zone.
+  """
+  def failover_primary_compute(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "FailoverPrimaryCompute", input, options)
+  end
+
+  @doc """
   Returns a database user name and temporary password with temporary authorization
   to log on to an Amazon Redshift database.
 

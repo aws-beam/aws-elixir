@@ -614,6 +614,7 @@ defmodule AWS.M2 do
         %Client{} = client,
         application_id,
         max_results \\ nil,
+        name_filter \\ nil,
         next_token \\ nil,
         prefix \\ nil,
         options \\ []
@@ -632,6 +633,13 @@ defmodule AWS.M2 do
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name_filter) do
+        [{"nameFilter", name_filter} | query_params]
       else
         query_params
       end

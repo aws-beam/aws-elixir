@@ -36,7 +36,7 @@ defmodule AWS.GlobalAccelerator do
   four addresses: two static IPv4 addresses and two static IPv6 addresses. With a
   standard accelerator for IPv4, instead of using the addresses that Global
   Accelerator provides, you can configure these entry points to be IPv4 addresses
-  from your own IP address ranges that you bring toGlobal Accelerator (BYOIP).
+  from your own IP address ranges that you bring to Global Accelerator (BYOIP).
 
   For a standard accelerator, they distribute incoming application traffic across
   multiple endpoint resources in multiple Amazon Web Services Regions , which
@@ -197,6 +197,28 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+  Create a cross-account attachment in Global Accelerator.
+
+  You create a cross-account attachment to specify the *principals* who have
+  permission to add to accelerators in their own account the resources in your
+  account that you also list in the attachment.
+
+  A principal can be an Amazon Web Services account number or the Amazon Resource
+  Name (ARN) for an accelerator. For account numbers that are listed as
+  principals, to add a resource listed in the attachment to an accelerator, you
+  must sign in to an account specified as a principal. Then you can add the
+  resources that are listed to any of your accelerators. If an accelerator ARN is
+  listed in the cross-account attachment as a principal, anyone with permission to
+  make updates to the accelerator can add as endpoints resources that are listed
+  in the attachment.
+  """
+  def create_cross_account_attachment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCrossAccountAttachment", input, options)
+  end
+
+  @doc """
   Create a custom routing accelerator.
 
   A custom routing accelerator directs traffic to one of possibly thousands of
@@ -299,6 +321,34 @@ defmodule AWS.GlobalAccelerator do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteAccelerator", input, options)
+  end
+
+  @doc """
+  Delete a cross-account attachment.
+
+  When you delete an attachment, Global Accelerator revokes the permission to use
+  the resources in the attachment from all principals in the list of principals.
+  Global Accelerator revokes the permission for specific resources by doing the
+  following:
+
+    * If the principal is an account ID, Global Accelerator reviews
+  every accelerator in the account and removes cross-account endpoints from all
+  accelerators.
+
+    * If the principal is an accelerator, Global Accelerator reviews
+  just that accelerator and removes cross-account endpoints from it.
+
+  If there are overlapping permissions provided by multiple cross-account
+  attachments, Global Accelerator only removes endpoints if there are no current
+  cross-account attachments that provide access permission. For example, if you
+  delete a cross-account attachment that lists an accelerator as a principal, but
+  another cross-account attachment includes the account ID that owns that
+  accelerator, endpoints will not be removed from the accelerator.
+  """
+  def delete_cross_account_attachment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCrossAccountAttachment", input, options)
   end
 
   @doc """
@@ -419,6 +469,15 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
+  Gets configuration information about a cross-account attachment.
+  """
+  def describe_cross_account_attachment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCrossAccountAttachment", input, options)
+  end
+
+  @doc """
   Describe a custom routing accelerator.
   """
   def describe_custom_routing_accelerator(%Client{} = client, input, options \\ []) do
@@ -496,6 +555,33 @@ defmodule AWS.GlobalAccelerator do
     meta = metadata()
 
     Request.request_post(client, meta, "ListByoipCidrs", input, options)
+  end
+
+  @doc """
+  List the cross-account attachments that have been created in Global Accelerator.
+  """
+  def list_cross_account_attachments(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCrossAccountAttachments", input, options)
+  end
+
+  @doc """
+  List the accounts that have cross-account endpoints.
+  """
+  def list_cross_account_resource_accounts(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCrossAccountResourceAccounts", input, options)
+  end
+
+  @doc """
+  List the cross-account endpoints available to add to an accelerator.
+  """
+  def list_cross_account_resources(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCrossAccountResources", input, options)
   end
 
   @doc """
@@ -718,6 +804,33 @@ defmodule AWS.GlobalAccelerator do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateAcceleratorAttributes", input, options)
+  end
+
+  @doc """
+  Update a cross-account attachment to add or remove principals or resources.
+
+  When you update an attachment to remove a principal (account ID or accelerator)
+  or a resource, Global Accelerator revokes the permission for specific resources
+  by doing the following:
+
+    * If the principal is an account ID, Global Accelerator reviews
+  every accelerator in the account and removes cross-account endpoints from all
+  accelerators.
+
+    * If the principal is an accelerator, Global Accelerator reviews
+  just that accelerator and removes cross-account endpoints from it.
+
+  If there are overlapping permissions provided by multiple cross-account
+  attachments, Global Accelerator only removes endpoints if there are no current
+  cross-account attachments that provide access permission. For example, if you
+  delete a cross-account attachment that lists an accelerator as a principal, but
+  another cross-account attachment includes the account ID that owns that
+  accelerator, endpoints will not be removed from the accelerator.
+  """
+  def update_cross_account_attachment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCrossAccountAttachment", input, options)
   end
 
   @doc """

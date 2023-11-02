@@ -309,6 +309,29 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Retrieve the flow associations for the given resources.
+  """
+  def batch_get_flow_association(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/flow-associations-batch/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Claims an available phone number to your Amazon Connect instance or traffic
   distribution group.
 
@@ -4067,7 +4090,8 @@ defmodule AWS.Connect do
 
   @doc """
   Replicates an Amazon Connect instance in the specified Amazon Web Services
-  Region.
+  Region and copies configuration information for Amazon Connect resources across
+  Amazon Web Services Regions.
 
   For more information about replicating an Amazon Connect instance, see [Create a replica of your existing Amazon Connect
   instance](https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html)

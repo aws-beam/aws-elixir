@@ -526,6 +526,40 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Enables rehydration of chats for the lifespan of a contact.
+
+  For more information about chat rehydration, see [Enable persistent chat](https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html)
+  in the *Amazon Connect Administrator Guide*.
+  """
+  def create_persistent_contact_association(
+        %Client{} = client,
+        initial_contact_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact/persistent-contact-association/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(initial_contact_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates a prompt.
 
   For more information about prompts, such as supported file types and maximum

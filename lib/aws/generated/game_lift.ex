@@ -267,6 +267,14 @@ defmodule AWS.GameLift do
 
   If successful, this operation creates a new Fleet resource and places it in
   `NEW` status, which prompts Amazon GameLift to initiate the [fleet creation workflow](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-all.html#fleets-creation-workflow).
+  You can track fleet creation by checking fleet status using
+  `DescribeFleetAttributes` and `DescribeFleetLocationAttributes`/, or by
+  monitoring fleet creation events using `DescribeFleetEvents`.
+
+  When the fleet status changes to `ACTIVE`, you can enable automatic scaling with
+  `PutScalingPolicy` and set capacity for the home Region with
+  `UpdateFleetCapacity`. When the status of each remote location reaches `ACTIVE`,
+  you can set capacity by location using `UpdateFleetCapacity`.
 
   ## Learn more
 
@@ -868,7 +876,7 @@ defmodule AWS.GameLift do
   Deletes a custom location.
 
   Before deleting a custom location, review any fleets currently using the custom
-  location and deregister the location if it is in use. For more information see,
+  location and deregister the location if it is in use. For more information, see
   [DeregisterCompute](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeregisterCompute.html).
   """
   def delete_location(%Client{} = client, input, options \\ []) do

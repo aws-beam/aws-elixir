@@ -40,17 +40,10 @@ defmodule AWS.MWAA do
       *
   [CreateWebLoginToken](https://docs.aws.amazon.com/mwaa/latest/API/API_CreateWebLoginToken.html)
 
-    * `ops.airflow.{region}.amazonaws.com` - This endpoint is used to
-  push environment metrics that track environment health.
-
-      *
-  [PublishMetrics](https://docs.aws.amazon.com/mwaa/latest/API/API_PublishMetrics.html )
-
   ## Regions
 
-  For a list of regions that Amazon MWAA supports, see [Region
-  availability](https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html#regions-mwaa)
-  in the *Amazon MWAA User Guide*.
+  For a list of supported regions, see [Amazon MWAA endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/mwaa.html) in the *Amazon
+  Web Services General Reference*.
   """
 
   alias AWS.Client

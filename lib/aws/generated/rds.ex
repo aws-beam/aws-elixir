@@ -648,6 +648,18 @@ defmodule AWS.RDS do
   end
 
   @doc """
+  Creates a tenant database in a DB instance that uses the multi-tenant
+  configuration.
+
+  Only RDS for Oracle container database (CDB) instances are supported.
+  """
+  def create_tenant_database(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTenantDatabase", input, options)
+  end
+
+  @doc """
   Deletes a blue/green deployment.
 
   For more information, see [Using Amazon RDS Blue/Green Deployments for database updates](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html)
@@ -940,6 +952,20 @@ defmodule AWS.RDS do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteOptionGroup", input, options)
+  end
+
+  @doc """
+  Deletes a tenant database from your DB instance.
+
+  This command only applies to RDS for Oracle container database (CDB) instances.
+
+  You can't delete a tenant database when it is the only tenant in the DB
+  instance.
+  """
+  def delete_tenant_database(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTenantDatabase", input, options)
   end
 
   @doc """
@@ -1279,6 +1305,23 @@ defmodule AWS.RDS do
   end
 
   @doc """
+  Describes the tenant databases that exist in a DB snapshot.
+
+  This command only applies to RDS for Oracle DB instances in the multi-tenant
+  configuration.
+
+  You can use this command to inspect the tenant databases within a snapshot
+  before restoring it. You can't directly interact with the tenant databases in a
+  DB snapshot. If you restore a snapshot that was taken from DB instance using the
+  multi-tenant configuration, you restore all its tenant databases.
+  """
+  def describe_db_snapshot_tenant_databases(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDBSnapshotTenantDatabases", input, options)
+  end
+
+  @doc """
   Returns information about DB snapshots.
 
   This API action supports pagination.
@@ -1494,6 +1537,18 @@ defmodule AWS.RDS do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeSourceRegions", input, options)
+  end
+
+  @doc """
+  Describes the tenant databases in a DB instance that uses the multi-tenant
+  configuration.
+
+  Only RDS for Oracle CDB instances are supported.
+  """
+  def describe_tenant_databases(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTenantDatabases", input, options)
   end
 
   @doc """
@@ -1980,6 +2035,19 @@ defmodule AWS.RDS do
     meta = metadata()
 
     Request.request_post(client, meta, "ModifyOptionGroup", input, options)
+  end
+
+  @doc """
+  Modifies an existing tenant database in a DB instance.
+
+  You can change the tenant database name or the master user password. This
+  operation is supported only for RDS for Oracle CDB instances using the
+  multi-tenant configuration.
+  """
+  def modify_tenant_database(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyTenantDatabase", input, options)
   end
 
   @doc """

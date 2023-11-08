@@ -92,7 +92,8 @@ defmodule AWS.DLM do
   @doc """
   Gets summary information about all or the specified data lifecycle policies.
 
-  To get complete information about a policy, use `GetLifecyclePolicy`.
+  To get complete information about a policy, use
+  [GetLifecyclePolicy](https://docs.aws.amazon.com/dlm/latest/APIReference/API_GetLifecyclePolicy.html).
   """
   def get_lifecycle_policies(
         %Client{} = client,

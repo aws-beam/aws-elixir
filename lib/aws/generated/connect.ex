@@ -332,6 +332,28 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Only the Amazon Connect outbound campaigns service principal is allowed to
+  assume a role in your account and call this API.
+
+  Allows you to create a batch of contacts in Amazon Connect. The outbound
+  campaigns capability ingests dial requests via the
+  [PutDialRequestBatch](https://docs.aws.amazon.com/connect-outbound/latest/APIReference/API_PutDialRequestBatch.html)
+  API. It then uses BatchPutContact to create contacts corresponding to those dial
+  requests. If agents are available, the dial requests are dialed out, which
+  results in a voice call. The resulting voice call uses the same contactId that
+  was created by BatchPutContact.
+  """
+  def batch_put_contact(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/contact/batch/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
   Claims an available phone number to your Amazon Connect instance or traffic
   distribution group.
 

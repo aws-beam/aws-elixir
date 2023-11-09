@@ -1060,8 +1060,10 @@ defmodule AWS.Lambda do
   Invokes a Lambda function.
 
   You can invoke a function synchronously (and wait for the response), or
-  asynchronously. To invoke a function asynchronously, set `InvocationType` to
-  `Event`.
+  asynchronously. By default, Lambda invokes your function synchronously (i.e.
+  the`InvocationType` is `RequestResponse`). To invoke a function asynchronously,
+  set `InvocationType` to `Event`. Lambda passes the `ClientContext` object to
+  your function for synchronous invocations only.
 
   For [synchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html),
   details about the function response, including errors, are included in the
@@ -1147,6 +1149,10 @@ defmodule AWS.Lambda do
   For asynchronous function invocation, use `Invoke`.
 
   Invokes a function asynchronously.
+
+  If you do use the InvokeAsync action, note that it doesn't support the use of
+  X-Ray active tracing. Trace ID is not propagated to the function, even if X-Ray
+  active tracing is turned on.
   """
   def invoke_async(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2014-11-13/functions/#{AWS.Util.encode_uri(function_name)}/invoke-async/"

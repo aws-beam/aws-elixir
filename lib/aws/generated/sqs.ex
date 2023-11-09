@@ -49,15 +49,15 @@ defmodule AWS.SQS do
     %{
       abbreviation: "Amazon SQS",
       api_version: "2012-11-05",
-      content_type: "application/x-www-form-urlencoded",
+      content_type: "application/x-amz-json-1.0",
       credential_scope: nil,
       endpoint_prefix: "sqs",
       global?: false,
-      protocol: "query",
+      protocol: "json",
       service_id: "SQS",
       signature_version: "v4",
       signing_name: "sqs",
-      target_prefix: nil
+      target_prefix: "AmazonSQS"
     }
   end
 

@@ -204,10 +204,17 @@ defmodule AWS.ConnectCases do
   Creates a related item (comments, tasks, and contacts) and associates it with a
   case.
 
-  A Related Item is a resource that is associated with a case. It may or may not
-  have an external identifier linking it to an external resource (for example, a
-  `contactArn`). All Related Items have their own internal identifier, the
-  `relatedItemArn`. Examples of related items include `comments` and `contacts`.
+     A Related Item is a resource that is associated with a case. It may
+  or may not have an external identifier linking it to an external resource (for
+  example, a `contactArn`). All Related Items have their own internal identifier,
+  the `relatedItemArn`. Examples of related items include `comments` and
+  `contacts`.
+
+     If you provide a value for `performedBy.userArn` you must also have
+  [DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
+  permission on the ARN of the user that you provide.
+
+  ` `
   """
   def create_related_item(%Client{} = client, case_id, domain_id, input, options \\ []) do
     url_path =

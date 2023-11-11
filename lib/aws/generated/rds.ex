@@ -623,10 +623,6 @@ defmodule AWS.RDS do
 
   @doc """
   Creates a zero-ETL integration with Amazon Redshift.
-
-  For more information, see [Working with Amazon Aurora zero-ETL integrations with Amazon
-  Redshift](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.html)
-  in the *Amazon Aurora User Guide*.
   """
   def create_integration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -934,10 +930,6 @@ defmodule AWS.RDS do
 
   @doc """
   Deletes a zero-ETL integration with Amazon Redshift.
-
-  For more information, see [Deleting Amazon Aurora zero-ETL integrations with Amazon
-  Redshift](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.deleting.html)
-  in the *Amazon Aurora User Guide*
   """
   def delete_integration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1449,11 +1441,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Describe one or more zero-ETL integration with Amazon Redshift.
-
-  For more information, see [Viewing and monitoring Amazon Aurora zero-ETL integrations with Amazon
-  Redshift](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.describingmonitoring.html)
-  in the *Amazon Aurora User Guide*
+  Describe one or more zero-ETL integrations with Amazon Redshift.
   """
   def describe_integrations(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -512,7 +512,7 @@ defmodule AWS.CloudFormation do
   Returns the description for the specified stack; if no stack name was specified,
   then it returns the description for all the stacks created.
 
-  If the stack doesn't exist, an `ValidationError` is returned.
+  If the stack doesn't exist, a `ValidationError` is returned.
   """
   def describe_stacks(%Client{} = client, input, options \\ []) do
     meta = metadata()

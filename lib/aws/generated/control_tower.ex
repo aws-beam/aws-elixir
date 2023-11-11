@@ -6,7 +6,7 @@ defmodule AWS.ControlTower do
   These interfaces allow you to apply the AWS library of pre-defined *controls* to
   your organizational units, programmatically.
 
-  In AWS Control Tower, the terms "control" and "guardrail" are synonyms. .
+  In AWS Control Tower, the terms "control" and "guardrail" are synonyms.
 
   To call these APIs, you'll need to know:
 
@@ -15,6 +15,8 @@ defmodule AWS.ControlTower do
 
     * the ARN associated with the target organizational unit (OU), which
   we call the `targetIdentifier`.
+
+    * the ARN associated with a resource that you wish to tag or untag.
 
   ## To get the `controlIdentifier` for your AWS Control Tower control:
 
@@ -29,7 +31,7 @@ defmodule AWS.ControlTower do
 
   A quick-reference list of control identifers for the AWS Control Tower legacy
   *Strongly recommended* and *Elective* controls is given in [Resource identifiers for APIs and
-  guardrails](https://docs.aws.amazon.com/controltower/latest/userguide/control-identifiers.html.html)
+  controls](https://docs.aws.amazon.com/controltower/latest/userguide/control-identifiers.html.html)
   in the [Controls reference guide section](https://docs.aws.amazon.com/controltower/latest/userguide/control-identifiers.html)
   of the *AWS Control Tower User Guide*. Remember that *Mandatory* controls cannot
   be added or removed.
@@ -134,7 +136,7 @@ defmodule AWS.ControlTower do
   It starts an asynchronous operation that creates AWS resources on the specified
   organizational unit and the accounts it contains. The resources created will
   vary according to the control that you specify. For usage examples, see [ *the AWS Control Tower User Guide*
-  ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html)
+  ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
   """
   def enable_control(%Client{} = client, input, options \\ []) do
     url_path = "/enable-control"
@@ -162,7 +164,7 @@ defmodule AWS.ControlTower do
 
   Displays a message in case of error. Details for an operation are available for
   90 days. For usage examples, see [ *the AWS Control Tower User Guide*
-  ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html)
+  ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
   """
   def get_control_operation(%Client{} = client, input, options \\ []) do
     url_path = "/get-control-operation"
@@ -185,20 +187,10 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  Provides details about the enabled control.
+  Retrieves details about an enabled control.
 
   For usage examples, see [ *the AWS Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
-
-  ## Returned values
-
-    * TargetRegions: Shows target AWS Regions where the enabled control
-  is available to be deployed.
-
-    * StatusSummary: Provides a detailed summary of the deployment
-  status.
-
-    * DriftSummary: Provides a detailed summary of the drifted status.
   """
   def get_enabled_control(%Client{} = client, input, options \\ []) do
     url_path = "/get-enabled-control"
@@ -225,7 +217,7 @@ defmodule AWS.ControlTower do
   unit and the accounts it contains.
 
   For usage examples, see [ *the AWS Control Tower User Guide*
-  ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html)
+  ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
   """
   def list_enabled_controls(%Client{} = client, input, options \\ []) do
     url_path = "/list-enabled-controls"
@@ -244,6 +236,79 @@ defmodule AWS.ControlTower do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Returns a list of tags associated with the resource.
+
+  For usage examples, see [ *the AWS Control Tower User Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
+  """
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Applies tags to a resource.
+
+  For usage examples, see [ *the AWS Control Tower User Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
+  """
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Removes tags from a resource.
+
+  For usage examples, see [ *the AWS Control Tower User Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
+  """
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"tagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
     )
   end
 end

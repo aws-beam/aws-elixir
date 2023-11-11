@@ -3068,6 +3068,7 @@ defmodule AWS.Connect do
   def list_integration_associations(
         %Client{} = client,
         instance_id,
+        integration_arn \\ nil,
         integration_type \\ nil,
         max_results \\ nil,
         next_token \\ nil,
@@ -3094,6 +3095,13 @@ defmodule AWS.Connect do
     query_params =
       if !is_nil(integration_type) do
         [{"integrationType", integration_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(integration_arn) do
+        [{"integrationArn", integration_arn} | query_params]
       else
         query_params
       end

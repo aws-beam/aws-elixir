@@ -123,6 +123,51 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Creates a *delivery*.
+
+  A delivery is a connection between a logical *delivery source* and a logical
+  *delivery destination* that you have already created.
+
+  Only some Amazon Web Services services support being configured as a delivery
+  source using this operation. These services are listed as **Supported [V2 Permissions]** in the table at [Enabling logging from Amazon Web Services services.](https://docs.aws.amazon.com/
+  AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions)
+
+  A delivery destination can represent a log group in CloudWatch Logs, an Amazon
+  S3 bucket, or a delivery stream in Kinesis Data Firehose.
+
+  To configure logs delivery between a supported Amazon Web Services service and a
+  destination, you must do the following:
+
+    * Create a delivery source, which is a logical object that
+  represents the resource that is actually sending the logs. For more information,
+  see
+  [PutDeliverySource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html).     * Create a *delivery destination*, which is a logical object that
+  represents the actual delivery destination. For more information, see
+  [PutDeliveryDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html).
+
+    * If you are delivering logs cross-account, you must use
+  [PutDeliveryDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationolicy.html)
+  in the destination account to assign an IAM policy to the destination. This
+  policy allows delivery to that destination.
+
+    * Use `CreateDelivery` to create a *delivery* by pairing exactly one
+  delivery source and one delivery destination.
+
+  You can configure a single delivery source to send logs to multiple destinations
+  by creating multiple deliveries. You can also create multiple deliveries to
+  configure multiple delivery sources to send logs to the same delivery
+  destination.
+
+  You can't update an existing delivery. You can only create and delete
+  deliveries.
+  """
+  def create_delivery(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDelivery", input, options)
+  end
+
+  @doc """
   Creates an export task so that you can efficiently export data from a log group
   to an Amazon S3 bucket.
 
@@ -243,6 +288,68 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Deletes s *delivery*.
+
+  A delivery is a connection between a logical *delivery source* and a logical
+  *delivery destination*. Deleting a delivery only deletes the connection between
+  the delivery source and delivery destination. It does not delete the delivery
+  destination or the delivery source.
+  """
+  def delete_delivery(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDelivery", input, options)
+  end
+
+  @doc """
+  Deletes a *delivery destination*.
+
+  A delivery is a connection between a logical *delivery source* and a logical
+  *delivery destination*.
+
+  You can't delete a delivery destination if any current deliveries are associated
+  with it. To find whether any deliveries are associated with this delivery
+  destination, use the
+  [DescribeDeliveries](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html)
+  operation and check the `deliveryDestinationArn` field in the results.
+  """
+  def delete_delivery_destination(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDeliveryDestination", input, options)
+  end
+
+  @doc """
+  Deletes a delivery destination policy.
+
+  For more information about these policies, see
+  [PutDeliveryDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html).
+  """
+  def delete_delivery_destination_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDeliveryDestinationPolicy", input, options)
+  end
+
+  @doc """
+  Deletes a *delivery source*.
+
+  A delivery is a connection between a logical *delivery source* and a logical
+  *delivery destination*.
+
+  You can't delete a delivery source if any current deliveries are associated with
+  it. To find whether any deliveries are associated with this delivery source, use
+  the
+  [DescribeDeliveries](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html)
+  operation and check the `deliverySourceName` field in the results.
+  """
+  def delete_delivery_source(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDeliverySource", input, options)
+  end
+
+  @doc """
   Deletes the specified destination, and eventually disables all the subscription
   filters that publish to it.
 
@@ -341,6 +448,34 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccountPolicies", input, options)
+  end
+
+  @doc """
+  Retrieves a list of the deliveries that have been created in the account.
+  """
+  def describe_deliveries(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDeliveries", input, options)
+  end
+
+  @doc """
+  Retrieves a list of the delivery destinations that have been created in the
+  account.
+  """
+  def describe_delivery_destinations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDeliveryDestinations", input, options)
+  end
+
+  @doc """
+  Retrieves a list of the delivery sources that have been created in the account.
+  """
+  def describe_delivery_sources(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDeliverySources", input, options)
   end
 
   @doc """
@@ -546,6 +681,54 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Returns complete information about one *delivery*.
+
+  A delivery is a connection between a logical *delivery source* and a logical
+  *delivery destination*
+
+  You need to specify the delivery `id` in this operation. You can find the IDs of
+  the deliveries in your account with the
+  [DescribeDeliveries](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html)
+  operation.
+  """
+  def get_delivery(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDelivery", input, options)
+  end
+
+  @doc """
+  Retrieves complete information about one delivery destination.
+  """
+  def get_delivery_destination(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDeliveryDestination", input, options)
+  end
+
+  @doc """
+  Retrieves the delivery destination policy assigned to the delivery destination
+  that you specify.
+
+  For more information about delivery destinations and their policies, see
+  [PutDeliveryDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html).
+  """
+  def get_delivery_destination_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDeliveryDestinationPolicy", input, options)
+  end
+
+  @doc """
+  Retrieves complete information about one delivery source.
+  """
+  def get_delivery_source(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDeliverySource", input, options)
+  end
+
+  @doc """
   Lists log events from the specified log stream.
 
   You can list all of the log events or filter using a time range.
@@ -622,6 +805,8 @@ defmodule AWS.CloudWatchLogs do
 
   `GetQueryResults` does not start running a query. To run a query, use
   [StartQuery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html).
+  For more information about how long results of previous queries are available,
+  see [CloudWatch Logs quotas](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.html).
 
   If the value of the `Status` field in the output is `Running`, this operation
   returns only partial results. If you see a value of `Scheduled` or `Running` for
@@ -747,6 +932,134 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "PutDataProtectionPolicy", input, options)
+  end
+
+  @doc """
+  Creates or updates a logical *delivery destination*.
+
+  A delivery destination is an Amazon Web Services resource that represents an
+  Amazon Web Services service that logs can be sent to. CloudWatch Logs, Amazon
+  S3, and Kinesis Data Firehose are supported as logs delivery destinations.
+
+  To configure logs delivery between a supported Amazon Web Services service and a
+  destination, you must do the following:
+
+    * Create a delivery source, which is a logical object that
+  represents the resource that is actually sending the logs. For more information,
+  see
+  [PutDeliverySource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html).     * Use `PutDeliveryDestination` to create a *delivery destination*,
+  which is a logical object that represents the actual delivery destination.
+
+    * If you are delivering logs cross-account, you must use
+  [PutDeliveryDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationolicy.html)
+  in the destination account to assign an IAM policy to the destination. This
+  policy allows delivery to that destination.
+
+    * Use `CreateDelivery` to create a *delivery* by pairing exactly one
+  delivery source and one delivery destination. For more information, see
+  [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html). 
+
+  You can configure a single delivery source to send logs to multiple destinations
+  by creating multiple deliveries. You can also create multiple deliveries to
+  configure multiple delivery sources to send logs to the same delivery
+  destination.
+
+  Only some Amazon Web Services services support being configured as a delivery
+  source. These services are listed as **Supported [V2 Permissions]** in the table
+  at [Enabling logging from Amazon Web Services services.](https://docs.aws.amazon.com/
+  AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions)
+
+  If you use this operation to update an existing delivery destination, all the
+  current delivery destination parameters are overwritten with the new parameter
+  values that you specify.
+  """
+  def put_delivery_destination(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutDeliveryDestination", input, options)
+  end
+
+  @doc """
+  Creates and assigns an IAM policy that grants permissions to CloudWatch Logs to
+  deliver logs cross-account to a specified destination in this account.
+
+  To configure the delivery of logs from an Amazon Web Services service in another
+  account to a logs delivery destination in the current account, you must do the
+  following:
+
+    * Create a delivery source, which is a logical object that
+  represents the resource that is actually sending the logs. For more information,
+  see
+  [PutDeliverySource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html).     * Create a *delivery destination*, which is a logical object that
+  represents the actual delivery destination. For more information, see
+  [PutDeliveryDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html).
+
+    * Use this operation in the destination account to assign an IAM
+  policy to the destination. This policy allows delivery to that destination.
+
+    * Create a *delivery* by pairing exactly one delivery source and one
+  delivery destination. For more information, see
+  [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html). 
+
+  Only some Amazon Web Services services support being configured as a delivery
+  source. These services are listed as **Supported [V2 Permissions]** in the table
+  at [Enabling logging from Amazon Web Services services.](https://docs.aws.amazon.com/
+  AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions)
+
+  The contents of the policy must include two statements. One statement enables
+  general logs delivery, and the other allows delivery to the chosen destination.
+  See the examples for the needed policies.
+  """
+  def put_delivery_destination_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutDeliveryDestinationPolicy", input, options)
+  end
+
+  @doc """
+  Creates or updates a logical *delivery source*.
+
+  A delivery source represents an Amazon Web Services resource that sends logs to
+  an logs delivery destination. The destination can be CloudWatch Logs, Amazon S3,
+  or Kinesis Data Firehose.
+
+  To configure logs delivery between a delivery destination and an Amazon Web
+  Services service that is supported as a delivery source, you must do the
+  following:
+
+    * Use `PutDeliverySource` to create a delivery source, which is a
+  logical object that represents the resource that is actually sending the logs.
+
+    * Use `PutDeliveryDestination` to create a *delivery destination*,
+  which is a logical object that represents the actual delivery destination. For
+  more information, see
+  [PutDeliveryDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html).     * If you are delivering logs cross-account, you must use
+  [PutDeliveryDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationolicy.html)
+  in the destination account to assign an IAM policy to the destination. This
+  policy allows delivery to that destination.
+
+    * Use `CreateDelivery` to create a *delivery* by pairing exactly one
+  delivery source and one delivery destination. For more information, see
+  [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html). 
+
+  You can configure a single delivery source to send logs to multiple destinations
+  by creating multiple deliveries. You can also create multiple deliveries to
+  configure multiple delivery sources to send logs to the same delivery
+  destination.
+
+  Only some Amazon Web Services services support being configured as a delivery
+  source. These services are listed as **Supported [V2 Permissions]** in the table
+  at [Enabling logging from Amazon Web Services services.](https://docs.aws.amazon.com/
+  AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions)
+
+  If you use this operation to update an existing delivery source, all the current
+  delivery source parameters are overwritten with the new parameter values that
+  you specify.
+  """
+  def put_delivery_source(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutDeliverySource", input, options)
   end
 
   @doc """

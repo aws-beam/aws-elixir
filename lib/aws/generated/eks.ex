@@ -173,6 +173,34 @@ defmodule AWS.EKS do
   end
 
   @doc """
+  Creates an EKS Anywhere subscription.
+
+  When a subscription is created, it is a contract agreement for the length of the
+  term specified in the request. Licenses that are used to validate support are
+  provisioned in Amazon Web Services License Manager and the caller account is
+  granted access to EKS Anywhere Curated Packages.
+  """
+  def create_eks_anywhere_subscription(%Client{} = client, input, options \\ []) do
+    url_path = "/eks-anywhere-subscriptions"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates an Fargate profile for your Amazon EKS cluster.
 
   You must have at least one Fargate profile in a cluster to be able to run pods
@@ -188,8 +216,8 @@ defmodule AWS.EKS do
 
   When you create a Fargate profile, you must specify a pod execution role to use
   with the pods that are scheduled with the profile. This role is added to the
-  cluster's Kubernetes [Role Based Access Control](https://kubernetes.io/docs/admin/authorization/rbac/) (RBAC) for
-  authorization so that the `kubelet` that is running on the Fargate
+  cluster's Kubernetes [Role Based Access Control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) (RBAC)
+  for authorization so that the `kubelet` that is running on the Fargate
   infrastructure can register with your Amazon EKS cluster so that it can appear
   in your cluster as a node. The pod execution role also provides IAM permissions
   to the Fargate infrastructure to allow read access to Amazon ECR image
@@ -231,10 +259,7 @@ defmodule AWS.EKS do
   Creates a managed node group for an Amazon EKS cluster.
 
   You can only create a node group for your cluster that is equal to the current
-  Kubernetes version for the cluster. All node groups are created with the latest
-  AMI release version for the respective minor Kubernetes version of the cluster,
-  unless you deploy a custom AMI using a launch template. For more information
-  about using launch templates, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html).
+  Kubernetes version for the cluster.
 
   An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and
   associated Amazon EC2 instances that are managed by Amazon Web Services for an
@@ -313,6 +338,34 @@ defmodule AWS.EKS do
   """
   def delete_cluster(%Client{} = client, name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes an expired / inactive subscription.
+
+  Deleting inactive subscriptions removes them from the Amazon Web Services
+  Management Console view and from list/describe API responses. Subscriptions can
+  only be cancelled within 7 days of creation, and are cancelled by creating a
+  ticket in the Amazon Web Services Support Center.
+  """
+  def delete_eks_anywhere_subscription(%Client{} = client, id, input, options \\ []) do
+    url_path = "/eks-anywhere-subscriptions/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -558,6 +611,19 @@ defmodule AWS.EKS do
   end
 
   @doc """
+  Returns descriptive information about a subscription.
+  """
+  def describe_eks_anywhere_subscription(%Client{} = client, id, options \\ []) do
+    url_path = "/eks-anywhere-subscriptions/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Returns descriptive information about an Fargate profile.
   """
   def describe_fargate_profile(
@@ -659,7 +725,7 @@ defmodule AWS.EKS do
 
   If you disassociate an identity provider from your cluster, users included in
   the provider can no longer access the cluster. However, you can still access the
-  cluster with Amazon Web Services IAM users.
+  cluster with [IAM principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html).
   """
   def disassociate_identity_provider_config(
         %Client{} = client,
@@ -689,7 +755,7 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Lists the available add-ons.
+  Lists the installed add-ons.
   """
   def list_addons(
         %Client{} = client,
@@ -753,6 +819,46 @@ defmodule AWS.EKS do
     query_params =
       if !is_nil(include) do
         [{"include", include} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Displays the full description of the subscription.
+  """
+  def list_eks_anywhere_subscriptions(
+        %Client{} = client,
+        include_status \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/eks-anywhere-subscriptions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include_status) do
+        [{"includeStatus", include_status} | query_params]
       else
         query_params
       end
@@ -1117,6 +1223,31 @@ defmodule AWS.EKS do
   """
   def update_cluster_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(name)}/updates"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Update an EKS Anywhere Subscription.
+
+  Only auto renewal and tags can be updated after subscription creation.
+  """
+  def update_eks_anywhere_subscription(%Client{} = client, id, input, options \\ []) do
+    url_path = "/eks-anywhere-subscriptions/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 

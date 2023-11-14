@@ -198,7 +198,8 @@ defmodule AWS.TranscribeStreaming do
 
   The following parameters are required:
 
-    * `language-code` or `identify-language`
+    * `language-code` or `identify-language` or
+  `identify-multiple-language`
 
     * `media-encoding`
 
@@ -218,6 +219,7 @@ defmodule AWS.TranscribeStreaming do
         {"EnablePartialResultsStabilization",
          "x-amzn-transcribe-enable-partial-results-stabilization"},
         {"IdentifyLanguage", "x-amzn-transcribe-identify-language"},
+        {"IdentifyMultipleLanguages", "x-amzn-transcribe-identify-multiple-languages"},
         {"LanguageCode", "x-amzn-transcribe-language-code"},
         {"LanguageModelName", "x-amzn-transcribe-language-model-name"},
         {"LanguageOptions", "x-amzn-transcribe-language-options"},
@@ -250,6 +252,7 @@ defmodule AWS.TranscribeStreaming do
           {"x-amzn-transcribe-enable-partial-results-stabilization",
            "EnablePartialResultsStabilization"},
           {"x-amzn-transcribe-identify-language", "IdentifyLanguage"},
+          {"x-amzn-transcribe-identify-multiple-languages", "IdentifyMultipleLanguages"},
           {"x-amzn-transcribe-language-code", "LanguageCode"},
           {"x-amzn-transcribe-language-model-name", "LanguageModelName"},
           {"x-amzn-transcribe-language-options", "LanguageOptions"},

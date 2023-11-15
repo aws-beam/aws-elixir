@@ -920,6 +920,85 @@ defmodule AWS.Backup do
   end
 
   @doc """
+  This is a request for a summary of backup jobs created or running within the
+  most recent 30 days.
+
+  You can include parameters AccountID, State, ResourceType, MessageCategory,
+  AggregationPeriod, MaxResults, or NextToken to filter results.
+
+  This request returns a summary that contains Region, Account, State,
+  ResourceType, MessageCategory, StartTime, EndTime, and Count of included jobs.
+  """
+  def list_backup_job_summaries(
+        %Client{} = client,
+        account_id \\ nil,
+        aggregation_period \\ nil,
+        max_results \\ nil,
+        message_category \\ nil,
+        next_token \\ nil,
+        resource_type \\ nil,
+        state \\ nil,
+        options \\ []
+      ) do
+    url_path = "/audit/backup-job-summaries"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(state) do
+        [{"State", state} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"ResourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(message_category) do
+        [{"MessageCategory", message_category} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(aggregation_period) do
+        [{"AggregationPeriod", aggregation_period} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(account_id) do
+        [{"AccountId", account_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Returns a list of existing backup jobs for an authenticated account for the last
   30 days.
 
@@ -933,6 +1012,7 @@ defmodule AWS.Backup do
         by_complete_before \\ nil,
         by_created_after \\ nil,
         by_created_before \\ nil,
+        by_message_category \\ nil,
         by_parent_job_id \\ nil,
         by_resource_arn \\ nil,
         by_resource_type \\ nil,
@@ -983,6 +1063,13 @@ defmodule AWS.Backup do
     query_params =
       if !is_nil(by_parent_job_id) do
         [{"parentJobId", by_parent_job_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_message_category) do
+        [{"messageCategory", by_message_category} | query_params]
       else
         query_params
       end
@@ -1229,6 +1316,85 @@ defmodule AWS.Backup do
   end
 
   @doc """
+  This request obtains a list of copy jobs created or running within the the most
+  recent 30 days.
+
+  You can include parameters AccountID, State, ResourceType, MessageCategory,
+  AggregationPeriod, MaxResults, or NextToken to filter results.
+
+  This request returns a summary that contains Region, Account, State,
+  RestourceType, MessageCategory, StartTime, EndTime, and Count of included jobs.
+  """
+  def list_copy_job_summaries(
+        %Client{} = client,
+        account_id \\ nil,
+        aggregation_period \\ nil,
+        max_results \\ nil,
+        message_category \\ nil,
+        next_token \\ nil,
+        resource_type \\ nil,
+        state \\ nil,
+        options \\ []
+      ) do
+    url_path = "/audit/copy-job-summaries"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(state) do
+        [{"State", state} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"ResourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(message_category) do
+        [{"MessageCategory", message_category} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(aggregation_period) do
+        [{"AggregationPeriod", aggregation_period} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(account_id) do
+        [{"AccountId", account_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Returns metadata about your copy jobs.
   """
   def list_copy_jobs(
@@ -1239,6 +1405,7 @@ defmodule AWS.Backup do
         by_created_after \\ nil,
         by_created_before \\ nil,
         by_destination_vault_arn \\ nil,
+        by_message_category \\ nil,
         by_parent_job_id \\ nil,
         by_resource_arn \\ nil,
         by_resource_type \\ nil,
@@ -1289,6 +1456,13 @@ defmodule AWS.Backup do
     query_params =
       if !is_nil(by_parent_job_id) do
         [{"parentJobId", by_parent_job_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_message_category) do
+        [{"messageCategory", by_message_category} | query_params]
       else
         query_params
       end
@@ -1714,6 +1888,77 @@ defmodule AWS.Backup do
     query_params =
       if !is_nil(max_results) do
         [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  This request obtains a summary of restore jobs created or running within the the
+  most recent 30 days.
+
+  You can include parameters AccountID, State, ResourceType, AggregationPeriod,
+  MaxResults, or NextToken to filter results.
+
+  This request returns a summary that contains Region, Account, State,
+  RestourceType, MessageCategory, StartTime, EndTime, and Count of included jobs.
+  """
+  def list_restore_job_summaries(
+        %Client{} = client,
+        account_id \\ nil,
+        aggregation_period \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        resource_type \\ nil,
+        state \\ nil,
+        options \\ []
+      ) do
+    url_path = "/audit/restore-job-summaries"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(state) do
+        [{"State", state} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"ResourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(aggregation_period) do
+        [{"AggregationPeriod", aggregation_period} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(account_id) do
+        [{"AccountId", account_id} | query_params]
       else
         query_params
       end

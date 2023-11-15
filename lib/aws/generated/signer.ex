@@ -3,10 +3,10 @@
 
 defmodule AWS.Signer do
   @moduledoc """
-  AWS Signer is a fully managed code signing service to help you ensure the trust
+  AWS Signer is a fully managed code-signing service to help you ensure the trust
   and integrity of your code.
 
-  AWS Signer supports the following applications:
+  Signer supports the following applications:
 
   With code signing for AWS Lambda, you can sign [AWS Lambda](http://docs.aws.amazon.com/lambda/latest/dg/) deployment packages.
   Integrated support is provided for [Amazon S3](http://docs.aws.amazon.com/AmazonS3/latest/gsg/), [Amazon CloudWatch](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/), and
@@ -17,12 +17,15 @@ defmodule AWS.Signer do
   supported by AWS. IoT code signing is available for [Amazon
   FreeRTOS](http://docs.aws.amazon.com/freertos/latest/userguide/) and [AWS IoT Device Management](http://docs.aws.amazon.com/iot/latest/developerguide/), and
   is integrated with [AWS Certificate Manager (ACM)](http://docs.aws.amazon.com/acm/latest/userguide/). In order to sign code,
-  you import a third-party code signing certificate using ACM, and use that to
+  you import a third-party code-signing certificate using ACM, and use that to
   sign updates in Amazon FreeRTOS and AWS IoT Device Management.
 
-  With code signing for containers …(TBD)
+  With Signer and the Notation CLI from the [Notary Project](https://notaryproject.dev/), you can sign container images stored in a
+  container registry such as Amazon Elastic Container Registry (ECR). The
+  signatures are stored in the registry alongside the images, where they are
+  available for verifying image authenticity and integrity.
 
-  For more information about AWS Signer, see the [AWS Signer Developer Guide](https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html).
+  For more information about Signer, see the [AWS Signer Developer Guide](https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html).
   """
 
   alias AWS.Client
@@ -224,11 +227,11 @@ defmodule AWS.Signer do
   Lists all your signing jobs.
 
   You can use the `maxResults` parameter to limit the number of signing jobs that
-  are returned in the response. If additional jobs remain to be listed, code
-  signing returns a `nextToken` value. Use this value in subsequent calls to
+  are returned in the response. If additional jobs remain to be listed, AWS Signer
+  returns a `nextToken` value. Use this value in subsequent calls to
   `ListSigningJobs` to fetch the remaining values. You can continue calling
-  `ListSigningJobs` with your `maxResults` parameter and with new values that code
-  signing returns in the `nextToken` parameter until all of your signing jobs have
+  `ListSigningJobs` with your `maxResults` parameter and with new values that
+  Signer returns in the `nextToken` parameter until all of your signing jobs have
   been returned.
   """
   def list_signing_jobs(
@@ -317,14 +320,14 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Lists all signing platforms available in code signing that match the request
+  Lists all signing platforms available in AWS Signer that match the request
   parameters.
 
-  If additional jobs remain to be listed, code signing returns a `nextToken`
-  value. Use this value in subsequent calls to `ListSigningJobs` to fetch the
-  remaining values. You can continue calling `ListSigningJobs` with your
-  `maxResults` parameter and with new values that code signing returns in the
-  `nextToken` parameter until all of your signing jobs have been returned.
+  If additional jobs remain to be listed, Signer returns a `nextToken` value. Use
+  this value in subsequent calls to `ListSigningJobs` to fetch the remaining
+  values. You can continue calling `ListSigningJobs` with your `maxResults`
+  parameter and with new values that Signer returns in the `nextToken` parameter
+  until all of your signing jobs have been returned.
   """
   def list_signing_platforms(
         %Client{} = client,
@@ -383,11 +386,11 @@ defmodule AWS.Signer do
   Lists all available signing profiles in your AWS account.
 
   Returns only profiles with an `ACTIVE` status unless the `includeCanceled`
-  request field is set to `true`. If additional jobs remain to be listed, code
-  signing returns a `nextToken` value. Use this value in subsequent calls to
+  request field is set to `true`. If additional jobs remain to be listed, AWS
+  Signer returns a `nextToken` value. Use this value in subsequent calls to
   `ListSigningJobs` to fetch the remaining values. You can continue calling
-  `ListSigningJobs` with your `maxResults` parameter and with new values that code
-  signing returns in the `nextToken` parameter until all of your signing jobs have
+  `ListSigningJobs` with your `maxResults` parameter and with new values that
+  Signer returns in the `nextToken` parameter until all of your signing jobs have
   been returned.
   """
   def list_signing_profiles(
@@ -459,7 +462,7 @@ defmodule AWS.Signer do
   @doc """
   Creates a signing profile.
 
-  A signing profile is a code signing template that can be used to carry out a
+  A signing profile is a code-signing template that can be used to carry out a
   pre-defined signing job.
   """
   def put_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
@@ -574,14 +577,14 @@ defmodule AWS.Signer do
 
     * Your S3 source bucket must be version enabled.
 
-    * You must create an S3 destination bucket. Code signing uses your
-  S3 destination bucket to write your signed code.
+    * You must create an S3 destination bucket. AWS Signer uses your S3
+  destination bucket to write your signed code.
 
     * You specify the name of the source and destination buckets when
   calling the `StartSigningJob` operation.
 
     * You must also specify a request token that identifies your request
-  to code signing.
+  to Signer.
 
   You can call the `DescribeSigningJob` and the `ListSigningJobs` actions after
   you call `StartSigningJob`.

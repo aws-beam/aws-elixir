@@ -23,6 +23,11 @@ defmodule AWS.SFN do
   access and use Step Functions using the console, the Amazon Web Services SDKs,
   or an HTTP API. For more information about Step Functions, see the * [Step Functions Developer
   Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) *.
+
+  If you use the Step Functions API actions using Amazon Web Services SDK
+  integrations, make sure the API actions are in camel case and parameter names
+  are in Pascal case. For example, you could use Step Functions API action
+  `startSyncExecution` and specify its parameter as `StateMachineArn`.
   """
 
   alias AWS.Client
@@ -157,8 +162,10 @@ defmodule AWS.SFN do
   @doc """
   Deletes a state machine.
 
-  This is an asynchronous operation: It sets the state machine's status to
-  `DELETING` and begins the deletion process.
+  This is an asynchronous operation. It sets the state machine's status to
+  `DELETING` and begins the deletion process. A state machine is deleted only when
+  all its executions are completed. On the next state transition, the state
+  machine's executions are terminated.
 
   A qualified state machine ARN can either refer to a *Distributed Map state*
   defined within a state machine, a version ARN, or an alias ARN.
@@ -259,8 +266,12 @@ defmodule AWS.SFN do
   associated with the execution, the execution input and output, and relevant
   execution metadata.
 
-  Use this API action to return the Map Run Amazon Resource Name (ARN) if the
-  execution was dispatched by a Map Run.
+  If you've
+  [redriven](https://docs.aws.amazon.com/step-functions/latest/dg/redrive-executions.html)
+  an execution, you can use this API action to return information about the
+  redrives of that execution. In addition, you can use this API action to return
+  the Map Run Amazon Resource Name (ARN) if the execution was dispatched by a Map
+  Run.
 
   If you specify a version or alias ARN when you call the `StartExecution` API
   action, `DescribeExecution` returns that ARN.
@@ -268,7 +279,7 @@ defmodule AWS.SFN do
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
 
-  Executions of an `EXPRESS` state machinearen't supported by `DescribeExecution`
+  Executions of an `EXPRESS` state machine aren't supported by `DescribeExecution`
   unless a Map Run dispatched them.
   """
   def describe_execution(%Client{} = client, input, options \\ []) do
@@ -280,7 +291,10 @@ defmodule AWS.SFN do
   @doc """
   Provides information about a Map Run's configuration, progress, and results.
 
-  For more information, see [Examining Map Run](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html)
+  If you've
+  [redriven](https://docs.aws.amazon.com/step-functions/latest/dg/redrive-map-run.html) a Map Run, this API action also returns information about the redrives of that
+  Map Run. For more information, see [Examining Map
+  Run](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html)
   in the *Step Functions Developer Guide*.
   """
   def describe_map_run(%Client{} = client, input, options \\ []) do
@@ -439,10 +453,12 @@ defmodule AWS.SFN do
 
   You can list all executions related to a state machine by specifying a state
   machine Amazon Resource Name (ARN), or those related to a Map Run by specifying
-  a Map Run ARN.
+  a Map Run ARN. Using this API action, you can also list all
+  [redriven](https://docs.aws.amazon.com/step-functions/latest/dg/redrive-executions.html) executions.
 
   You can also provide a state machine
-  [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html) ARN or
+  [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html)
+  ARN or
   [version](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html)
   ARN to list the executions associated with a specific alias or version.
 
@@ -597,8 +613,64 @@ defmodule AWS.SFN do
   end
 
   @doc """
-  Used by activity workers and task states using the
-  [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token)
+  Restarts unsuccessful executions of Standard workflows that didn't complete
+  successfully in the last 14 days.
+
+  These include failed, aborted, or timed out executions. When you
+  [redrive](https://docs.aws.amazon.com/step-functions/latest/dg/redrive-executions.html) an execution, it continues the failed execution from the unsuccessful step and
+  uses the same input. Step Functions preserves the results and execution history
+  of the successful steps, and doesn't rerun these steps when you redrive an
+  execution. Redriven executions use the same state machine definition and
+  execution ARN as the original execution attempt.
+
+  For workflows that include an [Inline
+  Map](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-map-state.html)
+  or
+  [Parallel](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-parallel-state.html) state, `RedriveExecution` API action reschedules and redrives only the
+  iterations and branches that failed or aborted.
+
+  To redrive a workflow that includes a Distributed Map state with failed child
+  workflow executions, you must redrive the [parent
+  workflow](https://docs.aws.amazon.com/step-functions/latest/dg/use-dist-map-orchestrate-large-scale-parallel-workloads.html#dist-map-orchestrate-parallel-workloads-key-terms).
+  The parent workflow redrives all the unsuccessful states, including Distributed
+  Map.
+
+  This API action is not supported by `EXPRESS` state machines.
+
+  However, you can restart the unsuccessful executions of Express child workflows
+  in a Distributed Map by redriving its Map Run. When you redrive a Map Run, the
+  Express child workflows are rerun using the `StartExecution` API action. For
+  more information, see [Redriving Map Runs](https://docs.aws.amazon.com/step-functions/latest/dg/redrive-map-run.html).
+
+  You can redrive executions if your original execution meets the following
+  conditions:
+
+    * The execution status isn't `SUCCEEDED`.
+
+    * Your workflow execution has not exceeded the redrivable period of
+  14 days. Redrivable period refers to the time during which you can redrive a
+  given execution. This period starts from the day a state machine completes its
+  execution.
+
+    * The workflow execution has not exceeded the maximum open time of
+  one year. For more information about state machine quotas, see [Quotas related to state machine
+  executions](https://docs.aws.amazon.com/step-functions/latest/dg/limits-overview.html#service-limits-state-machine-executions).
+
+    * The execution event history count is less than 24,999. Redriven
+  executions append their event history to the existing event history. Make sure
+  your workflow execution contains less than 24,999 events to accommodate the
+  `ExecutionRedriven` history event and at least one other history event.
+  """
+  def redrive_execution(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RedriveExecution", input, options)
+  end
+
+  @doc """
+  Used by activity workers, Task states using the
+  [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token) pattern, and optionally Task states using the [job
+  run](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync)
   pattern to report that the task identified by the `taskToken` failed.
   """
   def send_task_failure(%Client{} = client, input, options \\ []) do
@@ -608,17 +680,18 @@ defmodule AWS.SFN do
   end
 
   @doc """
-  Used by activity workers and task states using the
-  [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token) pattern to report to Step Functions that the task represented by the specified
+  Used by activity workers and Task states using the
+  [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token) pattern, and optionally Task states using the [job
+  run](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync)
+  pattern to report to Step Functions that the task represented by the specified
   `taskToken` is still making progress.
 
   This action resets the `Heartbeat` clock. The `Heartbeat` threshold is specified
   in the state machine's Amazon States Language definition (`HeartbeatSeconds`).
   This action does not in itself create an event in the execution history.
   However, if the task times out, the execution history contains an
-  `ActivityTimedOut` entry for activities, or a `TaskTimedOut` entry for for tasks
-  using the [job
-  run](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync)
+  `ActivityTimedOut` entry for activities, or a `TaskTimedOut` entry for tasks
+  using the [job run](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync)
   or
   [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token)
   pattern.
@@ -635,8 +708,9 @@ defmodule AWS.SFN do
   end
 
   @doc """
-  Used by activity workers and task states using the
-  [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token)
+  Used by activity workers, Task states using the
+  [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token) pattern, and optionally Task states using the [job
+  run](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync)
   pattern to report that the task identified by the `taskToken` completed
   successfully.
   """

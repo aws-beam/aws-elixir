@@ -158,6 +158,15 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Returns the configuration for the specified table optimizers.
+  """
+  def batch_get_table_optimizer(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetTableOptimizer", input, options)
+  end
+
+  @doc """
   Returns a list of resource metadata for a given list of trigger names.
 
   After calling the `ListTriggers` operation, you can call this operation to
@@ -466,6 +475,17 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Creates a new table optimizer for a specific function.
+
+  `compaction` is the only currently supported optimizer type.
+  """
+  def create_table_optimizer(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTableOptimizer", input, options)
+  end
+
+  @doc """
   Creates a new trigger.
   """
   def create_trigger(%Client{} = client, input, options \\ []) do
@@ -744,6 +764,17 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteTable", input, options)
+  end
+
+  @doc """
+  Deletes an optimizer and all associated metadata for a table.
+
+  The optimization will no longer be performed on the table.
+  """
+  def delete_table_optimizer(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTableOptimizer", input, options)
   end
 
   @doc """
@@ -1303,6 +1334,15 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Returns the configuration of all optimizers associated with a specified table.
+  """
+  def get_table_optimizer(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTableOptimizer", input, options)
+  end
+
+  @doc """
   Retrieves a specified version of a table.
   """
   def get_table_version(%Client{} = client, input, options \\ []) do
@@ -1666,6 +1706,15 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Lists the history of previous optimizer runs for a specific table.
+  """
+  def list_table_optimizer_runs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTableOptimizerRuns", input, options)
+  end
+
+  @doc """
   Retrieves the names of all trigger resources in this Amazon Web Services
   account, or the resources with the specified tag.
 
@@ -1875,6 +1924,8 @@ defmodule AWS.Glue do
   Glue Data Quality analyzes the data and comes up with recommendations for a
   potential ruleset. You can then triage the ruleset and modify the generated
   ruleset to your liking.
+
+  Recommendation runs are automatically deleted after 90 days.
   """
   def start_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2290,6 +2341,15 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateTable", input, options)
+  end
+
+  @doc """
+  Updates the configuration for an existing table optimizer.
+  """
+  def update_table_optimizer(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateTableOptimizer", input, options)
   end
 
   @doc """

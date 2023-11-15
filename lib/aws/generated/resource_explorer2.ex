@@ -305,6 +305,34 @@ defmodule AWS.ResourceExplorer2 do
   end
 
   @doc """
+  Retrieves the status of your account's Amazon Web Services service access, and
+  validates the service linked role required to access the multi-account search
+  feature.
+
+  Only the management account or a delegated administrator with service access
+  enabled can invoke this API call.
+  """
+  def get_account_level_service_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/GetAccountLevelServiceConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves the Amazon Resource Name (ARN) of the view that is the default for the
   Amazon Web Services Region in which you call this operation.
 
@@ -384,6 +412,34 @@ defmodule AWS.ResourceExplorer2 do
   """
   def list_indexes(%Client{} = client, input, options \\ []) do
     url_path = "/ListIndexes"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves a list of a member's indexes in all Amazon Web Services Regions that
+  are currently collecting resource information for Amazon Web Services Resource
+  Explorer.
+
+  Only the management account or a delegated administrator with service access
+  enabled can invoke this API call.
+  """
+  def list_indexes_for_members(%Client{} = client, input, options \\ []) do
+    url_path = "/ListIndexesForMembers"
     headers = []
     query_params = []
 

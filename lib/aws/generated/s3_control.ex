@@ -277,6 +277,52 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  Creates a new S3 Storage Lens group and associates it with the specified Amazon
+  Web Services account ID.
+
+  An S3 Storage Lens group is a custom grouping of objects based on prefix,
+  suffix, object tags, object size, object age, or a combination of these filters.
+  For each Storage Lens group that you’ve created, you can also optionally add
+  Amazon Web Services resource tags. For more information about S3 Storage Lens
+  groups, see [Working with S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups-overview.html).
+
+  To use this operation, you must have the permission to perform the
+  `s3:CreateStorageLensGroup` action. If you’re trying to create a Storage Lens
+  group with Amazon Web Services resource tags, you must also have permission to
+  perform the `s3:TagResource` action. For more information about the required
+  Storage Lens Groups permissions, see [Setting account permissions to use S3 Storage Lens
+  groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions).
+
+  For information about Storage Lens groups errors, see [List of Amazon S3 Storage Lens error
+  codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList).
+  """
+  def create_storage_lens_group(%Client{} = client, input, options \\ []) do
+    url_path = "/v20180820/storagelensgroup"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes the specified access point.
 
   All Amazon S3 on Outposts REST API requests for this action require an
@@ -510,9 +556,9 @@ defmodule AWS.S3Control do
   Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
   in *Amazon S3 User Guide*.
 
-  To use this action, you must have permission to perform the
-  `s3-outposts:DeleteLifecycleConfiguration` action. By default, the bucket owner
-  has this permission and the Outposts bucket owner can grant this permission to
+  To use this operation, you must have permission to perform the
+  `s3-outposts:PutLifecycleConfiguration` action. By default, the bucket owner has
+  this permission and the Outposts bucket owner can grant this permission to
   others.
 
   All Amazon S3 on Outposts REST API requests for this action require an
@@ -964,6 +1010,43 @@ defmodule AWS.S3Control do
       input,
       options,
       nil
+    )
+  end
+
+  @doc """
+  Deletes an existing S3 Storage Lens group.
+
+  To use this operation, you must have the permission to perform the
+  `s3:DeleteStorageLensGroup` action. For more information about the required
+  Storage Lens Groups permissions, see [Setting account permissions to use S3 Storage Lens
+  groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions).
+
+  For information about Storage Lens groups errors, see [List of Amazon S3 Storage Lens error
+  codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList).
+  """
+  def delete_storage_lens_group(%Client{} = client, name, input, options \\ []) do
+    url_path = "/v20180820/storagelensgroup/#{AWS.Util.encode_uri(name)}"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
     )
   end
 
@@ -1890,6 +1973,34 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  Retrieves the Storage Lens group configuration details.
+
+  To use this operation, you must have the permission to perform the
+  `s3:GetStorageLensGroup` action. For more information about the required Storage
+  Lens Groups permissions, see [Setting account permissions to use S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions).
+
+  For information about Storage Lens groups errors, see [List of Amazon S3 Storage Lens error
+  codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList).
+  """
+  def get_storage_lens_group(%Client{} = client, name, account_id, options \\ []) do
+    url_path = "/v20180820/storagelensgroup/#{AWS.Util.encode_uri(name)}"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Returns a list of the access points that are owned by the current account that's
   associated with the specified bucket.
 
@@ -2234,6 +2345,72 @@ defmodule AWS.S3Control do
       else
         query_params
       end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists all the Storage Lens groups in the specified home Region.
+
+  To use this operation, you must have the permission to perform the
+  `s3:ListStorageLensGroups` action. For more information about the required
+  Storage Lens Groups permissions, see [Setting account permissions to use S3 Storage Lens
+  groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions).
+
+  For information about Storage Lens groups errors, see [List of Amazon S3 Storage Lens error
+  codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList).
+  """
+  def list_storage_lens_groups(%Client{} = client, next_token \\ nil, account_id, options \\ []) do
+    url_path = "/v20180820/storagelensgroup"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  This operation allows you to list all the Amazon Web Services resource tags for
+  the specified resource.
+
+  To use this operation, you must have the permission to perform the
+  `s3:ListTagsForResource` action. For more information about the required Storage
+  Lens Groups permissions, see [Setting account permissions to use S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions).
+
+  For information about S3 Tagging errors, see [List of Amazon S3 Tagging error codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList).
+
+  This operation is only supported for [S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html).
+  """
+  def list_tags_for_resource(%Client{} = client, resource_arn, account_id, options \\ []) do
+    url_path = "/v20180820/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
@@ -2961,6 +3138,88 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  Creates a new Amazon Web Services resource tag or updates an existing resource
+  tag.
+
+  You can add up to 50 Amazon Web Services resource tags for each S3 resource.
+
+  To use this operation, you must have the permission to perform the
+  `s3:TagResource` action. For more information about the required Storage Lens
+  Groups permissions, see [Setting account permissions to use S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions).
+
+  For information about S3 Tagging errors, see [List of Amazon S3 Tagging error codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList).
+
+  This operation is only supported for [S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html).
+  """
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/v20180820/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  This operation removes the specified Amazon Web Services resource tags from an
+  S3 resource.
+
+  To use this operation, you must have the permission to perform the
+  `s3:UntagResource` action. For more information about the required Storage Lens
+  Groups permissions, see [Setting account permissions to use S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions).
+
+  For information about S3 Tagging errors, see [List of Amazon S3 Tagging error codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList).
+
+  This operation is only supported for [S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html).
+  """
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/v20180820/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    {query_params, input} =
+      [
+        {"TagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Updates an existing S3 Batch Operations job's priority.
 
   For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html)
@@ -3052,5 +3311,32 @@ defmodule AWS.S3Control do
       options,
       nil
     )
+  end
+
+  @doc """
+  Updates the existing Storage Lens group.
+
+  To use this operation, you must have the permission to perform the
+  `s3:UpdateStorageLensGroup` action. For more information about the required
+  Storage Lens Groups permissions, see [Setting account permissions to use S3 Storage Lens
+  groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions).
+
+  For information about Storage Lens groups errors, see [List of Amazon S3 Storage Lens error
+  codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList).
+  """
+  def update_storage_lens_group(%Client{} = client, name, input, options \\ []) do
+    url_path = "/v20180820/storagelensgroup/#{AWS.Util.encode_uri(name)}"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
 end

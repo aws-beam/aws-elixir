@@ -38,10 +38,24 @@ defmodule AWS.DLM do
   end
 
   @doc """
-  Creates a policy to manage the lifecycle of the specified Amazon Web Services
-  resources.
+  Creates an Amazon Data Lifecycle Manager lifecycle policy.
 
-  You can create up to 100 lifecycle policies.
+  Amazon Data Lifecycle Manager supports the following policy types:
+
+    * Custom EBS snapshot policy
+
+    * Custom EBS-backed AMI policy
+
+    * Cross-account copy event policy
+
+    * Default policy for EBS snapshots
+
+    * Default policy for EBS-backed AMIs
+
+  For more information, see [ Default policies vs custom policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/policy-differences.html).
+
+  If you create a default policy, you can specify the request parameters either in
+  the request body, or in the PolicyDetails request structure, but not both.
   """
   def create_lifecycle_policy(%Client{} = client, input, options \\ []) do
     url_path = "/policies"
@@ -70,7 +84,7 @@ defmodule AWS.DLM do
   For more information about deleting a policy, see [Delete lifecycle policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#delete).
   """
   def delete_lifecycle_policy(%Client{} = client, policy_id, input, options \\ []) do
-    url_path = "/policies/#{AWS.Util.encode_uri(policy_id)}/"
+    url_path = "/policies/#{AWS.Util.encode_uri(policy_id)}"
     headers = []
     query_params = []
 
@@ -97,6 +111,7 @@ defmodule AWS.DLM do
   """
   def get_lifecycle_policies(
         %Client{} = client,
+        default_policy_type \\ nil,
         policy_ids \\ nil,
         resource_types \\ nil,
         state \\ nil,
@@ -143,6 +158,13 @@ defmodule AWS.DLM do
         query_params
       end
 
+    query_params =
+      if !is_nil(default_policy_type) do
+        [{"defaultPolicyType", default_policy_type} | query_params]
+      else
+        query_params
+      end
+
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
@@ -152,7 +174,7 @@ defmodule AWS.DLM do
   Gets detailed information about the specified lifecycle policy.
   """
   def get_lifecycle_policy(%Client{} = client, policy_id, options \\ []) do
-    url_path = "/policies/#{AWS.Util.encode_uri(policy_id)}/"
+    url_path = "/policies/#{AWS.Util.encode_uri(policy_id)}"
     headers = []
     query_params = []
 

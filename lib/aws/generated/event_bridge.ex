@@ -67,6 +67,12 @@ defmodule AWS.EventBridge do
   @doc """
   Creates an API destination, which is an HTTP invocation endpoint configured as a
   target for events.
+
+  API destinations do not support private destinations, such as interface VPC
+  endpoints.
+
+  For more information, see [API destinations](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html)
+  in the *EventBridge User Guide*.
   """
   def create_api_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -151,13 +157,22 @@ defmodule AWS.EventBridge do
 
   ` *partner_name*/*event_namespace*/*event_name* `
 
-  *partner_name* is determined during partner registration and identifies the
-  partner to Amazon Web Services customers. *event_namespace* is determined by the
-  partner and is a way for the partner to categorize their events. *event_name* is
-  determined by the partner, and should uniquely identify an event-generating
-  resource within the partner system. The combination of *event_namespace* and
-  *event_name* should help Amazon Web Services customers decide whether to create
-  an event bus to receive these events.
+    * *partner_name* is determined during partner registration, and
+  identifies the partner to Amazon Web Services customers.
+
+    * *event_namespace* is determined by the partner, and is a way for
+  the partner to categorize their events.
+
+    * *event_name* is determined by the partner, and should uniquely
+  identify an event-generating resource within the partner system.
+
+  The *event_name* must be unique across all Amazon Web Services customers. This
+  is because the event source is a shared resource between the partner and
+  customer accounts, and each partner event source unique in the partner account.
+
+  The combination of *event_namespace* and *event_name* should help Amazon Web
+  Services customers decide whether to create an event bus to receive these
+  events.
   """
   def create_partner_event_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -227,7 +242,7 @@ defmodule AWS.EventBridge do
 
   For more information about global endpoints, see [Making applications Regional-fault tolerant with global endpoints and event
   replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html)
-  in the Amazon EventBridge User Guide.
+  in the *Amazon EventBridge User Guide*.
   """
   def delete_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -318,7 +333,7 @@ defmodule AWS.EventBridge do
 
   For more information about global endpoints, see [Making applications Regional-fault tolerant with global endpoints and event
   replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html)
-  in the Amazon EventBridge User Guide..
+  in the *Amazon EventBridge User Guide*.
   """
   def describe_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -466,7 +481,7 @@ defmodule AWS.EventBridge do
 
   For more information about global endpoints, see [Making applications Regional-fault tolerant with global endpoints and event
   replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html)
-  in the Amazon EventBridge User Guide..
+  in the *Amazon EventBridge User Guide*.
   """
   def list_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -538,6 +553,8 @@ defmodule AWS.EventBridge do
 
   You can see which of the rules in Amazon EventBridge can invoke a specific
   target in your account.
+
+  The maximum number of results per page for requests is 100.
   """
   def list_rule_names_by_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -550,6 +567,8 @@ defmodule AWS.EventBridge do
 
   You can either list all the rules or you can provide a prefix to match to the
   rule names.
+
+  The maximum number of results per page for requests is 100.
 
   ListRules does not list the targets of a rule. To see the targets associated
   with a rule, use
@@ -574,6 +593,8 @@ defmodule AWS.EventBridge do
 
   @doc """
   Lists the targets assigned to the specified rule.
+
+  The maximum number of results per page for requests is 100.
   """
   def list_targets_by_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -583,6 +604,16 @@ defmodule AWS.EventBridge do
 
   @doc """
   Sends custom events to Amazon EventBridge so that they can be matched to rules.
+
+  The maximum size for a PutEvents event entry is 256 KB. Entry size is calculated
+  including the event and any necessary characters and keys of the JSON
+  representation of the event. To learn more, see [Calculating PutEvents event entry
+  size](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevent-size.html)
+  in the *Amazon EventBridge User Guide*
+
+  PutEvents accepts the data in JSON format. For the JSON number (integer) data
+  type, the constraints are: a minimum value of -9,223,372,036,854,775,808 and a
+  maximum value of 9,223,372,036,854,775,807.
 
   PutEvents will only process nested JSON up to 1100 levels deep.
   """
@@ -596,6 +627,10 @@ defmodule AWS.EventBridge do
   This is used by SaaS partners to write events to a customer's partner event bus.
 
   Amazon Web Services customers do not use this operation.
+
+  For information on calculating event batch size, see [Calculating EventBridge PutEvents event entry
+  size](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevent-size.html)
+  in the *EventBridge User Guide*.
   """
   def put_partner_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -704,72 +739,23 @@ defmodule AWS.EventBridge do
 
   Targets are the resources that are invoked when a rule is triggered.
 
+  The maximum number of entries per request is 10.
+
   Each rule can have up to five (5) targets associated with it at one time.
 
-  You can configure the following as targets for Events:
-
-    * [API destination](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html)
-
-    * [API Gateway](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-gateway-target.html)
-
-    * Batch job queue
-
-    * CloudWatch group
-
-    * CodeBuild project
-
-    * CodePipeline
-
-    * EC2 `CreateSnapshot` API call
-
-    * EC2 Image Builder
-
-    * EC2 `RebootInstances` API call
-
-    * EC2 `StopInstances` API call
-
-    * EC2 `TerminateInstances` API call
-
-    * ECS task
-
-    * [Event bus in a different account or Region](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cross-account.html)
-
-    * [Event bus in the same account and Region](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-bus-to-bus.html)
-
-    * Firehose delivery stream
-
-    * Glue workflow
-
-    * [Incident Manager response plan](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-creation.html#incident-tracking-auto-eventbridge)
-
-    * Inspector assessment template
-
-    * Kinesis stream
-
-    * Lambda function
-
-    * Redshift cluster
-
-    * Redshift Serverless workgroup
-
-    * SageMaker Pipeline
-
-    * SNS topic
-
-    * SQS queue
-
-    * Step Functions state machine
-
-    * Systems Manager Automation
-
-    * Systems Manager OpsItem
-
-    * Systems Manager Run Command
+  For a list of services you can configure as targets for events, see [EventBridge targets](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html)
+  in the *Amazon EventBridge User Guide*.
 
   Creating rules with built-in targets is supported only in the Amazon Web
-  Services Management Console. The built-in targets are `EC2 CreateSnapshot API
-  call`, `EC2 RebootInstances API call`, `EC2 StopInstances API call`, and `EC2
-  TerminateInstances API call`.
+  Services Management Console. The built-in targets are:
+
+    * `Amazon EBS CreateSnapshot API call`
+
+    * `Amazon EC2 RebootInstances API call`
+
+    * `Amazon EC2 StopInstances API call`
+
+    * `Amazon EC2 TerminateInstances API call`
 
   For some target types, `PutTargets` provides target-specific parameters. If the
   target is a Kinesis data stream, you can optionally specify which shard the
@@ -778,11 +764,16 @@ defmodule AWS.EventBridge do
   field.
 
   To be able to make API calls against the resources that you own, Amazon
-  EventBridge needs the appropriate permissions. For Lambda and Amazon SNS
-  resources, EventBridge relies on resource-based policies. For EC2 instances,
-  Kinesis Data Streams, Step Functions state machines and API Gateway APIs,
-  EventBridge relies on IAM roles that you specify in the `RoleARN` argument in
-  `PutTargets`. For more information, see [Authentication and Access Control](https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html)
+  EventBridge needs the appropriate permissions:
+
+    * For Lambda and Amazon SNS resources, EventBridge relies on
+  resource-based policies.
+
+    * For EC2 instances, Kinesis Data Streams, Step Functions state
+  machines and API Gateway APIs, EventBridge relies on IAM roles that you specify
+  in the `RoleARN` argument in `PutTargets`.
+
+  For more information, see [Authentication and Access Control](https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html)
   in the *Amazon EventBridge User Guide*.
 
   If another Amazon Web Services account is in the same region and has granted you
@@ -803,6 +794,10 @@ defmodule AWS.EventBridge do
   permissions in the `Target` structure. For more information, see [Sending and Receiving Events Between Amazon Web Services
   Accounts](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html)
   in the *Amazon EventBridge User Guide*.
+
+  If you have an IAM role on a cross-account event bus target, a `PutTargets` call
+  without a role on the same target (same `Id` and `Arn`) will not remove the
+  role.
 
   For more information about enabling cross-account events, see
   [PutPermission](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPermission.html).
@@ -875,6 +870,8 @@ defmodule AWS.EventBridge do
   This action can partially fail if too many requests are made at the same time.
   If that happens, `FailedEntryCount` is non-zero in the response and each entry
   in `FailedEntries` provides the ID of the failed target and the error code.
+
+  The maximum number of entries per request is 10.
   """
   def remove_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -984,7 +981,7 @@ defmodule AWS.EventBridge do
 
   For more information about global endpoints, see [Making applications Regional-fault tolerant with global endpoints and event
   replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html)
-  in the Amazon EventBridge User Guide..
+  in the *Amazon EventBridge User Guide*.
   """
   def update_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()

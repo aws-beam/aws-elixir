@@ -894,6 +894,24 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Get the associated metadata/information for a task run, given a task run ID.
+  """
+  def get_column_statistics_task_run(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetColumnStatisticsTaskRun", input, options)
+  end
+
+  @doc """
+  Retrieves information about all runs associated with the specified table.
+  """
+  def get_column_statistics_task_runs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetColumnStatisticsTaskRuns", input, options)
+  end
+
+  @doc """
   Retrieves a connection definition from the Data Catalog.
   """
   def get_connection(%Client{} = client, input, options \\ []) do
@@ -1509,6 +1527,15 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  List all task runs for a particular account.
+  """
+  def list_column_statistics_task_runs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListColumnStatisticsTaskRuns", input, options)
+  end
+
+  @doc """
   Retrieves the names of all crawler resources in this Amazon Web Services
   account, or the resources with the specified tag.
 
@@ -1896,6 +1923,15 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Starts a column statistics task run, for a specified table and columns.
+  """
+  def start_column_statistics_task_run(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartColumnStatisticsTaskRun", input, options)
+  end
+
+  @doc """
   Starts a crawl using the specified crawler, regardless of what is scheduled.
 
   If the crawler is already running, returns a
@@ -2067,6 +2103,15 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "StartWorkflowRun", input, options)
+  end
+
+  @doc """
+  Stops a task run for the specified table.
+  """
+  def stop_column_statistics_task_run(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopColumnStatisticsTaskRun", input, options)
   end
 
   @doc """

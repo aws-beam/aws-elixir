@@ -249,11 +249,9 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
-  This API is related to [WebRTC Ingestion](https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/webrtc-ingestion.html)
-  and is only available in the `us-west-2` region.
+  Returns the most current information about the channel.
 
-  Returns the most current information about the channel. Specify the
-  `ChannelName` or `ChannelARN` in the input.
+  Specify the `ChannelName` or `ChannelARN` in the input.
   """
   def describe_media_storage_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeMediaStorageConfiguration"
@@ -712,8 +710,6 @@ defmodule AWS.KinesisVideo do
   specify the `Operation` parameter in the request body. In the request, you must
   specify either the `StreamName` or the `StreamARN`.
 
-  The retention period that you specify replaces the current value.
-
   This operation requires permission for the `KinesisVideo:UpdateDataRetention`
   action.
 
@@ -773,17 +769,16 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
-  This API is related to [WebRTC Ingestion](https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/webrtc-ingestion.html)
-  and is only available in the `us-west-2` region.
+  Associates a `SignalingChannel` to a stream to store the media.
 
-  Associates a `SignalingChannel` to a stream to store the media. There are two
-  signaling modes that can specified :
+  There are two signaling modes that you can specify :
 
-    * If the `StorageStatus` is disabled, no data will be stored, and
-  the `StreamARN` parameter will not be needed.
+    * If `StorageStatus` is enabled, the data will be stored in the
+  `StreamARN` provided. In order for WebRTC Ingestion to work, the stream must
+  have data retention enabled.
 
-    * If the `StorageStatus` is enabled, the data will be stored in the
-  `StreamARN` provided.
+    * If `StorageStatus` is disabled, no data will be stored, and the
+  `StreamARN` parameter will not be needed.
 
   If `StorageStatus` is enabled, direct peer-to-peer (master-viewer) connections
   no longer occur. Peers connect directly to the storage session. You must call

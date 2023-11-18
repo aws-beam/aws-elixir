@@ -119,8 +119,10 @@ defmodule AWS.ECR do
   @doc """
   Creates a pull through cache rule.
 
-  A pull through cache rule provides a way to cache images from an external public
-  registry in your Amazon ECR private registry.
+  A pull through cache rule provides a way to cache images from an upstream
+  registry source in your Amazon ECR private registry. For more information, see
+  [Using pull through cache rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html)
+  in the *Amazon Elastic Container Registry User Guide*.
   """
   def create_pull_through_cache_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -170,8 +172,9 @@ defmodule AWS.ECR do
   @doc """
   Deletes a repository.
 
-  If the repository contains images, you must either delete all images in the
-  repository or use the `force` option to delete the repository.
+  If the repository isn't empty, you must either delete the contents of the
+  repository or use the `force` option to delete the repository and have Amazon
+  ECR delete all of its contents on your behalf.
   """
   def delete_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -533,6 +536,15 @@ defmodule AWS.ECR do
   end
 
   @doc """
+  Updates an existing pull through cache rule.
+  """
+  def update_pull_through_cache_rule(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePullThroughCacheRule", input, options)
+  end
+
+  @doc """
   Uploads an image layer part to Amazon ECR.
 
   When an image is pushed, each new image layer is uploaded in parts. The maximum
@@ -547,5 +559,19 @@ defmodule AWS.ECR do
     meta = metadata()
 
     Request.request_post(client, meta, "UploadLayerPart", input, options)
+  end
+
+  @doc """
+  Validates an existing pull through cache rule for an upstream registry that
+  requires authentication.
+
+  This will retrieve the contents of the Amazon Web Services Secrets Manager
+  secret, verify the syntax, and then validate that authentication to the upstream
+  registry is successful.
+  """
+  def validate_pull_through_cache_rule(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ValidatePullThroughCacheRule", input, options)
   end
 end

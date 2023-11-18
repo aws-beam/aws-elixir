@@ -44,6 +44,19 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
+  Cancel a specific image lifecycle policy runtime instance.
+  """
+  def cancel_lifecycle_execution(%Client{} = client, input, options \\ []) do
+    url_path = "/CancelLifecycleExecution"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
   Creates a new component that can be used to build, validate, test, and assess
   your image.
 
@@ -151,6 +164,19 @@ defmodule AWS.Imagebuilder do
   """
   def create_infrastructure_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/CreateInfrastructureConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Create a lifecycle policy resource.
+  """
+  def create_lifecycle_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateLifecyclePolicy"
     headers = []
     query_params = []
 
@@ -350,6 +376,34 @@ defmodule AWS.Imagebuilder do
     {query_params, input} =
       [
         {"infrastructureConfigurationArn", "infrastructureConfigurationArn"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Delete the specified lifecycle policy resource.
+  """
+  def delete_lifecycle_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteLifecyclePolicy"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"lifecyclePolicyArn", "lifecyclePolicyArn"}
       ]
       |> Request.build_params(input)
 
@@ -587,6 +641,47 @@ defmodule AWS.Imagebuilder do
     query_params =
       if !is_nil(infrastructure_configuration_arn) do
         [{"infrastructureConfigurationArn", infrastructure_configuration_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Get the runtime information that was logged for a specific runtime instance of
+  the lifecycle policy.
+  """
+  def get_lifecycle_execution(%Client{} = client, lifecycle_execution_id, options \\ []) do
+    url_path = "/GetLifecycleExecution"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(lifecycle_execution_id) do
+        [{"lifecycleExecutionId", lifecycle_execution_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Get details for the specified image lifecycle policy.
+  """
+  def get_lifecycle_policy(%Client{} = client, lifecycle_policy_arn, options \\ []) do
+    url_path = "/GetLifecyclePolicy"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(lifecycle_policy_arn) do
+        [{"lifecyclePolicyArn", lifecycle_policy_arn} | query_params]
       else
         query_params
       end
@@ -1014,6 +1109,76 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
+  List resources that the runtime instance of the image lifecycle identified for
+  lifecycle actions.
+  """
+  def list_lifecycle_execution_resources(%Client{} = client, input, options \\ []) do
+    url_path = "/ListLifecycleExecutionResources"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Get the lifecycle runtime history for the specified resource.
+  """
+  def list_lifecycle_executions(%Client{} = client, input, options \\ []) do
+    url_path = "/ListLifecycleExecutions"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Get a list of lifecycle policies in your Amazon Web Services account.
+  """
+  def list_lifecycle_policies(%Client{} = client, input, options \\ []) do
+    url_path = "/ListLifecyclePolicies"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns the list of tags for the specified resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
@@ -1169,6 +1334,20 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
+  Begin asynchronous resource state update for lifecycle changes to the specified
+  image resources.
+  """
+  def start_resource_state_update(%Client{} = client, input, options \\ []) do
+    url_path = "/StartResourceStateUpdate"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
   Adds a tag to a resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -1261,6 +1440,19 @@ defmodule AWS.Imagebuilder do
   """
   def update_infrastructure_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateInfrastructureConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Update the specified lifecycle policy.
+  """
+  def update_lifecycle_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateLifecyclePolicy"
     headers = []
     query_params = []
 

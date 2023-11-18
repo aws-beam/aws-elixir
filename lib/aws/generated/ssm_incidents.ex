@@ -36,6 +36,34 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
+  Retrieves details about all specified findings for an incident, including
+  descriptive details about each finding.
+
+  A finding represents a recent application environment change made by an
+  CodeDeploy deployment or an CloudFormation stack creation or update that can be
+  investigated as a potential cause of the incident.
+  """
+  def batch_get_incident_findings(%Client{} = client, input, options \\ []) do
+    url_path = "/batchGetIncidentFindings"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   A replication set replicates and encrypts your data to the provided Regions with
   the provided KMS key.
   """
@@ -355,6 +383,34 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
+  Retrieves a list of the IDs of findings, plus their last modified times, that
+  have been identified for a specified incident.
+
+  A finding represents a recent application environment change made by an
+  CloudFormation stack creation or update or an CodeDeploy deployment that can be
+  investigated as a potential cause of the incident.
+  """
+  def list_incident_findings(%Client{} = client, input, options \\ []) do
+    url_path = "/listIncidentFindings"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists all incident records in your account.
 
   Use this command to retrieve the Amazon Resource Name (ARN) of the incident
@@ -450,7 +506,7 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
-  Lists the tags that are attached to the specified response plan.
+  Lists the tags that are attached to the specified response plan or incident.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

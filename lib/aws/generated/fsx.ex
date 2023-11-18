@@ -915,6 +915,8 @@ defmodule AWS.FSx do
 
     * `LustreRootSquashConfiguration`
 
+    * `PerUnitStorageThroughput`
+
     * `StorageCapacity`
 
     * `WeeklyMaintenanceStartTime`

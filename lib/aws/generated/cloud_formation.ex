@@ -325,7 +325,7 @@ defmodule AWS.CloudFormation do
   will make if you execute the change set.
 
   For more information, see [Updating Stacks Using Change Sets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html)
-  in the CloudFormation User Guide.
+  in the *CloudFormation User Guide*.
   """
   def describe_change_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -404,7 +404,7 @@ defmodule AWS.CloudFormation do
 
   For more information about a stack's event history, go to
   [Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html)
-  in the CloudFormation User Guide.
+  in the *CloudFormation User Guide*.
 
   You can list events for stacks that have failed to create or have been deleted
   by specifying the unique stack identifier (stack ID).

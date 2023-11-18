@@ -17,9 +17,6 @@ defmodule AWS.Athena do
   or later with the Amazon Athena API. Earlier version drivers do not support the
   API. For more information and to download the driver, see [Accessing Amazon Athena with
   JDBC](https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html).
-
-  For code samples using the Amazon Web Services SDK for Java, see [Examples and Code Samples](https://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in
-  the *Amazon Athena User Guide*.
   """
 
   alias AWS.Client
@@ -128,9 +125,6 @@ defmodule AWS.Athena do
   Creates a named query in the specified workgroup.
 
   Requires that you have access to the workgroup.
-
-  For code samples using the Amazon Web Services SDK for Java, see [Examples and Code Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in
-  the *Amazon Athena User Guide*.
   """
   def create_named_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -209,9 +203,6 @@ defmodule AWS.Athena do
   @doc """
   Deletes the named query if you have access to the workgroup in which the query
   was saved.
-
-  For code samples using the Amazon Web Services SDK for Java, see [Examples and Code Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in
-  the *Amazon Athena User Guide*.
   """
   def delete_named_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -533,9 +524,6 @@ defmodule AWS.Athena do
 
   Requires that you have access to the specified workgroup. If a workgroup is not
   specified, lists the saved queries for the primary workgroup.
-
-  For code samples using the Amazon Web Services SDK for Java, see [Examples and Code Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in
-  the *Amazon Athena User Guide*.
   """
   def list_named_queries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -577,12 +565,9 @@ defmodule AWS.Athena do
   Provides a list of available query execution IDs for the queries in the
   specified workgroup.
 
-  If a workgroup is not specified, returns a list of query execution IDs for the
-  primary workgroup. Requires you to have access to the workgroup in which the
-  queries ran.
-
-  For code samples using the Amazon Web Services SDK for Java, see [Examples and Code Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in
-  the *Amazon Athena User Guide*.
+  Athena keeps a query history for 45 days. If a workgroup is not specified,
+  returns a list of query execution IDs for the primary workgroup. Requires you to
+  have access to the workgroup in which the queries ran.
   """
   def list_query_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -646,6 +631,11 @@ defmodule AWS.Athena do
   Submits calculations for execution within a session.
 
   You can supply the code to run as an inline code block within the request.
+
+  The request syntax requires the `StartCalculationExecutionRequest$CodeBlock`
+  parameter or the `CalculationConfiguration$CodeBlock` parameter, but not both.
+  Because `CalculationConfiguration$CodeBlock` is deprecated, use the
+  `StartCalculationExecutionRequest$CodeBlock` parameter instead.
   """
   def start_calculation_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -701,9 +691,6 @@ defmodule AWS.Athena do
   Stops a query execution.
 
   Requires you to have access to the workgroup in which the query ran.
-
-  For code samples using the Amazon Web Services SDK for Java, see [Examples and Code Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in
-  the *Amazon Athena User Guide*.
   """
   def stop_query_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()

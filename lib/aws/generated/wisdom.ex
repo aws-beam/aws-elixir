@@ -149,6 +149,29 @@ defmodule AWS.Wisdom do
   end
 
   @doc """
+  Creates a Wisdom quick response.
+  """
+  def create_quick_response(%Client{} = client, knowledge_base_id, input, options \\ []) do
+    url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a session.
 
   A session is a contextual container used for generating recommendations. Amazon
@@ -255,6 +278,37 @@ defmodule AWS.Wisdom do
   end
 
   @doc """
+  Deletes the quick response import job.
+  """
+  def delete_import_job(
+        %Client{} = client,
+        import_job_id,
+        knowledge_base_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/importJobs/#{AWS.Util.encode_uri(import_job_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes the knowledge base.
 
   When you use this API to delete an external knowledge base such as Salesforce or
@@ -268,6 +322,37 @@ defmodule AWS.Wisdom do
   """
   def delete_knowledge_base(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a quick response.
+  """
+  def delete_quick_response(
+        %Client{} = client,
+        knowledge_base_id,
+        quick_response_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses/#{AWS.Util.encode_uri(quick_response_id)}"
+
     headers = []
     query_params = []
 
@@ -350,10 +435,40 @@ defmodule AWS.Wisdom do
   end
 
   @doc """
+  Retrieves the started import job.
+  """
+  def get_import_job(%Client{} = client, import_job_id, knowledge_base_id, options \\ []) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/importJobs/#{AWS.Util.encode_uri(import_job_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves information about the knowledge base.
   """
   def get_knowledge_base(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the quick response.
+  """
+  def get_quick_response(%Client{} = client, knowledge_base_id, quick_response_id, options \\ []) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses/#{AWS.Util.encode_uri(quick_response_id)}"
+
     headers = []
     query_params = []
 
@@ -513,6 +628,39 @@ defmodule AWS.Wisdom do
   end
 
   @doc """
+  Lists information about import jobs.
+  """
+  def list_import_jobs(
+        %Client{} = client,
+        knowledge_base_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/importJobs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the knowledge bases.
   """
   def list_knowledge_bases(
@@ -522,6 +670,39 @@ defmodule AWS.Wisdom do
         options \\ []
       ) do
     url_path = "/knowledgeBases"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists information about quick response.
+  """
+  def list_quick_responses(
+        %Client{} = client,
+        knowledge_base_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses"
     headers = []
     query_params = []
 
@@ -680,6 +861,35 @@ defmodule AWS.Wisdom do
   end
 
   @doc """
+  Searches existing Wisdom quick responses in a Wisdom knowledge base.
+  """
+  def search_quick_responses(%Client{} = client, knowledge_base_id, input, options \\ []) do
+    url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/search/quickResponses"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Searches for sessions.
   """
   def search_sessions(%Client{} = client, assistant_id, input, options \\ []) do
@@ -720,6 +930,38 @@ defmodule AWS.Wisdom do
   """
   def start_content_upload(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/upload"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Start an asynchronous job to import Wisdom resources from an uploaded source
+  file.
+
+  Before calling this API, use
+  [StartContentUpload](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html) to upload an asset that contains the resource data.
+
+    * For importing Wisdom quick responses, you need to upload a csv
+  file including the quick responses. For information about how to format the csv
+  file for importing quick responses, see [Import quick
+  responses](https://docs.aws.amazon.com/console/connect/quick-responses/add-data).
+  """
+  def start_import_job(%Client{} = client, knowledge_base_id, input, options \\ []) do
+    url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/importJobs"
     headers = []
     query_params = []
 
@@ -830,6 +1072,37 @@ defmodule AWS.Wisdom do
         options \\ []
       ) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/templateUri"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing Wisdom quick response.
+  """
+  def update_quick_response(
+        %Client{} = client,
+        knowledge_base_id,
+        quick_response_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses/#{AWS.Util.encode_uri(quick_response_id)}"
+
     headers = []
     query_params = []
 

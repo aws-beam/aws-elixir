@@ -519,6 +519,40 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Use `CreateRoleMembership` to add an existing Amazon QuickSight group to an
+  existing role.
+  """
+  def create_role_membership(
+        %Client{} = client,
+        aws_account_id,
+        member_name,
+        namespace,
+        role,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/roles/#{AWS.Util.encode_uri(role)}/members/#{AWS.Util.encode_uri(member_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates a template either from a `TemplateDefinition` or from an existing Amazon
   QuickSight analysis or template.
 
@@ -1140,6 +1174,71 @@ defmodule AWS.QuickSight do
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules/#{AWS.Util.encode_uri(schedule_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Removes custom permissions from the role.
+  """
+  def delete_role_custom_permission(
+        %Client{} = client,
+        aws_account_id,
+        namespace,
+        role,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/roles/#{AWS.Util.encode_uri(role)}/custom-permission"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Removes a group from a role.
+  """
+  def delete_role_membership(
+        %Client{} = client,
+        aws_account_id,
+        member_name,
+        namespace,
+        role,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/roles/#{AWS.Util.encode_uri(role)}/members/#{AWS.Util.encode_uri(member_name)}"
 
     headers = []
     query_params = []
@@ -2131,6 +2230,27 @@ defmodule AWS.QuickSight do
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules/#{AWS.Util.encode_uri(schedule_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Describes all custom permissions that are mapped to a role.
+  """
+  def describe_role_custom_permission(
+        %Client{} = client,
+        aws_account_id,
+        namespace,
+        role,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/roles/#{AWS.Util.encode_uri(role)}/custom-permission"
 
     headers = []
     query_params = []
@@ -3274,6 +3394,43 @@ defmodule AWS.QuickSight do
 
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists all groups that are associated with a role.
+  """
+  def list_role_memberships(
+        %Client{} = client,
+        aws_account_id,
+        namespace,
+        role,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/roles/#{AWS.Util.encode_uri(role)}/members"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -4470,6 +4627,28 @@ defmodule AWS.QuickSight do
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates the custom permissions that are associated with a role.
+  """
+  def update_role_custom_permission(
+        %Client{} = client,
+        aws_account_id,
+        namespace,
+        role,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/roles/#{AWS.Util.encode_uri(role)}/custom-permission"
 
     headers = []
     query_params = []

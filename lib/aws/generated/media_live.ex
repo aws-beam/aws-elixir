@@ -549,7 +549,7 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Get account configuration
+  Describe account configuration
   """
   def describe_account_configuration(%Client{} = client, options \\ []) do
     url_path = "/prod/accountConfiguration"

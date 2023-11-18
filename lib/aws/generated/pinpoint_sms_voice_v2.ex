@@ -22,6 +22,24 @@ defmodule AWS.PinpointSMSVoiceV2 do
   types of applications. The guide also provides key information, such as Amazon
   Pinpoint integration with other Amazon Web Services services, and the quotas
   that apply to use of the service.
+
+  ## Regional availability
+
+  The *Amazon Pinpoint SMS and Voice, version 2 API Reference* is available in
+  several Amazon Web Services Regions and it provides an endpoint for each of
+  these Regions. For a list of all the Regions and endpoints where the API is
+  currently available, see [Amazon Web Services Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#pinpoint_region)
+  and [Amazon Pinpoint endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/pinpoint.html) in the
+  Amazon Web Services General Reference. To learn more about Amazon Web Services
+  Regions, see [Managing Amazon Web Services Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the
+  Amazon Web Services General Reference.
+
+  In each Region, Amazon Web Services maintains multiple Availability Zones. These
+  Availability Zones are physically isolated from each other, but are united by
+  private, low-latency, high-throughput, and highly redundant network connections.
+  These Availability Zones enable us to provide very high levels of availability
+  and redundancy, while also minimizing latency. To learn more about the number of
+  Availability Zones that are available in each Region, see [Amazon Web Services Global Infrastructure.](https://aws.amazon.com/about-aws/global-infrastructure/)
   """
 
   alias AWS.Client
@@ -47,11 +65,11 @@ defmodule AWS.PinpointSMSVoiceV2 do
   Associates the specified origination identity with a pool.
 
   If the origination identity is a phone number and is already associated with
-  another pool, an Error is returned. A sender ID can be associated with multiple
+  another pool, an error is returned. A sender ID can be associated with multiple
   pools.
 
   If the origination identity configuration doesn't match the pool's
-  configuration, an Error is returned.
+  configuration, an error is returned.
   """
   def associate_origination_identity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -98,7 +116,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @doc """
   Creates a new opt-out list.
 
-  If the opt-out list name already exists, an Error is returned.
+  If the opt-out list name already exists, an error is returned.
 
   An opt-out list is a list of phone numbers that are opted out, meaning you can't
   send SMS or voice messages to them. If end user replies with the keyword "STOP,"
@@ -127,13 +145,69 @@ defmodule AWS.PinpointSMSVoiceV2 do
   origination identity and defaults to false.
 
   If the origination identity is a phone number and is already associated with
-  another pool, an Error is returned. A sender ID can be associated with multiple
+  another pool, an error is returned. A sender ID can be associated with multiple
   pools.
   """
   def create_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "CreatePool", input, options)
+  end
+
+  @doc """
+  Creates a new registration based on the **RegistrationType** field.
+  """
+  def create_registration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRegistration", input, options)
+  end
+
+  @doc """
+  Associate the registration with an origination identity such as a phone number
+  or sender ID.
+  """
+  def create_registration_association(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRegistrationAssociation", input, options)
+  end
+
+  @doc """
+  Create a new registration attachment to use for uploading a file or a URL to a
+  file.
+
+  The maximum file size is 1MiB and valid file extensions are PDF, JPEG and PNG.
+  For example, many sender ID registrations require a signed “letter of
+  authorization” (LOA) to be submitted.
+  """
+  def create_registration_attachment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRegistrationAttachment", input, options)
+  end
+
+  @doc """
+  Create a new version of the registration and increase the **VersionNumber**.
+
+  The previous version of the registration becomes read-only.
+  """
+  def create_registration_version(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRegistrationVersion", input, options)
+  end
+
+  @doc """
+  You can only send messages to verified destination numbers when your account is
+  in the sandbox.
+
+  You can add up to 10 verified destination numbers.
+  """
+  def create_verified_destination_number(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateVerifiedDestinationNumber", input, options)
   end
 
   @doc """
@@ -214,7 +288,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   All opted out phone numbers in the opt-out list are deleted.
 
   If the specified opt-out list name doesn't exist or is in-use by an origination
-  phone number or pool, an Error is returned.
+  phone number or pool, an error is returned.
   """
   def delete_opt_out_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -229,7 +303,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   Each destination phone number can only be deleted once every 30 days.
 
   If the specified destination phone number doesn't exist or if the opt-out list
-  doesn't exist, an Error is returned.
+  doesn't exist, an error is returned.
   """
   def delete_opted_out_number(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -242,7 +316,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   Deleting a pool disassociates all origination identities from that pool.
 
-  If the pool status isn't active or if deletion protection is enabled, an Error
+  If the pool status isn't active or if deletion protection is enabled, an error
   is returned.
 
   A pool is a collection of phone numbers and SenderIds. A pool can include one or
@@ -253,6 +327,33 @@ defmodule AWS.PinpointSMSVoiceV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DeletePool", input, options)
+  end
+
+  @doc """
+  Permanently delete an existing registration from your account.
+  """
+  def delete_registration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRegistration", input, options)
+  end
+
+  @doc """
+  Permanently delete the specified registration attachment.
+  """
+  def delete_registration_attachment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRegistrationAttachment", input, options)
+  end
+
+  @doc """
+  Delete the value in a registration form field.
+  """
+  def delete_registration_field_value(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRegistrationFieldValue", input, options)
   end
 
   @doc """
@@ -269,6 +370,15 @@ defmodule AWS.PinpointSMSVoiceV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteTextMessageSpendLimitOverride", input, options)
+  end
+
+  @doc """
+  Delete a verified destination phone number.
+  """
+  def delete_verified_destination_number(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteVerifiedDestinationNumber", input, options)
   end
 
   @doc """
@@ -351,7 +461,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   offer. When your number receives a message that begins with a keyword, Amazon
   Pinpoint responds with a customizable message.
 
-  If you specify a keyword that isn't valid, an Error is returned.
+  If you specify a keyword that isn't valid, an error is returned.
   """
   def describe_keywords(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -367,7 +477,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   criteria. If you don't specify opt-out list names or filters, the output
   includes information for all opt-out lists.
 
-  If you specify an opt-out list name that isn't valid, an Error is returned.
+  If you specify an opt-out list name that isn't valid, an error is returned.
   """
   def describe_opt_out_lists(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -385,7 +495,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   you don't specify opted out numbers or filters, the output includes information
   for all opted out destination numbers in your opt-out list.
 
-  If you specify an opted out number that isn't valid, an Error is returned.
+  If you specify an opted out number that isn't valid, an error is returned.
   """
   def describe_opted_out_numbers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -403,7 +513,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   phone number IDs or filters, the output includes information for all phone
   numbers.
 
-  If you specify a phone number ID that isn't valid, an Error is returned.
+  If you specify a phone number ID that isn't valid, an error is returned.
   """
   def describe_phone_numbers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -420,7 +530,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   pools that meet the filter criteria. If you don't specify pool IDs or filters,
   the output includes information for all pools.
 
-  If you specify a pool ID that isn't valid, an Error is returned.
+  If you specify a pool ID that isn't valid, an error is returned.
 
   A pool is a collection of phone numbers and SenderIds. A pool can include one or
   more phone numbers and SenderIds that are associated with your Amazon Web
@@ -433,6 +543,79 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+  Retrieves the specified registration attachments or all registration attachments
+  associated with your Amazon Web Services account.
+  """
+  def describe_registration_attachments(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRegistrationAttachments", input, options)
+  end
+
+  @doc """
+  Retrieves the specified registration type field definitions.
+
+  You can use DescribeRegistrationFieldDefinitions to view the requirements for
+  creating, filling out, and submitting each registration type.
+  """
+  def describe_registration_field_definitions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRegistrationFieldDefinitions", input, options)
+  end
+
+  @doc """
+  Retrieves the specified registration field values.
+  """
+  def describe_registration_field_values(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRegistrationFieldValues", input, options)
+  end
+
+  @doc """
+  Retrieves the specified registration section definitions.
+
+  You can use DescribeRegistrationSectionDefinitions to view the requirements for
+  creating, filling out, and submitting each registration type.
+  """
+  def describe_registration_section_definitions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRegistrationSectionDefinitions", input, options)
+  end
+
+  @doc """
+  Retrieves the specified registration type definitions.
+
+  You can use DescribeRegistrationTypeDefinitions to view the requirements for
+  creating, filling out, and submitting each registration type.
+  """
+  def describe_registration_type_definitions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRegistrationTypeDefinitions", input, options)
+  end
+
+  @doc """
+  Retrieves the specified registration version.
+  """
+  def describe_registration_versions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRegistrationVersions", input, options)
+  end
+
+  @doc """
+  Retrieves the specified registrations.
+  """
+  def describe_registrations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRegistrations", input, options)
+  end
+
+  @doc """
   Describes the specified SenderIds or all SenderIds associated with your Amazon
   Web Services account.
 
@@ -441,7 +624,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   those SenderIds that meet the filter criteria. If you don't specify SenderIds or
   filters, the output includes information for all SenderIds.
 
-  f you specify a sender ID that isn't valid, an Error is returned.
+  f you specify a sender ID that isn't valid, an error is returned.
   """
   def describe_sender_ids(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -466,15 +649,33 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+  Retrieves the specified verified destiona numbers.
+  """
+  def describe_verified_destination_numbers(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeVerifiedDestinationNumbers", input, options)
+  end
+
+  @doc """
   Removes the specified origination identity from an existing pool.
 
-  If the origination identity isn't associated with the specified pool, an Error
+  If the origination identity isn't associated with the specified pool, an error
   is returned.
   """
   def disassociate_origination_identity(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "DisassociateOriginationIdentity", input, options)
+  end
+
+  @doc """
+  Discard the current version of the registration.
+  """
+  def discard_registration_version(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DiscardRegistrationVersion", input, options)
   end
 
   @doc """
@@ -487,6 +688,16 @@ defmodule AWS.PinpointSMSVoiceV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "ListPoolOriginationIdentities", input, options)
+  end
+
+  @doc """
+  Retreive all of the origination identies that are associated with a
+  registration.
+  """
+  def list_registration_associations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRegistrationAssociations", input, options)
   end
 
   @doc """
@@ -508,7 +719,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   offer. When your number receives a message that begins with a keyword, Amazon
   Pinpoint responds with a customizable message.
 
-  If you specify a keyword that isn't valid, an Error is returned.
+  If you specify a keyword that isn't valid, an error is returned.
   """
   def put_keyword(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -520,7 +731,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   Creates an opted out destination phone number in the opt-out list.
 
   If the destination phone number isn't valid or if the specified opt-out list
-  doesn't exist, an Error is returned.
+  doesn't exist, an error is returned.
   """
   def put_opted_out_number(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -529,17 +740,35 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+  Creates or updates a field value for a registration.
+  """
+  def put_registration_field_value(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutRegistrationFieldValue", input, options)
+  end
+
+  @doc """
   Releases an existing origination phone number in your account.
 
   Once released, a phone number is no longer available for sending messages.
 
   If the origination phone number has deletion protection enabled or is associated
-  with a pool, an Error is returned.
+  with a pool, an error is returned.
   """
   def release_phone_number(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "ReleasePhoneNumber", input, options)
+  end
+
+  @doc """
+  Releases an existing sender ID in your account.
+  """
+  def release_sender_id(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ReleaseSenderId", input, options)
   end
 
   @doc """
@@ -553,6 +782,30 @@ defmodule AWS.PinpointSMSVoiceV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "RequestPhoneNumber", input, options)
+  end
+
+  @doc """
+  Request a new sender ID that doesn't require registration.
+  """
+  def request_sender_id(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RequestSenderId", input, options)
+  end
+
+  @doc """
+  Before you can send test messages to a verified destination phone number you
+  need to opt-in the verified destination phone number.
+
+  Creates a new text message with a verification code and send it to a verified
+  destination phone number. Once you have the verification code use
+  `VerifyDestinationNumber` to opt-in the verified destination phone number to
+  receive messages.
+  """
+  def send_destination_number_verification_code(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendDestinationNumberVerificationCode", input, options)
   end
 
   @doc """
@@ -571,7 +824,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
-  Allows you to send a request that sends a text message through Amazon Pinpoint.
+  Allows you to send a request that sends a voice message through Amazon Pinpoint.
 
   This operation uses [Amazon Polly](http://aws.amazon.com/polly/) to convert a
   text script into a voice message.
@@ -636,6 +889,15 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+  Submit the specified registration for review and approval.
+  """
+  def submit_registration_version(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SubmitRegistrationVersion", input, options)
+  end
+
+  @doc """
   Adds or overwrites only the specified tags for the specified Amazon Pinpoint SMS
   Voice, version 2 resource.
 
@@ -688,7 +950,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   TwoWayChannelArn, enable or disable self-managed opt-outs, and enable or disable
   deletion protection.
 
-  If the origination phone number is associated with a pool, an Error is returned.
+  If the origination phone number is associated with a pool, an error is returned.
   """
   def update_phone_number(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -707,5 +969,24 @@ defmodule AWS.PinpointSMSVoiceV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdatePool", input, options)
+  end
+
+  @doc """
+  Updates the configuration of an existing sender ID.
+  """
+  def update_sender_id(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSenderId", input, options)
+  end
+
+  @doc """
+  Use the verification code that was received by the verified destination phone
+  number to opt-in the verified destination phone number to receive more messages.
+  """
+  def verify_destination_number(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "VerifyDestinationNumber", input, options)
   end
 end

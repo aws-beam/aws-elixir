@@ -185,6 +185,10 @@ defmodule AWS.RDS do
 
   @doc """
   Copies the specified DB cluster parameter group.
+
+  You can't copy a default DB cluster parameter group. Instead, create a new
+  custom DB cluster parameter group, which copies the default parameters and
+  values for the specified DB cluster parameter group family.
   """
   def copy_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -240,6 +244,10 @@ defmodule AWS.RDS do
 
   @doc """
   Copies the specified DB parameter group.
+
+  You can't copy a default DB parameter group. Instead, create a new custom DB
+  parameter group, which copies the default parameters and values for the
+  specified DB parameter group family.
   """
   def copy_db_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()

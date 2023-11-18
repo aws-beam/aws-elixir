@@ -163,6 +163,79 @@ defmodule AWS.InternetMonitor do
   end
 
   @doc """
+  Return the data for a query with the Amazon CloudWatch Internet Monitor query
+  interface.
+
+  Specify the query that you want to return results for by providing a `QueryId`
+  and a monitor name.
+
+  For more information about using the query interface, including examples, see
+  [Using the Amazon CloudWatch Internet Monitor query interface](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html)
+  in the Amazon CloudWatch Internet Monitor User Guide.
+  """
+  def get_query_results(
+        %Client{} = client,
+        monitor_name,
+        query_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries/#{AWS.Util.encode_uri(query_id)}/Results"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the current status of a query for the Amazon CloudWatch Internet Monitor
+  query interface, for a specified query ID and monitor.
+
+  When you run a query, check the status to make sure that the query has
+  `SUCCEEDED` before you review the results.
+
+    * `QUEUED`: The query is scheduled to run.
+
+    * `RUNNING`: The query is in progress but not complete.
+
+    * `SUCCEEDED`: The query completed sucessfully.
+
+    * `FAILED`: The query failed due to an error.
+
+    * `CANCELED`: The query was canceled.
+  """
+  def get_query_status(%Client{} = client, monitor_name, query_id, options \\ []) do
+    url_path =
+      "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries/#{AWS.Util.encode_uri(query_id)}/Status"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists all health events for a monitor in Amazon CloudWatch Internet Monitor.
 
   Returns information for health events including the event start and end time and
@@ -279,6 +352,63 @@ defmodule AWS.InternetMonitor do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Start a query to return data for a specific query type for the Amazon CloudWatch
+  Internet Monitor query interface.
+
+  Specify a time period for the data that you want returned by using `StartTime`
+  and `EndTime`. You filter the query results to return by providing parameters
+  that you specify with `FilterParameters`.
+
+  For more information about using the query interface, including examples, see
+  [Using the Amazon CloudWatch Internet Monitor query interface](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html)
+  in the Amazon CloudWatch Internet Monitor User Guide.
+  """
+  def start_query(%Client{} = client, monitor_name, input, options \\ []) do
+    url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Stop a query that is progress for a specific monitor.
+  """
+  def stop_query(%Client{} = client, monitor_name, query_id, input, options \\ []) do
+    url_path =
+      "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries/#{AWS.Util.encode_uri(query_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

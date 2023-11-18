@@ -21,8 +21,15 @@ defmodule AWS.IVSRealTime do
     * A *participant object* represents participants (people) in the
   stage and contains information about them. When a token is created, it includes
   a participant ID; when a participant uses that token to join a stage, the
-  participant is associated with that participant ID There is a 1:1 mapping
+  participant is associated with that participant ID. There is a 1:1 mapping
   between participant tokens and participants.
+
+    * Server-side composition: The *composition* process composites
+  participants of a stage into a single video and forwards it to a set of outputs
+  (e.g., IVS channels). Composition endpoints support this process.
+
+    * Server-side composition: A *composition* controls the look of the
+  outputs, including how participants are positioned in the video.
 
   ## Resources
 
@@ -86,6 +93,52 @@ defmodule AWS.IVSRealTime do
 
     * `UpdateStage` — Updates a stage’s configuration.
 
+  ## Composition Endpoints
+
+    * `GetComposition` — Gets information about the specified
+  Composition resource.
+
+    * `ListCompositions` — Gets summary information about all
+  Compositions in your account, in the AWS region where the API request is
+  processed.
+
+    * `StartComposition` — Starts a Composition from a stage based on
+  the configuration provided in the request.
+
+    * `StopComposition` — Stops and deletes a Composition resource. Any
+  broadcast from the Composition resource is stopped.
+
+  ## EncoderConfiguration Endpoints
+
+    * `CreateEncoderConfiguration` — Creates an EncoderConfiguration
+  object.
+
+    * `DeleteEncoderConfiguration` — Deletes an EncoderConfiguration
+  resource. Ensures that no Compositions are using this template; otherwise,
+  returns an error.
+
+    * `GetEncoderConfiguration` — Gets information about the specified
+  EncoderConfiguration resource.
+
+    * `ListEncoderConfigurations` — Gets summary information about all
+  EncoderConfigurations in your account, in the AWS region where the API request
+  is processed.
+
+  ## StorageConfiguration Endpoints
+
+    * `CreateStorageConfiguration` — Creates a new storage
+  configuration, used to enable recording to Amazon S3.
+
+    * `DeleteStorageConfiguration` — Deletes the storage configuration
+  for the specified ARN.
+
+    * `GetStorageConfiguration` — Gets the storage configuration for the
+  specified ARN.
+
+    * `ListStorageConfigurations` — Gets summary information about all
+  storage configurations in your account, in the AWS region where the API request
+  is processed.
+
   ## Tags Endpoints
 
     * `ListTagsForResource` — Gets information about AWS tags for the
@@ -115,6 +168,29 @@ defmodule AWS.IVSRealTime do
       signing_name: "ivs",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Creates an EncoderConfiguration object.
+  """
+  def create_encoder_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateEncoderConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -170,10 +246,91 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
+  Creates a new storage configuration, used to enable recording to Amazon S3.
+
+  When a StorageConfiguration is created, IVS will modify the S3 bucketPolicy of
+  the provided bucket. This will ensure that IVS has sufficient permissions to
+  write content to the provided bucket.
+  """
+  def create_storage_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateStorageConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes an EncoderConfiguration resource.
+
+  Ensures that no Compositions are using this template; otherwise, returns an
+  error.
+  """
+  def delete_encoder_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteEncoderConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Shuts down and deletes the specified stage (disconnecting all participants).
   """
   def delete_stage(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteStage"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the storage configuration for the specified ARN.
+
+  If you try to delete a storage configuration that is used by a Composition, you
+  will get an error (409 ConflictException). To avoid this, for all Compositions
+  that reference the storage configuration, first use `StopComposition` and wait
+  for it to complete, then use DeleteStorageConfiguration.
+  """
+  def delete_storage_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteStorageConfiguration"
     headers = []
     query_params = []
 
@@ -198,6 +355,52 @@ defmodule AWS.IVSRealTime do
   """
   def disconnect_participant(%Client{} = client, input, options \\ []) do
     url_path = "/DisconnectParticipant"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Get information about the specified Composition resource.
+  """
+  def get_composition(%Client{} = client, input, options \\ []) do
+    url_path = "/GetComposition"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets information about the specified EncoderConfiguration resource.
+  """
+  def get_encoder_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/GetEncoderConfiguration"
     headers = []
     query_params = []
 
@@ -267,6 +470,77 @@ defmodule AWS.IVSRealTime do
   """
   def get_stage_session(%Client{} = client, input, options \\ []) do
     url_path = "/GetStageSession"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets the storage configuration for the specified ARN.
+  """
+  def get_storage_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/GetStorageConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets summary information about all Compositions in your account, in the AWS
+  region where the API request is processed.
+  """
+  def list_compositions(%Client{} = client, input, options \\ []) do
+    url_path = "/ListCompositions"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets summary information about all EncoderConfigurations in your account, in the
+  AWS region where the API request is processed.
+  """
+  def list_encoder_configurations(%Client{} = client, input, options \\ []) do
+    url_path = "/ListEncoderConfigurations"
     headers = []
     query_params = []
 
@@ -380,6 +654,30 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
+  Gets summary information about all storage configurations in your account, in
+  the AWS region where the API request is processed.
+  """
+  def list_storage_configurations(%Client{} = client, input, options \\ []) do
+    url_path = "/ListStorageConfigurations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets information about AWS tags for the specified ARN.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
@@ -390,6 +688,72 @@ defmodule AWS.IVSRealTime do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Starts a Composition from a stage based on the configuration provided in the
+  request.
+
+  A Composition is an ephemeral resource that exists after this endpoint returns
+  successfully. Composition stops and the resource is deleted:
+
+    * When `StopComposition` is called.
+
+    * After a 1-minute timeout, when all participants are disconnected
+  from the stage.
+
+    * After a 1-minute timeout, if there are no participants in the
+  stage when StartComposition is called.
+
+    * When broadcasting to the IVS channel fails and all retries are
+  exhausted.
+
+    * When broadcasting is disconnected and all attempts to reconnect
+  are exhausted.
+  """
+  def start_composition(%Client{} = client, input, options \\ []) do
+    url_path = "/StartComposition"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Stops and deletes a Composition resource.
+
+  Any broadcast from the Composition resource is stopped.
+  """
+  def stop_composition(%Client{} = client, input, options \\ []) do
+    url_path = "/StopComposition"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

@@ -730,8 +730,9 @@ defmodule AWS.CloudTrail do
   The required `EventDataStore` value is an ARN or the ID portion of the ARN.
   Other parameters are optional, but at least one optional parameter must be
   specified, or CloudTrail throws an error. `RetentionPeriod` is in days, and
-  valid values are integers between 90 and 2557. By default,
-  `TerminationProtection` is enabled.
+  valid values are integers between 7 and 3653 if the `BillingMode` is set to
+  `EXTENDABLE_RETENTION_PRICING`, or between 7 and 2557 if `BillingMode` is set to
+  `FIXED_RETENTION_PRICING`. By default, `TerminationProtection` is enabled.
 
   For event data stores for CloudTrail events, `AdvancedEventSelectors` includes
   or excludes management, data, or Insights events in your event data store. For

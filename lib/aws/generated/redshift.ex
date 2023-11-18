@@ -372,6 +372,15 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  Creates an Amazon Redshift application for use with IAM Identity Center.
+  """
+  def create_redshift_idc_application(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRedshiftIdcApplication", input, options)
+  end
+
+  @doc """
   Creates a scheduled action.
 
   A scheduled action contains a schedule and an Amazon Redshift API action. For
@@ -589,6 +598,15 @@ defmodule AWS.Redshift do
     meta = metadata()
 
     Request.request_post(client, meta, "DeletePartner", input, options)
+  end
+
+  @doc """
+  Deletes an Amazon Redshift IAM Identity Center application.
+  """
+  def delete_redshift_idc_application(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRedshiftIdcApplication", input, options)
   end
 
   @doc """
@@ -1066,6 +1084,15 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  Lists the Amazon Redshift IAM Identity Center applications.
+  """
+  def describe_redshift_idc_applications(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRedshiftIdcApplications", input, options)
+  end
+
+  @doc """
   Returns exchange status details and associated metadata for a reserved-node
   exchange.
 
@@ -1540,6 +1567,15 @@ defmodule AWS.Redshift do
     meta = metadata()
 
     Request.request_post(client, meta, "ModifyEventSubscription", input, options)
+  end
+
+  @doc """
+  Changes an existing Amazon Redshift IAM Identity Center application.
+  """
+  def modify_redshift_idc_application(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyRedshiftIdcApplication", input, options)
   end
 
   @doc """

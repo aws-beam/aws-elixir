@@ -484,6 +484,40 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Specifies the Key Value Store resource to add to your account.
+
+  In your account, the Key Value Store names must be unique. You can also import
+  Key Value Store data in JSON format from an S3 bucket by providing a valid
+  `ImportSource` that you own.
+  """
+  def create_key_value_store(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/key-value-store/"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Enables additional CloudWatch metrics for the specified CloudFront distribution.
 
   The additional metrics incur an additional cost.
@@ -1040,6 +1074,35 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Specifies the Key Value Store to delete.
+  """
+  def delete_key_value_store(%Client{} = client, name, input, options \\ []) do
+    url_path = "/2020-05-31/key-value-store/#{AWS.Util.encode_uri(name)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Disables additional CloudWatch metrics for the specified CloudFront
   distribution.
   """
@@ -1322,6 +1385,26 @@ defmodule AWS.CloudFront do
       else
         query_params
       end
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Specifies the Key Value Store and its configuration.
+  """
+  def describe_key_value_store(%Client{} = client, name, options \\ []) do
+    url_path = "/2020-05-31/key-value-store/#{AWS.Util.encode_uri(name)}"
+    headers = []
+    query_params = []
 
     options =
       Keyword.put(
@@ -2605,6 +2688,46 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Specifies the Key Value Stores to list.
+  """
+  def list_key_value_stores(
+        %Client{} = client,
+        marker \\ nil,
+        max_items \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/key-value-store"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"Status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Gets the list of CloudFront origin access controls in this Amazon Web Services
   account.
 
@@ -3308,6 +3431,32 @@ defmodule AWS.CloudFront do
   """
   def update_key_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/key-group/#{AWS.Util.encode_uri(id)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Specifies the Key Value Store to update.
+  """
+  def update_key_value_store(%Client{} = client, name, input, options \\ []) do
+    url_path = "/2020-05-31/key-value-store/#{AWS.Util.encode_uri(name)}"
 
     {headers, input} =
       [

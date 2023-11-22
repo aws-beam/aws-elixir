@@ -55,6 +55,24 @@ defmodule AWS.IoTTwinMaker do
   end
 
   @doc """
+  Cancels the metadata transfer job.
+  """
+  def cancel_metadata_transfer_job(
+        %Client{} = client,
+        metadata_transfer_job_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/metadata-transfer-jobs/#{AWS.Util.encode_uri(metadata_transfer_job_id)}/cancel"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Creates a component type.
   """
   def create_component_type(
@@ -90,6 +108,29 @@ defmodule AWS.IoTTwinMaker do
   """
   def create_entity(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new metadata transfer job.
+  """
+  def create_metadata_transfer_job(%Client{} = client, input, options \\ []) do
+    url_path = "/metadata-transfer-jobs"
     headers = []
     query_params = []
 
@@ -316,6 +357,9 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Run queries to access information from your knowledge graph of entities within
   individual workspaces.
+
+  The ExecuteQuery action only works with [Amazon Web Services Java SDK2](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/home.html).
+  ExecuteQuery will not work with any Amazon Web Services Java SDK version < 2.x.
   """
   def execute_query(%Client{} = client, input, options \\ []) do
     url_path = "/queries/execution"
@@ -359,6 +403,19 @@ defmodule AWS.IoTTwinMaker do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities/#{AWS.Util.encode_uri(entity_id)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets a nmetadata transfer job.
+  """
+  def get_metadata_transfer_job(%Client{} = client, metadata_transfer_job_id, options \\ []) do
+    url_path = "/metadata-transfer-jobs/#{AWS.Util.encode_uri(metadata_transfer_job_id)}"
     headers = []
     query_params = []
 
@@ -506,10 +563,81 @@ defmodule AWS.IoTTwinMaker do
   end
 
   @doc """
+  This API lists the components of an entity.
+  """
+  def list_components(%Client{} = client, entity_id, workspace_id, input, options \\ []) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities/#{AWS.Util.encode_uri(entity_id)}/components-list"
+
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists all entities in a workspace.
   """
   def list_entities(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities-list"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the metadata transfer jobs.
+  """
+  def list_metadata_transfer_jobs(%Client{} = client, input, options \\ []) do
+    url_path = "/metadata-transfer-jobs-list"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  This API lists the properties of a component.
+  """
+  def list_properties(%Client{} = client, workspace_id, input, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/properties-list"
     headers = []
     query_params = []
 

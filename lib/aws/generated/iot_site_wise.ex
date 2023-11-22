@@ -323,9 +323,63 @@ defmodule AWS.IoTSiteWise do
   from a model inherits the asset model's property and hierarchy definitions. For
   more information, see [Defining asset models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html)
   in the *IoT SiteWise User Guide*.
+
+  You can create two types of asset models, `ASSET_MODEL` or `COMPONENT_MODEL`.
+
+    * **ASSET_MODEL** – (default) An asset model that you can use to
+  create assets. Can't be included as a component in another asset model.
+
+    * **COMPONENT_MODEL** – A reusable component that you can include in
+  the composite models of other asset models. You can't create assets directly
+  from this type of asset model.
   """
   def create_asset_model(%Client{} = client, input, options \\ []) do
     url_path = "/asset-models"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Creates a custom composite model from specified property and hierarchy
+  definitions.
+
+  There are two types of custom composite models, `inline` and
+  `component-model-based`.
+
+  Use component-model-based custom composite models to define standard, reusable
+  components. A component-model-based custom composite model consists of a name, a
+  description, and the ID of the component model it references. A
+  component-model-based custom composite model has no properties of its own; its
+  referenced component model provides its associated properties to any created
+  assets. For more information, see [Custom composite models (Components)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html)
+  in the *IoT SiteWise User Guide*.
+
+  Use inline custom composite models to organize the properties of an asset model.
+  The properties of inline custom composite models are local to the asset model
+  where they are included and can't be used to create multiple assets.
+
+  To create a component-model-based model, specify the `composedAssetModelId` of
+  an existing asset model with `assetModelType` of `COMPONENT_MODEL`.
+
+  To create an inline model, specify the `assetModelCompositeModelProperties` and
+  don't include an `composedAssetModelId`.
+  """
+  def create_asset_model_composite_model(%Client{} = client, asset_model_id, input, options \\ []) do
+    url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composite-models"
     headers = []
     query_params = []
 
@@ -350,10 +404,13 @@ defmodule AWS.IoTSiteWise do
   For more information, see [Create a bulk import job (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html)
   in the *Amazon Simple Storage Service User Guide*.
 
-  You must enable IoT SiteWise to export data to Amazon S3 before you create a
-  bulk import job. For more information about how to configure storage settings,
-  see
+  Before you create a bulk import job, you must enable IoT SiteWise warm tier or
+  IoT SiteWise cold tier. For more information about how to configure storage
+  settings, see
   [PutStorageConfiguration](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html).
+
+  Bulk import is designed to store historical data to IoT SiteWise. It does not
+  trigger computations or notifications on IoT SiteWise warm or cold tier storage.
   """
   def create_bulk_import_job(%Client{} = client, input, options \\ []) do
     url_path = "/jobs"
@@ -583,6 +640,49 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
+  Deletes a composite model.
+
+  This action can't be undone. You must delete all assets created from a composite
+  model before you can delete the model. Also, you can't delete a composite model
+  if a parent asset model exists that contains a property formula expression that
+  depends on the asset model that you want to delete. For more information, see
+  [Deleting assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html)
+  in the *IoT SiteWise User Guide*.
+  """
+  def delete_asset_model_composite_model(
+        %Client{} = client,
+        asset_model_composite_model_id,
+        asset_model_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composite-models/#{AWS.Util.encode_uri(asset_model_composite_model_id)}"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Deletes a dashboard from IoT SiteWise Monitor.
   """
   def delete_dashboard(%Client{} = client, dashboard_id, input, options \\ []) do
@@ -754,6 +854,19 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
+  Retrieves information about an action.
+  """
+  def describe_action(%Client{} = client, action_id, options \\ []) do
+    url_path = "/actions/#{AWS.Util.encode_uri(action_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Retrieves information about an asset.
   """
   def describe_asset(%Client{} = client, asset_id, exclude_properties \\ nil, options \\ []) do
@@ -767,6 +880,31 @@ defmodule AWS.IoTSiteWise do
       else
         query_params
       end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieves information about an asset composite model (also known as an asset
+  component).
+
+  An `AssetCompositeModel` is an instance of an `AssetModelCompositeModel`. If you
+  want to see information about the model this is based on, call
+  [DescribeAssetModelCompositeModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModelCompositeModel.html).
+  """
+  def describe_asset_composite_model(
+        %Client{} = client,
+        asset_composite_model_id,
+        asset_id,
+        options \\ []
+      ) do
+    url_path =
+      "/assets/#{AWS.Util.encode_uri(asset_id)}/composite-models/#{AWS.Util.encode_uri(asset_composite_model_id)}"
+
+    headers = []
+    query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
@@ -792,6 +930,30 @@ defmodule AWS.IoTSiteWise do
       else
         query_params
       end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieves information about an asset model composite model (also known as an
+  asset model component).
+
+  For more information, see [Custom composite models (Components)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html)
+  in the *IoT SiteWise User Guide*.
+  """
+  def describe_asset_model_composite_model(
+        %Client{} = client,
+        asset_model_composite_model_id,
+        asset_model_id,
+        options \\ []
+      ) do
+    url_path =
+      "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composite-models/#{AWS.Util.encode_uri(asset_model_composite_model_id)}"
+
+    headers = []
+    query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
@@ -1053,6 +1215,53 @@ defmodule AWS.IoTSiteWise do
       |> Request.build_params(input)
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Executes an action on a target resource.
+  """
+  def execute_action(%Client{} = client, input, options \\ []) do
+    url_path = "/actions"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Run SQL queries to retrieve metadata and time-series data from asset models,
+  assets, measurements, metrics, transforms, and aggregates.
+  """
+  def execute_query(%Client{} = client, input, options \\ []) do
+    url_path = "/queries/execution"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "data.")
 
     Request.request_rest(
       client,
@@ -1546,6 +1755,87 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
+  Retrieves a paginated list of actions for a specific target resource.
+  """
+  def list_actions(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        target_resource_id,
+        target_resource_type,
+        options \\ []
+      ) do
+    url_path = "/actions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(target_resource_type) do
+        [{"targetResourceType", target_resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(target_resource_id) do
+        [{"targetResourceId", target_resource_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieves a paginated list of composite models associated with the asset model
+  """
+  def list_asset_model_composite_models(
+        %Client{} = client,
+        asset_model_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composite-models"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Retrieves a paginated list of properties associated with an asset model.
 
   If you update properties associated with the model before you finish listing all
@@ -1592,7 +1882,13 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves a paginated list of summaries of all asset models.
   """
-  def list_asset_models(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_asset_models(
+        %Client{} = client,
+        asset_model_types \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
     url_path = "/asset-models"
     headers = []
     query_params = []
@@ -1607,6 +1903,13 @@ defmodule AWS.IoTSiteWise do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(asset_model_types) do
+        [{"assetModelTypes", asset_model_types} | query_params]
       else
         query_params
       end
@@ -1859,6 +2162,40 @@ defmodule AWS.IoTSiteWise do
       end
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieves a paginated list of composition relationships for an asset model of
+  type `COMPONENT_MODEL`.
+  """
+  def list_composition_relationships(
+        %Client{} = client,
+        asset_model_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composition-relationships"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
@@ -2279,6 +2616,46 @@ defmodule AWS.IoTSiteWise do
   """
   def update_asset_model(%Client{} = client, asset_model_id, input, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+  end
+
+  @doc """
+  Updates a composite model and all of the assets that were created from the
+  model.
+
+  Each asset created from the model inherits the updated asset model's property
+  and hierarchy definitions. For more information, see [Updating assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
+  in the *IoT SiteWise User Guide*.
+
+  If you remove a property from a composite asset model, IoT SiteWise deletes all
+  previous data for that property. You can’t change the type or data type of an
+  existing property.
+
+  To replace an existing composite asset model property with a new one with the
+  same `name`, do the following:
+
+     Submit an `UpdateAssetModelCompositeModel` request with the entire
+  existing property removed.
+
+     Submit a second `UpdateAssetModelCompositeModel` request that
+  includes the new property. The new asset property will have the same `name` as
+  the previous one and IoT SiteWise will generate a new unique `id`.
+  """
+  def update_asset_model_composite_model(
+        %Client{} = client,
+        asset_model_composite_model_id,
+        asset_model_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composite-models/#{AWS.Util.encode_uri(asset_model_composite_model_id)}"
+
     headers = []
     query_params = []
 

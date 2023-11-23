@@ -33,8 +33,9 @@ defmodule AWS.Kinesis do
 
   You can assign up to 50 tags to a data stream.
 
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter rather than the `StreamName` input parameter.
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
 
   If tags have already been assigned to the stream, `AddTagsToStream` overwrites
   any existing tags that correspond to the specified tag keys.
@@ -108,8 +109,9 @@ defmodule AWS.Kinesis do
 
   The minimum value of a stream's retention period is 24 hours.
 
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter rather than the `StreamName` input parameter.
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
 
   This operation may result in lost data. For example, if the stream's retention
   period is 48 hours and is decreased to 24 hours, any data already in the stream
@@ -122,14 +124,31 @@ defmodule AWS.Kinesis do
   end
 
   @doc """
+  Delete a policy for the specified data stream or consumer.
+
+  Request patterns can be one of the following:
+
+    * Data stream pattern: `arn:aws.*:kinesis:.*:\d{12}:.*stream/\S+`
+
+    * Consumer pattern:
+  `^(arn):aws.*:kinesis:.*:\d{12}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+`
+  """
+  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
+  end
+
+  @doc """
   Deletes a Kinesis data stream and all its shards and data.
 
   You must shut down any applications that are operating on the stream before you
   delete the stream. If an application attempts to operate on a deleted stream, it
   receives the exception `ResourceNotFoundException`.
 
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter rather than the `StreamName` input parameter.
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
 
   If the stream is in the `ACTIVE` state, you can delete it. After a
   `DeleteStream` request, the specified stream is in the `DELETING` state until
@@ -194,8 +213,9 @@ defmodule AWS.Kinesis do
   Kinesis data stream and the `ListShards` API to list the shards in a specified
   data stream and obtain information about each shard.
 
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter rather than the `StreamName` input parameter.
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
 
   The information returned includes the stream name, Amazon Resource Name (ARN),
   creation time, enhanced metric configuration, and shard map. The shard map is an
@@ -233,6 +253,9 @@ defmodule AWS.Kinesis do
   consumers that are currently registered with a given data stream.
 
   This operation has a limit of 20 transactions per second per stream.
+
+  When making a cross-account call with `DescribeStreamConsumer`, make sure to
+  provide the ARN of the consumer.
   """
   def describe_stream_consumer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -244,8 +267,9 @@ defmodule AWS.Kinesis do
   Provides a summarized description of the specified Kinesis data stream without
   the shard list.
 
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter rather than the `StreamName` input parameter.
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
 
   The information returned includes the stream name, Amazon Resource Name (ARN),
   status, record retention period, approximate creation time, monitoring,
@@ -262,8 +286,9 @@ defmodule AWS.Kinesis do
   @doc """
   Disables enhanced monitoring.
 
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter rather than the `StreamName` input parameter.
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
   """
   def disable_enhanced_monitoring(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -274,8 +299,9 @@ defmodule AWS.Kinesis do
   @doc """
   Enables enhanced Kinesis data stream monitoring for shard-level metrics.
 
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter rather than the `StreamName` input parameter.
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
   """
   def enable_enhanced_monitoring(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -286,8 +312,9 @@ defmodule AWS.Kinesis do
   @doc """
   Gets data records from a Kinesis data stream's shard.
 
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter in addition to the `ShardIterator` parameter.
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
 
   Specify a shard iterator using the `ShardIterator` parameter. The shard iterator
   specifies the position in the shard from which you want to start reading data
@@ -354,12 +381,29 @@ defmodule AWS.Kinesis do
   end
 
   @doc """
+  Returns a policy attached to the specified data stream or consumer.
+
+  Request patterns can be one of the following:
+
+    * Data stream pattern: `arn:aws.*:kinesis:.*:\d{12}:.*stream/\S+`
+
+    * Consumer pattern:
+  `^(arn):aws.*:kinesis:.*:\d{12}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+`
+  """
+  def get_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResourcePolicy", input, options)
+  end
+
+  @doc """
   Gets an Amazon Kinesis shard iterator.
 
   A shard iterator expires 5 minutes after it is returned to the requester.
 
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter rather than the `StreamName` input parameter.
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
 
   A shard iterator specifies the shard position from which to start reading data
   records sequentially. The position is specified using the sequence number of a
@@ -410,8 +454,9 @@ defmodule AWS.Kinesis do
 
   The maximum value of a stream's retention period is 8760 hours (365 days).
 
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter rather than the `StreamName` input parameter.
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
 
   If you choose a longer stream retention period, this operation increases the
   time period during which records that have not yet expired are accessible.
@@ -432,8 +477,9 @@ defmodule AWS.Kinesis do
 
   This operation has a limit of 1000 transactions per second per data stream.
 
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter rather than the `StreamName` input parameter.
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
 
   This action does not list expired shards. For information about expired shards,
   see [Data Routing, Data Persistence, and Shard State after a Reshard](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing).
@@ -491,8 +537,9 @@ defmodule AWS.Kinesis do
 
   This operation has a limit of five transactions per second per account.
 
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter rather than the `StreamName` input parameter.
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
   """
   def list_tags_for_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -512,8 +559,9 @@ defmodule AWS.Kinesis do
   that would have a hash key range of 276...454. After the merge, the single child
   shard receives data for all hash key values covered by the two parent shards.
 
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter rather than the `StreamName` input parameter.
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
 
   `MergeShards` is called when there is a need to reduce the overall capacity of a
   stream because of excess capacity that is not being used. You must specify the
@@ -557,8 +605,9 @@ defmodule AWS.Kinesis do
   subsequent processing, one record at a time. Each shard can support writes up to
   1,000 records per second, up to a maximum data write total of 1 MiB per second.
 
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter rather than the `StreamName` input parameter.
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
 
   You must specify the name of the stream that captures, stores, and transports
   the data; a partition key; and the data blob itself.
@@ -612,8 +661,9 @@ defmodule AWS.Kinesis do
   Use this operation to send data into the stream for data ingestion and
   processing.
 
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter rather than the `StreamName` input parameter.
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
 
   Each `PutRecords` request can support up to 500 records. Each record in the
   request can be as large as 1 MiB, up to a limit of 5 MiB for the entire request,
@@ -683,6 +733,34 @@ defmodule AWS.Kinesis do
   end
 
   @doc """
+  Attaches a resource-based policy to a data stream or registered consumer.
+
+  If you are using an identity other than the root user of the Amazon Web Services
+  account that owns the resource, the calling identity must have the
+  `PutResourcePolicy` permissions on the specified Kinesis Data Streams resource
+  and belong to the owner's account in order to use this operation. If you don't
+  have `PutResourcePolicy` permissions, Amazon Kinesis Data Streams returns a `403
+  Access Denied error`. If you receive a `ResourceNotFoundException`, check to see
+  if you passed a valid stream or consumer resource.
+
+  Request patterns can be one of the following:
+
+    * Data stream pattern: `arn:aws.*:kinesis:.*:\d{12}:.*stream/\S+`
+
+    * Consumer pattern:
+  `^(arn):aws.*:kinesis:.*:\d{12}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+` 
+
+  For more information, see [Controlling Access to Amazon Kinesis Data Streams
+  Resources Using
+  IAM](https://docs.aws.amazon.com/streams/latest/dev/controlling-access.html).
+  """
+  def put_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutResourcePolicy", input, options)
+  end
+
+  @doc """
   Registers a consumer with a Kinesis data stream.
 
   When you use this operation, the consumer you register can then call
@@ -714,8 +792,9 @@ defmodule AWS.Kinesis do
   Removed tags are deleted and cannot be recovered after this operation
   successfully completes.
 
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter rather than the `StreamName` input parameter.
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
 
   If you specify a tag that does not exist, it is ignored.
 
@@ -736,8 +815,9 @@ defmodule AWS.Kinesis do
   ingested. This API is only supported for the data streams with the provisioned
   capacity mode.
 
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter rather than the `StreamName` input parameter.
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
 
   You can also use `SplitShard` when a shard appears to be approaching its maximum
   utilization; for example, the producers sending data into the specific shard are
@@ -792,6 +872,10 @@ defmodule AWS.Kinesis do
   Enables or updates server-side encryption using an Amazon Web Services KMS key
   for a specified stream.
 
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
+
   Starting encryption is an asynchronous operation. Upon receiving the request,
   Kinesis Data Streams returns immediately and sets the status of the stream to
   `UPDATING`. After the update is complete, Kinesis Data Streams sets the status
@@ -807,9 +891,6 @@ defmodule AWS.Kinesis do
   before all records written to the stream are encrypted. After you enable
   encryption, you can verify that encryption is applied by inspecting the API
   response from `PutRecord` or `PutRecords`.
-
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter rather than the `StreamName` input parameter.
   """
   def start_stream_encryption(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -820,8 +901,9 @@ defmodule AWS.Kinesis do
   @doc """
   Disables server-side encryption for a specified stream.
 
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter rather than the `StreamName` input parameter.
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
 
   Stopping encryption is an asynchronous operation. Upon receiving the request,
   Kinesis Data Streams returns immediately and sets the status of the stream to
@@ -889,8 +971,9 @@ defmodule AWS.Kinesis do
   This API is only supported for the data streams with the provisioned capacity
   mode.
 
-  When invoking this API, it is recommended you use the `StreamARN` input
-  parameter rather than the `StreamName` input parameter.
+  When invoking this API, you must use either the `StreamARN` or the `StreamName`
+  parameter, or both. It is recommended that you use the `StreamARN` input
+  parameter when you invoke this API.
 
   Updating the shard count is an asynchronous operation. Upon receiving the
   request, Kinesis Data Streams returns immediately and sets the status of the
@@ -924,6 +1007,9 @@ defmodule AWS.Kinesis do
   is less than 10000 shards
 
     * Scale up to more than the shard limit for your account
+
+    * Make over 10 TPS. TPS over 10 will trigger the
+  LimitExceededException
 
   For the default limits for an Amazon Web Services account, see [Streams Limits](https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html)
   in the *Amazon Kinesis Data Streams Developer Guide*. To request an increase in

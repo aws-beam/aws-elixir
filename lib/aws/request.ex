@@ -4,7 +4,7 @@ defmodule AWS.Request do
   alias AWS.Client
   alias AWS.Signature
 
-  @valid_protocols ~w(query json rest-json rest-xml)
+  @valid_protocols ~w(query json rest-json rest-xml ec2)
 
   @doc """
   Request an AWS Service using a POST request with a protocol.
@@ -32,7 +32,7 @@ defmodule AWS.Request do
       end
 
     input =
-      if metadata.protocol == "query" do
+      if metadata.protocol in ~w(query ec2) do
         Map.merge(input, %{"Action" => action, "Version" => metadata.api_version})
       else
         input
@@ -267,6 +267,7 @@ defmodule AWS.Request do
        when protocol in @valid_protocols and is_map(payload) do
     encode_format =
       case protocol do
+        "ec2" -> :query
         "query" -> :query
         "rest-xml" -> :xml
         json_type when json_type in ~w(json rest-json) -> :json
@@ -278,7 +279,7 @@ defmodule AWS.Request do
   defp decode!(%Client{} = client, protocol, payload) when protocol in @valid_protocols do
     decode_format =
       case protocol do
-        xml_type when xml_type in ~w(query rest-xml) -> :xml
+        xml_type when xml_type in ~w(query rest-xml ec2) -> :xml
         json_type when json_type in ~w(json rest-json) -> :json
       end
 

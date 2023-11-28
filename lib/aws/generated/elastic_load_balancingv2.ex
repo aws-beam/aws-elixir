@@ -75,7 +75,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   Adds the specified tags to the specified Elastic Load Balancing resource.
 
   You can tag your Application Load Balancers, Network Load Balancers, Gateway
-  Load Balancers, target groups, listeners, and rules.
+  Load Balancers, target groups, trust stores, listeners, and rules.
 
   Each tag consists of a key and an optional value. If a resource already has a
   tag with the same key, `AddTags` updates its value.
@@ -84,6 +84,15 @@ defmodule AWS.ElasticLoadBalancingv2 do
     meta = metadata()
 
     Request.request_post(client, meta, "AddTags", input, options)
+  end
+
+  @doc """
+  Adds the specified revocation file to the specified trust store.
+  """
+  def add_trust_store_revocations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddTrustStoreRevocations", input, options)
   end
 
   @doc """
@@ -170,6 +179,15 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+  Creates a trust store.
+  """
+  def create_trust_store(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTrustStore", input, options)
+  end
+
+  @doc """
   Deletes the specified listener.
 
   Alternatively, your listener is deleted when you delete the load balancer to
@@ -224,6 +242,15 @@ defmodule AWS.ElasticLoadBalancingv2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteTargetGroup", input, options)
+  end
+
+  @doc """
+  Deletes a trust store.
+  """
+  def delete_trust_store(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTrustStore", input, options)
   end
 
   @doc """
@@ -413,6 +440,56 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+  Describes all resources associated with the specified trust store.
+  """
+  def describe_trust_store_associations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTrustStoreAssociations", input, options)
+  end
+
+  @doc """
+  Describes the revocation files in use by the specified trust store arn, or
+  revocation ID.
+  """
+  def describe_trust_store_revocations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTrustStoreRevocations", input, options)
+  end
+
+  @doc """
+  Describes all trust stores for a given account by trust store arn’s or name.
+  """
+  def describe_trust_stores(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTrustStores", input, options)
+  end
+
+  @doc """
+  Retrieves the ca certificate bundle.
+
+  This action returns a pre-signed S3 URI which is active for ten minutes.
+  """
+  def get_trust_store_ca_certificates_bundle(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTrustStoreCaCertificatesBundle", input, options)
+  end
+
+  @doc """
+  Retrieves the specified revocation file.
+
+  This action returns a pre-signed S3 URI which is active for ten minutes.
+  """
+  def get_trust_store_revocation_content(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTrustStoreRevocationContent", input, options)
+  end
+
+  @doc """
   Replaces the specified properties of the specified listener.
 
   Any properties that you do not specify remain unchanged.
@@ -481,6 +558,15 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+  Update the ca certificate bundle for a given trust store.
+  """
+  def modify_trust_store(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyTrustStore", input, options)
+  end
+
+  @doc """
   Registers the specified targets with the specified target group.
 
   If the target is an EC2 instance, it must be in the `running` state when you
@@ -522,6 +608,15 @@ defmodule AWS.ElasticLoadBalancingv2 do
     meta = metadata()
 
     Request.request_post(client, meta, "RemoveTags", input, options)
+  end
+
+  @doc """
+  Removes the specified revocation file from the specified trust store.
+  """
+  def remove_trust_store_revocations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveTrustStoreRevocations", input, options)
   end
 
   @doc """

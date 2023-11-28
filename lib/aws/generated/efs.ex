@@ -118,12 +118,17 @@ defmodule AWS.EFS do
   system state.
 
   This operation accepts an optional `PerformanceMode` parameter that you choose
-  for your file system. We recommend `generalPurpose` performance mode for most
-  file systems. File systems using the `maxIO` performance mode can scale to
-  higher levels of aggregate throughput and operations per second with a tradeoff
-  of slightly higher latencies for most file operations. The performance mode
-  can't be changed after the file system has been created. For more information,
-  see [Amazon EFS performance modes](https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html).
+  for your file system. We recommend `generalPurpose` performance mode for all
+  file systems. File systems using the `maxIO` mode is a previous generation
+  performance type that is designed for highly parallelized workloads that can
+  tolerate higher latencies than the General Purpose mode. Max I/O mode is not
+  supported for One Zone file systems or file systems that use Elastic throughput.
+
+  Due to the higher per-operation latencies with Max I/O, we recommend using
+  General Purpose performance mode for all file systems.
+
+  The performance mode can't be changed after the file system has been created.
+  For more information, see [Amazon EFS performance modes](https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html).
 
   You can set the throughput mode for the file system using the `ThroughputMode`
   parameter.
@@ -175,12 +180,12 @@ defmodule AWS.EFS do
   you create a mount target in one of the subnets. EC2 instances do not need to be
   in the same subnet as the mount target in order to access their file system.
 
-  You can create only one mount target for an EFS file system using One Zone
-  storage classes. You must create that mount target in the same Availability Zone
-  in which the file system is located. Use the `AvailabilityZoneName` and
-  `AvailabiltyZoneId` properties in the `DescribeFileSystems` response object to
-  get this information. Use the `subnetId` associated with the file system's
-  Availability Zone when creating the mount target.
+  You can create only one mount target for a One Zone file system. You must create
+  that mount target in the same Availability Zone in which the file system is
+  located. Use the `AvailabilityZoneName` and `AvailabiltyZoneId` properties in
+  the `DescribeFileSystems` response object to get this information. Use the
+  `subnetId` associated with the file system's Availability Zone when creating the
+  mount target.
 
   For more information, see [Amazon EFS: How it Works](https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html).
 
@@ -304,37 +309,44 @@ defmodule AWS.EFS do
   the *Amazon EFS User Guide*. The replication configuration specifies the
   following:
 
-    * **Source file system** - An existing EFS file system that you want
+    * **Source file system** – The EFS file system that you want
   replicated. The source file system cannot be a destination file system in an
   existing replication configuration.
 
-    * **Destination file system configuration** - The configuration of
+    * **Amazon Web Services Region** – The Amazon Web Services Region in
+  which the destination file system is created. Amazon EFS replication is
+  available in all Amazon Web Services Regions in which EFS is available. The
+  Region must be enabled. For more information, see [Managing Amazon Web Services Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable)
+  in the *Amazon Web Services General Reference Reference Guide*.
+
+    * **Destination file system configuration** – The configuration of
   the destination file system to which the source file system will be replicated.
   There can only be one destination file system in a replication configuration.
-  The destination file system configuration consists of the following properties:
 
-      * **Amazon Web Services Region** - The Amazon Web
-  Services Region in which the destination file system is created. Amazon EFS
-  replication is available in all Amazon Web Services Regions in which EFS is
-  available. To use EFS replication in a Region that is disabled by default, you
-  must first opt in to the Region. For more information, see [Managing Amazon Web Services
-  Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable)
-  in the *Amazon Web Services General Reference Reference Guide*
+  Parameters for the replication configuration include:
 
-      * **Availability Zone** - If you want the destination
-  file system to use EFS One Zone availability and durability, you must specify
-  the Availability Zone to create the file system in. For more information about
-  EFS storage classes, see [ Amazon EFS storage classes](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the
+      * **File system ID** – The ID of the destination file
+  system for the replication. If no ID is provided, then EFS creates a new file
+  system with the default settings. For existing file systems, the file system's
+  replication overwrite protection must be disabled. For more information, see [
+  Replicating to an existing file
+  system](https://docs.aws.amazon.com/efs/latest/ug/efs-replication#replicate-existing-destination).
+
+      * **Availability Zone** – If you want the destination
+  file system to use One Zone storage, you must specify the Availability Zone to
+  create the file system in. For more information, see [ EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the
   *Amazon EFS User Guide*.
 
-      * **Encryption** - All destination file systems are
+      * **Encryption** – All destination file systems are
   created with encryption at rest enabled. You can specify the Key Management
   Service (KMS) key that is used to encrypt the destination file system. If you
   don't specify a KMS key, your service-managed KMS key for Amazon EFS is used.
 
   After the file system is created, you cannot change the KMS key.
 
-  The following properties are set by default:
+  After the file system is created, you cannot change the KMS key.
+
+  For new destination file systems, the following properties are set by default:
 
     * **Performance mode** - The destination file system's performance
   mode matches that of the source file system, unless the destination file system
@@ -345,14 +357,11 @@ defmodule AWS.EFS do
   mode matches that of the source file system. After the file system is created,
   you can modify the throughput mode.
 
-  The following properties are turned off by default:
+    * **Lifecycle management** – Lifecycle management is not enabled on
+  the destination file system. After the destination file system is created, you
+  can enable lifecycle management.
 
-    * **Lifecycle management** - EFS lifecycle management and EFS
-  Intelligent-Tiering are not enabled on the destination file system. After the
-  destination file system is created, you can enable EFS lifecycle management and
-  EFS Intelligent-Tiering.
-
-    * **Automatic backups** - Automatic daily backups are enabled on the
+    * **Automatic backups** – Automatic daily backups are enabled on the
   destination file system. After the file system is created, you can change this
   setting.
 
@@ -573,12 +582,15 @@ defmodule AWS.EFS do
   end
 
   @doc """
-  Deletes an existing replication configuration.
+  Deletes a replication configuration.
 
   Deleting a replication configuration ends the replication process. After a
-  replication configuration is deleted, the destination file system is no longer
-  read-only. You can write to the destination file system after its status becomes
-  `Writeable`.
+  replication configuration is deleted, the destination file system becomes
+  `Writeable` and its replication overwrite protection is re-enabled. For more
+  information, see [Delete a replication configuration](https://docs.aws.amazon.com/efs/latest/ug/delete-replications.html).
+
+  This operation requires permissions for the
+  `elasticfilesystem:DeleteReplicationConfiguration` action.
   """
   def delete_replication_configuration(
         %Client{} = client,
@@ -817,13 +829,10 @@ defmodule AWS.EFS do
   Returns the current `LifecycleConfiguration` object for the specified Amazon EFS
   file system.
 
-  EFS lifecycle management uses the `LifecycleConfiguration` object to identify
-  which files to move to the EFS Infrequent Access (IA) storage class. For a file
-  system without a `LifecycleConfiguration` object, the call returns an empty
-  array in the response.
-
-  When EFS Intelligent-Tiering is enabled, `TransitionToPrimaryStorageClass` has a
-  value of `AFTER_1_ACCESS`.
+  Lifecycle management uses the `LifecycleConfiguration` object to identify when
+  to move files between storage classes. For a file system without a
+  `LifecycleConfiguration` object, the call returns an empty array in the
+  response.
 
   This operation requires permissions for the
   `elasticfilesystem:DescribeLifecycleConfiguration` operation.
@@ -1152,43 +1161,45 @@ defmodule AWS.EFS do
   end
 
   @doc """
-  Use this action to manage EFS lifecycle management and EFS Intelligent-Tiering.
+  Use this action to manage storage for your file system.
 
   A `LifecycleConfiguration` consists of one or more `LifecyclePolicy` objects
   that define the following:
 
-    * **EFS Lifecycle management** - When Amazon EFS automatically
-  transitions files in a file system into the lower-cost EFS Infrequent Access
-  (IA) storage class.
+    * ** `TransitionToIA` ** – When to move files in the file system
+  from primary storage (Standard storage class) into the Infrequent Access (IA)
+  storage.
 
-  To enable EFS Lifecycle management, set the value of `TransitionToIA` to one of
-  the available options.
+    * ** `TransitionToArchive` ** – When to move files in the file
+  system from their current storage class (either IA or Standard storage) into the
+  Archive storage.
 
-    * **EFS Intelligent-Tiering** - When Amazon EFS automatically
-  transitions files from IA back into the file system's primary storage class (EFS
-  Standard or EFS One Zone Standard).
+  File systems cannot transition into Archive storage before transitioning into IA
+  storage. Therefore, TransitionToArchive must either not be set or must be later
+  than TransitionToIA.
 
-  To enable EFS Intelligent-Tiering, set the value of
-  `TransitionToPrimaryStorageClass` to `AFTER_1_ACCESS`.
+  The Archive storage class is available only for file systems that use the
+  Elastic Throughput mode and the General Purpose Performance mode.
 
-  For more information, see [EFS Lifecycle Management](https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html).
+    * ** `TransitionToPrimaryStorageClass` ** – Whether to move files in
+  the file system back to primary storage (Standard storage class) after they are
+  accessed in IA or Archive storage.
+
+  For more information, see [ Managing file system storage](https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html).
 
   Each Amazon EFS file system supports one lifecycle configuration, which applies
   to all files in the file system. If a `LifecycleConfiguration` object already
   exists for the specified file system, a `PutLifecycleConfiguration` call
   modifies the existing configuration. A `PutLifecycleConfiguration` call with an
   empty `LifecyclePolicies` array in the request body deletes any existing
-  `LifecycleConfiguration` and turns off lifecycle management and EFS
-  Intelligent-Tiering for the file system.
-
-  In the request, specify the following:
+  `LifecycleConfiguration`. In the request, specify the following:
 
     * The ID for the file system for which you are enabling, disabling,
-  or modifying lifecycle management and EFS Intelligent-Tiering.
+  or modifying Lifecycle management.
 
     * A `LifecyclePolicies` array of `LifecyclePolicy` objects that
-  define when files are moved into IA storage, and when they are moved back to
-  Standard storage.
+  define when to move files to IA storage, to Archive storage, and back to primary
+  storage.
 
   Amazon EFS requires that each `LifecyclePolicy` object have only have a single
   transition, so the `LifecyclePolicies` array needs to be structured with
@@ -1289,5 +1300,21 @@ defmodule AWS.EFS do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+  end
+
+  @doc """
+  Updates protection on the file system.
+
+  This operation requires permissions for the
+  `elasticfilesystem:UpdateFileSystemProtection` action.
+  """
+  def update_file_system_protection(%Client{} = client, file_system_id, input, options \\ []) do
+    url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/protection"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 end

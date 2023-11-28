@@ -703,6 +703,51 @@ defmodule AWS.AppSync do
   end
 
   @doc """
+  Retrieves the record of an existing introspection.
+
+  If the retrieval is successful, the result of the instrospection will also be
+  returned. If the retrieval fails the operation, an error message will be
+  returned instead.
+  """
+  def get_data_source_introspection(
+        %Client{} = client,
+        introspection_id,
+        include_models_s_d_l \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/datasources/introspections/#{AWS.Util.encode_uri(introspection_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include_models_s_d_l) do
+        [{"includeModelsSDL", include_models_s_d_l} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Retrieves a custom `DomainName` object.
   """
   def get_domain_name(%Client{} = client, domain_name, options \\ []) do
@@ -1224,6 +1269,31 @@ defmodule AWS.AppSync do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Creates a new introspection.
+
+  Returns the `introspectionId` of the new introspection after its creation.
+  """
+  def start_data_source_introspection(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/datasources/introspections"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """

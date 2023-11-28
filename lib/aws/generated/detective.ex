@@ -465,6 +465,29 @@ defmodule AWS.Detective do
   end
 
   @doc """
+  Returns the investigation results of an investigation for a behavior graph.
+  """
+  def get_investigation(%Client{} = client, input, options \\ []) do
+    url_path = "/investigations/getInvestigation"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns the membership details for specified member accounts for a behavior
   graph.
   """
@@ -522,6 +545,52 @@ defmodule AWS.Detective do
   """
   def list_graphs(%Client{} = client, input, options \\ []) do
     url_path = "/graphs/list"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Get the indicators from an investigation
+  """
+  def list_indicators(%Client{} = client, input, options \\ []) do
+    url_path = "/investigations/listIndicators"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  List all Investigations.
+  """
+  def list_investigations(%Client{} = client, input, options \\ []) do
+    url_path = "/investigations/listInvestigations"
     headers = []
     query_params = []
 
@@ -672,6 +741,29 @@ defmodule AWS.Detective do
   end
 
   @doc """
+  initiate an investigation on an entity in a graph
+  """
+  def start_investigation(%Client{} = client, input, options \\ []) do
+    url_path = "/investigations/startInvestigation"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Sends a request to enable data ingest for a member account that has a status of
   `ACCEPTED_BUT_DISABLED`.
 
@@ -759,6 +851,29 @@ defmodule AWS.Detective do
   """
   def update_datasource_packages(%Client{} = client, input, options \\ []) do
     url_path = "/graph/datasources/update"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Update the state of an investigation.
+  """
+  def update_investigation_state(%Client{} = client, input, options \\ []) do
+    url_path = "/investigations/updateInvestigationState"
     headers = []
     query_params = []
 

@@ -95,6 +95,29 @@ defmodule AWS.Amp do
   end
 
   @doc """
+  Create a scraper.
+  """
+  def create_scraper(%Client{} = client, input, options \\ []) do
+    url_path = "/scrapers"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Creates a new AMP workspace.
   """
   def create_workspace(%Client{} = client, input, options \\ []) do
@@ -204,6 +227,34 @@ defmodule AWS.Amp do
   end
 
   @doc """
+  Deletes a scraper.
+  """
+  def delete_scraper(%Client{} = client, scraper_id, input, options \\ []) do
+    url_path = "/scrapers/#{AWS.Util.encode_uri(scraper_id)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Deletes an AMP workspace.
   """
   def delete_workspace(%Client{} = client, workspace_id, input, options \\ []) do
@@ -273,10 +324,36 @@ defmodule AWS.Amp do
   end
 
   @doc """
+  Describe an existing scraper.
+  """
+  def describe_scraper(%Client{} = client, scraper_id, options \\ []) do
+    url_path = "/scrapers/#{AWS.Util.encode_uri(scraper_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Describes an existing AMP workspace.
   """
   def describe_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets a default configuration.
+  """
+  def get_default_scraper_configuration(%Client{} = client, options \\ []) do
+    url_path = "/scraperconfiguration"
     headers = []
     query_params = []
 
@@ -317,6 +394,49 @@ defmodule AWS.Amp do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all scrapers in a customer account, including scrapers being created or
+  deleted.
+
+  You may provide filters to return a more specific list of results.
+  """
+  def list_scrapers(
+        %Client{} = client,
+        filters \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/scrapers"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(filters) do
+        [{"", filters} | query_params]
       else
         query_params
       end

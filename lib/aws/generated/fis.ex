@@ -45,7 +45,7 @@ defmodule AWS.Fis do
   experiment is running, the experiment is automatically stopped. You can define a
   stop condition as a CloudWatch alarm.
 
-  For more information, see [Experiment templates](https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html)
+  For more information, see [experiment templates](https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html)
   in the *Fault Injection Simulator User Guide*.
   """
   def create_experiment_template(%Client{} = client, input, options \\ []) do
@@ -69,10 +69,77 @@ defmodule AWS.Fis do
   end
 
   @doc """
+  Creates a target account configuration for the experiment template.
+
+  A target account configuration is required when `accountTargeting` of
+  `experimentOptions` is set to `multi-account`. For more information, see
+  [experiment options](https://docs.aws.amazon.com/fis/latest/userguide/experiment-options.html)
+  in the *Fault Injection Simulator User Guide*.
+  """
+  def create_target_account_configuration(
+        %Client{} = client,
+        account_id,
+        experiment_template_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/experimentTemplates/#{AWS.Util.encode_uri(experiment_template_id)}/targetAccountConfigurations/#{AWS.Util.encode_uri(account_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes the specified experiment template.
   """
   def delete_experiment_template(%Client{} = client, id, input, options \\ []) do
     url_path = "/experimentTemplates/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the specified target account configuration of the experiment template.
+  """
+  def delete_target_account_configuration(
+        %Client{} = client,
+        account_id,
+        experiment_template_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/experimentTemplates/#{AWS.Util.encode_uri(experiment_template_id)}/targetAccountConfigurations/#{AWS.Util.encode_uri(account_id)}"
+
     headers = []
     query_params = []
 
@@ -118,10 +185,52 @@ defmodule AWS.Fis do
   end
 
   @doc """
+  Gets information about the specified target account configuration of the
+  experiment.
+  """
+  def get_experiment_target_account_configuration(
+        %Client{} = client,
+        account_id,
+        experiment_id,
+        options \\ []
+      ) do
+    url_path =
+      "/experiments/#{AWS.Util.encode_uri(experiment_id)}/targetAccountConfigurations/#{AWS.Util.encode_uri(account_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets information about the specified experiment template.
   """
   def get_experiment_template(%Client{} = client, id, options \\ []) do
     url_path = "/experimentTemplates/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets information about the specified target account configuration of the
+  experiment template.
+  """
+  def get_target_account_configuration(
+        %Client{} = client,
+        account_id,
+        experiment_template_id,
+        options \\ []
+      ) do
+    url_path =
+      "/experimentTemplates/#{AWS.Util.encode_uri(experiment_template_id)}/targetAccountConfigurations/#{AWS.Util.encode_uri(account_id)}"
+
     headers = []
     query_params = []
 
@@ -161,6 +270,72 @@ defmodule AWS.Fis do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the resolved targets information of the specified experiment.
+  """
+  def list_experiment_resolved_targets(
+        %Client{} = client,
+        experiment_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        target_name \\ nil,
+        options \\ []
+      ) do
+    url_path = "/experiments/#{AWS.Util.encode_uri(experiment_id)}/resolvedTargets"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(target_name) do
+        [{"targetName", target_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the target account configurations of the specified experiment.
+  """
+  def list_experiment_target_account_configurations(
+        %Client{} = client,
+        experiment_id,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/experiments/#{AWS.Util.encode_uri(experiment_id)}/targetAccountConfigurations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -236,6 +411,41 @@ defmodule AWS.Fis do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the target account configurations of the specified experiment template.
+  """
+  def list_target_account_configurations(
+        %Client{} = client,
+        experiment_template_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/experimentTemplates/#{AWS.Util.encode_uri(experiment_template_id)}/targetAccountConfigurations"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -376,6 +586,37 @@ defmodule AWS.Fis do
   """
   def update_experiment_template(%Client{} = client, id, input, options \\ []) do
     url_path = "/experimentTemplates/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the target account configuration for the specified experiment template.
+  """
+  def update_target_account_configuration(
+        %Client{} = client,
+        account_id,
+        experiment_template_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/experimentTemplates/#{AWS.Util.encode_uri(experiment_template_id)}/targetAccountConfigurations/#{AWS.Util.encode_uri(account_id)}"
+
     headers = []
     query_params = []
 

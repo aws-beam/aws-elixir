@@ -129,8 +129,7 @@ defmodule AWS.CloudWatchLogs do
   *delivery destination* that you have already created.
 
   Only some Amazon Web Services services support being configured as a delivery
-  source using this operation. These services are listed as **Supported [V2 Permissions]** in the table at [Enabling logging from Amazon Web Services services.](https://docs.aws.amazon.com/
-  AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions)
+  source using this operation. These services are listed as **Supported [V2 Permissions]** in the table at [Enabling logging from Amazon Web Services services.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html)
 
   A delivery destination can represent a log group in CloudWatch Logs, an Amazon
   S3 bucket, or a delivery stream in Kinesis Data Firehose.
@@ -198,6 +197,41 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateExportTask", input, options)
+  end
+
+  @doc """
+  Creates an *anomaly detector* that regularly scans one or more log groups and
+  look for patterns and anomalies in the logs.
+
+  An anomaly detector can help surface issues by automatically discovering
+  anomalies in your log event traffic. An anomaly detector uses machine learning
+  algorithms to scan log events and find *patterns*. A pattern is a shared text
+  structure that recurs among your log fields. Patterns provide a useful tool for
+  analyzing large sets of logs because a large number of log events can often be
+  compressed into a few patterns.
+
+  The anomaly detector uses pattern recognition to find `anomalies`, which are
+  unusual log events. It uses the `evaluationFrequency` to compare current log
+  events and patterns with trained baselines.
+
+  Fields within a pattern are called *tokens*. Fields that vary within a pattern,
+  such as a request ID or timestamp, are referred to as *dynamic tokens* and
+  represented by `<*>`.
+
+  The following is an example of a pattern:
+
+  `[INFO] Request time: <*> ms`  This pattern represents log events like `[INFO] Request time: 327 ms` and other
+  similar log events that differ only by the number, in this csse 327. When the
+  pattern is displayed, the different numbers are replaced by `<*>`
+
+  Any parts of log events that are masked as sensitive data are not scanned for
+  anomalies. For more information about masking sensitive data, see [Help protect sensitive log data with
+  masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
+  """
+  def create_log_anomaly_detector(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLogAnomalyDetector", input, options)
   end
 
   @doc """
@@ -360,6 +394,15 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteDestination", input, options)
+  end
+
+  @doc """
+  Deletes the specified CloudWatch Logs anomaly detector.
+  """
+  def delete_log_anomaly_detector(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLogAnomalyDetector", input, options)
   end
 
   @doc """
@@ -729,6 +772,15 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Retrieves information about the log anomaly detector that you specify.
+  """
+  def get_log_anomaly_detector(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetLogAnomalyDetector", input, options)
+  end
+
+  @doc """
   Lists log events from the specified log stream.
 
   You can list all of the log events or filter using a time range.
@@ -820,6 +872,27 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "GetQueryResults", input, options)
+  end
+
+  @doc """
+  Returns a list of anomalies that log anomaly detectors have found.
+
+  For details about the structure format of each anomaly object that is returned,
+  see the example in this section.
+  """
+  def list_anomalies(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAnomalies", input, options)
+  end
+
+  @doc """
+  Retrieves a list of the log anomaly detectors in the account.
+  """
+  def list_log_anomaly_detectors(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLogAnomalyDetectors", input, options)
   end
 
   @doc """
@@ -966,8 +1039,7 @@ defmodule AWS.CloudWatchLogs do
 
   Only some Amazon Web Services services support being configured as a delivery
   source. These services are listed as **Supported [V2 Permissions]** in the table
-  at [Enabling logging from Amazon Web Services services.](https://docs.aws.amazon.com/
-  AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions)
+  at [Enabling logging from Amazon Web Services services.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html)
 
   If you use this operation to update an existing delivery destination, all the
   current delivery destination parameters are overwritten with the new parameter
@@ -1003,8 +1075,7 @@ defmodule AWS.CloudWatchLogs do
 
   Only some Amazon Web Services services support being configured as a delivery
   source. These services are listed as **Supported [V2 Permissions]** in the table
-  at [Enabling logging from Amazon Web Services services.](https://docs.aws.amazon.com/
-  AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions)
+  at [Enabling logging from Amazon Web Services services.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html)
 
   The contents of the policy must include two statements. One statement enables
   general logs delivery, and the other allows delivery to the chosen destination.
@@ -1049,8 +1120,7 @@ defmodule AWS.CloudWatchLogs do
 
   Only some Amazon Web Services services support being configured as a delivery
   source. These services are listed as **Supported [V2 Permissions]** in the table
-  at [Enabling logging from Amazon Web Services services.](https://docs.aws.amazon.com/
-  AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions)
+  at [Enabling logging from Amazon Web Services services.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html)
 
   If you use this operation to update an existing delivery source, all the current
   delivery source parameters are overwritten with the new parameter values that
@@ -1430,5 +1500,36 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Use this operation to *suppress* anomaly detection for a specified anomaly or
+  pattern.
+
+  If you suppress an anomaly, CloudWatch Logs won’t report new occurrences of that
+  anomaly and won't update that anomaly with new data. If you suppress a pattern,
+  CloudWatch Logs won’t report any anomalies related to that pattern.
+
+  You must specify either `anomalyId` or `patternId`, but you can't specify both
+  parameters in the same operation.
+
+  If you have previously used this operation to suppress detection of a pattern or
+  anomaly, you can use it again to cause CloudWatch Logs to end the suppression.
+  To do this, use this operation and specify the anomaly or pattern to stop
+  suppressing, and omit the `suppressionType` and `suppressionPeriod` parameters.
+  """
+  def update_anomaly(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAnomaly", input, options)
+  end
+
+  @doc """
+  Updates an existing log anomaly detector.
+  """
+  def update_log_anomaly_detector(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLogAnomalyDetector", input, options)
   end
 end

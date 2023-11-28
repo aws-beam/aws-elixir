@@ -6737,8 +6737,8 @@ defmodule AWS.S3 do
      The `DefaultRetention` period can be either `Days` or `Years` but
   you must select one. You cannot specify `Days` and `Years` at the same time.
 
-     You can only enable Object Lock for new buckets. If you want to
-  turn on Object Lock for an existing bucket, contact Amazon Web Services Support.
+     You can enable Object Lock for new or existing buckets. For more
+  information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
   """
   def put_object_lock_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?object-lock"

@@ -575,9 +575,9 @@ defmodule AWS.IoTFleetWise do
   account again to enable CloudWatch metrics. For more information, see
   [DeleteServiceLinkedRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceLinkedRole.html) in the *Identity and Access Management API Reference*.
 
-  ` Registers your Amazon Web Services account, IAM, and Amazon Timestream
-  resources so Amazon Web Services IoT FleetWise can transfer your vehicle data to
-  the Amazon Web Services Cloud. For more information, including step-by-step
+  Registers your Amazon Web Services account, IAM, and Amazon Timestream resources
+  so Amazon Web Services IoT FleetWise can transfer your vehicle data to the
+  Amazon Web Services Cloud. For more information, including step-by-step
   procedures, see [Setting up Amazon Web Services IoT
   FleetWise](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/setting-up.html).
 
@@ -588,8 +588,6 @@ defmodule AWS.IoTFleetWise do
   credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html). A
   single Amazon Web Services account can, and typically does, contain many users
   and roles.
-
-  `
   """
   def register_account(%Client{} = client, input, options \\ []) do
     meta = metadata()

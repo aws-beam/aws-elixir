@@ -145,6 +145,21 @@ defmodule AWS.EKS do
   cluster's control plane over the Kubernetes API server endpoint and a
   certificate file that is created for your cluster.
 
+  You can use the `endpointPublicAccess` and `endpointPrivateAccess` parameters to
+  enable or disable public and private access to your cluster's Kubernetes API
+  server endpoint. By default, public access is enabled, and private access is
+  disabled. For more information, see [Amazon EKS Cluster Endpoint Access Control](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html)
+  in the * *Amazon EKS User Guide* *.
+
+  You can use the `logging` parameter to enable or disable exporting the
+  Kubernetes control plane logs for your cluster to CloudWatch Logs. By default,
+  cluster control plane logs aren't exported to CloudWatch Logs. For more
+  information, see [Amazon EKS Cluster Control Plane Logs](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
+  in the * *Amazon EKS User Guide* *.
+
+  CloudWatch Logs ingestion, archive storage, and data scanning rates apply to
+  exported control plane logs. For more information, see [CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing/).
+
   In most cases, it takes several minutes to create a cluster. After you create an
   Amazon EKS cluster, you must configure your Kubernetes tooling to communicate
   with the API server and launch nodes into your cluster. For more information,
@@ -290,6 +305,46 @@ defmodule AWS.EKS do
   end
 
   @doc """
+  Creates an EKS Pod Identity association between a service account in an Amazon
+  EKS cluster and an IAM role with *EKS Pod Identity*.
+
+  Use EKS Pod Identity to give temporary IAM credentials to pods and the
+  credentials are rotated automatically.
+
+  Amazon EKS Pod Identity associations provide the ability to manage credentials
+  for your applications, similar to the way that 7EC2l instance profiles provide
+  credentials to Amazon EC2 instances.
+
+  If a pod uses a service account that has an association, Amazon EKS sets
+  environment variables in the containers of the pod. The environment variables
+  configure the Amazon Web Services SDKs, including the Command Line Interface, to
+  use the EKS Pod Identity credentials.
+
+  Pod Identity is a simpler method than *IAM roles for service accounts*, as this
+  method doesn't use OIDC identity providers. Additionally, you can configure a
+  role for Pod Identity once, and reuse it across clusters.
+  """
+  def create_pod_identity_association(%Client{} = client, cluster_name, input, options \\ []) do
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/pod-identity-associations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Delete an Amazon EKS add-on.
 
   When you remove the add-on, it will also be deleted from the cluster. You can
@@ -357,11 +412,11 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Deletes an expired / inactive subscription.
+  Deletes an expired or inactive subscription.
 
   Deleting inactive subscriptions removes them from the Amazon Web Services
   Management Console view and from list/describe API responses. Subscriptions can
-  only be cancelled within 7 days of creation, and are cancelled by creating a
+  only be cancelled within 7 days of creation and are cancelled by creating a
   ticket in the Amazon Web Services Support Center.
   """
   def delete_eks_anywhere_subscription(%Client{} = client, id, input, options \\ []) do
@@ -431,6 +486,41 @@ defmodule AWS.EKS do
   def delete_nodegroup(%Client{} = client, cluster_name, nodegroup_name, input, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups/#{AWS.Util.encode_uri(nodegroup_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes a EKS Pod Identity association.
+
+  The temporary Amazon Web Services credentials from the previous IAM role session
+  might still be valid until the session expiry. If you need to immediately revoke
+  the temporary session credentials, then go to the role in the IAM console.
+  """
+  def delete_pod_identity_association(
+        %Client{} = client,
+        association_id,
+        cluster_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/pod-identity-associations/#{AWS.Util.encode_uri(association_id)}"
 
     headers = []
     query_params = []
@@ -672,6 +762,31 @@ defmodule AWS.EKS do
   def describe_nodegroup(%Client{} = client, cluster_name, nodegroup_name, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups/#{AWS.Util.encode_uri(nodegroup_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Returns descriptive information about an EKS Pod Identity association.
+
+  This action requires the ID of the association. You can get the ID from the
+  response to the `CreatePodIdentityAssocation` for newly created associations.
+  Or, you can list the IDs for associations with `ListPodIdentityAssociations` and
+  filter the list by namespace or service account.
+  """
+  def describe_pod_identity_association(
+        %Client{} = client,
+        association_id,
+        cluster_name,
+        options \\ []
+      ) do
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/pod-identity-associations/#{AWS.Util.encode_uri(association_id)}"
 
     headers = []
     query_params = []
@@ -972,6 +1087,58 @@ defmodule AWS.EKS do
   end
 
   @doc """
+  List the EKS Pod Identity associations in a cluster.
+
+  You can filter the list by the namespace that the association is in or the
+  service account that the association uses.
+  """
+  def list_pod_identity_associations(
+        %Client{} = client,
+        cluster_name,
+        max_results \\ nil,
+        namespace \\ nil,
+        next_token \\ nil,
+        service_account \\ nil,
+        options \\ []
+      ) do
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/pod-identity-associations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(service_account) do
+        [{"serviceAccount", service_account} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(namespace) do
+        [{"namespace", namespace} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   List the tags for an Amazon EKS resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
@@ -1178,7 +1345,13 @@ defmodule AWS.EKS do
   [Amazon EKS cluster endpoint access control](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html)
   in the * *Amazon EKS User Guide* *.
 
-  You can't update the subnets or security group IDs for an existing cluster.
+  You can also use this API operation to choose different subnets and security
+  groups for the cluster. You must specify at least two subnets that are in
+  different Availability Zones. You can't change which VPC the subnets are from,
+  the subnets must be in the same VPC as the subnets that the cluster was created
+  with. For more information about the VPC requirements, see
+  [https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html)
+  in the * *Amazon EKS User Guide* *.
 
   Cluster updates are asynchronous, and they should finish within a few minutes.
   During an update, the cluster status moves to `UPDATING` (this status transition
@@ -1340,6 +1513,42 @@ defmodule AWS.EKS do
       ) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups/#{AWS.Util.encode_uri(nodegroup_name)}/update-version"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates a EKS Pod Identity association.
+
+  Only the IAM role can be changed; an association can't be moved between
+  clusters, namespaces, or service accounts. If you need to edit the namespace or
+  service account, you need to remove the association and then create a new
+  association with your desired settings.
+  """
+  def update_pod_identity_association(
+        %Client{} = client,
+        association_id,
+        cluster_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/pod-identity-associations/#{AWS.Util.encode_uri(association_id)}"
 
     headers = []
     query_params = []

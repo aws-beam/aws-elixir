@@ -61,6 +61,36 @@ defmodule AWS.SecretsManager do
   end
 
   @doc """
+  Retrieves the contents of the encrypted fields `SecretString` or `SecretBinary`
+  for up to 20 secrets.
+
+  To retrieve a single secret, call `GetSecretValue`.
+
+  To choose which secrets to retrieve, you can specify a list of secrets by name
+  or ARN, or you can use filters. If Secrets Manager encounters errors such as
+  `AccessDeniedException` while attempting to retrieve any of the secrets, you can
+  see the errors in `Errors` in the response.
+
+  Secrets Manager generates CloudTrail `GetSecretValue` log entries for each
+  secret you request when you call this action. Do not include sensitive
+  information in request parameters because it might be logged. For more
+  information, see [Logging Secrets Manager events with CloudTrail](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html).
+
+  **Required permissions: ** `secretsmanager:BatchGetSecretValue`, and you must
+  have `secretsmanager:GetSecretValue` for each secret. If you use filters, you
+  must also have `secretsmanager:ListSecrets`. If the secrets are encrypted using
+  customer-managed keys instead of the Amazon Web Services managed key
+  `aws/secretsmanager`, then you also need `kms:Decrypt` permissions for the keys.
+  For more information, see [ IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
+  and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
+  """
+  def batch_get_secret_value(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetSecretValue", input, options)
+  end
+
+  @doc """
   Turns off automatic rotation, and if a rotation is currently in progress,
   cancels the rotation.
 
@@ -276,6 +306,8 @@ defmodule AWS.SecretsManager do
   Retrieves the contents of the encrypted fields `SecretString` or `SecretBinary`
   from the specified version of a secret, whichever contains content.
 
+  To retrieve the values for a group of secrets, call `BatchGetSecretValue`.
+
   We recommend that you cache your secret values by using client-side caching.
   Caching secrets improves speed and reduces your costs. For more information, see
   [Cache secrets for your applications](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html).
@@ -333,7 +365,7 @@ defmodule AWS.SecretsManager do
 
   To list the versions of a secret, use `ListSecretVersionIds`.
 
-  To get the secret value from `SecretString` or `SecretBinary`, call
+  To retrieve the values for the secrets, call `BatchGetSecretValue` or
   `GetSecretValue`.
 
   For information about finding secrets in the console, see [Find secrets in Secrets

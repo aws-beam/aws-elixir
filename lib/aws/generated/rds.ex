@@ -13,7 +13,7 @@ defmodule AWS.RDS do
   developers to focus on what makes their applications and businesses unique.
 
   Amazon RDS gives you access to the capabilities of a MySQL, MariaDB, PostgreSQL,
-  Microsoft SQL Server, Oracle, or Amazon Aurora database server. These
+  Microsoft SQL Server, Oracle, Db2, or Amazon Aurora database server. These
   capabilities mean that the code, applications, and tools you already use today
   with your existing databases work with Amazon RDS without modification. Amazon
   RDS automatically backs up your database and maintains the database software
@@ -446,9 +446,9 @@ defmodule AWS.RDS do
   Creates a new DB instance that acts as a read replica for an existing source DB
   instance or Multi-AZ DB cluster.
 
-  You can create a read replica for a DB instance running MySQL, MariaDB, Oracle,
-  PostgreSQL, or SQL Server. You can create a read replica for a Multi-AZ DB
-  cluster running MySQL or PostgreSQL. For more information, see [Working with read
+  You can create a read replica for a DB instance running Db2, MariaDB, MySQL,
+  Oracle, PostgreSQL, or SQL Server. You can create a read replica for a Multi-AZ
+  DB cluster running MySQL or PostgreSQL. For more information, see [Working with read
   replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
   and [Migrating from a Multi-AZ DB cluster to a DB instance using a read replica](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html#multi-az-db-clusters-migrating-to-instance-with-read-replica)
   in the *Amazon RDS User Guide*.
@@ -1458,7 +1458,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Describes all available options.
+  Describes all available options for the specified engine.
   """
   def describe_option_group_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1476,8 +1476,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Returns a list of orderable DB instance options for the specified DB engine, DB
-  engine version, and DB instance class.
+  Describes the orderable DB instance options for a specified DB engine.
   """
   def describe_orderable_db_instance_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1744,7 +1743,7 @@ defmodule AWS.RDS do
   v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling)
   in the *Amazon Aurora User Guide*.
 
-  This action only applies to Aurora Serverless v1 DB clusters.
+  This operation only applies to Aurora Serverless v1 DB clusters.
   """
   def modify_current_db_cluster_capacity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1794,7 +1793,7 @@ defmodule AWS.RDS do
   @doc """
   Modifies the properties of an endpoint in an Amazon Aurora DB cluster.
 
-  This action only applies to Aurora DB clusters.
+  This operation only applies to Aurora DB clusters.
   """
   def modify_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1812,11 +1811,11 @@ defmodule AWS.RDS do
   After you create a DB cluster parameter group, you should wait at least 5
   minutes before creating your first DB cluster that uses that DB cluster
   parameter group as the default parameter group. This allows Amazon RDS to fully
-  complete the create action before the parameter group is used as the default for
-  a new DB cluster. This is especially important for parameters that are critical
-  when creating the default database for a DB cluster, such as the character set
-  for the default database defined by the `character_set_database` parameter. You
-  can use the *Parameter Groups* option of the [Amazon RDS console](https://console.aws.amazon.com/rds/) or the
+  complete the create operation before the parameter group is used as the default
+  for a new DB cluster. This is especially important for parameters that are
+  critical when creating the default database for a DB cluster, such as the
+  character set for the default database defined by the `character_set_database`
+  parameter. You can use the *Parameter Groups* option of the [Amazon RDS console](https://console.aws.amazon.com/rds/) or the
   `DescribeDBClusterParameters` operation to verify that your DB cluster parameter
   group has been created or modified.
 
@@ -1892,7 +1891,7 @@ defmodule AWS.RDS do
 
   After you modify a DB parameter group, you should wait at least 5 minutes before
   creating your first DB instance that uses that DB parameter group as the default
-  parameter group. This allows Amazon RDS to fully complete the modify action
+  parameter group. This allows Amazon RDS to fully complete the modify operation
   before the parameter group is used as the default for a new DB instance. This is
   especially important for parameters that are critical when creating the default
   database for a DB instance, such as the character set for the default database
@@ -1940,7 +1939,7 @@ defmodule AWS.RDS do
   The snapshot can be encrypted or unencrypted, but not shared or public.
 
   Amazon RDS supports upgrading DB snapshots for MySQL, PostgreSQL, and Oracle.
-  This command doesn't apply to RDS Custom.
+  This operation doesn't apply to RDS Custom or RDS for Db2.
   """
   def modify_db_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2147,7 +2146,7 @@ defmodule AWS.RDS do
   The cluster becomes a standalone cluster with read-write capability instead of
   being read-only and receiving data from a primary cluster in a different Region.
 
-  This action only applies to Aurora DB clusters.
+  This operation only applies to Aurora DB clusters.
   """
   def remove_from_global_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2254,16 +2253,17 @@ defmodule AWS.RDS do
   Bucket](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3)
   in the *Amazon Aurora User Guide*.
 
-  This action only restores the DB cluster, not the DB instances for that DB
-  cluster. You must invoke the `CreateDBInstance` action to create DB instances
+  This operation only restores the DB cluster, not the DB instances for that DB
+  cluster. You must invoke the `CreateDBInstance` operation to create DB instances
   for the restored DB cluster, specifying the identifier of the restored DB
   cluster in `DBClusterIdentifier`. You can create DB instances only after the
-  `RestoreDBClusterFromS3` action has completed and the DB cluster is available.
+  `RestoreDBClusterFromS3` operation has completed and the DB cluster is
+  available.
 
   For more information on Amazon Aurora, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
 
-  This action only applies to Aurora DB clusters. The source DB engine must be
+  This operation only applies to Aurora DB clusters. The source DB engine must be
   MySQL.
   """
   def restore_db_cluster_from_s3(%Client{} = client, input, options \\ []) do
@@ -2279,11 +2279,11 @@ defmodule AWS.RDS do
   configuration. If you don't specify a security group, the new DB cluster is
   associated with the default security group.
 
-  This action only restores the DB cluster, not the DB instances for that DB
-  cluster. You must invoke the `CreateDBInstance` action to create DB instances
+  This operation only restores the DB cluster, not the DB instances for that DB
+  cluster. You must invoke the `CreateDBInstance` operation to create DB instances
   for the restored DB cluster, specifying the identifier of the restored DB
   cluster in `DBClusterIdentifier`. You can create DB instances only after the
-  `RestoreDBClusterFromSnapshot` action has completed and the DB cluster is
+  `RestoreDBClusterFromSnapshot` operation has completed and the DB cluster is
   available.
 
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
@@ -2306,12 +2306,12 @@ defmodule AWS.RDS do
   DB cluster with the same configuration as the original DB cluster, except that
   the new DB cluster is created with the default DB security group.
 
-  For Aurora, this action only restores the DB cluster, not the DB instances for
-  that DB cluster. You must invoke the `CreateDBInstance` action to create DB
-  instances for the restored DB cluster, specifying the identifier of the restored
-  DB cluster in `DBClusterIdentifier`. You can create DB instances only after the
-  `RestoreDBClusterToPointInTime` action has completed and the DB cluster is
-  available.
+  For Aurora, this operation only restores the DB cluster, not the DB instances
+  for that DB cluster. You must invoke the `CreateDBInstance` operation to create
+  DB instances for the restored DB cluster, specifying the identifier of the
+  restored DB cluster in `DBClusterIdentifier`. You can create DB instances only
+  after the `RestoreDBClusterToPointInTime` operation has completed and the DB
+  cluster is available.
 
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.
@@ -2337,12 +2337,12 @@ defmodule AWS.RDS do
 
   If you want to replace your original DB instance with the new, restored DB
   instance, then rename your original DB instance before you call the
-  RestoreDBInstanceFromDBSnapshot action. RDS doesn't allow two DB instances with
-  the same name. After you have renamed your original DB instance with a different
-  identifier, then you can pass the original name of the DB instance as the
-  DBInstanceIdentifier in the call to the RestoreDBInstanceFromDBSnapshot action.
-  The result is that you replace the original DB instance with the DB instance
-  created from the snapshot.
+  `RestoreDBInstanceFromDBSnapshot` operation. RDS doesn't allow two DB instances
+  with the same name. After you have renamed your original DB instance with a
+  different identifier, then you can pass the original name of the DB instance as
+  the `DBInstanceIdentifier` in the call to the `RestoreDBInstanceFromDBSnapshot`
+  operation. The result is that you replace the original DB instance with the DB
+  instance created from the snapshot.
 
   If you are restoring from a shared manual DB snapshot, the
   `DBSnapshotIdentifier` must be the ARN of the shared DB snapshot.
@@ -2366,7 +2366,7 @@ defmodule AWS.RDS do
   Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
   in the *Amazon RDS User Guide.*
 
-  This command doesn't apply to RDS Custom.
+  This operation doesn't apply to RDS Custom.
   """
   def restore_db_instance_from_s3(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2389,7 +2389,7 @@ defmodule AWS.RDS do
   this case, the instance becomes a mirrored deployment and not a single-AZ
   deployment.
 
-  This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora,
+  This operation doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora,
   use `RestoreDBClusterToPointInTime`.
   """
   def restore_db_instance_to_point_in_time(%Client{} = client, input, options \\ []) do
@@ -2436,12 +2436,13 @@ defmodule AWS.RDS do
 
   @doc """
   Starts an Amazon Aurora DB cluster that was stopped using the Amazon Web
-  Services console, the stop-db-cluster CLI command, or the StopDBCluster action.
+  Services console, the stop-db-cluster CLI command, or the `StopDBCluster`
+  operation.
 
   For more information, see [ Stopping and Starting an Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html)
   in the *Amazon Aurora User Guide*.
 
-  This action only applies to Aurora DB clusters.
+  This operation only applies to Aurora DB clusters.
   """
   def start_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2451,7 +2452,7 @@ defmodule AWS.RDS do
 
   @doc """
   Starts an Amazon RDS DB instance that was stopped using the Amazon Web Services
-  console, the stop-db-instance CLI command, or the StopDBInstance action.
+  console, the stop-db-instance CLI command, or the `StopDBInstance` operation.
 
   For more information, see [ Starting an Amazon RDS DB instance That Was Previously
   Stopped](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html)
@@ -2493,7 +2494,7 @@ defmodule AWS.RDS do
 
   The provided IAM role must have access to the S3 bucket.
 
-  You can't export snapshot data from RDS Custom DB instances.
+  You can't export snapshot data from Db2 or RDS Custom DB instances.
 
   You can't export cluster data from Multi-AZ DB clusters.
 
@@ -2515,7 +2516,7 @@ defmodule AWS.RDS do
   @doc """
   Stops a database activity stream that was started using the Amazon Web Services
   console, the `start-activity-stream` CLI command, or the `StartActivityStream`
-  action.
+  operation.
 
   For more information, see [ Monitoring Amazon Aurora with Database Activity Streams](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html)
   in the *Amazon Aurora User Guide* or [ Monitoring Amazon RDS with Database Activity
@@ -2538,7 +2539,7 @@ defmodule AWS.RDS do
   For more information, see [ Stopping and Starting an Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html)
   in the *Amazon Aurora User Guide*.
 
-  This action only applies to Aurora DB clusters.
+  This operation only applies to Aurora DB clusters.
   """
   def stop_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()

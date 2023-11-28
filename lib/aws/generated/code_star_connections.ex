@@ -120,6 +120,30 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+  Creates a link to a specified external Git repository.
+
+  A repository link allows Git sync to monitor and sync changes to files in a
+  specified Git repository.
+  """
+  def create_repository_link(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRepositoryLink", input, options)
+  end
+
+  @doc """
+  Creates a sync configuration which allows Amazon Web Services to sync content
+  from a Git repository to update a specified Amazon Web Services resource.
+
+  Parameters for the sync configuration are determined by the sync type.
+  """
+  def create_sync_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSyncConfiguration", input, options)
+  end
+
+  @doc """
   The connection to be deleted.
   """
   def delete_connection(%Client{} = client, input, options \\ []) do
@@ -144,6 +168,25 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+  Deletes the association between your connection and a specified external Git
+  repository.
+  """
+  def delete_repository_link(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRepositoryLink", input, options)
+  end
+
+  @doc """
+  Deletes the sync configuration for a specified repository and connection.
+  """
+  def delete_sync_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSyncConfiguration", input, options)
+  end
+
+  @doc """
   Returns the connection ARN and details such as status, owner, and provider type.
   """
   def get_connection(%Client{} = client, input, options \\ []) do
@@ -163,6 +206,62 @@ defmodule AWS.CodeStarConnections do
   end
 
   @doc """
+  Returns details about a repository link.
+
+  A repository link allows Git sync to monitor and sync changes from files in a
+  specified Git repository.
+  """
+  def get_repository_link(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRepositoryLink", input, options)
+  end
+
+  @doc """
+  Returns details about the sync status for a repository.
+
+  A repository sync uses Git sync to push and pull changes from your remote
+  repository.
+  """
+  def get_repository_sync_status(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRepositorySyncStatus", input, options)
+  end
+
+  @doc """
+  Returns the status of the sync with the Git repository for a specific Amazon Web
+  Services resource.
+  """
+  def get_resource_sync_status(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResourceSyncStatus", input, options)
+  end
+
+  @doc """
+  Returns a list of the most recent sync blockers.
+  """
+  def get_sync_blocker_summary(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSyncBlockerSummary", input, options)
+  end
+
+  @doc """
+  Returns details about a sync configuration, including the sync type and resource
+  name.
+
+  A sync configuration allows the configuration to sync (push and pull) changes
+  from the remote repository for a specified branch in a Git repository.
+  """
+  def get_sync_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSyncConfiguration", input, options)
+  end
+
+  @doc """
   Lists the connections associated with your account.
   """
   def list_connections(%Client{} = client, input, options \\ []) do
@@ -178,6 +277,33 @@ defmodule AWS.CodeStarConnections do
     meta = metadata()
 
     Request.request_post(client, meta, "ListHosts", input, options)
+  end
+
+  @doc """
+  Lists the repository links created for connections in your account.
+  """
+  def list_repository_links(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRepositoryLinks", input, options)
+  end
+
+  @doc """
+  Lists the repository sync definitions for repository links in your account.
+  """
+  def list_repository_sync_definitions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRepositorySyncDefinitions", input, options)
+  end
+
+  @doc """
+  Returns a list of sync configurations for a specified repository.
+  """
+  def list_sync_configurations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSyncConfigurations", input, options)
   end
 
   @doc """
@@ -216,5 +342,38 @@ defmodule AWS.CodeStarConnections do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateHost", input, options)
+  end
+
+  @doc """
+  Updates the association between your connection and a specified external Git
+  repository.
+
+  A repository link allows Git sync to monitor and sync changes to files in a
+  specified Git repository.
+  """
+  def update_repository_link(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateRepositoryLink", input, options)
+  end
+
+  @doc """
+  Allows you to update the status of a sync blocker, resolving the blocker and
+  allowing syncing to continue.
+  """
+  def update_sync_blocker(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSyncBlocker", input, options)
+  end
+
+  @doc """
+  Updates the sync configuration for your connection and a specified external Git
+  repository.
+  """
+  def update_sync_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSyncConfiguration", input, options)
   end
 end

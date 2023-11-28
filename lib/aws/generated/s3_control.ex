@@ -27,6 +27,207 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  Associate your S3 Access Grants instance with an Amazon Web Services IAM
+  Identity Center instance.
+
+  Use this action if you want to create access grants for users or groups from
+  your corporate identity directory. First, you must add your corporate identity
+  directory to Amazon Web Services IAM Identity Center. Then, you can associate
+  this IAM Identity Center instance with your S3 Access Grants instance.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:AssociateAccessGrantsIdentityCenter` permission to use
+  this operation.
+
+  ### Additional Permissions
+
+  You must also have the following permissions: `sso:CreateApplication`,
+  `sso:PutApplicationGrant`, and `sso:PutApplicationAuthenticationMethod`.
+  """
+  def associate_access_grants_identity_center(%Client{} = client, input, options \\ []) do
+    url_path = "/v20180820/accessgrantsinstance/identitycenter"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates an access grant that gives a grantee access to your S3 data.
+
+  The grantee can be an IAM user or role or a directory user, or group. Before you
+  can create a grant, you must have an S3 Access Grants instance in the same
+  Region as the S3 data. You can create an S3 Access Grants instance using the
+  [CreateAccessGrantsInstance](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessGrantsInstance.html). You must also have registered at least one S3 data location in your S3 Access
+  Grants instance using
+  [CreateAccessGrantsLocation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessGrantsLocation.html).
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:CreateAccessGrant` permission to use this operation.
+
+  ### Additional Permissions
+
+  For any directory identity - `sso:DescribeInstance` and
+  `sso:DescribeApplication`
+
+  For directory users - `identitystore:DescribeUser`
+
+  For directory groups - `identitystore:DescribeGroup`
+  """
+  def create_access_grant(%Client{} = client, input, options \\ []) do
+    url_path = "/v20180820/accessgrantsinstance/grant"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates an S3 Access Grants instance, which serves as a logical grouping for
+  access grants.
+
+  You can create one S3 Access Grants instance per Region per account.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:CreateAccessGrantsInstance` permission to use this
+  operation.
+
+  ### Additional Permissions
+
+  To associate an IAM Identity Center instance with your S3 Access Grants
+  instance, you must also have the `sso:DescribeInstance`,
+  `sso:CreateApplication`, `sso:PutApplicationGrant`, and
+  `sso:PutApplicationAuthenticationMethod` permissions.
+  """
+  def create_access_grants_instance(%Client{} = client, input, options \\ []) do
+    url_path = "/v20180820/accessgrantsinstance"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  The S3 data location that you would like to register in your S3 Access Grants
+  instance.
+
+  Your S3 data must be in the same Region as your S3 Access Grants instance. The
+  location can be one of the following:
+
+    * The default S3 location `s3://`
+
+    * A bucket - `S3://<bucket-name>`
+
+    * A bucket and prefix - `S3://<bucket-name>/<prefix>`
+
+  When you register a location, you must include the IAM role that has permission
+  to manage the S3 location that you are registering. Give S3 Access Grants
+  permission to assume this role [using a policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-location.html).
+  S3 Access Grants assumes this role to manage access to the location and to vend
+  temporary credentials to grantees or client applications.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:CreateAccessGrantsLocation` permission to use this
+  operation.
+
+  ### Additional Permissions
+
+  You must also have the following permission for the specified IAM role:
+  `iam:PassRole`
+  """
+  def create_access_grants_location(%Client{} = client, input, options \\ []) do
+    url_path = "/v20180820/accessgrantsinstance/location"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates an access point and associates it with the specified bucket.
 
   For more information, see [Managing Data Access with Amazon S3 Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html)
@@ -319,6 +520,179 @@ defmodule AWS.S3Control do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Deletes the access grant from the S3 Access Grants instance.
+
+  You cannot undo an access grant deletion and the grantee will no longer have
+  access to the S3 data.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:DeleteAccessGrant` permission to use this operation.
+  """
+  def delete_access_grant(%Client{} = client, access_grant_id, input, options \\ []) do
+    url_path = "/v20180820/accessgrantsinstance/grant/#{AWS.Util.encode_uri(access_grant_id)}"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes your S3 Access Grants instance.
+
+  You must first delete the access grants and locations before S3 Access Grants
+  can delete the instance. See
+  [DeleteAccessGrant](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessGrant.html) and
+  [DeleteAccessGrantsLocation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessGrantsLocation.html).
+  If you have associated an IAM Identity Center instance with your S3 Access
+  Grants instance, you must first dissassociate the Identity Center instance from
+  the S3 Access Grants instance before you can delete the S3 Access Grants
+  instance. See
+  [AssociateAccessGrantsIdentityCenter](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AssociateAccessGrantsIdentityCenter.html) and
+  [DissociateAccessGrantsIdentityCenter](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DissociateAccessGrantsIdentityCenter.html).
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:DeleteAccessGrantsInstance` permission to use this
+  operation.
+  """
+  def delete_access_grants_instance(%Client{} = client, input, options \\ []) do
+    url_path = "/v20180820/accessgrantsinstance"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes the resource policy of the S3 Access Grants instance.
+
+  The resource policy is used to manage cross-account access to your S3 Access
+  Grants instance. By deleting the resource policy, you delete any cross-account
+  permissions to your S3 Access Grants instance.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:DeleteAccessGrantsInstanceResourcePolicy` permission to
+  use this operation.
+  """
+  def delete_access_grants_instance_resource_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/v20180820/accessgrantsinstance/resourcepolicy"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deregisters a location from your S3 Access Grants instance.
+
+  You can only delete a location registration from an S3 Access Grants instance if
+  there are no grants associated with this location. See [Delete a grant](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessGrant.html)
+  for information on how to delete grants. You need to have at least one
+  registered location in your S3 Access Grants instance in order to create access
+  grants.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:DeleteAccessGrantsLocation` permission to use this
+  operation.
+  """
+  def delete_access_grants_location(
+        %Client{} = client,
+        access_grants_location_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v20180820/accessgrantsinstance/location/#{AWS.Util.encode_uri(access_grants_location_id)}"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
     )
   end
 
@@ -1128,6 +1502,209 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  Dissociates the Amazon Web Services IAM Identity Center instance from the S3
+  Access Grants instance.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:DissociateAccessGrantsIdentityCenter` permission to use
+  this operation.
+
+  ### Additional Permissions
+
+  You must have the `sso:DeleteApplication` permission to use this operation.
+  """
+  def dissociate_access_grants_identity_center(%Client{} = client, input, options \\ []) do
+    url_path = "/v20180820/accessgrantsinstance/identitycenter"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Get the details of an access grant from your S3 Access Grants instance.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:GetAccessGrant` permission to use this operation.
+  """
+  def get_access_grant(%Client{} = client, access_grant_id, account_id, options \\ []) do
+    url_path = "/v20180820/accessgrantsinstance/grant/#{AWS.Util.encode_uri(access_grant_id)}"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieves the S3 Access Grants instance for a Region in your account.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:GetAccessGrantsInstance` permission to use this operation.
+  """
+  def get_access_grants_instance(%Client{} = client, account_id, options \\ []) do
+    url_path = "/v20180820/accessgrantsinstance"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieve the S3 Access Grants instance that contains a particular prefix.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:GetAccessGrantsInstanceForPrefix` permission for the
+  caller account to use this operation.
+
+  ### Additional Permissions
+
+  The prefix owner account must grant you the following permissions to their S3
+  Access Grants instance: `s3:GetAccessGrantsInstanceForPrefix`.
+  """
+  def get_access_grants_instance_for_prefix(
+        %Client{} = client,
+        s3_prefix,
+        account_id,
+        options \\ []
+      ) do
+    url_path = "/v20180820/accessgrantsinstance/prefix"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(s3_prefix) do
+        [{"s3prefix", s3_prefix} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Returns the resource policy of the S3 Access Grants instance.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:GetAccessGrantsInstanceResourcePolicy` permission to use
+  this operation.
+  """
+  def get_access_grants_instance_resource_policy(%Client{} = client, account_id, options \\ []) do
+    url_path = "/v20180820/accessgrantsinstance/resourcepolicy"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieves the details of a particular location registered in your S3 Access
+  Grants instance.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:GetAccessGrantsLocation` permission to use this operation.
+  """
+  def get_access_grants_location(
+        %Client{} = client,
+        access_grants_location_id,
+        account_id,
+        options \\ []
+      ) do
+    url_path =
+      "/v20180820/accessgrantsinstance/location/#{AWS.Util.encode_uri(access_grants_location_id)}"
+
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Returns configuration information about the specified access point.
 
   All Amazon S3 on Outposts REST API requests for this action require an
@@ -1697,6 +2274,88 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  Returns a temporary access credential from S3 Access Grants to the grantee or
+  client application.
+
+  The [temporary credential](https://docs.aws.amazon.com/STS/latest/APIReference/API_Credentials.html)
+  is an Amazon Web Services STS token that grants them access to the S3 data.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:GetDataAccess` permission to use this operation.
+
+  ### Additional Permissions
+
+  The IAM role that S3 Access Grants assumes must have the following permissions
+  specified in the trust policy when registering the location: `sts:AssumeRole`,
+  for directory users or groups `sts:SetContext`, and for IAM users or roles
+  `sts:SourceIdentity`.
+  """
+  def get_data_access(
+        %Client{} = client,
+        duration_seconds \\ nil,
+        permission,
+        privilege \\ nil,
+        target,
+        target_type \\ nil,
+        account_id,
+        options \\ []
+      ) do
+    url_path = "/v20180820/accessgrantsinstance/dataaccess"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(target_type) do
+        [{"targetType", target_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(target) do
+        [{"target", target} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(privilege) do
+        [{"privilege", privilege} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(permission) do
+        [{"permission", permission} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(duration_seconds) do
+        [{"durationSeconds", duration_seconds} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Returns the tags on an S3 Batch Operations job.
 
   To use the `GetJobTagging` operation, you must have permission to perform the
@@ -1994,6 +2653,201 @@ defmodule AWS.S3Control do
       end
 
     query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Returns the list of access grants in your S3 Access Grants instance.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:ListAccessGrants` permission to use this operation.
+  """
+  def list_access_grants(
+        %Client{} = client,
+        application_arn \\ nil,
+        grant_scope \\ nil,
+        grantee_identifier \\ nil,
+        grantee_type \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        permission \\ nil,
+        account_id,
+        options \\ []
+      ) do
+    url_path = "/v20180820/accessgrantsinstance/grants"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(permission) do
+        [{"permission", permission} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(grantee_type) do
+        [{"granteetype", grantee_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(grantee_identifier) do
+        [{"granteeidentifier", grantee_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(grant_scope) do
+        [{"grantscope", grant_scope} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(application_arn) do
+        [{"application_arn", application_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Returns a list of S3 Access Grants instances.
+
+  An S3 Access Grants instance serves as a logical grouping for your individual
+  access grants. You can only have one S3 Access Grants instance per Region per
+  account.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:ListAccessGrantsInstances` permission to use this
+  operation.
+  """
+  def list_access_grants_instances(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        account_id,
+        options \\ []
+      ) do
+    url_path = "/v20180820/accessgrantsinstances"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Returns a list of the locations registered in your S3 Access Grants instance.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:ListAccessGrantsLocations` permission to use this
+  operation.
+  """
+  def list_access_grants_locations(
+        %Client{} = client,
+        location_scope \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        account_id,
+        options \\ []
+      ) do
+    url_path = "/v20180820/accessgrantsinstance/locations"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(location_scope) do
+        [{"locationscope", location_scope} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
@@ -2389,15 +3243,26 @@ defmodule AWS.S3Control do
 
   @doc """
   This operation allows you to list all the Amazon Web Services resource tags for
-  the specified resource.
+  a specified resource.
 
-  To use this operation, you must have the permission to perform the
-  `s3:ListTagsForResource` action. For more information about the required Storage
-  Lens Groups permissions, see [Setting account permissions to use S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions).
+  Each tag is a label consisting of a user-defined key and value. Tags can help
+  you manage, identify, organize, search for, and filter resources.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:ListTagsForResource` permission to use this operation.
+
+  This operation is only supported for [S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html)
+  and for [S3 Access Grants](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-tagging.html).
+  The tagged resource can be an S3 Storage Lens group or S3 Access Grants
+  instance, registered location, or grant.
+
+  For more information about the required Storage Lens Groups permissions, see
+  [Setting account permissions to use S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions).
 
   For information about S3 Tagging errors, see [List of Amazon S3 Tagging error codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList).
-
-  This operation is only supported for [S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html).
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, account_id, options \\ []) do
     url_path = "/v20180820/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
@@ -2415,6 +3280,32 @@ defmodule AWS.S3Control do
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Updates the resource policy of the S3 Access Grants instance.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:PutAccessGrantsInstanceResourcePolicy` permission to use
+  this operation.
+  """
+  def put_access_grants_instance_resource_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/v20180820/accessgrantsinstance/resourcepolicy"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -3141,15 +4032,25 @@ defmodule AWS.S3Control do
   Creates a new Amazon Web Services resource tag or updates an existing resource
   tag.
 
-  You can add up to 50 Amazon Web Services resource tags for each S3 resource.
+  Each tag is a label consisting of a user-defined key and value. Tags can help
+  you manage, identify, organize, search for, and filter resources. You can add up
+  to 50 Amazon Web Services resource tags for each S3 resource.
 
-  To use this operation, you must have the permission to perform the
-  `s3:TagResource` action. For more information about the required Storage Lens
-  Groups permissions, see [Setting account permissions to use S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions).
+  This operation is only supported for [S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html)
+  and for [S3 Access Grants](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-tagging.html).
+  The tagged resource can be an S3 Storage Lens group or S3 Access Grants
+  instance, registered location, or grant.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:TagResource` permission to use this operation.
+
+  For more information about the required Storage Lens Groups permissions, see
+  [Setting account permissions to use S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions).
 
   For information about S3 Tagging errors, see [List of Amazon S3 Tagging error codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList).
-
-  This operation is only supported for [S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html).
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v20180820/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
@@ -3181,13 +4082,24 @@ defmodule AWS.S3Control do
   This operation removes the specified Amazon Web Services resource tags from an
   S3 resource.
 
-  To use this operation, you must have the permission to perform the
-  `s3:UntagResource` action. For more information about the required Storage Lens
-  Groups permissions, see [Setting account permissions to use S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions).
+  Each tag is a label consisting of a user-defined key and value. Tags can help
+  you manage, identify, organize, search for, and filter resources.
+
+  This operation is only supported for [S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html)
+  and for [S3 Access Grants](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-tagging.html).
+  The tagged resource can be an S3 Storage Lens group or S3 Access Grants
+  instance, registered location, or grant.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:UntagResource` permission to use this operation.
+
+  For more information about the required Storage Lens Groups permissions, see
+  [Setting account permissions to use S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions).
 
   For information about S3 Tagging errors, see [List of Amazon S3 Tagging error codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList).
-
-  This operation is only supported for [S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html).
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v20180820/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
@@ -3217,6 +4129,42 @@ defmodule AWS.S3Control do
       options,
       204
     )
+  end
+
+  @doc """
+  Updates the IAM role of a registered location in your S3 Access Grants instance.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:UpdateAccessGrantsLocation` permission to use this
+  operation.
+
+  ### Additional Permissions
+
+  You must also have the following permission: `iam:PassRole`
+  """
+  def update_access_grants_location(
+        %Client{} = client,
+        access_grants_location_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v20180820/accessgrantsinstance/location/#{AWS.Util.encode_uri(access_grants_location_id)}"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """

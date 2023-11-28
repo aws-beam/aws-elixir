@@ -128,8 +128,9 @@ defmodule AWS.CloudTrail do
   After you run `DeleteEventDataStore`, the event data store enters a
   `PENDING_DELETION` state, and is automatically deleted after a wait period of
   seven days. `TerminationProtectionEnabled` must be set to `False` on the event
-  data store; this operation cannot work if `TerminationProtectionEnabled` is
-  `True`.
+  data store and the `FederationStatus` must be `DISABLED`. You cannot delete an
+  event data store if `TerminationProtectionEnabled` is `True` or the
+  `FederationStatus` is `ENABLED`.
 
   After you run `DeleteEventDataStore` on an event data store, you cannot run
   `ListQueries`, `DescribeQuery`, or `GetQueryResults` on queries that are using
@@ -199,6 +200,44 @@ defmodule AWS.CloudTrail do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeTrails", input, options)
+  end
+
+  @doc """
+  Disables Lake query federation on the specified event data store.
+
+  When you disable federation, CloudTrail removes the metadata associated with the
+  federated event data store in the Glue Data Catalog and removes registration for
+  the federation role ARN and event data store in Lake Formation. No CloudTrail
+  Lake data is deleted when you disable federation.
+  """
+  def disable_federation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableFederation", input, options)
+  end
+
+  @doc """
+  Enables Lake query federation on the specified event data store.
+
+  Federating an event data store lets you view the metadata associated with the
+  event data store in the Glue [Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/components-overview.html#data-catalog-intro)
+  and run SQL queries against your event data using Amazon Athena. The table
+  metadata stored in the Glue Data Catalog lets the Athena query engine know how
+  to find, read, and process the data that you want to query.
+
+  When you enable Lake query federation, CloudTrail creates a federated database
+  named `aws:cloudtrail` (if the database doesn't already exist) and a federated
+  table in the Glue Data Catalog. The event data store ID is used for the table
+  name. CloudTrail registers the role ARN and event data store in [Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/how-it-works.html),
+  the service responsible for revoking or granting permissions to the federated
+  resources in the Glue Data Catalog.
+
+  For more information about Lake query federation, see [Federate an event data store](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation.html).
+  """
+  def enable_federation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableFederation", input, options)
   end
 
   @doc """

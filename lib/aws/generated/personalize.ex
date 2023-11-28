@@ -27,10 +27,29 @@ defmodule AWS.Personalize do
   end
 
   @doc """
-  Creates a batch inference job.
+  Generates batch recommendations based on a list of items or users stored in
+  Amazon S3 and exports the recommendations to an Amazon S3 bucket.
 
-  The operation can handle up to 50 million records and the input file must be in
-  JSON format. For more information, see [Creating a batch inference job](https://docs.aws.amazon.com/personalize/latest/dg/creating-batch-inference-job.html).
+  To generate batch recommendations, specify the ARN of a solution version and an
+  Amazon S3 URI for the input and output data. For user personalization, popular
+  items, and personalized ranking solutions, the batch inference job generates a
+  list of recommended items for each user ID in the input file. For related items
+  solutions, the job generates a list of recommended items for each item ID in the
+  input file.
+
+  For more information, see [Creating a batch inference job
+  ](https://docs.aws.amazon.com/personalize/latest/dg/getting-batch-recommendations.html).
+
+  If you use the Similar-Items recipe, Amazon Personalize can add descriptive
+  themes to batch recommendations. To generate themes, set the job's mode to
+  `THEME_GENERATION` and specify the name of the field that contains item names in
+  the input data.
+
+  For more information about generating themes, see [Batch recommendations with themes from Content Generator
+  ](https://docs.aws.amazon.com/personalize/latest/dg/themed-batch-recommendations.html).
+
+  You can't get batch recommendations with the Trending-Now or Next-Best-Action
+  recipes.
   """
   def create_batch_inference_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -117,17 +136,21 @@ defmodule AWS.Personalize do
   Use
   [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html) to import your training data to a dataset.
 
-  There are three types of datasets:
+  There are 5 types of datasets:
 
-    * Interactions
+    * Item interactions
 
     * Items
 
     * Users
 
+    * Action interactions
+
+    * Actions
+
   Each dataset type has an associated schema with required field types. Only the
-  `Interactions` dataset is required in order to train a model (also referred to
-  as creating a solution).
+  `Item interactions` dataset is required in order to train a model (also referred
+  to as creating a solution).
 
   A dataset can be in one of the following states:
 
@@ -187,11 +210,15 @@ defmodule AWS.Personalize do
   A dataset group is a container for Amazon Personalize resources. A dataset group
   can contain at most three datasets, one for each type of dataset:
 
-    * Interactions
+    * Item interactions
 
     * Items
 
     * Users
+
+    * Actions
+
+    * Action interactions
 
   A dataset group can be a Domain dataset group, where you specify a domain and
   use pre-configured resources like recommenders, or a Custom dataset group, where
@@ -251,6 +278,11 @@ defmodule AWS.Personalize do
   information on granting access to your Amazon S3 bucket, see [Giving Amazon Personalize Access to Amazon S3
   Resources](https://docs.aws.amazon.com/personalize/latest/dg/granting-personalize-s3-access.html).
 
+  If you already created a recommender or deployed a custom solution version with
+  a campaign, how new bulk records influence recommendations depends on the domain
+  use case or recipe that you use. For more information, see [How new data influences real-time
+  recommendations](https://docs.aws.amazon.com/personalize/latest/dg/how-new-data-influences-recommendations.html).
+
   By default, a dataset import job replaces any existing data in the dataset that
   you imported in bulk. To add new records without replacing existing data,
   specify INCREMENTAL for the import mode in the CreateDatasetImportJob operation.
@@ -296,8 +328,8 @@ defmodule AWS.Personalize do
   When you create an event tracker, the response includes a tracking ID, which you
   pass as a parameter when you use the
   [PutEvents](https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html)
-  operation. Amazon Personalize then appends the event data to the Interactions
-  dataset of the dataset group you specify in your event tracker.
+  operation. Amazon Personalize then appends the event data to the Item
+  interactions dataset of the dataset group you specify in your event tracker.
 
   The event tracker can be in one of the following states:
 
@@ -599,8 +631,8 @@ defmodule AWS.Personalize do
   @doc """
   Deletes the event tracker.
 
-  Does not delete the event-interactions dataset from the associated dataset
-  group. For more information on event trackers, see
+  Does not delete the dataset from the dataset group. For more information on
+  event trackers, see
   [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html).
   """
   def delete_event_tracker(%Client{} = client, input, options \\ []) do
@@ -1183,8 +1215,9 @@ defmodule AWS.Personalize do
   end
 
   @doc """
-  Updates a campaign by either deploying a new solution or changing the value of
-  the campaign's `minProvisionedTPS` parameter.
+  Updates a campaign to deploy a retrained solution version with an existing
+  campaign, change your campaign's `minProvisionedTPS`, or modify your campaign's
+  configuration, such as the exploration configuration.
 
   To update a campaign, the campaign status must be ACTIVE or CREATE FAILED. Check
   the campaign status using the
@@ -1195,8 +1228,10 @@ defmodule AWS.Personalize do
   configuration to generate recommendations until the latest campaign update
   status is `Active`.
 
-  For more information on campaigns, see
-  [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).
+  For more information about updating a campaign, including code samples, see
+  [Updating a
+  campaign](https://docs.aws.amazon.com/personalize/latest/dg/update-campaigns.html).
+  For more information about campaigns, see [Creating a campaign](https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html).
   """
   def update_campaign(%Client{} = client, input, options \\ []) do
     meta = metadata()

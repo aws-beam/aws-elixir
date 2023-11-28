@@ -629,11 +629,12 @@ defmodule AWS.SFN do
   [Parallel](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-parallel-state.html) state, `RedriveExecution` API action reschedules and redrives only the
   iterations and branches that failed or aborted.
 
-  To redrive a workflow that includes a Distributed Map state with failed child
-  workflow executions, you must redrive the [parent
+  To redrive a workflow that includes a Distributed Map state whose Map Run
+  failed, you must redrive the [parent
   workflow](https://docs.aws.amazon.com/step-functions/latest/dg/use-dist-map-orchestrate-large-scale-parallel-workloads.html#dist-map-orchestrate-parallel-workloads-key-terms).
-  The parent workflow redrives all the unsuccessful states, including Distributed
-  Map.
+  The parent workflow redrives all the unsuccessful states, including a failed Map
+  Run. If a Map Run was not started in the original execution attempt, the
+  redriven parent workflow starts the Map Run.
 
   This API action is not supported by `EXPRESS` state machines.
 
@@ -816,6 +817,56 @@ defmodule AWS.SFN do
     meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
+  end
+
+  @doc """
+  Accepts the definition of a single state and executes it.
+
+  You can test a state without creating a state machine or updating an existing
+  state machine. Using this API, you can test the following:
+
+    * A state's [input and output processing](https://docs.aws.amazon.com/step-functions/latest/dg/test-state-isolation.html#test-state-input-output-dataflow)
+  data flow
+
+    * An [Amazon Web Services service integration](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-services.html)
+  request and response
+
+    * An [HTTP Task](https://docs.aws.amazon.com/step-functions/latest/dg/connect-third-party-apis.html)
+  request and response
+
+  You can call this API on only one state at a time. The states that you can test
+  include the following:
+
+    * [All Task types](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-task-state.html#task-types)
+  except
+  [Activity](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-activities.html)     *
+  [Pass](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-pass-state.html)
+
+    *
+  [Wait](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-wait-state.html)     *
+  [Choice](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-choice-state.html)
+
+    *
+  [Succeed](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-succeed-state.html)     *
+  [Fail](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-fail-state.html)
+
+  The `TestState` API assumes an IAM role which must contain the required IAM
+  permissions for the resources your state is accessing. For information about the
+  permissions a state might need, see [IAM permissions to test a state](https://docs.aws.amazon.com/step-functions/latest/dg/test-state-isolation.html#test-state-permissions).
+
+  The `TestState` API can run for up to five minutes. If the execution of a state
+  exceeds this duration, it fails with the `States.Timeout` error.
+
+  `TestState` doesn't support [Activity tasks](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-activities.html),
+  `.sync` or `.waitForTaskToken` [service integration patterns](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html),
+  [Parallel](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-parallel-state.html), or
+  [Map](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-map-state.html)
+  states.
+  """
+  def test_state(%Client{} = client, input, options \\ []) do
+    meta = metadata() |> Map.put_new(:host_prefix, "sync-")
+
+    Request.request_post(client, meta, "TestState", input, options)
   end
 
   @doc """

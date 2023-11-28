@@ -227,6 +227,65 @@ defmodule AWS.Backup do
   end
 
   @doc """
+  This is the first of two steps to create a restore testing plan; once this
+  request is successful, finish the procedure with request
+  CreateRestoreTestingSelection.
+
+  You must include the parameter RestoreTestingPlan. You may optionally include
+  CreatorRequestId and Tags.
+  """
+  def create_restore_testing_plan(%Client{} = client, input, options \\ []) do
+    url_path = "/restore-testing/plans"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+  end
+
+  @doc """
+  This request can be sent after CreateRestoreTestingPlan request returns
+  successfully.
+
+  This is the second part of creating a resource testing plan, and it must be
+  completed sequentially.
+
+  This consists of `RestoreTestingSelectionName`, `ProtectedResourceType`, and one
+  of the following:
+
+    * `ProtectedResourceArns`
+
+    * `ProtectedResourceConditions`
+
+  Each protected resource type can have one single value.
+
+  A restore testing selection can include a wildcard value ("*") for
+  `ProtectedResourceArns` along with `ProtectedResourceConditions`. Alternatively,
+  you can include up to 30 specific protected resource ARNs in
+  `ProtectedResourceArns`.
+
+  Cannot select by both protected resource types AND specific ARNs. Request will
+  fail if both are included.
+  """
+  def create_restore_testing_selection(
+        %Client{} = client,
+        restore_testing_plan_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}/selections"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+  end
+
+  @doc """
   Deletes a backup plan.
 
   A backup plan can only be deleted after all associated selections of resources
@@ -489,6 +548,71 @@ defmodule AWS.Backup do
       input,
       options,
       nil
+    )
+  end
+
+  @doc """
+  This request deletes the specified restore testing plan.
+
+  Deletion can only successfully occur if all associated restore testing
+  selections are deleted first.
+  """
+  def delete_restore_testing_plan(
+        %Client{} = client,
+        restore_testing_plan_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Input the Restore Testing Plan name and Restore Testing Selection name.
+
+  All testing selections associated with a restore testing plan must be deleted
+  before the restore testing plan can be deleted.
+  """
+  def delete_restore_testing_selection(
+        %Client{} = client,
+        restore_testing_plan_name,
+        restore_testing_selection_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}/selections/#{AWS.Util.encode_uri(restore_testing_selection_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
     )
   end
 
@@ -904,6 +1028,100 @@ defmodule AWS.Backup do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  This request returns the metadata for the specified restore job.
+  """
+  def get_restore_job_metadata(%Client{} = client, restore_job_id, options \\ []) do
+    url_path = "/restore-jobs/#{AWS.Util.encode_uri(restore_job_id)}/metadata"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  This request returns the minimal required set of metadata needed to start a
+  restore job with secure default settings.
+
+  `BackupVaultName` and `RecoveryPointArn` are required parameters.
+  `BackupVaultAccountId` is an optional parameter.
+  """
+  def get_restore_testing_inferred_metadata(
+        %Client{} = client,
+        backup_vault_account_id \\ nil,
+        backup_vault_name,
+        recovery_point_arn,
+        options \\ []
+      ) do
+    url_path = "/restore-testing/inferred-metadata"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(recovery_point_arn) do
+        [{"RecoveryPointArn", recovery_point_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(backup_vault_name) do
+        [{"BackupVaultName", backup_vault_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(backup_vault_account_id) do
+        [{"BackupVaultAccountId", backup_vault_account_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns `RestoreTestingPlan` details for the specified `RestoreTestingPlanName`.
+
+  The details are the body of a restore testing plan in JSON format, in addition
+  to plan metadata.
+  """
+  def get_restore_testing_plan(%Client{} = client, restore_testing_plan_name, options \\ []) do
+    url_path = "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns RestoreTestingSelection, which displays resources and elements of the
+  restore testing plan.
+  """
+  def get_restore_testing_selection(
+        %Client{} = client,
+        restore_testing_plan_name,
+        restore_testing_selection_name,
+        options \\ []
+      ) do
+    url_path =
+      "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}/selections/#{AWS.Util.encode_uri(restore_testing_selection_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1979,6 +2197,7 @@ defmodule AWS.Backup do
         by_complete_before \\ nil,
         by_created_after \\ nil,
         by_created_before \\ nil,
+        by_restore_testing_plan_arn \\ nil,
         by_status \\ nil,
         max_results \\ nil,
         next_token \\ nil,
@@ -2005,6 +2224,13 @@ defmodule AWS.Backup do
     query_params =
       if !is_nil(by_status) do
         [{"status", by_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_restore_testing_plan_arn) do
+        [{"restoreTestingPlanArn", by_restore_testing_plan_arn} | query_params]
       else
         query_params
       end
@@ -2047,6 +2273,139 @@ defmodule AWS.Backup do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  This returns restore jobs that contain the specified protected resource.
+
+  You must include `ResourceArn`. You can optionally include `NextToken`,
+  `ByStatus`, `MaxResults`, `ByRecoveryPointCreationDateAfter` , and
+  `ByRecoveryPointCreationDateBefore`.
+  """
+  def list_restore_jobs_by_protected_resource(
+        %Client{} = client,
+        resource_arn,
+        by_recovery_point_creation_date_after \\ nil,
+        by_recovery_point_creation_date_before \\ nil,
+        by_status \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/restore-jobs/"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_status) do
+        [{"status", by_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_recovery_point_creation_date_before) do
+        [
+          {"recoveryPointCreationDateBefore", by_recovery_point_creation_date_before}
+          | query_params
+        ]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_recovery_point_creation_date_after) do
+        [{"recoveryPointCreationDateAfter", by_recovery_point_creation_date_after} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Returns a list of restore testing plans.
+  """
+  def list_restore_testing_plans(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/restore-testing/plans"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of restore testing selections.
+
+  Can be filtered by `MaxResults` and `RestoreTestingPlanName`.
+  """
+  def list_restore_testing_selections(
+        %Client{} = client,
+        restore_testing_plan_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}/selections"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2146,6 +2505,23 @@ defmodule AWS.Backup do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  This request allows you to send your independent self-run restore test
+  validation results.
+
+  `RestoreJobId` and `ValidationStatus` are required. Optionally, you can input a
+  `ValidationStatusMessage`.
+  """
+  def put_restore_validation_result(%Client{} = client, restore_job_id, input, options \\ []) do
+    url_path = "/restore-jobs/#{AWS.Util.encode_uri(restore_job_id)}/validations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
 
   @doc """
@@ -2422,5 +2798,63 @@ defmodule AWS.Backup do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  This request will send changes to your specified restore testing plan.
+
+  `RestoreTestingPlanName` cannot be updated after it is created.
+
+  `RecoveryPointSelection` can contain:
+
+    * `Algorithm`
+
+    * `ExcludeVaults`
+
+    * `IncludeVaults`
+
+    * `RecoveryPointTypes`
+
+    * `SelectionWindowDays`
+  """
+  def update_restore_testing_plan(
+        %Client{} = client,
+        restore_testing_plan_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Most elements except the `RestoreTestingSelectionName` can be updated with this
+  request.
+
+  `RestoreTestingSelection` can use either protected resource ARNs or conditions,
+  but not both. That is, if your selection has `ProtectedResourceArns`, requesting
+  an update with the parameter `ProtectedResourceConditions` will be unsuccessful.
+  """
+  def update_restore_testing_selection(
+        %Client{} = client,
+        restore_testing_plan_name,
+        restore_testing_selection_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}/selections/#{AWS.Util.encode_uri(restore_testing_selection_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 end

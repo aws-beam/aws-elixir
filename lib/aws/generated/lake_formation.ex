@@ -233,6 +233,34 @@ defmodule AWS.LakeFormation do
   end
 
   @doc """
+  Creates an IAM Identity Center connection with Lake Formation to allow IAM
+  Identity Center users and groups to access Data Catalog resources.
+  """
+  def create_lake_formation_identity_center_configuration(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    url_path = "/CreateLakeFormationIdentityCenterConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Enforce Lake Formation permissions for the given databases, tables, and
   principals.
   """
@@ -290,6 +318,33 @@ defmodule AWS.LakeFormation do
   """
   def delete_l_f_tag(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLFTag"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes an IAM Identity Center connection with Lake Formation.
+  """
+  def delete_lake_formation_identity_center_configuration(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    url_path = "/DeleteLakeFormationIdentityCenterConfiguration"
     headers = []
     query_params = []
 
@@ -372,6 +427,33 @@ defmodule AWS.LakeFormation do
   """
   def deregister_resource(%Client{} = client, input, options \\ []) do
     url_path = "/DeregisterResource"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Retrieves the instance ARN and application ARN for the connection.
+  """
+  def describe_lake_formation_identity_center_configuration(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    url_path = "/DescribeLakeFormationIdentityCenterConfiguration"
     headers = []
     query_params = []
 
@@ -1230,6 +1312,33 @@ defmodule AWS.LakeFormation do
   """
   def update_l_f_tag(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLFTag"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates the IAM Identity Center connection parameters.
+  """
+  def update_lake_formation_identity_center_configuration(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    url_path = "/UpdateLakeFormationIdentityCenterConfiguration"
     headers = []
     query_params = []
 

@@ -22,6 +22,37 @@ defmodule AWS.PersonalizeRuntime do
   end
 
   @doc """
+  Returns a list of recommended actions in sorted in descending order by
+  prediction score.
+
+  Use the `GetActionRecommendations` API if you have a custom campaign that
+  deploys a solution version trained with a PERSONALIZED_ACTIONS recipe.
+
+  For more information about PERSONALIZED_ACTIONS recipes, see
+  [PERSONALIZED_ACTIONS recipes](https://docs.aws.amazon.com/personalize/latest/dg/nexts-best-action-recipes.html).
+  For more information about getting action recommendations, see [Getting action recommendations](https://docs.aws.amazon.com/personalize/latest/dg/get-action-recommendations.html).
+  """
+  def get_action_recommendations(%Client{} = client, input, options \\ []) do
+    url_path = "/action-recommendations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Re-ranks a list of recommended items for the given user.
 
   The first item in the list is deemed the most likely item to be of interest to

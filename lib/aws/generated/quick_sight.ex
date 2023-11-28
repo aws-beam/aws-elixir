@@ -1132,6 +1132,41 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Deletes all access scopes and authorized targets that are associated with a
+  service from the Amazon QuickSight IAM Identity Center application.
+
+  This operation is only supported for Amazon QuickSight accounts that use IAM
+  Identity Center.
+  """
+  def delete_identity_propagation_config(
+        %Client{} = client,
+        aws_account_id,
+        service,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/identity-propagation-config/#{AWS.Util.encode_uri(service)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes a namespace and the users and groups that are associated with the
   namespace.
 
@@ -3313,6 +3348,43 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Lists all services and authorized targets that the Amazon QuickSight IAM
+  Identity Center application can access.
+
+  This operation is only supported for Amazon QuickSight accounts that use IAM
+  Identity Center.
+  """
+  def list_identity_propagation_configs(
+        %Client{} = client,
+        aws_account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/identity-propagation-config"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Lists the history of SPICE ingestions for a dataset.
   """
   def list_ingestions(
@@ -4564,6 +4636,41 @@ defmodule AWS.QuickSight do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Adds or updates services and authorized targets to configure what the Amazon
+  QuickSight IAM Identity Center application can access.
+
+  This operation is only supported for Amazon QuickSight accounts using IAM
+  Identity Center
+  """
+  def update_identity_propagation_config(
+        %Client{} = client,
+        aws_account_id,
+        service,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/identity-propagation-config/#{AWS.Util.encode_uri(service)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """

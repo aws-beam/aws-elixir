@@ -43,10 +43,10 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Creates a new accessor for use with Managed Blockchain Ethereum nodes.
+  Creates a new accessor for use with Amazon Managed Blockchain service that
+  supports token based access.
 
-  An accessor contains information required for token based access to your
-  Ethereum nodes.
+  The accessor contains information required for token based access.
   """
   def create_accessor(%Client{} = client, input, options \\ []) do
     url_path = "/accessors"
@@ -366,7 +366,13 @@ defmodule AWS.ManagedBlockchain do
   Accessor objects are containers that have the information required for token
   based access to your Ethereum nodes.
   """
-  def list_accessors(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_accessors(
+        %Client{} = client,
+        max_results \\ nil,
+        network_type \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
     url_path = "/accessors"
     headers = []
     query_params = []
@@ -374,6 +380,13 @@ defmodule AWS.ManagedBlockchain do
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(network_type) do
+        [{"networkType", network_type} | query_params]
       else
         query_params
       end

@@ -108,6 +108,19 @@ defmodule AWS.FSx do
   end
 
   @doc """
+  Updates an existing volume by using a snapshot from another Amazon FSx for
+  OpenZFS file system.
+
+  For more information, see [on-demand data replication](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/on-demand-replication.html)
+  in the Amazon FSx for OpenZFS User Guide.
+  """
+  def copy_snapshot_and_update_volume(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CopySnapshotAndUpdateVolume", input, options)
+  end
+
+  @doc """
   Creates a backup of an existing Amazon FSx for Windows File Server file system,
   Amazon FSx for Lustre file system, Amazon FSx for NetApp ONTAP volume, or Amazon
   FSx for OpenZFS file system.
@@ -701,6 +714,19 @@ defmodule AWS.FSx do
   end
 
   @doc """
+  Indicates whether participant accounts in your organization can create Amazon
+  FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a
+  virtual private cloud (VPC) owner.
+
+  For more information, see the [Amazon FSx for NetApp ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/maz-shared-vpc.html).
+  """
+  def describe_shared_vpc_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSharedVpcConfiguration", input, options)
+  end
+
+  @doc """
   Returns the description of specific Amazon FSx for OpenZFS snapshots, if a
   `SnapshotIds` value is provided.
 
@@ -759,8 +785,8 @@ defmodule AWS.FSx do
   (DNS) aliases from an Amazon FSx for Windows File Server file system.
 
   If you attempt to disassociate a DNS alias that is not associated with the file
-  system, Amazon FSx responds with a 400 Bad Request. For more information, see
-  [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html).
+  system, Amazon FSx responds with an HTTP status code 400 (Bad Request). For more
+  information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html).
 
   The system generated response showing the DNS aliases that Amazon FSx is
   attempting to disassociate from the file system. Use the API operation to
@@ -933,11 +959,15 @@ defmodule AWS.FSx do
 
     * `FsxAdminPassword`
 
+    * `HAPairs`
+
     * `RemoveRouteTableIds`
 
     * `StorageCapacity`
 
     * `ThroughputCapacity`
+
+    * `ThroughputCapacityPerHAPair`
 
     * `WeeklyMaintenanceStartTime`
 
@@ -967,6 +997,25 @@ defmodule AWS.FSx do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateFileSystem", input, options)
+  end
+
+  @doc """
+  Configures whether participant accounts in your organization can create Amazon
+  FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a
+  virtual private cloud (VPC) owner.
+
+  For more information, see the [Amazon FSx for NetApp ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/maz-shared-vpc.html).
+
+  We strongly recommend that participant-created Multi-AZ file systems in the
+  shared VPC are deleted before you disable this feature. Once the feature is
+  disabled, these file systems will enter a `MISCONFIGURED` state and behave like
+  Single-AZ file systems. For more information, see [Important considerations before disabling shared VPC support for Multi-AZ file
+  systems](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/maz-shared-vpc.html#disabling-maz-vpc-sharing).
+  """
+  def update_shared_vpc_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSharedVpcConfiguration", input, options)
   end
 
   @doc """

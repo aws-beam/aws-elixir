@@ -180,14 +180,13 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
-  Creates a new version of the bot based on the `DRAFT` version.
+  Creates an immutable version of the bot.
 
-  If the `DRAFT` version of this resource hasn't changed since you created the
-  last version, Amazon Lex doesn't create a new version, it returns the last
-  created version.
-
-  When you create the first version of a bot, Amazon Lex sets the version to 1.
-  Subsequent versions increment by 1.
+  When you create the first version of a bot, Amazon Lex sets the version number
+  to 1. Subsequent bot versions increase in an increment of 1. The version number
+  will always represent the total number of versions created of the bot, not the
+  current number of versions. If a bot version is deleted, that bot version number
+  will not be reused.
   """
   def create_bot_version(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/"
@@ -937,6 +936,32 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
+  Returns information about a request to generate a bot through natural language
+  description, made through the `StartBotResource` API.
+
+  Use the `generatedBotLocaleUrl` to retrieve the Amazon S3 object containing the
+  bot locale configuration. You can then modify and import this configuration.
+  """
+  def describe_bot_resource_generation(
+        %Client{} = client,
+        bot_id,
+        bot_version,
+        generation_id,
+        locale_id,
+        options \\ []
+      ) do
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/generations/#{AWS.Util.encode_uri(generation_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Provides metadata about a version of a bot.
   """
   def describe_bot_version(%Client{} = client, bot_id, bot_version, options \\ []) do
@@ -1135,6 +1160,38 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
+  Generates sample utterances for an intent.
+  """
+  def generate_bot_element(
+        %Client{} = client,
+        bot_id,
+        bot_version,
+        locale_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/generate"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   The pre-signed Amazon S3 URL to download the test execution result artifacts.
   """
   def get_test_execution_artifacts_url(%Client{} = client, test_execution_id, options \\ []) do
@@ -1252,6 +1309,38 @@ defmodule AWS.LexModelsV2 do
       ) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/botrecommendations/"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the generation requests made for a bot locale.
+  """
+  def list_bot_resource_generations(
+        %Client{} = client,
+        bot_id,
+        bot_version,
+        locale_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/generations"
 
     headers = []
     query_params = []
@@ -2050,6 +2139,35 @@ defmodule AWS.LexModelsV2 do
       ) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/botrecommendations/"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+  end
+
+  @doc """
+  Starts a request for the descriptive bot builder to generate a bot locale
+  configuration based on the prompt you provide it.
+
+  After you make this call, use the `DescribeBotResourceGeneration` operation to
+  check on the status of the generation and for the `generatedBotLocaleUrl` when
+  the generation is complete. Use that value to retrieve the Amazon S3 object
+  containing the bot locale configuration. You can then modify and import this
+  configuration.
+  """
+  def start_bot_resource_generation(
+        %Client{} = client,
+        bot_id,
+        bot_version,
+        locale_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/startgeneration"
 
     headers = []
     query_params = []

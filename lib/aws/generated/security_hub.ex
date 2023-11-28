@@ -240,6 +240,34 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Returns associations between an Security Hub configuration and a batch of target
+  accounts, organizational units, or the root.
+
+  Only the Security Hub delegated administrator can invoke this operation from the
+  home Region. A configuration can refer to a configuration policy or to a
+  self-managed configuration.
+  """
+  def batch_get_configuration_policy_associations(%Client{} = client, input, options \\ []) do
+    url_path = "/configurationPolicyAssociation/batchget"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Provides details about a batch of security controls for the current Amazon Web
   Services account and Amazon Web Services Region.
   """
@@ -513,6 +541,32 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Creates a configuration policy with the defined configuration.
+
+  Only the Security Hub delegated administrator can invoke this operation from the
+  home Region.
+  """
+  def create_configuration_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/configurationPolicy/create"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Used to enable finding aggregation.
 
   Must be called from the aggregation Region.
@@ -689,6 +743,34 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Deletes a configuration policy.
+
+  Only the Security Hub delegated administrator can invoke this operation from the
+  home Region. For the deletion to succeed, you must first disassociate a
+  configuration policy from target accounts, organizational units, or the root by
+  invoking the `StartConfigurationPolicyDisassociation` operation.
+  """
+  def delete_configuration_policy(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/configurationPolicy/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes a finding aggregator.
 
   When you delete the finding aggregator, you stop finding aggregation.
@@ -845,9 +927,10 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Returns information about the Organizations configuration for Security Hub.
+  Returns information about the way your organization is configured in Security
+  Hub.
 
-  Can only be called from a Security Hub administrator account.
+  Only the Security Hub administrator account can invoke this operation.
   """
   def describe_organization_configuration(%Client{} = client, options \\ []) do
     url_path = "/organization/configuration"
@@ -1283,6 +1366,50 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Provides information about a configuration policy.
+
+  Only the Security Hub delegated administrator can invoke this operation from the
+  home Region.
+  """
+  def get_configuration_policy(%Client{} = client, identifier, options \\ []) do
+    url_path = "/configurationPolicy/get/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Returns the association between a configuration and a target account,
+  organizational unit, or the root.
+
+  The configuration can be a configuration policy or self-managed behavior. Only
+  the Security Hub delegated administrator can invoke this operation from the home
+  Region.
+  """
+  def get_configuration_policy_association(%Client{} = client, input, options \\ []) do
+    url_path = "/configurationPolicyAssociation/get"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns a list of the standards that are currently enabled.
   """
   def get_enabled_standards(%Client{} = client, input, options \\ []) do
@@ -1483,6 +1610,29 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Retrieves the definition of a security control.
+
+  The definition includes the control title, description, Region availability,
+  parameter definitions, and other details.
+  """
+  def get_security_control_definition(%Client{} = client, security_control_id, options \\ []) do
+    url_path = "/securityControl/definition"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(security_control_id) do
+        [{"SecurityControlId", security_control_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Invites other Amazon Web Services accounts to become member accounts for the
   Security Hub administrator account that the invitation is sent from.
 
@@ -1546,6 +1696,68 @@ defmodule AWS.SecurityHub do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists the configuration policies that the Security Hub delegated administrator
+  has created for your organization.
+
+  Only the delegated administrator can invoke this operation from the home Region.
+  """
+  def list_configuration_policies(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/configurationPolicy/list"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Provides information about the associations for your configuration policies and
+  self-managed behavior.
+
+  Only the Security Hub delegated administrator can invoke this operation from the
+  home Region.
+  """
+  def list_configuration_policy_associations(%Client{} = client, input, options \\ []) do
+    url_path = "/configurationPolicyAssociation/list"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1821,6 +2033,65 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Associates a target account, organizational unit, or the root with a specified
+  configuration.
+
+  The target can be associated with a configuration policy or self-managed
+  behavior. Only the Security Hub delegated administrator can invoke this
+  operation from the home Region.
+  """
+  def start_configuration_policy_association(%Client{} = client, input, options \\ []) do
+    url_path = "/configurationPolicyAssociation/associate"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Disassociates a target account, organizational unit, or the root from a
+  specified configuration.
+
+  When you disassociate a configuration from its target, the target inherits the
+  configuration of the closest parent. If there’s no configuration to inherit, the
+  target retains its settings but becomes a self-managed account. A target can be
+  disassociated from a configuration policy or self-managed behavior. Only the
+  Security Hub delegated administrator can invoke this operation from the home
+  Region.
+  """
+  def start_configuration_policy_disassociation(%Client{} = client, input, options \\ []) do
+    url_path = "/configurationPolicyAssociation/disassociate"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Adds one or more tags to a resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -1876,6 +2147,32 @@ defmodule AWS.SecurityHub do
   """
   def update_action_target(%Client{} = client, action_target_arn, input, options \\ []) do
     url_path = "/actionTargets/#{AWS.Util.encode_multi_segment_uri(action_target_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates a configuration policy.
+
+  Only the Security Hub delegated administrator can invoke this operation from the
+  home Region.
+  """
+  def update_configuration_policy(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/configurationPolicy/#{AWS.Util.encode_uri(identifier)}"
     headers = []
     query_params = []
 
@@ -1976,9 +2273,9 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Used to update the configuration related to Organizations.
+  Updates the configuration of your organization in Security Hub.
 
-  Can only be called from a Security Hub administrator account.
+  Only the Security Hub administrator account can invoke this operation.
   """
   def update_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/organization/configuration"
@@ -1991,6 +2288,29 @@ defmodule AWS.SecurityHub do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates the properties of a security control.
+  """
+  def update_security_control(%Client{} = client, input, options \\ []) do
+    url_path = "/securityControl/update"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       headers,

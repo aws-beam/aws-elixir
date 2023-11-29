@@ -228,9 +228,10 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Creates an access point and associates it with the specified bucket.
+  This operation is not supported by directory buckets.
 
-  For more information, see [Managing Data Access with Amazon S3 Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html)
+  Creates an access point and associates it with the specified bucket. For more
+  information, see [Managing Data Access with Amazon S3 Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html)
   in the *Amazon S3 User Guide*.
 
   S3 on Outposts only supports VPC-style access points.
@@ -273,9 +274,10 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Creates an Object Lambda Access Point.
+  This operation is not supported by directory buckets.
 
-  For more information, see [Transforming objects with Object Lambda Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html)
+  Creates an Object Lambda Access Point. For more information, see [Transforming objects with Object Lambda Access
+  Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html)
   in the *Amazon S3 User Guide*.
 
   The following actions are related to `CreateAccessPointForObjectLambda`:
@@ -375,14 +377,20 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  You can use S3 Batch Operations to perform large-scale batch actions on Amazon
-  S3 objects.
+  This operation creates an S3 Batch Operations job.
 
-  Batch Operations can run a single action on lists of Amazon S3 objects that you
-  specify. For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html)
+  You can use S3 Batch Operations to perform large-scale batch actions on Amazon
+  S3 objects. Batch Operations can run a single action on lists of Amazon S3
+  objects that you specify. For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html)
   in the *Amazon S3 User Guide*.
 
-  This action creates a S3 Batch Operations job.
+  ## Definitions
+
+  ### Permissions
+
+  For information about permissions required to use the Batch Operations, see
+  [Granting permissions for S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html)
+  in the *Amazon S3 User Guide*.
 
   Related actions include:
 
@@ -424,11 +432,11 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Creates a Multi-Region Access Point and associates it with the specified
-  buckets.
+  This operation is not supported by directory buckets.
 
-  For more information about creating Multi-Region Access Points, see [Creating Multi-Region Access
-  Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html)
+  Creates a Multi-Region Access Point and associates it with the specified
+  buckets. For more information about creating Multi-Region Access Points, see
+  [Creating Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html)
   in the *Amazon S3 User Guide*.
 
   This action will always be routed to the US West (Oregon) Region. For more
@@ -697,6 +705,8 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  This operation is not supported by directory buckets.
+
   Deletes the specified access point.
 
   All Amazon S3 on Outposts REST API requests for this action require an
@@ -743,6 +753,8 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  This operation is not supported by directory buckets.
+
   Deletes the specified Object Lambda Access Point.
 
   The following actions are related to `DeleteAccessPointForObjectLambda`:
@@ -781,6 +793,8 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  This operation is not supported by directory buckets.
+
   Deletes the access point policy for the specified access point.
 
   All Amazon S3 on Outposts REST API requests for this action require an
@@ -826,6 +840,8 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  This operation is not supported by directory buckets.
+
   Removes the resource policy for an Object Lambda Access Point.
 
   The following actions are related to `DeleteAccessPointPolicyForObjectLambda`:
@@ -1176,6 +1192,10 @@ defmodule AWS.S3Control do
   @doc """
   Removes the entire tag set from the specified S3 Batch Operations job.
 
+  ## Definitions
+
+  ### Permissions
+
   To use the `DeleteJobTagging` operation, you must have permission to perform the
   `s3:DeleteJobTagging` action. For more information, see [Controlling access and labeling jobs using
   tags](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags)
@@ -1217,10 +1237,11 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Deletes a Multi-Region Access Point.
+  This operation is not supported by directory buckets.
 
-  This action does not delete the buckets associated with the Multi-Region Access
-  Point, only the Multi-Region Access Point itself.
+  Deletes a Multi-Region Access Point. This action does not delete the buckets
+  associated with the Multi-Region Access Point, only the Multi-Region Access
+  Point itself.
 
   This action will always be routed to the US West (Oregon) Region. For more
   information about the restrictions around managing Multi-Region Access Points,
@@ -1269,10 +1290,10 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Removes the `PublicAccessBlock` configuration for an Amazon Web Services
-  account.
+  This operation is not supported by directory buckets.
 
-  For more information, see [ Using Amazon S3 block public access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
+  Removes the `PublicAccessBlock` configuration for an Amazon Web Services
+  account. For more information, see [ Using Amazon S3 block public access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
 
   Related actions include:
 
@@ -1307,9 +1328,10 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Deletes the Amazon S3 Storage Lens configuration.
+  This operation is not supported by directory buckets.
 
-  For more information about S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
+  Deletes the Amazon S3 Storage Lens configuration. For more information about S3
+  Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
   ](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
   *Amazon S3 User Guide*.
 
@@ -1345,9 +1367,10 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Deletes the Amazon S3 Storage Lens configuration tags.
+  This operation is not supported by directory buckets.
 
-  For more information about S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
+  Deletes the Amazon S3 Storage Lens configuration tags. For more information
+  about S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
   ](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
   *Amazon S3 User Guide*.
 
@@ -1430,6 +1453,13 @@ defmodule AWS.S3Control do
   For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html)
   in the *Amazon S3 User Guide*.
 
+  ## Definitions
+
+  ### Permissions
+
+  To use the `DescribeJob` operation, you must have permission to perform the
+  `s3:DescribeJob` action.
+
   Related actions include:
 
     *
@@ -1459,10 +1489,10 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Retrieves the status of an asynchronous request to manage a Multi-Region Access
-  Point.
+  This operation is not supported by directory buckets.
 
-  For more information about managing Multi-Region Access Points and how
+  Retrieves the status of an asynchronous request to manage a Multi-Region Access
+  Point. For more information about managing Multi-Region Access Points and how
   asynchronous requests work, see [Managing Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html)
   in the *Amazon S3 User Guide*.
 
@@ -1705,6 +1735,8 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  This operation is not supported by directory buckets.
+
   Returns configuration information about the specified access point.
 
   All Amazon S3 on Outposts REST API requests for this action require an
@@ -1743,6 +1775,8 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  This operation is not supported by directory buckets.
+
   Returns configuration for an Object Lambda Access Point.
 
   The following actions are related to
@@ -1775,6 +1809,8 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  This operation is not supported by directory buckets.
+
   Returns configuration information about the specified Object Lambda Access Point
 
   The following actions are related to `GetAccessPointForObjectLambda`:
@@ -1805,6 +1841,8 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  This operation is not supported by directory buckets.
+
   Returns the access point policy associated with the specified access point.
 
   The following actions are related to `GetAccessPointPolicy`:
@@ -1832,6 +1870,8 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  This operation is not supported by directory buckets.
+
   Returns the resource policy for an Object Lambda Access Point.
 
   The following actions are related to `GetAccessPointPolicyForObjectLambda`:
@@ -1864,11 +1904,11 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Indicates whether the specified access point currently has a policy that allows
-  public access.
+  This operation is not supported by directory buckets.
 
-  For more information about public access through access points, see [Managing Data Access with Amazon S3 access
-  points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html)
+  Indicates whether the specified access point currently has a policy that allows
+  public access. For more information about public access through access points,
+  see [Managing Data Access with Amazon S3 access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html)
   in the *Amazon S3 User Guide*.
   """
   def get_access_point_policy_status(%Client{} = client, name, account_id, options \\ []) do
@@ -1890,6 +1930,8 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  This operation is not supported by directory buckets.
+
   Returns the status of the resource policy associated with an Object Lambda
   Access Point.
   """
@@ -2358,6 +2400,10 @@ defmodule AWS.S3Control do
   @doc """
   Returns the tags on an S3 Batch Operations job.
 
+  ## Definitions
+
+  ### Permissions
+
   To use the `GetJobTagging` operation, you must have permission to perform the
   `s3:GetJobTagging` action. For more information, see [Controlling access and labeling jobs using
   tags](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags)
@@ -2391,6 +2437,8 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  This operation is not supported by directory buckets.
+
   Returns configuration information about the specified Multi-Region Access Point.
 
   This action will always be routed to the US West (Oregon) Region. For more
@@ -2427,6 +2475,8 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  This operation is not supported by directory buckets.
+
   Returns the access control policy of the specified Multi-Region Access Point.
 
   This action will always be routed to the US West (Oregon) Region. For more
@@ -2459,6 +2509,8 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  This operation is not supported by directory buckets.
+
   Indicates whether the specified Multi-Region Access Point has an access control
   policy that allows public access.
 
@@ -2497,6 +2549,8 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  This operation is not supported by directory buckets.
+
   Returns the routing configuration for a Multi-Region Access Point, indicating
   which Regions are active or passive.
 
@@ -2535,10 +2589,10 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Retrieves the `PublicAccessBlock` configuration for an Amazon Web Services
-  account.
+  This operation is not supported by directory buckets.
 
-  For more information, see [ Using Amazon S3 block public access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
+  Retrieves the `PublicAccessBlock` configuration for an Amazon Web Services
+  account. For more information, see [ Using Amazon S3 block public access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
 
   Related actions include:
 
@@ -2565,9 +2619,10 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Gets the Amazon S3 Storage Lens configuration.
+  This operation is not supported by directory buckets.
 
-  For more information, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
+  Gets the Amazon S3 Storage Lens configuration. For more information, see
+  [Assessing your storage activity and usage with Amazon S3 Storage Lens
   ](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
   *Amazon S3 User Guide*. For a complete list of S3 Storage Lens metrics, see [S3 Storage Lens metrics
   glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html)
@@ -2597,9 +2652,10 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Gets the tags of Amazon S3 Storage Lens configuration.
+  This operation is not supported by directory buckets.
 
-  For more information about S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
+  Gets the tags of Amazon S3 Storage Lens configuration. For more information
+  about S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
   ](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
   *Amazon S3 User Guide*.
 
@@ -2855,13 +2911,13 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Returns a list of the access points that are owned by the current account that's
-  associated with the specified bucket.
+  This operation is not supported by directory buckets.
 
-  You can retrieve up to 1000 access points per call. If the specified bucket has
-  more than 1,000 access points (or the number specified in `maxResults`,
-  whichever is less), the response will include a continuation token that you can
-  use to list the additional access points.
+  Returns a list of the access points that are owned by the current account that's
+  associated with the specified bucket. You can retrieve up to 1000 access points
+  per call. If the specified bucket has more than 1,000 access points (or the
+  number specified in `maxResults`, whichever is less), the response will include
+  a continuation token that you can use to list the additional access points.
 
   All Amazon S3 on Outposts REST API requests for this action require an
   additional parameter of `x-amz-outpost-id` to be passed with the request. In
@@ -2927,12 +2983,12 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Returns some or all (up to 1,000) access points associated with the Object
-  Lambda Access Point per call.
+  This operation is not supported by directory buckets.
 
-  If there are more access points than what can be returned in one call, the
-  response will include a continuation token that you can use to list the
-  additional access points.
+  Returns some or all (up to 1,000) access points associated with the Object
+  Lambda Access Point per call. If there are more access points than what can be
+  returned in one call, the response will include a continuation token that you
+  can use to list the additional access points.
 
   The following actions are related to `ListAccessPointsForObjectLambda`:
 
@@ -2982,11 +3038,18 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Lists current S3 Batch Operations jobs and jobs that have ended within the last
-  30 days for the Amazon Web Services account making the request.
+  Lists current S3 Batch Operations jobs as well as the jobs that have ended
+  within the last 30 days for the Amazon Web Services account making the request.
 
   For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html)
   in the *Amazon S3 User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  To use the `ListJobs` operation, you must have permission to perform the
+  `s3:ListJobs` action.
 
   Related actions include:
 
@@ -3045,11 +3108,12 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Returns a list of the Multi-Region Access Points currently associated with the
-  specified Amazon Web Services account.
+  This operation is not supported by directory buckets.
 
-  Each call can return up to 100 Multi-Region Access Points, the maximum number of
-  Multi-Region Access Points that can be associated with a single account.
+  Returns a list of the Multi-Region Access Points currently associated with the
+  specified Amazon Web Services account. Each call can return up to 100
+  Multi-Region Access Points, the maximum number of Multi-Region Access Points
+  that can be associated with a single account.
 
   This action will always be routed to the US West (Oregon) Region. For more
   information about the restrictions around managing Multi-Region Access Points,
@@ -3105,10 +3169,11 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Returns a list of all Outposts buckets in an Outpost that are owned by the
-  authenticated sender of the request.
+  This operation is not supported by directory buckets.
 
-  For more information, see [Using Amazon S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
+  Returns a list of all Outposts buckets in an Outpost that are owned by the
+  authenticated sender of the request. For more information, see [Using Amazon S3 on
+  Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
   in the *Amazon S3 User Guide*.
 
   For an example of the request syntax for Amazon S3 on Outposts that uses the S3
@@ -3164,9 +3229,10 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Gets a list of Amazon S3 Storage Lens configurations.
+  This operation is not supported by directory buckets.
 
-  For more information about S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
+  Gets a list of Amazon S3 Storage Lens configurations. For more information about
+  S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
   ](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
   *Amazon S3 User Guide*.
 
@@ -3309,6 +3375,8 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  This operation is not supported by directory buckets.
+
   Replaces configuration for an Object Lambda Access Point.
 
   The following actions are related to
@@ -3339,10 +3407,11 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Associates an access policy with the specified access point.
+  This operation is not supported by directory buckets.
 
-  Each access point can have only one policy, so a request made to this API
-  replaces any existing policy associated with the specified access point.
+  Associates an access policy with the specified access point. Each access point
+  can have only one policy, so a request made to this API replaces any existing
+  policy associated with the specified access point.
 
   All Amazon S3 on Outposts REST API requests for this action require an
   additional parameter of `x-amz-outpost-id` to be passed with the request. In
@@ -3377,9 +3446,10 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Creates or replaces resource policy for an Object Lambda Access Point.
+  This operation is not supported by directory buckets.
 
-  For an example policy, see [Creating Object Lambda Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-create.html#olap-create-cli)
+  Creates or replaces resource policy for an Object Lambda Access Point. For an
+  example policy, see [Creating Object Lambda Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-create.html#olap-create-cli)
   in the *Amazon S3 User Guide*.
 
   The following actions are related to `PutAccessPointPolicyForObjectLambda`:
@@ -3779,36 +3849,41 @@ defmodule AWS.S3Control do
   with the job. To modify the existing tag set, you can either replace the
   existing tag set entirely, or make changes within the existing tag set by
   retrieving the existing tag set using
-  [GetJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html), modify that tag set, and use this action to replace the tag set with the one you
-  modified. For more information, see [Controlling access and labeling jobs using
+  [GetJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html), modify that tag set, and use this operation to replace the tag set with the one
+  you modified. For more information, see [Controlling access and labeling jobs
+  using
   tags](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags)
   in the *Amazon S3 User Guide*.
 
-    * If you send this request with an empty tag set, Amazon S3 deletes
+     If you send this request with an empty tag set, Amazon S3 deletes
   the existing tag set on the Batch Operations job. If you use this method, you
   are charged for a Tier 1 Request (PUT). For more information, see [Amazon S3 pricing](http://aws.amazon.com/s3/pricing/).
 
-    * For deleting existing tags for your Batch Operations job, a
+     For deleting existing tags for your Batch Operations job, a
   [DeleteJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html) request is preferred because it achieves the same result without incurring
   charges.
 
-    * A few things to consider about using tags:
+     A few things to consider about using tags:
 
-      * Amazon S3 limits the maximum number of tags to 50 tags
+       Amazon S3 limits the maximum number of tags to 50 tags
   per job.
 
-      * You can associate up to 50 tags with a job as long as
+       You can associate up to 50 tags with a job as long as
   they have unique tag keys.
 
-      * A tag key can be up to 128 Unicode characters in
+       A tag key can be up to 128 Unicode characters in
   length, and tag values can be up to 256 Unicode characters in length.
 
-      * The key and values are case sensitive.
+       The key and values are case sensitive.
 
-      * For tagging-related restrictions related to characters
+       For tagging-related restrictions related to characters
   and encodings, see [User-Defined Tag
   Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html)
   in the *Billing and Cost Management User Guide*.
+
+  ## Definitions
+
+  ### Permissions
 
   To use the `PutJobTagging` operation, you must have permission to perform the
   `s3:PutJobTagging` action.
@@ -3839,12 +3914,12 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Associates an access control policy with the specified Multi-Region Access
-  Point.
+  This operation is not supported by directory buckets.
 
-  Each Multi-Region Access Point can have only one policy, so a request made to
-  this action replaces any existing policy that is associated with the specified
-  Multi-Region Access Point.
+  Associates an access control policy with the specified Multi-Region Access
+  Point. Each Multi-Region Access Point can have only one policy, so a request
+  made to this action replaces any existing policy that is associated with the
+  specified Multi-Region Access Point.
 
   This action will always be routed to the US West (Oregon) Region. For more
   information about the restrictions around managing Multi-Region Access Points,
@@ -3884,11 +3959,12 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Creates or modifies the `PublicAccessBlock` configuration for an Amazon Web
-  Services account.
+  This operation is not supported by directory buckets.
 
-  For this operation, users must have the `s3:PutAccountPublicAccessBlock`
-  permission. For more information, see [ Using Amazon S3 block public access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
+  Creates or modifies the `PublicAccessBlock` configuration for an Amazon Web
+  Services account. For this operation, users must have the
+  `s3:PutAccountPublicAccessBlock` permission. For more information, see [ Using Amazon S3 block public
+  access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
 
   Related actions include:
 
@@ -3913,9 +3989,10 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Puts an Amazon S3 Storage Lens configuration.
+  This operation is not supported by directory buckets.
 
-  For more information about S3 Storage Lens, see [Working with Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
+  Puts an Amazon S3 Storage Lens configuration. For more information about S3
+  Storage Lens, see [Working with Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
   *Amazon S3 User Guide*. For a complete list of S3 Storage Lens metrics, see [S3 Storage Lens metrics
   glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html)
   in the *Amazon S3 User Guide*.
@@ -3942,9 +4019,10 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Put or replace tags on an existing Amazon S3 Storage Lens configuration.
+  This operation is not supported by directory buckets.
 
-  For more information about S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
+  Put or replace tags on an existing Amazon S3 Storage Lens configuration. For
+  more information about S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
   ](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
   *Amazon S3 User Guide*.
 
@@ -3970,13 +4048,14 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  Submits an updated route configuration for a Multi-Region Access Point.
+  This operation is not supported by directory buckets.
 
-  This API operation updates the routing status for the specified Regions from
-  active to passive, or from passive to active. A value of `0` indicates a passive
-  status, which means that traffic won't be routed to the specified Region. A
-  value of `100` indicates an active status, which means that traffic will be
-  routed to the specified Region. At least one Region must be active at all times.
+  Submits an updated route configuration for a Multi-Region Access Point. This API
+  operation updates the routing status for the specified Regions from active to
+  passive, or from passive to active. A value of `0` indicates a passive status,
+  which means that traffic won't be routed to the specified Region. A value of
+  `100` indicates an active status, which means that traffic will be routed to the
+  specified Region. At least one Region must be active at all times.
 
   When the routing configuration is changed, any in-progress operations (uploads,
   copies, deletes, and so on) to formerly active Regions will continue to run to
@@ -4173,6 +4252,13 @@ defmodule AWS.S3Control do
   For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html)
   in the *Amazon S3 User Guide*.
 
+  ## Definitions
+
+  ### Permissions
+
+  To use the `UpdateJobPriority` operation, you must have permission to perform
+  the `s3:UpdateJobPriority` action.
+
   Related actions include:
 
     *
@@ -4216,9 +4302,16 @@ defmodule AWS.S3Control do
   @doc """
   Updates the status for the specified job.
 
-  Use this action to confirm that you want to run a job or to cancel an existing
-  job. For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html)
+  Use this operation to confirm that you want to run a job or to cancel an
+  existing job. For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html)
   in the *Amazon S3 User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  To use the `UpdateJobStatus` operation, you must have permission to perform the
+  `s3:UpdateJobStatus` action.
 
   Related actions include:
 

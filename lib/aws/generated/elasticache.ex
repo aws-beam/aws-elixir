@@ -107,6 +107,17 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
+  Creates a copy of an existing serverless cache’s snapshot.
+
+  Available for Redis only.
+  """
+  def copy_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CopyServerlessCacheSnapshot", input, options)
+  end
+
+  @doc """
   Makes a copy of an existing snapshot.
 
   This operation is valid for Redis only.
@@ -314,6 +325,27 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
+  Creates a serverless cache.
+  """
+  def create_serverless_cache(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateServerlessCache", input, options)
+  end
+
+  @doc """
+  This API creates a copy of an entire ServerlessCache at a specific moment in
+  time.
+
+  Available for Redis only.
+  """
+  def create_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateServerlessCacheSnapshot", input, options)
+  end
+
+  @doc """
   Creates a copy of an entire cluster or replication group at a specific moment in
   time.
 
@@ -485,6 +517,26 @@ defmodule AWS.ElastiCache do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteReplicationGroup", input, options)
+  end
+
+  @doc """
+  Deletes a specified existing serverless cache.
+  """
+  def delete_serverless_cache(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteServerlessCache", input, options)
+  end
+
+  @doc """
+  Deletes an existing serverless cache snapshot.
+
+  Available for Redis only.
+  """
+  def delete_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteServerlessCacheSnapshot", input, options)
   end
 
   @doc """
@@ -683,6 +735,31 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
+  Returns information about serverless cache snapshots.
+
+  By default, this API lists all of the customer’s serverless cache snapshots. It
+  can also describe a single serverless cache snapshot, or the snapshots
+  associated with a particular serverless cache. Available for Redis only.
+  """
+  def describe_serverless_cache_snapshots(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeServerlessCacheSnapshots", input, options)
+  end
+
+  @doc """
+  Returns information about a specific serverless cache.
+
+  If no identifier is specified, then the API returns information on all the
+  serverless caches belonging to this Amazon Web Services account.
+  """
+  def describe_serverless_caches(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeServerlessCaches", input, options)
+  end
+
+  @doc """
   Returns details of the service updates
   """
   def describe_service_updates(%Client{} = client, input, options \\ []) do
@@ -744,6 +821,18 @@ defmodule AWS.ElastiCache do
     meta = metadata()
 
     Request.request_post(client, meta, "DisassociateGlobalReplicationGroup", input, options)
+  end
+
+  @doc """
+  Provides the functionality to export the serverless cache snapshot data to
+  Amazon S3.
+
+  Available for Redis only.
+  """
+  def export_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExportServerlessCacheSnapshot", input, options)
   end
 
   @doc """
@@ -863,6 +952,8 @@ defmodule AWS.ElastiCache do
   @doc """
   Modifies the settings for a replication group.
 
+  This is limited to Redis 7 and newer.
+
     * [Scaling for Amazon ElastiCache for Redis (cluster mode enabled)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html)
   in the ElastiCache User Guide
 
@@ -886,6 +977,15 @@ defmodule AWS.ElastiCache do
     meta = metadata()
 
     Request.request_post(client, meta, "ModifyReplicationGroupShardConfiguration", input, options)
+  end
+
+  @doc """
+  This API modifies the attributes of a serverless cache.
+  """
+  def modify_serverless_cache(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyServerlessCache", input, options)
   end
 
   @doc """

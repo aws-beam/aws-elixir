@@ -3,7 +3,7 @@
 
 defmodule AWS.Bedrock do
   @moduledoc """
-  Describes the API operations for creating and managing Bedrock models.
+  Describes the API operations for creating and managing Amazon Bedrock models.
   """
 
   alias AWS.Client
@@ -32,8 +32,8 @@ defmodule AWS.Bedrock do
   After the model-customization job completes successfully, your custom model
   resource will be ready to use. Training data contains input and output text for
   each record in a JSONL format. Optionally, you can specify validation data in
-  the same format as the training data. Bedrock returns validation loss metrics
-  and output generations after the job completes.
+  the same format as the training data. Amazon Bedrock returns validation loss
+  metrics and output generations after the job completes.
 
   Model-customization jobs are asynchronous and the completion time depends on the
   base model and the training/validation data size. To monitor a job, use the
@@ -170,7 +170,7 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Get the properties associated with a Bedrock custom model that you have
+  Get the properties associated with a Amazon Bedrock custom model that you have
   created.For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
   in the Bedrock User Guide.
   """
@@ -185,7 +185,7 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Get details about a Bedrock foundation model.
+  Get details about a Amazon Bedrock foundation model.
   """
   def get_foundation_model(%Client{} = client, model_identifier, options \\ []) do
     url_path = "/foundation-models/#{AWS.Util.encode_uri(model_identifier)}"
@@ -336,7 +336,7 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  List of Bedrock foundation models that you can use.
+  List of Amazon Bedrock foundation models that you can use.
 
   For more information, see [Foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models.html)
   in the Bedrock User Guide.

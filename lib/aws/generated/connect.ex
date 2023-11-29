@@ -76,6 +76,22 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
+  Associates the specified dataset for a Amazon Connect instance with the target
+  account. You can associate only one dataset in a single call.
+  """
+  def associate_analytics_data_set(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/association"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Associates an approved origin to an Amazon Connect instance.
   """
   def associate_approved_origin(%Client{} = client, instance_id, input, options \\ []) do
@@ -120,6 +136,19 @@ defmodule AWS.Connect do
     url_path =
       "/default-vocabulary/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(language_code)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Associates a connect resource to a flow.
+  """
+  def associate_flow(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/flow-associations/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -306,6 +335,48 @@ defmodule AWS.Connect do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Associates a list of analytics datasets for a given Amazon Connect instance to a
+  target account. You can associate multiple datasets in a single call.
+  """
+  def batch_associate_analytics_data_set(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/associations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Removes a list of analytics datasets associated with a given Amazon Connect
+  instance. You can disassociate multiple datasets in a single call.
+  """
+  def batch_disassociate_analytics_data_set(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/associations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -765,8 +836,8 @@ defmodule AWS.Connect do
   you are using SAML for identity management. `FirstName` and `LastName` are
   required if you are using Amazon Connect or SAML for identity management.
 
-  For information about how to create user accounts using the Amazon Connect
-  console, see [Add
+  For information about how to create users using the Amazon Connect admin
+  website, see [Add
   Users](https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html)
   in the *Amazon Connect Administrator Guide*.
   """
@@ -1867,7 +1938,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Describes the specified user account.
+  Describes the specified user.
 
   You can [find the instance ID in the Amazon Connect console](https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html)
   (it’s the final part of the ARN). The console does not display the user IDs.
@@ -1959,6 +2030,31 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
+  Removes the dataset ID associated with a given Amazon Connect instance.
+  """
+  def disassociate_analytics_data_set(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/association"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Revokes access to integrated applications from Amazon Connect.
   """
   def disassociate_approved_origin(%Client{} = client, instance_id, input, options \\ []) do
@@ -2003,6 +2099,38 @@ defmodule AWS.Connect do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Disassociates a connect resource from a flow.
+  """
+  def disassociate_flow(
+        %Client{} = client,
+        instance_id,
+        resource_id,
+        resource_type,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/flow-associations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(resource_id)}/#{AWS.Util.encode_uri(resource_type)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       headers,
@@ -2410,6 +2538,27 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Retrieves the flow associated for a given resource.
+  """
+  def get_flow_association(
+        %Client{} = client,
+        instance_id,
+        resource_id,
+        resource_type,
+        options \\ []
+      ) do
+    url_path =
+      "/flow-associations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(resource_id)}/#{AWS.Util.encode_uri(resource_type)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Gets historical metric data from the specified Amazon Connect instance.
 
   For a description of each historical metric, see [Historical Metrics Definitions](https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html)
@@ -2537,6 +2686,33 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Imports a claimed phone number from an external service, such as Amazon
+  Pinpoint, into an Amazon Connect instance.
+
+  You can call this API only in the same Amazon Web Services Region where the
+  Amazon Connect instance was created.
+  """
+  def import_phone_number(%Client{} = client, input, options \\ []) do
+    url_path = "/phone-number/import"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Lists agent statuses.
@@ -2570,6 +2746,50 @@ defmodule AWS.Connect do
     query_params =
       if !is_nil(agent_status_types) do
         [{"AgentStatusTypes", agent_status_types} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Lists the association status of requested dataset ID for a given Amazon Connect
+  instance.
+  """
+  def list_analytics_data_associations(
+        %Client{} = client,
+        instance_id,
+        data_set_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/association"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(data_set_id) do
+        [{"DataSetId", data_set_id} | query_params]
       else
         query_params
       end
@@ -2892,6 +3112,47 @@ defmodule AWS.Connect do
     url_path = "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  List the flow association based on the filters.
+  """
+  def list_flow_associations(
+        %Client{} = client,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        resource_type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/flow-associations-summary/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"ResourceType", resource_type} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do
@@ -3452,6 +3713,37 @@ defmodule AWS.Connect do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Provides a list of analysis segments for a real-time analysis session.
+  """
+  def list_realtime_contact_analysis_segments_v2(
+        %Client{} = client,
+        contact_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact/list-real-time-analysis-segments-v2/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4103,7 +4395,7 @@ defmodule AWS.Connect do
   was claimed.
 
   To release phone numbers from a traffic distribution group, use the
-  `ReleasePhoneNumber` API, not the Amazon Connect console.
+  `ReleasePhoneNumber` API, not the Amazon Connect admin website.
 
   After releasing a phone number, the phone number enters into a cooldown period
   of 30 days. It cannot be searched for or claimed again until the period has
@@ -4453,6 +4745,45 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Processes chat integration events from Amazon Web Services or external
+  integrations to Amazon Connect.
+
+  A chat integration event includes:
+
+    * SourceId, DestinationId, and Subtype: a set of identifiers,
+  uniquely representing a chat
+
+    * ChatEvent: details of the chat action to perform such as sending a
+  message, event, or disconnecting from a chat
+
+  When a chat integration event is sent with chat identifiers that do not map to
+  an active chat contact, a new chat contact is also created before handling chat
+  action.
+
+  Access to this API is currently restricted to Amazon Pinpoint for supporting SMS
+  integration.
+  """
+  def send_chat_integration_event(%Client{} = client, input, options \\ []) do
+    url_path = "/chat-integration-event"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Initiates a flow to start a new chat for the customer.
 
   Response of this API provides a token required to obtain credentials from the
@@ -4656,6 +4987,23 @@ defmodule AWS.Connect do
   """
   def start_task_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/task"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Places an inbound in-app, web, or video call to a contact, and then initiates
+  the flow.
+
+  It performs the actions in the flow that are specified (in ContactFlowId) and
+  present in the Amazon Connect instance (specified as InstanceId).
+  """
+  def start_web_r_t_c_contact(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/webrtc"
     headers = []
     query_params = []
 

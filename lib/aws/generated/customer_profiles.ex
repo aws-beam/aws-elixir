@@ -473,6 +473,29 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  The process of detecting profile object type mapping by using given objects.
+  """
+  def detect_profile_object_type(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/detect/object-types"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Tests the auto-merging settings of your Identity Resolution Job without merging
   your data.
 

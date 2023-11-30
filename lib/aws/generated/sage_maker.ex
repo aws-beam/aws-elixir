@@ -63,13 +63,13 @@ defmodule AWS.SageMaker do
   hyperparameter tuning job launches, add the tags when you first create the
   tuning job by specifying them in the `Tags` parameter of
   [CreateHyperParameterTuningJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html) 
-  Tags that you add to a SageMaker Studio Domain or User Profile by calling this
-  API are also added to any Apps that the Domain or User Profile launches after
-  you call this API, but not to Apps that the Domain or User Profile launched
-  before you called this API. To make sure that the tags associated with a Domain
-  or User Profile are also added to all Apps that the Domain or User Profile
-  launches, add the tags when you first create the Domain or User Profile by
-  specifying them in the `Tags` parameter of
+  Tags that you add to a SageMaker Domain or User Profile by calling this API are
+  also added to any Apps that the Domain or User Profile launches after you call
+  this API, but not to Apps that the Domain or User Profile launched before you
+  called this API. To make sure that the tags associated with a Domain or User
+  Profile are also added to all Apps that the Domain or User Profile launches, add
+  the tags when you first create the Domain or User Profile by specifying them in
+  the `Tags` parameter of
   [CreateDomain](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateDomain.html)
   or
   [CreateUserProfile](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateUserProfile.html).
@@ -130,9 +130,9 @@ defmodule AWS.SageMaker do
   @doc """
   Creates a running app for the specified UserProfile.
 
-  This operation is automatically invoked by Amazon SageMaker Studio upon access
-  to the associated Domain, and when new kernel configurations are selected by the
-  user. A user may have multiple Apps active simultaneously.
+  This operation is automatically invoked by Amazon SageMaker upon access to the
+  associated Domain, and when new kernel configurations are selected by the user.
+  A user may have multiple Apps active simultaneously.
   """
   def create_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -218,6 +218,21 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateAutoMLJobV2", input, options)
+  end
+
+  @doc """
+  Creates a SageMaker HyperPod cluster.
+
+  SageMaker HyperPod is a capability of SageMaker for creating and managing
+  persistent clusters for developing large machine learning models, such as large
+  language models (LLMs) and diffusion models. To learn more, see [Amazon SageMaker
+  HyperPod](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod.html)
+  in the *Amazon SageMaker Developer Guide*.
+  """
+  def create_cluster(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCluster", input, options)
   end
 
   @doc """
@@ -312,7 +327,7 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Creates a `Domain` used by Amazon SageMaker Studio.
+  Creates a `Domain`.
 
   A domain consists of an associated Amazon Elastic File System (EFS) volume, a
   list of authorized users, and a variety of security, application, policy, and
@@ -332,28 +347,28 @@ defmodule AWS.SageMaker do
 
   ## VPC configuration
 
-  All SageMaker Studio traffic between the domain and the EFS volume is through
-  the specified VPC and subnets. For other Studio traffic, you can specify the
-  `AppNetworkAccessType` parameter. `AppNetworkAccessType` corresponds to the
-  network access type that you choose when you onboard to Studio. The following
-  options are available:
+  All traffic between the domain and the EFS volume is through the specified VPC
+  and subnets. For other traffic, you can specify the `AppNetworkAccessType`
+  parameter. `AppNetworkAccessType` corresponds to the network access type that
+  you choose when you onboard to the domain. The following options are available:
 
     * `PublicInternetOnly` - Non-EFS traffic goes through a VPC managed
   by Amazon SageMaker, which allows internet access. This is the default value.
 
-    * `VpcOnly` - All Studio traffic is through the specified VPC and
-  subnets. Internet access is disabled by default. To allow internet access, you
-  must specify a NAT gateway.
+    * `VpcOnly` - All traffic is through the specified VPC and subnets.
+  Internet access is disabled by default. To allow internet access, you must
+  specify a NAT gateway.
 
-  When internet access is disabled, you won't be able to run a Studio notebook or
-  to train or host models unless your VPC has an interface endpoint to the
-  SageMaker API and runtime or a NAT gateway and your security groups allow
-  outbound connections.
+  When internet access is disabled, you won't be able to run a Amazon SageMaker
+  Studio notebook or to train or host models unless your VPC has an interface
+  endpoint to the SageMaker API and runtime or a NAT gateway and your security
+  groups allow outbound connections.
 
   NFS traffic over TCP on port 2049 needs to be allowed in both inbound and
-  outbound rules in order to launch a SageMaker Studio app successfully.
+  outbound rules in order to launch a Amazon SageMaker Studio app successfully.
 
-  For more information, see [Connect SageMaker Studio Notebooks to Resources in a VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-notebooks-and-internet-access.html).
+  For more information, see [Connect Amazon SageMaker Studio Notebooks to Resources in a
+  VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-notebooks-and-internet-access.html).
   """
   def create_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -667,6 +682,25 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Creates an inference component, which is a SageMaker hosting object that you can
+  use to deploy a model to an endpoint.
+
+  In the inference component settings, you specify the model, the endpoint, and
+  how the model utilizes the resources that the endpoint hosts. You can optimize
+  resource utilization by tailoring how the required CPU cores, accelerators, and
+  memory are allocated. You can deploy multiple inference components to an
+  endpoint, where each inference component contains one model and the resource
+  utilization needs for that individual model. After you deploy an inference
+  component, you can directly invoke the associated model when you use the
+  InvokeEndpoint API action.
+  """
+  def create_inference_component(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateInferenceComponent", input, options)
+  end
+
+  @doc """
   Creates an inference experiment using the configurations specified in the
   request.
 
@@ -965,10 +999,10 @@ defmodule AWS.SageMaker do
   @doc """
   Creates a URL for a specified UserProfile in a Domain.
 
-  When accessed in a web browser, the user will be automatically signed in to
-  Amazon SageMaker Studio, and granted access to all of the Apps and files
-  associated with the Domain's Amazon Elastic File System (EFS) volume. This
-  operation can only be called when the authentication mode equals IAM.
+  When accessed in a web browser, the user will be automatically signed in to the
+  domain, and granted access to all of the Apps and files associated with the
+  Domain's Amazon Elastic File System (EFS) volume. This operation can only be
+  called when the authentication mode equals IAM.
 
   The IAM role or user passed to this API defines the permissions to access the
   app. Once the presigned URL is created, no additional permission is required to
@@ -977,7 +1011,7 @@ defmodule AWS.SageMaker do
 
   You can restrict access to this API and to the URL that it returns to a list of
   IP addresses, Amazon VPCs or Amazon VPC Endpoints that you specify. For more
-  information, see [Connect to SageMaker Studio Through an Interface VPC Endpoint](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-interface-endpoint.html)
+  information, see [Connect to Amazon SageMaker Studio Through an Interface VPC Endpoint](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-interface-endpoint.html)
   .
 
   The URL that you get from a call to `CreatePresignedDomainUrl` has a default
@@ -1051,7 +1085,7 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Creates a new Studio Lifecycle Configuration.
+  Creates a new Amazon SageMaker Studio Lifecycle Configuration.
   """
   def create_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1215,11 +1249,11 @@ defmodule AWS.SageMaker do
 
   A user profile represents a single user within a domain, and is the main way to
   reference a "person" for the purposes of sharing, reporting, and other
-  user-oriented features. This entity is created when a user onboards to Amazon
-  SageMaker Studio. If an administrator invites a person by email or imports them
-  from IAM Identity Center, a user profile is automatically created. A user
-  profile is the primary holder of settings for an individual user and has a
-  reference to the user's private Amazon Elastic File System (EFS) home directory.
+  user-oriented features. This entity is created when a user onboards to a domain.
+  If an administrator invites a person by email or imports them from IAM Identity
+  Center, a user profile is automatically created. A user profile is the primary
+  holder of settings for an individual user and has a reference to the user's
+  private Amazon Elastic File System (EFS) home directory.
   """
   def create_user_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1324,6 +1358,15 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteAssociation", input, options)
+  end
+
+  @doc """
+  Delete a SageMaker HyperPod cluster.
+  """
+  def delete_cluster(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCluster", input, options)
   end
 
   @doc """
@@ -1540,6 +1583,15 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Deletes an inference component.
+  """
+  def delete_inference_component(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteInferenceComponent", input, options)
+  end
+
+  @doc """
   Deletes an inference experiment.
 
   This operation does not delete your endpoint, variants, or any underlying
@@ -1700,7 +1752,7 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Deletes the Studio Lifecycle Configuration.
+  Deletes the Amazon SageMaker Studio Lifecycle Configuration.
 
   In order to delete the Lifecycle Configuration, there must be no running apps
   using the Lifecycle Configuration. You must also remove the Lifecycle
@@ -1721,9 +1773,9 @@ defmodule AWS.SageMaker do
   deleted tags are not removed from training jobs that the hyperparameter tuning
   job launched before you called this API.
 
-  When you call this API to delete tags from a SageMaker Studio Domain or User
-  Profile, the deleted tags are not removed from Apps that the SageMaker Studio
-  Domain or User Profile launched before you called this API.
+  When you call this API to delete tags from a SageMaker Domain or User Profile,
+  the deleted tags are not removed from Apps that the SageMaker Domain or User
+  Profile launched before you called this API.
   """
   def delete_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1879,6 +1931,25 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeAutoMLJobV2", input, options)
+  end
+
+  @doc """
+  Retrieves information of a SageMaker HyperPod cluster.
+  """
+  def describe_cluster(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCluster", input, options)
+  end
+
+  @doc """
+  Retrieves information of an instance (also called a *node* interchangeably) of a
+  SageMaker HyperPod cluster.
+  """
+  def describe_cluster_node(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeClusterNode", input, options)
   end
 
   @doc """
@@ -2088,6 +2159,15 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Returns information about an inference component.
+  """
+  def describe_inference_component(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInferenceComponent", input, options)
+  end
+
+  @doc """
   Returns details about an inference experiment.
   """
   def describe_inference_experiment(%Client{} = client, input, options \\ []) do
@@ -2291,7 +2371,7 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Describes the Studio Lifecycle Configuration.
+  Describes the Amazon SageMaker Studio Lifecycle Configuration.
   """
   def describe_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2602,6 +2682,25 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Retrieves the list of instances (also called *nodes* interchangeably) in a
+  SageMaker HyperPod cluster.
+  """
+  def list_cluster_nodes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListClusterNodes", input, options)
+  end
+
+  @doc """
+  Retrieves the list of SageMaker HyperPod clusters.
+  """
+  def list_clusters(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListClusters", input, options)
+  end
+
+  @doc """
   Gets a list of the Git repositories in your account.
   """
   def list_code_repositories(%Client{} = client, input, options \\ []) do
@@ -2809,6 +2908,15 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "ListImages", input, options)
+  end
+
+  @doc """
+  Lists the inference components in your account and their properties.
+  """
+  def list_inference_components(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListInferenceComponents", input, options)
   end
 
   @doc """
@@ -3105,7 +3213,8 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Lists the Studio Lifecycle Configurations in your Amazon Web Services Account.
+  Lists the Amazon SageMaker Studio Lifecycle Configurations in your Amazon Web
+  Services Account.
   """
   def list_studio_lifecycle_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3629,6 +3738,15 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Update a SageMaker HyperPod cluster.
+  """
+  def update_cluster(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCluster", input, options)
+  end
+
+  @doc """
   Updates the specified Git repository with the specified values.
   """
   def update_code_repository(%Client{} = client, input, options \\ []) do
@@ -3789,6 +3907,24 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateImageVersion", input, options)
+  end
+
+  @doc """
+  Updates an inference component.
+  """
+  def update_inference_component(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateInferenceComponent", input, options)
+  end
+
+  @doc """
+  Runtime settings for a model that is deployed with an inference component.
+  """
+  def update_inference_component_runtime_config(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateInferenceComponentRuntimeConfig", input, options)
   end
 
   @doc """

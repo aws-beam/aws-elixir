@@ -53,6 +53,29 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Adds the data source on the domain.
+  """
+  def add_data_source(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Attaches tags to an existing Amazon OpenSearch Service domain.
 
   Tags are a set of case-sensitive key-value pairs. A domain can have up to 10
@@ -249,6 +272,31 @@ defmodule AWS.OpenSearch do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes the data source.
+  """
+  def delete_data_source(%Client{} = client, domain_name, name, input, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource/#{AWS.Util.encode_uri(name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       headers,
@@ -811,6 +859,21 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Describes the data source details.
+  """
+  def get_data_source(%Client{} = client, domain_name, name, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource/#{AWS.Util.encode_uri(name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   The status of the maintenance action.
   """
   def get_domain_maintenance_status(
@@ -914,6 +977,19 @@ defmodule AWS.OpenSearch do
   """
   def get_upgrade_status(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/upgradeDomain/#{AWS.Util.encode_uri(domain_name)}/status"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  A list of the data source details of the domain.
+  """
+  def list_data_sources(%Client{} = client, domain_name, options \\ []) do
+    url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource"
     headers = []
     query_params = []
 
@@ -1422,6 +1498,21 @@ defmodule AWS.OpenSearch do
       options,
       nil
     )
+  end
+
+  @doc """
+  Updates the data source on the domain.
+  """
+  def update_data_source(%Client{} = client, domain_name, name, input, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource/#{AWS.Util.encode_uri(name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """

@@ -77,6 +77,19 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
+  Creates a scheduled action.
+
+  A scheduled action contains a schedule and an Amazon Redshift API action. For
+  example, you can create a schedule of when to run the `CreateSnapshot` API
+  operation.
+  """
+  def create_scheduled_action(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateScheduledAction", input, options)
+  end
+
+  @doc """
   Creates a snapshot of all databases in a namespace.
 
   For more information about snapshots, see [ Working with snapshots and recovery points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html).
@@ -85,6 +98,16 @@ defmodule AWS.RedshiftServerless do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateSnapshot", input, options)
+  end
+
+  @doc """
+  Creates a snapshot copy configuration that lets you copy snapshots to another
+  Amazon Web Services Region.
+  """
+  def create_snapshot_copy_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSnapshotCopyConfiguration", input, options)
   end
 
   @doc """
@@ -147,12 +170,30 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
+  Deletes a scheduled action.
+  """
+  def delete_scheduled_action(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteScheduledAction", input, options)
+  end
+
+  @doc """
   Deletes a snapshot from Amazon Redshift Serverless.
   """
   def delete_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteSnapshot", input, options)
+  end
+
+  @doc """
+  Deletes a snapshot copy configuration
+  """
+  def delete_snapshot_copy_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSnapshotCopyConfiguration", input, options)
   end
 
   @doc """
@@ -242,6 +283,15 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
+  Returns information about a scheduled action.
+  """
+  def get_scheduled_action(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetScheduledAction", input, options)
+  end
+
+  @doc """
   Returns information about a specific snapshot.
   """
   def get_snapshot(%Client{} = client, input, options \\ []) do
@@ -311,6 +361,26 @@ defmodule AWS.RedshiftServerless do
     meta = metadata()
 
     Request.request_post(client, meta, "ListRecoveryPoints", input, options)
+  end
+
+  @doc """
+  Returns a list of scheduled actions.
+
+  You can use the flags to filter the list of returned scheduled actions.
+  """
+  def list_scheduled_actions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListScheduledActions", input, options)
+  end
+
+  @doc """
+  Returns a list of snapshot copy configurations.
+  """
+  def list_snapshot_copy_configurations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSnapshotCopyConfigurations", input, options)
   end
 
   @doc """
@@ -389,6 +459,18 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
+  Restores a table from a recovery point to your Amazon Redshift Serverless
+  instance.
+
+  You can't use this operation to restore tables with interleaved sort keys.
+  """
+  def restore_table_from_recovery_point(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RestoreTableFromRecoveryPoint", input, options)
+  end
+
+  @doc """
   Restores a table from a snapshot to your Amazon Redshift Serverless instance.
 
   You can't use this operation to restore tables with [interleaved sort keys](https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved).
@@ -451,12 +533,30 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
+  Updates a scheduled action.
+  """
+  def update_scheduled_action(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateScheduledAction", input, options)
+  end
+
+  @doc """
   Updates a snapshot.
   """
   def update_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateSnapshot", input, options)
+  end
+
+  @doc """
+  Updates a snapshot copy configuration.
+  """
+  def update_snapshot_copy_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSnapshotCopyConfiguration", input, options)
   end
 
   @doc """

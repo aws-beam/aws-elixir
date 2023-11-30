@@ -138,6 +138,37 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Provides the details necessary to create a configured audience model
+  association.
+  """
+  def create_configured_audience_model_association(
+        %Client{} = client,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredaudiencemodelassociations"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a new configured table resource.
   """
   def create_configured_table(%Client{} = client, input, options \\ []) do
@@ -249,6 +280,38 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Creates a privacy budget template for a specified membership.
+
+  Each membership can have only one privacy budget template, but it can be deleted
+  and recreated. If you need to change the privacy budget template for a
+  membership, use the `UpdatePrivacyBudgetTemplate` operation.
+  """
+  def create_privacy_budget_template(
+        %Client{} = client,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/privacybudgettemplates"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes an analysis template.
   """
   def delete_analysis_template(
@@ -286,6 +349,38 @@ defmodule AWS.CleanRooms do
   """
   def delete_collaboration(%Client{} = client, collaboration_identifier, input, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Provides the information necessary to delete a configured audience model
+  association.
+  """
+  def delete_configured_audience_model_association(
+        %Client{} = client,
+        configured_audience_model_association_identifier,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredaudiencemodelassociations/#{AWS.Util.encode_uri(configured_audience_model_association_identifier)}"
+
     headers = []
     query_params = []
 
@@ -455,6 +550,37 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Deletes a privacy budget template for a specified membership.
+  """
+  def delete_privacy_budget_template(
+        %Client{} = client,
+        membership_identifier,
+        privacy_budget_template_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/privacybudgettemplates/#{AWS.Util.encode_uri(privacy_budget_template_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Retrieves an analysis template.
   """
   def get_analysis_template(
@@ -498,6 +624,66 @@ defmodule AWS.CleanRooms do
       ) do
     url_path =
       "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/analysistemplates/#{AWS.Util.encode_uri(analysis_template_arn)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a configured audience model association within a collaboration.
+  """
+  def get_collaboration_configured_audience_model_association(
+        %Client{} = client,
+        collaboration_identifier,
+        configured_audience_model_association_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/configuredaudiencemodelassociations/#{AWS.Util.encode_uri(configured_audience_model_association_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns details about a specified privacy budget template.
+  """
+  def get_collaboration_privacy_budget_template(
+        %Client{} = client,
+        collaboration_identifier,
+        privacy_budget_template_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/privacybudgettemplates/#{AWS.Util.encode_uri(privacy_budget_template_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns information about a configured audience model association.
+  """
+  def get_configured_audience_model_association(
+        %Client{} = client,
+        configured_audience_model_association_identifier,
+        membership_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredaudiencemodelassociations/#{AWS.Util.encode_uri(configured_audience_model_association_identifier)}"
 
     headers = []
     query_params = []
@@ -565,6 +751,26 @@ defmodule AWS.CleanRooms do
   """
   def get_membership(%Client{} = client, membership_identifier, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns details for a specified privacy budget template.
+  """
+  def get_privacy_budget_template(
+        %Client{} = client,
+        membership_identifier,
+        privacy_budget_template_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/privacybudgettemplates/#{AWS.Util.encode_uri(privacy_budget_template_identifier)}"
+
     headers = []
     query_params = []
 
@@ -698,6 +904,122 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Lists configured audience model associations within a collaboration.
+  """
+  def list_collaboration_configured_audience_model_associations(
+        %Client{} = client,
+        collaboration_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/configuredaudiencemodelassociations"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns an array that summarizes each privacy budget template in a specified
+  collaboration.
+  """
+  def list_collaboration_privacy_budget_templates(
+        %Client{} = client,
+        collaboration_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/privacybudgettemplates"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns an array that summarizes each privacy budget in a specified
+  collaboration.
+
+  The summary includes the collaboration ARN, creation time, creating account, and
+  privacy budget details.
+  """
+  def list_collaboration_privacy_budgets(
+        %Client{} = client,
+        collaboration_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        privacy_budget_type,
+        options \\ []
+      ) do
+    url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/privacybudgets"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(privacy_budget_type) do
+        [{"privacyBudgetType", privacy_budget_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists collaborations the caller owns, is active in, or has been invited to.
   """
   def list_collaborations(
@@ -721,6 +1043,41 @@ defmodule AWS.CleanRooms do
     query_params =
       if !is_nil(member_status) do
         [{"memberStatus", member_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists information about requested configured audience model associations.
+  """
+  def list_configured_audience_model_associations(
+        %Client{} = client,
+        membership_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredaudiencemodelassociations"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -878,6 +1235,82 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Returns detailed information about the privacy budget templates in a specified
+  membership.
+  """
+  def list_privacy_budget_templates(
+        %Client{} = client,
+        membership_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/privacybudgettemplates"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns detailed information about the privacy budgets in a specified
+  membership.
+  """
+  def list_privacy_budgets(
+        %Client{} = client,
+        membership_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        privacy_budget_type,
+        options \\ []
+      ) do
+    url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/privacybudgets"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(privacy_budget_type) do
+        [{"privacyBudgetType", privacy_budget_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists protected queries, sorted by the most recent query.
   """
   def list_protected_queries(
@@ -970,6 +1403,30 @@ defmodule AWS.CleanRooms do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  An estimate of the number of aggregation functions that the member who can query
+  can run given epsilon and noise parameters.
+  """
+  def preview_privacy_impact(%Client{} = client, membership_identifier, input, options \\ []) do
+    url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/previewprivacyimpact"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1102,6 +1559,38 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Provides the details necessary to update a configured audience model
+  association.
+  """
+  def update_configured_audience_model_association(
+        %Client{} = client,
+        configured_audience_model_association_identifier,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredaudiencemodelassociations/#{AWS.Util.encode_uri(configured_audience_model_association_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates a configured table.
   """
   def update_configured_table(
@@ -1196,6 +1685,37 @@ defmodule AWS.CleanRooms do
   """
   def update_membership(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the privacy budget template for the specified membership.
+  """
+  def update_privacy_budget_template(
+        %Client{} = client,
+        membership_identifier,
+        privacy_budget_template_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/privacybudgettemplates/#{AWS.Util.encode_uri(privacy_budget_template_identifier)}"
+
     headers = []
     query_params = []
 

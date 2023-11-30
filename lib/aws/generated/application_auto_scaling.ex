@@ -34,6 +34,8 @@ defmodule AWS.ApplicationAutoScaling do
 
     * Amazon SageMaker Serverless endpoint provisioned concurrency
 
+    * Amazon SageMaker inference components
+
     * Spot Fleets (Amazon EC2)
 
     * Custom resources provided by your own applications or services
@@ -91,8 +93,8 @@ defmodule AWS.ApplicationAutoScaling do
   delete the CloudWatch alarm associated with the scaling policy, even if it no
   longer has an associated action.
 
-  For more information, see [Delete a step scaling policy](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html#delete-step-scaling-policy)
-  and [Delete a target tracking scaling policy](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html#delete-target-tracking-policy)
+  For more information, see [Delete a step scaling policy](https://docs.aws.amazon.com/autoscaling/application/userguide/create-step-scaling-policy-cli.html#delete-step-scaling-policy)
+  and [Delete a target tracking scaling policy](https://docs.aws.amazon.com/autoscaling/application/userguide/create-target-tracking-policy-cli.html#delete-target-tracking-policy)
   in the *Application Auto Scaling User Guide*.
   """
   def delete_scaling_policy(%Client{} = client, input, options \\ []) do

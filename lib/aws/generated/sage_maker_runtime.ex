@@ -59,6 +59,7 @@ defmodule AWS.SageMakerRuntime do
         {"ContentType", "Content-Type"},
         {"CustomAttributes", "X-Amzn-SageMaker-Custom-Attributes"},
         {"EnableExplanations", "X-Amzn-SageMaker-Enable-Explanations"},
+        {"InferenceComponentName", "X-Amzn-SageMaker-Inference-Component"},
         {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
         {"TargetContainerHostname", "X-Amzn-SageMaker-Target-Container-Hostname"},
         {"TargetModel", "X-Amzn-SageMaker-Target-Model"},
@@ -188,6 +189,11 @@ defmodule AWS.SageMakerRuntime do
     * For information about how to process the streaming response, see
   [Invoke real-time endpoints](https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-test-endpoints.html).
 
+  Before you can use this operation, your IAM permissions must allow the
+  `sagemaker:InvokeEndpoint` action. For more information about Amazon SageMaker
+  actions for IAM policies, see [Actions, resources, and condition keys for Amazon SageMaker](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsagemaker.html)
+  in the *IAM Service Authorization Reference*.
+
   Amazon SageMaker strips all POST headers except those supported by the API.
   Amazon SageMaker might add additional headers. You should not rely on the
   behavior of headers outside those enumerated in the request syntax.
@@ -210,6 +216,7 @@ defmodule AWS.SageMakerRuntime do
         {"Accept", "X-Amzn-SageMaker-Accept"},
         {"ContentType", "Content-Type"},
         {"CustomAttributes", "X-Amzn-SageMaker-Custom-Attributes"},
+        {"InferenceComponentName", "X-Amzn-SageMaker-Inference-Component"},
         {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
         {"TargetContainerHostname", "X-Amzn-SageMaker-Target-Container-Hostname"},
         {"TargetVariant", "X-Amzn-SageMaker-Target-Variant"}

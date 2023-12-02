@@ -3,9 +3,14 @@
 
 defmodule AWS.QConnect do
   @moduledoc """
-  Amazon Q in Connect is a generative AI customer service assistant.
+  **Powered by Amazon Bedrock**: Amazon Web Services implements [automated abuse detection](https://docs.aws.amazon.com/bedrock/latest/userguide/abuse-detection.html).
 
-  It is an LLM-enhanced evolution of Amazon Connect Wisdom that delivers real-time
+  Because Amazon Q in Connect is built on Amazon Bedrock, users can take full
+  advantage of the controls implemented in Amazon Bedrock to enforce safety,
+  security, and the responsible use of artificial intelligence (AI).
+
+  Amazon Q in Connect is a generative AI customer service assistant. It is an
+  LLM-enhanced evolution of Amazon Connect Wisdom that delivers real-time
   recommendations to help contact center agents resolve customer issues quickly
   and accurately.
 
@@ -162,7 +167,7 @@ defmodule AWS.QConnect do
   end
 
   @doc """
-  Creates a Amazon Q quick response.
+  Creates an Amazon Q quick response.
   """
   def create_quick_response(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses"
@@ -789,6 +794,21 @@ defmodule AWS.QConnect do
   end
 
   @doc """
+  Provides feedback against the specified assistant for the specified target.
+
+  This API only supports generative targets.
+  """
+  def put_feedback(%Client{} = client, assistant_id, input, options \\ []) do
+    url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/feedback"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Performs a manual search against the specified assistant.
 
   To retrieve recommendations for an assistant, use
@@ -874,7 +894,7 @@ defmodule AWS.QConnect do
   end
 
   @doc """
-  Searches existing Amazon Q quick responses in a Amazon Q knowledge base.
+  Searches existing Amazon Q quick responses in an Amazon Q knowledge base.
   """
   def search_quick_responses(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/search/quickResponses"

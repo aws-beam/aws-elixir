@@ -102,6 +102,10 @@ defmodule AWS.VerifiedPermissions do
   The `entities` of a `BatchIsAuthorized` API request can contain up to 100
   principals and up to 100 resources. The `requests` of a `BatchIsAuthorized` API
   request can contain up to 30 requests.
+
+  The `BatchIsAuthorized` operation doesn't have its own IAM permission. To
+  authorize this operation for Amazon Web Services principals, include the
+  permission `verifiedpermissions:IsAuthorized` in their IAM policies.
   """
   def batch_is_authorized(%Client{} = client, input, options \\ []) do
     meta = metadata()

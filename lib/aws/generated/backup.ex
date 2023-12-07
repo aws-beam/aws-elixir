@@ -2197,6 +2197,7 @@ defmodule AWS.Backup do
         by_complete_before \\ nil,
         by_created_after \\ nil,
         by_created_before \\ nil,
+        by_resource_type \\ nil,
         by_restore_testing_plan_arn \\ nil,
         by_status \\ nil,
         max_results \\ nil,
@@ -2231,6 +2232,13 @@ defmodule AWS.Backup do
     query_params =
       if !is_nil(by_restore_testing_plan_arn) do
         [{"restoreTestingPlanArn", by_restore_testing_plan_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_resource_type) do
+        [{"resourceType", by_resource_type} | query_params]
       else
         query_params
       end
@@ -2770,11 +2778,8 @@ defmodule AWS.Backup do
   @doc """
   Updates the current service opt-in settings for the Region.
 
-  If service-opt-in is enabled for a service, Backup tries to protect that
-  service's resources in this Region, when the resource is included in an
-  on-demand backup or scheduled backup plan. Otherwise, Backup does not try to
-  protect that service's resources in this Region. Use the
-  `DescribeRegionSettings` API to determine the resource types that are supported.
+  Use the `DescribeRegionSettings` API to determine the resource types that are
+  supported.
   """
   def update_region_settings(%Client{} = client, input, options \\ []) do
     url_path = "/account-settings"

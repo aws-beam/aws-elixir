@@ -124,6 +124,35 @@ defmodule AWS.Finspace do
   end
 
   @doc """
+  Creates a snapshot of kdb database with tiered storage capabilities and a
+  pre-warmed cache, ready for mounting on kdb clusters.
+
+  Dataviews are only available for clusters running on a scaling group. They are
+  not supported on dedicated clusters.
+  """
+  def create_kx_dataview(%Client{} = client, database_name, environment_id, input, options \\ []) do
+    url_path =
+      "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases/#{AWS.Util.encode_uri(database_name)}/dataviews"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates a managed kdb environment for the account.
   """
   def create_kx_environment(%Client{} = client, input, options \\ []) do
@@ -147,10 +176,56 @@ defmodule AWS.Finspace do
   end
 
   @doc """
+  Creates a new scaling group.
+  """
+  def create_kx_scaling_group(%Client{} = client, environment_id, input, options \\ []) do
+    url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/scalingGroups"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates a user in FinSpace kdb environment with an associated IAM role.
   """
   def create_kx_user(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/users"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates a new volume with a specific amount of throughput and storage capacity.
+  """
+  def create_kx_volume(%Client{} = client, environment_id, input, options \\ []) do
+    url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/kxvolumes"
     headers = []
     query_params = []
 
@@ -256,6 +331,45 @@ defmodule AWS.Finspace do
   end
 
   @doc """
+  Deletes the specified dataview.
+
+  Before deleting a dataview, make sure that it is not in use by any cluster.
+  """
+  def delete_kx_dataview(
+        %Client{} = client,
+        database_name,
+        dataview_name,
+        environment_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases/#{AWS.Util.encode_uri(database_name)}/dataviews/#{AWS.Util.encode_uri(dataview_name)}"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes the kdb environment.
 
   This action is irreversible. Deleting a kdb environment will remove all the
@@ -264,7 +378,51 @@ defmodule AWS.Finspace do
   def delete_kx_environment(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}"
     headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes the specified scaling group.
+
+  This action is irreversible. You cannot delete a scaling group until all the
+  clusters running on it have been deleted.
+  """
+  def delete_kx_scaling_group(
+        %Client{} = client,
+        environment_id,
+        scaling_group_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/scalingGroups/#{AWS.Util.encode_uri(scaling_group_name)}"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -289,7 +447,46 @@ defmodule AWS.Finspace do
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/users/#{AWS.Util.encode_uri(user_name)}"
 
     headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes a volume.
+
+  You can only delete a volume if it's not attached to a cluster or a dataview.
+  When a volume is deleted, any data on the volume is lost. This action is
+  irreversible.
+  """
+  def delete_kx_volume(%Client{} = client, environment_id, volume_name, input, options \\ []) do
+    url_path =
+      "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/kxvolumes/#{AWS.Util.encode_uri(volume_name)}"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -407,10 +604,46 @@ defmodule AWS.Finspace do
   end
 
   @doc """
+  Retrieves details of the dataview.
+  """
+  def get_kx_dataview(
+        %Client{} = client,
+        database_name,
+        dataview_name,
+        environment_id,
+        options \\ []
+      ) do
+    url_path =
+      "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases/#{AWS.Util.encode_uri(database_name)}/dataviews/#{AWS.Util.encode_uri(dataview_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Retrieves all the information for the specified kdb environment.
   """
   def get_kx_environment(%Client{} = client, environment_id, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieves details of a scaling group.
+  """
+  def get_kx_scaling_group(%Client{} = client, environment_id, scaling_group_name, options \\ []) do
+    url_path =
+      "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/scalingGroups/#{AWS.Util.encode_uri(scaling_group_name)}"
+
     headers = []
     query_params = []
 
@@ -425,6 +658,21 @@ defmodule AWS.Finspace do
   def get_kx_user(%Client{} = client, environment_id, user_name, options \\ []) do
     url_path =
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/users/#{AWS.Util.encode_uri(user_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieves the information about the volume.
+  """
+  def get_kx_volume(%Client{} = client, environment_id, volume_name, options \\ []) do
+    url_path =
+      "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/kxvolumes/#{AWS.Util.encode_uri(volume_name)}"
 
     headers = []
     query_params = []
@@ -608,6 +856,42 @@ defmodule AWS.Finspace do
   end
 
   @doc """
+  Returns a list of all the dataviews in the database.
+  """
+  def list_kx_dataviews(
+        %Client{} = client,
+        database_name,
+        environment_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases/#{AWS.Util.encode_uri(database_name)}/dataviews"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Returns a list of kdb environments created in an account.
   """
   def list_kx_environments(
@@ -617,6 +901,39 @@ defmodule AWS.Finspace do
         options \\ []
       ) do
     url_path = "/kx/environments"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Returns a list of scaling groups in a kdb environment.
+  """
+  def list_kx_scaling_groups(
+        %Client{} = client,
+        environment_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/scalingGroups"
     headers = []
     query_params = []
 
@@ -652,6 +969,47 @@ defmodule AWS.Finspace do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/users"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists all the volumes in a kdb environment.
+  """
+  def list_kx_volumes(
+        %Client{} = client,
+        environment_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        volume_type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/kxvolumes"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(volume_type) do
+        [{"volumeType", volume_type} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do
@@ -818,6 +1176,32 @@ defmodule AWS.Finspace do
   end
 
   @doc """
+  Updates the specified dataview.
+
+  The dataviews get automatically updated when any new changesets are ingested.
+  Each update of the dataview creates a new version, including changeset details
+  and cache configurations
+  """
+  def update_kx_dataview(
+        %Client{} = client,
+        database_name,
+        dataview_name,
+        environment_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases/#{AWS.Util.encode_uri(database_name)}/dataviews/#{AWS.Util.encode_uri(dataview_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
   Updates information for the given kdb environment.
   """
   def update_kx_environment(%Client{} = client, environment_id, input, options \\ []) do
@@ -866,5 +1250,33 @@ defmodule AWS.Finspace do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates the throughput or capacity of a volume.
+
+  During the update process, the filesystem might be unavailable for a few
+  minutes. You can retry any operations after the update is complete.
+  """
+  def update_kx_volume(%Client{} = client, environment_id, volume_name, input, options \\ []) do
+    url_path =
+      "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/kxvolumes/#{AWS.Util.encode_uri(volume_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

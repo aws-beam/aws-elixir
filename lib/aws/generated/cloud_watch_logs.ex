@@ -145,7 +145,7 @@ defmodule AWS.CloudWatchLogs do
   [PutDeliveryDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html).
 
     * If you are delivering logs cross-account, you must use
-  [PutDeliveryDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationolicy.html)
+  [PutDeliveryDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html)
   in the destination account to assign an IAM policy to the destination. This
   policy allows delivery to that destination.
 
@@ -620,6 +620,9 @@ defmodule AWS.CloudWatchLogs do
   This operation returns a paginated list of your saved CloudWatch Logs Insights
   query definitions.
 
+  You can retrieve query definitions from the current account or from a source
+  account that is linked to the current account.
+
   You can use the `queryDefinitionNamePrefix` parameter to limit the results to
   only the query definitions that have names that start with a certain string.
   """
@@ -1024,7 +1027,7 @@ defmodule AWS.CloudWatchLogs do
   which is a logical object that represents the actual delivery destination.
 
     * If you are delivering logs cross-account, you must use
-  [PutDeliveryDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationolicy.html)
+  [PutDeliveryDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html)
   in the destination account to assign an IAM policy to the destination. This
   policy allows delivery to that destination.
 
@@ -1105,7 +1108,7 @@ defmodule AWS.CloudWatchLogs do
   which is a logical object that represents the actual delivery destination. For
   more information, see
   [PutDeliveryDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html).     * If you are delivering logs cross-account, you must use
-  [PutDeliveryDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationolicy.html)
+  [PutDeliveryDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html)
   in the destination account to assign an IAM policy to the destination. This
   policy allows delivery to that destination.
 
@@ -1352,6 +1355,56 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "PutSubscriptionFilter", input, options)
+  end
+
+  @doc """
+  Starts a Live Tail streaming session for one or more log groups.
+
+  A Live Tail session returns a stream of log events that have been recently
+  ingested in the log groups. For more information, see [Use Live Tail to view logs in near real
+  time](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs_LiveTail.html).
+
+  The response to this operation is a response stream, over which the server sends
+  live log events and the client receives them.
+
+  The following objects are sent over the stream:
+
+    * A single
+  [LiveTailSessionStart](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_LiveTailSessionStart.html) object is sent at the start of the session.
+
+    * Every second, a
+  [LiveTailSessionUpdate](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_LiveTailSessionUpdate.html)
+  object is sent. Each of these objects contains an array of the actual log
+  events.
+
+  If no new log events were ingested in the past second, the
+  `LiveTailSessionUpdate` object will contain an empty array.
+
+  The array of log events contained in a `LiveTailSessionUpdate` can include as
+  many as 500 log events. If the number of log events matching the request exceeds
+  500 per second, the log events are sampled down to 500 log events to be included
+  in each `LiveTailSessionUpdate` object.
+
+  If your client consumes the log events slower than the server produces them,
+  CloudWatch Logs buffers up to 10 `LiveTailSessionUpdate` events or 5000 log
+  events, after which it starts dropping the oldest events.
+
+    * A
+  [SessionStreamingException](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_SessionStreamingException.html) object is returned if an unknown error occurs on the server side.
+
+    * A
+  [SessionTimeoutException](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_SessionTimeoutException.html)
+  object is returned when the session times out, after it has been kept open for
+  three hours.
+
+  You can end a session before it times out by closing the session stream or by
+  closing the client that is receiving the stream. The session also ends if the
+  established connection between the client and the server breaks.
+  """
+  def start_live_tail(%Client{} = client, input, options \\ []) do
+    meta = metadata() |> Map.put_new(:host_prefix, "streaming-")
+
+    Request.request_post(client, meta, "StartLiveTail", input, options)
   end
 
   @doc """

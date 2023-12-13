@@ -186,6 +186,19 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
+  Create a new workflow or a new version of an existing workflow.
+  """
+  def create_workflow(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateWorkflow"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
   Deletes a component build version.
   """
   def delete_component(%Client{} = client, input, options \\ []) do
@@ -404,6 +417,34 @@ defmodule AWS.Imagebuilder do
     {query_params, input} =
       [
         {"lifecyclePolicyArn", "lifecyclePolicyArn"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes a specific workflow resource.
+  """
+  def delete_workflow(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteWorkflow"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"workflowBuildVersionArn", "workflowBuildVersionArn"}
       ]
       |> Request.build_params(input)
 
@@ -682,6 +723,26 @@ defmodule AWS.Imagebuilder do
     query_params =
       if !is_nil(lifecycle_policy_arn) do
         [{"lifecyclePolicyArn", lifecycle_policy_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Get a workflow resource object.
+  """
+  def get_workflow(%Client{} = client, workflow_build_version_arn, options \\ []) do
+    url_path = "/GetWorkflow"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(workflow_build_version_arn) do
+        [{"workflowBuildVersionArn", workflow_build_version_arn} | query_params]
       else
         query_params
       end
@@ -1192,6 +1253,53 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
+  Get a list of workflow steps that are waiting for action for workflows in your
+  Amazon Web Services account.
+  """
+  def list_waiting_workflow_steps(%Client{} = client, input, options \\ []) do
+    url_path = "/ListWaitingWorkflowSteps"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns a list of build versions for a specific workflow resource.
+  """
+  def list_workflow_build_versions(%Client{} = client, input, options \\ []) do
+    url_path = "/ListWorkflowBuildVersions"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns a list of workflow runtime instance metadata objects for a specific
   image build version.
   """
@@ -1216,11 +1324,34 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Shows runtime data for each step in a runtime instance of the workflow that you
-  specify in the request.
+  Returns runtime data for each step in a runtime instance of the workflow that
+  you specify in the request.
   """
   def list_workflow_step_executions(%Client{} = client, input, options \\ []) do
     url_path = "/ListWorkflowStepExecutions"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists workflow build versions based on filtering parameters.
+  """
+  def list_workflows(%Client{} = client, input, options \\ []) do
+    url_path = "/ListWorkflows"
     headers = []
     query_params = []
 
@@ -1312,6 +1443,20 @@ defmodule AWS.Imagebuilder do
   """
   def put_image_recipe_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutImageRecipePolicy"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Pauses or resumes image creation when the associated workflow runs a
+  `WaitForAction` step.
+  """
+  def send_workflow_step_action(%Client{} = client, input, options \\ []) do
+    url_path = "/SendWorkflowStepAction"
     headers = []
     query_params = []
 
@@ -1417,6 +1562,8 @@ defmodule AWS.Imagebuilder do
   Updates an image pipeline.
 
   Image pipelines enable you to automate the creation and distribution of images.
+  You must specify exactly one recipe for your image, using either a
+  `containerRecipeArn` or an `imageRecipeArn`.
 
   UpdateImagePipeline does not support selective updates for the pipeline. You
   must specify all of the required properties in the update request, not just the

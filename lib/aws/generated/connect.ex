@@ -5179,6 +5179,32 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Adds the specified tags to the contact resource.
+
+  For more information about this API is used, see [Set up granular billing for a detailed view of your Amazon Connect
+  usage](https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html).
+  """
+  def tag_contact(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/tags"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Adds the specified tags to the specified resource.
 
   Some of the supported resource types are agents, routing profiles, queues, quick
@@ -5242,6 +5268,39 @@ defmodule AWS.Connect do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Removes the specified tags from the contact resource.
+
+  For more information about this API is used, see [Set up granular billing for a detailed view of your Amazon Connect
+  usage](https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html).
+  """
+  def untag_contact(%Client{} = client, contact_id, instance_id, input, options \\ []) do
+    url_path =
+      "/contact/tags/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"TagKeys", "TagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       headers,

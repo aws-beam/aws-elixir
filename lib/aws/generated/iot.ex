@@ -598,6 +598,50 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Creates an Amazon Web Services IoT Core certificate provider.
+
+  You can use Amazon Web Services IoT Core certificate provider to customize how
+  to sign a certificate signing request (CSR) in IoT fleet provisioning. For more
+  information, see [Customizing certificate signing using Amazon Web Services IoT Core certificate
+  provider](https://docs.aws.amazon.com/iot/latest/developerguide/provisioning-cert-provider.html)
+  from *Amazon Web Services IoT Core Developer Guide*.
+
+  Requires permission to access the
+  [CreateCertificateProvider](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+
+  After you create a certificate provider, the behavior of [
+  `CreateCertificateFromCsr` API for fleet
+  provisioning](https://docs.aws.amazon.com/iot/latest/developerguide/fleet-provision-api.html#create-cert-csr)
+  will change and all API calls to `CreateCertificateFromCsr` will invoke the
+  certificate provider to create the certificates. It can take up to a few minutes
+  for this behavior to change after a certificate provider is created.
+  """
+  def create_certificate_provider(
+        %Client{} = client,
+        certificate_provider_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/certificate-providers/#{AWS.Util.encode_uri(certificate_provider_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Use this API to define a Custom Metric published by your devices to Device
   Defender.
 
@@ -1514,6 +1558,42 @@ defmodule AWS.IoT do
         {"forceDelete", "forceDelete"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes a certificate provider.
+
+  Requires permission to access the
+  [DeleteCertificateProvider](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
+
+  If you delete the certificate provider resource, the behavior of
+  `CreateCertificateFromCsr` will resume, and IoT will create certificates signed
+  by IoT from a certificate signing request (CSR).
+  """
+  def delete_certificate_provider(
+        %Client{} = client,
+        certificate_provider_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/certificate-providers/#{AWS.Util.encode_uri(certificate_provider_name)}"
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -2578,6 +2658,23 @@ defmodule AWS.IoT do
   """
   def describe_certificate(%Client{} = client, certificate_id, options \\ []) do
     url_path = "/certificates/#{AWS.Util.encode_uri(certificate_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Describes a certificate provider.
+
+  Requires permission to access the
+  [DescribeCertificateProvider](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
+  """
+  def describe_certificate_provider(%Client{} = client, certificate_provider_name, options \\ []) do
+    url_path = "/certificate-providers/#{AWS.Util.encode_uri(certificate_provider_name)}"
     headers = []
     query_params = []
 
@@ -4153,6 +4250,42 @@ defmodule AWS.IoT do
     query_params =
       if !is_nil(marker) do
         [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists all your certificate providers in your Amazon Web Services account.
+
+  Requires permission to access the
+  [ListCertificateProviders](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
+  """
+  def list_certificate_providers(
+        %Client{} = client,
+        ascending_order \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/certificate-providers/"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7333,6 +7466,28 @@ defmodule AWS.IoT do
         {"newStatus", "newStatus"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates a certificate provider.
+
+  Requires permission to access the
+  [UpdateCertificateProvider](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
+  """
+  def update_certificate_provider(
+        %Client{} = client,
+        certificate_provider_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/certificate-providers/#{AWS.Util.encode_uri(certificate_provider_name)}"
+    headers = []
+    query_params = []
 
     meta = metadata()
 

@@ -4,8 +4,8 @@
 defmodule AWS.Billingconductor do
   @moduledoc """
   Amazon Web Services Billing Conductor is a fully managed service that you can
-  use to customize a [pro forma](https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions)
-  version of your billing data each month, to accurately show or chargeback your
+  use to customize a
+  [proforma](https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions) version of your billing data each month, to accurately show or chargeback your
   end customers.
 
   Amazon Web Services Billing Conductor doesn't change the way you're billed by
@@ -15,7 +15,8 @@ defmodule AWS.Billingconductor do
   apply to your accounting groupings relative to your actual rates from Amazon Web
   Services. As a result of your Amazon Web Services Billing Conductor
   configuration, the payer account can also see the custom rate applied on the
-  billing details page of the [Amazon Web Services Billing console](https://console.aws.amazon.com/billing), or configure a cost and usage
+  billing details page of the [Amazon Web Services Billing
+  console](https://console.aws.amazon.com/billing), or configure a cost and usage
   report per billing group.
 
   This documentation shows how you can configure Amazon Web Services Billing
@@ -365,6 +366,31 @@ defmodule AWS.Billingconductor do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Retrieves the margin summary report, which includes the Amazon Web Services cost
+  and charged amount (pro forma cost) by Amazon Web Service for a specific billing
+  group.
+  """
+  def get_billing_group_cost_report(%Client{} = client, input, options \\ []) do
+    url_path = "/get-billing-group-cost-report"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

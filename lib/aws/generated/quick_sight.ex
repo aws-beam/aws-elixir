@@ -118,9 +118,7 @@ defmodule AWS.QuickSight do
   Creates an Amazon QuickSight account, or subscribes to Amazon QuickSight Q.
 
   The Amazon Web Services Region for the account is derived from what is
-  configured in the CLI or SDK. This operation isn't supported in the US East
-  (Ohio) Region, South America (Sao Paulo) Region, or Asia Pacific (Singapore)
-  Region.
+  configured in the CLI or SDK.
 
   Before you use this operation, make sure that you can connect to an existing
   Amazon Web Services account. If you don't have an Amazon Web Services account,
@@ -4404,6 +4402,27 @@ defmodule AWS.QuickSight do
   def update_dashboard(%Client{} = client, aws_account_id, dashboard_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates the linked analyses on a dashboard.
+  """
+  def update_dashboard_links(
+        %Client{} = client,
+        aws_account_id,
+        dashboard_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/linked-entities"
 
     headers = []
     query_params = []

@@ -4369,6 +4369,29 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Allows pausing an ongoing task contact.
+  """
+  def pause_contact(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/pause"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Changes the current status of a user or agent in Amazon Connect.
 
   If the agent is currently handling a contact, this sets the agent's next status.
@@ -4455,6 +4478,29 @@ defmodule AWS.Connect do
   """
   def replicate_instance(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/replicate"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Allows resuming a task contact in a paused state.
+  """
+  def resume_contact(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/resume"
     headers = []
     query_params = []
 

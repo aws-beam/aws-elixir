@@ -125,10 +125,13 @@ defmodule AWS.KMS do
   different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:CancelKeyDeletion](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:CancelKeyDeletion](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   **Related operations**: `ScheduleKeyDeletion`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def cancel_key_deletion(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -213,8 +216,7 @@ defmodule AWS.KMS do
   store in a different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:ConnectCustomKeyStore](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (IAM policy)
+  [kms:ConnectCustomKeyStore](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (IAM policy)
 
   ## Related operations
 
@@ -227,6 +229,10 @@ defmodule AWS.KMS do
     * `DisconnectCustomKeyStore`
 
     * `UpdateCustomKeyStore`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def connect_custom_key_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -286,6 +292,9 @@ defmodule AWS.KMS do
     * `ListAliases`
 
     * `UpdateAlias`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def create_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -360,8 +369,7 @@ defmodule AWS.KMS do
   store in a different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:CreateCustomKeyStore](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (IAM policy).
+  [kms:CreateCustomKeyStore](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (IAM policy).
 
   ## Related operations:
 
@@ -374,6 +382,10 @@ defmodule AWS.KMS do
     * `DisconnectCustomKeyStore`
 
     * `UpdateCustomKeyStore`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def create_custom_key_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -421,8 +433,7 @@ defmodule AWS.KMS do
   `KeyId` parameter.
 
   **Required permissions**:
-  [kms:CreateGrant](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:CreateGrant](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations:
 
@@ -433,6 +444,10 @@ defmodule AWS.KMS do
     * `RetireGrant`
 
     * `RevokeGrant`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def create_grant(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -618,6 +633,9 @@ defmodule AWS.KMS do
     * `ListKeys`
 
     * `ScheduleKeyDeletion`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def create_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -681,10 +699,10 @@ defmodule AWS.KMS do
   or any Amazon Web Services SDK. Use the `Recipient` parameter to provide the
   attestation document for the enclave. Instead of the plaintext data, the
   response includes the plaintext data encrypted with the public key from the
-  attestation document (`CiphertextForRecipient`).For information about the
+  attestation document (`CiphertextForRecipient`). For information about the
   interaction between KMS and Amazon Web Services Nitro Enclaves, see [How Amazon Web Services Nitro Enclaves uses
   KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html)
-  in the *Key Management Service Developer Guide*..
+  in the *Key Management Service Developer Guide*.
 
   The KMS key that you use for this operation must be in a compatible key state.
   For details, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
@@ -695,8 +713,7 @@ defmodule AWS.KMS do
   ARN of the KMS key.
 
   **Required permissions**:
-  [kms:Decrypt](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:Decrypt](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations:
 
@@ -707,6 +724,10 @@ defmodule AWS.KMS do
     * `GenerateDataKeyPair`
 
     * `ReEncrypt`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def decrypt(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -753,6 +774,9 @@ defmodule AWS.KMS do
     * `ListAliases`
 
     * `UpdateAlias`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def delete_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -800,8 +824,7 @@ defmodule AWS.KMS do
   store in a different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:DeleteCustomKeyStore](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (IAM policy)
+  [kms:DeleteCustomKeyStore](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (IAM policy)
 
   ## Related operations:
 
@@ -814,6 +837,10 @@ defmodule AWS.KMS do
     * `DisconnectCustomKeyStore`
 
     * `UpdateCustomKeyStore`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def delete_custom_key_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -841,14 +868,17 @@ defmodule AWS.KMS do
   different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:DeleteImportedKeyMaterial](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:DeleteImportedKeyMaterial](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations:
 
     * `GetParametersForImport`
 
     * `ImportKeyMaterial`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def delete_imported_key_material(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -896,8 +926,7 @@ defmodule AWS.KMS do
   store in a different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:DescribeCustomKeyStores](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (IAM policy)
+  [kms:DescribeCustomKeyStores](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (IAM policy)
 
   ## Related operations:
 
@@ -910,6 +939,10 @@ defmodule AWS.KMS do
     * `DisconnectCustomKeyStore`
 
     * `UpdateCustomKeyStore`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def describe_custom_key_stores(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -930,11 +963,12 @@ defmodule AWS.KMS do
   (encryption, signing, or generating and verifying MACs) and the algorithms that
   the KMS key supports.
 
-  For [multi-Region keys](kms/latest/developerguide/multi-region-keys-overview.html), `DescribeKey`
-  displays the primary key and all related replica keys. For KMS keys in [CloudHSM key stores](kms/latest/developerguide/keystore-cloudhsm.html), it includes
-  information about the key store, such as the key store ID and the CloudHSM
-  cluster ID. For KMS keys in [external key stores](kms/latest/developerguide/keystore-external.html), it includes the
-  custom key store ID and the ID of the external key.
+  For [multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html),
+  `DescribeKey` displays the primary key and all related replica keys. For KMS
+  keys in [CloudHSM key stores](https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html),
+  it includes information about the key store, such as the key store ID and the
+  CloudHSM cluster ID. For KMS keys in [external key stores](https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html),
+  it includes the custom key store ID and the ID of the external key.
 
   `DescribeKey` does not return the following information:
 
@@ -963,8 +997,7 @@ defmodule AWS.KMS do
   value of the `KeyId` parameter.
 
   **Required permissions**:
-  [kms:DescribeKey](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:DescribeKey](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations:
 
@@ -981,6 +1014,10 @@ defmodule AWS.KMS do
     * `ListResourceTags`
 
     * `ListRetirableGrants`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def describe_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1005,10 +1042,13 @@ defmodule AWS.KMS do
   different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:DisableKey](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:DisableKey](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   **Related operations**: `EnableKey`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def disable_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1046,14 +1086,17 @@ defmodule AWS.KMS do
   different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:DisableKeyRotation](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:DisableKeyRotation](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations:
 
     * `EnableKeyRotation`
 
     * `GetKeyRotationStatus`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def disable_key_rotation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1093,8 +1136,7 @@ defmodule AWS.KMS do
   store in a different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:DisconnectCustomKeyStore](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (IAM policy)
+  [kms:DisconnectCustomKeyStore](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (IAM policy)
 
   ## Related operations:
 
@@ -1107,6 +1149,10 @@ defmodule AWS.KMS do
     * `DescribeCustomKeyStores`
 
     * `UpdateCustomKeyStore`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def disconnect_custom_key_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1127,10 +1173,13 @@ defmodule AWS.KMS do
   different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:EnableKey](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:EnableKey](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   **Related operations**: `DisableKey`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def enable_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1142,7 +1191,7 @@ defmodule AWS.KMS do
   Enables [automatic rotation of the key material](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
   of the specified symmetric encryption KMS key.
 
-  When you enable automatic rotation of a[customer managed KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk),
+  When you enable automatic rotation of a [customer managed KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk),
   KMS rotates the key material of the KMS key one year (approximately 365 days)
   from the enable date and every year thereafter. You can monitor rotation of the
   key material for your KMS keys in CloudTrail and Amazon CloudWatch. To disable
@@ -1180,14 +1229,17 @@ defmodule AWS.KMS do
   different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:EnableKeyRotation](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:EnableKeyRotation](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations:
 
     * `DisableKeyRotation`
 
     * `GetKeyRotationStatus`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def enable_key_rotation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1266,8 +1318,7 @@ defmodule AWS.KMS do
   value of the `KeyId` parameter.
 
   **Required permissions**:
-  [kms:Encrypt](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:Encrypt](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations:
 
@@ -1276,6 +1327,10 @@ defmodule AWS.KMS do
     * `GenerateDataKey`
 
     * `GenerateDataKeyPair`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def encrypt(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1367,8 +1422,7 @@ defmodule AWS.KMS do
   value of the `KeyId` parameter.
 
   **Required permissions**:
-  [kms:GenerateDataKey](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:GenerateDataKey](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations:
 
@@ -1381,6 +1435,10 @@ defmodule AWS.KMS do
     * `GenerateDataKeyPairWithoutPlaintext`
 
     * `GenerateDataKeyWithoutPlaintext`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def generate_data_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1395,8 +1453,8 @@ defmodule AWS.KMS do
   copy of the private key that is encrypted under the symmetric encryption KMS key
   you specify. You can use the data key pair to perform asymmetric cryptography
   and implement digital signatures outside of KMS. The bytes in the keys are
-  random; they not related to the caller or to the KMS key that is used to encrypt
-  the private key.
+  random; they are not related to the caller or to the KMS key that is used to
+  encrypt the private key.
 
   You can use the public key that `GenerateDataKeyPair` returns to encrypt data or
   verify a signature outside of KMS. Then, store the encrypted private key with
@@ -1460,8 +1518,7 @@ defmodule AWS.KMS do
   value of the `KeyId` parameter.
 
   **Required permissions**:
-  [kms:GenerateDataKeyPair](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:GenerateDataKeyPair](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations:
 
@@ -1474,6 +1531,10 @@ defmodule AWS.KMS do
     * `GenerateDataKeyPairWithoutPlaintext`
 
     * `GenerateDataKeyWithoutPlaintext`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def generate_data_key_pair(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1527,8 +1588,7 @@ defmodule AWS.KMS do
   value of the `KeyId` parameter.
 
   **Required permissions**:
-  [kms:GenerateDataKeyPairWithoutPlaintext](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:GenerateDataKeyPairWithoutPlaintext](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations:
 
@@ -1541,6 +1601,10 @@ defmodule AWS.KMS do
     * `GenerateDataKeyPair`
 
     * `GenerateDataKeyWithoutPlaintext`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def generate_data_key_pair_without_plaintext(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1606,8 +1670,7 @@ defmodule AWS.KMS do
   value of the `KeyId` parameter.
 
   **Required permissions**:
-  [kms:GenerateDataKeyWithoutPlaintext](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:GenerateDataKeyWithoutPlaintext](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations:
 
@@ -1620,6 +1683,10 @@ defmodule AWS.KMS do
     * `GenerateDataKeyPair`
 
     * `GenerateDataKeyPairWithoutPlaintext`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def generate_data_key_without_plaintext(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1657,10 +1724,13 @@ defmodule AWS.KMS do
   value of the `KeyId` parameter.
 
   **Required permissions**:
-  [kms:GenerateMac](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:GenerateMac](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   **Related operations**: `VerifyMac`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def generate_mac(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1697,8 +1767,11 @@ defmodule AWS.KMS do
   account-specific resources, such as KMS keys.
 
   **Required permissions**:
-  [kms:GenerateRandom](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (IAM policy)
+  [kms:GenerateRandom](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (IAM policy)
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def generate_random(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1713,10 +1786,13 @@ defmodule AWS.KMS do
   different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:GetKeyPolicy](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:GetKeyPolicy](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
-  **Related operations**: `PutKeyPolicy`
+  **Related operations**:
+  [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html)
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def get_key_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1772,14 +1848,17 @@ defmodule AWS.KMS do
   `KeyId` parameter.
 
   **Required permissions**:
-  [kms:GetKeyRotationStatus](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:GetKeyRotationStatus](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations:
 
     * `DisableKeyRotation`
 
     * `EnableKeyRotation`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def get_key_rotation_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1802,10 +1881,11 @@ defmodule AWS.KMS do
   `Origin` value of `EXTERNAL` to create a KMS key with no key material. You can
   import key material for a symmetric encryption KMS key, HMAC KMS key, asymmetric
   encryption KMS key, or asymmetric signing KMS key. You can also import key
-  material into a [multi-Region key](kms/latest/developerguide/multi-region-keys-overview.html) of any supported
-  type. However, you can't import key material into a KMS key in a [custom key store](kms/latest/developerguide/custom-key-store-overview.html). You can also
-  use `GetParametersForImport` to get a public key and import token to [reimport the original key
-  material](kms/latest/developerguide/importing-keys.html#reimport-key-material)
+  material into a [multi-Region key](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html)
+  of any supported type. However, you can't import key material into a KMS key in
+  a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html).
+  You can also use `GetParametersForImport` to get a public key and import token
+  to [reimport the original key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material)
   into a KMS key whose key material expired or was deleted.
 
   `GetParametersForImport` returns the items that you need to import your key
@@ -1849,14 +1929,17 @@ defmodule AWS.KMS do
   different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:GetParametersForImport](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:GetParametersForImport](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations:
 
     * `ImportKeyMaterial`
 
     * `DeleteImportedKeyMaterial`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def get_parameters_for_import(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1918,10 +2001,13 @@ defmodule AWS.KMS do
   value of the `KeyId` parameter.
 
   **Required permissions**:
-  [kms:GetPublicKey](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:GetPublicKey](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   **Related operations**: `CreateKey`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def get_public_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2028,14 +2114,17 @@ defmodule AWS.KMS do
   different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:ImportKeyMaterial](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:ImportKeyMaterial](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations:
 
     * `DeleteImportedKeyMaterial`
 
     * `GetParametersForImport`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def import_key_material(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2080,6 +2169,9 @@ defmodule AWS.KMS do
     * `DeleteAlias`
 
     * `UpdateAlias`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def list_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2108,8 +2200,7 @@ defmodule AWS.KMS do
   `KeyId` parameter.
 
   **Required permissions**:
-  [kms:ListGrants](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:ListGrants](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations:
 
@@ -2120,6 +2211,10 @@ defmodule AWS.KMS do
     * `RetireGrant`
 
     * `RevokeGrant`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def list_grants(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2137,14 +2232,17 @@ defmodule AWS.KMS do
   different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:ListKeyPolicies](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:ListKeyPolicies](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations:
 
     * `GetKeyPolicy`
 
-    * `PutKeyPolicy`
+    *
+  [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html)
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def list_key_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2160,8 +2258,7 @@ defmodule AWS.KMS do
   different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:ListKeys](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (IAM policy)
+  [kms:ListKeys](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (IAM policy)
 
   ## Related operations:
 
@@ -2172,6 +2269,10 @@ defmodule AWS.KMS do
     * `ListAliases`
 
     * `ListResourceTags`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def list_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2191,8 +2292,7 @@ defmodule AWS.KMS do
   different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:ListResourceTags](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:ListResourceTags](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations:
 
@@ -2203,6 +2303,10 @@ defmodule AWS.KMS do
     * `TagResource`
 
     * `UntagResource`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def list_resource_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2225,13 +2329,21 @@ defmodule AWS.KMS do
   grants in several programming languages, see [Programming grants](https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html).
 
   **Cross-account use**: You must specify a principal in your Amazon Web Services
-  account. However, this operation can return grants in any Amazon Web Services
-  account. You do not need `kms:ListRetirableGrants` permission (or any other
-  additional permission) in any Amazon Web Services account other than your own.
+  account. This operation returns a list of grants where the retiring principal
+  specified in the `ListRetirableGrants` request is the same retiring principal on
+  the grant. This can include grants on KMS keys owned by other Amazon Web
+  Services accounts, but you do not need `kms:ListRetirableGrants` permission (or
+  any other additional permission) in any Amazon Web Services account other than
+  your own.
 
   **Required permissions**:
-  [kms:ListRetirableGrants](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (IAM policy) in your Amazon Web Services account.
+  [kms:ListRetirableGrants](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (IAM policy) in your Amazon Web Services account.
+
+  KMS authorizes `ListRetirableGrants` requests by evaluating the caller account's
+  kms:ListRetirableGrants permissions. The authorized resource in
+  `ListRetirableGrants` calls is the retiring principal specified in the request.
+  KMS does not evaluate the caller's permissions to verify their access to any KMS
+  keys or grants that might be returned by the `ListRetirableGrants` call.
 
   ## Related operations:
 
@@ -2242,6 +2354,10 @@ defmodule AWS.KMS do
     * `RetireGrant`
 
     * `RevokeGrant`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def list_retirable_grants(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2263,10 +2379,13 @@ defmodule AWS.KMS do
   different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   **Related operations**: `GetKeyPolicy`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def put_key_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2364,6 +2483,9 @@ defmodule AWS.KMS do
     * `GenerateDataKey`
 
     * `GenerateDataKeyPair`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def re_encrypt(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2427,8 +2549,8 @@ defmodule AWS.KMS do
   If you replicate a multi-Region primary key with imported key material, the
   replica key is created with no key material. You must import the same key
   material that you imported into the primary key. For details, see [Importing key material into multi-Region
-  keys](kms/latest/developerguide/multi-region-keys-import.html) in the *Key
-  Management Service Developer Guide*.
+  keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-import.html)
+  in the *Key Management Service Developer Guide*.
 
   To convert a replica key to a primary key, use the `UpdatePrimaryRegion`
   operation.
@@ -2455,6 +2577,9 @@ defmodule AWS.KMS do
     * `CreateKey`
 
     * `UpdatePrimaryRegion`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def replicate_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2484,7 +2609,7 @@ defmodule AWS.KMS do
   **Cross-account use**: Yes. You can retire a grant on a KMS key in a different
   Amazon Web Services account.
 
-  **Required permissions:**:Permission to retire a grant is determined primarily
+  **Required permissions**: Permission to retire a grant is determined primarily
   by the grant. For details, see [Retiring and revoking grants](https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete)
   in the *Key Management Service Developer Guide*.
 
@@ -2497,6 +2622,9 @@ defmodule AWS.KMS do
     * `ListRetirableGrants`
 
     * `RevokeGrant`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def retire_grant(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2525,8 +2653,7 @@ defmodule AWS.KMS do
   `KeyId` parameter.
 
   **Required permissions**:
-  [kms:RevokeGrant](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy).
+  [kms:RevokeGrant](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy).
 
   ## Related operations:
 
@@ -2537,6 +2664,10 @@ defmodule AWS.KMS do
     * `ListRetirableGrants`
 
     * `RetireGrant`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def revoke_grant(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2558,8 +2689,8 @@ defmodule AWS.KMS do
 
   Deleting a KMS key is a destructive and potentially dangerous operation. When a
   KMS key is deleted, all data that was encrypted under the KMS key is
-  unrecoverable. (The only exception is a [multi-Region replica key](kms/latest/developerguide/multi-region-keys-delete.html), or an [asymmetric or HMAC KMS key with imported key
-  material](kms/latest/developerguide/importing-keys-managing.html#import-delete-key).)
+  unrecoverable. (The only exception is a [multi-Region replica key](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html),
+  or an [asymmetric or HMAC KMS key with imported key material](kms/latest/developerguide/importing-keys-managing.html#import-delete-key).)
   To prevent the use of a KMS key without deleting it, use `DisableKey`.
 
   You can schedule the deletion of a multi-Region primary key and its replica keys
@@ -2600,6 +2731,9 @@ defmodule AWS.KMS do
     * `CancelKeyDeletion`
 
     * `DisableKey`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def schedule_key_deletion(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2660,10 +2794,13 @@ defmodule AWS.KMS do
   value of the `KeyId` parameter.
 
   **Required permissions**:
-  [kms:Sign](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:Sign](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   **Related operations**: `Verify`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def sign(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2705,8 +2842,7 @@ defmodule AWS.KMS do
   different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:TagResource](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:TagResource](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations
 
@@ -2717,6 +2853,10 @@ defmodule AWS.KMS do
     * `ReplicateKey`
 
     * `UntagResource`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2751,8 +2891,7 @@ defmodule AWS.KMS do
   different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:UntagResource](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:UntagResource](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations
 
@@ -2763,6 +2902,10 @@ defmodule AWS.KMS do
     * `ReplicateKey`
 
     * `TagResource`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2826,6 +2969,9 @@ defmodule AWS.KMS do
     * `DeleteAlias`
 
     * `ListAliases`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def update_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2906,8 +3052,7 @@ defmodule AWS.KMS do
   store in a different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:UpdateCustomKeyStore](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (IAM policy)
+  [kms:UpdateCustomKeyStore](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (IAM policy)
 
   ## Related operations:
 
@@ -2920,6 +3065,10 @@ defmodule AWS.KMS do
     * `DescribeCustomKeyStores`
 
     * `DisconnectCustomKeyStore`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def update_custom_key_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2940,14 +3089,17 @@ defmodule AWS.KMS do
   different Amazon Web Services account.
 
   **Required permissions**:
-  [kms:UpdateKeyDescription](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:UpdateKeyDescription](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   ## Related operations
 
     * `CreateKey`
 
     * `DescribeKey`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def update_key_description(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3024,6 +3176,9 @@ defmodule AWS.KMS do
     * `CreateKey`
 
     * `ReplicateKey`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def update_primary_region(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3074,10 +3229,13 @@ defmodule AWS.KMS do
   value of the `KeyId` parameter.
 
   **Required permissions**:
-  [kms:Verify](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:Verify](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   **Related operations**: `Sign`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def verify(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3110,10 +3268,13 @@ defmodule AWS.KMS do
   value of the `KeyId` parameter.
 
   **Required permissions**:
-  [kms:VerifyMac](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)
-  (key policy)
+  [kms:VerifyMac](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
 
   **Related operations**: `GenerateMac`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model. For
+  more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
   """
   def verify_mac(%Client{} = client, input, options \\ []) do
     meta = metadata()

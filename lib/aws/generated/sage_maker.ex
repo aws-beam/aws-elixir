@@ -179,7 +179,7 @@ defmodule AWS.SageMaker do
   generation (LLMs fine-tuning).
 
   Find guidelines about how to migrate a `CreateAutoMLJob` to `CreateAutoMLJobV2`
-  in [Migrate a CreateAutoMLJob to CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment-api.html#autopilot-create-experiment-api-migrate-v1-v2).
+  in [Migrate a CreateAutoMLJob to CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment.html#autopilot-create-experiment-api-migrate-v1-v2).
 
   You can find the best-performing model after you run an AutoML job by calling
   [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html) (recommended) or
@@ -208,7 +208,7 @@ defmodule AWS.SageMaker do
   generation (LLMs fine-tuning).
 
   Find guidelines about how to migrate a `CreateAutoMLJob` to `CreateAutoMLJobV2`
-  in [Migrate a CreateAutoMLJob to CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment-api.html#autopilot-create-experiment-api-migrate-v1-v2).
+  in [Migrate a CreateAutoMLJob to CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment.html#autopilot-create-experiment-api-migrate-v1-v2).
 
   For the list of available problem types supported by `CreateAutoMLJobV2`, see
   [AutoMLProblemTypeConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLProblemTypeConfig.html).  You can find the best-performing model after you run an AutoML job V2 by calling
@@ -1376,6 +1376,24 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteCodeRepository", input, options)
+  end
+
+  @doc """
+  Deletes the specified compilation job.
+
+  This action deletes only the compilation job resource in Amazon SageMaker. It
+  doesn't delete other resources that are related to that job, such as the model
+  artifacts that the job creates, the compilation logs in CloudWatch, the compiled
+  model, or the IAM role.
+
+  You can delete a compilation job only if its current status is `COMPLETED`,
+  `FAILED`, or `STOPPED`. If the job status is `STARTING` or `INPROGRESS`, stop
+  the job, and then delete it after its status becomes `STOPPED`.
+  """
+  def delete_compilation_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCompilationJob", input, options)
   end
 
   @doc """

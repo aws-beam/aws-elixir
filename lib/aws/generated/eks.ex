@@ -5,7 +5,7 @@ defmodule AWS.EKS do
   @moduledoc """
   Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes
   it easy for you to run Kubernetes on Amazon Web Services without needing to
-  stand up or maintain your own Kubernetes control plane.
+  setup or maintain your own Kubernetes control plane.
 
   Kubernetes is an open-source system for automating the deployment, scaling, and
   management of containerized applications.
@@ -39,11 +39,46 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Associate encryption configuration to an existing cluster.
+  Associates an access policy and its scope to an access entry.
 
-  You can use this API to enable encryption on existing clusters which do not have
-  encryption already enabled. This allows you to implement a defense-in-depth
-  security strategy without migrating applications to new Amazon EKS clusters.
+  For more information about associating access policies, see [Associating and disassociating access policies to and from access
+  entries](https://docs.aws.amazon.com/eks/latest/userguide/access-policies.html)
+  in the *Amazon EKS User Guide*.
+  """
+  def associate_access_policy(
+        %Client{} = client,
+        cluster_name,
+        principal_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries/#{AWS.Util.encode_uri(principal_arn)}/access-policies"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Associates an encryption configuration to an existing cluster.
+
+  Use this API to enable encryption on existing clusters that don't already have
+  encryption enabled. This allows you to implement a defense-in-depth security
+  strategy without migrating applications to new Amazon EKS clusters.
   """
   def associate_encryption_config(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/encryption-config/associate"
@@ -66,20 +101,57 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Associate an identity provider configuration to a cluster.
+  Associates an identity provider configuration to a cluster.
 
   If you want to authenticate identities using an identity provider, you can
   create an identity provider configuration and associate it to your cluster.
   After configuring authentication to your cluster you can create Kubernetes
-  `roles` and `clusterroles` to assign permissions to the roles, and then bind the
-  roles to the identities using Kubernetes `rolebindings` and
-  `clusterrolebindings`. For more information see [Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) in
+  `Role` and `ClusterRole` objects, assign permissions to them, and then bind them
+  to the identities using Kubernetes `RoleBinding` and `ClusterRoleBinding`
+  objects. For more information see [Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) in
   the Kubernetes documentation.
   """
   def associate_identity_provider_config(%Client{} = client, cluster_name, input, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/identity-provider-configs/associate"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates an access entry.
+
+  An access entry allows an IAM principal to access your cluster. Access entries
+  can replace the need to maintain entries in the `aws-auth` `ConfigMap` for
+  authentication. You have the following options for authorizing an IAM principal
+  to access Kubernetes objects on your cluster: Kubernetes role-based access
+  control (RBAC), Amazon EKS, or both. Kubernetes RBAC authorization requires you
+  to create and manage Kubernetes `Role`, `ClusterRole`, `RoleBinding`, and
+  `ClusterRoleBinding` objects, in addition to managing access entries. If you use
+  Amazon EKS authorization exclusively, you don't need to create and manage
+  Kubernetes `Role`, `ClusterRole`, `RoleBinding`, and `ClusterRoleBinding`
+  objects.
+
+  For more information about access entries, see [Access entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html)
+  in the *Amazon EKS User Guide*.
+  """
+  def create_access_entry(%Client{} = client, cluster_name, input, options \\ []) do
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries"
     headers = []
     query_params = []
 
@@ -247,7 +319,7 @@ defmodule AWS.EKS do
   for that Fargate profile to finish deleting before you can create any other
   profiles in that cluster.
 
-  For more information, see [Fargate Profile](https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html)
+  For more information, see [Fargate profile](https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html)
   in the *Amazon EKS User Guide*.
   """
   def create_fargate_profile(%Client{} = client, cluster_name, input, options \\ []) do
@@ -274,15 +346,18 @@ defmodule AWS.EKS do
   Creates a managed node group for an Amazon EKS cluster.
 
   You can only create a node group for your cluster that is equal to the current
-  Kubernetes version for the cluster.
+  Kubernetes version for the cluster. All node groups are created with the latest
+  AMI release version for the respective minor Kubernetes version of the cluster,
+  unless you deploy a custom AMI using a launch template. For more information
+  about using launch templates, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html).
 
   An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and
   associated Amazon EC2 instances that are managed by Amazon Web Services for an
   Amazon EKS cluster. For more information, see [Managed node groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html)
   in the *Amazon EKS User Guide*.
 
-  Windows AMI types are only supported for commercial Regions that support Windows
-  Amazon EKS.
+  Windows AMI types are only supported for commercial Amazon Web Services Regions
+  that support Windows on Amazon EKS.
   """
   def create_nodegroup(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups"
@@ -312,8 +387,8 @@ defmodule AWS.EKS do
   credentials are rotated automatically.
 
   Amazon EKS Pod Identity associations provide the ability to manage credentials
-  for your applications, similar to the way that 7EC2l instance profiles provide
-  credentials to Amazon EC2 instances.
+  for your applications, similar to the way that Amazon EC2 instance profiles
+  provide credentials to Amazon EC2 instances.
 
   If a pod uses a service account that has an association, Amazon EKS sets
   environment variables in the containers of the pod. The environment variables
@@ -345,10 +420,39 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Delete an Amazon EKS add-on.
+  Deletes an access entry.
 
-  When you remove the add-on, it will also be deleted from the cluster. You can
-  always manually start an add-on on the cluster using the Kubernetes API.
+  Deleting an access entry of a type other than `Standard` can cause your cluster
+  to function improperly. If you delete an access entry in error, you can recreate
+  it.
+  """
+  def delete_access_entry(%Client{} = client, cluster_name, principal_arn, input, options \\ []) do
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries/#{AWS.Util.encode_uri(principal_arn)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes an Amazon EKS add-on.
+
+  When you remove an add-on, it's deleted from the cluster. You can always
+  manually start an add-on on the cluster using the Kubernetes API.
   """
   def delete_addon(%Client{} = client, addon_name, cluster_name, input, options \\ []) do
     url_path =
@@ -378,17 +482,17 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Deletes the Amazon EKS cluster control plane.
+  Deletes an Amazon EKS cluster control plane.
 
   If you have active services in your cluster that are associated with a load
   balancer, you must delete those services before deleting the cluster so that the
   load balancers are deleted properly. Otherwise, you can have orphaned resources
   in your VPC that prevent you from being able to delete the VPC. For more
-  information, see [Deleting a Cluster](https://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html)
+  information, see [Deleting a cluster](https://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html)
   in the *Amazon EKS User Guide*.
 
   If you have managed node groups or Fargate profiles attached to the cluster, you
-  must delete them first. For more information, see `DeleteNodegroup` and
+  must delete them first. For more information, see `DeleteNodgroup` and
   `DeleteFargateProfile`.
   """
   def delete_cluster(%Client{} = client, name, input, options \\ []) do
@@ -442,11 +546,11 @@ defmodule AWS.EKS do
   @doc """
   Deletes an Fargate profile.
 
-  When you delete a Fargate profile, any pods running on Fargate that were created
-  with the profile are deleted. If those pods match another Fargate profile, then
-  they are scheduled on Fargate with that profile. If they no longer match any
-  Fargate profiles, then they are not scheduled on Fargate and they may remain in
-  a pending state.
+  When you delete a Fargate profile, any `Pod` running on Fargate that was created
+  with the profile is deleted. If the `Pod` matches another Fargate profile, then
+  it is scheduled on Fargate with that profile. If it no longer matches any
+  Fargate profiles, then it's not scheduled on Fargate and may remain in a pending
+  state.
 
   Only one Fargate profile in a cluster can be in the `DELETING` status at a time.
   You must wait for a Fargate profile to finish deleting before you can delete any
@@ -481,7 +585,7 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Deletes an Amazon EKS node group for a cluster.
+  Deletes a managed node group.
   """
   def delete_nodegroup(%Client{} = client, cluster_name, nodegroup_name, input, options \\ []) do
     url_path =
@@ -542,6 +646,9 @@ defmodule AWS.EKS do
 
   @doc """
   Deregisters a connected cluster to remove it from the Amazon EKS control plane.
+
+  A connected cluster is a Kubernetes cluster that you've connected to your
+  control plane using the [Amazon EKS Connector](https://docs.aws.amazon.com/eks/latest/userguide/eks-connector.html).
   """
   def deregister_cluster(%Client{} = client, name, input, options \\ []) do
     url_path = "/cluster-registrations/#{AWS.Util.encode_uri(name)}"
@@ -561,6 +668,21 @@ defmodule AWS.EKS do
       options,
       nil
     )
+  end
+
+  @doc """
+  Describes an access entry.
+  """
+  def describe_access_entry(%Client{} = client, cluster_name, principal_arn, options \\ []) do
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries/#{AWS.Util.encode_uri(principal_arn)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -681,11 +803,12 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Returns descriptive information about an Amazon EKS cluster.
+  Describes an Amazon EKS cluster.
 
   The API server endpoint and certificate authority data returned by this
   operation are required for `kubelet` and `kubectl` to communicate with your
-  Kubernetes API server. For more information, see [Create a kubeconfig for Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html).
+  Kubernetes API server. For more information, see [Creating or updating a `kubeconfig` file for an Amazon EKS
+  cluster](https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html).
 
   The API server endpoint and certificate authority data aren't available until
   the cluster reaches the `ACTIVE` state.
@@ -714,7 +837,7 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Returns descriptive information about an Fargate profile.
+  Describes an Fargate profile.
   """
   def describe_fargate_profile(
         %Client{} = client,
@@ -734,7 +857,7 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Returns descriptive information about an identity provider configuration.
+  Describes an identity provider configuration.
   """
   def describe_identity_provider_config(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/identity-provider-configs/describe"
@@ -757,7 +880,7 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Returns descriptive information about an Amazon EKS node group.
+  Describes a managed node group.
   """
   def describe_nodegroup(%Client{} = client, cluster_name, nodegroup_name, options \\ []) do
     url_path =
@@ -797,8 +920,7 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Returns descriptive information about an update against your Amazon EKS cluster
-  or associated managed node group or Amazon EKS add-on.
+  Describes an update to an Amazon EKS resource.
 
   When the status of the update is `Succeeded`, the update is complete. If an
   update fails, the status is `Failed`, and an error detail explains the reason
@@ -836,11 +958,43 @@ defmodule AWS.EKS do
   end
 
   @doc """
+  Disassociates an access policy from an access entry.
+  """
+  def disassociate_access_policy(
+        %Client{} = client,
+        cluster_name,
+        policy_arn,
+        principal_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries/#{AWS.Util.encode_uri(principal_arn)}/access-policies/#{AWS.Util.encode_uri(policy_arn)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Disassociates an identity provider configuration from a cluster.
 
   If you disassociate an identity provider from your cluster, users included in
   the provider can no longer access the cluster. However, you can still access the
-  cluster with [IAM principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html).
+  cluster with IAM principals.
   """
   def disassociate_identity_provider_config(
         %Client{} = client,
@@ -867,6 +1021,79 @@ defmodule AWS.EKS do
       options,
       nil
     )
+  end
+
+  @doc """
+  Lists the access entries for your cluster.
+  """
+  def list_access_entries(
+        %Client{} = client,
+        cluster_name,
+        associated_policy_arn \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(associated_policy_arn) do
+        [{"associatedPolicyArn", associated_policy_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists the available access policies.
+  """
+  def list_access_policies(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/access-policies"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
   end
 
   @doc """
@@ -903,8 +1130,44 @@ defmodule AWS.EKS do
   end
 
   @doc """
+  Lists the access policies associated with an access entry.
+  """
+  def list_associated_access_policies(
+        %Client{} = client,
+        cluster_name,
+        principal_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries/#{AWS.Util.encode_uri(principal_arn)}/access-policies"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Lists the Amazon EKS clusters in your Amazon Web Services account in the
-  specified Region.
+  specified Amazon Web Services Region.
   """
   def list_clusters(
         %Client{} = client,
@@ -985,7 +1248,7 @@ defmodule AWS.EKS do
 
   @doc """
   Lists the Fargate profiles associated with the specified cluster in your Amazon
-  Web Services account in the specified Region.
+  Web Services account in the specified Amazon Web Services Region.
   """
   def list_fargate_profiles(
         %Client{} = client,
@@ -1018,7 +1281,7 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  A list of identity provider configurations.
+  Lists the identity provider configurations for your cluster.
   """
   def list_identity_provider_configs(
         %Client{} = client,
@@ -1051,10 +1314,10 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Lists the Amazon EKS managed node groups associated with the specified cluster
-  in your Amazon Web Services account in the specified Region.
+  Lists the managed node groups associated with the specified cluster in your
+  Amazon Web Services account in the specified Amazon Web Services Region.
 
-  Self-managed node groups are not listed.
+  Self-managed node groups aren't listed.
   """
   def list_nodegroups(
         %Client{} = client,
@@ -1152,8 +1415,8 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Lists the updates associated with an Amazon EKS cluster or managed node group in
-  your Amazon Web Services account, in the specified Region.
+  Lists the updates associated with an Amazon EKS resource in your Amazon Web
+  Services account, in the specified Amazon Web Services Region.
   """
   def list_updates(
         %Client{} = client,
@@ -1215,10 +1478,10 @@ defmodule AWS.EKS do
   containing the `activationID` and `activationCode` must be applied to the
   Kubernetes cluster through it's native provider to provide visibility.
 
-  After the Manifest is updated and applied, then the connected cluster is visible
-  to the Amazon EKS control plane. If the Manifest is not applied within three
-  days, then the connected cluster will no longer be visible and must be
-  deregistered. See `DeregisterCluster`.
+  After the manifest is updated and applied, the connected cluster is visible to
+  the Amazon EKS control plane. If the manifest isn't applied within three days,
+  the connected cluster will no longer be visible and must be deregistered using
+  `DeregisterCluster`.
   """
   def register_cluster(%Client{} = client, input, options \\ []) do
     url_path = "/cluster-registrations"
@@ -1241,14 +1504,15 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Associates the specified tags to a resource with the specified `resourceArn`.
+  Associates the specified tags to an Amazon EKS resource with the specified
+  `resourceArn`.
 
   If existing tags on a resource are not specified in the request parameters, they
-  are not changed. When a resource is deleted, the tags associated with that
-  resource are deleted as well. Tags that you create for Amazon EKS resources do
-  not propagate to any other resources associated with the cluster. For example,
-  if you tag a cluster with this operation, that tag does not automatically
-  propagate to the subnets and nodes associated with the cluster.
+  aren't changed. When a resource is deleted, the tags associated with that
+  resource are also deleted. Tags that you create for Amazon EKS resources don't
+  propagate to any other resources associated with the cluster. For example, if
+  you tag a cluster with this operation, that tag doesn't automatically propagate
+  to the subnets and nodes associated with the cluster.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1271,7 +1535,7 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Deletes specified tags from a resource.
+  Deletes specified tags from an Amazon EKS resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1289,6 +1553,31 @@ defmodule AWS.EKS do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates an access entry.
+  """
+  def update_access_entry(%Client{} = client, cluster_name, principal_arn, input, options \\ []) do
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries/#{AWS.Util.encode_uri(principal_arn)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       headers,
@@ -1328,12 +1617,12 @@ defmodule AWS.EKS do
 
   Your cluster continues to function during the update. The response output
   includes an update ID that you can use to track the status of your cluster
-  update with the `DescribeUpdate` API operation.
+  update with `DescribeUpdate`"/>.
 
   You can use this API operation to enable or disable exporting the Kubernetes
   control plane logs for your cluster to CloudWatch Logs. By default, cluster
   control plane logs aren't exported to CloudWatch Logs. For more information, see
-  [Amazon EKS Cluster Control Plane Logs](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
+  [Amazon EKS Cluster control plane logs](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
   in the * *Amazon EKS User Guide* *.
 
   CloudWatch Logs ingestion, archive storage, and data scanning rates apply to
@@ -1499,9 +1788,9 @@ defmodule AWS.EKS do
   version.
 
   When a node in a managed node group is terminated due to a scaling action or
-  update, the pods in that node are drained first. Amazon EKS attempts to drain
+  update, every `Pod` on that node is drained first. Amazon EKS attempts to drain
   the nodes gracefully and will fail if it is unable to do so. You can `force` the
-  update if Amazon EKS is unable to drain the nodes as a result of a pod
+  update if Amazon EKS is unable to drain the nodes as a result of a `Pod`
   disruption budget issue.
   """
   def update_nodegroup_version(
@@ -1537,7 +1826,7 @@ defmodule AWS.EKS do
 
   Only the IAM role can be changed; an association can't be moved between
   clusters, namespaces, or service accounts. If you need to edit the namespace or
-  service account, you need to remove the association and then create a new
+  service account, you need to delete the association and then create a new
   association with your desired settings.
   """
   def update_pod_identity_association(

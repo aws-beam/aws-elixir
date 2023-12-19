@@ -155,7 +155,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
-  Creates an Route 53 Resolver on an Outpost.
+  Creates a Route 53 Resolver on an Outpost.
   """
   def create_outpost_resolver(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -863,7 +863,7 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
-  Updates the name, or enpoint type for an inbound or an outbound Resolver
+  Updates the name, or endpoint type for an inbound or an outbound Resolver
   endpoint.
 
   You can only update between IPV4 and DUALSTACK, IPV6 endpoint type can't be

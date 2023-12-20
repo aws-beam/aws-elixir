@@ -4,8 +4,8 @@
 defmodule AWS.ChimeSDKMeetings do
   @moduledoc """
   The Amazon Chime SDK meetings APIs in this section allow software developers to
-  create Amazon Chime SDK meetings, set the AWS Regions for meetings, create and
-  manage users, and send and receive meeting notifications.
+  create Amazon Chime SDK meetings, set the Amazon Web Services Regions for
+  meetings, create and manage users, and send and receive meeting notifications.
 
   For more information about the meeting APIs, see [Amazon Chime SDK meetings](https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Meetings.html).
   """
@@ -64,6 +64,16 @@ defmodule AWS.ChimeSDKMeetings do
   .
 
   When using capabilities, be aware of these corner cases:
+
+    * If you specify `MeetingFeatures:Video:MaxResolution:None` when you
+  create a meeting, all API requests that include `SendReceive`, `Send`, or
+  `Receive` for `AttendeeCapabilities:Video` will be rejected with
+  `ValidationError 400`.
+
+    * If you specify `MeetingFeatures:Content:MaxResolution:None` when
+  you create a meeting, all API requests that include `SendReceive`, `Send`, or
+  `Receive` for `AttendeeCapabilities:Content` will be rejected with
+  `ValidationError 400`.
 
     * You can't set `content` capabilities to `SendReceive` or `Receive`
   unless you also set `video` capabilities to `SendReceive` or `Receive`. If you
@@ -343,10 +353,18 @@ defmodule AWS.ChimeSDKMeetings do
   to the
   [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) API in the *Amazon Transcribe Developer Guide*.
 
-  Amazon Chime SDK live transcription is powered by Amazon Transcribe. Use of
-  Amazon Transcribe is subject to the [AWS Service
-  Terms](https://aws.amazon.com/service-terms/), including the terms specific to
-  the AWS Machine Learning and Artificial Intelligence Services.
+  By default, Amazon Transcribe may use and store audio content processed by the
+  service to develop and improve Amazon Web Services AI/ML services as further
+  described in section 50 of the [Amazon Web Services Service
+  Terms](https://aws.amazon.com/service-terms/). Using Amazon Transcribe may be
+  subject to federal and state laws or regulations regarding the recording or
+  interception of electronic communications. It is your and your end users’
+  responsibility to comply with all applicable laws regarding the recording,
+  including properly notifying all participants in a recorded session or
+  communication that the session or communication is being recorded, and obtaining
+  all necessary consents. You can opt out from Amazon Web Services using audio
+  content to develop and improve AWS AI/ML services by configuring an AI services
+  opt out policy using Amazon Web Services Organizations.
   """
   def start_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=start"
@@ -375,9 +393,17 @@ defmodule AWS.ChimeSDKMeetings do
   ](https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html) in
   the *Amazon Chime SDK Developer Guide*.
 
-  Amazon Chime SDK live transcription is powered by Amazon Transcribe. Use of
-  Amazon Transcribe is subject to the [AWS Service Terms](https://aws.amazon.com/service-terms/), including the terms specific to
-  the AWS Machine Learning and Artificial Intelligence Services.
+  By default, Amazon Transcribe may use and store audio content processed by the
+  service to develop and improve Amazon Web Services AI/ML services as further
+  described in section 50 of the [Amazon Web Services Service Terms](https://aws.amazon.com/service-terms/). Using Amazon Transcribe may be
+  subject to federal and state laws or regulations regarding the recording or
+  interception of electronic communications. It is your and your end users’
+  responsibility to comply with all applicable laws regarding the recording,
+  including properly notifying all participants in a recorded session or
+  communication that the session or communication is being recorded, and obtaining
+  all necessary consents. You can opt out from Amazon Web Services using audio
+  content to develop and improve Amazon Web Services AI/ML services by configuring
+  an AI services opt out policy using Amazon Web Services Organizations.
   """
   def stop_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=stop"
@@ -434,8 +460,8 @@ defmodule AWS.ChimeSDKMeetings do
   tags. For more information, see the documentation for the service whose resource
   you want to untag.
 
-    * You can only tag resources that are located in the specified AWS
-  Region for the calling AWS account.
+    * You can only tag resources that are located in the specified
+  Amazon Web Services Region for the calling Amazon Web Services account.
 
   ## Minimum permissions
 
@@ -477,6 +503,16 @@ defmodule AWS.ChimeSDKMeetings do
   .
 
   When using capabilities, be aware of these corner cases:
+
+    * If you specify `MeetingFeatures:Video:MaxResolution:None` when you
+  create a meeting, all API requests that include `SendReceive`, `Send`, or
+  `Receive` for `AttendeeCapabilities:Video` will be rejected with
+  `ValidationError 400`.
+
+    * If you specify `MeetingFeatures:Content:MaxResolution:None` when
+  you create a meeting, all API requests that include `SendReceive`, `Send`, or
+  `Receive` for `AttendeeCapabilities:Content` will be rejected with
+  `ValidationError 400`.
 
     * You can't set `content` capabilities to `SendReceive` or `Receive`
   unless you also set `video` capabilities to `SendReceive` or `Receive`. If you

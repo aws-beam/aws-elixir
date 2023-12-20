@@ -1264,6 +1264,16 @@ defmodule AWS.RDS do
   end
 
   @doc """
+  Describes the recommendations to resolve the issues for your DB instances, DB
+  clusters, and DB parameter groups.
+  """
+  def describe_db_recommendations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDBRecommendations", input, options)
+  end
+
+  @doc """
   Returns a list of `DBSecurityGroup` descriptions.
 
   If a `DBSecurityGroupName` is specified, the list will contain only the
@@ -1931,6 +1941,16 @@ defmodule AWS.RDS do
     meta = metadata()
 
     Request.request_post(client, meta, "ModifyDBProxyTargetGroup", input, options)
+  end
+
+  @doc """
+  Updates the recommendation status and recommended action status for the
+  specified recommendation.
+  """
+  def modify_db_recommendation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyDBRecommendation", input, options)
   end
 
   @doc """

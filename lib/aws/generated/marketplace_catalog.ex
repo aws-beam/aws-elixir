@@ -34,6 +34,29 @@ defmodule AWS.MarketplaceCatalog do
   end
 
   @doc """
+  Returns metadata and content for multiple entities.
+  """
+  def batch_describe_entities(%Client{} = client, input, options \\ []) do
+    url_path = "/BatchDescribeEntities"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Used to cancel an open change request.
 
   Must be sent before the status of the request changes to `APPLYING`, the final

@@ -880,6 +880,21 @@ defmodule AWS.EKS do
   end
 
   @doc """
+  Returns details about an insight that you specify using its ID.
+  """
+  def describe_insight(%Client{} = client, cluster_name, id, options \\ []) do
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/insights/#{AWS.Util.encode_uri(id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Describes a managed node group.
   """
   def describe_nodegroup(%Client{} = client, cluster_name, nodegroup_name, options \\ []) do
@@ -1311,6 +1326,32 @@ defmodule AWS.EKS do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Returns a list of all insights checked for against the specified cluster.
+
+  You can filter which insights are returned by category, associated Kubernetes
+  version, and status.
+  """
+  def list_insights(%Client{} = client, cluster_name, input, options \\ []) do
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/insights"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """

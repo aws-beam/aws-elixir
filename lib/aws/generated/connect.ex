@@ -338,6 +338,31 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  >Associates a set of proficiencies with a user.
+  """
+  def associate_user_proficiencies(%Client{} = client, instance_id, user_id, input, options \\ []) do
+    url_path =
+      "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/associate-proficiencies"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Associates a list of analytics datasets for a given Amazon Connect instance to a
@@ -650,6 +675,19 @@ defmodule AWS.Connect do
       options,
       nil
     )
+  end
+
+  @doc """
+  Creates a new predefined attribute for the specified Amazon Connect instance.
+  """
+  def create_predefined_attribute(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
   end
 
   @doc """
@@ -1175,6 +1213,31 @@ defmodule AWS.Connect do
       ) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations/#{AWS.Util.encode_uri(integration_association_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes a predefined attribute from the specified Amazon Connect instance.
+  """
+  def delete_predefined_attribute(%Client{} = client, instance_id, name, input, options \\ []) do
+    url_path =
+      "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(name)}"
 
     headers = []
     query_params = []
@@ -1830,6 +1893,21 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Describes a predefined attribute for the specified Amazon Connect instance.
+  """
+  def describe_predefined_attribute(%Client{} = client, instance_id, name, options \\ []) do
+    url_path =
+      "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Describes the prompt.
   """
   def describe_prompt(%Client{} = client, instance_id, prompt_id, options \\ []) do
@@ -2409,6 +2487,37 @@ defmodule AWS.Connect do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Disassociates a set of proficiencies from a user.
+  """
+  def disassociate_user_proficiencies(
+        %Client{} = client,
+        instance_id,
+        user_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/disassociate-proficiencies"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       headers,
@@ -3553,6 +3662,39 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Lists predefined attributes for the specified Amazon Connect instance.
+  """
+  def list_predefined_attributes(
+        %Client{} = client,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Provides information about the prompts for the specified Amazon Connect
   instance.
   """
@@ -4227,6 +4369,42 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Lists proficiencies associated with a user.
+  """
+  def list_user_proficiencies(
+        %Client{} = client,
+        instance_id,
+        user_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/proficiencies"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
   Provides summary information about the users for the specified Amazon Connect
   instance.
   """
@@ -4578,11 +4756,57 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Searches contacts in an Amazon Connect instance.
+  """
+  def search_contacts(%Client{} = client, input, options \\ []) do
+    url_path = "/search-contacts"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Searches the hours of operation in an Amazon Connect instance, with optional
   filtering.
   """
   def search_hours_of_operations(%Client{} = client, input, options \\ []) do
     url_path = "/search-hours-of-operations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Predefined attributes that meet certain criteria.
+  """
+  def search_predefined_attributes(%Client{} = client, input, options \\ []) do
+    url_path = "/search-predefined-attributes"
     headers = []
     query_params = []
 
@@ -5674,6 +5898,48 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Updates routing priority and age on the contact (**QueuePriority** and
+  **QueueTimeAdjustmentInSeconds**). These properties can be used to change a
+  customer's position in the queue. For example, you can move a contact to the
+  back of the queue by setting a lower routing priority relative to other contacts
+  in queue; or you can move a contact to the front of the queue by increasing the
+  routing age which will make the contact look artificially older and therefore
+  higher up in the first-in-first-out routing order. Note that adjusting the
+  routing age of a contact affects only its position in queue, and not its actual
+  queue wait time as reported through metrics. These properties can also be
+  updated by using [the Set routing priority / age flow block](https://docs.aws.amazon.com/connect/latest/adminguide/change-routing-priority.html).
+  """
+  def update_contact_routing_data(
+        %Client{} = client,
+        contact_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contacts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}/routing-data"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Updates the scheduled time of a task contact that is already scheduled.
   """
   def update_contact_schedule(%Client{} = client, input, options \\ []) do
@@ -5904,6 +6170,31 @@ defmodule AWS.Connect do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates a predefined attribute for the specified Amazon Connect instance.
+  """
+  def update_predefined_attribute(%Client{} = client, instance_id, name, input, options \\ []) do
+    url_path =
+      "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -6548,6 +6839,31 @@ defmodule AWS.Connect do
   def update_user_phone_config(%Client{} = client, instance_id, user_id, input, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/phone-config"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates the properties associated with the proficiencies of a user.
+  """
+  def update_user_proficiencies(%Client{} = client, instance_id, user_id, input, options \\ []) do
+    url_path =
+      "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/proficiencies"
 
     headers = []
     query_params = []

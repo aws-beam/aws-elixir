@@ -222,16 +222,21 @@ defmodule AWS.GuardDuty do
   administrator account. A delegated administrator must enable GuardDuty prior to
   being added as a member.
 
-  If you are adding accounts by invitation, before using
-  [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html), use `CreateMembers` after GuardDuty has been enabled in potential member
+  When you use CreateMembers as an Organizations delegated administrator,
+  GuardDuty applies your organization's auto-enable settings to the member
+  accounts in this request, irrespective of the accounts being new or existing
+  members. For more information about the existing auto-enable settings for your
+  organization, see
+  [DescribeOrganizationConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DescribeOrganizationConfiguration.html).  If you are adding accounts by invitation, before using
+  [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html),
+  use `CreateMembers` after GuardDuty has been enabled in potential member
   accounts.
 
   If you disassociate a member from a GuardDuty delegated administrator, the
   member account details obtained from this API, including the associated email
   addresses, will be retained. This is done so that the delegated administrator
   can invoke the
-  [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html)
-  API without the need to invoke the CreateMembers API again. To remove the
+  [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html) API without the need to invoke the CreateMembers API again. To remove the
   details associated with a member account, the delegated administrator must
   invoke the
   [DeleteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html)
@@ -828,8 +833,8 @@ defmodule AWS.GuardDuty do
 
   If you are a GuardDuty administrator, you can retrieve the statistics for all
   the resources associated with the active member accounts in your organization
-  who have enabled EKS Runtime Monitoring and have the GuardDuty agent running on
-  their EKS nodes.
+  who have enabled Runtime Monitoring and have the GuardDuty security agent
+  running on their resources.
   """
   def get_coverage_statistics(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/coverage/statistics"
@@ -1041,6 +1046,25 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
+  Retrieves how many active member accounts in your Amazon Web Services
+  organization have each feature enabled within GuardDuty.
+
+  Only a delegated GuardDuty administrator of an organization can run this API.
+
+  When you create a new Amazon Web Services organization, it might take up to 24
+  hours to generate the statistics for the entire organization.
+  """
+  def get_organization_statistics(%Client{} = client, options \\ []) do
+    url_path = "/organization/statistics"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Provides the number of days left for each data source used in the free trial
   period.
   """
@@ -1159,8 +1183,8 @@ defmodule AWS.GuardDuty do
   If you're a GuardDuty administrator, you can retrieve all resources associated
   with the active member accounts in your organization.
 
-  Make sure the accounts have EKS Runtime Monitoring enabled and GuardDuty agent
-  running on their EKS nodes.
+  Make sure the accounts have Runtime Monitoring enabled and GuardDuty agent
+  running on their resources.
   """
   def list_coverage(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/coverage"

@@ -1571,6 +1571,24 @@ defmodule AWS.RDS do
   end
 
   @doc """
+  Disables the HTTP endpoint for the specified DB cluster.
+
+  Disabling this endpoint disables RDS Data API.
+
+  For more information, see [Using RDS Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html)
+  in the *Amazon Aurora User Guide*.
+
+  This operation applies only to Aurora PostgreSQL Serverless v2 and provisioned
+  DB clusters. To disable the HTTP endpoint for Aurora Serverless v1 DB clusters,
+  use the `EnableHttpEndpoint` parameter of the `ModifyDBCluster` operation.
+  """
+  def disable_http_endpoint(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableHttpEndpoint", input, options)
+  end
+
+  @doc """
   Downloads all or a portion of the specified log file, up to 1 MB in size.
 
   This command doesn't apply to RDS Custom.
@@ -1579,6 +1597,28 @@ defmodule AWS.RDS do
     meta = metadata()
 
     Request.request_post(client, meta, "DownloadDBLogFilePortion", input, options)
+  end
+
+  @doc """
+  Enables the HTTP endpoint for the DB cluster.
+
+  By default, the HTTP endpoint isn't enabled.
+
+  When enabled, this endpoint provides a connectionless web service API (RDS Data
+  API) for running SQL queries on the Aurora DB cluster. You can also query your
+  database from inside the RDS console with the RDS query editor.
+
+  For more information, see [Using RDS Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html)
+  in the *Amazon Aurora User Guide*.
+
+  This operation applies only to Aurora PostgreSQL Serverless v2 and provisioned
+  DB clusters. To enable the HTTP endpoint for Aurora Serverless v1 DB clusters,
+  use the `EnableHttpEndpoint` parameter of the `ModifyDBCluster` operation.
+  """
+  def enable_http_endpoint(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableHttpEndpoint", input, options)
   end
 
   @doc """

@@ -112,6 +112,31 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
+  Deletes the Application.
+
+  Only Applications that don't have any Application Associations can be deleted.
+  """
+  def delete_application(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/applications/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes the DataIntegration.
 
   Only DataIntegrations that don't have any DataIntegrationAssociations can be
@@ -215,6 +240,39 @@ defmodule AWS.AppIntegrations do
     url_path = "/eventIntegrations/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+  end
+
+  @doc """
+  Returns a paginated list of application associations for an application.
+  """
+  def list_application_associations(
+        %Client{} = client,
+        application_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/associations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 

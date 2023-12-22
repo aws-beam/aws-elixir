@@ -30,6 +30,9 @@ defmodule AWS.CodeCommit do
     * `UpdateRepositoryDescription`, which sets or updates the
   description of the repository.
 
+    * `UpdateRepositoryEncryptionKey`, which updates the Key Management
+  Service encryption key used to encrypt and decrypt a repository.
+
     * `UpdateRepositoryName`, which changes the name of the repository.
   If you change the name of a repository, no other users of that repository can
   access it until you send them the new HTTPS or SSH URL to use.
@@ -1203,6 +1206,16 @@ defmodule AWS.CodeCommit do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateRepositoryDescription", input, options)
+  end
+
+  @doc """
+  Updates the Key Management Service encryption key used to encrypt and decrypt a
+  CodeCommit repository.
+  """
+  def update_repository_encryption_key(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateRepositoryEncryptionKey", input, options)
   end
 
   @doc """

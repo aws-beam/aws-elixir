@@ -1104,7 +1104,10 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Lists all multipart read set uploads and their statuses.
+  Lists multipart read set uploads and for in progress uploads.
+
+  Once the upload is completed, a read set is created and the upload will no
+  longer be returned in the respone.
   """
   def list_multipart_read_set_uploads(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/uploads"

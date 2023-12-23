@@ -382,6 +382,22 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
+  Displays details of the flow's source stream.
+
+  The response contains information about the contents of the stream and its
+  programs.
+  """
+  def describe_flow_source_metadata(%Client{} = client, flow_arn, options \\ []) do
+    url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source-metadata"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Displays the details of a gateway.
 
   The response includes the gateway ARN, name, and CIDR blocks, as well as details

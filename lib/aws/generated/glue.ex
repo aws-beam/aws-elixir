@@ -287,6 +287,9 @@ defmodule AWS.Glue do
 
   @doc """
   Creates a connection definition in the Data Catalog.
+
+  Connections used for creating federated resources require the IAM
+  `glue:PassConnection` permission.
   """
   def create_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()

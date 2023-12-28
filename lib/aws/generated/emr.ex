@@ -638,6 +638,24 @@ defmodule AWS.EMR do
   end
 
   @doc """
+  You can use the `SetKeepJobFlowAliveWhenNoSteps` to configure a cluster (job
+  flow) to terminate after the step execution, i.e., all your steps are executed.
+
+  If you want a transient cluster that shuts down after the last of the current
+  executing steps are completed, you can configure
+  `SetKeepJobFlowAliveWhenNoSteps` to false. If you want a long running cluster,
+  configure `SetKeepJobFlowAliveWhenNoSteps` to true.
+
+  For more information, see [Managing Cluster Termination](https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html)
+  in the *Amazon EMR Management Guide*.
+  """
+  def set_keep_job_flow_alive_when_no_steps(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetKeepJobFlowAliveWhenNoSteps", input, options)
+  end
+
+  @doc """
   SetTerminationProtection locks a cluster (job flow) so the Amazon EC2 instances
   in the cluster cannot be terminated by user intervention, an API call, or in the
   event of a job-flow error.

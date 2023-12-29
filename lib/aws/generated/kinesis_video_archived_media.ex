@@ -396,7 +396,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
   end
 
   @doc """
-  Retrieves a list of Images corresponding to each timestamp for a given time
+  Retrieves a list of images corresponding to each timestamp for a given time
   range, sampling interval, and image format configuration.
   """
   def get_images(%Client{} = client, input, options \\ []) do

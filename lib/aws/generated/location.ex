@@ -558,7 +558,12 @@ defmodule AWS.Location do
   def delete_key(%Client{} = client, key_name, input, options \\ []) do
     url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
     headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"ForceDelete", "forceDelete"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.metadata.")
 

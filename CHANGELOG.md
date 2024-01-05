@@ -1,5 +1,10 @@
 # Change Log
 
+## [v0.14.0] - 2024-01-05
+- Add support for the ec2 protocol
+- Add docs for multipart upload to S3
+- Allow call-site specification of http client options
+
 All notable changes to this project will be documented in this file.
 ## [v0.13.3] - 2023-04-20
 - Skip signature without access_key_id and secret_access_key

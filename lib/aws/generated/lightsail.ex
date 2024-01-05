@@ -326,7 +326,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates a block storage disk that can be attached to an Amazon Lightsail
-  instance in the same Availability Zone (e.g., `us-east-2a`).
+  instance in the same Availability Zone (`us-east-2a`).
 
   The `create disk` operation supports tag-based access control via request tags.
   For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
@@ -341,7 +341,7 @@ defmodule AWS.Lightsail do
   Creates a block storage disk from a manual or automatic snapshot of a disk.
 
   The resulting disk can be attached to an Amazon Lightsail instance in the same
-  Availability Zone (e.g., `us-east-2a`).
+  Availability Zone (`us-east-2a`).
 
   The `create disk from snapshot` operation supports tag-based access control via
   request tags and resource tags applied to the resource identified by `disk
@@ -402,7 +402,7 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Creates a domain resource for the specified domain (e.g., example.com).
+  Creates a domain resource for the specified domain (example.com).
 
   The `create domain` operation supports tag-based access control via request
   tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
@@ -1591,7 +1591,7 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Gets operations for a specific resource (e.g., an instance or a static IP).
+  Gets operations for a specific resource (an instance or a static IP).
   """
   def get_operations_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1744,6 +1744,16 @@ defmodule AWS.Lightsail do
     meta = metadata()
 
     Request.request_post(client, meta, "GetRelationalDatabases", input, options)
+  end
+
+  @doc """
+  Returns detailed information for five of the most recent `SetupInstanceHttps`
+  requests that were ran on the target instance.
+  """
+  def get_setup_history(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSetupHistory", input, options)
   end
 
   @doc """
@@ -1961,6 +1971,21 @@ defmodule AWS.Lightsail do
     meta = metadata()
 
     Request.request_post(client, meta, "SetResourceAccessForBucket", input, options)
+  end
+
+  @doc """
+  Creates an SSL/TLS certificate that secures traffic for your website.
+
+  After the certificate is created, it is installed on the specified Lightsail
+  instance.
+
+  If you provide more than one domain name in the request, at least one name must
+  be less than or equal to 63 characters in length.
+  """
+  def setup_instance_https(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetupInstanceHttps", input, options)
   end
 
   @doc """

@@ -238,10 +238,6 @@ defmodule AWS.WorkSpaces do
 
      You don't need to specify the `PCOIP` protocol for Linux bundles
   because `WSP` is the default protocol for those bundles.
-
-     Ensure you review your running mode to ensure you are using a
-  running mode that is optimal for your needs and budget. For more information on
-  switching running modes, see [ Can I switch between hourly and monthly billing?](https://aws.amazon.com/workspaces/faqs/#:~:text=Q%3A%20Can%20I%20switch%20between%20hourly%20and%20monthly%20billing%3F)
   """
   def create_workspaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -819,7 +815,9 @@ defmodule AWS.WorkSpaces do
   @doc """
   Reboots the specified WorkSpaces.
 
-  You cannot reboot a WorkSpace unless its state is `AVAILABLE` or `UNHEALTHY`.
+  You cannot reboot a WorkSpace unless its state is `AVAILABLE`, `UNHEALTHY`, or
+  `REBOOTING`. Reboot a WorkSpace in the `REBOOTING` state only if your WorkSpace
+  has been stuck in the `REBOOTING` state for over 20 minutes.
 
   This operation is asynchronous and returns before the WorkSpaces have rebooted.
   """

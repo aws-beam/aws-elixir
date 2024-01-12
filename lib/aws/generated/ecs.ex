@@ -104,6 +104,11 @@ defmodule AWS.ECS do
   service. For more information, see [Service load balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
+  You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume
+  when creating or updating a service. `volumeConfigurations` is only supported
+  for REPLICA service and not DAEMON service. For more infomation, see [Amazon EBS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types)
+  in the *Amazon Elastic Container Service Developer Guide*.
+
   Tasks for services that don't use a load balancer are considered healthy if
   they're in the `RUNNING` state. Tasks for services that use a load balancer are
   considered healthy if they're in the `RUNNING` state and are reported as healthy
@@ -815,6 +820,10 @@ defmodule AWS.ECS do
   who have used Amazon EI at least once during the past 30-day period are
   considered current customers and will be able to continue using the service.
 
+  You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume
+  when creating or updating a service. For more infomation, see [Amazon EBS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types)
+  in the *Amazon Elastic Container Service Developer Guide*.
+
   The Amazon ECS API follows an eventual consistency model. This is because of the
   distributed nature of the system supporting the API. This means that the result
   of an API command you run that affects your Amazon ECS resources might not be
@@ -855,6 +864,10 @@ defmodule AWS.ECS do
 
   Alternatively, you can use `RunTask` to place tasks for you. For more
   information, see [Scheduling Tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
+
+  You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume
+  when creating or updating a service. For more infomation, see [Amazon EBS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types)
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def start_task(%Client{} = client, input, options \\ []) do
@@ -1067,6 +1080,16 @@ defmodule AWS.ECS do
   placement constraints and strategies, and task definition. When you update any
   of these parameters, Amazon ECS starts new tasks with the new configuration.
 
+  You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume
+  when starting or running a task, or when creating or updating a service. For
+  more infomation, see [Amazon EBS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types)
+  in the *Amazon Elastic Container Service Developer Guide*. You can update your
+  volume configurations and trigger a new deployment. `volumeConfigurations` is
+  only supported for REPLICA service and not DAEMON service. If you leave
+  `volumeConfigurations` `null`, it doesn't trigger a new deployment. For more
+  infomation on volumes, see [Amazon EBS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types)
+  in the *Amazon Elastic Container Service Developer Guide*.
+
   For services using the blue/green (`CODE_DEPLOY`) deployment controller, only
   the desired count, deployment configuration, health check grace period, task
   placement constraints and strategies, enable ECS managed tags option, and
@@ -1086,8 +1109,14 @@ defmodule AWS.ECS do
   definition in a service by specifying the cluster that the service is running in
   and a new `desiredCount` parameter.
 
-  If you have updated the Docker image of your application, you can create a new
-  task definition with that image and deploy it to your service. The service
+  You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume
+  when starting or running a task, or when creating or updating a service. For
+  more infomation, see [Amazon EBS
+  volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types)
+  in the *Amazon Elastic Container Service Developer Guide*.
+
+  If you have updated the container image of your application, you can create a
+  new task definition with that image and deploy it to your service. The service
   scheduler uses the minimum healthy percent and maximum percent parameters (in
   the service's deployment configuration) to determine the deployment strategy.
 

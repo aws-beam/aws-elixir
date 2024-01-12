@@ -5685,6 +5685,11 @@ defmodule AWS.EC2 do
   When a volume with an Amazon Web Services Marketplace product code is detached
   from an instance, the product code is no longer associated with the instance.
 
+  You can't detach or force detach volumes that are attached to Amazon ECS or
+  Fargate tasks. Attempting to do this results in the
+  `UnsupportedOperationException` exception with the `Unable to detach volume
+  attached to ECS tasks` error message.
+
   For more information, see [Detach an Amazon EBS volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """

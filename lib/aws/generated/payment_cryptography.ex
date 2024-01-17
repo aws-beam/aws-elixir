@@ -207,16 +207,20 @@ defmodule AWS.PaymentCryptography do
 
   For symmetric key exchange, Amazon Web Services Payment Cryptography uses the
   ANSI X9 TR-31 norm in accordance with PCI PIN guidelines. And for asymmetric key
-  exchange, Amazon Web Services Payment Cryptography supports ANSI X9 TR-34 norm .
-  Asymmetric key exchange methods are typically used to establish bi-directional
-  trust between the two parties exhanging keys and are used for initial key
-  exchange such as Key Encryption Key (KEK). After which you can export working
-  keys using symmetric method to perform various cryptographic operations within
-  Amazon Web Services Payment Cryptography.
+  exchange, Amazon Web Services Payment Cryptography supports ANSI X9 TR-34 norm
+  and RSA wrap and unwrap key exchange mechanism. Asymmetric key exchange methods
+  are typically used to establish bi-directional trust between the two parties
+  exhanging keys and are used for initial key exchange such as Key Encryption Key
+  (KEK). After which you can export working keys using symmetric method to perform
+  various cryptographic operations within Amazon Web Services Payment
+  Cryptography.
 
   The TR-34 norm is intended for exchanging 3DES keys only and keys are imported
   in a WrappedKeyBlock format. Key attributes (such as KeyUsage, KeyAlgorithm,
-  KeyModesOfUse, Exportability) are contained within the key block.
+  KeyModesOfUse, Exportability) are contained within the key block. With RSA wrap
+  and unwrap, you can exchange both 3DES and AES-128 keys. The keys are imported
+  in a WrappedKeyCryptogram format and you will need to specify the key attributes
+  during import.
 
   You can also use `ExportKey` functionality to generate and export an IPEK
   (Initial Pin Encryption Key) from Amazon Web Services Payment Cryptography using
@@ -225,7 +229,7 @@ defmodule AWS.PaymentCryptography do
   The generated IPEK does not persist within Amazon Web Services Payment
   Cryptography and has to be re-generated each time during export.
 
-  ## To export KEK or IPEK using TR-34
+  ## To export initial keys (KEK) or IPEK using TR-34
 
   Using this operation, you can export initial key using TR-34 asymmetric key
   exchange. You can only export KEK generated within Amazon Web Services Payment
@@ -280,7 +284,32 @@ defmodule AWS.PaymentCryptography do
   When this operation is successful, Amazon Web Services Payment Cryptography
   returns the KEK or IPEK as a TR-34 WrappedKeyBlock.
 
-  ## To export WK (Working Key) or IPEK using TR-31
+  ## To export initial keys (KEK) or IPEK using RSA Wrap and Unwrap
+
+  Using this operation, you can export initial key using asymmetric RSA wrap and
+  unwrap key exchange method. To initiate export, generate an asymmetric key pair
+  on the receiving HSM and obtain the public key certificate in PEM format (base64
+  encoded) for the purpose of wrapping and the root certifiate chain. Import the
+  root certificate into Amazon Web Services Payment Cryptography by calling
+  `ImportKey` for `RootCertificatePublicKey`.
+
+  Next call `ExportKey` and set the following parameters:
+
+    * `CertificateAuthorityPublicKeyIdentifier`: The `KeyARN` of the
+  certificate chain that signed wrapping key certificate.
+
+    * `KeyMaterial`: Set to `KeyCryptogram`.
+
+    * `WrappingKeyCertificate`: The public key certificate in PEM format
+  (base64 encoded) obtained by the receiving HSM and signed by the root
+  certificate (CertificateAuthorityPublicKeyIdentifier) imported into Amazon Web
+  Services Payment Cryptography. The receiving HSM uses its private key component
+  to unwrap the WrappedKeyCryptogram.
+
+  When this operation is successful, Amazon Web Services Payment Cryptography
+  returns the WrappedKeyCryptogram.
+
+  ## To export working keys or IPEK using TR-31
 
   Using this operation, you can export working keys or IPEK using TR-31 symmetric
   key exchange. In TR-31, you must use an initial key such as KEK to encrypt or
@@ -298,7 +327,7 @@ defmodule AWS.PaymentCryptography do
     * `KeyMaterial`: Use `Tr31KeyBlock` parameters.
 
   When this operation is successful, Amazon Web Services Payment Cryptography
-  returns the WK or IPEK as a TR-31 WrappedKeyBlock.
+  returns the working key or IPEK as a TR-31 WrappedKeyBlock.
 
   **Cross-account use:** This operation can't be used across different Amazon Web
   Services accounts.
@@ -384,7 +413,8 @@ defmodule AWS.PaymentCryptography do
 
   @doc """
   Gets the import token and the wrapping key certificate in PEM format (base64
-  encoded) to initiate a TR-34 WrappedKeyBlock.
+  encoded) to initiate a TR-34 WrappedKeyBlock or a RSA WrappedKeyCryptogram
+  import into Amazon Web Services Payment Cryptography.
 
   The wrapping key certificate wraps the key under import. The import token and
   wrapping key certificate must be in place and operational before calling
@@ -437,16 +467,20 @@ defmodule AWS.PaymentCryptography do
 
   For symmetric key exchange, Amazon Web Services Payment Cryptography uses the
   ANSI X9 TR-31 norm in accordance with PCI PIN guidelines. And for asymmetric key
-  exchange, Amazon Web Services Payment Cryptography supports ANSI X9 TR-34 norm .
-  Asymmetric key exchange methods are typically used to establish bi-directional
-  trust between the two parties exhanging keys and are used for initial key
-  exchange such as Key Encryption Key (KEK) or Zone Master Key (ZMK). After which
-  you can import working keys using symmetric method to perform various
-  cryptographic operations within Amazon Web Services Payment Cryptography.
+  exchange, Amazon Web Services Payment Cryptography supports ANSI X9 TR-34 norm
+  and RSA wrap and unwrap key exchange mechanisms. Asymmetric key exchange methods
+  are typically used to establish bi-directional trust between the two parties
+  exhanging keys and are used for initial key exchange such as Key Encryption Key
+  (KEK) or Zone Master Key (ZMK). After which you can import working keys using
+  symmetric method to perform various cryptographic operations within Amazon Web
+  Services Payment Cryptography.
 
   The TR-34 norm is intended for exchanging 3DES keys only and keys are imported
   in a WrappedKeyBlock format. Key attributes (such as KeyUsage, KeyAlgorithm,
-  KeyModesOfUse, Exportability) are contained within the key block.
+  KeyModesOfUse, Exportability) are contained within the key block. With RSA wrap
+  and unwrap, you can exchange both 3DES and AES-128 keys. The keys are imported
+  in a WrappedKeyCryptogram format and you will need to specify the key attributes
+  during import.
 
   You can also import a *root public key certificate*, used to sign other public
   key certificates, or a *trusted public key certificate* under an already
@@ -495,7 +529,7 @@ defmodule AWS.PaymentCryptography do
     * `PublicKeyCertificate`: The trusted public key certificate in PEM
   format (base64 encoded) under import.
 
-  ## To import KEK or ZMK using TR-34
+  ## To import initial keys (KEK or ZMK or similar) using TR-34
 
   Using this operation, you can import initial key using TR-34 asymmetric key
   exchange. In TR-34 terminology, the sending party of the key is called Key
@@ -542,7 +576,22 @@ defmodule AWS.PaymentCryptography do
   (CertificateAuthorityPublicKeyIdentifier) imported in Amazon Web Services
   Payment Cryptography.
 
-  ## To import WK (Working Key) using TR-31
+  ## To import initial keys (KEK or ZMK or similar) using RSA Wrap and Unwrap
+
+  Using this operation, you can import initial key using asymmetric RSA wrap and
+  unwrap key exchange method. To initiate import, call `GetParametersForImport`
+  with `KeyMaterial` set to `KEY_CRYPTOGRAM` to generate an import token. This
+  operation also generates an encryption keypair for the purpose of key import,
+  signs the key and returns back the wrapping key certificate in PEM format
+  (base64 encoded) and its root certificate chain. The import token and associated
+  KRD wrapping certificate expires after 7 days.
+
+  You must trust and install the wrapping certificate and its certificate chain on
+  the sending HSM and use it to wrap the key under export for WrappedKeyCryptogram
+  generation. Next call `ImportKey` with `KeyMaterial` set to `KEY_CRYPTOGRAM` and
+  provide the `ImportToken` and `KeyAttributes` for the key under import.
+
+  ## To import working keys using TR-31
 
   Amazon Web Services Payment Cryptography uses TR-31 symmetric key exchange norm
   to import working keys. A KEK must be established within Amazon Web Services

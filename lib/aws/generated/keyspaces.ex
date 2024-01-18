@@ -138,6 +138,25 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
+  Returns auto scaling related settings of the specified table in JSON format.
+
+  If the table is a multi-Region table, the Amazon Web Services Region specific
+  auto scaling settings of the table are included.
+
+  Amazon Keyspaces auto scaling helps you provision throughput capacity for
+  variable workloads efficiently by increasing and decreasing your table's read
+  and write capacity automatically in response to application traffic. For more
+  information, see [Managing throughput capacity automatically with Amazon Keyspaces auto
+  scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html)
+  in the *Amazon Keyspaces Developer Guide*.
+  """
+  def get_table_auto_scaling_settings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTableAutoScalingSettings", input, options)
+  end
+
+  @doc """
   Returns a list of keyspaces.
   """
   def list_keyspaces(%Client{} = client, input, options \\ []) do
@@ -166,7 +185,7 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
-  Restores the specified table to the specified point in time within the
+  Restores the table to the specified point in time within the
   `earliest_restorable_timestamp` and the current time.
 
   For more information about restore points, see [ Time window for PITR continuous backups](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery_HowItWorks.html#howitworks_backup_window)
@@ -181,17 +200,19 @@ defmodule AWS.Keyspaces do
   also restored to the state based on the selected timestamp.
 
   In addition to the table's schema, data, and TTL settings, `RestoreTable`
-  restores the capacity mode, encryption, and point-in-time recovery settings from
-  the source table. Unlike the table's schema data and TTL settings, which are
-  restored based on the selected timestamp, these settings are always restored
-  based on the table's settings as of the current time or when the table was
-  deleted.
+  restores the capacity mode, auto scaling settings, encryption settings, and
+  point-in-time recovery settings from the source table. Unlike the table's schema
+  data and TTL settings, which are restored based on the selected timestamp, these
+  settings are always restored based on the table's settings as of the current
+  time or when the table was deleted.
 
   You can also overwrite these settings during restore:
 
     * Read/write capacity mode
 
-    * Provisioned throughput capacity settings
+    * Provisioned throughput capacity units
+
+    * Auto scaling settings
 
     * Point-in-time (PITR) settings
 
@@ -202,9 +223,6 @@ defmodule AWS.Keyspaces do
 
   Note that the following settings are not restored, and you must configure them
   manually for the new table:
-
-    * Automatic scaling policies (for tables that use provisioned
-  capacity mode)
 
     * Identity and Access Management (IAM) policies
 
@@ -245,7 +263,8 @@ defmodule AWS.Keyspaces do
 
   @doc """
   Adds new columns to the table or updates one of the table's settings, for
-  example capacity mode, encryption, point-in-time recovery, or ttl settings.
+  example capacity mode, auto scaling, encryption, point-in-time recovery, or ttl
+  settings.
 
   Note that you can only update one specific table setting per update operation.
   """

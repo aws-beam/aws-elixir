@@ -205,10 +205,12 @@ defmodule AWS.CloudTrail do
   @doc """
   Disables Lake query federation on the specified event data store.
 
-  When you disable federation, CloudTrail removes the metadata associated with the
-  federated event data store in the Glue Data Catalog and removes registration for
-  the federation role ARN and event data store in Lake Formation. No CloudTrail
-  Lake data is deleted when you disable federation.
+  When you disable federation, CloudTrail disables the integration with Glue, Lake
+  Formation, and Amazon Athena. After disabling Lake query federation, you can no
+  longer query your event data in Amazon Athena.
+
+  No CloudTrail Lake data is deleted when you disable federation and you can
+  continue to run queries in CloudTrail Lake.
   """
   def disable_federation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -225,12 +227,12 @@ defmodule AWS.CloudTrail do
   metadata stored in the Glue Data Catalog lets the Athena query engine know how
   to find, read, and process the data that you want to query.
 
-  When you enable Lake query federation, CloudTrail creates a federated database
-  named `aws:cloudtrail` (if the database doesn't already exist) and a federated
-  table in the Glue Data Catalog. The event data store ID is used for the table
-  name. CloudTrail registers the role ARN and event data store in [Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/how-it-works.html),
-  the service responsible for revoking or granting permissions to the federated
-  resources in the Glue Data Catalog.
+  When you enable Lake query federation, CloudTrail creates a managed database
+  named `aws:cloudtrail` (if the database doesn't already exist) and a managed
+  federated table in the Glue Data Catalog. The event data store ID is used for
+  the table name. CloudTrail registers the role ARN and event data store in [Lake Formation](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation-lake-formation.html),
+  the service responsible for allowing fine-grained access control of the
+  federated resources in the Glue Data Catalog.
 
   For more information about Lake query federation, see [Federate an event data store](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation.html).
   """
@@ -398,6 +400,37 @@ defmodule AWS.CloudTrail do
     meta = metadata()
 
     Request.request_post(client, meta, "ListImports", input, options)
+  end
+
+  @doc """
+  Returns Insights metrics data for trails that have enabled Insights.
+
+  The request must include the `EventSource`, `EventName`, and `InsightType`
+  parameters.
+
+  If the `InsightType` is set to `ApiErrorRateInsight`, the request must also
+  include the `ErrorCode` parameter.
+
+  The following are the available time periods for `ListInsightsMetricData`. Each
+  cutoff is inclusive.
+
+    * Data points with a period of 60 seconds (1-minute) are available
+  for 15 days.
+
+    * Data points with a period of 300 seconds (5-minute) are available
+  for 63 days.
+
+    * Data points with a period of 3600 seconds (1 hour) are available
+  for 90 days.
+
+  Access to the `ListInsightsMetricData` API operation is linked to the
+  `cloudtrail:LookupEvents` action. To use this operation, you must have
+  permissions to perform the `cloudtrail:LookupEvents` action.
+  """
+  def list_insights_metric_data(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListInsightsMetricData", input, options)
   end
 
   @doc """
@@ -774,13 +807,13 @@ defmodule AWS.CloudTrail do
   `FIXED_RETENTION_PRICING`. By default, `TerminationProtection` is enabled.
 
   For event data stores for CloudTrail events, `AdvancedEventSelectors` includes
-  or excludes management, data, or Insights events in your event data store. For
-  more information about `AdvancedEventSelectors`, see
+  or excludes management or data events in your event data store. For more
+  information about `AdvancedEventSelectors`, see
   [AdvancedEventSelectors](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html).
 
-  For event data stores for Config configuration items, Audit Manager evidence, or
-  non-Amazon Web Services events, `AdvancedEventSelectors` includes events of that
-  type in your event data store.
+  For event data stores for CloudTrail Insights events, Config configuration
+  items, Audit Manager evidence, or non-Amazon Web Services events,
+  `AdvancedEventSelectors` includes events of that type in your event data store.
   """
   def update_event_data_store(%Client{} = client, input, options \\ []) do
     meta = metadata()

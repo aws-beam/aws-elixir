@@ -64,6 +64,15 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+  Gets information about one or more compute fleets.
+  """
+  def batch_get_fleets(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetFleets", input, options)
+  end
+
+  @doc """
   Gets information about one or more build projects.
   """
   def batch_get_projects(%Client{} = client, input, options \\ []) do
@@ -88,6 +97,15 @@ defmodule AWS.CodeBuild do
     meta = metadata()
 
     Request.request_post(client, meta, "BatchGetReports", input, options)
+  end
+
+  @doc """
+  Creates a compute fleet.
+  """
+  def create_fleet(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateFleet", input, options)
   end
 
   @doc """
@@ -136,6 +154,17 @@ defmodule AWS.CodeBuild do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteBuildBatch", input, options)
+  end
+
+  @doc """
+  Deletes a compute fleet.
+
+  When you delete a compute fleet, its builds are not deleted.
+  """
+  def delete_fleet(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteFleet", input, options)
   end
 
   @doc """
@@ -300,6 +329,16 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+  Gets a list of compute fleet names with each compute fleet name representing a
+  single compute fleet.
+  """
+  def list_fleets(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFleets", input, options)
+  end
+
+  @doc """
   Gets a list of build project names, with each build project name representing a
   single build project.
   """
@@ -430,6 +469,15 @@ defmodule AWS.CodeBuild do
     meta = metadata()
 
     Request.request_post(client, meta, "StopBuildBatch", input, options)
+  end
+
+  @doc """
+  Updates a compute fleet.
+  """
+  def update_fleet(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFleet", input, options)
   end
 
   @doc """

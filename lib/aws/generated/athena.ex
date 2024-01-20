@@ -435,8 +435,11 @@ defmodule AWS.Athena do
   @doc """
   Imports a single `ipynb` file to a Spark enabled workgroup.
 
-  The maximum file size that can be imported is 10 megabytes. If an `ipynb` file
-  with the same name already exists in the workgroup, throws an error.
+  To import the notebook, the request must specify a value for either `Payload` or
+  `NoteBookS3LocationUri`. If neither is specified or both are specified, an
+  `InvalidRequestException` occurs. The maximum file size that can be imported is
+  10 megabytes. If an `ipynb` file with the same name already exists in the
+  workgroup, throws an error.
   """
   def import_notebook(%Client{} = client, input, options \\ []) do
     meta = metadata()

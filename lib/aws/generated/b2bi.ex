@@ -300,6 +300,8 @@ defmodule AWS.B2bi do
 
   @doc """
   Parses the input EDI (electronic data interchange) file.
+
+  The input file has a file size limit of 250 KB.
   """
   def test_parsing(%Client{} = client, input, options \\ []) do
     meta = metadata()

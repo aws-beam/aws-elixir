@@ -1294,6 +1294,15 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+  The command to update the Kinesis stream destination.
+  """
+  def update_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateKinesisStreamingDestination", input, options)
+  end
+
+  @doc """
   Modifies the provisioned throughput settings, global secondary indexes, or
   DynamoDB Streams settings for a given table.
 

@@ -72,15 +72,19 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-  Creates a case in the specified Cases domain.
+  If you provide a value for `PerformedBy.UserArn` you must also have
+  [connect:DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
+  permission on the User ARN resource that you provide
+
+  ` Creates a case in the specified Cases domain.
 
   Case system and custom fields are taken as an array id/value pairs with a
   declared data types.
 
   The following fields are required when creating a case:
 
-  `   * `customer_id` - You must provide the full customer profile ARN
-  in this format: `arn:aws:profile:your_AWS_Region:your_AWS_account
+    * `customer_id` - You must provide the full customer profile ARN in
+  this format: `arn:aws:profile:your_AWS_Region:your_AWS_account
   ID:domains/your_profiles_domain_name/profiles/profile_ID`
 
     * `title`
@@ -303,6 +307,31 @@ defmodule AWS.ConnectCases do
   """
   def get_case(%Client{} = client, case_id, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the audit history about a specific case if it exists.
+  """
+  def get_case_audit_events(%Client{} = client, case_id, domain_id, input, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}/audit-history"
+
     headers = []
     query_params = []
 
@@ -733,13 +762,19 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-  Updates the values of fields on a case.
+  If you provide a value for `PerformedBy.UserArn` you must also have
+  [connect:DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
+  permission on the User ARN resource that you provide
+
+  ` Updates the values of fields on a case.
 
   Fields to be updated are received as an array of id/value pairs identical to the
   `CreateCase` input .
 
   If the action is successful, the service sends back an HTTP 200 response with an
   empty HTTP body.
+
+  `
   """
   def update_case(%Client{} = client, case_id, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}"

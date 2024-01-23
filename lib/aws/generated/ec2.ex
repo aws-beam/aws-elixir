@@ -3873,9 +3873,13 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Describes the Elastic Graphics accelerator associated with your instances.
+  Amazon Elastic Graphics reached end of life on January 8, 2024.
 
-  For more information about Elastic Graphics, see [Amazon Elastic Graphics](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html).
+  For workloads that require graphics acceleration, we recommend that you use
+  Amazon EC2 G4ad, G4dn, or G5 instances.
+
+  Describes the Elastic Graphics accelerator associated with your instances. For
+  more information about Elastic Graphics, see [Amazon Elastic Graphics](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html).
   """
   def describe_elastic_gpus(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6849,9 +6853,9 @@ defmodule AWS.EC2 do
   This action calls on other describe actions to get instance information.
   Depending on your instance configuration, you may need to allow the following
   actions in your IAM policy: `DescribeSpotInstanceRequests`,
-  `DescribeInstanceCreditSpecifications`, `DescribeVolumes`,
-  `DescribeInstanceAttribute`, and `DescribeElasticGpus`. Or, you can allow
-  `describe*` depending on your instance requirements.
+  `DescribeInstanceCreditSpecifications`, `DescribeVolumes`, and
+  `DescribeInstanceAttribute`. Or, you can allow `describe*` depending on your
+  instance requirements.
   """
   def get_launch_template_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9389,8 +9393,8 @@ defmodule AWS.EC2 do
   Performing this operation on an instance that uses an instance store as its root
   device returns an error.
 
-  If you attempt to start a T3 instance with `host` tenancy and the `unlimted` CPU
-  credit option, the request fails. The `unlimited` CPU credit option is not
+  If you attempt to start a T3 instance with `host` tenancy and the `unlimited`
+  CPU credit option, the request fails. The `unlimited` CPU credit option is not
   supported on Dedicated Hosts. Before you start the instance, either change its
   CPU credit option to `standard`, or change its tenancy to `default` or
   `dedicated`.

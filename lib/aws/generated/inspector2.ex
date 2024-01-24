@@ -253,6 +253,29 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Creates a CIS scan configuration.
+  """
+  def create_cis_scan_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/cis/scan-configuration/create"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a filter resource using specified filter criteria.
 
   When the filter action is set to `SUPPRESS` this action creates a suppression
@@ -310,6 +333,29 @@ defmodule AWS.Inspector2 do
   """
   def create_sbom_export(%Client{} = client, input, options \\ []) do
     url_path = "/sbomexport/create"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a CIS scan configuration.
+  """
+  def delete_cis_scan_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/cis/scan-configuration/delete"
     headers = []
     query_params = []
 
@@ -475,6 +521,52 @@ defmodule AWS.Inspector2 do
   """
   def enable_delegated_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/delegatedadminaccounts/enable"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves a CIS scan report.
+  """
+  def get_cis_scan_report(%Client{} = client, input, options \\ []) do
+    url_path = "/cis/scan/report/get"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves CIS scan result details.
+  """
+  def get_cis_scan_result_details(%Client{} = client, input, options \\ []) do
+    url_path = "/cis/scan-result/details/get"
     headers = []
     query_params = []
 
@@ -665,6 +757,102 @@ defmodule AWS.Inspector2 do
   """
   def list_account_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/accountpermissions/list"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists CIS scan configurations.
+  """
+  def list_cis_scan_configurations(%Client{} = client, input, options \\ []) do
+    url_path = "/cis/scan-configuration/list"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists scan results aggregated by checks.
+  """
+  def list_cis_scan_results_aggregated_by_checks(%Client{} = client, input, options \\ []) do
+    url_path = "/cis/scan-result/check/list"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists scan results aggregated by a target resource.
+  """
+  def list_cis_scan_results_aggregated_by_target_resource(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    url_path = "/cis/scan-result/resource/list"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a CIS scan list.
+  """
+  def list_cis_scans(%Client{} = client, input, options \\ []) do
+    url_path = "/cis/scan/list"
     headers = []
     query_params = []
 
@@ -922,6 +1110,74 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Sends a CIS session health.
+
+  This API is used by the Amazon Inspector SSM plugin to communicate with the
+  Amazon Inspector service. The Amazon Inspector SSM plugin calls this API to
+  start a CIS scan session for the scan ID supplied by the service.
+  """
+  def send_cis_session_health(%Client{} = client, input, options \\ []) do
+    url_path = "/cissession/health/send"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Sends a CIS session telemetry.
+
+  This API is used by the Amazon Inspector SSM plugin to communicate with the
+  Amazon Inspector service. The Amazon Inspector SSM plugin calls this API to
+  start a CIS scan session for the scan ID supplied by the service.
+  """
+  def send_cis_session_telemetry(%Client{} = client, input, options \\ []) do
+    url_path = "/cissession/telemetry/send"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Starts a CIS session.
+
+  This API is used by the Amazon Inspector SSM plugin to communicate with the
+  Amazon Inspector service. The Amazon Inspector SSM plugin calls this API to
+  start a CIS scan session for the scan ID supplied by the service.
+  """
+  def start_cis_session(%Client{} = client, input, options \\ []) do
+    url_path = "/cissession/start"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Stops a CIS session.
+
+  This API is used by the Amazon Inspector SSM plugin to communicate with the
+  Amazon Inspector service. The Amazon Inspector SSM plugin calls this API to
+  start a CIS scan session for the scan ID supplied by the service.
+  """
+  def stop_cis_session(%Client{} = client, input, options \\ []) do
+    url_path = "/cissession/stop"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Adds tags to a resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -963,6 +1219,29 @@ defmodule AWS.Inspector2 do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a CIS scan configuration.
+  """
+  def update_cis_scan_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/cis/scan-configuration/update"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       headers,

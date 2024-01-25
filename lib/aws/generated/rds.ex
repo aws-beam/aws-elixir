@@ -545,6 +545,19 @@ defmodule AWS.RDS do
   end
 
   @doc """
+  Creates a new DB shard group for Aurora Limitless Database.
+
+  You must enable Aurora Limitless Database to create a DB shard group.
+
+  Valid for: Aurora DB clusters only
+  """
+  def create_db_shard_group(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDBShardGroup", input, options)
+  end
+
+  @doc """
   Creates a snapshot of a DB instance.
 
   The source DB instance must be in the `available` or `storage-optimization`
@@ -887,6 +900,15 @@ defmodule AWS.RDS do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteDBSecurityGroup", input, options)
+  end
+
+  @doc """
+  Deletes an Aurora Limitless Database DB shard group.
+  """
+  def delete_db_shard_group(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDBShardGroup", input, options)
   end
 
   @doc """
@@ -1294,6 +1316,15 @@ defmodule AWS.RDS do
   end
 
   @doc """
+  Describes existing Aurora Limitless Database DB shard groups.
+  """
+  def describe_db_shard_groups(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDBShardGroups", input, options)
+  end
+
+  @doc """
   Returns a list of DB snapshot attribute names and values for a manual DB
   snapshot.
 
@@ -1628,9 +1659,11 @@ defmodule AWS.RDS do
   Replicas (read-only instances) in the DB cluster to be the primary DB instance
   (the cluster writer).
 
-  For a Multi-AZ DB cluster, failover for a DB cluster promotes one of the
-  readable standby DB instances (read-only instances) in the DB cluster to be the
-  primary DB instance (the cluster writer).
+  For a Multi-AZ DB cluster, after RDS terminates the primary DB instance, the
+  internal monitoring system detects that the primary DB instance is unhealthy and
+  promotes a readable standby (read-only instances) in the DB cluster to be the
+  primary DB instance (the cluster writer). Failover times are typically less than
+  35 seconds.
 
   An Amazon Aurora DB cluster automatically fails over to an Aurora Replica, if
   one exists, when the primary DB instance fails. A Multi-AZ DB cluster
@@ -1994,6 +2027,18 @@ defmodule AWS.RDS do
   end
 
   @doc """
+  Modifies the settings of an Aurora Limitless Database DB shard group.
+
+  You can change one or more settings by specifying these parameters and the new
+  values in the request.
+  """
+  def modify_db_shard_group(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyDBShardGroup", input, options)
+  end
+
+  @doc """
   Updates a manual DB snapshot with a new engine version.
 
   The snapshot can be encrypted or unencrypted, but not shared or public.
@@ -2188,6 +2233,20 @@ defmodule AWS.RDS do
     meta = metadata()
 
     Request.request_post(client, meta, "RebootDBInstance", input, options)
+  end
+
+  @doc """
+  You might need to reboot your DB shard group, usually for maintenance reasons.
+
+  For example, if you make certain modifications, reboot the DB shard group for
+  the changes to take effect.
+
+  This operation applies only to Aurora Limitless Database DBb shard groups.
+  """
+  def reboot_db_shard_group(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RebootDBShardGroup", input, options)
   end
 
   @doc """

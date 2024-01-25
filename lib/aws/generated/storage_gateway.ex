@@ -836,12 +836,19 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  Returns a description of the specified Amazon Resource Name (ARN) of virtual
-  tapes.
+  Returns a description of virtual tapes that correspond to the specified Amazon
+  Resource Names (ARNs).
 
-  If a `TapeARN` is not specified, returns a description of all virtual tapes
-  associated with the specified gateway. This operation is only supported in the
+  If `TapeARN` is not specified, returns a description of the virtual tapes
+  associated with the specified gateway. This operation is only supported for the
   tape gateway type.
+
+  The operation supports pagination. By default, the operation returns a maximum
+  of up to 100 tapes. You can optionally specify the `Limit` field in the body to
+  limit the number of tapes in the response. If the number of tapes returned in
+  the response is truncated, the response includes a `Marker` field. You can use
+  this `Marker` value in your subsequent request to retrieve the next set of
+  tapes.
   """
   def describe_tapes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1145,9 +1152,7 @@ defmodule AWS.StorageGateway do
 
   @doc """
   Sends you notification through CloudWatch Events when all files written to your
-  file share have been uploaded to S3.
-
-  Amazon S3.
+  file share have been uploaded to Amazon S3.
 
   Storage Gateway can send a notification through Amazon CloudWatch Events when
   all files written to your file share up to that point in time have been uploaded
@@ -1179,9 +1184,9 @@ defmodule AWS.StorageGateway do
 
   You can subscribe to be notified through an Amazon CloudWatch event when your
   `RefreshCache` operation completes. For more information, see [Getting notified about file
-  operations](https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification)
-  in the *Storage Gateway User Guide*. This operation is Only supported for S3
-  File Gateways.
+  operations](https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#get-notification)
+  in the *Amazon S3 File Gateway User Guide*. This operation is Only supported for
+  S3 File Gateways.
 
   When this API is called, it only initiates the refresh operation. When the API
   call completes and returns a success code, it doesn't necessarily mean that the
@@ -1193,8 +1198,8 @@ defmodule AWS.StorageGateway do
   Throttle limit: This API is asynchronous, so the gateway will accept no more
   than two refreshes at any time. We recommend using the refresh-complete
   CloudWatch event notification before issuing additional requests. For more
-  information, see [Getting notified about file operations](https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification)
-  in the *Storage Gateway User Guide*.
+  information, see [Getting notified about file operations](https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#get-notification)
+  in the *Amazon S3 File Gateway User Guide*.
 
      Wait at least 60 seconds between consecutive RefreshCache API
   requests.
@@ -1206,8 +1211,8 @@ defmodule AWS.StorageGateway do
   The S3 bucket name does not need to be included when entering the list of
   folders in the FolderList parameter.
 
-  For more information, see [Getting notified about file operations](https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification)
-  in the *Storage Gateway User Guide*.
+  For more information, see [Getting notified about file operations](https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#get-notification)
+  in the *Amazon S3 File Gateway User Guide*.
   """
   def refresh_cache(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1313,10 +1318,12 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  Shuts down a gateway.
+  Shuts down a Tape Gateway or Volume Gateway.
 
   To specify which gateway to shut down, use the Amazon Resource Name (ARN) of the
   gateway in the body of your request.
+
+  This API action cannot be used to shut down S3 File Gateway or FSx File Gateway.
 
   The operation shuts down the gateway service component running in the gateway's
   virtual machine (VM) and not the host VM.

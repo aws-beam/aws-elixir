@@ -1305,8 +1305,8 @@ defmodule AWS.Inspector2 do
   @doc """
   Updates an encryption key.
 
-  A `ResourceNotFoundException` means that an AWS owned key is being used for
-  encryption.
+  A `ResourceNotFoundException` means that an Amazon Web Services owned key is
+  being used for encryption.
   """
   def update_encryption_key(%Client{} = client, input, options \\ []) do
     url_path = "/encryptionkey/update"

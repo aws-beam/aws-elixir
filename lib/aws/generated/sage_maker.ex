@@ -329,10 +329,10 @@ defmodule AWS.SageMaker do
   @doc """
   Creates a `Domain`.
 
-  A domain consists of an associated Amazon Elastic File System (EFS) volume, a
-  list of authorized users, and a variety of security, application, policy, and
-  Amazon Virtual Private Cloud (VPC) configurations. Users within a domain can
-  share notebook files and other artifacts with each other.
+  A domain consists of an associated Amazon Elastic File System volume, a list of
+  authorized users, and a variety of security, application, policy, and Amazon
+  Virtual Private Cloud (VPC) configurations. Users within a domain can share
+  notebook files and other artifacts with each other.
 
   ## EFS storage
 
@@ -347,10 +347,11 @@ defmodule AWS.SageMaker do
 
   ## VPC configuration
 
-  All traffic between the domain and the EFS volume is through the specified VPC
-  and subnets. For other traffic, you can specify the `AppNetworkAccessType`
-  parameter. `AppNetworkAccessType` corresponds to the network access type that
-  you choose when you onboard to the domain. The following options are available:
+  All traffic between the domain and the Amazon EFS volume is through the
+  specified VPC and subnets. For other traffic, you can specify the
+  `AppNetworkAccessType` parameter. `AppNetworkAccessType` corresponds to the
+  network access type that you choose when you onboard to the domain. The
+  following options are available:
 
     * `PublicInternetOnly` - Non-EFS traffic goes through a VPC managed
   by Amazon SageMaker, which allows internet access. This is the default value.
@@ -1576,6 +1577,20 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteHumanTaskUi", input, options)
+  end
+
+  @doc """
+  Deletes a hyperparameter tuning job.
+
+  The `DeleteHyperParameterTuningJob` API deletes only the tuning job entry that
+  was created in SageMaker when you called the `CreateHyperParameterTuningJob`
+  API. It does not delete training jobs, artifacts, or the IAM role that you
+  specified when creating the model.
+  """
+  def delete_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteHyperParameterTuningJob", input, options)
   end
 
   @doc """
@@ -3810,9 +3825,13 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Deploys the new `EndpointConfig` specified in the request, switches to using
-  newly created endpoint, and then deletes resources provisioned for the endpoint
-  using the previous `EndpointConfig` (there is no availability loss).
+  Deploys the `EndpointConfig` specified in the request to a new fleet of
+  instances.
+
+  SageMaker shifts endpoint traffic to the new instances with the updated endpoint
+  configuration and then deletes the old instances using the previous
+  `EndpointConfig` (there is no availability loss). For more information about how
+  to control the update and traffic shifting process, see [ Update models in production](https://docs.aws.amazon.com/sagemaker/latest/dg/deployment-guardrails.html).
 
   When SageMaker receives the request, it sets the endpoint status to `Updating`.
   After updating the endpoint, it sets the status to `InService`. To check the

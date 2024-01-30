@@ -475,7 +475,7 @@ defmodule AWS.AutoScaling do
 
   @doc """
   Gets information about the instance refreshes for the specified Auto Scaling
-  group.
+  group from the previous six weeks.
 
   This operation is part of the [instance refresh feature](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
   in Amazon EC2 Auto Scaling, which helps you update instances in your Auto

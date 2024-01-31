@@ -612,7 +612,8 @@ defmodule AWS.DataZone do
 
     {query_params, input} =
       [
-        {"clientToken", "clientToken"}
+        {"clientToken", "clientToken"},
+        {"skipDeletionCheck", "skipDeletionCheck"}
       ]
       |> Request.build_params(input)
 
@@ -835,7 +836,12 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/projects/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"skipDeletionCheck", "skipDeletionCheck"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 

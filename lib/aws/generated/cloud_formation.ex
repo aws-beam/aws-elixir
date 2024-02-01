@@ -163,6 +163,19 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
+  Creates a template from existing resources that are not already managed with
+  CloudFormation.
+
+  You can check the status of the template generation using the
+  `DescribeGeneratedTemplate` API action.
+  """
+  def create_generated_template(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateGeneratedTemplate", input, options)
+  end
+
+  @doc """
   Creates a stack as specified in the template.
 
   After the call completes successfully, the stack creation starts. You can check
@@ -243,6 +256,15 @@ defmodule AWS.CloudFormation do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteChangeSet", input, options)
+  end
+
+  @doc """
+  Deleted a generated template.
+  """
+  def delete_generated_template(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteGeneratedTemplate", input, options)
   end
 
   @doc """
@@ -344,6 +366,19 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
+  Describes a generated template.
+
+  The output includes details about the progress of the creation of a generated
+  template started by a `CreateGeneratedTemplate` API action or the update of a
+  generated template started with an `UpdateGeneratedTemplate` API action.
+  """
+  def describe_generated_template(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeGeneratedTemplate", input, options)
+  end
+
+  @doc """
   Retrieves information about the account's `OrganizationAccess` status.
 
   This API can be called either by the management account or the delegated
@@ -374,6 +409,15 @@ defmodule AWS.CloudFormation do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribePublisher", input, options)
+  end
+
+  @doc """
+  Describes details of a resource scan.
+  """
+  def describe_resource_scan(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeResourceScan", input, options)
   end
 
   @doc """
@@ -686,6 +730,20 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
+  Retrieves a generated template.
+
+  If the template is in an `InProgress` or `Pending` status then the template
+  returned will be the template when the template was last in a `Complete` status.
+  If the template has not yet been in a `Complete` status then an empty template
+  will be returned.
+  """
+  def get_generated_template(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetGeneratedTemplate", input, options)
+  end
+
+  @doc """
   Returns the stack policy for a specified stack.
 
   If a stack doesn't have a policy, a null value is returned.
@@ -775,6 +833,15 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
+  Lists your generated templates in this Region.
+  """
+  def list_generated_templates(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListGeneratedTemplates", input, options)
+  end
+
+  @doc """
   Lists all stacks that are importing an exported output value.
 
   To modify or remove an exported output value, first use this action to see which
@@ -789,6 +856,43 @@ defmodule AWS.CloudFormation do
     meta = metadata()
 
     Request.request_post(client, meta, "ListImports", input, options)
+  end
+
+  @doc """
+  Lists the related resources for a list of resources from a resource scan.
+
+  The response indicates whether each returned resource is already managed by
+  CloudFormation.
+  """
+  def list_resource_scan_related_resources(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResourceScanRelatedResources", input, options)
+  end
+
+  @doc """
+  Lists the resources from a resource scan.
+
+  The results can be filtered by resource identifier, resource type prefix, tag
+  key, and tag value. Only resources that match all specified filters are
+  returned. The response indicates whether each returned resource is already
+  managed by CloudFormation.
+  """
+  def list_resource_scan_resources(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResourceScanResources", input, options)
+  end
+
+  @doc """
+  List the resource scans from newest to oldest.
+
+  By default it will return up to 10 resource scans.
+  """
+  def list_resource_scans(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListResourceScans", input, options)
   end
 
   @doc """
@@ -1080,6 +1184,17 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
+  Starts a scan of the resources in this account in this Region.
+
+  You can the status of a scan using the `ListResourceScans` API action.
+  """
+  def start_resource_scan(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartResourceScan", input, options)
+  end
+
+  @doc """
   Stops an in-progress operation on a stack set and its associated stack
   instances.
 
@@ -1124,6 +1239,20 @@ defmodule AWS.CloudFormation do
     meta = metadata()
 
     Request.request_post(client, meta, "TestType", input, options)
+  end
+
+  @doc """
+  Updates a generated template.
+
+  This can be used to change the name, add and remove resources, refresh
+  resources, and change the `DeletionPolicy` and `UpdateReplacePolicy` settings.
+  You can check the status of the update to the generated template using the
+  `DescribeGeneratedTemplate` API action.
+  """
+  def update_generated_template(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateGeneratedTemplate", input, options)
   end
 
   @doc """

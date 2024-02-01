@@ -573,6 +573,9 @@ defmodule AWS.SSM do
 
   @doc """
   Lists all patches eligible to be included in a patch baseline.
+
+  Currently, `DescribeAvailablePatches` supports only the Amazon Linux 1, Amazon
+  Linux 2, and Windows Server operating systems.
   """
   def describe_available_patches(%Client{} = client, input, options \\ []) do
     meta = metadata()

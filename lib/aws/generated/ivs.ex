@@ -53,6 +53,10 @@ defmodule AWS.Ivs do
   channels can reference the same recording configuration. See the Recording
   Configuration endpoints for more information.
 
+    * **Playback restriction policy** — Restricts playback by countries
+  and/or origin sites. See the Playback Restriction Policy endpoints for more
+  information.
+
   ## Tagging
 
   A *tag* is a metadata label that you assign to an Amazon Web Services resource.
@@ -138,47 +142,22 @@ defmodule AWS.Ivs do
 
     * `DeleteChannel` — Deletes the specified channel.
 
-  ## StreamKey Endpoints
+  ## Playback Restriction Policy Endpoints
 
-    * `CreateStreamKey` — Creates a stream key, used to initiate a
-  stream, for the specified channel ARN.
+    * `CreatePlaybackRestrictionPolicy` — Creates a new playback
+  restriction policy, for constraining playback by countries and/or origins.
 
-    * `GetStreamKey` — Gets stream key information for the specified
-  ARN.
+    * `DeletePlaybackRestrictionPolicy` — Deletes the specified playback
+  restriction policy
 
-    * `BatchGetStreamKey` — Performs `GetStreamKey` on multiple ARNs
-  simultaneously.
+    * `GetPlaybackRestrictionPolicy` — Gets the specified playback
+  restriction policy.
 
-    * `ListStreamKeys` — Gets summary information about stream keys for
-  the specified channel.
+    * `ListPlaybackRestrictionPolicies` — Gets summary information about
+  playback restriction policies.
 
-    * `DeleteStreamKey` — Deletes the stream key for the specified ARN,
-  so it can no longer be used to stream.
-
-  ## Stream Endpoints
-
-    * `GetStream` — Gets information about the active (live) stream on a
-  specified channel.
-
-    * `GetStreamSession` — Gets metadata on a specified stream.
-
-    * `ListStreams` — Gets summary information about live streams in
-  your account, in the Amazon Web Services region where the API request is
-  processed.
-
-    * `ListStreamSessions` — Gets a summary of current and previous
-  streams for a specified channel in your account, in the AWS region where the API
-  request is processed.
-
-    * `StopStream` — Disconnects the incoming RTMPS stream for the
-  specified channel. Can be used in conjunction with `DeleteStreamKey` to prevent
-  further streaming to a channel.
-
-    * `PutMetadata` — Inserts metadata into the active stream of the
-  specified channel. At most 5 requests per second per channel are allowed, each
-  with a maximum 1 KB payload. (If 5 TPS is not sufficient for your needs, we
-  recommend batching your data into a single PutMetadata call.) At most 155
-  requests per second per account are allowed.
+    * `UpdatePlaybackRestrictionPolicy` — Updates a specified playback
+  restriction policy.
 
   ## Private Channel Endpoints
 
@@ -225,6 +204,48 @@ defmodule AWS.Ivs do
 
     * `DeleteRecordingConfiguration` — Deletes the recording
   configuration for the specified ARN.
+
+  ## Stream Endpoints
+
+    * `GetStream` — Gets information about the active (live) stream on a
+  specified channel.
+
+    * `GetStreamSession` — Gets metadata on a specified stream.
+
+    * `ListStreams` — Gets summary information about live streams in
+  your account, in the Amazon Web Services region where the API request is
+  processed.
+
+    * `ListStreamSessions` — Gets a summary of current and previous
+  streams for a specified channel in your account, in the AWS region where the API
+  request is processed.
+
+    * `StopStream` — Disconnects the incoming RTMPS stream for the
+  specified channel. Can be used in conjunction with `DeleteStreamKey` to prevent
+  further streaming to a channel.
+
+    * `PutMetadata` — Inserts metadata into the active stream of the
+  specified channel. At most 5 requests per second per channel are allowed, each
+  with a maximum 1 KB payload. (If 5 TPS is not sufficient for your needs, we
+  recommend batching your data into a single PutMetadata call.) At most 155
+  requests per second per account are allowed.
+
+  ## StreamKey Endpoints
+
+    * `CreateStreamKey` — Creates a stream key, used to initiate a
+  stream, for the specified channel ARN.
+
+    * `GetStreamKey` — Gets stream key information for the specified
+  ARN.
+
+    * `BatchGetStreamKey` — Performs `GetStreamKey` on multiple ARNs
+  simultaneously.
+
+    * `ListStreamKeys` — Gets summary information about stream keys for
+  the specified channel.
+
+    * `DeleteStreamKey` — Deletes the stream key for the specified ARN,
+  so it can no longer be used to stream.
 
   ## Amazon Web Services Tags Endpoints
 
@@ -332,6 +353,30 @@ defmodule AWS.Ivs do
   """
   def create_channel(%Client{} = client, input, options \\ []) do
     url_path = "/CreateChannel"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new playback restriction policy, for constraining playback by
+  countries and/or origins.
+  """
+  def create_playback_restriction_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/CreatePlaybackRestrictionPolicy"
     headers = []
     query_params = []
 
@@ -468,6 +513,29 @@ defmodule AWS.Ivs do
   end
 
   @doc """
+  Deletes the specified playback restriction policy.
+  """
+  def delete_playback_restriction_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/DeletePlaybackRestrictionPolicy"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes the recording configuration for the specified ARN.
 
   If you try to delete a recording configuration that is associated with a
@@ -556,6 +624,29 @@ defmodule AWS.Ivs do
   """
   def get_playback_key_pair(%Client{} = client, input, options \\ []) do
     url_path = "/GetPlaybackKeyPair"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets the specified playback restriction policy.
+  """
+  def get_playback_restriction_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/GetPlaybackRestrictionPolicy"
     headers = []
     query_params = []
 
@@ -731,6 +822,29 @@ defmodule AWS.Ivs do
   """
   def list_playback_key_pairs(%Client{} = client, input, options \\ []) do
     url_path = "/ListPlaybackKeyPairs"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets summary information about playback restriction policies.
+  """
+  def list_playback_restriction_policies(%Client{} = client, input, options \\ []) do
+    url_path = "/ListPlaybackRestrictionPolicies"
     headers = []
     query_params = []
 
@@ -1004,6 +1118,29 @@ defmodule AWS.Ivs do
   """
   def update_channel(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateChannel"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a specified playback restriction policy.
+  """
+  def update_playback_restriction_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdatePlaybackRestrictionPolicy"
     headers = []
     query_params = []
 

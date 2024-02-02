@@ -38,7 +38,7 @@ defmodule AWS.ManagedBlockchainQuery do
   Gets the token balance for a batch of tokens by using the `BatchGetTokenBalance`
   action for every token in the request.
 
-  Only the native tokens BTC,ETH, and the ERC-20, ERC-721, and ERC 1155 token
+  Only the native tokens BTC and ETH, and the ERC-20, ERC-721, and ERC 1155 token
   standards are supported.
   """
   def batch_get_token_balance(%Client{} = client, input, options \\ []) do
@@ -93,7 +93,7 @@ defmodule AWS.ManagedBlockchainQuery do
   Gets the balance of a specific token, including native tokens, for a given
   address (wallet or contract) on the blockchain.
 
-  Only the native tokens BTC,ETH, and the ERC-20, ERC-721, and ERC 1155 token
+  Only the native tokens BTC and ETH, and the ERC-20, ERC-721, and ERC 1155 token
   standards are supported.
   """
   def get_token_balance(%Client{} = client, input, options \\ []) do
@@ -117,7 +117,11 @@ defmodule AWS.ManagedBlockchainQuery do
   end
 
   @doc """
-  Get the details of a transaction.
+  Gets the details of a transaction.
+
+  This action will return transaction details for all transactions that are
+  *confirmed* on the blockchain, even if they have not reached
+  [finality](https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality).
   """
   def get_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/get-transaction"
@@ -202,6 +206,10 @@ defmodule AWS.ManagedBlockchainQuery do
   An array of `TransactionEvent` objects.
 
   Each object contains details about the transaction event.
+
+  This action will return transaction details for all transactions that are
+  *confirmed* on the blockchain, even if they have not reached
+  [finality](https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality).
   """
   def list_transaction_events(%Client{} = client, input, options \\ []) do
     url_path = "/list-transaction-events"

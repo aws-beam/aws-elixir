@@ -957,8 +957,8 @@ defmodule AWS.DynamoDB do
   `EarliestRestorableDateTime` and `LatestRestorableDateTime`.
 
   You can restore your table to any point in time during the last 35 days. Any
-  number of users can execute up to 4 concurrent restores (any type of restore) in
-  a given account.
+  number of users can execute up to 50 concurrent restores (any type of restore)
+  in a given account.
 
   When you restore using point in time recovery, DynamoDB restores your table data
   to the state based on the selected date and time (day:hour:minute:second) to a

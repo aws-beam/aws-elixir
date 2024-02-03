@@ -143,8 +143,8 @@ defmodule AWS.SageMaker do
   @doc """
   Creates a configuration for running a SageMaker image as a KernelGateway app.
 
-  The configuration specifies the Amazon Elastic File System (EFS) storage volume
-  on the image, and a list of the kernels in the image.
+  The configuration specifies the Amazon Elastic File System storage volume on the
+  image, and a list of the kernels in the image.
   """
   def create_app_image_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -661,8 +661,8 @@ defmodule AWS.SageMaker do
   Creates a custom SageMaker image.
 
   A SageMaker image is a set of image versions. Each image version represents a
-  container image stored in Amazon Elastic Container Registry (ECR). For more
-  information, see [Bring your own SageMaker image](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html).
+  container image stored in Amazon ECR. For more information, see [Bring your own SageMaker
+  image](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html).
   """
   def create_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -673,8 +673,7 @@ defmodule AWS.SageMaker do
   @doc """
   Creates a version of the SageMaker image specified by `ImageName`.
 
-  The version represents the Amazon Elastic Container Registry (ECR) container
-  image specified by `BaseImage`.
+  The version represents the Amazon ECR container image specified by `BaseImage`.
   """
   def create_image_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -972,8 +971,8 @@ defmodule AWS.SageMaker do
   The value of the `$PATH` environment variable that is available to both scripts
   is `/sbin:bin:/usr/sbin:/usr/bin`.
 
-  View CloudWatch Logs for notebook instance lifecycle configurations in log group
-  `/aws/sagemaker/NotebookInstances` in log stream
+  View Amazon CloudWatch Logs for notebook instance lifecycle configurations in
+  log group `/aws/sagemaker/NotebookInstances` in log stream
   `[notebook-instance-name]/[LifecycleConfigHook]`.  Lifecycle configuration scripts cannot run for longer than 5 minutes. If a
   script runs for longer than 5 minutes, it fails and the notebook instance is not
   created or started.
@@ -1002,8 +1001,8 @@ defmodule AWS.SageMaker do
 
   When accessed in a web browser, the user will be automatically signed in to the
   domain, and granted access to all of the Apps and files associated with the
-  Domain's Amazon Elastic File System (EFS) volume. This operation can only be
-  called when the authentication mode equals IAM.
+  Domain's Amazon Elastic File System volume. This operation can only be called
+  when the authentication mode equals IAM.
 
   The IAM role or user passed to this API defines the permissions to access the
   app. Once the presigned URL is created, no additional permission is required to
@@ -1077,7 +1076,7 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Creates a space used for real time collaboration in a Domain.
+  Creates a space used for real time collaboration in a domain.
   """
   def create_space(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1254,7 +1253,7 @@ defmodule AWS.SageMaker do
   If an administrator invites a person by email or imports them from IAM Identity
   Center, a user profile is automatically created. A user profile is the primary
   holder of settings for an individual user and has a reference to the user's
-  private Amazon Elastic File System (EFS) home directory.
+  private Amazon Elastic File System home directory.
   """
   def create_user_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()

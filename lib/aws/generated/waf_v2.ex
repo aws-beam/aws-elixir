@@ -235,6 +235,18 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
+  Deletes the specified API key.
+
+  After you delete a key, it can take up to 24 hours for WAF to disallow use of
+  the key in all regions.
+  """
+  def delete_api_key(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAPIKey", input, options)
+  end
+
+  @doc """
   Deletes all rule groups that are managed by Firewall Manager for the specified
   web ACL.
 

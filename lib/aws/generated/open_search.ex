@@ -158,6 +158,29 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Cancels a pending configuration change on an Amazon OpenSearch Service domain.
+  """
+  def cancel_domain_config_change(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/config/cancel"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Cancels a scheduled service software update for an Amazon OpenSearch Service
   domain.
 

@@ -136,6 +136,29 @@ defmodule AWS.Elasticsearch do
   end
 
   @doc """
+  Cancels a pending configuration change on an Amazon OpenSearch Service domain.
+  """
+  def cancel_domain_config_change(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/config/cancel"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Cancels a scheduled service software update for an Amazon ES domain.
 
   You can only perform this operation before the `AutomatedUpdateDate` and when

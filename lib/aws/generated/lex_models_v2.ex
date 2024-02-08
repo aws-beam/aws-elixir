@@ -180,6 +180,19 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
+  Action to create a replication of the source bot in the secondary region.
+  """
+  def create_bot_replica(%Client{} = client, bot_id, input, options \\ []) do
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/replicas/"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+  end
+
+  @doc """
   Creates an immutable version of the bot.
 
   When you create the first version of a bot, Amazon Lex sets the version number
@@ -490,6 +503,31 @@ defmodule AWS.LexModelsV2 do
   def delete_bot_locale(%Client{} = client, bot_id, bot_version, locale_id, input, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  The action to delete the replicated bot in the secondary region.
+  """
+  def delete_bot_replica(%Client{} = client, bot_id, replica_region, input, options \\ []) do
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/replicas/#{AWS.Util.encode_uri(replica_region)}/"
 
     headers = []
     query_params = []
@@ -936,6 +974,21 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
+  Monitors the bot replication status through the UI console.
+  """
+  def describe_bot_replica(%Client{} = client, bot_id, replica_region, options \\ []) do
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/replicas/#{AWS.Util.encode_uri(replica_region)}/"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns information about a request to generate a bot through natural language
   description, made through the `StartBotResource` API.
 
@@ -1249,6 +1302,31 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
+  The action to list the replicated bots created from the source bot alias.
+  """
+  def list_bot_alias_replicas(%Client{} = client, bot_id, replica_region, input, options \\ []) do
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/replicas/#{AWS.Util.encode_uri(replica_region)}/botaliases/"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets a list of aliases for the specified bot.
   """
   def list_bot_aliases(%Client{} = client, bot_id, input, options \\ []) do
@@ -1329,6 +1407,29 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
+  The action to list the replicated bots.
+  """
+  def list_bot_replicas(%Client{} = client, bot_id, input, options \\ []) do
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/replicas/"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists the generation requests made for a bot locale.
   """
   def list_bot_resource_generations(
@@ -1341,6 +1442,32 @@ defmodule AWS.LexModelsV2 do
       ) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/generations"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Contains information about all the versions replication statuses applicable for
+  Global Resiliency.
+  """
+  def list_bot_version_replicas(%Client{} = client, bot_id, replica_region, input, options \\ []) do
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/replicas/#{AWS.Util.encode_uri(replica_region)}/botversions/"
 
     headers = []
     query_params = []

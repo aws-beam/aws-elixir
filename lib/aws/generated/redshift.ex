@@ -1420,6 +1420,16 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  List the Amazon Redshift Advisor recommendations for one or multiple Amazon
+  Redshift clusters in an Amazon Web Services account.
+  """
+  def list_recommendations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRecommendations", input, options)
+  end
+
+  @doc """
   This operation is retired.
 
   Calling this operation does not change AQUA configuration. Amazon Redshift

@@ -84,8 +84,9 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates an endpoint for a Microsoft Azure Blob Storage container that DataSync
-  can use as a transfer source or destination.
+  Creates a transfer *location* for a Microsoft Azure Blob Storage container.
+
+  DataSync can use this location as a transfer source or destination.
 
   Before you begin, make sure you know [how DataSync accesses Azure Blob Storage](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access)
   and works with [access tiers](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access-tiers)
@@ -100,10 +101,12 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates an endpoint for an Amazon EFS file system that DataSync can access for a
-  transfer.
+  Creates a transfer *location* for an Amazon EFS file system.
 
-  For more information, see [Creating a location for Amazon EFS](https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html).
+  DataSync can use this location as a source or destination for transferring data.
+
+  Before you begin, make sure that you understand how DataSync [accesses Amazon EFS file
+  systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-access).
   """
   def create_location_efs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -112,7 +115,12 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates an endpoint for an Amazon FSx for Lustre file system.
+  Creates a transfer *location* for an Amazon FSx for Lustre file system.
+
+  DataSync can use this location as a source or destination for transferring data.
+
+  Before you begin, make sure that you understand how DataSync [accesses FSx for Lustre file
+  systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-lustre-location.html#create-lustre-location-access).
   """
   def create_location_fsx_lustre(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -121,11 +129,12 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates an endpoint for an Amazon FSx for NetApp ONTAP file system that DataSync
-  can use for a data transfer.
+  Creates a transfer *location* for an Amazon FSx for NetApp ONTAP file system.
 
-  Before you begin, make sure that you understand how DataSync [accesses an FSx for ONTAP file
-  system](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access).
+  DataSync can use this location as a source or destination for transferring data.
+
+  Before you begin, make sure that you understand how DataSync [accesses FSx for ONTAP file
+  systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access).
   """
   def create_location_fsx_ontap(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -134,10 +143,12 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates an endpoint for an Amazon FSx for OpenZFS file system that DataSync can
-  access for a transfer.
+  Creates a transfer *location* for an Amazon FSx for OpenZFS file system.
 
-  For more information, see [Creating a location for FSx for OpenZFS](https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html).
+  DataSync can use this location as a source or destination for transferring data.
+
+  Before you begin, make sure that you understand how DataSync [accesses FSx for OpenZFS file
+  systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html#create-openzfs-access).
 
   Request parameters related to `SMB` aren't supported with the
   `CreateLocationFsxOpenZfs` operation.
@@ -149,11 +160,13 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates an endpoint for an Amazon FSx for Windows File Server file system that
-  DataSync can use for a data transfer.
+  Creates a transfer *location* for an Amazon FSx for Windows File Server file
+  system.
 
-  Before you begin, make sure that you understand how DataSync [accesses an FSx for Windows File
-  Server](https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-location-access).
+  DataSync can use this location as a source or destination for transferring data.
+
+  Before you begin, make sure that you understand how DataSync [accesses FSx for Windows File Server file
+  systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-location-access).
   """
   def create_location_fsx_windows(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -162,7 +175,11 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates an endpoint for a Hadoop Distributed File System (HDFS).
+  Creates a transfer *location* for a Hadoop Distributed File System (HDFS).
+
+  DataSync can use this location as a source or destination for transferring data.
+
+  Before you begin, make sure that you understand how DataSync [accesses HDFS clusters](https://docs.aws.amazon.com/datasync/latest/userguide/create-hdfs-location.html#accessing-hdfs).
   """
   def create_location_hdfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -171,10 +188,11 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates an endpoint for a Network File System (NFS) file server that DataSync
-  can use for a data transfer.
+  Creates a transfer *location* for a Network File System (NFS) file server.
 
-  For more information, see [Configuring transfers to or from an NFS file server](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html).
+  DataSync can use this location as a source or destination for transferring data.
+
+  Before you begin, make sure that you understand how DataSync [accesses NFS file servers](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#accessing-nfs).
 
   If you're copying data to or from an Snowcone device, you can also use
   `CreateLocationNfs` to create your transfer location. For more information, see
@@ -187,10 +205,13 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates an endpoint for an object storage system that DataSync can access for a
-  transfer.
+  Creates a transfer *location* for an object storage system.
 
-  For more information, see [Creating a location for object storage](https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html).
+  DataSync can use this location as a source or destination for transferring data.
+
+  Before you begin, make sure that you understand the
+  [prerequisites](https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html#create-object-location-prerequisites)
+  for DataSync to work with object storage systems.
   """
   def create_location_object_storage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -199,17 +220,17 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  A *location* is an endpoint for an Amazon S3 bucket.
+  Creates a transfer *location* for an Amazon S3 bucket.
 
-  DataSync can use the location as a source or destination for copying data.
+  DataSync can use this location as a source or destination for transferring data.
 
-  Before you create your location, make sure that you read the following sections:
+  Before you begin, make sure that you read the following topics:
 
      [Storage class considerations with Amazon S3 locations](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
 
      [Evaluating S3 request costs when using DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests)
 
-  For more information, see [Creating an Amazon S3 location](https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli).
+  For more information, see [Configuring transfers with Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html).
   """
   def create_location_s3(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -218,11 +239,11 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates an endpoint for a Server Message Block (SMB) file server that DataSync
-  can use for a data transfer.
+  Creates a transfer *location* for a Server Message Block (SMB) file server.
 
-  Before you begin, make sure that you understand how DataSync [accesses an SMB file
-  server](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html).
+  DataSync can use this location as a source or destination for transferring data.
+
+  Before you begin, make sure that you understand how DataSync [accesses SMB file servers](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb).
   """
   def create_location_smb(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -264,7 +285,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Deletes the configuration of a location used by DataSync.
+  Deletes a transfer location resource from DataSync.
   """
   def delete_location(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -273,7 +294,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Deletes an DataSync transfer task.
+  Deletes a transfer task resource from DataSync.
   """
   def delete_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -311,7 +332,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Returns metadata about your DataSync location for an Amazon EFS file system.
+  Provides details about how an DataSync transfer location for an Amazon EFS file
+  system is configured.
   """
   def describe_location_efs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -320,8 +342,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Provides details about how an DataSync location for an Amazon FSx for Lustre
-  file system is configured.
+  Provides details about how an DataSync transfer location for an Amazon FSx for
+  Lustre file system is configured.
   """
   def describe_location_fsx_lustre(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -330,8 +352,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Provides details about how an DataSync location for an Amazon FSx for NetApp
-  ONTAP file system is configured.
+  Provides details about how an DataSync transfer location for an Amazon FSx for
+  NetApp ONTAP file system is configured.
 
   If your location uses SMB, the `DescribeLocationFsxOntap` operation doesn't
   actually return a `Password`.
@@ -343,8 +365,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Provides details about how an DataSync location for an Amazon FSx for OpenZFS
-  file system is configured.
+  Provides details about how an DataSync transfer location for an Amazon FSx for
+  OpenZFS file system is configured.
 
   Response elements related to `SMB` aren't supported with the
   `DescribeLocationFsxOpenZfs` operation.
@@ -356,8 +378,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Returns metadata about an Amazon FSx for Windows File Server location, such as
-  information about its path.
+  Provides details about how an DataSync transfer location for an Amazon FSx for
+  Windows File Server file system is configured.
   """
   def describe_location_fsx_windows(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -366,8 +388,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Returns metadata, such as the authentication information about the Hadoop
-  Distributed File System (HDFS) location.
+  Provides details about how an DataSync transfer location for a Hadoop
+  Distributed File System (HDFS) is configured.
   """
   def describe_location_hdfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -386,7 +408,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Returns metadata about your DataSync location for an object storage system.
+  Provides details about how an DataSync transfer location for an object storage
+  system is configured.
   """
   def describe_location_object_storage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -395,7 +418,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Returns metadata, such as bucket name, about an Amazon S3 bucket location.
+  Provides details about how an DataSync transfer location for an S3 bucket is
+  configured.
   """
   def describe_location_s3(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -404,7 +428,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Returns metadata, such as the path and user information about an SMB location.
+  Provides details about how an DataSync transfer location for a Server Message
+  Block (SMB) file server is configured.
   """
   def describe_location_smb(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -547,7 +572,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Returns a list of executed tasks.
+  Returns a list of executions for an DataSync transfer task.
   """
   def list_task_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -729,7 +754,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Updates the configuration of a DataSync transfer task.
+  Updates the configuration of an DataSync transfer task.
   """
   def update_task(%Client{} = client, input, options \\ []) do
     meta = metadata()

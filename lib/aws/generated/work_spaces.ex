@@ -815,9 +815,7 @@ defmodule AWS.WorkSpaces do
   @doc """
   Reboots the specified WorkSpaces.
 
-  You cannot reboot a WorkSpace unless its state is `AVAILABLE`, `UNHEALTHY`, or
-  `REBOOTING`. Reboot a WorkSpace in the `REBOOTING` state only if your WorkSpace
-  has been stuck in the `REBOOTING` state for over 20 minutes.
+  You cannot reboot a WorkSpace unless its state is `AVAILABLE` or `UNHEALTHY`.
 
   This operation is asynchronous and returns before the WorkSpaces have rebooted.
   """

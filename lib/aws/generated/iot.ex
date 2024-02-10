@@ -2770,8 +2770,11 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Returns a unique endpoint specific to the Amazon Web Services account making the
-  call.
+  Returns or creates a unique endpoint specific to the Amazon Web Services account
+  making the call.
+
+  The first time `DescribeEndpoint` is called, an endpoint is created. All
+  subsequent calls to `DescribeEndpoint` return the same endpoint.
 
   Requires permission to access the
   [DescribeEndpoint](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -3646,6 +3649,10 @@ defmodule AWS.IoT do
 
   @doc """
   Gets a registration code used to register a CA certificate with IoT.
+
+  IoT will create a registration code as part of this API call if the registration
+  code doesn't exist or has been deleted. If you already have a registration code,
+  this API call will return the same registration code.
 
   Requires permission to access the
   [GetRegistrationCode](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)

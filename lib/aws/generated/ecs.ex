@@ -656,50 +656,6 @@ defmodule AWS.ECS do
   users and roles that do not have specified individual account settings. For more
   information, see [Account Settings](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html)
   in the *Amazon Elastic Container Service Developer Guide*.
-
-  When you specify `serviceLongArnFormat`, `taskLongArnFormat`, or
-  `containerInstanceLongArnFormat`, the Amazon Resource Name (ARN) and resource ID
-  format of the resource type for a specified user, role, or the root user for an
-  account is affected. The opt-in and opt-out account setting must be set for each
-  Amazon ECS resource separately. The ARN and resource ID format of a resource is
-  defined by the opt-in status of the user or role that created the resource. You
-  must turn on this setting to use Amazon ECS features such as resource tagging.
-
-  When you specify `awsvpcTrunking`, the elastic network interface (ENI) limit for
-  any new container instances that support the feature is changed. If
-  `awsvpcTrunking` is turned on, any new container instances that support the
-  feature are launched have the increased ENI limits available to them. For more
-  information, see [Elastic Network Interface Trunking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-eni.html)
-  in the *Amazon Elastic Container Service Developer Guide*.
-
-  When you specify `containerInsights`, the default setting indicating whether
-  Amazon Web Services CloudWatch Container Insights is turned on for your clusters
-  is changed. If `containerInsights` is turned on, any new clusters that are
-  created will have Container Insights turned on unless you disable it during
-  cluster creation. For more information, see [CloudWatch Container Insights](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html)
-  in the *Amazon Elastic Container Service Developer Guide*.
-
-  Amazon ECS is introducing tagging authorization for resource creation. Users
-  must have permissions for actions that create the resource, such as
-  `ecsCreateCluster`. If tags are specified when you create a resource, Amazon Web
-  Services performs additional authorization to verify if users or roles have
-  permissions to create tags. Therefore, you must grant explicit permissions to
-  use the `ecs:TagResource` action. For more information, see [Grant permission to tag resources on
-  creation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/supported-iam-actions-tagging.html)
-  in the *Amazon ECS Developer Guide*.
-
-  When Amazon Web Services determines that a security or infrastructure update is
-  needed for an Amazon ECS task hosted on Fargate, the tasks need to be stopped
-  and new tasks launched to replace them. Use `fargateTaskRetirementWaitPeriod` to
-  configure the wait time to retire a Fargate task. For information about the
-  Fargate tasks maintenance, see [Amazon Web Services Fargate task maintenance](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-maintenance.html)
-  in the *Amazon ECS Developer Guide*.
-
-  The `guardDutyActivate` parameter is read-only in Amazon ECS and indicates
-  whether Amazon ECS Runtime Monitoring is enabled or disabled by your security
-  administrator in your Amazon ECS account. Amazon GuardDuty controls this account
-  setting on your behalf. For more information, see [Protecting Amazon ECS workloads with Amazon ECS Runtime
-  Monitoring](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-guard-duty-integration.html).
   """
   def put_account_setting(%Client{} = client, input, options \\ []) do
     meta = metadata()

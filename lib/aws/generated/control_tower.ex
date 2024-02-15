@@ -136,16 +136,68 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
+  Disable an `EnabledBaseline` resource on the specified Target.
+
+  This API starts an asynchronous operation to remove all resources deployed as
+  part of the baseline enablement. The resource will vary depending on the enabled
+  baseline.
+  """
+  def disable_baseline(%Client{} = client, input, options \\ []) do
+    url_path = "/disable-baseline"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   This API call turns off a control.
 
-  It starts an asynchronous operation that deletes Amazon Web Services resources
-  on the specified organizational unit and the accounts it contains. The resources
-  will vary according to the control that you specify. For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
+  It starts an asynchronous operation that deletes AWS resources on the specified
+  organizational unit and the accounts it contains. The resources will vary
+  according to the control that you specify. For usage examples, see [ *the Amazon Web Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
   """
   def disable_control(%Client{} = client, input, options \\ []) do
     url_path = "/disable-control"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Enable (apply) a `Baseline` to a Target.
+
+  This API starts an asynchronous operation to deploy resources specified by the
+  `Baseline` to the specified Target.
+  """
+  def enable_baseline(%Client{} = client, input, options \\ []) do
+    url_path = "/enable-baseline"
     headers = []
     query_params = []
 
@@ -194,6 +246,57 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
+  Retrieve details about an existing `Baseline` resource by specifying its
+  identifier.
+  """
+  def get_baseline(%Client{} = client, input, options \\ []) do
+    url_path = "/get-baseline"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the details of an asynchronous baseline operation, as initiated by any
+  of these APIs: `EnableBaseline`, `DisableBaseline`, `UpdateEnabledBaseline`,
+  `ResetEnabledBaseline`.
+
+  A status message is displayed in case of operation failure.
+  """
+  def get_baseline_operation(%Client{} = client, input, options \\ []) do
+    url_path = "/get-baseline-operation"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns the status of a particular `EnableControl` or `DisableControl`
   operation.
 
@@ -203,6 +306,29 @@ defmodule AWS.ControlTower do
   """
   def get_control_operation(%Client{} = client, input, options \\ []) do
     url_path = "/get-control-operation"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieve details of an `EnabledBaseline` resource by specifying its identifier.
+  """
+  def get_enabled_baseline(%Client{} = client, input, options \\ []) do
+    url_path = "/get-enabled-baseline"
     headers = []
     query_params = []
 
@@ -254,6 +380,55 @@ defmodule AWS.ControlTower do
   """
   def get_landing_zone_operation(%Client{} = client, input, options \\ []) do
     url_path = "/get-landingzone-operation"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a summary list of all available baselines.
+  """
+  def list_baselines(%Client{} = client, input, options \\ []) do
+    url_path = "/list-baselines"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a list of summaries describing `EnabledBaseline` resources.
+
+  You can filter the list by the corresponding `Baseline` or `Target` of the
+  `EnabledBaseline` resources.
+  """
+  def list_enabled_baselines(%Client{} = client, input, options \\ []) do
+    url_path = "/list-enabled-baselines"
     headers = []
     query_params = []
 
@@ -345,6 +520,32 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
+  Re-enables an `EnabledBaseline` resource.
+
+  For example, this API can re-apply the existing `Baseline` after a new member
+  account is moved to the target OU.
+  """
+  def reset_enabled_baseline(%Client{} = client, input, options \\ []) do
+    url_path = "/reset-enabled-baseline"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   This API call resets a landing zone.
 
   It starts an asynchronous operation that resets the landing zone to the
@@ -424,6 +625,29 @@ defmodule AWS.ControlTower do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Updates an `EnabledBaseline` resource's applied parameters or version.
+  """
+  def update_enabled_baseline(%Client{} = client, input, options \\ []) do
+    url_path = "/update-enabled-baseline"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
     )
   end
 end

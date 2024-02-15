@@ -201,8 +201,19 @@ defmodule AWS.Request do
       %{global?: true, endpoint: endpoint} ->
         endpoint = resolve_endpoint_sufix(endpoint)
 
+        region =
+          if metadata.credential_scope != nil do
+            metadata.credential_scope
+          else
+            client.region
+          end
+
         build_final_endpoint(
-          [to_string(metadata[:host_prefix]) <> metadata.endpoint_prefix, endpoint],
+          [
+            to_string(metadata[:host_prefix]) <> metadata.endpoint_prefix,
+            region,
+            endpoint
+          ],
           build_options
         )
 

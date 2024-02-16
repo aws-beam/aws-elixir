@@ -62,7 +62,7 @@ defmodule AWS.ClientTest do
 
     test "overrides config request options with call options", %{client: client, bypass: bypass} do
       Bypass.expect_once(bypass, "GET", "/timeout", fn conn ->
-        :timer.sleep(20)
+        :timer.sleep(200)
         Plug.Conn.resp(conn, 200, "")
       end)
 

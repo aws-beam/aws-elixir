@@ -1,5 +1,8 @@
 # Change Log
 
+## [v0.14.1] - 2024-02-16
+- Fix endpoints for global AWS services
+
 ## [v0.14.0] - 2024-01-05
 - Add support for the ec2 protocol
 - Add docs for multipart upload to S3

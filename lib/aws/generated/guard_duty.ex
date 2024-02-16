@@ -913,6 +913,10 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Lists Amazon GuardDuty findings statistics for the specified detector ID.
+
+  There might be regional differences because some flags might not be available in
+  all the Regions where GuardDuty is currently supported. For more information,
+  see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def get_findings_statistics(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/statistics"
@@ -1267,7 +1271,11 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Lists Amazon GuardDuty findings for the specified detector ID.
+  Lists GuardDuty findings for the specified detector ID.
+
+  There might be regional differences because some flags might not be available in
+  all the Regions where GuardDuty is currently supported. For more information,
+  see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def list_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings"
@@ -1676,7 +1684,7 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Updates the Amazon GuardDuty detector specified by the detectorId.
+  Updates the GuardDuty detector specified by the detectorId.
 
   There might be regional differences because some data sources might not be
   available in all the Amazon Web Services Regions where GuardDuty is presently

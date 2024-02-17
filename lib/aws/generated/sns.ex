@@ -111,8 +111,15 @@ defmodule AWS.SNS do
   `PlatformPrincipal` is `signing key ID` and `PlatformCredential` is `signing
   key`.
 
-    * For `GCM` (Firebase Cloud Messaging), there is no
-  `PlatformPrincipal` and the `PlatformCredential` is `API key`.
+    * For GCM (Firebase Cloud Messaging) using key credentials, there is
+  no `PlatformPrincipal`. The `PlatformCredential` is `API key`.
+
+    * For GCM (Firebase Cloud Messaging) using token credentials, there
+  is no `PlatformPrincipal`. The `PlatformCredential` is a JSON formatted private
+  key file. When using the Amazon Web Services CLI, the file must be in string
+  format and special characters must be ignored. To format the file correctly,
+  Amazon SNS recommends using the following command: `SERVICE_JSON=`jq @json <<<
+  cat service.json``.
 
     * For `MPNS`, `PlatformPrincipal` is `TLS certificate` and
   `PlatformCredential` is `private key`.

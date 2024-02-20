@@ -149,6 +149,15 @@ defmodule AWS.Keyspaces do
   information, see [Managing throughput capacity automatically with Amazon Keyspaces auto
   scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html)
   in the *Amazon Keyspaces Developer Guide*.
+
+  `GetTableAutoScalingSettings` can't be used as an action in an IAM policy.
+
+  To define permissions for `GetTableAutoScalingSettings`, you must allow the
+  following two actions in the IAM policy statement's `Action` element:
+
+    * `application-autoscaling:DescribeScalableTargets`
+
+    * `application-autoscaling:DescribeScalingPolicies`
   """
   def get_table_auto_scaling_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()

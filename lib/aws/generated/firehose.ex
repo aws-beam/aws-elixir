@@ -153,12 +153,6 @@ defmodule AWS.Firehose do
     Request.request_post(client, meta, "DescribeDeliveryStream", input, options)
   end
 
-  def get_kinesis_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
-
-    Request.request_post(client, meta, "GetKinesisStream", input, options)
-  end
-
   @doc """
   Lists your delivery streams in alphabetical order of their names.
 
@@ -480,11 +474,5 @@ defmodule AWS.Firehose do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateDestination", input, options)
-  end
-
-  def verify_resources_exist_for_tagris(%Client{} = client, input, options \\ []) do
-    meta = metadata()
-
-    Request.request_post(client, meta, "VerifyResourcesExistForTagris", input, options)
   end
 end

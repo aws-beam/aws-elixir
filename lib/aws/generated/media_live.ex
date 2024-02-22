@@ -1284,6 +1284,29 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Restart pipelines in one channel that is currently running.
+  """
+  def restart_channel_pipelines(%Client{} = client, channel_id, input, options \\ []) do
+    url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/restartChannelPipelines"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Starts an existing channel
   """
   def start_channel(%Client{} = client, channel_id, input, options \\ []) do

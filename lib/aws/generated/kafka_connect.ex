@@ -142,6 +142,34 @@ defmodule AWS.KafkaConnect do
   end
 
   @doc """
+  Deletes the specified worker configuration.
+  """
+  def delete_worker_configuration(
+        %Client{} = client,
+        worker_configuration_arn,
+        input,
+        options \\ []
+      ) do
+    url_path = "/v1/worker-configurations/#{AWS.Util.encode_uri(worker_configuration_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns summary information about the connector.
   """
   def describe_connector(%Client{} = client, connector_arn, options \\ []) do
@@ -229,6 +257,7 @@ defmodule AWS.KafkaConnect do
   def list_custom_plugins(
         %Client{} = client,
         max_results \\ nil,
+        name_prefix \\ nil,
         next_token \\ nil,
         options \\ []
       ) do
@@ -239,6 +268,13 @@ defmodule AWS.KafkaConnect do
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name_prefix) do
+        [{"namePrefix", name_prefix} | query_params]
       else
         query_params
       end
@@ -256,11 +292,25 @@ defmodule AWS.KafkaConnect do
   end
 
   @doc """
+  Lists all the tags attached to the specified resource.
+  """
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of all of the worker configurations in this account and Region.
   """
   def list_worker_configurations(
         %Client{} = client,
         max_results \\ nil,
+        name_prefix \\ nil,
         next_token \\ nil,
         options \\ []
       ) do
@@ -276,6 +326,13 @@ defmodule AWS.KafkaConnect do
       end
 
     query_params =
+      if !is_nil(name_prefix) do
+        [{"namePrefix", name_prefix} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
       else
@@ -285,6 +342,57 @@ defmodule AWS.KafkaConnect do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Attaches tags to the specified resource.
+  """
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes tags from the specified resource.
+  """
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"tagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

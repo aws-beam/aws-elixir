@@ -2921,6 +2921,8 @@ defmodule AWS.APIGateway do
 
   @doc """
   Changes information about a model.
+
+  The maximum size of the model is 400 KB.
   """
   def update_model(%Client{} = client, model_name, rest_api_id, input, options \\ []) do
     url_path =

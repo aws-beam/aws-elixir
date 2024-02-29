@@ -154,6 +154,16 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+  Retrieves estimated usage records for hourly granularity or resource-level data
+  at daily granularity.
+  """
+  def get_approximate_usage_records(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetApproximateUsageRecords", input, options)
+  end
+
+  @doc """
   Retrieves cost and usage metrics for your account.
 
   You can specify which cost and usage-related metric that you want the request to

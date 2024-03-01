@@ -6,7 +6,7 @@ defmodule AWS.MigrationHubOrchestrator do
   This API reference provides descriptions, syntax, and other details about each
   of the actions and data types for AWS Migration Hub Orchestrator.
 
-  he topic for each action shows the API request parameters and the response.
+  The topic for each action shows the API request parameters and responses.
   Alternatively, you can use one of the AWS SDKs to access an API that is tailored
   to the programming language or platform that you're using.
   """
@@ -28,6 +28,29 @@ defmodule AWS.MigrationHubOrchestrator do
       signing_name: "migrationhub-orchestrator",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Creates a migration workflow template.
+  """
+  def create_template(%Client{} = client, input, options \\ []) do
+    url_path = "/template"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -90,6 +113,29 @@ defmodule AWS.MigrationHubOrchestrator do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a migration workflow template.
+  """
+  def delete_template(%Client{} = client, id, input, options \\ []) do
+    url_path = "/template/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       headers,
@@ -718,6 +764,29 @@ defmodule AWS.MigrationHubOrchestrator do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a migration workflow template.
+  """
+  def update_template(%Client{} = client, id, input, options \\ []) do
+    url_path = "/template/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       headers,

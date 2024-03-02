@@ -3714,7 +3714,8 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Describes Capacity Block offerings available for purchase.
+  Describes Capacity Block offerings available for purchase in the Amazon Web
+  Services Region that you're currently using.
 
   With Capacity Blocks, you purchase a specific instance type for a period of
   time.
@@ -3943,7 +3944,10 @@ defmodule AWS.EC2 do
   @doc """
   Describes the running instances for the specified EC2 Fleet.
 
-  For more information, see [Monitor your EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet)
+  Currently, `DescribeFleetInstances` does not support fleets of type `instant`.
+  Instead, use `DescribeFleets`, specifying the `instant` fleet ID in the request.
+
+  For more information, see [Describe your EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet)
   in the *Amazon EC2 User Guide*.
   """
   def describe_fleet_instances(%Client{} = client, input, options \\ []) do
@@ -3953,9 +3957,12 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Describes the specified EC2 Fleets or all of your EC2 Fleets.
+  Describes the specified EC2 Fleet or all of your EC2 Fleets.
 
-  For more information, see [Monitor your EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet)
+  If a fleet is of type `instant`, you must specify the fleet ID in the request,
+  otherwise the fleet does not appear in the response.
+
+  For more information, see [Describe your EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet)
   in the *Amazon EC2 User Guide*.
   """
   def describe_fleets(%Client{} = client, input, options \\ []) do
@@ -4270,6 +4277,10 @@ defmodule AWS.EC2 do
     * **Instance state** - You can manage your instances from the moment
   you launch them through their termination. For more information, see [Instance lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html)
   in the *Amazon EC2 User Guide*.
+
+  The order of the elements in the response, including those within nested
+  structures, might vary. Applications should not assume the elements appear in a
+  particular order.
   """
   def describe_instance_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4358,6 +4369,10 @@ defmodule AWS.EC2 do
   affected zone, or do not specify any instance IDs at all, the call fails. If you
   describe instances and specify only instance IDs that are in an unaffected zone,
   the call works normally.
+
+  The order of the elements in the response, including those within nested
+  structures, might vary. Applications should not assume the elements appear in a
+  particular order.
   """
   def describe_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4801,6 +4816,10 @@ defmodule AWS.EC2 do
 
   For more information about Reserved Instances, see [Reserved Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html)
   in the *Amazon EC2 User Guide*.
+
+  The order of the elements in the response, including those within nested
+  structures, might vary. Applications should not assume the elements appear in a
+  particular order.
   """
   def describe_reserved_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4830,6 +4849,10 @@ defmodule AWS.EC2 do
 
   For more information, see [Reserved Instance Marketplace](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html)
   in the *Amazon EC2 User Guide*.
+
+  The order of the elements in the response, including those within nested
+  structures, might vary. Applications should not assume the elements appear in a
+  particular order.
   """
   def describe_reserved_instances_listings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4846,6 +4869,10 @@ defmodule AWS.EC2 do
 
   For more information, see [Modifying Reserved Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html)
   in the *Amazon EC2 User Guide*.
+
+  The order of the elements in the response, including those within nested
+  structures, might vary. Applications should not assume the elements appear in a
+  particular order.
   """
   def describe_reserved_instances_modifications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4867,6 +4894,10 @@ defmodule AWS.EC2 do
 
   For more information, see [Reserved Instance Marketplace](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html)
   in the *Amazon EC2 User Guide*.
+
+  The order of the elements in the response, including those within nested
+  structures, might vary. Applications should not assume the elements appear in a
+  particular order.
   """
   def describe_reserved_instances_offerings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7715,7 +7746,7 @@ defmodule AWS.EC2 do
 
     * Modify the affinity between an instance and a [Dedicated Host](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html).
   When affinity is set to `host` and the instance is not associated with a
-  specific Dedicated Host, the next time the instance is launched, it is
+  specific Dedicated Host, the next time the instance is started, it is
   automatically associated with the host on which it lands. If the instance is
   restarted or rebooted, this relationship persists.
 

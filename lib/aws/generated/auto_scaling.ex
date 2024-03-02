@@ -237,11 +237,8 @@ defmodule AWS.AutoScaling do
   updating this limit, see [Quotas for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
 
-  For introductory exercises for creating an Auto Scaling group, see [Getting started with Amazon EC2 Auto
-  Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/GettingStartedTutorial.html)
-  and [Tutorial: Set up a scaled and load-balanced application](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-register-lbs-with-asg.html)
-  in the *Amazon EC2 Auto Scaling User Guide*. For more information, see [Auto Scaling
-  groups](https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html)
+  If you're new to Amazon EC2 Auto Scaling, see the introductory tutorials in [Get started with Amazon EC2 Auto
+  Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
 
   Every Auto Scaling group has three size properties (`DesiredCapacity`,

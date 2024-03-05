@@ -718,7 +718,7 @@ defmodule AWS.FSx do
   FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a
   virtual private cloud (VPC) owner.
 
-  For more information, see the [Amazon FSx for NetApp ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/maz-shared-vpc.html).
+  For more information, see [Creating FSx for ONTAP file systems in shared subnets](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/creating-file-systems.html#fsxn-vpc-shared-subnets).
   """
   def describe_shared_vpc_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()

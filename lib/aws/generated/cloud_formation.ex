@@ -67,10 +67,10 @@ defmodule AWS.CloudFormation do
   in the *CloudFormation User Guide*.
 
   Once you have activated a public third-party extension in your account and
-  Region, use
-  [SetTypeConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html) to specify configuration properties for the extension. For more information, see
-  [Configuring extensions at the account
-  level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
+  Region, use [ `SetTypeConfiguration`
+  ](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html)
+  to specify configuration properties for the extension. For more information, see
+  [Configuring extensions at the account level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
   in the *CloudFormation User Guide*.
   """
   def activate_type(%Client{} = client, input, options \\ []) do
@@ -320,8 +320,9 @@ defmodule AWS.CloudFormation do
   extension, the extension type itself is deregistered as well and marked as
   deprecated.
 
-  To view the deprecation status of an extension or extension version, use
-  [DescribeType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html).
+  To view the deprecation status of an extension or extension version, use [
+  `DescribeType`
+  ](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html).
   """
   def deregister_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -400,9 +401,10 @@ defmodule AWS.CloudFormation do
 
   For more information about registering as a publisher, see:
 
-    *
-  [RegisterPublisher](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html)     * [Publishing extensions to make them available for public
-  use](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html)
+    * [ `RegisterPublisher`
+  ](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html)
+
+    * [Publishing extensions to make them available for public use](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html)
   in the *CloudFormation CLI User Guide*
   """
   def describe_publisher(%Client{} = client, input, options \\ []) do
@@ -1025,8 +1027,8 @@ defmodule AWS.CloudFormation do
   in the *CloudFormation CLI User Guide*.
 
   To publish an extension, you must be registered as a publisher with
-  CloudFormation. For more information, see
-  [RegisterPublisher](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html).
+  CloudFormation. For more information, see [ `RegisterPublisher`
+  ](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html).
   """
   def publish_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1081,14 +1083,16 @@ defmodule AWS.CloudFormation do
   in the *CloudFormation CLI User Guide*.
 
   You can have a maximum of 50 resource extension versions registered at a time.
-  This maximum is per account and per Region. Use
-  [DeregisterType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeregisterType.html) to deregister specific extension versions if necessary.
+  This maximum is per account and per Region. Use [ `DeregisterType`
+  ](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeregisterType.html)
+  to deregister specific extension versions if necessary.
 
   Once you have initiated a registration request using `RegisterType`, you can use
   `DescribeTypeRegistration` to monitor the progress of the registration request.
 
-  Once you have registered a private extension in your account and Region, use
-  [SetTypeConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html)
+  Once you have registered a private extension in your account and Region, use [
+  `SetTypeConfiguration`
+  ](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html)
   to specify configuration properties for the extension. For more information, see
   [Configuring extensions at the account level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
   in the *CloudFormation User Guide*.
@@ -1142,9 +1146,9 @@ defmodule AWS.CloudFormation do
   the given account and Region.
 
   To view the current configuration data for an extension, refer to the
-  `ConfigurationSchema` element of
-  [DescribeType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html). For more information, see [Configuring extensions at the account
-  level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
+  `ConfigurationSchema` element of [ `DescribeType`
+  ](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html).
+  For more information, see [Configuring extensions at the account level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
   in the *CloudFormation User Guide*.
 
   It's strongly recommended that you use dynamic references to restrict sensitive
@@ -1224,10 +1228,12 @@ defmodule AWS.CloudFormation do
   extension in your account and Region for testing.
 
   To perform testing, CloudFormation assumes the execution role specified when the
-  type was registered. For more information, see
-  [RegisterType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html).  Once you've initiated testing on an extension using `TestType`, you can pass the
-  returned `TypeVersionArn` into
-  [DescribeType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html)
+  type was registered. For more information, see [ `RegisterType`
+  ](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html).
+
+  Once you've initiated testing on an extension using `TestType`, you can pass the
+  returned `TypeVersionArn` into [ `DescribeType`
+  ](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html)
   to monitor the current test status and test status description for the
   extension.
 
@@ -1280,17 +1286,20 @@ defmodule AWS.CloudFormation do
   A stack instance refers to a stack in a specific account and Region.
 
   You can only update stack instances in Amazon Web Services Regions and accounts
-  where they already exist; to create additional stack instances, use
-  [CreateStackInstances](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html).  During stack set updates, any parameters overridden for a stack instance aren't
+  where they already exist; to create additional stack instances, use [
+  `CreateStackInstances`
+  ](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html).
+
+  During stack set updates, any parameters overridden for a stack instance aren't
   updated, but retain their overridden value.
 
   You can only update the parameter *values* that are specified in the stack set;
-  to add or delete a parameter itself, use
-  [UpdateStackSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html)
+  to add or delete a parameter itself, use [ `UpdateStackSet`
+  ](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html)
   to update the stack set template. If you add a parameter to a template, before
   you can override the parameter value specified in the stack set you must first
-  use
-  [UpdateStackSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html)
+  use [ `UpdateStackSet`
+  ](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html)
   to update all stack instances with the updated template and parameter value
   specified in the stack set. Once a stack instance has been updated with the new
   parameter, you can then override the parameter value using

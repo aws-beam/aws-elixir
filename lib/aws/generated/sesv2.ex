@@ -2244,8 +2244,9 @@ defmodule AWS.SESv2 do
   @doc """
   Updates a contact's preferences for a list.
 
-  It is not necessary to specify all existing topic preferences in the
-  TopicPreferences object, just the ones that need updating.
+  You must specify all existing topic preferences in the `TopicPreferences`
+  object, not just the ones that need updating; otherwise, all your existing
+  preferences will be removed.
   """
   def update_contact(%Client{} = client, contact_list_name, email_address, input, options \\ []) do
     url_path =

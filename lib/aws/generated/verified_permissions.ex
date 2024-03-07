@@ -143,8 +143,8 @@ defmodule AWS.VerifiedPermissions do
 
   Verified Permissions is * [eventually
   consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
-  few seconds for a new or changed element to be propagate through the service and
-  be visible in the results of other Verified Permissions operations.
+  few seconds for a new or changed element to propagate through the service and be
+  visible in the results of other Verified Permissions operations.
   """
   def create_identity_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -171,8 +171,8 @@ defmodule AWS.VerifiedPermissions do
   isn't stored.
 
   Verified Permissions is * [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
-  few seconds for a new or changed element to be propagate through the service and
-  be visible in the results of other Verified Permissions operations.
+  few seconds for a new or changed element to propagate through the service and be
+  visible in the results of other Verified Permissions operations.
   """
   def create_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -189,8 +189,8 @@ defmodule AWS.VerifiedPermissions do
   Permissions currently supports only one namespace per policy store.
 
   Verified Permissions is * [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
-  few seconds for a new or changed element to be propagate through the service and
-  be visible in the results of other Verified Permissions operations.
+  few seconds for a new or changed element to propagate through the service and be
+  visible in the results of other Verified Permissions operations.
   """
   def create_policy_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -210,8 +210,8 @@ defmodule AWS.VerifiedPermissions do
   immediately updated as well.
 
   Verified Permissions is * [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
-  few seconds for a new or changed element to be propagate through the service and
-  be visible in the results of other Verified Permissions operations.
+  few seconds for a new or changed element to propagate through the service and be
+  visible in the results of other Verified Permissions operations.
   """
   def create_policy_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -416,8 +416,8 @@ defmodule AWS.VerifiedPermissions do
   it is evaluated against the new schema at that time.
 
   Verified Permissions is * [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
-  few seconds for a new or changed element to be propagate through the service and
-  be visible in the results of other Verified Permissions operations.
+  few seconds for a new or changed element to propagate through the service and be
+  visible in the results of other Verified Permissions operations.
   """
   def put_schema(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -431,8 +431,8 @@ defmodule AWS.VerifiedPermissions do
   principal entity type.
 
   Verified Permissions is * [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
-  few seconds for a new or changed element to be propagate through the service and
-  be visible in the results of other Verified Permissions operations.
+  few seconds for a new or changed element to propagate through the service and be
+  visible in the results of other Verified Permissions operations.
   """
   def update_identity_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -453,7 +453,7 @@ defmodule AWS.VerifiedPermissions do
   schema in the policy store. If the updated static policy doesn't pass
   validation, the operation fails and the update isn't stored.
 
-     When you edit a static policy, You can change only certain elements
+     When you edit a static policy, you can change only certain elements
   of a static policy:
 
        The action referenced by the policy.
@@ -476,8 +476,8 @@ defmodule AWS.VerifiedPermissions do
   instead.
 
   Verified Permissions is * [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
-  few seconds for a new or changed element to be propagate through the service and
-  be visible in the results of other Verified Permissions operations.
+  few seconds for a new or changed element to propagate through the service and be
+  visible in the results of other Verified Permissions operations.
   """
   def update_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -489,8 +489,8 @@ defmodule AWS.VerifiedPermissions do
   Modifies the validation setting for a policy store.
 
   Verified Permissions is * [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
-  few seconds for a new or changed element to be propagate through the service and
-  be visible in the results of other Verified Permissions operations.
+  few seconds for a new or changed element to propagate through the service and be
+  visible in the results of other Verified Permissions operations.
   """
   def update_policy_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -508,8 +508,8 @@ defmodule AWS.VerifiedPermissions do
 
   Verified Permissions is * [eventually
   consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
-  few seconds for a new or changed element to be propagate through the service and
-  be visible in the results of other Verified Permissions operations.
+  few seconds for a new or changed element to propagate through the service and be
+  visible in the results of other Verified Permissions operations.
   """
   def update_policy_template(%Client{} = client, input, options \\ []) do
     meta = metadata()

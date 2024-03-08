@@ -46,7 +46,12 @@ defmodule AWS.Grafana do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/licenses/#{AWS.Util.encode_uri(license_type)}"
 
-    headers = []
+    {headers, input} =
+      [
+        {"grafanaToken", "Grafana-Token"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     meta = metadata()

@@ -238,6 +238,9 @@ defmodule AWS.WorkSpaces do
 
      You don't need to specify the `PCOIP` protocol for Linux bundles
   because `WSP` is the default protocol for those bundles.
+
+     User-decoupled WorkSpaces are only supported by Amazon WorkSpaces
+  Core.
   """
   def create_workspaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -815,7 +818,9 @@ defmodule AWS.WorkSpaces do
   @doc """
   Reboots the specified WorkSpaces.
 
-  You cannot reboot a WorkSpace unless its state is `AVAILABLE` or `UNHEALTHY`.
+  You cannot reboot a WorkSpace unless its state is `AVAILABLE`, `UNHEALTHY`, or
+  `REBOOTING`. Reboot a WorkSpace in the `REBOOTING` state only if your WorkSpace
+  has been stuck in the `REBOOTING` state for over 20 minutes.
 
   This operation is asynchronous and returns before the WorkSpaces have rebooted.
   """

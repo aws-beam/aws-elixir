@@ -3,7 +3,7 @@
 
 defmodule AWS.BedrockAgentRuntime do
   @moduledoc """
-  Amazon Bedrock Agent
+  Contains APIs related to model invocation and querying of knowledge bases.
   """
 
   alias AWS.Client
@@ -26,8 +26,32 @@ defmodule AWS.BedrockAgentRuntime do
   end
 
   @doc """
-  Invokes the specified Bedrock model to run inference using the input provided in
-  the request body.
+  Sends a prompt for the agent to process and respond to.
+
+  The CLI doesn't support `InvokeAgent`.
+
+    * To continue the same conversation with an agent, use the same
+  `sessionId` value in the request.
+
+    * To activate trace enablement, turn `enableTrace` to `true`. Trace
+  enablement helps you follow the agent's reasoning process that led it to the
+  information it processed, the actions it took, and the final result it yielded.
+  For more information, see [Trace enablement](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events).
+
+    * End a conversation by setting `endSession` to `true`.
+
+    * Include attributes for the session or prompt in the `sessionState`
+  object.
+
+  The response is returned in the `bytes` field of the `chunk` object.
+
+    * The `attribution` object contains citations for parts of the
+  response.
+
+    * If you set `enableTrace` to `true` in the request, you can trace
+  the agent's steps and reasoning process that led it to the response.
+
+    * Errors are also surfaced in the response.
   """
   def invoke_agent(%Client{} = client, agent_alias_id, agent_id, session_id, input, options \\ []) do
     url_path =
@@ -62,7 +86,7 @@ defmodule AWS.BedrockAgentRuntime do
   end
 
   @doc """
-  Retrieve from knowledge base.
+  Queries a knowledge base and retrieves information from it.
   """
   def retrieve(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/retrieve"
@@ -85,7 +109,15 @@ defmodule AWS.BedrockAgentRuntime do
   end
 
   @doc """
-  RetrieveAndGenerate API
+  Queries a knowledge base and generates responses based on the retrieved results.
+
+  The response cites up to five sources but only selects the ones that are
+  relevant to the query.
+
+  The `numberOfResults` field is currently unsupported for `RetrieveAndGenerate`.
+  Don't include it in the
+  [vectorSearchConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_KnowledgeBaseVectorSearchConfiguration.html)
+  object.
   """
   def retrieve_and_generate(%Client{} = client, input, options \\ []) do
     url_path = "/retrieveAndGenerate"

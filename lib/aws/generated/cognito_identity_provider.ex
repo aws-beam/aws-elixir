@@ -564,10 +564,15 @@ defmodule AWS.CognitoIdentityProvider do
 
   Works on any user.
 
+  To use this API operation, your user pool must have self-service account
+  recovery configured. Use
+  [AdminSetUserPassword](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserPassword.html) if you manage passwords as an administrator.
+
   This action might generate an SMS text message. Starting June 1, 2021, US
   telecom carriers require you to register an origination phone number before you
   can send SMS messages to US phone numbers. If you use SMS text messages in
-  Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito uses
+  Amazon Cognito, you must register a phone number with [Amazon
+  Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito uses
   the registered number automatically. Otherwise, Amazon Cognito users who must
   receive SMS messages might not be able to sign up, activate their accounts, or
   sign in.
@@ -1379,12 +1384,16 @@ defmodule AWS.CognitoIdentityProvider do
   don't provide a `SECRET_HASH` parameter, this API returns
   `NotAuthorizedException`.
 
+  To use this API operation, your user pool must have self-service account
+  recovery configured. Use
+  [AdminSetUserPassword](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserPassword.html)
+  if you manage passwords as an administrator.
+
   Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
   requests for this API operation. For this operation, you can't use IAM
   credentials to authorize requests, and you can't grant IAM permissions in
   policies. For more information about authorization models in Amazon Cognito, see
-  [Using the Amazon Cognito user pools API and user pool
-  endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
 
   This action might generate an SMS text message. Starting June 1, 2021, US
   telecom carriers require you to register an origination phone number before you

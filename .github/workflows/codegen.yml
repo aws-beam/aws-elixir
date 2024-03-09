@@ -35,7 +35,7 @@ jobs:
         with:
           route: GET /repos/{owner}/{repo}/releases/latest
           owner: aws
-          repo: aws-sdk-go
+          repo: aws-sdk-go-v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -67,11 +67,11 @@ jobs:
           otp-version: ${{ env.OTP_VERSION }}
           elixir-version: ${{ env.ELIXIR_VERSION }}
 
-      - name: Checkout aws/aws-sdk-go (official Go SDK)
+      - name: Checkout aws/aws-sdk-go-v2 (official Go SDK)
         uses: actions/checkout@v3
         with:
-          repository: aws/aws-sdk-go
-          path: tmp/aws-sdk-go
+          repository: aws/aws-sdk-go-v2
+          path: tmp/aws-sdk-go-v2
           ref: ${{ env.LATEST_AWS_SDK_GO_TAG }}
 
       - name: Checkout aws-codegen
@@ -88,7 +88,7 @@ jobs:
 
       - name: Generate aws-elixir
         env:
-          SPEC_PATH: ../aws-sdk-go/models/apis
+          SPEC_PATH: ../aws-sdk-go-v2/codegen/sdk-codegen/aws-models
           TEMPLATE_PATH: priv
           ELIXIR_OUTPUT_PATH: ../../lib/aws/generated
         run: |
@@ -117,7 +117,7 @@ jobs:
           git add .latest-tag-aws-sdk-go
           echo "Update services based on ${{ env.LATEST_AWS_SDK_GO_TAG }} of AWS Go SDK" >> commit-msg
           echo >> commit-msg
-          echo "Reference: https://github.com/aws/aws-sdk-go/releases/tag/${{ env.LATEST_AWS_SDK_GO_TAG }}" >> commit-msg
+          echo "Reference: https://github.com/aws/aws-sdk-go-v2/releases/tag/${{ env.LATEST_AWS_SDK_GO_TAG }}" >> commit-msg
           git commit -F commit-msg
 
       - name: Push changes
